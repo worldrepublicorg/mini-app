@@ -57,31 +57,29 @@ export default function MenuPage() {
               </Typography>
             </div>
 
-            <div className="space-y-4">
-              {section.links.map((link) => (
-                <div key={link.label} className="flex">
-                  <a
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full"
-                  >
-                    <ListItem>
-                      <div className="flex items-center justify-between w-full h-8">
-                        <Typography
-                          as="span"
-                          variant={{ variant: "subtitle", level: 2 }}
-                          className="text-gray-900"
-                        >
-                          {link.label}
-                        </Typography>
-                        <BiLinkExternal className="size-5 text-gray-400" />
-                      </div>
-                    </ListItem>
-                  </a>
-                </div>
-              ))}
-            </div>
+            {section.links.map((link) => (
+              <div key={link.label} className="flex">
+                <a
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full"
+                >
+                  <ListItem>
+                    <div className="flex items-center justify-between w-full h-8">
+                      <Typography
+                        as="span"
+                        variant={{ variant: "subtitle", level: 2 }}
+                        className="text-gray-900"
+                      >
+                        {link.label}
+                      </Typography>
+                      <BiLinkExternal className="size-5 text-gray-400" />
+                    </div>
+                  </ListItem>
+                </a>
+              </div>
+            ))}
           </div>
         ))}
       </div>
