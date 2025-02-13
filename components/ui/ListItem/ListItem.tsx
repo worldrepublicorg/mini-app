@@ -3,7 +3,7 @@ import { type VariantProps } from "class-variance-authority";
 import { forwardRef } from "react";
 
 const listItemStyles = cva(
-  "h-16 p-4 rounded-[0.875rem] flex items-center text-gray-900 w-full",
+  "p-4 rounded-[0.875rem] flex items-center text-gray-900 w-full",
   {
     variants: {
       variant: {
