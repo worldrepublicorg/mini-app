@@ -17,7 +17,7 @@ export function DrawerItem({ title, isAddNew = false }: DrawerItemProps) {
         <div
           className={`flex items-center justify-between p-6 mt-4 ${
             isAddNew ? "border-dashed border-2" : "bg-gray-50"
-          } rounded-lg cursor-pointer`}
+          } rounded-xl cursor-pointer`}
         >
           <div className="flex items-center gap-2">
             <Typography

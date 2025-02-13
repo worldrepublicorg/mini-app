@@ -5,6 +5,7 @@ import { useState } from "react";
 import { DrawerItem } from "@/components/DrawerItem";
 import { SectionHeader } from "@/components/SectionHeader";
 import { TabSwiper } from "@/components/TabSwiper";
+import { BiLinkExternal } from "react-icons/bi";
 
 const POLLS_APP_ID = "app_86794ef02e4fdd6579a937e4a0d858fb";
 
@@ -51,9 +52,22 @@ export default function VotePage() {
                 window.location.href = "https://vote.one/1YuxWznL"; //use to fix redirect
               }}
             >
-              Test open letter (window.location.href + prevent default vote.one)
+              <div className="flex items-center justify-between p-6 mt-4 border-2 rounded-xl cursor-pointer">
+                <Typography as="h3" variant={{ variant: "subtitle", level: 2 }}>
+                  Test open letter (window.location.href + prevent default
+                  vote.one)
+                </Typography>
+                <BiLinkExternal className="text-xl text-gray-500" />
+              </div>
             </a>
-            <a href="https://vote.one/1YuxWznL">Test open letter (normal href vote.one)</a>
+            <a href="https://vote.one/1YuxWznL">
+              <div className="flex items-center justify-between p-6 mt-4 border-2 rounded-xl cursor-pointer">
+                <Typography as="h3" variant={{ variant: "subtitle", level: 2 }}>
+                  Test open letter (normal href vote.one)
+                </Typography>
+                <BiLinkExternal className="text-xl text-gray-500" />
+              </div>
+            </a>
             {/* Deep link with identifier-only path */}
             <a
               href={openLetterLink1}
@@ -62,7 +76,12 @@ export default function VotePage() {
                 window.location.href = openLetterLink1;
               }}
             >
-              Test open letter (identifier-only)
+              <div className="flex items-center justify-between p-6 mt-4 border-2 rounded-xl cursor-pointer">
+                <Typography as="h3" variant={{ variant: "subtitle", level: 2 }}>
+                  Test open letter (identifier-only)
+                </Typography>
+                <BiLinkExternal className="text-xl text-gray-500" />
+              </div>
             </a>
             {/* Deep link with type and identifier */}
             <a
@@ -72,7 +91,12 @@ export default function VotePage() {
                 window.location.href = openLetterLink2;
               }}
             >
-              Test open letter (type/identifier)
+              <div className="flex items-center justify-between p-6 mt-4 border-2 rounded-xl cursor-pointer">
+                <Typography as="h3" variant={{ variant: "subtitle", level: 2 }}>
+                  Test open letter (type/identifier)
+                </Typography>
+                <BiLinkExternal className="text-xl text-gray-500" />
+              </div>
             </a>
             <DrawerItem title="Add your open letter" isAddNew />
           </>
@@ -96,9 +120,21 @@ export default function VotePage() {
                 window.location.href = "https://vote.one/lFJN9p06";
               }}
             >
-              Test poll (window.location.href + prevent default vote.one)
+              <div className="flex items-center justify-between p-6 mt-4 border-2 rounded-xl cursor-pointer">
+                <Typography as="h3" variant={{ variant: "subtitle", level: 2 }}>
+                  Test poll (window.location.href + prevent default vote.one)
+                </Typography>
+                <BiLinkExternal className="text-xl text-gray-500" />
+              </div>
             </a>
-            <a href="https://vote.one/lFJN9p06">Test poll (normal href vote.one)</a>
+            <a href="https://vote.one/lFJN9p06">
+              <div className="flex items-center justify-between p-6 mt-4 border-2 rounded-xl cursor-pointer">
+                <Typography as="h3" variant={{ variant: "subtitle", level: 2 }}>
+                  Test poll (normal href vote.one)
+                </Typography>
+                <BiLinkExternal className="text-xl text-gray-500" />
+              </div>
+            </a>
             {/* Deep link with identifier-only path */}
             <a
               href={pollLink1}
@@ -107,7 +143,12 @@ export default function VotePage() {
                 window.location.href = pollLink1;
               }}
             >
-              Test poll (identifier-only)
+              <div className="flex items-center justify-between p-6 mt-4 border-2 rounded-xl cursor-pointer">
+                <Typography as="h3" variant={{ variant: "subtitle", level: 2 }}>
+                  Test poll (identifier-only)
+                </Typography>
+                <BiLinkExternal className="text-xl text-gray-500" />
+              </div>
             </a>
             {/* Deep link with type and identifier */}
             <a
@@ -117,7 +158,12 @@ export default function VotePage() {
                 window.location.href = pollLink2;
               }}
             >
-              Test poll (type/identifier)
+              <div className="flex items-center justify-between p-6 mt-4 border-2 rounded-xl cursor-pointer">
+                <Typography as="h3" variant={{ variant: "subtitle", level: 2 }}>
+                  Test poll (type/identifier)
+                </Typography>
+                <BiLinkExternal className="text-xl text-gray-500" />
+              </div>
             </a>
             <DrawerItem title="Add your poll" isAddNew />
           </>
