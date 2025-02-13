@@ -266,14 +266,17 @@ export default function EarnPage() {
         <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
           Earn
         </Typography>
-        <div className="flex items-baseline gap-2 pt-0.5">
+        <a
+          href="https://worldcoin.org/mini-app?app_id=app_a4f7f3e62c1de0b9490a5260cb390b56&path=%3Ftab%3Dswap%26fromToken%3D0x4200000000000000000000000000000000000006%26amount%3D1000000000000000000%26toToken%3D0xAAC7d5E9011Fc0fC80bF707DDcC3D56DdfDa9084%26referrerAppId%3Dapp_66c83ab8c851fb1e54b1b1b62c6ce39d"
+          className="flex items-baseline gap-2 pt-0.5"
+        >
           <p className="font-medium text-sm">Balance</p>
           <Typography variant={{ variant: "number", level: 6 }}>
             {tokenBalance
               ? `${Number(tokenBalance).toFixed(2)} WDD`
               : "0.00 WDD"}
           </Typography>
-        </div>
+        </a>
       </div>
 
       <TabSwiper
