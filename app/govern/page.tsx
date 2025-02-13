@@ -7,8 +7,9 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { TabSwiper } from "@/components/TabSwiper";
 import { ListItem } from "@/components/ui/ListItem/ListItem";
 import { IoIosArrowForward } from "react-icons/io";
+import { OpenLetterCard } from "@/components/OpenLetterCard";
 
-export default function VotePage() {
+export default function GovernPage() {
   const [activeTab, setActiveTab] = useState("Polls");
 
   const renderContent = () => {
@@ -38,7 +39,9 @@ export default function VotePage() {
                       Test poll description
                     </Typography>
                   </div>
-                  <IoIosArrowForward className="text-gray-500 flex-shrink-0" />
+                  <div className="rounded-full bg-gray-100 p-1.5">
+                    <IoIosArrowForward className="size-[14px] text-gray-400 flex-shrink-0" />
+                  </div>
                 </div>
               </ListItem>
             </a>
@@ -52,28 +55,26 @@ export default function VotePage() {
               title="Open Letters"
               description="Public statements to decision makers"
             />
-            <a href="https://vote.one/1YuxWznL">
-              <ListItem variant="outline">
-                <div className="flex w-full items-center justify-between">
-                  <div className="flex flex-col gap-1.5">
-                    <Typography
-                      as="h3"
-                      variant={{ variant: "subtitle", level: 2 }}
-                    >
-                      Test open letter
-                    </Typography>
-                    <Typography
-                      as="p"
-                      variant={{ variant: "body", level: 2 }}
-                      className="text-gray-500"
-                    >
-                      Test open letter description
-                    </Typography>
-                  </div>
-                  <IoIosArrowForward className="text-gray-500 flex-shrink-0" />
-                </div>
-              </ListItem>
-            </a>
+            <OpenLetterCard
+              title="Statement on AI Risk"
+              referenceUrl="https://www.safe.ai/work/statement-on-ai-risk"
+              voteUrl="https://vote.one/1YuxWznL"
+            />
+            <OpenLetterCard
+              title="Open Letter Against Reckless Nuclear Escalation and Use"
+              referenceUrl="https://futureoflife.org/open-letter/open-letter-against-reckless-nuclear-escalation-and-use/"
+              voteUrl="https://vote.one/1YuxWznL"
+            />
+            <OpenLetterCard
+              title="Lethal Autonomous Weapons Pledge"
+              referenceUrl="https://futureoflife.org/open-letter/lethal-autonomous-weapons-pledge/"
+              voteUrl="https://vote.one/1YuxWznL"
+            />
+            <OpenLetterCard
+              title="Open letter calling on world leaders to show long-view leadership on existential threats"
+              referenceUrl="https://futureoflife.org/open-letter/long-view-leadership-on-existential-threats/"
+              voteUrl="https://vote.one/1YuxWznL"
+            />
             <DrawerItem title="Add your open letter" isAddNew />
           </>
         );
@@ -106,7 +107,7 @@ export default function VotePage() {
     <div className="flex flex-col px-6 pb-24">
       <div className="pt-6 bg-white">
         <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
-          Vote
+          Govern
         </Typography>
       </div>
 
