@@ -4,6 +4,7 @@ import { BiLinkExternal, BiPlus } from "react-icons/bi";
 import { Drawer, DrawerTrigger } from "@/components/ui/Drawer/Drawer";
 import { Typography } from "@/components/ui/Typography";
 import { ComingSoonDrawer } from "@/components/ComingSoonDrawer";
+import { IoIosArrowForward } from "react-icons/io";
 
 interface DrawerItemProps {
   title: string;
@@ -15,9 +16,9 @@ export function DrawerItem({ title, isAddNew = false }: DrawerItemProps) {
     <Drawer>
       <DrawerTrigger asChild>
         <div
-          className={`flex items-center justify-between p-6 mt-4 ${
+          className={`flex items-center justify-between p-4 mt-4 min-h-16 ${
             isAddNew ? "border-dashed border-2" : "bg-gray-50"
-          } rounded-lg cursor-pointer`}
+          } rounded-xl cursor-pointer`}
         >
           <div className="flex items-center gap-2">
             <Typography
@@ -29,9 +30,9 @@ export function DrawerItem({ title, isAddNew = false }: DrawerItemProps) {
             </Typography>
           </div>
           {isAddNew ? (
-            <BiPlus className="text-xl text-gray-300" />
+            <BiPlus className="text-gray-300" />
           ) : (
-            <BiLinkExternal className="text-xl text-gray-300" />
+            <IoIosArrowForward className="text-gray-300 flex-shrink-0" />
           )}
         </div>
       </DrawerTrigger>

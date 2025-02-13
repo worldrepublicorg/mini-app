@@ -67,7 +67,7 @@ export default function MenuPage() {
                     className="w-full"
                   >
                     <ListItem>
-                      <div className="flex items-center justify-between w-full">
+                      <div className="flex items-center justify-between w-full h-8">
                         <Typography
                           as="span"
                           variant={{ variant: "subtitle", level: 2 }}
@@ -75,7 +75,7 @@ export default function MenuPage() {
                         >
                           {link.label}
                         </Typography>
-                        <BiLinkExternal className="text-xl size-6 text-gray-400" />
+                        <BiLinkExternal className="size-5 text-gray-400" />
                       </div>
                     </ListItem>
                   </a>
