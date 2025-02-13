@@ -13,23 +13,36 @@ interface IRequestPayload {
 
 export async function POST(req: NextRequest) {
   const { payload, action, signal } = (await req.json()) as IRequestPayload;
-  const app_id = process.env.APP_ID as `app_${string}`;
-  const verifyRes = (await verifyCloudProof(
-    payload,
-    app_id,
-    action,
-    signal
-  )) as IVerifyResponse; // Wrapper on this
-  
-  console.log(verifyRes);
+  const app_id = process.env.NEXT_PUBLIC_APP_ID as `app_${string}`;
 
-  if (verifyRes.success) {
-    // This is where you should perform backend actions if the verification succeeds
-    // Such as, setting a user as "verified" in a database
-    return NextResponse.json({ verifyRes, status: 200 });
-  } else {
-    // This is where you should handle errors from the World ID /verify endpoint.
-    // Usually these errors are due to a user having already verified.
-    return NextResponse.json({ verifyRes, status: 400 });
+  try {
+    const verifyRes = (await verifyCloudProof(
+      payload,
+      app_id,
+      action,
+      signal
+    )) as IVerifyResponse;
+
+    console.log("Verification response:", verifyRes);
+
+    if (verifyRes.success) {
+      return NextResponse.json({
+        verifyRes,
+        status: 200,
+        nullifier_hash: payload.nullifier_hash,
+      });
+    } else {
+      return NextResponse.json({
+        verifyRes,
+        status: 400,
+        message: "Verification failed",
+      });
+    }
+  } catch (error: any) {
+    console.error("Verification error:", error);
+    return NextResponse.json({
+      status: 500,
+      message: error.message || "Internal server error",
+    });
   }
 }

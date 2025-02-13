@@ -18,7 +18,7 @@ To use the application, you'll need to:
 1. **Get World ID Credentials**
    From the [World ID Developer Portal](https://developer.worldcoin.org/):
 
-   - Create a new app to get your `APP_ID`
+   - Create a new app to get your `NEXT_PUBLIC_APP_ID`
    - Get `DEV_PORTAL_API_KEY` from the API Keys section
    - Navigate to "Sign in with World ID" page to get:
      - `WLD_CLIENT_ID`
