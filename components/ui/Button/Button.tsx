@@ -34,7 +34,7 @@ const buttonVariants = cva(
         full: "rounded-full",
       },
       isLoading: {
-        true: "border-none bg-transparent fill-transparent text-transparent hover:bg-transparent active:bg-transparent disabled:bg-transparent disabled:text-transparent",
+        true: "",
         false: "",
       },
       fullWidth: {
@@ -136,21 +136,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           }),
           className
         )}
+        disabled={isLoading || props.disabled}
         {...props}
       >
-        {icon && (
-          <Slot
-            style={{
-              ...iconContainerStyles[size],
-              opacity: isLoading ? 0 : 1,
-            }}
-          >
-            {icon}
-          </Slot>
+        {icon && !isLoading && (
+          <Slot style={iconContainerStyles[size]}>{icon}</Slot>
         )}
-        {children && <span>{children}</span>}
-
-        {isLoading && <Spinner className="absolute" />}
+        {!isLoading && children && <span>{children}</span>}
+        {isLoading && <Spinner className="mr-2" />}
       </Comp>
     );
   }

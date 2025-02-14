@@ -5,7 +5,7 @@ import { FaLandmark, FaDollarSign, FaBars } from "react-icons/fa";
 
 const navItems = [
   { href: "/earn", icon: FaDollarSign },
-  { href: "/vote", icon: FaLandmark },
+  { href: "/govern", icon: FaLandmark },
   { href: "/menu", icon: FaBars },
 ];
 
