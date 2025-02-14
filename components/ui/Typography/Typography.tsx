@@ -178,7 +178,7 @@ export const Typography = forwardRef<
       className,
       ...props
     },
-    ref: Ref<HTMLElement>
+    ref: Ref<HTMLElement>,
   ) => {
     return (
       <Component
@@ -187,7 +187,7 @@ export const Typography = forwardRef<
             variant: typeof variant === "string" ? variant : variant.variant,
             level: typeof variant === "object" ? variant.level : level,
           }),
-          className
+          className,
         )}
         ref={ref as Ref<any>}
         {...props}
@@ -195,7 +195,7 @@ export const Typography = forwardRef<
         {children}
       </Component>
     );
-  }
+  },
 );
 
 Typography.displayName = "Typography";

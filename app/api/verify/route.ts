@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
       payload,
       app_id,
       action,
-      signal
+      signal,
     )) as IVerifyResponse;
 
     console.log("Verification response:", verifyRes);

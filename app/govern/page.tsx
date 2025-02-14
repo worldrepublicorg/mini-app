@@ -58,7 +58,7 @@ export default function GovernPage() {
             <a href="https://vote.one/lFJN9p06">
               <ListItem variant="outline">
                 <div className="flex w-full items-center justify-between">
-                  <div className="flex flex-col gap-1.5">
+                  <div className="flex flex-col gap-2">
                     <Typography
                       as="h3"
                       variant={{ variant: "subtitle", level: 2 }}
@@ -82,16 +82,6 @@ export default function GovernPage() {
             <DrawerItem title="Add your poll" isAddNew />
           </>
         );
-      case "Referendums":
-        return (
-          <>
-            <SectionHeader
-              title="Referendums"
-              description="Direct votes on important issues"
-            />
-            <DrawerItem title="Test referendum" />
-          </>
-        );
       case "Elections":
         return (
           <>
@@ -99,7 +89,17 @@ export default function GovernPage() {
               title="Elections"
               description="Choose your representatives"
             />
-            <DrawerItem title="Test election" />
+            <DrawerItem title="World Constituent Assembly Election" />
+          </>
+        );
+      case "Referendums":
+        return (
+          <>
+            <SectionHeader
+              title="Referendums"
+              description="Direct votes on important issues"
+            />
+            <DrawerItem title="World Constitutional Referendum" />
           </>
         );
       default:
@@ -116,7 +116,7 @@ export default function GovernPage() {
       </div>
 
       <TabSwiper
-        tabs={["Open letters", "Polls", "Referendums", "Elections"]}
+        tabs={["Open letters", "Polls", "Elections", "Referendums"]}
         activeTab={activeTab}
         onTabChange={setActiveTab}
       />

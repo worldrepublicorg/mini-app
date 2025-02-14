@@ -93,9 +93,9 @@ export default function EarnPage() {
     switch (activeTab) {
       case "Basic income":
         return (
-          <div className="w-full py-6 flex flex-col items-center">
-            <div className="w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center mb-10">
-              <PiHandCoinsFill className="w-10 h-10 text-gray-400" />
+          <div className="flex w-full flex-col items-center py-6">
+            <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+              <PiHandCoinsFill className="h-10 w-10 text-gray-400" />
             </div>
             <Typography as="h2" variant="heading" level={1}>
               Basic Income
@@ -106,7 +106,7 @@ export default function EarnPage() {
                 <Typography
                   variant="subtitle"
                   level={1}
-                  className="mt-4 mb-10 text-gray-500 mx-auto text-center"
+                  className="mx-auto mb-10 mt-4 text-center text-gray-500"
                 >
                   Sign in to claim your basic income
                 </Typography>
@@ -118,7 +118,7 @@ export default function EarnPage() {
                 <Typography
                   variant="subtitle"
                   level={1}
-                  className="mt-4 mb-10 text-gray-500 mx-auto text-center"
+                  className="mx-auto mb-10 mt-4 text-center text-gray-500"
                 >
                   Claimable drachma
                 </Typography>
@@ -140,7 +140,7 @@ export default function EarnPage() {
                 <Typography
                   variant="subtitle"
                   level={1}
-                  className="mt-4 mb-10 text-gray-500 mx-auto text-center"
+                  className="mx-auto mb-10 mt-4 text-center text-gray-500"
                 >
                   Set up your basic income stream
                 </Typography>
@@ -158,27 +158,27 @@ export default function EarnPage() {
         );
       case "Savings":
         return (
-          <div className="w-full py-6 flex flex-col items-center">
-            <div className="w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center mb-10">
-              <PiPiggyBankFill className="w-10 h-10 text-gray-400" />
+          <div className="flex w-full flex-col items-center py-6">
+            <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+              <PiPiggyBankFill className="h-10 w-10 text-gray-400" />
             </div>
             <Typography as="h2" variant={{ variant: "heading", level: 1 }}>
               Savings Account
             </Typography>
             <Typography
               variant={{ variant: "subtitle", level: 1 }}
-              className="mt-4 mb-10 text-gray-500 mx-auto text-center"
+              className="mx-auto mb-10 mt-4 text-center text-gray-500"
             >
               Earn interest every second
             </Typography>
             <Drawer>
               <DrawerTrigger asChild>
-                <div className="w-full flex items-center justify-between h-14 bg-gray-100 rounded-xl cursor-pointer">
-                  <div className="w-full flex items-center justify-center">
+                <div className="flex h-14 w-full cursor-pointer items-center justify-between rounded-xl bg-gray-100">
+                  <div className="flex w-full items-center justify-center">
                     <Typography
                       as="h3"
                       variant={{ variant: "subtitle", level: 2 }}
-                      className="line-clamp-2 text-gray-300 font-display font-semibold tracking-normal"
+                      className="line-clamp-2 font-display font-semibold tracking-normal text-gray-300"
                     >
                       Deposit drachma
                     </Typography>
@@ -191,27 +191,27 @@ export default function EarnPage() {
         );
       case "Contribute":
         return (
-          <div className="w-full py-6 flex flex-col items-center">
-            <div className="w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center mb-10">
-              <PiPlantFill className="w-10 h-10 text-gray-400" />
+          <div className="flex w-full flex-col items-center py-6">
+            <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+              <PiPlantFill className="h-10 w-10 text-gray-400" />
             </div>
             <Typography as="h2" variant={{ variant: "heading", level: 1 }}>
               Contribute
             </Typography>
             <Typography
               variant={{ variant: "subtitle", level: 1 }}
-              className="mt-4 mb-10 text-gray-500 mx-auto text-center"
+              className="mx-auto mb-10 mt-4 text-center text-gray-500"
             >
               Get involved, get rewarded
             </Typography>
             <Drawer>
               <DrawerTrigger asChild>
-                <div className="w-full flex items-center justify-between h-14 bg-gray-100 rounded-xl cursor-pointer">
-                  <div className="w-full flex items-center justify-center">
+                <div className="flex h-14 w-full cursor-pointer items-center justify-between rounded-xl bg-gray-100">
+                  <div className="flex w-full items-center justify-center">
                     <Typography
                       as="h3"
                       variant={{ variant: "subtitle", level: 2 }}
-                      className="line-clamp-2 text-gray-300 font-display font-semibold tracking-normal"
+                      className="line-clamp-2 font-display font-semibold tracking-normal text-gray-300"
                     >
                       Learn more
                     </Typography>
@@ -224,27 +224,27 @@ export default function EarnPage() {
         );
       case "Invite":
         return (
-          <div className="w-full py-6 flex flex-col items-center">
-            <div className="w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center mb-10">
-              <PiUserPlusFill className="w-10 h-10 text-gray-400" />
+          <div className="flex w-full flex-col items-center py-6">
+            <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+              <PiUserPlusFill className="h-10 w-10 text-gray-400" />
             </div>
             <Typography as="h2" variant={{ variant: "heading", level: 1 }}>
               Invite
             </Typography>
             <Typography
               variant={{ variant: "subtitle", level: 1 }}
-              className="mt-4 mb-10 text-gray-500 mx-auto text-center"
+              className="mx-auto mb-10 mt-4 text-center text-gray-500"
             >
               Spread the word
             </Typography>
             <Drawer>
               <DrawerTrigger asChild>
-                <div className="w-full flex items-center justify-between h-14 bg-gray-100 rounded-xl cursor-pointer">
-                  <div className="w-full flex items-center justify-center">
+                <div className="flex h-14 w-full cursor-pointer items-center justify-between rounded-xl bg-gray-100">
+                  <div className="flex w-full items-center justify-center">
                     <Typography
                       as="h3"
                       variant={{ variant: "subtitle", level: 2 }}
-                      className="line-clamp-2 text-gray-300 font-display font-semibold tracking-normal"
+                      className="line-clamp-2 font-display font-semibold tracking-normal text-gray-300"
                     >
                       Copy referral link
                     </Typography>
@@ -261,17 +261,20 @@ export default function EarnPage() {
   };
 
   return (
-    <div className="flex flex-col px-6 pb-24 min-h-screen">
-      <div className="mt-6 bg-white flex justify-between items-center">
+    <div className="flex min-h-screen flex-col px-6 pb-24">
+      <div className="bg-white mt-6 flex items-center justify-between">
         <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
           Earn
         </Typography>
         <a
           href="https://worldcoin.org/mini-app?app_id=app_a4f7f3e62c1de0b9490a5260cb390b56&path=%3Ftab%3Dswap%26fromToken%3D0x2cFc85d8E48F8EAB294be644d9E25C3030863003%26amount%3D1000000000000000000%26toToken%3D0xAAC7d5E9011Fc0fC80bF707DDcC3D56DdfDa9084%26referrerAppId%3Dapp_66c83ab8c851fb1e54b1b1b62c6ce39d"
-          className="flex items-baseline gap-2 pt-0.5"
+          className="flex items-baseline gap-2 pt-1.5"
         >
-          <p className="font-medium text-sm">Balance</p>
-          <Typography variant={{ variant: "number", level: 6 }}>
+          <p className="text-[18px] font-medium">Balance</p>
+          <Typography
+            variant={{ variant: "number", level: 6 }}
+            className="text-[18px]"
+          >
             {tokenBalance
               ? `${Number(tokenBalance).toFixed(2)} WDD`
               : "0.00 WDD"}
@@ -285,7 +288,7 @@ export default function EarnPage() {
         onTabChange={setActiveTab}
       />
 
-      <div className="flex-1 flex items-center">{renderContent()}</div>
+      <div className="flex flex-1 items-center">{renderContent()}</div>
     </div>
   );
 }

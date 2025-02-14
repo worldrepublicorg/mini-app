@@ -19,7 +19,7 @@ const pillVariants = cva(
     defaultVariants: {
       checked: false,
     },
-  }
+  },
 );
 
 export interface PillProps
@@ -45,14 +45,14 @@ export const Pill = forwardRef<HTMLButtonElement, PillProps>(
         ref={ref}
         className={cn(
           pillVariants({ checked }),
-          typographyVariants({ variant: "subtitle", level: 3 })
+          typographyVariants({ variant: "subtitle", level: 3 }),
         )}
         {...props}
       >
         {children}
       </Comp>
     );
-  }
+  },
 );
 
 Pill.displayName = "Pill";

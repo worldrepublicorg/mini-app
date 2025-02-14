@@ -48,7 +48,7 @@ const buttonVariants = cva(
       radius: "md",
       fullWidth: false,
     },
-  }
+  },
 );
 const iconContainerStyles = {
   sm: {
@@ -120,7 +120,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       asChild,
       ...props
     },
-    ref
+    ref,
   ) => {
     const Comp = asChild ? Slot : "button";
     return (
@@ -134,7 +134,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             isLoading,
             fullWidth,
           }),
-          className
+          className,
         )}
         disabled={isLoading || props.disabled}
         {...props}
@@ -146,7 +146,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {isLoading && <Spinner className="mr-2" />}
       </Comp>
     );
-  }
+  },
 );
 
 Button.displayName = "Button";
