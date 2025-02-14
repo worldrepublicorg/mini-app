@@ -42,7 +42,7 @@ export function OpenLetterCard({
                 >
                   {referenceTitle}
                 </Typography>
-                <BiLinkExternal className="size-[14px] mb-0.5 text-gray-400" />
+                <BiLinkExternal className="size-[14px] text-gray-400" />
               </a>
             </div>
           </div>
