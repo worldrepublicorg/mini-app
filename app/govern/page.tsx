@@ -68,13 +68,13 @@ export default function GovernPage() {
                     <Typography
                       as="p"
                       variant={{ variant: "body", level: 2 }}
-                      className="text-gray-500 text-[14px]"
+                      className="text-[14px] text-gray-500"
                     >
                       Test poll description
                     </Typography>
                   </div>
                   <div className="rounded-full bg-gray-100 p-1.5">
-                    <IoIosArrowForward className="size-[14px] text-gray-400 flex-shrink-0" />
+                    <IoIosArrowForward className="size-[14px] flex-shrink-0 text-gray-400" />
                   </div>
                 </div>
               </ListItem>
@@ -109,8 +109,12 @@ export default function GovernPage() {
 
   return (
     <div className="flex flex-col px-6 pb-24">
-      <div className="pt-6 bg-white">
-        <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
+      <div className="bg-white pt-6">
+        <Typography
+          as="h2"
+          variant={{ variant: "heading", level: 2 }}
+          className="h-8"
+        >
           Govern
         </Typography>
       </div>
