@@ -7,6 +7,7 @@ import {
   PiPiggyBankFill,
   PiUserPlusFill,
   PiPlantFill,
+  PiWalletFill,
 } from "react-icons/pi";
 import { Drawer, DrawerTrigger } from "@/components/ui/Drawer";
 import { WalletAuth } from "@/components/WalletAuth";
@@ -261,19 +262,19 @@ export default function EarnPage() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col px-6 pb-24">
-      <div className="bg-white mt-6 flex items-baseline justify-between">
+    <div className="flex min-h-dvh flex-col px-6 pb-20">
+      <div className="bg-white mt-6 flex items-center justify-between">
         <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
           Earn
         </Typography>
         <a
           href="https://worldcoin.org/mini-app?app_id=app_a4f7f3e62c1de0b9490a5260cb390b56&path=%3Ftab%3Dswap%26fromToken%3D0x2cFc85d8E48F8EAB294be644d9E25C3030863003%26amount%3D1000000000000000000%26toToken%3D0xAAC7d5E9011Fc0fC80bF707DDcC3D56DdfDa9084%26referrerAppId%3Dapp_66c83ab8c851fb1e54b1b1b62c6ce39d"
-          className="flex items-baseline gap-2"
+          className="flex h-10 items-center gap-2 rounded-full bg-gray-100 px-4"
         >
-          <p className="text-[18px] font-medium">Balance</p>
+          <PiWalletFill className="h-5 w-5" />
           <Typography
             variant={{ variant: "number", level: 6 }}
-            className="text-[18px]"
+            className="text-[17px]"
           >
             {tokenBalance
               ? `${Number(tokenBalance).toFixed(2)} WDD`

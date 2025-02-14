@@ -108,12 +108,12 @@ export default function GovernPage() {
   };
 
   return (
-    <div className="flex flex-col px-6 pb-24">
+    <div className="flex flex-col px-6 pb-20">
       <div className="bg-white pt-6">
         <Typography
           as="h2"
           variant={{ variant: "heading", level: 2 }}
-          className="h-8"
+          className="flex h-10 items-center"
         >
           Govern
         </Typography>
