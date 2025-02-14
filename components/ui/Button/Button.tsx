@@ -34,7 +34,7 @@ const buttonVariants = cva(
         full: "rounded-full",
       },
       isLoading: {
-        true: "bg-gray-100 text-gray-300",
+        true: "",
         false: "",
       },
       fullWidth: {
@@ -104,7 +104,6 @@ export interface ButtonProps
    * @default false
    */
   asChild?: boolean;
-  loadingText?: string;
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -119,7 +118,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       icon,
       fullWidth,
       asChild,
-      loadingText = "Loading...",
       ...props
     },
     ref
@@ -145,12 +143,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           <Slot style={iconContainerStyles[size]}>{icon}</Slot>
         )}
         {!isLoading && children && <span>{children}</span>}
-        {isLoading && (
-          <div className="flex items-center justify-center">
-            <Spinner className="mr-2" />
-            <span>{loadingText}</span>
-          </div>
-        )}
+        {isLoading && <Spinner className="mr-2" />}
       </Comp>
     );
   }
