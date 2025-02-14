@@ -23,21 +23,25 @@ export default function GovernPage() {
             />
             <OpenLetterCard
               title="Statement on AI Risk"
+              referenceTitle="Center for AI Safety"
               referenceUrl="https://www.safe.ai/work/statement-on-ai-risk"
               voteUrl="https://vote.one/kJc54AbK"
             />
             <OpenLetterCard
               title="UN Ban on Nuclear Weapons Open Letter"
+              referenceTitle="Future of Life Institute"
               referenceUrl="https://futureoflife.org/open-letter/nuclear-open-letter/"
               voteUrl="https://vote.one/w1MDn0Dt"
             />
             <OpenLetterCard
               title="Lethal Autonomous Weapons Pledge"
+              referenceTitle="Future of Life Institute"
               referenceUrl="https://futureoflife.org/open-letter/lethal-autonomous-weapons-pledge/"
               voteUrl="https://vote.one/eASgdeUE"
             />
             <OpenLetterCard
               title="Open letter calling on world leaders to show long-view leadership on existential threats"
+              referenceTitle="Future of Life Institute"
               referenceUrl="https://futureoflife.org/open-letter/long-view-leadership-on-existential-threats/"
               voteUrl="https://vote.one/NtprLPWh"
             />

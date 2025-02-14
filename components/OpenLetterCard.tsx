@@ -5,12 +5,14 @@ import { IoIosArrowForward } from "react-icons/io";
 
 interface OpenLetterCardProps {
   title: string;
+  referenceTitle?: string;
   referenceUrl: string;
   voteUrl: string;
 }
 
 export function OpenLetterCard({
   title,
+  referenceTitle = "Reference",
   referenceUrl,
   voteUrl,
 }: OpenLetterCardProps) {
@@ -38,7 +40,7 @@ export function OpenLetterCard({
                   variant={{ variant: "body", level: 3 }}
                   className="text-gray-500"
                 >
-                  Reference
+                  {referenceTitle}
                 </Typography>
                 <BiLinkExternal className="size-[14px] text-gray-400" />
               </a>
