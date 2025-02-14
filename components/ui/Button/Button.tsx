@@ -146,10 +146,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         {!isLoading && children && <span>{children}</span>}
         {isLoading && (
-          <>
+          <div className="flex items-center justify-center">
             <Spinner className="mr-2" />
             <span>{loadingText}</span>
-          </>
+          </div>
         )}
       </Comp>
     );
