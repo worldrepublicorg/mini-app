@@ -5,15 +5,49 @@ import { useState } from "react";
 import { DrawerItem } from "@/components/DrawerItem";
 import { SectionHeader } from "@/components/SectionHeader";
 import { TabSwiper } from "@/components/TabSwiper";
-import { ListItem } from "@/components/ui/ListItem/ListItem";
-import { IoIosArrowForward } from "react-icons/io";
 import { OpenLetterCard } from "@/components/OpenLetterCard";
+import { PollCard } from "@/components/PollCard";
 
 export default function GovernPage() {
-  const [activeTab, setActiveTab] = useState("Open letters");
+  const [activeTab, setActiveTab] = useState("Polls");
 
   const renderContent = () => {
     switch (activeTab) {
+      case "Polls":
+        return (
+          <>
+            <SectionHeader
+              title="Polls"
+              description="Quick votes on current topics"
+            />
+            <PollCard
+              title="Trade Balance"
+              description="Do you believe reciprocal tariffs are an effective tool for balancing international trade?"
+              url="https://vote.one/1BQZ2v3a"
+            />
+            <PollCard
+              title="Climate Indicators"
+              description="Do you think recent severe weather events indicate a significant change in our climate?"
+              url="https://vote.one/GVnbTAbR"
+            />
+            <PollCard
+              title="Migration Standards"
+              description="Should international agreements set binding standards for the treatment of migrants and refugees?"
+              url="https://vote.one/vLoWhqjh"
+            />
+            <PollCard
+              title="Global Representation"
+              description="Would expanding the representation of emerging economies and civil society in global decision-making improve international outcomes?"
+              url="https://vote.one/I6gUFLJa"
+            />
+            <PollCard
+              title="Conflict Resolution"
+              description="Are diplomatic solutions generally more effective than military approaches for resolving international conflicts?"
+              url="https://vote.one/f3Dm4GS6"
+            />
+            <DrawerItem title="Add your poll" isAddNew />
+          </>
+        );
       case "Open letters":
         return (
           <>
@@ -46,40 +80,6 @@ export default function GovernPage() {
               voteUrl="https://vote.one/NtprLPWh"
             />
             <DrawerItem title="Add your open letter" isAddNew />
-          </>
-        );
-      case "Polls":
-        return (
-          <>
-            <SectionHeader
-              title="Polls"
-              description="Quick votes on current topics"
-            />
-            <a href="https://vote.one/lFJN9p06">
-              <ListItem variant="outline">
-                <div className="flex w-full items-center justify-between">
-                  <div className="flex flex-col gap-2">
-                    <Typography
-                      as="h3"
-                      variant={{ variant: "subtitle", level: 2 }}
-                    >
-                      Test poll
-                    </Typography>
-                    <Typography
-                      as="p"
-                      variant={{ variant: "body", level: 2 }}
-                      className="text-[14px] text-gray-500"
-                    >
-                      Test poll description
-                    </Typography>
-                  </div>
-                  <div className="rounded-full bg-gray-100 p-1.5">
-                    <IoIosArrowForward className="size-[14px] flex-shrink-0 text-gray-400" />
-                  </div>
-                </div>
-              </ListItem>
-            </a>
-            <DrawerItem title="Add your poll" isAddNew />
           </>
         );
       case "Elections":
@@ -120,7 +120,7 @@ export default function GovernPage() {
       </div>
 
       <TabSwiper
-        tabs={["Open letters", "Polls", "Elections", "Referendums"]}
+        tabs={["Polls", "Open letters", "Elections", "Referendums"]}
         activeTab={activeTab}
         onTabChange={setActiveTab}
       />
