@@ -38,7 +38,7 @@ const menuSections = [
 export default function MenuPage() {
   return (
     <div className="flex flex-col px-6 pb-24">
-      <div className="py-6 bg-white">
+      <div className="py-6">
         <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
           Menu
         </Typography>
