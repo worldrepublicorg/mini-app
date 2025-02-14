@@ -15,7 +15,7 @@ const listItemStyles = cva(
     defaultVariants: {
       variant: "duotone",
     },
-  }
+  },
 );
 interface ListItemProps
   extends VariantProps<typeof listItemStyles>,
@@ -30,7 +30,7 @@ export const ListItem = forwardRef<HTMLDivElement, ListItemProps>(
         {children}
       </div>
     );
-  }
+  },
 );
 
 ListItem.displayName = "ListItem";

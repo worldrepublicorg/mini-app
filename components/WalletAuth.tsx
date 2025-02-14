@@ -49,7 +49,7 @@ export function WalletAuth({ onError }: WalletAuthProps) {
           let fetchedUsername = null;
           try {
             const usernameRes = await fetch(
-              `https://usernames.worldcoin.org/api/v1/${fetchedWalletAddress}`
+              `https://usernames.worldcoin.org/api/v1/${fetchedWalletAddress}`,
             );
             if (!usernameRes.ok) {
               throw new Error("Failed to fetch username");
