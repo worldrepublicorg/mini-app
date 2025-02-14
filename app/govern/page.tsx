@@ -10,10 +10,40 @@ import { IoIosArrowForward } from "react-icons/io";
 import { OpenLetterCard } from "@/components/OpenLetterCard";
 
 export default function GovernPage() {
-  const [activeTab, setActiveTab] = useState("Polls");
+  const [activeTab, setActiveTab] = useState("Open letters");
 
   const renderContent = () => {
     switch (activeTab) {
+      case "Open letters":
+        return (
+          <>
+            <SectionHeader
+              title="Open Letters"
+              description="Public statements to decision makers"
+            />
+            <OpenLetterCard
+              title="Statement on AI Risk"
+              referenceUrl="https://www.safe.ai/work/statement-on-ai-risk"
+              voteUrl="https://vote.one/kJc54AbK"
+            />
+            <OpenLetterCard
+              title="UN Ban on Nuclear Weapons Open Letter"
+              referenceUrl="https://futureoflife.org/open-letter/nuclear-open-letter/"
+              voteUrl="https://vote.one/w1MDn0Dt"
+            />
+            <OpenLetterCard
+              title="Lethal Autonomous Weapons Pledge"
+              referenceUrl="https://futureoflife.org/open-letter/lethal-autonomous-weapons-pledge/"
+              voteUrl="https://vote.one/eASgdeUE"
+            />
+            <OpenLetterCard
+              title="Open letter calling on world leaders to show long-view leadership on existential threats"
+              referenceUrl="https://futureoflife.org/open-letter/long-view-leadership-on-existential-threats/"
+              voteUrl="https://vote.one/NtprLPWh"
+            />
+            <DrawerItem title="Add your open letter" isAddNew />
+          </>
+        );
       case "Polls":
         return (
           <>
@@ -34,7 +64,7 @@ export default function GovernPage() {
                     <Typography
                       as="p"
                       variant={{ variant: "body", level: 2 }}
-                      className="text-gray-500"
+                      className="text-gray-500 text-[14px]"
                     >
                       Test poll description
                     </Typography>
@@ -46,36 +76,6 @@ export default function GovernPage() {
               </ListItem>
             </a>
             <DrawerItem title="Add your poll" isAddNew />
-          </>
-        );
-      case "Open letters":
-        return (
-          <>
-            <SectionHeader
-              title="Open Letters"
-              description="Public statements to decision makers"
-            />
-            <OpenLetterCard
-              title="Statement on AI Risk"
-              referenceUrl="https://www.safe.ai/work/statement-on-ai-risk"
-              voteUrl="https://vote.one/1YuxWznL"
-            />
-            <OpenLetterCard
-              title="Open Letter Against Reckless Nuclear Escalation and Use"
-              referenceUrl="https://futureoflife.org/open-letter/open-letter-against-reckless-nuclear-escalation-and-use/"
-              voteUrl="https://vote.one/1YuxWznL"
-            />
-            <OpenLetterCard
-              title="Lethal Autonomous Weapons Pledge"
-              referenceUrl="https://futureoflife.org/open-letter/lethal-autonomous-weapons-pledge/"
-              voteUrl="https://vote.one/1YuxWznL"
-            />
-            <OpenLetterCard
-              title="Open letter calling on world leaders to show long-view leadership on existential threats"
-              referenceUrl="https://futureoflife.org/open-letter/long-view-leadership-on-existential-threats/"
-              voteUrl="https://vote.one/1YuxWznL"
-            />
-            <DrawerItem title="Add your open letter" isAddNew />
           </>
         );
       case "Referendums":
@@ -112,7 +112,7 @@ export default function GovernPage() {
       </div>
 
       <TabSwiper
-        tabs={["Polls", "Open letters", "Referendums", "Elections"]}
+        tabs={["Open letters", "Polls", "Referendums", "Elections"]}
         activeTab={activeTab}
         onTabChange={setActiveTab}
       />

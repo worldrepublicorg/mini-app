@@ -26,21 +26,23 @@ export function OpenLetterCard({
             >
               {title}
             </Typography>
-            <a
-              className="flex items-center gap-1"
-              href={referenceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Typography
-                as="p"
-                variant={{ variant: "body", level: 3 }}
-                className="text-gray-500"
+            <div className="flex items-center gap-1 w-max-24">
+              <a
+                className="flex items-center gap-1 w-max-24"
+                href={referenceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Reference
-              </Typography>
-              <BiLinkExternal className="size-[14px] text-gray-400" />
-            </a>
+                <Typography
+                  as="p"
+                  variant={{ variant: "body", level: 3 }}
+                  className="text-gray-500"
+                >
+                  Reference
+                </Typography>
+                <BiLinkExternal className="size-[14px] text-gray-400" />
+              </a>
+            </div>
           </div>
           <div className="rounded-full bg-gray-100 p-1.5">
             <IoIosArrowForward className="size-[14px] text-gray-400 flex-shrink-0" />
