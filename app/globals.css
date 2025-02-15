@@ -51,6 +51,6 @@ pre {
   /* iPhone 12/13 Pro Max */ only screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) {
   /* iPhone 14 Pro Max */
   .safe-area-spacer {
-    padding-bottom: 34px;
+    padding-bottom: 24px;
   }
 }

@@ -82,6 +82,10 @@ export function TabSwiper({ tabs, activeTab, onTabChange }: TabSwiperProps) {
               <Pill
                 checked={activeTab === tab}
                 onClick={() => onTabChange(tab)}
+                onTouchStart={(e) => {
+                  e.preventDefault();
+                  e.currentTarget.click();
+                }}
               >
                 {tab}
               </Pill>

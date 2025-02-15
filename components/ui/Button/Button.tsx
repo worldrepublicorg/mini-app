@@ -13,13 +13,13 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "bg-gray-900 text-gray-0 hover:bg-gray-700 active:bg-gray-500 disabled:bg-gray-100 disabled:text-gray-300",
+          "bg-gray-900 text-gray-0 hover:bg-gray-700 disabled:bg-gray-100 disabled:text-gray-300",
         secondary:
-          "bg-gray-200 text-gray-900 hover:bg-gray-300 active:bg-gray-400 disabled:bg-gray-100 disabled:text-gray-300",
+          "bg-gray-200 text-gray-900 hover:bg-gray-300 disabled:bg-gray-100 disabled:text-gray-300",
         tertiary:
-          "border border-gray-200 bg-transparent text-gray-500 hover:bg-gray-100 active:bg-gray-200 disabled:text-gray-300",
+          "border border-gray-200 bg-transparent text-gray-500 hover:bg-gray-100 disabled:text-gray-300",
         ghost:
-          "bg-transparent text-gray-500 hover:bg-gray-100 active:bg-gray-200 disabled:text-gray-300",
+          "bg-transparent text-gray-500 hover:bg-gray-100 disabled:text-gray-300",
       },
       size: {
         sm: "h-10 min-w-10 px-2 text-sm",
@@ -48,7 +48,7 @@ const buttonVariants = cva(
       radius: "md",
       fullWidth: false,
     },
-  },
+  }
 );
 const iconContainerStyles = {
   sm: {
@@ -120,7 +120,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       asChild,
       ...props
     },
-    ref,
+    ref
   ) => {
     const Comp = asChild ? Slot : "button";
     return (
@@ -134,7 +134,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             isLoading,
             fullWidth,
           }),
-          className,
+          className
         )}
         disabled={isLoading || props.disabled}
         {...props}
@@ -146,7 +146,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {isLoading && <Spinner className="mr-2" />}
       </Comp>
     );
-  },
+  }
 );
 
 Button.displayName = "Button";
