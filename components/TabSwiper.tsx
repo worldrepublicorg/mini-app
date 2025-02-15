@@ -35,7 +35,7 @@ export function TabSwiper({ tabs, activeTab, onTabChange }: TabSwiperProps) {
           slidesOffsetBefore={24}
           slidesOffsetAfter={24}
           modules={[FreeMode]}
-          className="my-2"
+          className="my-1"
         >
           {tabs.map((tab) => (
             <SwiperSlide

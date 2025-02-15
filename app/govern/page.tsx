@@ -21,27 +21,22 @@ export default function GovernPage() {
               description="Quick votes on current topics"
             />
             <PollCard
-              title="Trade Balance"
               description="Do you believe reciprocal tariffs are an effective tool for balancing international trade?"
               url="https://vote.one/1BQZ2v3a"
             />
             <PollCard
-              title="Climate Indicators"
               description="Do you think recent severe weather events indicate a significant change in our climate?"
               url="https://vote.one/GVnbTAbR"
             />
             <PollCard
-              title="Migration Standards"
               description="Should international agreements set binding standards for the treatment of migrants and refugees?"
               url="https://vote.one/vLoWhqjh"
             />
             <PollCard
-              title="Global Representation"
               description="Would expanding the representation of emerging economies and civil society in global decision-making improve international outcomes?"
               url="https://vote.one/I6gUFLJa"
             />
             <PollCard
-              title="Conflict Resolution"
               description="Are diplomatic solutions generally more effective than military approaches for resolving international conflicts?"
               url="https://vote.one/f3Dm4GS6"
             />
@@ -113,7 +108,7 @@ export default function GovernPage() {
         <Typography
           as="h2"
           variant={{ variant: "heading", level: 2 }}
-          className="flex h-10 items-center"
+          className="h-9 items-center"
         >
           Govern
         </Typography>

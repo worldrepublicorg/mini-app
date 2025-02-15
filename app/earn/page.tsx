@@ -263,7 +263,7 @@ export default function EarnPage() {
 
   return (
     <div className="flex min-h-dvh flex-col px-6 pb-20">
-      <div className="bg-white mt-6 flex items-center justify-between">
+      <div className="bg-white mt-5 flex items-center justify-between">
         <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
           Earn
         </Typography>
@@ -274,7 +274,7 @@ export default function EarnPage() {
           <PiWalletFill className="h-5 w-5" />
           <Typography
             variant={{ variant: "number", level: 6 }}
-            className="text-[17px]"
+            className="text-base"
           >
             {tokenBalance
               ? `${Number(tokenBalance).toFixed(2)} WDD`
