@@ -127,7 +127,7 @@ export default function EarnPage() {
                   Claimable drachma
                 </Typography>
                 <Typography variant="number" level={1} className="mb-12">
-                  {Number(basicIncomeInfo.claimableAmount).toFixed(4)}
+                  {Number(basicIncomeInfo.claimableAmount).toFixed(6)}
                 </Typography>
                 <Button
                   onClick={sendClaim}
