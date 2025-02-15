@@ -23,9 +23,7 @@ const BottomNav = () => {
             tabIndex={0}
             onTouchStart={(e) => {
               e.currentTarget.click();
-              e.preventDefault();
             }}
-            onClick={(e) => e.preventDefault()}
           >
             <Icon className="h-5 w-5" />
           </Link>
