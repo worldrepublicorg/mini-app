@@ -22,7 +22,7 @@ import { ComingSoonDrawer } from "@/components/ComingSoonDrawer";
 
 export default function EarnPage() {
   const [activeTab, setActiveTab] = useState("Basic income");
-  const { isLoggedIn, stakeInfo, tokenBalance } = useWallet();
+  const { isLoggedIn, basicIncomeInfo, tokenBalance } = useWallet();
   const [transactionId, setTransactionId] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -33,6 +33,9 @@ export default function EarnPage() {
     },
     transactionId: transactionId,
   });
+
+  const isBasicIncomeSetup =
+    basicIncomeInfo && Number(basicIncomeInfo.claimableAmount) > 0;
 
   const sendSetup = async () => {
     if (!MiniKit.isInstalled()) return;
@@ -114,7 +117,7 @@ export default function EarnPage() {
 
                 <WalletAuth onError={(error) => console.error(error)} />
               </>
-            ) : stakeInfo ? (
+            ) : isBasicIncomeSetup ? (
               <>
                 <Typography
                   variant="subtitle"
@@ -123,11 +126,9 @@ export default function EarnPage() {
                 >
                   Claimable drachma
                 </Typography>
-
                 <Typography variant="number" level={1} className="mb-12">
-                  {Number(stakeInfo.rewards).toFixed(4)}
+                  {Number(basicIncomeInfo.claimableAmount).toFixed(4)}
                 </Typography>
-
                 <Button
                   onClick={sendClaim}
                   isLoading={isSubmitting || isConfirming}
@@ -143,9 +144,8 @@ export default function EarnPage() {
                   level={1}
                   className="mx-auto mb-10 mt-4 text-center text-gray-500"
                 >
-                  Set up your basic income stream
+                  Set up your basic income
                 </Typography>
-
                 <Button
                   onClick={sendSetup}
                   isLoading={isSubmitting || isConfirming}
@@ -263,24 +263,28 @@ export default function EarnPage() {
 
   return (
     <div className="flex min-h-dvh flex-col px-6 pb-20">
-      <div className="bg-white mt-5 flex items-center justify-between">
-        <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
-          Earn
-        </Typography>
-        <a
-          href="https://worldcoin.org/mini-app?app_id=app_a4f7f3e62c1de0b9490a5260cb390b56&path=%3Ftab%3Dswap%26fromToken%3D0x2cFc85d8E48F8EAB294be644d9E25C3030863003%26amount%3D1000000000000000000%26toToken%3D0xAAC7d5E9011Fc0fC80bF707DDcC3D56DdfDa9084%26referrerAppId%3Dapp_66c83ab8c851fb1e54b1b1b62c6ce39d"
-          className="flex h-10 items-center gap-2 rounded-full bg-gray-100 px-4"
-        >
-          <PiWalletFill className="h-5 w-5" />
-          <Typography
-            variant={{ variant: "number", level: 6 }}
-            className="text-base"
-          >
-            {tokenBalance
-              ? `${Number(tokenBalance).toFixed(2)} WDD`
-              : "0.00 WDD"}
+      <div className="mt-5 flex items-center justify-between">
+        <div className="flex h-10 items-center">
+          <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
+            Earn
           </Typography>
-        </a>
+        </div>
+        {isLoggedIn && (
+          <a
+            href="https://worldcoin.org/mini-app?app_id=app_a4f7f3e62c1de0b9490a5260cb390b56&path=%3Ftab%3Dswap%26fromToken%3D0x2cFc85d8E48F8EAB294be644d9E25C3030863003%26amount%3D1000000000000000000%26toToken%3D0xAAC7d5E9011Fc0fC80bF707DDcC3D56DdfDa9084%26referrerAppId%3Dapp_66c83ab8c851fb1e54b1b1b62c6ce39d"
+            className="flex h-10 items-center gap-2 rounded-full bg-gray-100 px-4"
+          >
+            <PiWalletFill className="h-5 w-5" />
+            <Typography
+              variant={{ variant: "number", level: 6 }}
+              className="text-base"
+            >
+              {tokenBalance
+                ? `${Number(tokenBalance).toFixed(2)} WDD`
+                : "0.00 WDD"}
+            </Typography>
+          </a>
+        )}
       </div>
 
       <TabSwiper

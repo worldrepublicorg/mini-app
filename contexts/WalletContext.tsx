@@ -11,14 +11,11 @@ import { parseAbi } from "viem";
 import { viemClient } from "@/lib/viemClient";
 
 interface WalletContextProps {
+  isLoggedIn: boolean;
   walletAddress: string | null;
   username: string | null;
-  isLoggedIn: boolean;
-  stakeInfo: {
-    tokensStaked: string;
-    rewards: string;
-    staked: string;
-    lastStaked: string | null;
+  basicIncomeInfo: {
+    claimableAmount: string;
   } | null;
   tokenBalance: string | null;
   setWalletData: (address: string | null, username: string | null) => void;
@@ -26,10 +23,10 @@ interface WalletContextProps {
 }
 
 const WalletContext = createContext<WalletContextProps>({
+  isLoggedIn: false,
   walletAddress: null,
   username: null,
-  isLoggedIn: false,
-  stakeInfo: null,
+  basicIncomeInfo: null,
   tokenBalance: null,
   setWalletData: () => {},
   setIsLoggedIn: () => {}, // Default empty function
@@ -43,8 +40,8 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [walletAddress, setWalletAddress] = useState<string | null>(null);
   const [username, setUsername] = useState<string | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const [stakeInfo, setStakeInfo] =
-    useState<WalletContextProps["stakeInfo"]>(null);
+  const [basicIncomeInfo, setBasicIncomeInfo] =
+    useState<WalletContextProps["basicIncomeInfo"]>(null);
   const [tokenBalance, setTokenBalance] = useState<string | null>(null);
 
   useEffect(() => {
@@ -61,11 +58,11 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    const fetchStakeInfo = async () => {
+    const fetchBasicIncomeInfo = async () => {
       if (!walletAddress) return;
 
       try {
-        const stakeInfoResult = await viemClient.readContract({
+        const result = await viemClient.readContract({
           address: "0x2f08c17B30e6622F8B780fb58835Fc0927E2dc8e",
           abi: parseAbi([
             "function getStakeInfo(address) external view returns (uint256, uint256)",
@@ -74,22 +71,19 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
           args: [walletAddress as `0x${string}`],
         });
 
-        if (Array.isArray(stakeInfoResult) && stakeInfoResult.length === 2) {
-          setStakeInfo({
-            tokensStaked: (Number(stakeInfoResult[0]) / 1e18).toString(),
-            rewards: (Number(stakeInfoResult[1]) / 1e18).toString(),
-            staked: "0",
-            lastStaked: null,
+        if (Array.isArray(result) && result.length === 2) {
+          setBasicIncomeInfo({
+            claimableAmount: (Number(result[0]) / 1e18).toString(),
           });
         }
       } catch (error) {
-        console.error("Error fetching stake info:", error);
+        console.error("Error fetching basic income info:", error);
       }
     };
 
     if (walletAddress) {
-      fetchStakeInfo();
-      const interval = setInterval(fetchStakeInfo, 1000);
+      fetchBasicIncomeInfo();
+      const interval = setInterval(fetchBasicIncomeInfo, 1000);
       return () => clearInterval(interval);
     }
   }, [walletAddress]);
@@ -145,7 +139,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         walletAddress,
         username,
         isLoggedIn,
-        stakeInfo,
+        basicIncomeInfo,
         tokenBalance,
         setWalletData,
         setIsLoggedIn,
