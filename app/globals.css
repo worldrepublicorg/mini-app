@@ -35,12 +35,6 @@ pre {
   }
 }
 
-@supports (padding: max(0px)) {
-  .safe-area-spacer {
-    padding-bottom: max(0px, env(safe-area-inset-bottom));
-  }
-}
-
 .no-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -48,4 +42,11 @@ pre {
 
 .no-scrollbar::-webkit-scrollbar {
   display: none; /* Chrome, Safari and Opera */
+}
+
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3),
+  only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
+  .safe-area-spacer {
+    padding-bottom: 34px; /* Default safe area for iPhone X and newer */
+  }
 }
