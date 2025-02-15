@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Pill } from "@/components/ui/Pill";
 
 interface TabSwiperProps {
@@ -10,17 +10,12 @@ interface TabSwiperProps {
 }
 
 export function TabSwiper({ tabs, activeTab, onTabChange }: TabSwiperProps) {
-  const [isMounted, setIsMounted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const tabRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
   const isScrollingRef = useRef(false);
 
   useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (isMounted && containerRef.current && tabRefs.current[activeTab]) {
+    if (containerRef.current && tabRefs.current[activeTab]) {
       const container = containerRef.current;
       const activeTabElement = tabRefs.current[activeTab];
 
@@ -67,11 +62,7 @@ export function TabSwiper({ tabs, activeTab, onTabChange }: TabSwiperProps) {
         requestAnimationFrame(animate);
       }
     }
-  }, [activeTab, isMounted]);
-
-  if (!isMounted) {
-    return null;
-  }
+  }, [activeTab]);
 
   return (
     <div className="-mx-6">
