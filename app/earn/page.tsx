@@ -35,7 +35,7 @@ export default function EarnPage() {
   });
 
   const isBasicIncomeSetup =
-    basicIncomeInfo && Number(basicIncomeInfo.claimableAmount) > 0;
+    basicIncomeInfo !== null && basicIncomeInfo.claimableAmount !== undefined;
 
   const sendSetup = async () => {
     if (!MiniKit.isInstalled()) return;
