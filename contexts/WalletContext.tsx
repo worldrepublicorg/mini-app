@@ -73,7 +73,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
         if (Array.isArray(result) && result.length === 2) {
           setBasicIncomeInfo({
-            claimableAmount: (Number(result[0]) / 1e18).toString(),
+            claimableAmount: (Number(result[1]) / 1e18).toString(),
           });
         }
       } catch (error) {
