@@ -41,7 +41,7 @@ export function TabSwiper({ tabs, activeTab, onTabChange }: TabSwiperProps) {
 
         // Smooth scroll with better easing
         const startTime = performance.now();
-        const duration = 300; // milliseconds
+        const duration = 100; // milliseconds
 
         const animate = (currentTime: number) => {
           const elapsed = currentTime - startTime;
