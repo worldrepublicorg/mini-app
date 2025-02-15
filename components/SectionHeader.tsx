@@ -15,7 +15,7 @@ export function SectionHeader({ title, description }: SectionHeaderProps) {
       </Typography>
       <Typography
         variant={{ variant: "subtitle", level: 1 }}
-        className="text-gray-500 max-w-2xl mx-auto mt-4"
+        className="mx-auto mt-4 max-w-2xl text-gray-500"
       >
         {description}
       </Typography>
