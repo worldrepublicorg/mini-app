@@ -44,21 +44,13 @@ pre {
   display: none; /* Chrome, Safari and Opera */
 }
 
-/* General safe area handling for all devices */
-.safe-area-spacer {
-  padding-bottom: env(safe-area-inset-bottom, 0);
-}
-
-/* Fallback for devices that don't support env() */
-@supports not (padding: env(safe-area-inset-bottom)) {
-  @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3),
-    /* iPhone X/XS/11 Pro */ only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2),
-    /* iPhone XR/11 */ only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3),
-    /* iPhone 12/13 Pro */ only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3),
-    /* iPhone 12/13 Pro Max */ only screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) {
-    /* iPhone 14 Pro Max */
-    .safe-area-spacer {
-      padding-bottom: 34px;
-    }
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3),
+  /* iPhone X/XS/11 Pro */ only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2),
+  /* iPhone XR/11 */ only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3),
+  /* iPhone 12/13 Pro */ only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3),
+  /* iPhone 12/13 Pro Max */ only screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) {
+  /* iPhone 14 Pro Max */
+  .safe-area-spacer {
+    padding-bottom: 34px;
   }
 }
