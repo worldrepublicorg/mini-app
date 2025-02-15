@@ -48,7 +48,10 @@ export function TabSwiper({ tabs, activeTab, onTabChange }: TabSwiperProps) {
           const progress = Math.min(elapsed / duration, 1);
 
           // Easing function (easeOutCubic)
-          const easing = 1 - Math.pow(1 - progress, 3);
+          const easing =
+            progress < 0.5
+              ? 2 * progress * progress
+              : 1 - Math.pow(-2 * progress + 2, 2) / 2;
 
           const currentPosition =
             currentScroll + (boundedTarget - currentScroll) * easing;
