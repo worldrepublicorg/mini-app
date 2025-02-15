@@ -25,7 +25,7 @@ const BottomNav = () => {
               e.currentTarget.click();
             }}
           >
-            <Icon className="h-5 w-5" />
+            <Icon className="h-6 w-6" />
           </Link>
         ))}
       </div>
