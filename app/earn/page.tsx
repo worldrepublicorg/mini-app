@@ -19,11 +19,7 @@ import { TabSwiper } from "@/components/TabSwiper";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { Button } from "@/components/ui/Button";
 import { ComingSoonDrawer } from "@/components/ComingSoonDrawer";
-import {
-  checkWalletAuth,
-  getStoredUsername,
-  getWalletAddress,
-} from "@/lib/auth";
+import { checkWalletAuth } from "@/lib/auth";
 import { useCountUp } from "react-countup";
 
 export default function EarnPage() {
@@ -148,8 +144,6 @@ export default function EarnPage() {
   const renderContent = () => {
     switch (activeTab) {
       case "Basic income":
-        if (!stakeInfoFetched) return <div>Loading...</div>;
-
         return (
           <div className="flex w-full flex-col items-center py-6">
             <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
