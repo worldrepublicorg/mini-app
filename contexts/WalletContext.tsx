@@ -12,6 +12,10 @@ import { viemClient } from "@/lib/viemClient";
 import { MiniKit } from "@worldcoin/minikit-js";
 
 interface WalletContextProps {
+  walletAddress: string | null;
+  username: string | null;
+  setUsername: (username: string) => Promise<void>;
+  setWalletAddress: (walletAddress: string) => Promise<void>;
   basicIncomeInfo: {
     claimableAmount: string;
   } | null;
@@ -21,6 +25,10 @@ interface WalletContextProps {
 }
 
 const WalletContext = createContext<WalletContextProps>({
+  walletAddress: null,
+  username: null,
+  setUsername: async () => {},
+  setWalletAddress: async () => {},
   basicIncomeInfo: null,
   tokenBalance: null,
   fetchBasicIncomeInfo: async () => {},
@@ -143,6 +151,10 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   return (
     <WalletContext.Provider
       value={{
+        walletAddress,
+        username,
+        setUsername,
+        setWalletAddress,
         basicIncomeInfo,
         tokenBalance,
         fetchBasicIncomeInfo,

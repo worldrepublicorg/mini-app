@@ -3,13 +3,16 @@
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useState } from "react";
 import { Button } from "./ui/Button";
+import { useWallet } from "@/contexts/WalletContext";
 
 interface WalletAuthProps {
   onError?: (error: string) => void;
+  onSuccess?: (walletAddress: string, username: string) => void;
 }
 
-export function WalletAuth({ onError }: WalletAuthProps) {
+export function WalletAuth({ onError, onSuccess }: WalletAuthProps) {
   const [isLoading, setIsLoading] = useState(false);
+  const { setWalletAddress, setUsername } = useWallet();
 
   const handleError = (message: string) => {
     onError?.(message);
@@ -47,15 +50,34 @@ export function WalletAuth({ onError }: WalletAuthProps) {
       });
 
       const result = await response.json();
-      if (result.status !== "success" || !result.isValid) {
-        handleError("Verification failed");
-        return;
-      }
 
-      window.location.reload();
+      if (result.status === "success" && result.isValid) {
+        const fetchedWalletAddress = MiniKit.user?.walletAddress;
+        if (fetchedWalletAddress) {
+          let fetchedUsername = null;
+          try {
+            const usernameRes = await fetch(
+              `https://usernames.worldcoin.org/api/v1/${fetchedWalletAddress}`
+            );
+            if (!usernameRes.ok) {
+              throw new Error("Failed to fetch username");
+            }
+            const usernameData = await usernameRes.json();
+            fetchedUsername = usernameData.username || "Unknown";
+          } catch (error: any) {
+            console.error("Error fetching username:", error);
+          } finally {
+            setWalletAddress(fetchedWalletAddress);
+            setUsername(fetchedUsername);
+            onSuccess?.(fetchedWalletAddress, fetchedUsername);
+          }
+        }
+      } else {
+        onError?.("Verification failed");
+      }
     } catch (error) {
       console.error("Error during wallet auth:", error);
-      handleError("Authentication failed");
+      onError?.("Authentication failed");
     } finally {
       setIsLoading(false);
     }
