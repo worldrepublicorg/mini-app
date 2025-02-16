@@ -11,16 +11,11 @@ import { parseAbi } from "viem";
 import { viemClient } from "@/lib/viemClient";
 import { getStoredUsername } from "@/lib/auth";
 
-interface BasicIncomeInfo {
-  claimableAmount: string;
-  tokensStaked: string;
-}
-
 interface WalletContextProps {
   walletAddress: string | null;
   username: string | null;
   setWalletData: (address: string | null, username: string | null) => void;
-  basicIncomeInfo: BasicIncomeInfo | null;
+  claimableAmount: string | null;
   tokenBalance: string | null;
   fetchBasicIncomeInfo: () => Promise<void>;
   fetchBalance: () => Promise<void>;
@@ -31,7 +26,7 @@ const WalletContext = createContext<WalletContextProps>({
   walletAddress: null,
   username: null,
   setWalletData: async () => {},
-  basicIncomeInfo: null,
+  claimableAmount: null,
   tokenBalance: null,
   fetchBasicIncomeInfo: async () => {},
   fetchBalance: async () => {},
@@ -44,8 +39,7 @@ interface WalletProviderProps {
 
 export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [username, setUsername] = useState<string | null>(null);
-  const [basicIncomeInfo, setBasicIncomeInfo] =
-    useState<WalletContextProps["basicIncomeInfo"]>(null);
+  const [claimableAmount, setClaimableAmount] = useState<string | null>(null);
   const [tokenBalance, setTokenBalance] = useState<string | null>(null);
   const [walletAddress, setWalletAddress] = useState<string | null>(null);
   const [hasStaked, setHasStaked] = useState(false);
@@ -77,17 +71,14 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       });
 
       if (Array.isArray(result) && result.length === 2) {
-        const rawStaked = result[0]; // This is the raw BigInt value
-        setHasStaked(rawStaked > 0n); // Direct BigInt comparison
-        const tokensStaked = fromWei(rawStaked);
-        setBasicIncomeInfo({
-          claimableAmount: fromWei(result[1]),
-          tokensStaked: tokensStaked,
-        });
+        const rawClaimableAmount = result[1]; // This is the raw BigInt value
+        setHasStaked(rawClaimableAmount > 0n); // Direct BigInt comparison
+        const claimableAmount = fromWei(rawClaimableAmount);
+        setClaimableAmount(claimableAmount);
       }
     } catch (error) {
       console.error("Error fetching basic income info:", error);
-      setBasicIncomeInfo(null);
+      setClaimableAmount(null);
       setHasStaked(false);
     }
   };
@@ -195,7 +186,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         walletAddress,
         username,
         setWalletData,
-        basicIncomeInfo,
+        claimableAmount,
         tokenBalance,
         fetchBasicIncomeInfo,
         fetchBalance: async () => {

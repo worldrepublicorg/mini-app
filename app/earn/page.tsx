@@ -24,8 +24,7 @@ import { useCountUp } from "react-countup";
 
 export default function EarnPage() {
   const [activeTab, setActiveTab] = useState("Basic income");
-  const { basicIncomeInfo, tokenBalance, hasStaked, fetchBasicIncomeInfo } =
-    useWallet();
+  const { claimableAmount, tokenBalance, fetchBasicIncomeInfo } = useWallet();
   const [transactionId, setTransactionId] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const animationRef = useRef<number>();
@@ -40,13 +39,13 @@ export default function EarnPage() {
     });
 
   const isBasicIncomeSetup =
-    basicIncomeInfo !== null && basicIncomeInfo.claimableAmount !== undefined;
+    claimableAmount !== null && claimableAmount !== undefined;
 
   const countUpRef = useRef(null);
   const { update } = useCountUp({
     ref: countUpRef,
     start: 0,
-    end: Number(basicIncomeInfo?.claimableAmount || 0),
+    end: Number(claimableAmount || 0),
     duration: 1.5,
     decimals: 6,
     separator: ",",
@@ -58,9 +57,9 @@ export default function EarnPage() {
   });
 
   useEffect(() => {
-    if (!basicIncomeInfo?.claimableAmount) return;
+    if (!claimableAmount) return;
 
-    update(Number(basicIncomeInfo.claimableAmount));
+    update(Number(claimableAmount));
 
     let lastTime = Date.now();
 
@@ -69,7 +68,7 @@ export default function EarnPage() {
       const elapsed = (now - lastTime) / 1000;
       const increase = elapsed / 8640;
 
-      update(Number(basicIncomeInfo.claimableAmount) + increase);
+      update(Number(claimableAmount) + increase);
       lastTime = now;
       animationRef.current = requestAnimationFrame(animate);
     };
@@ -79,7 +78,7 @@ export default function EarnPage() {
     return () => {
       if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
-  }, [basicIncomeInfo?.claimableAmount, update]);
+  }, [claimableAmount, update]);
 
   const sendSetup = async () => {
     if (!MiniKit.isInstalled()) return;
