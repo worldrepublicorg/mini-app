@@ -84,6 +84,8 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   useEffect(() => {
     if (!walletAddress) return;
 
+    fetchBasicIncomeInfo();
+
     try {
       const unwatch = viemClient.watchContractEvent({
         address: BASIC_INCOME_CONTRACT,

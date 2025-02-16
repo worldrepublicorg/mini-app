@@ -61,10 +61,6 @@ export default function EarnPage() {
   });
 
   useEffect(() => {
-    fetchBasicIncomeInfo();
-  }, []);
-
-  useEffect(() => {
     if (!claimableAmount) return;
 
     update(Number(claimableAmount));
