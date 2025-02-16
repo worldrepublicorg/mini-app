@@ -16,18 +16,21 @@ interface WalletContextProps {
     claimableAmount: string;
   } | null;
   tokenBalance: string | null;
+  fetchBasicIncomeInfo: () => Promise<void>;
+  fetchBalance: () => Promise<void>;
 }
 
 const WalletContext = createContext<WalletContextProps>({
   basicIncomeInfo: null,
   tokenBalance: null,
+  fetchBasicIncomeInfo: async () => {},
+  fetchBalance: async () => {},
 });
 
 interface WalletProviderProps {
   children: ReactNode;
 }
 
-// Add these constants at the top
 const BASIC_INCOME_CONTRACT = "0x02c3B99D986ef1612bAC63d4004fa79714D00012";
 const TOKEN_CONTRACT = "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B";
 
@@ -41,14 +44,12 @@ const TOKEN_ABI = parseAbi([
   "event Transfer(address indexed from, address indexed to, uint256 value)",
 ]);
 
-// Utility function
 const fromWei = (value: bigint) => (Number(value) / 1e18).toString();
 
 export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [basicIncomeInfo, setBasicIncomeInfo] =
     useState<WalletContextProps["basicIncomeInfo"]>(null);
   const [tokenBalance, setTokenBalance] = useState<string | null>(null);
-  const [username, setUsername] = useState<string | null>(null);
   const walletAddress = MiniKit.user?.walletAddress;
 
   const fetchBasicIncomeInfo = async () => {
@@ -69,30 +70,30 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       }
     } catch (error) {
       console.error("Error fetching basic income info:", error);
-      setBasicIncomeInfo(null); // Reset on error
+      setBasicIncomeInfo(null);
     }
   };
 
   useEffect(() => {
     if (!walletAddress) return;
 
-    const unwatch = viemClient.watchContractEvent({
-      address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012",
-      abi: parseAbi([
-        "event RewardsClaimed(address indexed user, uint256 amount)",
-      ]),
-      eventName: "RewardsClaimed",
-      args: { user: walletAddress },
-      onLogs: () => {
-        fetchBasicIncomeInfo();
-      },
-    });
+    try {
+      const unwatch = viemClient.watchContractEvent({
+        address: BASIC_INCOME_CONTRACT,
+        abi: parseAbi([
+          "event RewardsClaimed(address indexed user, uint256 amount)",
+        ]),
+        eventName: "RewardsClaimed",
+        args: { user: walletAddress },
+        onLogs: () => {
+          fetchBasicIncomeInfo();
+        },
+      });
 
-    fetchBasicIncomeInfo();
-
-    return () => {
-      unwatch();
-    };
+      return () => unwatch();
+    } catch (error) {
+      console.error("Error watching RewardsClaimed events:", error);
+    }
   }, [walletAddress]);
 
   useEffect(() => {
@@ -112,30 +113,30 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         }
       } catch (error) {
         console.error("Error fetching balance:", error);
-        setTokenBalance(null); // Reset on error
+        setTokenBalance(null);
       }
     };
 
     if (walletAddress) {
-      // Initial fetch
       fetchBalance();
 
-      // Watch for Transfer events
-      const unwatch = viemClient.watchContractEvent({
-        address: "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B",
-        abi: parseAbi([
-          "event Transfer(address indexed from, address indexed to, uint256 value)",
-        ]),
-        eventName: "Transfer",
-        args: { from: walletAddress, to: walletAddress },
-        onLogs: () => {
-          fetchBalance();
-        },
-      });
+      try {
+        const unwatch = viemClient.watchContractEvent({
+          address: TOKEN_CONTRACT,
+          abi: parseAbi([
+            "event Transfer(address indexed from, address indexed to, uint256 value)",
+          ]),
+          eventName: "Transfer",
+          args: { from: walletAddress, to: walletAddress },
+          onLogs: () => {
+            fetchBalance();
+          },
+        });
 
-      return () => {
-        unwatch();
-      };
+        return () => unwatch();
+      } catch (error) {
+        console.error("Error watching Transfer events:", error);
+      }
     }
   }, [walletAddress]);
 
@@ -144,6 +145,16 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       value={{
         basicIncomeInfo,
         tokenBalance,
+        fetchBasicIncomeInfo,
+        fetchBalance: async () => {
+          const balanceResult = await viemClient.readContract({
+            address: TOKEN_CONTRACT,
+            abi: TOKEN_ABI,
+            functionName: "balanceOf",
+            args: [walletAddress as `0x${string}`],
+          });
+          setTokenBalance(fromWei(balanceResult));
+        },
       }}
     >
       {children}

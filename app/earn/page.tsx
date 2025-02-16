@@ -1,7 +1,7 @@
 "use client";
 
 import { Typography } from "@/components/ui/Typography";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   PiHandCoinsFill,
   PiPiggyBankFill,
@@ -22,53 +22,83 @@ import { ComingSoonDrawer } from "@/components/ComingSoonDrawer";
 
 export default function EarnPage() {
   const [activeTab, setActiveTab] = useState("Basic income");
-  const { basicIncomeInfo, tokenBalance } = useWallet();
+  const { basicIncomeInfo, tokenBalance, fetchBasicIncomeInfo, fetchBalance } =
+    useWallet();
   const [transactionId, setTransactionId] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [lastFetchTime, setLastFetchTime] = useState<number>(Date.now());
-  const [calculatedClaimable, setCalculatedClaimable] = useState<string>("0");
+  const [localClaimable, setLocalClaimable] = useState("0");
+  const animationRef = useRef<number>();
 
   const walletAddress = MiniKit.user?.walletAddress;
 
-  const { isLoading: isConfirming } = useWaitForTransactionReceipt({
-    client: viemClient,
-    appConfig: {
-      app_id: process.env.NEXT_PUBLIC_APP_ID as string,
-    },
-    transactionId: transactionId,
-  });
+  const { isLoading: isConfirming, isSuccess: isConfirmed } =
+    useWaitForTransactionReceipt({
+      client: viemClient,
+      appConfig: {
+        app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}`,
+      },
+      transactionId: transactionId,
+    });
 
   const isBasicIncomeSetup =
     basicIncomeInfo !== null && basicIncomeInfo.claimableAmount !== undefined;
 
-  // Calculate the increasing rewards
-  const calculateCurrentClaimable = (baseAmount: string) => {
-    const timeElapsed = Date.now() - lastFetchTime;
-    const secondsElapsed = timeElapsed / 1000;
-    const increaseAmount = secondsElapsed / 8640; // 1/8640 per second
-    return (Number(baseAmount) + increaseAmount).toString();
-  };
-
-  // Update calculated claimable when basicIncomeInfo changes
-  useEffect(() => {
-    if (basicIncomeInfo?.claimableAmount) {
-      setCalculatedClaimable(basicIncomeInfo.claimableAmount);
-      setLastFetchTime(Date.now());
-    }
-  }, [basicIncomeInfo]);
-
-  // Update the displayed amount every second
   useEffect(() => {
     if (!basicIncomeInfo?.claimableAmount) return;
 
-    const interval = setInterval(() => {
-      setCalculatedClaimable(
-        calculateCurrentClaimable(basicIncomeInfo.claimableAmount)
-      );
-    }, 1000);
+    let lastTime = Date.now();
 
-    return () => clearInterval(interval);
-  }, [basicIncomeInfo]);
+    const updateClaimable = () => {
+      if (document.visibilityState === "hidden") return;
+
+      const now = Date.now();
+      const elapsed = (now - lastTime) / 1000;
+      const increase = elapsed / 8640;
+
+      setLocalClaimable((prev) => {
+        const newValue = Number(prev) + increase;
+        return newValue.toFixed(6);
+      });
+
+      lastTime = now;
+      animationRef.current = requestAnimationFrame(updateClaimable);
+    };
+
+    setLocalClaimable(basicIncomeInfo.claimableAmount);
+    animationRef.current = requestAnimationFrame(updateClaimable);
+
+    return () => {
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+    };
+  }, [basicIncomeInfo?.claimableAmount]);
+
+  useEffect(() => {
+    const handleVisibilityOrOnline = () => {
+      if (document.visibilityState === "visible" && navigator.onLine) {
+        fetchBasicIncomeInfo();
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityOrOnline);
+    window.addEventListener("online", handleVisibilityOrOnline);
+
+    return () => {
+      document.removeEventListener(
+        "visibilitychange",
+        handleVisibilityOrOnline
+      );
+      window.removeEventListener("online", handleVisibilityOrOnline);
+    };
+  }, [fetchBasicIncomeInfo]);
+
+  useEffect(() => {
+    if (isConfirmed) {
+      fetchBasicIncomeInfo();
+      fetchBalance();
+
+      setTransactionId("");
+    }
+  }, [isConfirmed]);
 
   const sendSetup = async () => {
     if (!MiniKit.isInstalled()) return;
@@ -160,7 +190,7 @@ export default function EarnPage() {
                   Claimable drachma
                 </Typography>
                 <Typography variant="number" level={1} className="mb-12">
-                  {Number(calculatedClaimable).toFixed(6)}
+                  {localClaimable}
                 </Typography>
                 <Button
                   onClick={sendClaim}
