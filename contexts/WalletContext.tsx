@@ -12,16 +12,20 @@ import { viemClient } from "@/lib/viemClient";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { getStoredUsername } from "@/lib/auth";
 
+interface BasicIncomeInfo {
+  claimableAmount: string;
+  tokensStaked: string;
+}
+
 interface WalletContextProps {
   walletAddress: string | null;
   username: string | null;
   setWalletData: (address: string | null, username: string | null) => void;
-  basicIncomeInfo: {
-    claimableAmount: string;
-  } | null;
+  basicIncomeInfo: BasicIncomeInfo | null;
   tokenBalance: string | null;
   fetchBasicIncomeInfo: () => Promise<void>;
   fetchBalance: () => Promise<void>;
+  hasStaked: boolean;
 }
 
 const WalletContext = createContext<WalletContextProps>({
@@ -32,6 +36,7 @@ const WalletContext = createContext<WalletContextProps>({
   tokenBalance: null,
   fetchBasicIncomeInfo: async () => {},
   fetchBalance: async () => {},
+  hasStaked: false,
 });
 
 interface WalletProviderProps {
@@ -44,6 +49,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     useState<WalletContextProps["basicIncomeInfo"]>(null);
   const [tokenBalance, setTokenBalance] = useState<string | null>(null);
   const [walletAddress, setWalletAddress] = useState<string | null>(null);
+  const [hasStaked, setHasStaked] = useState(false);
 
   const BASIC_INCOME_CONTRACT = "0x02c3B99D986ef1612bAC63d4004fa79714D00012";
   const TOKEN_CONTRACT = "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B";
@@ -72,13 +78,17 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       });
 
       if (Array.isArray(result) && result.length === 2) {
+        const tokensStaked = fromWei(result[0]);
         setBasicIncomeInfo({
           claimableAmount: fromWei(result[1]),
+          tokensStaked: tokensStaked,
         });
+        setHasStaked(Number(tokensStaked) > 0);
       }
     } catch (error) {
       console.error("Error fetching basic income info:", error);
       setBasicIncomeInfo(null);
+      setHasStaked(false);
     }
   };
 
@@ -197,6 +207,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
           });
           setTokenBalance(fromWei(balanceResult));
         },
+        hasStaked,
       }}
     >
       {children}

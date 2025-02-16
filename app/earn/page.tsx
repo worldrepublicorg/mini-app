@@ -23,7 +23,8 @@ import { checkWalletAuth } from "@/lib/auth";
 
 export default function EarnPage() {
   const [activeTab, setActiveTab] = useState("Basic income");
-  const { basicIncomeInfo, tokenBalance } = useWallet();
+  const { basicIncomeInfo, tokenBalance, hasStaked, fetchBasicIncomeInfo } =
+    useWallet();
   const [transactionId, setTransactionId] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [localClaimable, setLocalClaimable] = useState("0");
@@ -90,9 +91,12 @@ export default function EarnPage() {
         console.error("Error sending transaction", finalPayload);
       } else {
         setTransactionId(finalPayload.transaction_id);
+        await fetchBasicIncomeInfo();
+        alert("Successfully activated basic income!");
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error:", error);
+      alert(`Failed: ${error?.shortMessage || error.message}`);
     } finally {
       setIsSubmitting(false);
     }
@@ -106,7 +110,8 @@ export default function EarnPage() {
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
-            address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012",
+            address:
+              "0x02c3B99D986ef1612bAC63d4004fa79714D00012" as `0x${string}`,
             abi: parseAbi(["function claimRewards() external"]),
             functionName: "claimRewards",
             args: [],
@@ -182,9 +187,10 @@ export default function EarnPage() {
                 <Button
                   onClick={sendSetup}
                   isLoading={isSubmitting || isConfirming}
+                  disabled={hasStaked}
                   fullWidth
                 >
-                  Activate basic income
+                  {hasStaked ? "Basic Income Active" : "Activate Basic Income"}
                 </Button>
               </>
             )}
