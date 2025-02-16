@@ -33,6 +33,7 @@ export default function EarnPage() {
     tokenBalance,
     fetchBasicIncomeInfo,
     isBasicIncomeSetup,
+    stakeInfoFetched,
     username,
     walletAddress,
   } = useWallet();
@@ -40,14 +41,13 @@ export default function EarnPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const animationRef = useRef<number>();
 
-  const { isLoading: isConfirming, isSuccess: isConfirmed } =
-    useWaitForTransactionReceipt({
-      client: viemClient,
-      appConfig: {
-        app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}`,
-      },
-      transactionId: transactionId,
-    });
+  const { isLoading: isConfirming } = useWaitForTransactionReceipt({
+    client: viemClient,
+    appConfig: {
+      app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}`,
+    },
+    transactionId: transactionId,
+  });
 
   const countUpRef = useRef(null);
   const { update } = useCountUp({
@@ -68,7 +68,6 @@ export default function EarnPage() {
     if (!claimableAmount) return;
 
     update(Number(claimableAmount));
-
     let lastTime = Date.now();
 
     const animate = () => {
@@ -90,7 +89,6 @@ export default function EarnPage() {
 
   const sendSetup = async () => {
     if (!MiniKit.isInstalled()) return;
-
     setIsSubmitting(true);
     try {
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
@@ -121,7 +119,6 @@ export default function EarnPage() {
 
   const sendClaim = async () => {
     if (!MiniKit.isInstalled()) return;
-
     setIsSubmitting(true);
     try {
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
@@ -151,6 +148,8 @@ export default function EarnPage() {
   const renderContent = () => {
     switch (activeTab) {
       case "Basic income":
+        if (!stakeInfoFetched) return <div>Loading...</div>;
+
         return (
           <div className="flex w-full flex-col items-center py-6">
             <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
@@ -169,7 +168,6 @@ export default function EarnPage() {
                 >
                   Sign in to claim your basic income
                 </Typography>
-
                 <WalletAuth onError={(error) => console.error(error)} />
               </>
             ) : isBasicIncomeSetup ? (

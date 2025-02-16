@@ -22,6 +22,7 @@ interface WalletContextProps {
   fetchBasicIncomeInfo: () => Promise<void>;
   fetchBalance: () => Promise<void>;
   isBasicIncomeSetup: boolean;
+  stakeInfoFetched: boolean;
 }
 
 const WalletContext = createContext<WalletContextProps>({
@@ -34,6 +35,7 @@ const WalletContext = createContext<WalletContextProps>({
   fetchBasicIncomeInfo: async () => {},
   fetchBalance: async () => {},
   isBasicIncomeSetup: false,
+  stakeInfoFetched: false,
 });
 
 interface WalletProviderProps {
@@ -46,6 +48,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [tokenBalance, setTokenBalance] = useState<string | null>(null);
   const [walletAddress, setWalletAddress] = useState<string | null>(null);
   const [isBasicIncomeSetup, setIsBasicIncomeSetup] = useState<boolean>(false);
+  const [stakeInfoFetched, setStakeInfoFetched] = useState<boolean>(false);
 
   const BASIC_INCOME_CONTRACT = "0x02c3B99D986ef1612bAC63d4004fa79714D00012";
   const TOKEN_CONTRACT = "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B";
@@ -64,7 +67,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
   const fetchBasicIncomeInfo = async () => {
     if (!walletAddress) return;
-
+    setStakeInfoFetched(false);
     try {
       const result = await viemClient.readContract({
         address: BASIC_INCOME_CONTRACT,
@@ -76,19 +79,21 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       if (Array.isArray(result) && result.length === 2) {
         const [stakedAmount, rawClaimableAmount] = result;
         setIsBasicIncomeSetup(stakedAmount > 0n);
-        const claimableAmount = fromWei(rawClaimableAmount);
-        setClaimableAmount(claimableAmount);
+        setClaimableAmount(fromWei(rawClaimableAmount));
       }
     } catch (error) {
       console.error("Error fetching basic income info:", error);
       setClaimableAmount(null);
       setIsBasicIncomeSetup(false);
+    } finally {
+      setStakeInfoFetched(true);
     }
   };
 
   useEffect(() => {
     if (!walletAddress) return;
 
+    // Fetch basic income info (this will update stakeInfoFetched)
     fetchBasicIncomeInfo();
 
     try {
@@ -191,6 +196,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
           setTokenBalance(fromWei(balanceResult));
         },
         isBasicIncomeSetup,
+        stakeInfoFetched,
       }}
     >
       {children}
