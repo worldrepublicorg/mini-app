@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { Pill } from "@/components/ui/Pill";
+import { useEffect, useRef, useState } from "react";
 
 interface TabSwiperProps {
   tabs: string[];
@@ -11,88 +11,94 @@ interface TabSwiperProps {
 
 export function TabSwiper({ tabs, activeTab, onTabChange }: TabSwiperProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const tabRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
-  const isScrollingRef = useRef(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
 
   useEffect(() => {
-    if (containerRef.current && tabRefs.current[activeTab]) {
-      const container = containerRef.current;
-      const activeTabElement = tabRefs.current[activeTab];
+    const container = containerRef.current;
+    if (!container) return;
 
-      if (activeTabElement && !isScrollingRef.current) {
-        isScrollingRef.current = true;
+    const handleScroll = () => {
+      // Update scroll position state
+      setScrollLeft(container.scrollLeft);
+    };
 
-        const containerWidth = container.offsetWidth;
-        const tabOffset = activeTabElement.offsetLeft;
-        const tabWidth = activeTabElement.offsetWidth;
-        const currentScroll = container.scrollLeft;
+    container.addEventListener('scroll', handleScroll);
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, []);
 
-        // Calculate the target scroll position
-        const targetScroll = tabOffset - containerWidth / 2 + tabWidth / 2;
+  // Touch/mouse handlers for dragging
+  const startDrag = (e: React.TouchEvent | React.MouseEvent) => {
+    setIsDragging(true);
+    const container = containerRef.current;
+    if (!container) return;
+    
+    const x = 'touches' in e ? e.touches[0].pageX : e.pageX;
+    setStartX(x - container.offsetLeft);
+    setScrollLeft(container.scrollLeft);
+  };
 
-        // Ensure we don't scroll past the bounds
-        const maxScroll = container.scrollWidth - containerWidth;
-        const boundedTarget = Math.max(0, Math.min(targetScroll, maxScroll));
+  const onDrag = (e: React.TouchEvent | React.MouseEvent) => {
+    if (!isDragging) return;
+    const container = containerRef.current;
+    if (!container) return;
+    
+    const x = 'touches' in e ? e.touches[0].pageX : e.pageX;
+    const walk = (x - container.offsetLeft - startX) * 2; // Adjust multiplier for sensitivity
+    container.scrollLeft = scrollLeft - walk;
+  };
 
-        // Smooth scroll with better easing
-        const startTime = performance.now();
-        const duration = 100; // milliseconds
+  const endDrag = () => {
+    setIsDragging(false);
+  };
 
-        const animate = (currentTime: number) => {
-          const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1);
+  // Scroll to active tab logic
+  useEffect(() => {
+    const activeElement = document.querySelector(`[data-tab="${activeTab}"]`);
+    const container = containerRef.current;
+    
+    if (activeElement && container && !isDragging) {
+      const containerRect = container.getBoundingClientRect();
+      const elementRect = activeElement.getBoundingClientRect();
+      
+      const scrollLeft =
+        elementRect.left -
+        containerRect.left +
+        container.scrollLeft -
+        containerRect.width / 2 +
+        elementRect.width / 2;
 
-          // Easing function (easeOutCubic)
-          const easing =
-            progress < 0.5
-              ? 2 * progress * progress
-              : 1 - Math.pow(-2 * progress + 2, 2) / 2;
-
-          const currentPosition =
-            currentScroll + (boundedTarget - currentScroll) * easing;
-          container.scrollLeft = currentPosition;
-
-          if (progress < 1) {
-            requestAnimationFrame(animate);
-          } else {
-            isScrollingRef.current = false;
-          }
-        };
-
-        requestAnimationFrame(animate);
-      }
+      container.scrollTo({
+        left: scrollLeft,
+        behavior: "smooth",
+      });
     }
-  }, [activeTab]);
+  }, [activeTab, isDragging]);
 
   return (
-    <div className="-mx-6">
-      <div
-        ref={containerRef}
-        className="no-scrollbar w-full overflow-x-auto scroll-smooth"
-      >
-        <div className="flex gap-2 whitespace-nowrap px-6 py-1">
-          {tabs.map((tab) => (
-            <div
-              key={tab}
-              ref={(el) => {
-                tabRefs.current[tab] = el;
-              }}
-              className="mb-4 mt-2 flex-shrink-0"
-            >
-              <Pill
-                checked={activeTab === tab}
-                onClick={() => onTabChange(tab)}
-                onTouchStart={(e) => {
-                  e.preventDefault();
-                  e.currentTarget.click();
-                }}
-              >
-                {tab}
-              </Pill>
-            </div>
-          ))}
-          <div className="pr-6" />
-        </div>
+    <div 
+      ref={containerRef}
+      className="no-scrollbar -mx-6 overflow-x-auto pb-4 pt-2 touch-pan-x select-none"
+      onMouseDown={startDrag}
+      onMouseMove={onDrag}
+      onMouseUp={endDrag}
+      onMouseLeave={endDrag}
+      onTouchStart={startDrag}
+      onTouchMove={onDrag}
+      onTouchEnd={endDrag}
+    >
+      <div className="flex w-max gap-2 px-6">
+        {tabs.map((tab) => (
+          <Pill
+            key={tab}
+            checked={activeTab === tab}
+            onClick={() => !isDragging && onTabChange(tab)}
+            data-tab={tab}
+          >
+            {tab}
+          </Pill>
+        ))}
       </div>
     </div>
   );
