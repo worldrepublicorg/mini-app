@@ -9,7 +9,8 @@ import React, {
 } from "react";
 import { parseAbi } from "viem";
 import { viemClient } from "@/lib/viemClient";
-import { getStoredUsername } from "@/lib/auth";
+import { getStoredUsername, getWalletAddress } from "@/lib/auth";
+import { getIsUserVerified } from "@worldcoin/minikit-js";
 
 interface WalletContextProps {
   walletAddress: string | null;
@@ -147,19 +148,20 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   }, [walletAddress]);
 
   useEffect(() => {
-    if (typeof document !== "undefined") {
-      const storedAddress = document.cookie
-        .split("; ")
-        .find((row) => row.startsWith("wallet-address="))
-        ?.split("=")[1];
-
-      const storedUsername = getStoredUsername();
-
+    const validateSession = async () => {
+      const storedAddress = getWalletAddress();
       if (storedAddress) {
-        setWalletAddress(storedAddress);
-        setUsername(storedUsername);
+        const isValid = await getIsUserVerified(storedAddress);
+        if (isValid) {
+          setWalletAddress(storedAddress);
+          setUsername(getStoredUsername());
+        } else {
+          document.cookie =
+            "wallet-auth=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        }
       }
-    }
+    };
+    validateSession();
   }, []);
 
   const setWalletData = (address: string | null, username: string | null) => {
