@@ -330,9 +330,9 @@ export default function EarnPage() {
 
       <div className="flex flex-col gap-2">
         <p>MiniKit.user?.walletAddress: {MiniKit.user?.walletAddress}</p>
+        <p>MiniKit.walletAddress: {MiniKit.walletAddress}</p>
         <p>walletAddress: {walletAddress}</p>
         <p>MiniKit.user?.username: {MiniKit.user?.username}</p>
-        <p>MiniKit.isInstalled(): {MiniKit.isInstalled()}</p>
       </div>
 
       <div className="flex flex-1 items-center">{renderContent()}</div>
