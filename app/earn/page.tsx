@@ -198,10 +198,9 @@ export default function EarnPage() {
                 <Button
                   onClick={sendSetup}
                   isLoading={isSubmitting || isConfirming}
-                  disabled={hasStaked}
                   fullWidth
                 >
-                  {hasStaked ? "Basic Income Active" : "Activate Basic Income"}
+                  Activate Basic Income
                 </Button>
               </>
             )}

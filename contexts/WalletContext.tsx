@@ -9,7 +9,6 @@ import React, {
 } from "react";
 import { parseAbi } from "viem";
 import { viemClient } from "@/lib/viemClient";
-import { MiniKit } from "@worldcoin/minikit-js";
 import { getStoredUsername } from "@/lib/auth";
 
 interface BasicIncomeInfo {
@@ -78,12 +77,13 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       });
 
       if (Array.isArray(result) && result.length === 2) {
-        const tokensStaked = fromWei(result[0]);
+        const rawStaked = result[0]; // This is the raw BigInt value
+        setHasStaked(rawStaked > 0n); // Direct BigInt comparison
+        const tokensStaked = fromWei(rawStaked);
         setBasicIncomeInfo({
           claimableAmount: fromWei(result[1]),
           tokensStaked: tokensStaked,
         });
-        setHasStaked(Number(tokensStaked) > 0);
       }
     } catch (error) {
       console.error("Error fetching basic income info:", error);
