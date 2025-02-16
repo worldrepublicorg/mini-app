@@ -2,7 +2,6 @@
 
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useState } from "react";
-import { useWallet } from "../contexts/WalletContext";
 import { Button } from "./ui/Button";
 
 interface WalletAuthProps {
@@ -11,11 +10,15 @@ interface WalletAuthProps {
 
 export function WalletAuth({ onError }: WalletAuthProps) {
   const [isLoading, setIsLoading] = useState(false);
-  const { setWalletData, setIsLoggedIn } = useWallet();
+
+  const handleError = (message: string) => {
+    onError?.(message);
+    setIsLoading(false);
+  };
 
   const signInWithWallet = async () => {
     if (!MiniKit.isInstalled()) {
-      onError?.("MiniKit is not installed");
+      handleError("MiniKit is not installed");
       alert("Please open this app in the World App to connect your wallet.");
       return;
     }
@@ -23,15 +26,16 @@ export function WalletAuth({ onError }: WalletAuthProps) {
     setIsLoading(true);
     try {
       const res = await fetch(`/api/nonce`);
+      if (!res.ok) throw new Error("Failed to fetch nonce");
       const { nonce } = await res.json();
 
       const { finalPayload } = await MiniKit.commandsAsync.walletAuth({
-        nonce: nonce,
-        expirationTime: new Date(new Date().getTime() + 24 * 60 * 60 * 1000),
+        nonce,
+        expirationTime: new Date(Date.now() + 24 * 60 * 60 * 1000),
       });
 
       if (finalPayload.status === "error") {
-        onError?.("Authentication failed");
+        handleError("Authentication failed");
         return;
       }
 
@@ -42,35 +46,12 @@ export function WalletAuth({ onError }: WalletAuthProps) {
       });
 
       const result = await response.json();
-
-      if (result.status === "success" && result.isValid) {
-        const fetchedWalletAddress = MiniKit.user?.walletAddress;
-        if (fetchedWalletAddress) {
-          let fetchedUsername = null;
-          try {
-            const usernameRes = await fetch(
-              `https://usernames.worldcoin.org/api/v1/${fetchedWalletAddress}`
-            );
-            if (!usernameRes.ok) {
-              throw new Error("Failed to fetch username");
-            }
-            const usernameData = await usernameRes.json();
-            fetchedUsername = usernameData.username || "Unknown";
-          } catch (error: any) {
-            console.error("Error fetching username:", error);
-          } finally {
-            setWalletData(fetchedWalletAddress, fetchedUsername);
-            setIsLoggedIn(true);
-          }
-        }
-      } else {
-        onError?.("Verification failed");
+      if (result.status !== "success" || !result.isValid) {
+        handleError("Verification failed");
       }
     } catch (error) {
       console.error("Error during wallet auth:", error);
-      onError?.("Authentication failed");
-    } finally {
-      setIsLoading(false);
+      handleError("Authentication failed");
     }
   };
 

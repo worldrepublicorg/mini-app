@@ -22,11 +22,13 @@ import { ComingSoonDrawer } from "@/components/ComingSoonDrawer";
 
 export default function EarnPage() {
   const [activeTab, setActiveTab] = useState("Basic income");
-  const { isLoggedIn, basicIncomeInfo, tokenBalance } = useWallet();
+  const { basicIncomeInfo, tokenBalance } = useWallet();
   const [transactionId, setTransactionId] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [lastFetchTime, setLastFetchTime] = useState<number>(Date.now());
   const [calculatedClaimable, setCalculatedClaimable] = useState<string>("0");
+
+  const walletAddress = MiniKit.user?.walletAddress;
 
   const { isLoading: isConfirming } = useWaitForTransactionReceipt({
     client: viemClient,
@@ -136,7 +138,7 @@ export default function EarnPage() {
               Basic Income
             </Typography>
 
-            {!isLoggedIn ? (
+            {!walletAddress ? (
               <>
                 <Typography
                   variant="subtitle"
@@ -300,7 +302,7 @@ export default function EarnPage() {
             Earn
           </Typography>
         </div>
-        {isLoggedIn && (
+        {walletAddress && (
           <a
             href="https://worldcoin.org/mini-app?app_id=app_a4f7f3e62c1de0b9490a5260cb390b56&path=%3Ftab%3Dswap%26fromToken%3D0x2cFc85d8E48F8EAB294be644d9E25C3030863003%26amount%3D1000000000000000000%26toToken%3D0xAAC7d5E9011Fc0fC80bF707DDcC3D56DdfDa9084%26referrerAppId%3Dapp_66c83ab8c851fb1e54b1b1b62c6ce39d"
             className="flex h-10 items-center gap-2 rounded-full bg-gray-100 px-4"
