@@ -356,6 +356,12 @@ export default function EarnPage() {
         onTabChange={setActiveTab}
       />
 
+      <p>MiniKit.user?.walletAddress: {MiniKit.user?.walletAddress}</p>
+      <p>MiniKit.walletAddress: {MiniKit.walletAddress}</p>
+      <p>walletAddress: {walletAddress}</p>
+      <p>MiniKit.user?.username: {MiniKit.user?.username}</p>
+      <p>MiniKit.isInstalled(): {MiniKit.isInstalled()}</p>
+
       <div className="flex flex-1 items-center">{renderContent()}</div>
     </div>
   );
