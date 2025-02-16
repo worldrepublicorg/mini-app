@@ -20,6 +20,7 @@ import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { Button } from "@/components/ui/Button";
 import { ComingSoonDrawer } from "@/components/ComingSoonDrawer";
 import { checkWalletAuth } from "@/lib/auth";
+import { useCountUp } from "react-countup";
 
 export default function EarnPage() {
   const [activeTab, setActiveTab] = useState("Basic income");
@@ -27,7 +28,6 @@ export default function EarnPage() {
     useWallet();
   const [transactionId, setTransactionId] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [localClaimable, setLocalClaimable] = useState("0");
   const animationRef = useRef<number>();
 
   const { isLoading: isConfirming, isSuccess: isConfirmed } =
@@ -42,34 +42,44 @@ export default function EarnPage() {
   const isBasicIncomeSetup =
     basicIncomeInfo !== null && basicIncomeInfo.claimableAmount !== undefined;
 
+  const countUpRef = useRef(null);
+  const { update } = useCountUp({
+    ref: countUpRef,
+    start: 0,
+    end: Number(basicIncomeInfo?.claimableAmount || 0),
+    duration: 1.5,
+    decimals: 6,
+    separator: ",",
+    onUpdate: () => {
+      if (document.visibilityState === "hidden") {
+        cancelAnimationFrame(animationRef.current!);
+      }
+    },
+  });
+
   useEffect(() => {
     if (!basicIncomeInfo?.claimableAmount) return;
 
+    update(Number(basicIncomeInfo.claimableAmount));
+
     let lastTime = Date.now();
 
-    const updateClaimable = () => {
-      if (document.visibilityState === "hidden") return;
-
+    const animate = () => {
       const now = Date.now();
       const elapsed = (now - lastTime) / 1000;
       const increase = elapsed / 8640;
 
-      setLocalClaimable((prev) => {
-        const newValue = Number(prev) + increase;
-        return newValue.toFixed(6);
-      });
-
+      update(Number(basicIncomeInfo.claimableAmount) + increase);
       lastTime = now;
-      animationRef.current = requestAnimationFrame(updateClaimable);
+      animationRef.current = requestAnimationFrame(animate);
     };
 
-    setLocalClaimable(basicIncomeInfo.claimableAmount);
-    animationRef.current = requestAnimationFrame(updateClaimable);
+    animationRef.current = requestAnimationFrame(animate);
 
     return () => {
       if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
-  }, [basicIncomeInfo?.claimableAmount]);
+  }, [basicIncomeInfo?.claimableAmount, update]);
 
   const sendSetup = async () => {
     if (!MiniKit.isInstalled()) return;
@@ -164,9 +174,10 @@ export default function EarnPage() {
                 >
                   Claimable drachma
                 </Typography>
-                <Typography variant="number" level={1} className="mb-12">
-                  {localClaimable}
-                </Typography>
+                <span
+                  ref={countUpRef}
+                  className="mb-12 font-display text-[3.5rem] font-semibold leading-narrow tracking-normal"
+                />
                 <Button
                   onClick={sendClaim}
                   isLoading={isSubmitting || isConfirming}
