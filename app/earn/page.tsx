@@ -33,6 +33,8 @@ export default function EarnPage() {
     tokenBalance,
     fetchBasicIncomeInfo,
     isBasicIncomeSetup,
+    username,
+    walletAddress,
   } = useWallet();
   const [transactionId, setTransactionId] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -347,9 +349,9 @@ export default function EarnPage() {
         onTabChange={setActiveTab}
       />
 
-      {/* <p>{getStoredUsername()}</p>
-      <p>{getWalletAddress()}</p>
-      <p>{claimableAmount}</p> */}
+      <p>{username}</p>
+      <p>{walletAddress}</p>
+      <p>{claimableAmount}</p>
 
       <div className="flex flex-1 items-center">{renderContent()}</div>
     </div>
