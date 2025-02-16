@@ -72,34 +72,6 @@ export default function EarnPage() {
     };
   }, [basicIncomeInfo?.claimableAmount]);
 
-  useEffect(() => {
-    const handleVisibilityOrOnline = () => {
-      if (document.visibilityState === "visible" && navigator.onLine) {
-        fetchBasicIncomeInfo();
-      }
-    };
-
-    document.addEventListener("visibilitychange", handleVisibilityOrOnline);
-    window.addEventListener("online", handleVisibilityOrOnline);
-
-    return () => {
-      document.removeEventListener(
-        "visibilitychange",
-        handleVisibilityOrOnline
-      );
-      window.removeEventListener("online", handleVisibilityOrOnline);
-    };
-  }, [fetchBasicIncomeInfo]);
-
-  useEffect(() => {
-    if (isConfirmed) {
-      fetchBasicIncomeInfo();
-      fetchBalance();
-
-      setTransactionId("");
-    }
-  }, [isConfirmed]);
-
   const sendSetup = async () => {
     if (!MiniKit.isInstalled()) return;
 
