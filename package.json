@@ -10,9 +10,8 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",
-    "@thirdweb-dev/engine": "^0.0.18",
     "@worldcoin/mini-apps-ui-kit-react": "^0.0.2",
-    "@worldcoin/minikit-js": "1.5.0",
+    "@worldcoin/minikit-js": "^1.5.0",
     "@worldcoin/minikit-react": "^1.5.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

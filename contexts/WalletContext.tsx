@@ -38,29 +38,27 @@ interface WalletProviderProps {
   children: ReactNode;
 }
 
-const [walletAddress, setWalletAddress] = useState<string | null>(null);
-const [username, setUsername] = useState<string | null>(null);
-
-const BASIC_INCOME_CONTRACT = "0x02c3B99D986ef1612bAC63d4004fa79714D00012";
-const TOKEN_CONTRACT = "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B";
-
-const BASIC_INCOME_ABI = parseAbi([
-  "function getStakeInfo(address) external view returns (uint256, uint256)",
-  "event RewardsClaimed(address indexed user, uint256 amount)",
-]);
-
-const TOKEN_ABI = parseAbi([
-  "function balanceOf(address) external view returns (uint256)",
-  "event Transfer(address indexed from, address indexed to, uint256 value)",
-]);
-
-const fromWei = (value: bigint) => (Number(value) / 1e18).toString();
-
 export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
+  const [username, setUsername] = useState<string | null>(null);
   const [basicIncomeInfo, setBasicIncomeInfo] =
     useState<WalletContextProps["basicIncomeInfo"]>(null);
   const [tokenBalance, setTokenBalance] = useState<string | null>(null);
-  const walletAddress = MiniKit.walletAddress;
+  const [walletAddress, setWalletAddress] = useState<string | null>(null);
+
+  const BASIC_INCOME_CONTRACT = "0x02c3B99D986ef1612bAC63d4004fa79714D00012";
+  const TOKEN_CONTRACT = "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B";
+
+  const BASIC_INCOME_ABI = parseAbi([
+    "function getStakeInfo(address) external view returns (uint256, uint256)",
+    "event RewardsClaimed(address indexed user, uint256 amount)",
+  ]);
+
+  const TOKEN_ABI = parseAbi([
+    "function balanceOf(address) external view returns (uint256)",
+    "event Transfer(address indexed from, address indexed to, uint256 value)",
+  ]);
+
+  const fromWei = (value: bigint) => (Number(value) / 1e18).toString();
 
   const fetchBasicIncomeInfo = async () => {
     if (!walletAddress) return;
