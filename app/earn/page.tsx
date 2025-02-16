@@ -1,7 +1,7 @@
 "use client";
 
 import { Typography } from "@/components/ui/Typography";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   PiHandCoinsFill,
   PiPiggyBankFill,
@@ -25,6 +25,8 @@ export default function EarnPage() {
   const { isLoggedIn, basicIncomeInfo, tokenBalance } = useWallet();
   const [transactionId, setTransactionId] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [lastFetchTime, setLastFetchTime] = useState<number>(Date.now());
+  const [calculatedClaimable, setCalculatedClaimable] = useState<string>("0");
 
   const { isLoading: isConfirming } = useWaitForTransactionReceipt({
     client: viemClient,
@@ -36,6 +38,35 @@ export default function EarnPage() {
 
   const isBasicIncomeSetup =
     basicIncomeInfo !== null && basicIncomeInfo.claimableAmount !== undefined;
+
+  // Calculate the increasing rewards
+  const calculateCurrentClaimable = (baseAmount: string) => {
+    const timeElapsed = Date.now() - lastFetchTime;
+    const secondsElapsed = timeElapsed / 1000;
+    const increaseAmount = secondsElapsed / 8640; // 1/8640 per second
+    return (Number(baseAmount) + increaseAmount).toString();
+  };
+
+  // Update calculated claimable when basicIncomeInfo changes
+  useEffect(() => {
+    if (basicIncomeInfo?.claimableAmount) {
+      setCalculatedClaimable(basicIncomeInfo.claimableAmount);
+      setLastFetchTime(Date.now());
+    }
+  }, [basicIncomeInfo]);
+
+  // Update the displayed amount every second
+  useEffect(() => {
+    if (!basicIncomeInfo?.claimableAmount) return;
+
+    const interval = setInterval(() => {
+      setCalculatedClaimable(
+        calculateCurrentClaimable(basicIncomeInfo.claimableAmount)
+      );
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [basicIncomeInfo]);
 
   const sendSetup = async () => {
     if (!MiniKit.isInstalled()) return;
@@ -127,7 +158,7 @@ export default function EarnPage() {
                   Claimable drachma
                 </Typography>
                 <Typography variant="number" level={1} className="mb-12">
-                  {Number(basicIncomeInfo.claimableAmount).toFixed(6)}
+                  {Number(calculatedClaimable).toFixed(6)}
                 </Typography>
                 <Button
                   onClick={sendClaim}

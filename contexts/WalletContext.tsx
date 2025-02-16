@@ -36,6 +36,13 @@ interface WalletProviderProps {
   children: ReactNode;
 }
 
+const stakingContractABI = parseAbi([
+  "function getStakeInfo(address) external view returns (uint256, uint256)",
+  "function stake() external",
+  "function claimRewards() external",
+  "event RewardsClaimed(address indexed user, uint256 amount)",
+]);
+
 export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [walletAddress, setWalletAddress] = useState<string | null>(null);
   const [username, setUsername] = useState<string | null>(null);
@@ -57,35 +64,47 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     }
   }, []);
 
-  useEffect(() => {
-    const fetchBasicIncomeInfo = async () => {
-      if (!walletAddress) return;
+  const fetchBasicIncomeInfo = async () => {
+    if (!walletAddress) return;
 
-      try {
-        const result = await viemClient.readContract({
-          address: "0x2f08c17B30e6622F8B780fb58835Fc0927E2dc8e",
-          abi: parseAbi([
-            "function getStakeInfo(address) external view returns (uint256, uint256)",
-          ]),
-          functionName: "getStakeInfo",
-          args: [walletAddress as `0x${string}`],
+    try {
+      const result = await viemClient.readContract({
+        address: "0x2f08c17B30e6622F8B780fb58835Fc0927E2dc8e",
+        abi: parseAbi([
+          "function getStakeInfo(address) external view returns (uint256, uint256)",
+        ]),
+        functionName: "getStakeInfo",
+        args: [walletAddress as `0x${string}`],
+      });
+
+      if (Array.isArray(result) && result.length === 2) {
+        setBasicIncomeInfo({
+          claimableAmount: (Number(result[1]) / 1e18).toString(),
         });
-
-        if (Array.isArray(result) && result.length === 2) {
-          setBasicIncomeInfo({
-            claimableAmount: (Number(result[1]) / 1e18).toString(),
-          });
-        }
-      } catch (error) {
-        console.error("Error fetching basic income info:", error);
       }
-    };
-
-    if (walletAddress) {
-      fetchBasicIncomeInfo();
-      const interval = setInterval(fetchBasicIncomeInfo, 1000);
-      return () => clearInterval(interval);
+    } catch (error) {
+      console.error("Error fetching basic income info:", error);
     }
+  };
+
+  useEffect(() => {
+    if (!walletAddress) return;
+
+    const unwatch = viemClient.watchContractEvent({
+      address: "0x2f08c17B30e6622F8B780fb58835Fc0927E2dc8e",
+      abi: stakingContractABI,
+      eventName: "RewardsClaimed",
+      args: { user: walletAddress },
+      onLogs: () => {
+        fetchBasicIncomeInfo();
+      },
+    });
+
+    fetchBasicIncomeInfo();
+
+    return () => {
+      unwatch();
+    };
   }, [walletAddress]);
 
   useEffect(() => {
@@ -111,9 +130,25 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     };
 
     if (walletAddress) {
+      // Initial fetch
       fetchBalance();
-      const interval = setInterval(fetchBalance, 1000);
-      return () => clearInterval(interval);
+
+      // Watch for Transfer events
+      const unwatch = viemClient.watchContractEvent({
+        address: "0xAAC7d5E9011Fc0fC80bF707DDcC3D56DdfDa9084",
+        abi: parseAbi([
+          "event Transfer(address indexed from, address indexed to, uint256 value)",
+        ]),
+        eventName: "Transfer",
+        args: { from: walletAddress, to: walletAddress },
+        onLogs: () => {
+          fetchBalance();
+        },
+      });
+
+      return () => {
+        unwatch();
+      };
     }
   }, [walletAddress]);
 
