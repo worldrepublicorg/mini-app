@@ -19,7 +19,11 @@ import { TabSwiper } from "@/components/TabSwiper";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { Button } from "@/components/ui/Button";
 import { ComingSoonDrawer } from "@/components/ComingSoonDrawer";
-import { checkWalletAuth } from "@/lib/auth";
+import {
+  checkWalletAuth,
+  getStoredUsername,
+  getWalletAddress,
+} from "@/lib/auth";
 import { useCountUp } from "react-countup";
 
 export default function EarnPage() {
@@ -55,6 +59,10 @@ export default function EarnPage() {
       }
     },
   });
+
+  useEffect(() => {
+    fetchBasicIncomeInfo();
+  }, []);
 
   useEffect(() => {
     if (!claimableAmount) return;
@@ -340,6 +348,10 @@ export default function EarnPage() {
         activeTab={activeTab}
         onTabChange={setActiveTab}
       />
+
+      <p>{getStoredUsername()}</p>
+      <p>{getWalletAddress()}</p>
+      <p>{claimableAmount}</p>
 
       <div className="flex flex-1 items-center">{renderContent()}</div>
     </div>

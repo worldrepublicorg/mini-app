@@ -164,6 +164,12 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     validateSession();
   }, []);
 
+  useEffect(() => {
+    if (walletAddress) {
+      fetchBasicIncomeInfo();
+    }
+  }, [walletAddress]);
+
   const setWalletData = (address: string | null, username: string | null) => {
     setWalletAddress(address);
     setUsername(username);
