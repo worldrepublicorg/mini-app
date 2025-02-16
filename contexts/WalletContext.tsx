@@ -28,8 +28,8 @@ interface WalletProviderProps {
 }
 
 // Add these constants at the top
-const BASIC_INCOME_CONTRACT = "0x2f08c17B30e6622F8B780fb58835Fc0927E2dc8e";
-const TOKEN_CONTRACT = "0xAAC7d5E9011Fc0fC80bF707DDcC3D56DdfDa9084";
+const BASIC_INCOME_CONTRACT = "0x02c3B99D986ef1612bAC63d4004fa79714D00012";
+const TOKEN_CONTRACT = "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B";
 
 const BASIC_INCOME_ABI = parseAbi([
   "function getStakeInfo(address) external view returns (uint256, uint256)",
@@ -77,7 +77,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     if (!walletAddress) return;
 
     const unwatch = viemClient.watchContractEvent({
-      address: "0x2f08c17B30e6622F8B780fb58835Fc0927E2dc8e",
+      address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012",
       abi: parseAbi([
         "event RewardsClaimed(address indexed user, uint256 amount)",
       ]),
@@ -122,7 +122,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
       // Watch for Transfer events
       const unwatch = viemClient.watchContractEvent({
-        address: "0xAAC7d5E9011Fc0fC80bF707DDcC3D56DdfDa9084",
+        address: "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B",
         abi: parseAbi([
           "event Transfer(address indexed from, address indexed to, uint256 value)",
         ]),

@@ -78,7 +78,7 @@ export default function EarnPage() {
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
-            address: "0x2f08c17B30e6622F8B780fb58835Fc0927E2dc8e",
+            address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012",
             abi: parseAbi(["function stake() external"]),
             functionName: "stake",
             args: [],
@@ -106,7 +106,7 @@ export default function EarnPage() {
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
-            address: "0x2f08c17B30e6622F8B780fb58835Fc0927E2dc8e",
+            address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012",
             abi: parseAbi(["function claimRewards() external"]),
             functionName: "claimRewards",
             args: [],
@@ -304,7 +304,7 @@ export default function EarnPage() {
         </div>
         {walletAddress && (
           <a
-            href="https://worldcoin.org/mini-app?app_id=app_a4f7f3e62c1de0b9490a5260cb390b56&path=%3Ftab%3Dswap%26fromToken%3D0x2cFc85d8E48F8EAB294be644d9E25C3030863003%26amount%3D1000000000000000000%26toToken%3D0xAAC7d5E9011Fc0fC80bF707DDcC3D56DdfDa9084%26referrerAppId%3Dapp_66c83ab8c851fb1e54b1b1b62c6ce39d"
+            href="https://worldcoin.org/mini-app?app_id=app_a4f7f3e62c1de0b9490a5260cb390b56&path=%3Ftab%3Dswap%26fromToken%3D0x2cFc85d8E48F8EAB294be644d9E25C3030863003%26amount%3D1000000000000000000%26toToken%3D0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B%26referrerAppId%3Dapp_66c83ab8c851fb1e54b1b1b62c6ce39d"
             className="flex h-10 items-center gap-2 rounded-full bg-gray-100 px-4"
           >
             <PiWalletFill className="h-5 w-5" />
