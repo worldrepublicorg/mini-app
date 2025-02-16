@@ -12,7 +12,7 @@ interface WalletAuthProps {
 
 export function WalletAuth({ onError, onSuccess }: WalletAuthProps) {
   const [isLoading, setIsLoading] = useState(false);
-  const { setWalletData } = useWallet();
+  const { setWalletAddress, setUsername } = useWallet();
 
   const handleError = (message: string) => {
     onError?.(message);
@@ -69,7 +69,8 @@ export function WalletAuth({ onError, onSuccess }: WalletAuthProps) {
           } catch (error: any) {
             console.error("Error fetching username:", error);
           } finally {
-            setWalletData(fetchedWalletAddress, fetchedUsername);
+            setWalletAddress(fetchedWalletAddress);
+            setUsername(fetchedUsername);
             onSuccess?.(fetchedWalletAddress, fetchedUsername);
           }
         }
