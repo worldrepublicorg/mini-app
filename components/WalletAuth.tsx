@@ -12,7 +12,7 @@ interface WalletAuthProps {
 
 export function WalletAuth({ onError, onSuccess }: WalletAuthProps) {
   const [isLoading, setIsLoading] = useState(false);
-  const { setWalletAddress, setUsername } = useWallet();
+  const { setWalletData } = useWallet();
 
   const handleError = (message: string) => {
     onError?.(message);
@@ -54,21 +54,22 @@ export function WalletAuth({ onError, onSuccess }: WalletAuthProps) {
       if (result.status === "success" && result.isValid) {
         const fetchedWalletAddress = MiniKit.user?.walletAddress;
         if (fetchedWalletAddress) {
+          // Set client-side cookie for UI persistence
+          document.cookie = `wallet-auth=authenticated; path=/; max-age=${60 * 60 * 24 * 7}; secure; sameSite=lax`;
+          document.cookie = `wallet-address=${fetchedWalletAddress}; path=/; max-age=${60 * 60 * 24 * 7}; secure; sameSite=lax`;
+
           let fetchedUsername = null;
           try {
             const usernameRes = await fetch(
               `https://usernames.worldcoin.org/api/v1/${fetchedWalletAddress}`
             );
-            if (!usernameRes.ok) {
-              throw new Error("Failed to fetch username");
-            }
+            if (!usernameRes.ok) throw new Error("Failed to fetch username");
             const usernameData = await usernameRes.json();
             fetchedUsername = usernameData.username || "Unknown";
           } catch (error: any) {
             console.error("Error fetching username:", error);
           } finally {
-            setWalletAddress(fetchedWalletAddress);
-            setUsername(fetchedUsername);
+            setWalletData(fetchedWalletAddress, fetchedUsername);
             onSuccess?.(fetchedWalletAddress, fetchedUsername);
           }
         }

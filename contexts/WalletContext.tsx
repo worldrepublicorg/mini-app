@@ -10,12 +10,12 @@ import React, {
 import { parseAbi } from "viem";
 import { viemClient } from "@/lib/viemClient";
 import { MiniKit } from "@worldcoin/minikit-js";
+import { getStoredUsername } from "@/lib/auth";
 
 interface WalletContextProps {
   walletAddress: string | null;
   username: string | null;
-  setUsername: (username: string) => Promise<void>;
-  setWalletAddress: (walletAddress: string) => Promise<void>;
+  setWalletData: (address: string | null, username: string | null) => void;
   basicIncomeInfo: {
     claimableAmount: string;
   } | null;
@@ -27,8 +27,7 @@ interface WalletContextProps {
 const WalletContext = createContext<WalletContextProps>({
   walletAddress: null,
   username: null,
-  setUsername: async () => {},
-  setWalletAddress: async () => {},
+  setWalletData: async () => {},
   basicIncomeInfo: null,
   tokenBalance: null,
   fetchBasicIncomeInfo: async () => {},
@@ -38,6 +37,9 @@ const WalletContext = createContext<WalletContextProps>({
 interface WalletProviderProps {
   children: ReactNode;
 }
+
+const [walletAddress, setWalletAddress] = useState<string | null>(null);
+const [username, setUsername] = useState<string | null>(null);
 
 const BASIC_INCOME_CONTRACT = "0x02c3B99D986ef1612bAC63d4004fa79714D00012";
 const TOKEN_CONTRACT = "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B";
@@ -148,13 +150,43 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     }
   }, [walletAddress]);
 
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      const storedAddress = document.cookie
+        .split("; ")
+        .find((row) => row.startsWith("wallet-address="))
+        ?.split("=")[1];
+
+      const storedUsername = getStoredUsername();
+
+      if (storedAddress) {
+        setWalletAddress(storedAddress);
+        setUsername(storedUsername);
+      }
+    }
+  }, []);
+
+  const setWalletData = (address: string | null, username: string | null) => {
+    setWalletAddress(address);
+    setUsername(username);
+
+    // Sync with cookies
+    if (typeof document !== "undefined") {
+      if (address && username) {
+        document.cookie = `wallet-username=${username}; path=/; max-age=${60 * 60 * 24 * 7}; secure; sameSite=lax`;
+      } else {
+        document.cookie =
+          "wallet-username=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+      }
+    }
+  };
+
   return (
     <WalletContext.Provider
       value={{
         walletAddress,
         username,
-        setUsername,
-        setWalletAddress,
+        setWalletData,
         basicIncomeInfo,
         tokenBalance,
         fetchBasicIncomeInfo,
