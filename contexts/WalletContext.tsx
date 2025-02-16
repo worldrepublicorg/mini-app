@@ -21,6 +21,7 @@ interface WalletContextProps {
   tokenBalance: string | null;
   fetchBasicIncomeInfo: () => Promise<void>;
   fetchBalance: () => Promise<void>;
+  isBasicIncomeSetup: boolean;
 }
 
 const WalletContext = createContext<WalletContextProps>({
@@ -32,6 +33,7 @@ const WalletContext = createContext<WalletContextProps>({
   tokenBalance: null,
   fetchBasicIncomeInfo: async () => {},
   fetchBalance: async () => {},
+  isBasicIncomeSetup: false,
 });
 
 interface WalletProviderProps {
@@ -43,6 +45,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [claimableAmount, setClaimableAmount] = useState<string | null>(null);
   const [tokenBalance, setTokenBalance] = useState<string | null>(null);
   const [walletAddress, setWalletAddress] = useState<string | null>(null);
+  const [isBasicIncomeSetup, setIsBasicIncomeSetup] = useState<boolean>(false);
 
   const BASIC_INCOME_CONTRACT = "0x02c3B99D986ef1612bAC63d4004fa79714D00012";
   const TOKEN_CONTRACT = "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B";
@@ -71,13 +74,15 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       });
 
       if (Array.isArray(result) && result.length === 2) {
-        const rawClaimableAmount = result[1];
+        const [stakedAmount, rawClaimableAmount] = result;
+        setIsBasicIncomeSetup(stakedAmount > 0n);
         const claimableAmount = fromWei(rawClaimableAmount);
         setClaimableAmount(claimableAmount);
       }
     } catch (error) {
       console.error("Error fetching basic income info:", error);
       setClaimableAmount(null);
+      setIsBasicIncomeSetup(false);
     }
   };
 
@@ -166,27 +171,6 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     validateSession();
   }, []);
 
-  useEffect(() => {
-    if (walletAddress) {
-      fetchBasicIncomeInfo();
-    }
-  }, [walletAddress]);
-
-  const setWalletData = (address: string | null, username: string | null) => {
-    setWalletAddress(address);
-    setUsername(username);
-
-    // Sync with cookies
-    if (typeof document !== "undefined") {
-      if (address && username) {
-        document.cookie = `wallet-username=${username}; path=/; max-age=${60 * 60 * 24 * 7}; secure; sameSite=lax`;
-      } else {
-        document.cookie =
-          "wallet-username=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
-      }
-    }
-  };
-
   return (
     <WalletContext.Provider
       value={{
@@ -206,6 +190,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
           });
           setTokenBalance(fromWei(balanceResult));
         },
+        isBasicIncomeSetup,
       }}
     >
       {children}

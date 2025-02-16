@@ -28,7 +28,12 @@ import { useCountUp } from "react-countup";
 
 export default function EarnPage() {
   const [activeTab, setActiveTab] = useState("Basic income");
-  const { claimableAmount, tokenBalance, fetchBasicIncomeInfo } = useWallet();
+  const {
+    claimableAmount,
+    tokenBalance,
+    fetchBasicIncomeInfo,
+    isBasicIncomeSetup,
+  } = useWallet();
   const [transactionId, setTransactionId] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const animationRef = useRef<number>();
@@ -41,9 +46,6 @@ export default function EarnPage() {
       },
       transactionId: transactionId,
     });
-
-  const isBasicIncomeSetup =
-    claimableAmount !== null && claimableAmount !== undefined;
 
   const countUpRef = useRef(null);
   const { update } = useCountUp({
@@ -345,9 +347,9 @@ export default function EarnPage() {
         onTabChange={setActiveTab}
       />
 
-      <p>{getStoredUsername()}</p>
+      {/* <p>{getStoredUsername()}</p>
       <p>{getWalletAddress()}</p>
-      <p>{claimableAmount}</p>
+      <p>{claimableAmount}</p> */}
 
       <div className="flex flex-1 items-center">{renderContent()}</div>
     </div>
