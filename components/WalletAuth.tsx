@@ -31,6 +31,7 @@ export function WalletAuth({ onError }: WalletAuthProps) {
 
       const { finalPayload } = await MiniKit.commandsAsync.walletAuth({
         nonce,
+        statement: "Sign in to World Republic",
         expirationTime: new Date(Date.now() + 24 * 60 * 60 * 1000),
       });
 
@@ -48,10 +49,13 @@ export function WalletAuth({ onError }: WalletAuthProps) {
       const result = await response.json();
       if (result.status !== "success" || !result.isValid) {
         handleError("Verification failed");
+        return;
       }
     } catch (error) {
       console.error("Error during wallet auth:", error);
       handleError("Authentication failed");
+    } finally {
+      setIsLoading(false);
     }
   };
 
