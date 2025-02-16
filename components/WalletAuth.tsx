@@ -51,6 +51,8 @@ export function WalletAuth({ onError }: WalletAuthProps) {
         handleError("Verification failed");
         return;
       }
+
+      window.location.reload();
     } catch (error) {
       console.error("Error during wallet auth:", error);
       handleError("Authentication failed");
