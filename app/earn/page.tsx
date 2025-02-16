@@ -29,7 +29,7 @@ export default function EarnPage() {
   const [localClaimable, setLocalClaimable] = useState("0");
   const animationRef = useRef<number>();
 
-  const walletAddress = MiniKit.user?.walletAddress;
+  const walletAddress = MiniKit.walletAddress;
 
   const { isLoading: isConfirming, isSuccess: isConfirmed } =
     useWaitForTransactionReceipt({

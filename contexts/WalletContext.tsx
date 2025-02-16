@@ -50,7 +50,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [basicIncomeInfo, setBasicIncomeInfo] =
     useState<WalletContextProps["basicIncomeInfo"]>(null);
   const [tokenBalance, setTokenBalance] = useState<string | null>(null);
-  const walletAddress = MiniKit.user?.walletAddress;
+  const walletAddress = MiniKit.walletAddress;
 
   const fetchBasicIncomeInfo = async () => {
     if (!walletAddress) return;
