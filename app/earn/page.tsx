@@ -23,8 +23,13 @@ import { checkWalletAuth } from "@/lib/auth";
 
 export default function EarnPage() {
   const [activeTab, setActiveTab] = useState("Basic income");
-  const { claimableAmount, tokenBalance, fetchBasicIncomeInfo, fetchBalance } =
-    useWallet();
+  const {
+    claimableAmount,
+    tokenBalance,
+    fetchBasicIncomeInfo,
+    fetchBalance,
+    hasBasicIncome,
+  } = useWallet();
   const [transactionId, setTransactionId] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -139,7 +144,7 @@ export default function EarnPage() {
       } else {
         setTransactionId(finalPayload.transaction_id);
         await fetchBasicIncomeInfo();
-        fetchBalance();
+        await fetchBalance();
 
         // Reset the stored counter values after rewards are claimed:
         localStorage.setItem("basicIncomeBase", "0");
@@ -176,7 +181,7 @@ export default function EarnPage() {
                 </Typography>
                 <WalletAuth onError={(error) => console.error(error)} />
               </>
-            ) : claimableAmount ? (
+            ) : hasBasicIncome ? (
               <>
                 <Typography
                   variant="subtitle"

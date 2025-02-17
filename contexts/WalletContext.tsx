@@ -17,6 +17,7 @@ interface WalletContextProps {
   username: string | null;
   tokenBalance: string | null;
   claimableAmount: string | null;
+  hasBasicIncome: boolean;
   setWalletAddress: (address: string) => void;
   setUsername: (username: string) => void;
   fetchBasicIncomeInfo: () => Promise<void>;
@@ -28,6 +29,7 @@ const WalletContext = createContext<WalletContextProps>({
   username: null,
   tokenBalance: null,
   claimableAmount: null,
+  hasBasicIncome: false,
   setWalletAddress: async () => {},
   setUsername: async () => {},
   fetchBasicIncomeInfo: async () => {},
@@ -43,6 +45,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [claimableAmount, setClaimableAmount] = useState<string | null>(null);
   const [tokenBalance, setTokenBalance] = useState<string | null>(null);
   const [walletAddress, setWalletAddress] = useState<string | null>(null);
+  const [hasBasicIncome, setHasBasicIncome] = useState(false);
 
   const BASIC_INCOME_CONTRACT = "0x02c3B99D986ef1612bAC63d4004fa79714D00012";
   const TOKEN_CONTRACT = "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B";
@@ -66,11 +69,13 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       });
 
       if (Array.isArray(result) && result.length === 2) {
-        const [, rawRewards] = result;
-        setClaimableAmount(fromWei(rawRewards));
+        const [rawStake] = result;
+        setHasBasicIncome(Number(rawStake) > 0);
+        setClaimableAmount(fromWei(result[1]));
       }
     } catch (error) {
       console.error("Error fetching basic income info:", error);
+      setHasBasicIncome(false);
       setClaimableAmount(null);
     }
   };
@@ -161,6 +166,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         username,
         tokenBalance,
         claimableAmount,
+        hasBasicIncome,
         setWalletAddress,
         setUsername,
         fetchBasicIncomeInfo,
