@@ -47,20 +47,12 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [walletAddress, setWalletAddress] = useState<string | null>(null);
   const [hasBasicIncome, setHasBasicIncome] = useState(false);
 
-  const BASIC_INCOME_CONTRACT = "0x02c3B99D986ef1612bAC63d4004fa79714D00012";
-  const TOKEN_CONTRACT = "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B";
-
-  const TOKEN_ABI = parseAbi([
-    "function balanceOf(address) external view returns (uint256)",
-    "event Transfer(address indexed from, address indexed to, uint256 value)",
-  ]);
-
   const fromWei = (value: bigint) => (Number(value) / 1e18).toString();
 
   const fetchBasicIncomeInfo = async () => {
     try {
       const result = await viemClient.readContract({
-        address: BASIC_INCOME_CONTRACT,
+        address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012",
         abi: parseAbi([
           "function getStakeInfo(address) external view returns (uint256, uint256)",
         ]),
@@ -87,7 +79,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
     try {
       const unwatch = viemClient.watchContractEvent({
-        address: BASIC_INCOME_CONTRACT,
+        address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012",
         abi: parseAbi([
           "event RewardsClaimed(address indexed user, uint256 amount)",
         ]),
@@ -105,8 +97,10 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const fetchBalance = async () => {
     try {
       const balanceResult = await viemClient.readContract({
-        address: TOKEN_CONTRACT,
-        abi: TOKEN_ABI,
+        address: "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B",
+        abi: parseAbi([
+          "function balanceOf(address) external view returns (uint256)",
+        ]),
         functionName: "balanceOf",
         args: [walletAddress as `0x${string}`],
       });
@@ -127,12 +121,12 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
     try {
       const unwatch = viemClient.watchContractEvent({
-        address: TOKEN_CONTRACT,
+        address: "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B",
         abi: parseAbi([
           "event Transfer(address indexed from, address indexed to, uint256 value)",
         ]),
         eventName: "Transfer",
-        args: [null, walletAddress as `0x${string}`],
+        args: [walletAddress as `0x${string}`, walletAddress as `0x${string}`],
         onLogs: fetchBalance,
       });
 

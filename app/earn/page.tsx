@@ -19,15 +19,18 @@ import { TabSwiper } from "@/components/TabSwiper";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { Button } from "@/components/ui/Button";
 import { ComingSoonDrawer } from "@/components/ComingSoonDrawer";
-import { checkWalletAuth } from "@/lib/auth";
+import { checkWalletAuth, getWalletAddress } from "@/lib/auth";
 
 export default function EarnPage() {
   const [activeTab, setActiveTab] = useState("Basic income");
   const {
+    walletAddress,
     claimableAmount,
     tokenBalance,
     fetchBasicIncomeInfo,
     hasBasicIncome,
+    fetchBalance,
+    username,
   } = useWallet();
   const [transactionId, setTransactionId] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -143,6 +146,7 @@ export default function EarnPage() {
       } else {
         setTransactionId(finalPayload.transaction_id);
         await fetchBasicIncomeInfo();
+        await fetchBalance();
 
         // Reset the stored counter values after rewards are claimed:
         localStorage.setItem("basicIncomeBase", "0");
@@ -356,6 +360,18 @@ export default function EarnPage() {
         activeTab={activeTab}
         onTabChange={setActiveTab}
       />
+
+      <p>
+        Wallet address: {walletAddress}
+        <br />
+        Username: {username}
+        <br />
+        Token balance: {tokenBalance}
+        <br />
+        Claimable amount: {claimableAmount}
+        <br />
+        Has basic income: {hasBasicIncome}
+      </p>
 
       <div className="flex flex-1 items-center">{renderContent()}</div>
     </div>
