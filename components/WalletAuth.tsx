@@ -3,16 +3,21 @@
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useState } from "react";
 import { Button } from "./ui/Button";
-import { useWallet } from "@/contexts/WalletContext";
 
 interface WalletAuthProps {
   onError?: (error: string) => void;
   onSuccess?: (walletAddress: string, username: string) => void;
+  setWalletAddress: (address: string) => void;
+  setUsername: (username: string) => void;
 }
 
-export function WalletAuth({ onError, onSuccess }: WalletAuthProps) {
+export function WalletAuth({
+  onError,
+  onSuccess,
+  setWalletAddress,
+  setUsername,
+}: WalletAuthProps) {
   const [isLoading, setIsLoading] = useState(false);
-  const { setWalletAddress, setUsername } = useWallet();
 
   const handleError = (message: string) => {
     onError?.(message);

@@ -1,7 +1,7 @@
 "use client";
 
 import { Typography } from "@/components/ui/Typography";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   PiHandCoinsFill,
   PiPiggyBankFill,
@@ -25,11 +25,12 @@ import {
 } from "@/lib/auth";
 
 export default function EarnPage() {
-  const [activeTab, setActiveTab] = useState("Basic income");
   const [username, setUsername] = useState<string | null>(null);
+  const [walletAddress, setWalletAddress] = useState<string | null>(null);
   const [claimableAmount, setClaimableAmount] = useState<string | null>(null);
   const [tokenBalance, setTokenBalance] = useState<string | null>(null);
-  const [walletAddress, setWalletAddress] = useState<string | null>(null);
+
+  const [activeTab, setActiveTab] = useState("Basic income");
 
   const [transactionId, setTransactionId] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -50,7 +51,7 @@ export default function EarnPage() {
 
   const [, setForceUpdate] = useState({});
 
-  const fetchBasicIncomeInfo = async () => {
+  const fetchBasicIncomeInfo = useCallback(async () => {
     try {
       const result = await viemClient.readContract({
         address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012",
@@ -69,7 +70,7 @@ export default function EarnPage() {
       console.error("Error fetching basic income info:", error);
       setClaimableAmount(null);
     }
-  };
+  }, [walletAddress, fromWei, setClaimableAmount, viemClient, parseAbi]);
 
   useEffect(() => {
     if (!walletAddress) return;
@@ -91,9 +92,9 @@ export default function EarnPage() {
     } catch (error) {
       console.error("Error watching RewardsClaimed events:", error);
     }
-  }, [walletAddress]);
+  }, [walletAddress, fetchBasicIncomeInfo, viemClient, parseAbi]);
 
-  const fetchBalance = async () => {
+  const fetchBalance = useCallback(async () => {
     try {
       const balanceResult = await viemClient.readContract({
         address: "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B",
@@ -111,7 +112,7 @@ export default function EarnPage() {
       console.error("Error fetching balance:", error);
       setTokenBalance(null);
     }
-  };
+  }, [walletAddress, fromWei, setTokenBalance, viemClient, parseAbi]);
 
   useEffect(() => {
     if (!walletAddress) return;
@@ -133,7 +134,7 @@ export default function EarnPage() {
     } catch (error) {
       console.error("Error watching Transfer events:", error);
     }
-  }, [walletAddress]);
+  }, [walletAddress, fetchBalance, viemClient, parseAbi]);
 
   useEffect(() => {
     const validateSession = async () => {
@@ -287,7 +288,11 @@ export default function EarnPage() {
                 >
                   Sign in to claim your basic income
                 </Typography>
-                <WalletAuth onError={(error) => console.error(error)} />
+                <WalletAuth
+                  onError={(error) => console.error(error)}
+                  setWalletAddress={setWalletAddress}
+                  setUsername={setUsername}
+                />
               </>
             ) : !claimableAmount ? (
               <>
