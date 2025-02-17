@@ -75,7 +75,7 @@ export default function EarnPage() {
         console.error("Error sending transaction", finalPayload);
       } else {
         setTransactionId(finalPayload.transaction_id);
-        fetchBasicIncomeInfo();
+        await fetchBasicIncomeInfo();
       }
     } catch (error: any) {
       console.error("Error:", error);
@@ -104,11 +104,11 @@ export default function EarnPage() {
         console.error("Error sending transaction", finalPayload);
       } else {
         setTransactionId(finalPayload.transaction_id);
-        fetchBasicIncomeInfo();
+        await fetchBasicIncomeInfo();
         fetchBalance();
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error during claim:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -126,7 +126,7 @@ export default function EarnPage() {
               Basic Income
             </Typography>
 
-            {/* {!checkWalletAuth() ? (
+            {!checkWalletAuth() ? (
               <>
                 <Typography
                   variant="subtitle"
@@ -137,9 +137,7 @@ export default function EarnPage() {
                 </Typography>
                 <WalletAuth onError={(error) => console.error(error)} />
               </>
-            ) :  */}
-
-            {claimableAmount ? (
+            ) : claimableAmount ? (
               <>
                 <Typography
                   variant="subtitle"
@@ -149,7 +147,7 @@ export default function EarnPage() {
                   Claimable drachma
                 </Typography>
                 <div className="text-center">
-                  <p className="mx-auto mb-14 font-sans text-[3.5rem] font-semibold leading-narrow tracking-normal">
+                  <p className="mx-auto mb-14 font-sans text-[56px] font-semibold leading-narrow tracking-normal">
                     {displayClaimable.toFixed(5)}
                   </p>
                 </div>
