@@ -19,7 +19,6 @@ import { TabSwiper } from "@/components/TabSwiper";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { Button } from "@/components/ui/Button";
 import { ComingSoonDrawer } from "@/components/ComingSoonDrawer";
-import { checkWalletAuth, getWalletAddress } from "@/lib/auth";
 
 export default function EarnPage() {
   const [activeTab, setActiveTab] = useState("Basic income");
@@ -46,8 +45,6 @@ export default function EarnPage() {
     },
     transactionId: transactionId,
   });
-
-  const [, setForceUpdate] = useState({});
 
   useEffect(() => {
     if (claimableAmount === undefined || claimableAmount === null) return;
@@ -149,7 +146,6 @@ export default function EarnPage() {
         setTransactionId(finalPayload.transaction_id);
         await fetchBasicIncomeInfo();
         await fetchBalance();
-        setForceUpdate({});
 
         // Reset the stored counter values after rewards are claimed:
         localStorage.setItem("basicIncomeBase", "0");
@@ -340,7 +336,8 @@ export default function EarnPage() {
             Earn
           </Typography>
         </div>
-        {checkWalletAuth() && (
+
+        <div className="flex items-center gap-2">
           <a
             href="https://worldcoin.org/mini-app?app_id=app_a4f7f3e62c1de0b9490a5260cb390b56&path=%3Ftab%3Dswap%26fromToken%3D0x2cFc85d8E48F8EAB294be644d9E25C3030863003%26amount%3D1000000000000000000%26toToken%3D0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B%26referrerAppId%3Dapp_66c83ab8c851fb1e54b1b1b62c6ce39d"
             className="flex h-10 items-center gap-2 rounded-full bg-gray-100 px-4"
@@ -355,7 +352,10 @@ export default function EarnPage() {
                 : "0.00 WDD"}
             </Typography>
           </a>
-        )}
+          <Button variant="secondary" size="sm" onClick={() => fetchBalance()}>
+            Update
+          </Button>
+        </div>
       </div>
 
       <TabSwiper

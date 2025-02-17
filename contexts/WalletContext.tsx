@@ -72,28 +72,6 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    if (!walletAddress) return;
-
-    fetchBasicIncomeInfo();
-
-    try {
-      const unwatch = viemClient.watchContractEvent({
-        address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012",
-        abi: parseAbi([
-          "event RewardsClaimed(address indexed user, uint256 amount)",
-        ]),
-        eventName: "RewardsClaimed",
-        args: { user: walletAddress },
-        onLogs: fetchBasicIncomeInfo,
-      });
-
-      return () => unwatch();
-    } catch (error) {
-      console.error("Error watching RewardsClaimed events:", error);
-    }
-  }, [walletAddress]);
-
   const fetchBalance = async () => {
     try {
       const balanceResult = await viemClient.readContract({
@@ -115,28 +93,6 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   };
 
   useEffect(() => {
-    if (!walletAddress) return;
-
-    fetchBalance();
-
-    try {
-      const unwatch = viemClient.watchContractEvent({
-        address: "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B",
-        abi: parseAbi([
-          "event Transfer(address indexed from, address indexed to, uint256 value)",
-        ]),
-        eventName: "Transfer",
-        args: [walletAddress as `0x${string}`, walletAddress as `0x${string}`],
-        onLogs: fetchBalance,
-      });
-
-      return () => unwatch();
-    } catch (error) {
-      console.error("Error watching Transfer events:", error);
-    }
-  }, [walletAddress]);
-
-  useEffect(() => {
     const validateSession = async () => {
       const storedAddress = getWalletAddress();
       if (storedAddress) {
@@ -152,6 +108,14 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     };
     validateSession();
   }, []);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      fetchBalance();
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, [walletAddress]);
 
   return (
     <WalletContext.Provider
