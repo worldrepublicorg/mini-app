@@ -50,6 +50,12 @@ export default function EarnPage() {
   const [, setForceUpdate] = useState({});
 
   useEffect(() => {
+    if (transactionId) {
+      fetchBalance();
+    }
+  }, [transactionId, fetchBalance]);
+
+  useEffect(() => {
     if (claimableAmount === undefined || claimableAmount === null) return;
 
     const rate = 1 / 8640; // Increment rate (tokens per second)
