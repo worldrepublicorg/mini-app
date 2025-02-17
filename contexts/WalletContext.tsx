@@ -132,7 +132,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
           "event Transfer(address indexed from, address indexed to, uint256 value)",
         ]),
         eventName: "Transfer",
-        args: { from: walletAddress, to: walletAddress },
+        args: [null, walletAddress as `0x${string}`],
         onLogs: fetchBalance,
       });
 

@@ -27,7 +27,6 @@ export default function EarnPage() {
     claimableAmount,
     tokenBalance,
     fetchBasicIncomeInfo,
-    fetchBalance,
     hasBasicIncome,
   } = useWallet();
   const [transactionId, setTransactionId] = useState<string>("");
@@ -144,7 +143,6 @@ export default function EarnPage() {
       } else {
         setTransactionId(finalPayload.transaction_id);
         await fetchBasicIncomeInfo();
-        await fetchBalance();
 
         // Reset the stored counter values after rewards are claimed:
         localStorage.setItem("basicIncomeBase", "0");
@@ -181,7 +179,24 @@ export default function EarnPage() {
                 </Typography>
                 <WalletAuth onError={(error) => console.error(error)} />
               </>
-            ) : hasBasicIncome ? (
+            ) : !hasBasicIncome ? (
+              <>
+                <Typography
+                  variant="subtitle"
+                  level={1}
+                  className="mx-auto mb-10 mt-4 text-center text-gray-500"
+                >
+                  Set up your basic income
+                </Typography>
+                <Button
+                  onClick={sendSetup}
+                  isLoading={isSubmitting || isConfirming}
+                  fullWidth
+                >
+                  Activate basic income
+                </Button>
+              </>
+            ) : (
               <>
                 <Typography
                   variant="subtitle"
@@ -201,23 +216,6 @@ export default function EarnPage() {
                   fullWidth
                 >
                   Claim
-                </Button>
-              </>
-            ) : (
-              <>
-                <Typography
-                  variant="subtitle"
-                  level={1}
-                  className="mx-auto mb-10 mt-4 text-center text-gray-500"
-                >
-                  Set up your basic income
-                </Typography>
-                <Button
-                  onClick={sendSetup}
-                  isLoading={isSubmitting || isConfirming}
-                  fullWidth
-                >
-                  Activate Basic Income
                 </Button>
               </>
             )}
