@@ -41,17 +41,51 @@ export default function EarnPage() {
   });
 
   useEffect(() => {
-    if (!claimableAmount) return;
+    if (claimableAmount === undefined || claimableAmount === null) return;
 
-    const baseValue = Number(claimableAmount);
-    setDisplayClaimable(baseValue);
+    const rate = 1 / 8640; // Increment rate (tokens per second)
+    const currentClaimable = Number(claimableAmount);
 
-    const updateInterval = 1000;
-    const increment = updateInterval / 1000 / 8640;
+    let baseValue: number;
+    let startTime: number;
 
-    const interval = setInterval(() => {
-      setDisplayClaimable((prev) => prev + increment);
-    }, updateInterval);
+    const storedBase = localStorage.getItem("basicIncomeBase");
+    const storedStartTime = localStorage.getItem("basicIncomeStartTime");
+
+    if (storedBase && storedStartTime) {
+      baseValue = parseFloat(storedBase);
+      startTime = parseInt(storedStartTime, 10);
+
+      // If the on-chain claimable has increased (e.g. due to accumulation)
+      if (currentClaimable > baseValue) {
+        baseValue = currentClaimable;
+        startTime = Date.now();
+        localStorage.setItem("basicIncomeBase", baseValue.toString());
+        localStorage.setItem("basicIncomeStartTime", startTime.toString());
+      }
+
+      // If the on-chain claimable has decreased (i.e. a claim was made externally)
+      if (currentClaimable < baseValue) {
+        baseValue = currentClaimable;
+        startTime = Date.now();
+        localStorage.setItem("basicIncomeBase", baseValue.toString());
+        localStorage.setItem("basicIncomeStartTime", startTime.toString());
+      }
+    } else {
+      baseValue = currentClaimable;
+      startTime = Date.now();
+      localStorage.setItem("basicIncomeBase", baseValue.toString());
+      localStorage.setItem("basicIncomeStartTime", startTime.toString());
+    }
+
+    const updateDisplay = () => {
+      const elapsedSeconds = (Date.now() - startTime) / 1000;
+      const newValue = baseValue + elapsedSeconds * rate;
+      setDisplayClaimable(newValue);
+    };
+
+    updateDisplay();
+    const interval = setInterval(updateDisplay, 1000);
 
     return () => clearInterval(interval);
   }, [claimableAmount]);
@@ -106,6 +140,11 @@ export default function EarnPage() {
         setTransactionId(finalPayload.transaction_id);
         await fetchBasicIncomeInfo();
         fetchBalance();
+
+        // Reset the stored counter values after rewards are claimed:
+        localStorage.setItem("basicIncomeBase", "0");
+        localStorage.setItem("basicIncomeStartTime", Date.now().toString());
+        setDisplayClaimable(0);
       }
     } catch (error) {
       console.error("Error during claim:", error);
