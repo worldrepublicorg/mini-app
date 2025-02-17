@@ -1,7 +1,7 @@
 "use client";
 
 import { Typography } from "@/components/ui/Typography";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import {
   PiHandCoinsFill,
   PiPiggyBankFill,
@@ -20,22 +20,17 @@ import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { Button } from "@/components/ui/Button";
 import { ComingSoonDrawer } from "@/components/ComingSoonDrawer";
 import { checkWalletAuth } from "@/lib/auth";
-import { useCountUp } from "react-countup";
 
 export default function EarnPage() {
   const [activeTab, setActiveTab] = useState("Basic income");
-  const {
-    claimableAmount,
-    tokenBalance,
-    fetchBasicIncomeInfo,
-    isBasicIncomeSetup,
-    stakeInfoFetched,
-    username,
-    walletAddress,
-  } = useWallet();
+  const { claimableAmount, tokenBalance, fetchBasicIncomeInfo, fetchBalance } =
+    useWallet();
   const [transactionId, setTransactionId] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const animationRef = useRef<number>();
+
+  const [displayClaimable, setDisplayClaimable] = useState<number>(
+    Number(claimableAmount) || 0
+  );
 
   const { isLoading: isConfirming } = useWaitForTransactionReceipt({
     client: viemClient,
@@ -45,43 +40,21 @@ export default function EarnPage() {
     transactionId: transactionId,
   });
 
-  const countUpRef = useRef(null);
-  const { update } = useCountUp({
-    ref: countUpRef,
-    start: 0,
-    end: Number(claimableAmount || 0),
-    duration: 1.5,
-    decimals: 6,
-    separator: ",",
-    onUpdate: () => {
-      if (document.visibilityState === "hidden") {
-        cancelAnimationFrame(animationRef.current!);
-      }
-    },
-  });
-
   useEffect(() => {
     if (!claimableAmount) return;
 
-    update(Number(claimableAmount));
-    let lastTime = Date.now();
+    const baseValue = Number(claimableAmount);
+    setDisplayClaimable(baseValue);
 
-    const animate = () => {
-      const now = Date.now();
-      const elapsed = (now - lastTime) / 1000;
-      const increase = elapsed / 8640;
+    const updateInterval = 1000;
+    const increment = updateInterval / 1000 / 8640;
 
-      update(Number(claimableAmount) + increase);
-      lastTime = now;
-      animationRef.current = requestAnimationFrame(animate);
-    };
+    const interval = setInterval(() => {
+      setDisplayClaimable((prev) => prev + increment);
+    }, updateInterval);
 
-    animationRef.current = requestAnimationFrame(animate);
-
-    return () => {
-      if (animationRef.current) cancelAnimationFrame(animationRef.current);
-    };
-  }, [claimableAmount, update]);
+    return () => clearInterval(interval);
+  }, [claimableAmount]);
 
   const sendSetup = async () => {
     if (!MiniKit.isInstalled()) return;
@@ -102,12 +75,10 @@ export default function EarnPage() {
         console.error("Error sending transaction", finalPayload);
       } else {
         setTransactionId(finalPayload.transaction_id);
-        await fetchBasicIncomeInfo();
-        alert("Successfully activated basic income!");
+        fetchBasicIncomeInfo();
       }
     } catch (error: any) {
       console.error("Error:", error);
-      alert(`Failed: ${error?.shortMessage || error.message}`);
     } finally {
       setIsSubmitting(false);
     }
@@ -133,6 +104,8 @@ export default function EarnPage() {
         console.error("Error sending transaction", finalPayload);
       } else {
         setTransactionId(finalPayload.transaction_id);
+        fetchBasicIncomeInfo();
+        fetchBalance();
       }
     } catch (error) {
       console.error("Error:", error);
@@ -153,7 +126,7 @@ export default function EarnPage() {
               Basic Income
             </Typography>
 
-            {!checkWalletAuth() ? (
+            {/* {!checkWalletAuth() ? (
               <>
                 <Typography
                   variant="subtitle"
@@ -164,7 +137,9 @@ export default function EarnPage() {
                 </Typography>
                 <WalletAuth onError={(error) => console.error(error)} />
               </>
-            ) : isBasicIncomeSetup ? (
+            ) :  */}
+
+            {claimableAmount ? (
               <>
                 <Typography
                   variant="subtitle"
@@ -173,10 +148,11 @@ export default function EarnPage() {
                 >
                   Claimable drachma
                 </Typography>
-                <span
-                  ref={countUpRef}
-                  className="mb-12 font-display text-[3.5rem] font-semibold leading-narrow tracking-normal"
-                />
+                <div className="text-center">
+                  <p className="mx-auto mb-14 font-sans text-[3.5rem] font-semibold leading-narrow tracking-normal">
+                    {displayClaimable.toFixed(5)}
+                  </p>
+                </div>
                 <Button
                   onClick={sendClaim}
                   isLoading={isSubmitting || isConfirming}
@@ -340,10 +316,6 @@ export default function EarnPage() {
         activeTab={activeTab}
         onTabChange={setActiveTab}
       />
-
-      <p>{username}</p>
-      <p>{walletAddress}</p>
-      <p>{claimableAmount}</p>
 
       <div className="flex flex-1 items-center">{renderContent()}</div>
     </div>
