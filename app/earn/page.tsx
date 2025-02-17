@@ -183,7 +183,7 @@ export default function EarnPage() {
                 </Typography>
                 <WalletAuth onError={(error) => console.error(error)} />
               </>
-            ) : !hasBasicIncome ? (
+            ) : !claimableAmount ? (
               <>
                 <Typography
                   variant="subtitle"
