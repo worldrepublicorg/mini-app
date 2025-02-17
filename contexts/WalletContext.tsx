@@ -42,9 +42,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [username, setUsername] = useState<string | null>(null);
   const [claimableAmount, setClaimableAmount] = useState<string | null>(null);
   const [tokenBalance, setTokenBalance] = useState<string | null>(null);
-  const [walletAddress, setWalletAddress] = useState<string | null>(
-    "0xa3c2c8ce6be1c55401b5f1efb6112a86f6374429"
-  );
+  const [walletAddress, setWalletAddress] = useState<string | null>(null);
 
   const BASIC_INCOME_CONTRACT = "0x02c3B99D986ef1612bAC63d4004fa79714D00012";
   const TOKEN_CONTRACT = "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B";
