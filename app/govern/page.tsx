@@ -6,48 +6,13 @@ import { DrawerItem } from "@/components/DrawerItem";
 import { SectionHeader } from "@/components/SectionHeader";
 import { TabSwiper } from "@/components/TabSwiper";
 import { OpenLetterCard } from "@/components/OpenLetterCard";
-import { PollCard } from "@/components/PollCard";
+import { PollOfTheDay } from "@/components/PollOfTheDay";
 
 export default function GovernPage() {
-  const [activeTab, setActiveTab] = useState("Polls");
+  const [activeTab, setActiveTab] = useState("Open letters");
 
   const renderContent = () => {
     switch (activeTab) {
-      case "Polls":
-        return (
-          <>
-            <SectionHeader
-              title="Polls"
-              description="Quick votes on current topics"
-            />
-            <PollCard
-              title="Trade Balance"
-              description="Do you believe reciprocal tariffs are an effective tool for balancing international trade?"
-              url="https://vote.one/1BQZ2v3a"
-            />
-            <PollCard
-              title="Climate Indicators"
-              description="Do you think recent severe weather events indicate a significant change in our climate?"
-              url="https://vote.one/GVnbTAbR"
-            />
-            <PollCard
-              title="Migration Standards"
-              description="Should international agreements set binding standards for the treatment of migrants and refugees?"
-              url="https://vote.one/vLoWhqjh"
-            />
-            <PollCard
-              title="Global Representation"
-              description="Would expanding the representation of emerging economies and civil society in global decision-making improve international outcomes?"
-              url="https://vote.one/I6gUFLJa"
-            />
-            <PollCard
-              title="Conflict Resolution"
-              description="Are diplomatic solutions generally more effective than military approaches for resolving international conflicts?"
-              url="https://vote.one/f3Dm4GS6"
-            />
-            <DrawerItem title="Add your poll" isAddNew />
-          </>
-        );
       case "Open letters":
         return (
           <>
@@ -82,6 +47,8 @@ export default function GovernPage() {
             <DrawerItem title="Add your open letter" isAddNew />
           </>
         );
+      case "Polls":
+        return <PollOfTheDay />;
       case "Elections":
         return (
           <>
@@ -108,19 +75,19 @@ export default function GovernPage() {
   };
 
   return (
-    <div className="flex flex-col px-6 pb-24">
+    <div className="flex flex-col px-6 pb-20">
       <div className="bg-white pt-6">
         <Typography
           as="h2"
           variant={{ variant: "heading", level: 2 }}
-          className="h-8"
+          className="h-9 items-center"
         >
           Govern
         </Typography>
       </div>
 
       <TabSwiper
-        tabs={["Polls", "Open letters", "Elections", "Referendums"]}
+        tabs={["Open letters", "Polls", "Elections", "Referendums"]}
         activeTab={activeTab}
         onTabChange={setActiveTab}
       />

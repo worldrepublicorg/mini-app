@@ -1,12 +1,13 @@
 "use client";
 
 import { Typography } from "@/components/ui/Typography";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   PiHandCoinsFill,
   PiPiggyBankFill,
   PiUserPlusFill,
   PiPlantFill,
+  PiWalletFill,
 } from "react-icons/pi";
 import { Drawer, DrawerTrigger } from "@/components/ui/Drawer";
 import { WalletAuth } from "@/components/WalletAuth";
@@ -18,30 +19,100 @@ import { TabSwiper } from "@/components/TabSwiper";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { Button } from "@/components/ui/Button";
 import { ComingSoonDrawer } from "@/components/ComingSoonDrawer";
+import { checkWalletAuth, getWalletAddress } from "@/lib/auth";
 
 export default function EarnPage() {
   const [activeTab, setActiveTab] = useState("Basic income");
-  const { isLoggedIn, stakeInfo, tokenBalance } = useWallet();
+  const {
+    walletAddress,
+    claimableAmount,
+    tokenBalance,
+    fetchBasicIncomeInfo,
+    hasBasicIncome,
+    fetchBalance,
+    username,
+  } = useWallet();
   const [transactionId, setTransactionId] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const [displayClaimable, setDisplayClaimable] = useState<number>(
+    Number(claimableAmount) || 0
+  );
 
   const { isLoading: isConfirming } = useWaitForTransactionReceipt({
     client: viemClient,
     appConfig: {
-      app_id: process.env.NEXT_PUBLIC_APP_ID as string,
+      app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}`,
     },
     transactionId: transactionId,
   });
 
+  const [, setForceUpdate] = useState({});
+
+  useEffect(() => {
+    if (transactionId) {
+      fetchBalance();
+    }
+  }, [transactionId, fetchBalance]);
+
+  useEffect(() => {
+    if (claimableAmount === undefined || claimableAmount === null) return;
+
+    const rate = 1 / 8640; // Increment rate (tokens per second)
+    const currentClaimable = Number(claimableAmount);
+
+    let baseValue: number;
+    let startTime: number;
+
+    const storedBase = localStorage.getItem("basicIncomeBase");
+    const storedStartTime = localStorage.getItem("basicIncomeStartTime");
+
+    if (storedBase && storedStartTime) {
+      baseValue = parseFloat(storedBase);
+      startTime = parseInt(storedStartTime, 10);
+
+      // If the on-chain claimable has increased (e.g. due to accumulation)
+      if (currentClaimable > baseValue) {
+        baseValue = currentClaimable;
+        startTime = Date.now();
+        localStorage.setItem("basicIncomeBase", baseValue.toString());
+        localStorage.setItem("basicIncomeStartTime", startTime.toString());
+      }
+
+      // If the on-chain claimable has decreased (i.e. a claim was made externally)
+      if (currentClaimable < baseValue) {
+        baseValue = currentClaimable;
+        startTime = Date.now();
+        localStorage.setItem("basicIncomeBase", baseValue.toString());
+        localStorage.setItem("basicIncomeStartTime", startTime.toString());
+      }
+    } else {
+      baseValue = currentClaimable;
+      startTime = Date.now();
+      localStorage.setItem("basicIncomeBase", baseValue.toString());
+      localStorage.setItem("basicIncomeStartTime", startTime.toString());
+    }
+
+    const updateDisplay = () => {
+      const elapsedSeconds = (Date.now() - startTime) / 1000;
+      const newValue = baseValue + elapsedSeconds * rate;
+      setDisplayClaimable(newValue);
+    };
+
+    updateDisplay();
+    const interval = setInterval(updateDisplay, 1000);
+
+    return () => clearInterval(interval);
+  }, [claimableAmount]);
+
   const sendSetup = async () => {
     if (!MiniKit.isInstalled()) return;
-
     setIsSubmitting(true);
     try {
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
-            address: "0x2f08c17B30e6622F8B780fb58835Fc0927E2dc8e",
+            address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012",
             abi: parseAbi(["function stake() external"]),
             functionName: "stake",
             args: [],
@@ -53,8 +124,9 @@ export default function EarnPage() {
         console.error("Error sending transaction", finalPayload);
       } else {
         setTransactionId(finalPayload.transaction_id);
+        await fetchBasicIncomeInfo();
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error:", error);
     } finally {
       setIsSubmitting(false);
@@ -63,13 +135,13 @@ export default function EarnPage() {
 
   const sendClaim = async () => {
     if (!MiniKit.isInstalled()) return;
-
     setIsSubmitting(true);
     try {
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
-            address: "0x2f08c17B30e6622F8B780fb58835Fc0927E2dc8e",
+            address:
+              "0x02c3B99D986ef1612bAC63d4004fa79714D00012" as `0x${string}`,
             abi: parseAbi(["function claimRewards() external"]),
             functionName: "claimRewards",
             args: [],
@@ -81,9 +153,17 @@ export default function EarnPage() {
         console.error("Error sending transaction", finalPayload);
       } else {
         setTransactionId(finalPayload.transaction_id);
+        await fetchBasicIncomeInfo();
+        await fetchBalance();
+        setForceUpdate({});
+
+        // Reset the stored counter values after rewards are claimed:
+        localStorage.setItem("basicIncomeBase", "0");
+        localStorage.setItem("basicIncomeStartTime", Date.now().toString());
+        setDisplayClaimable(0);
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error during claim:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -101,7 +181,7 @@ export default function EarnPage() {
               Basic Income
             </Typography>
 
-            {!isLoggedIn ? (
+            {!walletAddress ? (
               <>
                 <Typography
                   variant="subtitle"
@@ -110,29 +190,23 @@ export default function EarnPage() {
                 >
                   Sign in to claim your basic income
                 </Typography>
-
                 <WalletAuth onError={(error) => console.error(error)} />
               </>
-            ) : stakeInfo ? (
+            ) : !claimableAmount ? (
               <>
                 <Typography
                   variant="subtitle"
                   level={1}
                   className="mx-auto mb-10 mt-4 text-center text-gray-500"
                 >
-                  Claimable drachma
+                  Set up your basic income
                 </Typography>
-
-                <Typography variant="number" level={1} className="mb-12">
-                  {Number(stakeInfo.rewards).toFixed(4)}
-                </Typography>
-
                 <Button
-                  onClick={sendClaim}
+                  onClick={sendSetup}
                   isLoading={isSubmitting || isConfirming}
                   fullWidth
                 >
-                  Claim
+                  Activate basic income
                 </Button>
               </>
             ) : (
@@ -142,15 +216,19 @@ export default function EarnPage() {
                   level={1}
                   className="mx-auto mb-10 mt-4 text-center text-gray-500"
                 >
-                  Set up your basic income stream
+                  Claimable drachma
                 </Typography>
-
+                <div className="text-center">
+                  <p className="mx-auto mb-14 font-sans text-[56px] font-semibold leading-narrow tracking-normal">
+                    {displayClaimable.toFixed(5)}
+                  </p>
+                </div>
                 <Button
-                  onClick={sendSetup}
+                  onClick={sendClaim}
                   isLoading={isSubmitting || isConfirming}
                   fullWidth
                 >
-                  Activate basic income
+                  Claim
                 </Button>
               </>
             )}
@@ -261,25 +339,29 @@ export default function EarnPage() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col px-6 pb-24">
-      <div className="bg-white mt-6 flex items-baseline justify-between">
-        <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
-          Earn
-        </Typography>
-        <a
-          href="https://worldcoin.org/mini-app?app_id=app_a4f7f3e62c1de0b9490a5260cb390b56&path=%3Ftab%3Dswap%26fromToken%3D0x2cFc85d8E48F8EAB294be644d9E25C3030863003%26amount%3D1000000000000000000%26toToken%3D0xAAC7d5E9011Fc0fC80bF707DDcC3D56DdfDa9084%26referrerAppId%3Dapp_66c83ab8c851fb1e54b1b1b62c6ce39d"
-          className="flex items-baseline gap-2"
-        >
-          <p className="text-[18px] font-medium">Balance</p>
-          <Typography
-            variant={{ variant: "number", level: 6 }}
-            className="text-[18px]"
-          >
-            {tokenBalance
-              ? `${Number(tokenBalance).toFixed(2)} WDD`
-              : "0.00 WDD"}
+    <div className="flex min-h-dvh flex-col px-6 pb-20">
+      <div className="mt-5 flex items-center justify-between">
+        <div className="flex h-10 items-center">
+          <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
+            Earn
           </Typography>
-        </a>
+        </div>
+        {checkWalletAuth() && (
+          <a
+            href="https://worldcoin.org/mini-app?app_id=app_a4f7f3e62c1de0b9490a5260cb390b56&path=%3Ftab%3Dswap%26fromToken%3D0x2cFc85d8E48F8EAB294be644d9E25C3030863003%26amount%3D1000000000000000000%26toToken%3D0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B%26referrerAppId%3Dapp_66c83ab8c851fb1e54b1b1b62c6ce39d"
+            className="flex h-10 items-center gap-2 rounded-full bg-gray-100 px-4"
+          >
+            <PiWalletFill className="h-5 w-5" />
+            <Typography
+              variant={{ variant: "number", level: 6 }}
+              className="text-base"
+            >
+              {tokenBalance
+                ? `${Number(tokenBalance).toFixed(2)} WDD`
+                : "0.00 WDD"}
+            </Typography>
+          </a>
+        )}
       </div>
 
       <TabSwiper

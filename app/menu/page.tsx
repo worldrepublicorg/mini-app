@@ -37,7 +37,7 @@ const menuSections = [
 
 export default function MenuPage() {
   return (
-    <div className="flex flex-col px-6 pb-24">
+    <div className="flex flex-col px-6 pb-20">
       <div className="py-6">
         <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
           Menu
@@ -47,11 +47,11 @@ export default function MenuPage() {
       <div>
         {menuSections.map((section) => (
           <div key={section.title} className="mt-4">
-            <div className="flex mb-4">
+            <div className="mb-4 flex">
               <Typography
                 as="h3"
                 variant={{ variant: "heading", level: 3 }}
-                className="text-gray-500 text-base"
+                className="text-base text-gray-500"
               >
                 {section.title}
               </Typography>
@@ -66,7 +66,7 @@ export default function MenuPage() {
                   className="w-full"
                 >
                   <ListItem>
-                    <div className="flex items-center justify-between w-full h-8">
+                    <div className="flex h-8 w-full items-center justify-between">
                       <Typography
                         as="span"
                         variant={{ variant: "subtitle", level: 2 }}

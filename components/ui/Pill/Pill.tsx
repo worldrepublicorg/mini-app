@@ -8,7 +8,7 @@ import { cn } from "../../../lib/utils";
 import { typographyVariants } from "../Typography";
 
 const pillVariants = cva(
-  "inline-flex h-9 items-center rounded-full px-4 transition-colors duration-200",
+  "inline-flex h-9 items-center rounded-full px-4 transition-all duration-200",
   {
     variants: {
       checked: {
@@ -19,7 +19,7 @@ const pillVariants = cva(
     defaultVariants: {
       checked: false,
     },
-  },
+  }
 );
 
 export interface PillProps
@@ -45,14 +45,14 @@ export const Pill = forwardRef<HTMLButtonElement, PillProps>(
         ref={ref}
         className={cn(
           pillVariants({ checked }),
-          typographyVariants({ variant: "subtitle", level: 3 }),
+          typographyVariants({ variant: "subtitle", level: 3 })
         )}
         {...props}
       >
         {children}
       </Comp>
     );
-  },
+  }
 );
 
 Pill.displayName = "Pill";

@@ -9,30 +9,31 @@ import React, {
 } from "react";
 import { parseAbi } from "viem";
 import { viemClient } from "@/lib/viemClient";
+import { getStoredUsername, getWalletAddress } from "@/lib/auth";
+import { getIsUserVerified } from "@worldcoin/minikit-js";
 
 interface WalletContextProps {
   walletAddress: string | null;
   username: string | null;
-  isLoggedIn: boolean;
-  stakeInfo: {
-    tokensStaked: string;
-    rewards: string;
-    staked: string;
-    lastStaked: string | null;
-  } | null;
   tokenBalance: string | null;
-  setWalletData: (address: string | null, username: string | null) => void;
-  setIsLoggedIn: (loggedIn: boolean) => void;
+  claimableAmount: string | null;
+  hasBasicIncome: boolean;
+  setWalletAddress: (address: string) => void;
+  setUsername: (username: string) => void;
+  fetchBasicIncomeInfo: () => Promise<void>;
+  fetchBalance: () => Promise<void>;
 }
 
 const WalletContext = createContext<WalletContextProps>({
   walletAddress: null,
   username: null,
-  isLoggedIn: false,
-  stakeInfo: null,
   tokenBalance: null,
-  setWalletData: () => {},
-  setIsLoggedIn: () => {}, // Default empty function
+  claimableAmount: null,
+  hasBasicIncome: false,
+  setWalletAddress: async () => {},
+  setUsername: async () => {},
+  fetchBasicIncomeInfo: async () => {},
+  fetchBalance: async () => {},
 });
 
 interface WalletProviderProps {
@@ -40,115 +41,130 @@ interface WalletProviderProps {
 }
 
 export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
-  const [walletAddress, setWalletAddress] = useState<string | null>(null);
   const [username, setUsername] = useState<string | null>(null);
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const [stakeInfo, setStakeInfo] =
-    useState<WalletContextProps["stakeInfo"]>(null);
+  const [claimableAmount, setClaimableAmount] = useState<string | null>(null);
   const [tokenBalance, setTokenBalance] = useState<string | null>(null);
+  const [walletAddress, setWalletAddress] = useState<string | null>(null);
+  const [hasBasicIncome, setHasBasicIncome] = useState(false);
 
-  useEffect(() => {
-    // Load from localStorage on initial mount
-    const storedAddress = localStorage.getItem("walletAddress");
-    const storedUsername = localStorage.getItem("username");
-    if (storedAddress) {
-      setWalletAddress(storedAddress);
-      setIsLoggedIn(true); // Set isLoggedIn based on stored address
-    }
-    if (storedUsername) {
-      setUsername(storedUsername);
-    }
-  }, []);
+  const fromWei = (value: bigint) => (Number(value) / 1e18).toString();
 
-  useEffect(() => {
-    const fetchStakeInfo = async () => {
-      if (!walletAddress) return;
+  const fetchBasicIncomeInfo = async () => {
+    try {
+      const result = await viemClient.readContract({
+        address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012",
+        abi: parseAbi([
+          "function getStakeInfo(address) external view returns (uint256, uint256)",
+        ]),
+        functionName: "getStakeInfo",
+        args: [walletAddress as `0x${string}`],
+      });
 
-      try {
-        const stakeInfoResult = await viemClient.readContract({
-          address: "0x2f08c17B30e6622F8B780fb58835Fc0927E2dc8e",
-          abi: parseAbi([
-            "function getStakeInfo(address) external view returns (uint256, uint256)",
-          ]),
-          functionName: "getStakeInfo",
-          args: [walletAddress as `0x${string}`],
-        });
-
-        if (Array.isArray(stakeInfoResult) && stakeInfoResult.length === 2) {
-          setStakeInfo({
-            tokensStaked: (Number(stakeInfoResult[0]) / 1e18).toString(),
-            rewards: (Number(stakeInfoResult[1]) / 1e18).toString(),
-            staked: "0",
-            lastStaked: null,
-          });
-        }
-      } catch (error) {
-        console.error("Error fetching stake info:", error);
+      if (Array.isArray(result) && result.length === 2) {
+        const [rawStake] = result;
+        setHasBasicIncome(Number(rawStake) > 0);
+        setClaimableAmount(fromWei(result[1]));
       }
-    };
-
-    if (walletAddress) {
-      fetchStakeInfo();
-      const interval = setInterval(fetchStakeInfo, 1000);
-      return () => clearInterval(interval);
-    }
-  }, [walletAddress]);
-
-  useEffect(() => {
-    const fetchBalance = async () => {
-      if (!walletAddress) return;
-
-      try {
-        const balanceResult = await viemClient.readContract({
-          address: "0xAAC7d5E9011Fc0fC80bF707DDcC3D56DdfDa9084",
-          abi: parseAbi([
-            "function balanceOf(address) external view returns (uint256)",
-          ]),
-          functionName: "balanceOf",
-          args: [walletAddress as `0x${string}`],
-        });
-
-        if (typeof balanceResult === "bigint") {
-          setTokenBalance((Number(balanceResult) / 1e18).toString());
-        }
-      } catch (error) {
-        console.error("Error fetching balance:", error);
-      }
-    };
-
-    if (walletAddress) {
-      fetchBalance();
-      const interval = setInterval(fetchBalance, 1000);
-      return () => clearInterval(interval);
-    }
-  }, [walletAddress]);
-
-  const setWalletData = (address: string | null, username: string | null) => {
-    setWalletAddress(address);
-    setUsername(username);
-    // Save to localStorage whenever the data changes
-    if (address) {
-      localStorage.setItem("walletAddress", address);
-    } else {
-      localStorage.removeItem("walletAddress");
-    }
-    if (username) {
-      localStorage.setItem("username", username);
-    } else {
-      localStorage.removeItem("username");
+    } catch (error) {
+      console.error("Error fetching basic income info:", error);
+      setHasBasicIncome(false);
+      setClaimableAmount(null);
     }
   };
+
+  useEffect(() => {
+    if (!walletAddress) return;
+
+    fetchBasicIncomeInfo();
+
+    try {
+      const unwatch = viemClient.watchContractEvent({
+        address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012",
+        abi: parseAbi([
+          "event RewardsClaimed(address indexed user, uint256 amount)",
+        ]),
+        eventName: "RewardsClaimed",
+        args: { user: walletAddress },
+        onLogs: fetchBasicIncomeInfo,
+      });
+
+      return () => unwatch();
+    } catch (error) {
+      console.error("Error watching RewardsClaimed events:", error);
+    }
+  }, [walletAddress]);
+
+  const fetchBalance = async () => {
+    try {
+      const balanceResult = await viemClient.readContract({
+        address: "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B",
+        abi: parseAbi([
+          "function balanceOf(address) external view returns (uint256)",
+        ]),
+        functionName: "balanceOf",
+        args: [walletAddress as `0x${string}`],
+      });
+
+      if (typeof balanceResult === "bigint") {
+        setTokenBalance(fromWei(balanceResult));
+      }
+    } catch (error) {
+      console.error("Error fetching balance:", error);
+      setTokenBalance(null);
+    }
+  };
+
+  useEffect(() => {
+    if (!walletAddress) return;
+
+    fetchBalance();
+
+    try {
+      const unwatch = viemClient.watchContractEvent({
+        address: "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B",
+        abi: parseAbi([
+          "event Transfer(address indexed from, address indexed to, uint256 value)",
+        ]),
+        eventName: "Transfer",
+        args: [walletAddress as `0x${string}`, walletAddress as `0x${string}`],
+        onLogs: fetchBalance,
+      });
+
+      return () => unwatch();
+    } catch (error) {
+      console.error("Error watching Transfer events:", error);
+    }
+  }, [walletAddress]);
+
+  useEffect(() => {
+    const validateSession = async () => {
+      const storedAddress = getWalletAddress();
+      if (storedAddress) {
+        const isValid = await getIsUserVerified(storedAddress);
+        if (isValid) {
+          setWalletAddress(storedAddress);
+          setUsername(getStoredUsername());
+        } else {
+          document.cookie =
+            "wallet-auth=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        }
+      }
+    };
+    validateSession();
+  }, []);
 
   return (
     <WalletContext.Provider
       value={{
         walletAddress,
         username,
-        isLoggedIn,
-        stakeInfo,
         tokenBalance,
-        setWalletData,
-        setIsLoggedIn,
+        claimableAmount,
+        hasBasicIncome,
+        setWalletAddress,
+        setUsername,
+        fetchBasicIncomeInfo,
+        fetchBalance,
       }}
     >
       {children}

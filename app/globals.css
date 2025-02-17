@@ -35,8 +35,22 @@ pre {
   }
 }
 
-@supports (padding: max(0px)) {
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3),
+  /* iPhone X/XS/11 Pro */ only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2),
+  /* iPhone XR/11 */ only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3),
+  /* iPhone 12/13 Pro */ only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3),
+  /* iPhone 12/13 Pro Max */ only screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) {
+  /* iPhone 14 Pro Max */
   .safe-area-spacer {
-    padding-bottom: max(0px, env(safe-area-inset-bottom));
+    padding-bottom: 20px;
   }
 }

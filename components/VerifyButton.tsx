@@ -79,7 +79,7 @@ export const VerifyButton = () => {
               },
             });
             throw new Error(
-              `Minting failed: ${errorData.message || "Bad Request"}`,
+              `Minting failed: ${errorData.message || "Bad Request"}`
             );
           }
 

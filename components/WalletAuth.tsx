@@ -2,20 +2,26 @@
 
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useState } from "react";
-import { useWallet } from "../contexts/WalletContext";
 import { Button } from "./ui/Button";
+import { useWallet } from "@/contexts/WalletContext";
 
 interface WalletAuthProps {
   onError?: (error: string) => void;
+  onSuccess?: (walletAddress: string, username: string) => void;
 }
 
-export function WalletAuth({ onError }: WalletAuthProps) {
+export function WalletAuth({ onError, onSuccess }: WalletAuthProps) {
   const [isLoading, setIsLoading] = useState(false);
-  const { setWalletData, setIsLoggedIn } = useWallet();
+  const { setWalletAddress, setUsername } = useWallet();
+
+  const handleError = (message: string) => {
+    onError?.(message);
+    setIsLoading(false);
+  };
 
   const signInWithWallet = async () => {
     if (!MiniKit.isInstalled()) {
-      onError?.("MiniKit is not installed");
+      handleError("MiniKit is not installed");
       alert("Please open this app in the World App to connect your wallet.");
       return;
     }
@@ -23,15 +29,17 @@ export function WalletAuth({ onError }: WalletAuthProps) {
     setIsLoading(true);
     try {
       const res = await fetch(`/api/nonce`);
+      if (!res.ok) throw new Error("Failed to fetch nonce");
       const { nonce } = await res.json();
 
       const { finalPayload } = await MiniKit.commandsAsync.walletAuth({
-        nonce: nonce,
-        expirationTime: new Date(new Date().getTime() + 24 * 60 * 60 * 1000),
+        nonce,
+        statement: "Sign in to World Republic",
+        expirationTime: new Date(Date.now() + 24 * 60 * 60 * 1000),
       });
 
       if (finalPayload.status === "error") {
-        onError?.("Authentication failed");
+        handleError("Authentication failed");
         return;
       }
 
@@ -46,21 +54,24 @@ export function WalletAuth({ onError }: WalletAuthProps) {
       if (result.status === "success" && result.isValid) {
         const fetchedWalletAddress = MiniKit.user?.walletAddress;
         if (fetchedWalletAddress) {
+          // Set client-side cookie for UI persistence
+          document.cookie = `wallet-auth=authenticated; path=/; max-age=${60 * 60 * 24 * 7}; secure; sameSite=lax`;
+          document.cookie = `wallet-address=${fetchedWalletAddress}; path=/; max-age=${60 * 60 * 24 * 7}; secure; sameSite=lax`;
+
           let fetchedUsername = null;
           try {
             const usernameRes = await fetch(
-              `https://usernames.worldcoin.org/api/v1/${fetchedWalletAddress}`,
+              `https://usernames.worldcoin.org/api/v1/${fetchedWalletAddress}`
             );
-            if (!usernameRes.ok) {
-              throw new Error("Failed to fetch username");
-            }
+            if (!usernameRes.ok) throw new Error("Failed to fetch username");
             const usernameData = await usernameRes.json();
             fetchedUsername = usernameData.username || "Unknown";
           } catch (error: any) {
             console.error("Error fetching username:", error);
           } finally {
-            setWalletData(fetchedWalletAddress, fetchedUsername);
-            setIsLoggedIn(true);
+            setWalletAddress(fetchedWalletAddress);
+            setUsername(fetchedUsername);
+            onSuccess?.(fetchedWalletAddress, fetchedUsername);
           }
         }
       } else {

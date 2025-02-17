@@ -21,19 +21,19 @@ export function OpenLetterCard({
   return (
     <div
       onClick={() => router.push(voteUrl)}
-      className="p-4 rounded-xl mb-4 text-gray-900 flex w-full items-center justify-between border border-gray-200"
+      className="mb-4 flex cursor-pointer items-center justify-between rounded-xl border border-gray-200 p-4 text-gray-900"
     >
       <div>
         <Typography
           as="h3"
           variant={{ variant: "subtitle", level: 2 }}
-          className="line-clamp-3 mb-2"
+          className="mb-1.5 line-clamp-3"
         >
           {title}
         </Typography>
-        <div className="flex items-center gap-1 w-max-24">
+        <div className="w-max-24 flex items-center gap-1">
           <a
-            className="flex items-center gap-1 w-max-24"
+            className="w-max-24 flex items-center gap-1"
             href={referenceUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -50,7 +50,7 @@ export function OpenLetterCard({
         </div>
       </div>
       <div className="rounded-full bg-gray-100 p-1.5">
-        <IoIosArrowForward className="size-[14px] text-gray-400 flex-shrink-0" />
+        <IoIosArrowForward className="size-[14px] flex-shrink-0 text-gray-400" />
       </div>
     </div>
   );

@@ -16,15 +16,15 @@ export function DrawerItem({ title, isAddNew = false }: DrawerItemProps) {
     <Drawer>
       <DrawerTrigger asChild>
         <div
-          className={`flex items-center justify-between p-4 mt-4 min-h-16 ${
-            isAddNew ? "border-dashed border" : "bg-gray-50"
-          } rounded-xl cursor-pointer`}
+          className={`mt-4 flex cursor-pointer items-center justify-between rounded-xl border border-gray-200 p-4 opacity-50 ${
+            isAddNew && "border-2 border-dashed"
+          }`}
         >
           <div className="flex items-center gap-2">
             <Typography
               as="h3"
               variant={{ variant: "subtitle", level: 2 }}
-              className="line-clamp-2 text-gray-400"
+              className={`line-clamp-2 ${isAddNew ? "text-gray-400" : "text-gray-900"}`}
             >
               {title}
             </Typography>
@@ -32,7 +32,9 @@ export function DrawerItem({ title, isAddNew = false }: DrawerItemProps) {
           {isAddNew ? (
             <BiPlus className="text-gray-300" />
           ) : (
-            <IoIosArrowForward className="text-gray-300 flex-shrink-0" />
+            <div className="ml-4 rounded-full bg-gray-100 p-1.5">
+              <IoIosArrowForward className="size-[14px] flex-shrink-0 text-gray-400" />
+            </div>
           )}
         </div>
       </DrawerTrigger>

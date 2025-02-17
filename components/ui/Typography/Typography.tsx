@@ -37,7 +37,7 @@ export interface TypographyProps<T extends ElementType = "p">
 export const typographyVariants = cva("", {
   variants: {
     variant: {
-      number: "font-display font-semibold leading-narrow tracking-normal",
+      number: "font-sans font-semibold leading-narrow tracking-normal",
       heading: "font-display font-semibold tracking-[-0.01em] leading-narrow",
       subtitle: "font-sans font-medium leading-narrow tracking-normal",
       body: "font-sans font-normal leading-compact tracking-normal",
@@ -178,7 +178,7 @@ export const Typography = forwardRef<
       className,
       ...props
     },
-    ref: Ref<HTMLElement>,
+    ref: Ref<HTMLElement>
   ) => {
     return (
       <Component
@@ -187,7 +187,7 @@ export const Typography = forwardRef<
             variant: typeof variant === "string" ? variant : variant.variant,
             level: typeof variant === "object" ? variant.level : level,
           }),
-          className,
+          className
         )}
         ref={ref as Ref<any>}
         {...props}
@@ -195,7 +195,7 @@ export const Typography = forwardRef<
         {children}
       </Component>
     );
-  },
+  }
 );
 
 Typography.displayName = "Typography";
