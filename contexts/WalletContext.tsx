@@ -109,14 +109,6 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     validateSession();
   }, []);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      fetchBalance();
-    }, 1000);
-
-    return () => clearInterval(intervalId);
-  }, [walletAddress]);
-
   return (
     <WalletContext.Provider
       value={{

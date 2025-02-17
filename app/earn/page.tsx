@@ -96,6 +96,12 @@ export default function EarnPage() {
     return () => clearInterval(interval);
   }, [claimableAmount]);
 
+  useEffect(() => {
+    if (transactionId) {
+      fetchBalance();
+    }
+  }, [transactionId, fetchBalance]);
+
   const sendSetup = async () => {
     if (!MiniKit.isInstalled()) return;
     setIsSubmitting(true);
