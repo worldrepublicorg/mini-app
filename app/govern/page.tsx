@@ -6,7 +6,7 @@ import { DrawerItem } from "@/components/DrawerItem";
 import { SectionHeader } from "@/components/SectionHeader";
 import { TabSwiper } from "@/components/TabSwiper";
 import { OpenLetterCard } from "@/components/OpenLetterCard";
-import { PollCard } from "@/components/PollCard";
+import { PollOfTheDay } from "@/components/PollOfTheDay";
 
 export default function GovernPage() {
   const [activeTab, setActiveTab] = useState("Open letters");
@@ -48,35 +48,7 @@ export default function GovernPage() {
           </>
         );
       case "Polls":
-        return (
-          <>
-            <SectionHeader
-              title="Polls"
-              description="Quick votes on current topics"
-            />
-            <PollCard
-              description="Do you believe reciprocal tariffs are an effective tool for balancing international trade?"
-              url="https://vote.one/1BQZ2v3a"
-            />
-            <PollCard
-              description="Do you think recent severe weather events indicate a significant change in our climate?"
-              url="https://vote.one/GVnbTAbR"
-            />
-            <PollCard
-              description="Should international agreements set binding standards for the treatment of migrants and refugees?"
-              url="https://vote.one/vLoWhqjh"
-            />
-            <PollCard
-              description="Would expanding the representation of emerging economies and civil society in global decision-making improve international outcomes?"
-              url="https://vote.one/I6gUFLJa"
-            />
-            <PollCard
-              description="Are diplomatic solutions generally more effective than military approaches for resolving international conflicts?"
-              url="https://vote.one/f3Dm4GS6"
-            />
-            <DrawerItem title="Add your poll" isAddNew />
-          </>
-        );
+        return <PollOfTheDay />;
       case "Elections":
         return (
           <>
