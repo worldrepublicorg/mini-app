@@ -370,18 +370,6 @@ export default function EarnPage() {
         onTabChange={setActiveTab}
       />
 
-      <p>
-        Wallet address: {walletAddress}
-        <br />
-        Username: {username}
-        <br />
-        Token balance: {tokenBalance}
-        <br />
-        Claimable amount: {claimableAmount}
-        <br />
-        Has basic income: {hasBasicIncome}
-      </p>
-
       <div className="flex flex-1 items-center">{renderContent()}</div>
     </div>
   );
