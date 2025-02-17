@@ -11,30 +11,29 @@ import {
 } from "react-icons/pi";
 import { Drawer, DrawerTrigger } from "@/components/ui/Drawer";
 import { WalletAuth } from "@/components/WalletAuth";
+import { useWallet } from "@/contexts/WalletContext";
 import { viemClient } from "@/lib/viemClient";
 import { parseAbi } from "viem";
-import { getIsUserVerified, MiniKit } from "@worldcoin/minikit-js";
+import { MiniKit } from "@worldcoin/minikit-js";
 import { TabSwiper } from "@/components/TabSwiper";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { Button } from "@/components/ui/Button";
 import { ComingSoonDrawer } from "@/components/ComingSoonDrawer";
-import {
-  checkWalletAuth,
-  getWalletAddress,
-  getStoredUsername,
-} from "@/lib/auth";
+import { checkWalletAuth, getWalletAddress } from "@/lib/auth";
 
 export default function EarnPage() {
   const [activeTab, setActiveTab] = useState("Basic income");
-  const [username, setUsername] = useState<string | null>(null);
-  const [claimableAmount, setClaimableAmount] = useState<string | null>(null);
-  const [tokenBalance, setTokenBalance] = useState<string | null>(null);
-  const [walletAddress, setWalletAddress] = useState<string | null>(null);
-
+  const {
+    walletAddress,
+    claimableAmount,
+    tokenBalance,
+    fetchBasicIncomeInfo,
+    hasBasicIncome,
+    fetchBalance,
+    username,
+  } = useWallet();
   const [transactionId, setTransactionId] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const fromWei = (value: bigint) => (Number(value) / 1e18).toString();
 
   const [displayClaimable, setDisplayClaimable] = useState<number>(
     Number(claimableAmount) || 0
@@ -49,108 +48,6 @@ export default function EarnPage() {
   });
 
   const [, setForceUpdate] = useState({});
-
-  const fetchBasicIncomeInfo = async () => {
-    try {
-      const result = await viemClient.readContract({
-        address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012",
-        abi: parseAbi([
-          "function getStakeInfo(address) external view returns (uint256, uint256)",
-        ]),
-        functionName: "getStakeInfo",
-        args: [walletAddress as `0x${string}`],
-      });
-
-      if (Array.isArray(result) && result.length === 2) {
-        const [rawStake] = result;
-        setClaimableAmount(fromWei(result[1]));
-      }
-    } catch (error) {
-      console.error("Error fetching basic income info:", error);
-      setClaimableAmount(null);
-    }
-  };
-
-  useEffect(() => {
-    if (!walletAddress) return;
-
-    fetchBasicIncomeInfo();
-
-    try {
-      const unwatch = viemClient.watchContractEvent({
-        address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012",
-        abi: parseAbi([
-          "event RewardsClaimed(address indexed user, uint256 amount)",
-        ]),
-        eventName: "RewardsClaimed",
-        args: { user: walletAddress },
-        onLogs: fetchBasicIncomeInfo,
-      });
-
-      return () => unwatch();
-    } catch (error) {
-      console.error("Error watching RewardsClaimed events:", error);
-    }
-  }, [walletAddress]);
-
-  const fetchBalance = async () => {
-    try {
-      const balanceResult = await viemClient.readContract({
-        address: "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B",
-        abi: parseAbi([
-          "function balanceOf(address) external view returns (uint256)",
-        ]),
-        functionName: "balanceOf",
-        args: [walletAddress as `0x${string}`],
-      });
-
-      if (typeof balanceResult === "bigint") {
-        setTokenBalance(fromWei(balanceResult));
-      }
-    } catch (error) {
-      console.error("Error fetching balance:", error);
-      setTokenBalance(null);
-    }
-  };
-
-  useEffect(() => {
-    if (!walletAddress) return;
-
-    fetchBalance();
-
-    try {
-      const unwatch = viemClient.watchContractEvent({
-        address: "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B",
-        abi: parseAbi([
-          "event Transfer(address indexed from, address indexed to, uint256 value)",
-        ]),
-        eventName: "Transfer",
-        args: [walletAddress as `0x${string}`, walletAddress as `0x${string}`],
-        onLogs: fetchBalance,
-      });
-
-      return () => unwatch();
-    } catch (error) {
-      console.error("Error watching Transfer events:", error);
-    }
-  }, [walletAddress]);
-
-  useEffect(() => {
-    const validateSession = async () => {
-      const storedAddress = getWalletAddress();
-      if (storedAddress) {
-        const isValid = await getIsUserVerified(storedAddress);
-        if (isValid) {
-          setWalletAddress(storedAddress);
-          setUsername(getStoredUsername());
-        } else {
-          document.cookie =
-            "wallet-auth=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
-        }
-      }
-    };
-    validateSession();
-  }, []);
 
   useEffect(() => {
     if (claimableAmount === undefined || claimableAmount === null) return;
@@ -445,7 +342,7 @@ export default function EarnPage() {
         </div>
         {checkWalletAuth() && (
           <a
-            href="https://worldcoin.org/mini-app?app_id=app_a4f7f3e62c1de0b9490a5260cb390b56&path=%3Ftab%3Dswap%26fromToken%3D0x2cFc85d8E48F8EAB294be644d9E25C3030863003%26amount%3D1000000000000000000%26toToken%3D0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B%26referrerAppId%3Dapp_880aceacfcfbc104c4702143603579ab"
+            href="https://worldcoin.org/mini-app?app_id=app_a4f7f3e62c1de0b9490a5260cb390b56&path=%3Ftab%3Dswap%26fromToken%3D0x2cFc85d8E48F8EAB294be644d9E25C3030863003%26amount%3D1000000000000000000%26toToken%3D0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B%26referrerAppId%3Dapp_66c83ab8c851fb1e54b1b1b62c6ce39d"
             className="flex h-10 items-center gap-2 rounded-full bg-gray-100 px-4"
           >
             <PiWalletFill className="h-5 w-5" />
@@ -475,6 +372,8 @@ export default function EarnPage() {
         Token balance: {tokenBalance}
         <br />
         Claimable amount: {claimableAmount}
+        <br />
+        Has basic income: {hasBasicIncome}
       </p>
 
       <div className="flex flex-1 items-center">{renderContent()}</div>

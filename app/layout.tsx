@@ -3,6 +3,7 @@ import "./globals.css";
 import MiniKitProvider from "@/providers/minikit-provider";
 import NextAuthProvider from "@/providers/next-auth-provider";
 import BottomNav from "@/components/BottomNav";
+import { WalletProvider } from "@/contexts/WalletContext";
 import "@worldcoin/mini-apps-ui-kit-react/styles.css";
 
 export const metadata: Metadata = {
@@ -36,8 +37,10 @@ export default function RootLayout({
       <body>
         <NextAuthProvider>
           <MiniKitProvider>
-            {children}
-            <BottomNav />
+            <WalletProvider>
+              {children}
+              <BottomNav />
+            </WalletProvider>
           </MiniKitProvider>
         </NextAuthProvider>
       </body>
