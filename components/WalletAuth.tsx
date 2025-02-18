@@ -26,7 +26,6 @@ async function fetchWithRetry(
     if (retries <= 0) {
       throw error;
     }
-    // Wait for a bit before retrying
     await new Promise((resolve) => setTimeout(resolve, delay));
     return fetchWithRetry(url, options, retries - 1, delay);
   }
@@ -50,7 +49,6 @@ export function WalletAuth({ onError, onSuccess }: WalletAuthProps) {
 
     setIsLoading(true);
     try {
-      // Fetch nonce with retry
       const nonceRes = await fetchWithRetry(`/api/nonce`);
       const { nonce } = await nonceRes.json();
 
@@ -65,7 +63,6 @@ export function WalletAuth({ onError, onSuccess }: WalletAuthProps) {
         return;
       }
 
-      // Complete SIWE with retry
       const completeRes = await fetchWithRetry("/api/complete-siwe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

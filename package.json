@@ -15,6 +15,7 @@
     "@worldcoin/minikit-react": "^1.5.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "eruda": "^3.2.3",
     "next": "14.2.21",
     "next-auth": "^4.24.7",
     "react": "^18.3.1",

@@ -5,6 +5,7 @@ import NextAuthProvider from "@/components/providers/next-auth-provider";
 import { WalletProvider } from "@/components/contexts/WalletContext";
 import BottomNav from "@/components/BottomNav";
 import "@worldcoin/mini-apps-ui-kit-react/styles.css";
+import dynamic from "next/dynamic";
 
 export const metadata: Metadata = {
   title: "World Republic",
@@ -16,6 +17,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const ErudaProvider = dynamic(
+    () => import("@/components/providers/Eruda").then((c) => c.ErudaProvider),
+    {
+      ssr: false,
+    }
+  );
   return (
     <html lang="en">
       <head>
@@ -36,12 +43,14 @@ export default function RootLayout({
       </head>
       <body>
         <NextAuthProvider>
-          <MiniKitProvider>
-            <WalletProvider>
-              {children}
-              <BottomNav />
-            </WalletProvider>
-          </MiniKitProvider>
+          <ErudaProvider>
+            <MiniKitProvider>
+              <WalletProvider>
+                {children}
+                <BottomNav />
+              </WalletProvider>
+            </MiniKitProvider>
+          </ErudaProvider>
         </NextAuthProvider>
       </body>
     </html>
