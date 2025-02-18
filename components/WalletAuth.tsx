@@ -97,7 +97,7 @@ export function WalletAuth({ onError, onSuccess }: WalletAuthProps) {
       console.log("signInWithWallet: complete-siwe response", result);
 
       if (result.status === "success" && result.isValid) {
-        const fetchedWalletAddress = MiniKit.user?.walletAddress;
+        const fetchedWalletAddress = finalPayload.address;
         console.log(
           "signInWithWallet: Authentication successful. Wallet Address:",
           fetchedWalletAddress
