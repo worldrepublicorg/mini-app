@@ -9,15 +9,13 @@ import React, {
 } from "react";
 import { parseAbi } from "viem";
 import { viemClient } from "@/lib/viemClient";
-import { getStoredUsername, getWalletAddress } from "@/lib/auth";
-import { getIsUserVerified } from "@worldcoin/minikit-js";
+import { MiniKit } from "@worldcoin/minikit-js";
 
 interface WalletContextProps {
   walletAddress: string | null;
   username: string | null;
   tokenBalance: string | null;
   claimableAmount: string | null;
-  hasBasicIncome: boolean;
   setWalletAddress: (address: string) => void;
   setUsername: (username: string) => void;
   fetchBasicIncomeInfo: () => Promise<void>;
@@ -29,7 +27,6 @@ const WalletContext = createContext<WalletContextProps>({
   username: null,
   tokenBalance: null,
   claimableAmount: null,
-  hasBasicIncome: false,
   setWalletAddress: async () => {},
   setUsername: async () => {},
   fetchBasicIncomeInfo: async () => {},
@@ -41,13 +38,21 @@ interface WalletProviderProps {
 }
 
 export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
-  const [username, setUsername] = useState<string | null>(null);
-  const [claimableAmount, setClaimableAmount] = useState<string | null>(null);
-  const [tokenBalance, setTokenBalance] = useState<string | null>(null);
   const [walletAddress, setWalletAddress] = useState<string | null>(null);
-  const [hasBasicIncome, setHasBasicIncome] = useState(false);
+  const [username, setUsername] = useState<string | null>(null);
+  const [tokenBalance, setTokenBalance] = useState<string | null>(null);
+  const [claimableAmount, setClaimableAmount] = useState<string | null>(null);
 
   const fromWei = (value: bigint) => (Number(value) / 1e18).toString();
+
+  useEffect(() => {
+    if (MiniKit.user?.walletAddress) {
+      setWalletAddress(MiniKit.user.walletAddress)
+    }
+    if (MiniKit.user?.username) {
+      setUsername(MiniKit.user.username);
+    }
+  }, []);
 
   const fetchBasicIncomeInfo = async () => {
     try {
@@ -61,13 +66,10 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       });
 
       if (Array.isArray(result) && result.length === 2) {
-        const [rawStake] = result;
-        setHasBasicIncome(Number(rawStake) > 0);
         setClaimableAmount(fromWei(result[1]));
       }
     } catch (error) {
       console.error("Error fetching basic income info:", error);
-      setHasBasicIncome(false);
       setClaimableAmount(null);
     }
   };
@@ -136,23 +138,6 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     }
   }, [walletAddress]);
 
-  useEffect(() => {
-    const validateSession = async () => {
-      const storedAddress = getWalletAddress();
-      if (storedAddress) {
-        const isValid = await getIsUserVerified(storedAddress);
-        if (isValid) {
-          setWalletAddress(storedAddress);
-          setUsername(getStoredUsername());
-        } else {
-          document.cookie =
-            "wallet-auth=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
-        }
-      }
-    };
-    validateSession();
-  }, []);
-
   return (
     <WalletContext.Provider
       value={{
@@ -160,7 +145,6 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         username,
         tokenBalance,
         claimableAmount,
-        hasBasicIncome,
         setWalletAddress,
         setUsername,
         fetchBasicIncomeInfo,

@@ -54,9 +54,7 @@ export function WalletAuth({ onError, onSuccess }: WalletAuthProps) {
       if (result.status === "success" && result.isValid) {
         const fetchedWalletAddress = MiniKit.user?.walletAddress;
         if (fetchedWalletAddress) {
-          // Set client-side cookie for UI persistence
-          document.cookie = `wallet-auth=authenticated; path=/; max-age=${60 * 60 * 24 * 7}; secure; sameSite=lax`;
-          document.cookie = `wallet-address=${fetchedWalletAddress}; path=/; max-age=${60 * 60 * 24 * 7}; secure; sameSite=lax`;
+          setWalletAddress(fetchedWalletAddress);
 
           let fetchedUsername = null;
           try {
@@ -69,7 +67,6 @@ export function WalletAuth({ onError, onSuccess }: WalletAuthProps) {
           } catch (error: any) {
             console.error("Error fetching username:", error);
           } finally {
-            setWalletAddress(fetchedWalletAddress);
             setUsername(fetchedUsername);
             onSuccess?.(fetchedWalletAddress, fetchedUsername);
           }
