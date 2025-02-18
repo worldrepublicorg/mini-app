@@ -178,7 +178,7 @@ export default function EarnPage() {
               Basic Income
             </Typography>
 
-            {!walletAddress ? (
+            {claimableAmount === null ? (
               <>
                 <Typography
                   variant="subtitle"
@@ -189,7 +189,7 @@ export default function EarnPage() {
                 </Typography>
                 <WalletAuth onError={(error) => console.error(error)} />
               </>
-            ) : !claimableAmount ? (
+            ) : Number(claimableAmount) === 0 ? (
               <>
                 <Typography
                   variant="subtitle"
