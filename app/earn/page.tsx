@@ -11,7 +11,7 @@ import {
 } from "react-icons/pi";
 import { Drawer, DrawerTrigger } from "@/components/ui/Drawer";
 import { WalletAuth } from "@/components/WalletAuth";
-import { useWallet } from "@/contexts/WalletContext";
+import { useWallet } from "@/components/contexts/WalletContext";
 import { viemClient } from "@/lib/viemClient";
 import { parseAbi } from "viem";
 import { MiniKit } from "@worldcoin/minikit-js";

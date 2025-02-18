@@ -3,7 +3,7 @@
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useState } from "react";
 import { Button } from "./ui/Button";
-import { useWallet } from "@/contexts/WalletContext";
+import { useWallet } from "@/components/contexts/WalletContext";
 
 interface WalletAuthProps {
   onError?: (error: string) => void;
