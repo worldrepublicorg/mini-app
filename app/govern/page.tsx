@@ -52,7 +52,7 @@ export default function GovernPage() {
           <>
             <SectionHeader
               title="Poll of the Day"
-              description="Quick votes on current issues"
+              description="Quick votes on current topics"
             />
             <PollOfTheDay />
           </>
