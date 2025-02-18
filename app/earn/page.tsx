@@ -149,13 +149,12 @@ export default function EarnPage() {
         console.error("Error sending transaction", finalPayload);
       } else {
         setTransactionId(finalPayload.transaction_id);
+        setDisplayClaimable(0);
         await fetchBasicIncomeInfo();
         await fetchBalance();
 
-        // Reset the stored counter values after rewards are claimed:
         localStorage.setItem("basicIncomeBase", "0");
         localStorage.setItem("basicIncomeStartTime", Date.now().toString());
-        setDisplayClaimable(0);
       }
     } catch (error) {
       console.error("Error during claim:", error);
