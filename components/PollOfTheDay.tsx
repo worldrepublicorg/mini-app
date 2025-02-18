@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/ui/Button";
+import { Typography } from "./ui/Typography";
 
 interface Poll {
   description: string;
@@ -9,12 +9,14 @@ interface Poll {
 
 const polls: Poll[] = [
   {
-    description: "Should global AI ethics standards be established?",
-    url: "https://vote.one/cK8p3cXG",
+    description:
+      "Should the United States maintain its 'strategic ambiguity' policy on Taiwan to avoid escalating tensions with China?",
+    url: "https://vote.one/ZbuHndkQ",
   },
   {
-    description: "Will current Ukraine peace talks result in a ceasefire?",
-    url: "https://vote.one/V0mOiHvs",
+    description:
+      "Should international aviation standards be strengthened following recent incidents like the Delta plane crash in Toronto?",
+    url: "https://vote.one/QpgJiw4e",
   },
 ];
 
@@ -51,12 +53,15 @@ export function PollOfTheDay() {
   const currentPoll = polls[pollIndex];
 
   return (
-    <div className="flex min-h-[calc(100dvh-200px)] flex-col items-center justify-center">
-      <SectionHeader
-        title="Poll of the Day"
-        description={currentPoll.description}
-      />
+    <div className="flex flex-col justify-center">
       <div className="w-full">
+        <Typography
+          as="h3"
+          variant={{ variant: "heading", level: 2 }}
+          className="mb-10 text-center p-4"
+        >
+          {currentPoll.description}
+        </Typography>
         <a href={currentPoll.url} target="_blank" rel="noopener noreferrer">
           <Button variant="primary" fullWidth>
             Vote now

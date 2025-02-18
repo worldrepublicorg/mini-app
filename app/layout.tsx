@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import MiniKitProvider from "@/providers/minikit-provider";
-import NextAuthProvider from "@/providers/next-auth-provider";
+import MiniKitProvider from "@/components/providers/minikit-provider";
+import NextAuthProvider from "@/components/providers/next-auth-provider";
+import { WalletProvider } from "@/components/contexts/WalletContext";
 import BottomNav from "@/components/BottomNav";
-import { WalletProvider } from "@/contexts/WalletContext";
 import "@worldcoin/mini-apps-ui-kit-react/styles.css";
 
 export const metadata: Metadata = {
