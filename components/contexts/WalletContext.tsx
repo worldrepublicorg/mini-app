@@ -16,10 +16,12 @@ interface WalletContextProps {
   username: string | null;
   tokenBalance: string | null;
   claimableAmount: string | null;
+  basicIncomeActivated: boolean;
   setWalletAddress: (address: string) => void;
   setUsername: (username: string) => void;
   fetchBasicIncomeInfo: () => Promise<void>;
   fetchBalance: () => Promise<void>;
+  setBasicIncomeActivated: (activated: boolean) => void;
 }
 
 const WalletContext = createContext<WalletContextProps>({
@@ -27,10 +29,12 @@ const WalletContext = createContext<WalletContextProps>({
   username: null,
   tokenBalance: null,
   claimableAmount: null,
+  basicIncomeActivated: false,
   setWalletAddress: async () => {},
   setUsername: async () => {},
   fetchBasicIncomeInfo: async () => {},
   fetchBalance: async () => {},
+  setBasicIncomeActivated: async () => {},
 });
 
 interface WalletProviderProps {
@@ -42,12 +46,13 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [username, setUsername] = useState<string | null>(null);
   const [tokenBalance, setTokenBalance] = useState<string | null>(null);
   const [claimableAmount, setClaimableAmount] = useState<string | null>(null);
+  const [basicIncomeActivated, setBasicIncomeActivated] = useState(false);
 
   const fromWei = (value: bigint) => (Number(value) / 1e18).toString();
 
   useEffect(() => {
     if (MiniKit.user?.walletAddress) {
-      setWalletAddress(MiniKit.user.walletAddress)
+      setWalletAddress(MiniKit.user.walletAddress);
     }
     if (MiniKit.user?.username) {
       setUsername(MiniKit.user.username);
@@ -66,7 +71,9 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       });
 
       if (Array.isArray(result) && result.length === 2) {
-        setClaimableAmount(fromWei(result[1]));
+        const newClaimable = fromWei(result[1]);
+        setClaimableAmount(newClaimable);
+        if (newClaimable !== "0") setBasicIncomeActivated(true);
       }
     } catch (error) {
       console.error("Error fetching basic income info:", error);
@@ -145,10 +152,12 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         username,
         tokenBalance,
         claimableAmount,
+        basicIncomeActivated,
         setWalletAddress,
         setUsername,
         fetchBasicIncomeInfo,
         fetchBalance,
+        setBasicIncomeActivated,
       }}
     >
       {children}
