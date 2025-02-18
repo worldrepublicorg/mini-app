@@ -122,6 +122,7 @@ export default function EarnPage() {
       } else {
         setTransactionId(finalPayload.transaction_id);
         await fetchBasicIncomeInfo();
+        setForceUpdate({});
       }
     } catch (error: any) {
       console.error("Error:", error);
