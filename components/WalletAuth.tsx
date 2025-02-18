@@ -10,6 +10,28 @@ interface WalletAuthProps {
   onSuccess?: (walletAddress: string, username: string) => void;
 }
 
+async function fetchWithRetry(
+  url: string,
+  options: RequestInit = {},
+  retries = 3,
+  delay = 1000
+): Promise<Response> {
+  try {
+    const response = await fetch(url, options);
+    if (!response.ok) {
+      throw new Error(`Request failed with status ${response.status}`);
+    }
+    return response;
+  } catch (error) {
+    if (retries <= 0) {
+      throw error;
+    }
+    // Wait for a bit before retrying
+    await new Promise((resolve) => setTimeout(resolve, delay));
+    return fetchWithRetry(url, options, retries - 1, delay);
+  }
+}
+
 export function WalletAuth({ onError, onSuccess }: WalletAuthProps) {
   const [isLoading, setIsLoading] = useState(false);
   const { setWalletAddress, setUsername } = useWallet();
@@ -28,9 +50,9 @@ export function WalletAuth({ onError, onSuccess }: WalletAuthProps) {
 
     setIsLoading(true);
     try {
-      const res = await fetch(`/api/nonce`);
-      if (!res.ok) throw new Error("Failed to fetch nonce");
-      const { nonce } = await res.json();
+      // Fetch nonce with retry
+      const nonceRes = await fetchWithRetry(`/api/nonce`);
+      const { nonce } = await nonceRes.json();
 
       const { finalPayload } = await MiniKit.commandsAsync.walletAuth({
         nonce,
@@ -43,13 +65,13 @@ export function WalletAuth({ onError, onSuccess }: WalletAuthProps) {
         return;
       }
 
-      const response = await fetch("/api/complete-siwe", {
+      // Complete SIWE with retry
+      const completeRes = await fetchWithRetry("/api/complete-siwe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ payload: finalPayload, nonce }),
       });
-
-      const result = await response.json();
+      const result = await completeRes.json();
 
       if (result.status === "success" && result.isValid) {
         const fetchedWalletAddress = MiniKit.user?.walletAddress;
@@ -58,10 +80,10 @@ export function WalletAuth({ onError, onSuccess }: WalletAuthProps) {
 
           let fetchedUsername = null;
           try {
-            const usernameRes = await fetch(
+            // Optionally, retry fetching the username as well
+            const usernameRes = await fetchWithRetry(
               `https://usernames.worldcoin.org/api/v1/${fetchedWalletAddress}`
             );
-            if (!usernameRes.ok) throw new Error("Failed to fetch username");
             const usernameData = await usernameRes.json();
             fetchedUsername = usernameData.username || "Unknown";
           } catch (error: any) {
