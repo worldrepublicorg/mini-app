@@ -48,7 +48,15 @@ export default function GovernPage() {
           </>
         );
       case "Polls":
-        return <PollOfTheDay />;
+        return (
+          <>
+            <SectionHeader
+              title="Poll of the Day"
+              description="Quick votes on current issues"
+            />
+            <PollOfTheDay />
+          </>
+        );
       case "Elections":
         return (
           <>
