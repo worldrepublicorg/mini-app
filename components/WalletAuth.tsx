@@ -13,7 +13,7 @@ interface WalletAuthProps {
 async function fetchWithRetry(
   url: string,
   options: RequestInit = {},
-  retries = 3,
+  retries = 8,
   delay = 1000
 ): Promise<Response> {
   try {
