@@ -28,6 +28,7 @@ export default function EarnPage() {
     tokenBalance,
     fetchBasicIncomeInfo,
     fetchBalance,
+    basicIncomeActivated,
   } = useWallet();
   const [transactionId, setTransactionId] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -43,8 +44,6 @@ export default function EarnPage() {
     },
     transactionId: transactionId,
   });
-
-  const [, setForceUpdate] = useState({});
 
   useEffect(() => {
     if (transactionId) {
@@ -152,7 +151,6 @@ export default function EarnPage() {
         setTransactionId(finalPayload.transaction_id);
         await fetchBasicIncomeInfo();
         await fetchBalance();
-        setForceUpdate({});
 
         // Reset the stored counter values after rewards are claimed:
         localStorage.setItem("basicIncomeBase", "0");
@@ -189,7 +187,7 @@ export default function EarnPage() {
                 </Typography>
                 <WalletAuth onError={(error) => console.error(error)} />
               </>
-            ) : Number(claimableAmount) === 0 ? (
+            ) : !basicIncomeActivated ? (
               <>
                 <Typography
                   variant="subtitle"
