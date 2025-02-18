@@ -53,12 +53,12 @@ export function PollOfTheDay() {
   const currentPoll = polls[pollIndex];
 
   return (
-    <div className="flex min-h-[calc(100dvh-356px)] flex-col items-center justify-center">
+    <div className="flex flex-col justify-center">
       <div className="w-full">
         <Typography
           as="h3"
           variant={{ variant: "heading", level: 2 }}
-          className="mb-10 text-center"
+          className="mb-10 text-center p-4"
         >
           {currentPoll.description}
         </Typography>
