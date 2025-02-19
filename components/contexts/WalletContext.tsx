@@ -71,15 +71,6 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     checkAuthStatus();
   }, []);
 
-  useEffect(() => {
-    if (MiniKit.user?.walletAddress) {
-      setWalletAddress(MiniKit.user.walletAddress);
-    }
-    if (MiniKit.user?.username) {
-      setUsername(MiniKit.user.username);
-    }
-  }, []);
-
   const fetchBasicIncomeInfo = async () => {
     try {
       const result = await viemClient.readContract({
