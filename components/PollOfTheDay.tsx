@@ -15,6 +15,11 @@ const polls: Poll[] = [
   },
   {
     description:
+      "Should major powers negotiating peace agreements be required to include countries directly affected by the conflict?",
+    url: "https://vote.one/1mK1Ko1v",
+  },
+  {
+    description:
       "Should international aviation standards be strengthened following recent incidents like the Delta plane crash in Toronto?",
     url: "https://vote.one/QpgJiw4e",
   },

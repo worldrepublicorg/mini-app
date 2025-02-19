@@ -175,7 +175,7 @@ export default function EarnPage() {
               Basic Income
             </Typography>
 
-            {claimableAmount === null ? (
+            {walletAddress === null ? (
               <>
                 <Typography
                   variant="subtitle"
