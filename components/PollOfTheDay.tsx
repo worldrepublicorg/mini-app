@@ -20,8 +20,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Should international aviation standards be strengthened following recent incidents like the Delta plane crash in Toronto?",
-    url: "https://vote.one/QpgJiw4e",
+      "Do you believe that governments worldwide should increase funding for space monitoring and asteroid deflection research?",
+    url: "https://vote.one/IS9azLpr",
   },
 ];
 
