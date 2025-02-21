@@ -8,10 +8,9 @@ import { parseAbi } from "viem";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { viemClient } from "@/lib/viemClient";
-import { Pill } from "@worldcoin/mini-apps-ui-kit-react";
 
 // Replace these with your actual addresses.
-const STAKING_CONTRACT_ADDRESS = "0xdc9A2c97EAB6354f1e6d658768E7D770D3DdCfA0";
+const STAKING_CONTRACT_ADDRESS = "0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7";
 const MAIN_TOKEN_ADDRESS = "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B"; // The token you want users to stake
 
 export function StakeWithPermitForm() {
@@ -206,7 +205,7 @@ export function StakeWithPermitForm() {
       fetchAvailableReward();
       fetchStakedBalance();
       fetchBalance();
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [walletAddress]);
