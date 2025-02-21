@@ -239,7 +239,7 @@ export function StakeWithPermitForm() {
             variant={{ variant: "body", level: 1 }}
             className="mb-3 text-gray-900"
           >
-            {stakedBalance}
+            {Number(stakedBalance).toFixed(6)}
           </Typography>
         </div>
         <div className="flex items-center justify-between">
@@ -273,7 +273,7 @@ export function StakeWithPermitForm() {
           <button
             onClick={handleCollect}
             disabled={isCollecting}
-            className="mr-2 h-9 items-center rounded-full bg-gray-900 px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-0"
+            className="mx-2 h-9 items-center rounded-full bg-gray-900 px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-0"
           >
             Collect
           </button>
