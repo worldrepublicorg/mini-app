@@ -305,7 +305,7 @@ export function StakeWithPermitForm() {
         </button>
       </div>
 
-      <div className="mb-4 rounded-xl bg-gray-50 p-4">
+      <div className="mb-4 rounded-xl border border-gray-200 p-4">
         <div className="flex items-center justify-between">
           <Typography
             as="p"
@@ -327,7 +327,7 @@ export function StakeWithPermitForm() {
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             placeholder="Amount"
-            className="mr-2 h-9 w-full rounded-xl bg-gray-50"
+            className="mr-2 h-9 w-full rounded-xl"
           />
           <button
             type="button"
@@ -341,7 +341,7 @@ export function StakeWithPermitForm() {
                     ) || "0"
               )
             }
-            className="h-9 items-center rounded-full bg-gray-900 px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-0"
+            className="h-9 items-center rounded-full bg-gray-100 px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-400"
           >
             Max
           </button>
