@@ -32,20 +32,6 @@ export function StakeWithPermitForm() {
   // Helper function: converts a bigint value (in wei) to a human-readable string.
   const fromWei = (value: bigint) => (Number(value) / 1e18).toString();
 
-  // New helper function: converts a human-readable amount string to wei (as bigint).
-  const toWei = (amount: string): bigint => {
-    if (amount.trim() === "") throw new Error("Empty input");
-    const parts = amount.split(".");
-    const whole = parts[0] || "0";
-    let fraction = parts[1] || "";
-    if (fraction.length > 18) {
-      fraction = fraction.slice(0, 18);
-    } else {
-      fraction = fraction.padEnd(18, "0");
-    }
-    return BigInt(whole + fraction);
-  };
-
   // ------------------------------
   // Refactored functions for refreshing data
   // ------------------------------
@@ -106,11 +92,10 @@ export function StakeWithPermitForm() {
     console.log("handleStake called with amount input:", amount);
     let stakeAmount: bigint;
     try {
-      // Convert the human readable amount into wei using the new helper function.
-      stakeAmount = toWei(amount);
-      console.log("Converted stake amount to Wei:", stakeAmount);
+      stakeAmount = BigInt(amount) * BigInt(1e18);
+      console.log("Converted stake amount to BigInt:", stakeAmount);
     } catch (error) {
-      console.error("Error converting input to Wei:", error);
+      console.error("Error converting input to BigInt:", error);
       alert("Please input a valid number (in token units).");
       return;
     }
