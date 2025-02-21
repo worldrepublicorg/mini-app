@@ -18,12 +18,19 @@ export function StakeWithPermitForm() {
   const [amount, setAmount] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isCollecting, setIsCollecting] = useState(false);
+  const [isWithdrawing, setIsWithdrawing] = useState(false);
   const [availableReward, setAvailableReward] = useState<string>("0");
   const [stakedBalance, setStakedBalance] = useState<string>("0");
 
-  // Transaction ID states for stake and collect actions.
+  // Transaction ID states for stake, collect, and withdraw actions.
   const [stakeTx, setStakeTx] = useState<string | null>(null);
   const [collectTx, setCollectTx] = useState<string | null>(null);
+  const [withdrawTx, setWithdrawTx] = useState<string | null>(null);
+
+  // New state for selecting the action. Default is "deposit".
+  const [selectedAction, setSelectedAction] = useState<"deposit" | "withdraw">(
+    "deposit"
+  );
 
   // Get the wallet address and token balance from the wallet context.
   const { walletAddress, tokenBalance, fetchBalance } = useWallet();
@@ -91,14 +98,17 @@ export function StakeWithPermitForm() {
     console.log("handleStake called with amount input:", amount);
     let stakeAmount: bigint;
     try {
+      // For stake we subtract a small amount (420) for internal reasons.
       stakeAmount = BigInt(Number(amount) * 1e18 - 420);
       console.log("Converted stake amount to BigInt:", stakeAmount);
     } catch (error) {
       console.error("Error converting input to BigInt:", error);
+      console.error("Please input a valid number (in token units).");
       return;
     }
 
     if (stakeAmount <= 0n) {
+      console.error("Amount must be > 0");
       return;
     }
 
@@ -197,6 +207,62 @@ export function StakeWithPermitForm() {
     }
   };
 
+  // ------------------------------
+  // New Withdraw handler
+  // ------------------------------
+  const handleWithdraw = async () => {
+    if (!MiniKit.isInstalled()) {
+      alert("Please open this app in the World App to connect your wallet.");
+      return;
+    }
+
+    console.log("handleWithdraw called with amount input:", amount);
+    let withdrawAmount: bigint;
+    try {
+      // Here, we simply multiply the input number by 1e18.
+      withdrawAmount = BigInt(Number(amount) * 1e18 - 420);
+      console.log("Converted withdraw amount to BigInt:", withdrawAmount);
+    } catch (error) {
+      console.error("Error converting input to BigInt:", error);
+      return;
+    }
+
+    if (withdrawAmount <= 0n) {
+      console.error("Amount must be > 0");
+      return;
+    }
+
+    const withdrawAmountStr = withdrawAmount.toString();
+
+    setIsWithdrawing(true);
+    try {
+      console.log("Sending withdraw transaction via MiniKit...");
+      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
+        transaction: [
+          {
+            address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
+            abi: parseAbi(["function withdraw(uint256 amount) external"]),
+            functionName: "withdraw",
+            args: [withdrawAmountStr],
+          },
+        ],
+      });
+
+      console.log("Received withdraw transaction response:", finalPayload);
+      if (finalPayload.status === "error") {
+        console.error("Withdraw transaction error. See console for details.");
+      } else {
+        console.info("Withdraw transaction submitted successfully!");
+        setWithdrawTx(finalPayload.transaction_id);
+      }
+    } catch (error: any) {
+      console.error("Error:", error.message);
+    } finally {
+      setIsWithdrawing(false);
+      setAmount("");
+    }
+  };
+
   // Poll for data as long as a wallet is connected
   useEffect(() => {
     if (!walletAddress) return;
@@ -211,6 +277,28 @@ export function StakeWithPermitForm() {
 
   return (
     <div className="w-full">
+      {/* Deposit/Withdraw selector */}
+      <div className="mb-4 flex gap-1">
+        <button
+          type="button"
+          onClick={() => setSelectedAction("deposit")}
+          className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
+            selectedAction === "deposit" ? "bg-gray-100" : ""
+          }`}
+        >
+          Deposit
+        </button>
+        <button
+          type="button"
+          onClick={() => setSelectedAction("withdraw")}
+          className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
+            selectedAction === "withdraw" ? "bg-gray-100" : ""
+          }`}
+        >
+          Withdraw
+        </button>
+      </div>
+
       <div className="mb-4 rounded-xl bg-gray-50 p-4">
         <div className="flex items-center justify-between">
           <Typography
@@ -231,17 +319,20 @@ export function StakeWithPermitForm() {
           <input
             type="number"
             value={amount}
-            onChange={(e) => {
-              setAmount(e.target.value);
-            }}
-            placeholder="Deposit amount"
-            className="h-9 w-full rounded-xl bg-gray-50"
+            onChange={(e) => setAmount(e.target.value)}
+            placeholder="Amount"
+            className="mr-2 h-9 w-full rounded-xl bg-gray-50"
           />
           <button
             type="button"
             onClick={() =>
               setAmount(
-                (Math.floor(Number(tokenBalance) * 1e9) / 1e9).toFixed(9) || "0"
+                selectedAction === "deposit"
+                  ? (Math.floor(Number(tokenBalance) * 1e9) / 1e9).toFixed(9) ||
+                      "0"
+                  : (Math.floor(Number(stakedBalance) * 1e9) / 1e9).toFixed(
+                      9
+                    ) || "0"
               )
             }
             className="h-9 items-center rounded-full bg-gray-900 px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-0"
@@ -250,6 +341,7 @@ export function StakeWithPermitForm() {
           </button>
         </div>
       </div>
+
       <div className="mb-6 mt-4 flex items-center justify-between px-2">
         <Typography
           as="p"
@@ -274,9 +366,17 @@ export function StakeWithPermitForm() {
           </Typography>
         </div>
       </div>
-      <Button onClick={handleStake} isLoading={isSubmitting} fullWidth>
-        Deposit drachma
-      </Button>
+
+      {/* Conditionally render the appropriate action button */}
+      {selectedAction === "deposit" ? (
+        <Button onClick={handleStake} isLoading={isSubmitting} fullWidth>
+          Deposit drachma
+        </Button>
+      ) : (
+        <Button onClick={handleWithdraw} isLoading={isWithdrawing} fullWidth>
+          Withdraw drachma
+        </Button>
+      )}
     </div>
   );
 }
