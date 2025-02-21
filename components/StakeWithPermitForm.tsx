@@ -8,6 +8,7 @@ import { parseAbi } from "viem";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { viemClient } from "@/lib/viemClient";
+import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 
 // Replace these with your actual addresses.
 const STAKING_CONTRACT_ADDRESS = "0xdc9A2c97EAB6354f1e6d658768E7D770D3DdCfA0";
@@ -21,6 +22,10 @@ export function StakeWithPermitForm() {
   const [availableReward, setAvailableReward] = useState<string>("0");
   const [stakedBalance, setStakedBalance] = useState<string>("0");
 
+  // Transaction ID states for stake and collect actions.
+  const [stakeTx, setStakeTx] = useState<string | null>(null);
+  const [collectTx, setCollectTx] = useState<string | null>(null);
+
   // Get the wallet address and token balance from the wallet context.
   const { walletAddress, tokenBalance, fetchBalance } = useWallet();
 
@@ -33,7 +38,6 @@ export function StakeWithPermitForm() {
   const fetchAvailableReward = async () => {
     if (!walletAddress) return;
     try {
-      // Define the ABI for the "available" view function.
       const availableAbi = parseAbi([
         "function available(address account) external view returns (uint256)",
       ]);
@@ -69,24 +73,53 @@ export function StakeWithPermitForm() {
     }
   };
 
-  // Use the functions on mount and whenever walletAddress changes.
+  // Refresh data when walletAddress is set.
   useEffect(() => {
     if (!walletAddress) return;
     fetchAvailableReward();
-  }, [walletAddress]);
-
-  useEffect(() => {
-    if (!walletAddress) return;
     fetchStakedBalance();
   }, [walletAddress]);
 
   // ------------------------------
-  // Transaction handlers (with refresh calls)
+  // Listen for transaction confirmations
+  // ------------------------------
+  const { isSuccess: stakeConfirmed } = useWaitForTransactionReceipt({
+    client: viemClient,
+    transactionId: stakeTx || "",
+    appConfig: { app_id: process.env.NEXT_PUBLIC_WORLD_APP_ID || "" },
+  });
+
+  const { isSuccess: collectConfirmed } = useWaitForTransactionReceipt({
+    client: viemClient,
+    transactionId: collectTx || "",
+    appConfig: { app_id: process.env.NEXT_PUBLIC_WORLD_APP_ID || "" },
+  });
+
+  useEffect(() => {
+    if (stakeConfirmed) {
+      // Refresh UI values after stake confirmation.
+      fetchAvailableReward();
+      fetchStakedBalance();
+      fetchBalance();
+      setStakeTx(null);
+    }
+  }, [stakeConfirmed]);
+
+  useEffect(() => {
+    if (collectConfirmed) {
+      // Refresh UI values after collect confirmation.
+      fetchAvailableReward();
+      fetchStakedBalance();
+      fetchBalance();
+      setCollectTx(null);
+    }
+  }, [collectConfirmed]);
+
+  // ------------------------------
+  // Transaction handlers
   // ------------------------------
   const handleStake = async () => {
-    // Check if MiniKit is installed, just like in WalletAuth.tsx
     if (!MiniKit.isInstalled()) {
-      console.warn("handleStake: MiniKit is not installed");
       alert("Please open this app in the World App to connect your wallet.");
       return;
     }
@@ -103,40 +136,26 @@ export function StakeWithPermitForm() {
     }
 
     if (stakeAmount <= 0n) {
-      console.warn("stakeAmount is <= 0:", stakeAmount);
       alert("Amount must be > 0");
       return;
     }
 
-    // Convert stakeAmount to string to align with MiniKit SDK (wrapping all arguments as strings)
     const stakeAmountStr = stakeAmount.toString();
     const nonce = Date.now().toString();
     const currentTime = Math.floor(Date.now() / 1000);
     const deadline = currentTime + 3600; // 1 hour from now
 
-    console.log(
-      "Current timestamp:",
-      currentTime,
-      "Deadline timestamp:",
-      deadline
-    );
-
-    // Prepare permit argument with a dynamic nonce
     const permitArg = [
       [MAIN_TOKEN_ADDRESS, stakeAmountStr],
-      nonce, // Use dynamic nonce
+      nonce,
       deadline.toString(),
     ];
-    console.log("Permit argument:", permitArg);
 
-    // Prepare transfer details argument as per docs
     const transferDetailsArg = [STAKING_CONTRACT_ADDRESS, stakeAmountStr];
-    console.log("Transfer details argument:", transferDetailsArg);
 
     setIsSubmitting(true);
     try {
-      console.log("Sending transaction with stakeWithPermit using MiniKit...");
-
+      console.log("Sending stakeWithPermit transaction via MiniKit...");
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -149,7 +168,7 @@ export function StakeWithPermitForm() {
               stakeAmountStr,
               permitArg,
               transferDetailsArg,
-              "PERMIT2_SIGNATURE_PLACEHOLDER_0", // Placeholder updates automatically
+              "PERMIT2_SIGNATURE_PLACEHOLDER_0",
             ],
           },
         ],
@@ -160,50 +179,36 @@ export function StakeWithPermitForm() {
               amount: stakeAmountStr,
             },
             spender: STAKING_CONTRACT_ADDRESS,
-            nonce, // Use the dynamic nonce here as well
+            nonce,
             deadline: deadline.toString(),
           },
         ],
       });
 
-      console.log("Received transaction response:", finalPayload);
-
+      console.log("Received stake transaction response:", finalPayload);
       if (finalPayload.status === "error") {
-        console.error("Error sending transaction.", finalPayload);
         alert("Transaction error. See console for details.");
       } else {
-        console.log(
-          "Transaction sent successfully. Transaction ID:",
-          finalPayload.transaction_id
-        );
         alert("Staking transaction submitted successfully!");
-
-        // Refresh values after staking
-        await fetchAvailableReward();
-        await fetchStakedBalance();
-        await fetchBalance();
+        // Instead of waiting a fixed delay, set the transaction id and let the hook detect confirmation.
+        setStakeTx(finalPayload.transaction_id);
       }
     } catch (error: any) {
-      console.error("Error in stakeWithPermit:", error);
       alert(`Error: ${error.message}`);
     } finally {
       setIsSubmitting(false);
-      console.log("handleStake completed.");
     }
   };
 
   const handleCollect = async () => {
-    // Ensure MiniKit is installed before proceeding
     if (!MiniKit.isInstalled()) {
-      console.warn("handleCollect: MiniKit is not installed");
       alert("Please open this app in the World App to connect your wallet.");
       return;
     }
 
     setIsCollecting(true);
     try {
-      console.log("Sending transaction to redeem rewards using MiniKit...");
-
+      console.log("Sending redeem transaction via MiniKit...");
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -215,29 +220,17 @@ export function StakeWithPermitForm() {
         ],
       });
 
-      console.log("Redeem transaction response:", finalPayload);
-
+      console.log("Received redeem transaction response:", finalPayload);
       if (finalPayload.status === "error") {
-        console.error("Error redeeming rewards:", finalPayload);
         alert("Redeem transaction error. See console for details.");
       } else {
-        console.log(
-          "Redeem transaction sent successfully. Transaction ID:",
-          finalPayload.transaction_id
-        );
         alert("Rewards redeemed successfully!");
-
-        // Refresh values after redeeming rewards
-        await fetchAvailableReward();
-        await fetchStakedBalance();
-        await fetchBalance();
+        setCollectTx(finalPayload.transaction_id);
       }
     } catch (error: any) {
-      console.error("Error calling redeem:", error);
       alert(`Error: ${error.message}`);
     } finally {
       setIsCollecting(false);
-      console.log("handleCollect completed.");
     }
   };
 
@@ -268,7 +261,6 @@ export function StakeWithPermitForm() {
         type="number"
         value={amount}
         onChange={(e) => {
-          console.log("Amount input changed:", e.target.value);
           setAmount(e.target.value);
         }}
         placeholder="Enter amount (in token units)"
