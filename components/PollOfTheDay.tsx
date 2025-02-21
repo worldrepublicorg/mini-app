@@ -10,8 +10,8 @@ interface Poll {
 const polls: Poll[] = [
   {
     description:
-      "Should the United States maintain its 'strategic ambiguity' policy on Taiwan to avoid escalating tensions with China?",
-    url: "https://vote.one/ZbuHndkQ",
+      "Should governments prioritize regulating artificial intelligence (AI) development to prevent misuse, even if it slows innovation?",
+    url: "https://vote.one/6xsTYiEV",
   },
   {
     description:
