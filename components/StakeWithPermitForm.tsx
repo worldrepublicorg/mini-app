@@ -17,7 +17,9 @@ export function StakeWithPermitForm() {
   // For simplicity we assume the input is in the token's smallest unit (e.g. wei for an 18‑decimal token).
   const [amount, setAmount] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isCollecting, setIsCollecting] = useState(false);
   const [availableReward, setAvailableReward] = useState<string>("0");
+  const [stakedBalance, setStakedBalance] = useState<string>("0");
 
   // Get the wallet address and token balance from the wallet context.
   const { walletAddress, tokenBalance } = useWallet();
@@ -52,6 +54,32 @@ export function StakeWithPermitForm() {
     fetchAvailableReward();
   }, [walletAddress]);
 
+  // Fetch the staked balance by calling the contract's "balanceOf" function.
+  useEffect(() => {
+    if (!walletAddress) return;
+
+    const fetchStakedBalance = async () => {
+      try {
+        const balanceAbi = parseAbi([
+          "function balanceOf(address account) external view returns (uint256)",
+        ]);
+
+        const result: bigint = await viemClient.readContract({
+          address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
+          abi: balanceAbi,
+          functionName: "balanceOf",
+          args: [walletAddress],
+        });
+        console.log("Fetched staked balance:", result);
+        setStakedBalance(fromWei(result));
+      } catch (error) {
+        console.error("Error fetching staked balance", error);
+      }
+    };
+
+    fetchStakedBalance();
+  }, [walletAddress]);
+
   const handleStake = async () => {
     // Check if MiniKit is installed, just like in WalletAuth.tsx
     if (!MiniKit.isInstalled()) {
@@ -79,6 +107,7 @@ export function StakeWithPermitForm() {
 
     // Convert stakeAmount to string to align with MiniKit SDK (wrapping all arguments as strings)
     const stakeAmountStr = stakeAmount.toString();
+    const nonce = Date.now().toString();
     const currentTime = Math.floor(Date.now() / 1000);
     const deadline = currentTime + 3600; // 1 hour from now
 
@@ -89,15 +118,15 @@ export function StakeWithPermitForm() {
       deadline
     );
 
-    // Prepare permit argument as per docs: [ [token, amount], nonce, deadline ]
+    // Prepare permit argument with a dynamic nonce
     const permitArg = [
       [MAIN_TOKEN_ADDRESS, stakeAmountStr],
-      "0", // nonce as string
+      nonce, // Use dynamic nonce
       deadline.toString(),
     ];
     console.log("Permit argument:", permitArg);
 
-    // Prepare transfer details argument as per docs: [to, requestedAmount]
+    // Prepare transfer details argument as per docs
     const transferDetailsArg = [STAKING_CONTRACT_ADDRESS, stakeAmountStr];
     console.log("Transfer details argument:", transferDetailsArg);
 
@@ -117,7 +146,7 @@ export function StakeWithPermitForm() {
               stakeAmountStr,
               permitArg,
               transferDetailsArg,
-              "PERMIT2_SIGNATURE_PLACEHOLDER_0", // Use placeholder so MiniKit automatically creates the Permit2 signature.
+              "PERMIT2_SIGNATURE_PLACEHOLDER_0", // Placeholder updates automatically
             ],
           },
         ],
@@ -128,7 +157,7 @@ export function StakeWithPermitForm() {
               amount: stakeAmountStr,
             },
             spender: STAKING_CONTRACT_ADDRESS,
-            nonce: "0",
+            nonce, // Use the dynamic nonce here as well
             deadline: deadline.toString(),
           },
         ],
@@ -155,6 +184,50 @@ export function StakeWithPermitForm() {
     }
   };
 
+  const handleCollect = async () => {
+    // Ensure MiniKit is installed before proceeding
+    if (!MiniKit.isInstalled()) {
+      console.warn("handleCollect: MiniKit is not installed");
+      alert("Please open this app in the World App to connect your wallet.");
+      return;
+    }
+
+    setIsCollecting(true);
+    try {
+      console.log("Sending transaction to redeem rewards using MiniKit...");
+
+      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
+        transaction: [
+          {
+            address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
+            abi: parseAbi(["function redeem() external"]),
+            functionName: "redeem",
+            args: [],
+          },
+        ],
+      });
+
+      console.log("Redeem transaction response:", finalPayload);
+
+      if (finalPayload.status === "error") {
+        console.error("Error redeeming rewards:", finalPayload);
+        alert("Redeem transaction error. See console for details.");
+      } else {
+        console.log(
+          "Redeem transaction sent successfully. Transaction ID:",
+          finalPayload.transaction_id
+        );
+        alert("Rewards redeemed successfully!");
+      }
+    } catch (error: any) {
+      console.error("Error calling redeem:", error);
+      alert(`Error: ${error.message}`);
+    } finally {
+      setIsCollecting(false);
+      console.log("handleCollect completed.");
+    }
+  };
+
   return (
     <div className="w-full">
       <Typography
@@ -171,6 +244,13 @@ export function StakeWithPermitForm() {
       >
         Available Reward: {availableReward} tokens
       </Typography>
+      <Typography
+        as="p"
+        variant={{ variant: "body", level: 1 }}
+        className="mb-4"
+      >
+        Staked Balance: {stakedBalance} tokens
+      </Typography>
       <input
         type="number"
         value={amount}
@@ -183,6 +263,14 @@ export function StakeWithPermitForm() {
       />
       <Button onClick={handleStake} isLoading={isSubmitting} fullWidth>
         Deposit drachma
+      </Button>
+      <Button
+        onClick={handleCollect}
+        isLoading={isCollecting}
+        fullWidth
+        className="mt-4"
+      >
+        Collect Rewards
       </Button>
     </div>
   );
