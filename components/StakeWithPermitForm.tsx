@@ -282,7 +282,7 @@ export function StakeWithPermitForm() {
             variant={{ variant: "body", level: 1 }}
             className="text-gray-900"
           >
-            {availableReward}
+            {Number(availableReward).toFixed(9)}
           </Typography>
         </div>
       </div>
