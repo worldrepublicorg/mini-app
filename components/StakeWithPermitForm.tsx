@@ -241,7 +241,11 @@ export function StakeWithPermitForm() {
           />
           <button
             type="button"
-            onClick={() => setAmount(Number(tokenBalance).toFixed(9) || "0")}
+            onClick={() =>
+              setAmount(
+                (Math.floor(Number(tokenBalance) * 1e9) / 1e9).toFixed(9) || "0"
+              )
+            }
             className="h-9 items-center rounded-full bg-gray-900 px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-0"
           >
             Max

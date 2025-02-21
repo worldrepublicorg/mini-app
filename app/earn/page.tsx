@@ -241,7 +241,7 @@ export default function EarnPage() {
               variant={{ variant: "subtitle", level: 1 }}
               className="mx-auto mb-10 mt-4 text-center text-gray-500"
             >
-              100% per annum interest paid every second
+              69% per annum interest paid every second
             </Typography>
             <StakeWithPermitForm />
           </div>
