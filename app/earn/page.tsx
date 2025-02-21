@@ -19,6 +19,7 @@ import { TabSwiper } from "@/components/TabSwiper";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { Button } from "@/components/ui/Button";
 import { ComingSoonDrawer } from "@/components/ComingSoonDrawer";
+import { StakeWithPermitForm } from "@/components/StakeWithPermitForm";
 
 export default function EarnPage() {
   const [activeTab, setActiveTab] = useState("Basic income");
@@ -239,26 +240,11 @@ export default function EarnPage() {
             </Typography>
             <Typography
               variant={{ variant: "subtitle", level: 1 }}
-              className="mx-auto mb-10 mt-4 text-center text-gray-500"
+              className="mx-auto mb-4 mt-4 text-center text-gray-500"
             >
               Earn interest every second
             </Typography>
-            <Drawer>
-              <DrawerTrigger asChild>
-                <div className="flex h-14 w-full cursor-pointer items-center justify-between rounded-xl bg-gray-100">
-                  <div className="flex w-full items-center justify-center">
-                    <Typography
-                      as="h3"
-                      variant={{ variant: "subtitle", level: 2 }}
-                      className="line-clamp-2 font-display font-semibold tracking-normal text-gray-300"
-                    >
-                      Deposit drachma
-                    </Typography>
-                  </div>
-                </div>
-              </DrawerTrigger>
-              <ComingSoonDrawer />
-            </Drawer>
+            <StakeWithPermitForm />
           </div>
         );
       case "Contribute":
