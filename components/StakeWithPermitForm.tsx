@@ -8,7 +8,6 @@ import { parseAbi } from "viem";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { viemClient } from "@/lib/viemClient";
-import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 
 // Replace these with your actual addresses.
 const STAKING_CONTRACT_ADDRESS = "0xdc9A2c97EAB6354f1e6d658768E7D770D3DdCfA0";
@@ -79,41 +78,6 @@ export function StakeWithPermitForm() {
     fetchAvailableReward();
     fetchStakedBalance();
   }, [walletAddress]);
-
-  // ------------------------------
-  // Listen for transaction confirmations
-  // ------------------------------
-  const { isSuccess: stakeConfirmed } = useWaitForTransactionReceipt({
-    client: viemClient,
-    transactionId: stakeTx || "",
-    appConfig: { app_id: process.env.NEXT_PUBLIC_WORLD_APP_ID || "" },
-  });
-
-  const { isSuccess: collectConfirmed } = useWaitForTransactionReceipt({
-    client: viemClient,
-    transactionId: collectTx || "",
-    appConfig: { app_id: process.env.NEXT_PUBLIC_WORLD_APP_ID || "" },
-  });
-
-  useEffect(() => {
-    if (stakeConfirmed) {
-      // Refresh UI values after stake confirmation.
-      fetchAvailableReward();
-      fetchStakedBalance();
-      fetchBalance();
-      setStakeTx(null);
-    }
-  }, [stakeConfirmed]);
-
-  useEffect(() => {
-    if (collectConfirmed) {
-      // Refresh UI values after collect confirmation.
-      fetchAvailableReward();
-      fetchStakedBalance();
-      fetchBalance();
-      setCollectTx(null);
-    }
-  }, [collectConfirmed]);
 
   // ------------------------------
   // Transaction handlers
@@ -233,6 +197,30 @@ export function StakeWithPermitForm() {
       setIsCollecting(false);
     }
   };
+
+  useEffect(() => {
+    if (!stakeTx) return;
+
+    const interval = setInterval(() => {
+      fetchAvailableReward();
+      fetchStakedBalance();
+      fetchBalance();
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [stakeTx]);
+
+  useEffect(() => {
+    if (!collectTx) return;
+
+    const interval = setInterval(() => {
+      fetchAvailableReward();
+      fetchStakedBalance();
+      fetchBalance();
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [collectTx]);
 
   return (
     <div className="w-full">
