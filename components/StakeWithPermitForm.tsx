@@ -161,6 +161,7 @@ export function StakeWithPermitForm() {
       alert(`Error: ${error.message}`);
     } finally {
       setIsSubmitting(false);
+      setAmount("");
     }
   };
 
@@ -219,12 +220,11 @@ export function StakeWithPermitForm() {
             variant={{ variant: "body", level: 1 }}
             className="mb-4 font-medium text-gray-900"
           >
-            Savings balance:
+            Balance:
           </Typography>
           <Typography
-            as="p"
-            variant={{ variant: "body", level: 1 }}
-            className="mb-4 text-gray-900"
+            variant={{ variant: "number", level: 6 }}
+            className="mb-4 text-base"
           >
             {Number(stakedBalance).toFixed(6)}
           </Typography>
@@ -269,9 +269,8 @@ export function StakeWithPermitForm() {
             Collect
           </button>
           <Typography
-            as="p"
-            variant={{ variant: "body", level: 1 }}
-            className="text-gray-900"
+            variant={{ variant: "number", level: 6 }}
+            className="text-base"
           >
             {Number(availableReward).toFixed(9)}
           </Typography>
