@@ -281,7 +281,10 @@ export function StakeWithPermitForm() {
       <div className="mb-4 flex gap-1">
         <button
           type="button"
-          onClick={() => setSelectedAction("deposit")}
+          onClick={() => {
+            setSelectedAction("deposit");
+            setAmount("");
+          }}
           className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
             selectedAction === "deposit" ? "bg-gray-100" : ""
           }`}
@@ -290,7 +293,10 @@ export function StakeWithPermitForm() {
         </button>
         <button
           type="button"
-          onClick={() => setSelectedAction("withdraw")}
+          onClick={() => {
+            setSelectedAction("withdraw");
+            setAmount("");
+          }}
           className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
             selectedAction === "withdraw" ? "bg-gray-100" : ""
           }`}
