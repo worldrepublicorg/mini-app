@@ -199,9 +199,9 @@ export function StakeWithPermitForm() {
     }
   };
 
+  // Poll for data as long as a wallet is connected
   useEffect(() => {
-    if (!stakeTx) return;
-
+    if (!walletAddress) return;
     const interval = setInterval(() => {
       fetchAvailableReward();
       fetchStakedBalance();
@@ -209,19 +209,7 @@ export function StakeWithPermitForm() {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [stakeTx]);
-
-  useEffect(() => {
-    if (!collectTx) return;
-
-    const interval = setInterval(() => {
-      fetchAvailableReward();
-      fetchStakedBalance();
-      fetchBalance();
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [collectTx]);
+  }, [walletAddress]);
 
   return (
     <div className="w-full">
