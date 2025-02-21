@@ -22,64 +22,67 @@ export function StakeWithPermitForm() {
   const [stakedBalance, setStakedBalance] = useState<string>("0");
 
   // Get the wallet address and token balance from the wallet context.
-  const { walletAddress, tokenBalance } = useWallet();
+  const { walletAddress, tokenBalance, fetchBalance } = useWallet();
 
   // Helper function: converts a bigint value (in wei) to a human-readable string.
   const fromWei = (value: bigint) => (Number(value) / 1e18).toString();
 
-  // Fetch the available reward (stakable amount) by calling the staking contract's "available" function.
+  // ------------------------------
+  // Refactored functions for refreshing data
+  // ------------------------------
+  const fetchAvailableReward = async () => {
+    if (!walletAddress) return;
+    try {
+      // Define the ABI for the "available" view function.
+      const availableAbi = parseAbi([
+        "function available(address account) external view returns (uint256)",
+      ]);
+      const result: bigint = await viemClient.readContract({
+        address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
+        abi: availableAbi,
+        functionName: "available",
+        args: [walletAddress],
+      });
+      console.log("Fetched available reward:", result);
+      setAvailableReward(fromWei(result));
+    } catch (error) {
+      console.error("Error fetching available reward", error);
+    }
+  };
+
+  const fetchStakedBalance = async () => {
+    if (!walletAddress) return;
+    try {
+      const balanceAbi = parseAbi([
+        "function balanceOf(address account) external view returns (uint256)",
+      ]);
+      const result: bigint = await viemClient.readContract({
+        address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
+        abi: balanceAbi,
+        functionName: "balanceOf",
+        args: [walletAddress],
+      });
+      console.log("Fetched staked balance:", result);
+      setStakedBalance(fromWei(result));
+    } catch (error) {
+      console.error("Error fetching staked balance", error);
+    }
+  };
+
+  // Use the functions on mount and whenever walletAddress changes.
   useEffect(() => {
     if (!walletAddress) return;
-
-    const fetchAvailableReward = async () => {
-      try {
-        // Define the ABI for the "available" view function.
-        const availableAbi = parseAbi([
-          "function available(address account) external view returns (uint256)",
-        ]);
-
-        const result: bigint = await viemClient.readContract({
-          address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
-          abi: availableAbi,
-          functionName: "available",
-          args: [walletAddress],
-        });
-        console.log("Fetched available reward:", result);
-        setAvailableReward(fromWei(result));
-      } catch (error) {
-        console.error("Error fetching available reward", error);
-      }
-    };
-
     fetchAvailableReward();
   }, [walletAddress]);
 
-  // Fetch the staked balance by calling the contract's "balanceOf" function.
   useEffect(() => {
     if (!walletAddress) return;
-
-    const fetchStakedBalance = async () => {
-      try {
-        const balanceAbi = parseAbi([
-          "function balanceOf(address account) external view returns (uint256)",
-        ]);
-
-        const result: bigint = await viemClient.readContract({
-          address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
-          abi: balanceAbi,
-          functionName: "balanceOf",
-          args: [walletAddress],
-        });
-        console.log("Fetched staked balance:", result);
-        setStakedBalance(fromWei(result));
-      } catch (error) {
-        console.error("Error fetching staked balance", error);
-      }
-    };
-
     fetchStakedBalance();
   }, [walletAddress]);
 
+  // ------------------------------
+  // Transaction handlers (with refresh calls)
+  // ------------------------------
   const handleStake = async () => {
     // Check if MiniKit is installed, just like in WalletAuth.tsx
     if (!MiniKit.isInstalled()) {
@@ -174,6 +177,11 @@ export function StakeWithPermitForm() {
           finalPayload.transaction_id
         );
         alert("Staking transaction submitted successfully!");
+
+        // Refresh values after staking
+        await fetchAvailableReward();
+        await fetchStakedBalance();
+        await fetchBalance();
       }
     } catch (error: any) {
       console.error("Error in stakeWithPermit:", error);
@@ -218,6 +226,11 @@ export function StakeWithPermitForm() {
           finalPayload.transaction_id
         );
         alert("Rewards redeemed successfully!");
+
+        // Refresh values after redeeming rewards
+        await fetchAvailableReward();
+        await fetchStakedBalance();
+        await fetchBalance();
       }
     } catch (error: any) {
       console.error("Error calling redeem:", error);
