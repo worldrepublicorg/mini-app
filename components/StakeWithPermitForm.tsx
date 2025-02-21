@@ -206,7 +206,7 @@ export function StakeWithPermitForm() {
       fetchAvailableReward();
       fetchStakedBalance();
       fetchBalance();
-    }, 1000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [walletAddress]);
