@@ -326,8 +326,12 @@ export function StakeWithPermitForm() {
             type="number"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            placeholder="Amount"
-            className="mr-2 h-9 w-full rounded-xl"
+            placeholder={
+              selectedAction === "deposit"
+                ? "Amount to deposit"
+                : "Amount to withdraw"
+            }
+            className="mr-2 h-9 w-full rounded-xl pl-2 -ml-2"
           />
           <button
             type="button"
