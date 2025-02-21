@@ -318,7 +318,7 @@ export function StakeWithPermitForm() {
             variant={{ variant: "number", level: 6 }}
             className="mb-4 text-base"
           >
-            {Number(stakedBalance).toFixed(6)}
+            {Number(stakedBalance).toFixed(2)} WDD
           </Typography>
         </div>
         <div className="flex items-center justify-between">
