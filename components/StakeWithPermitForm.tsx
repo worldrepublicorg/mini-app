@@ -218,14 +218,14 @@ export function StakeWithPermitForm() {
           <Typography
             as="p"
             variant={{ variant: "body", level: 1 }}
-            className="mb-3 text-gray-900"
+            className="mb-4 font-medium text-gray-900"
           >
             Savings balance:
           </Typography>
           <Typography
             as="p"
             variant={{ variant: "body", level: 1 }}
-            className="mb-3 text-gray-900"
+            className="mb-4 text-gray-900"
           >
             {Number(stakedBalance).toFixed(6)}
           </Typography>
@@ -249,11 +249,11 @@ export function StakeWithPermitForm() {
           </button>
         </div>
       </div>
-      <div className="my-4 flex items-center justify-between px-2">
+      <div className="mb-6 mt-4 flex items-center justify-between px-2">
         <Typography
           as="p"
           variant={{ variant: "body", level: 1 }}
-          className="text-gray-900"
+          className="font-medium text-gray-900"
         >
           Interest:
         </Typography>

@@ -234,9 +234,6 @@ export default function EarnPage() {
       case "Savings":
         return (
           <div className="flex w-full flex-col items-center py-6">
-            <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
-              <PiPiggyBankFill className="h-10 w-10 text-gray-400" />
-            </div>
             <Typography as="h2" variant={{ variant: "heading", level: 1 }}>
               Savings Account
             </Typography>
