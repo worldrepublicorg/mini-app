@@ -8,6 +8,7 @@ import { parseAbi } from "viem";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { viemClient } from "@/lib/viemClient";
+import { Pill } from "@worldcoin/mini-apps-ui-kit-react";
 
 // Replace these with your actual addresses.
 const STAKING_CONTRACT_ADDRESS = "0xdc9A2c97EAB6354f1e6d658768E7D770D3DdCfA0";
@@ -224,46 +225,61 @@ export function StakeWithPermitForm() {
 
   return (
     <div className="w-full">
-      <Typography
-        as="p"
-        variant={{ variant: "body", level: 1 }}
-        className="mb-4"
-      >
-        Token Balance: {tokenBalance || "0"} tokens
-      </Typography>
-      <Typography
-        as="p"
-        variant={{ variant: "body", level: 1 }}
-        className="mb-4"
-      >
-        Available Reward: {availableReward} tokens
-      </Typography>
-      <Typography
-        as="p"
-        variant={{ variant: "body", level: 1 }}
-        className="mb-4"
-      >
-        Staked Balance: {stakedBalance} tokens
-      </Typography>
-      <input
-        type="number"
-        value={amount}
-        onChange={(e) => {
-          setAmount(e.target.value);
-        }}
-        placeholder="Enter amount (in token units)"
-        className="mb-4 w-full border p-2"
-      />
+      <div className="mb-4 rounded-xl bg-gray-50 p-4">
+        <div className="flex items-center justify-between">
+          <Typography
+            as="p"
+            variant={{ variant: "body", level: 1 }}
+            className="mb-3 text-gray-500"
+          >
+            Savings balance:
+          </Typography>
+          <Typography
+            as="p"
+            variant={{ variant: "body", level: 1 }}
+            className="mb-3 text-gray-500"
+          >
+            {stakedBalance}
+          </Typography>
+        </div>
+        <div className="flex items-center justify-between">
+          <input
+            type="number"
+            value={amount}
+            onChange={(e) => {
+              setAmount(e.target.value);
+            }}
+            placeholder="Deposit amount"
+            className="h-9 w-full rounded-xl bg-gray-50"
+          />
+          <button
+            type="button"
+            onClick={() => setAmount(tokenBalance || "0")}
+            className="h-9 items-center rounded-full bg-gray-900 px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-0"
+          >
+            Max
+          </button>
+        </div>
+      </div>
+      <div className="my-6 flex items-center justify-between px-2">
+        <Typography as="p" variant={{ variant: "body", level: 1 }}>
+          Interest:
+        </Typography>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={handleCollect}
+            disabled={isCollecting}
+            className="mr-2 h-9 items-center rounded-full bg-gray-900 px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-0"
+          >
+            Collect
+          </button>
+          <Typography as="p" variant={{ variant: "body", level: 1 }}>
+            {availableReward}
+          </Typography>
+        </div>
+      </div>
       <Button onClick={handleStake} isLoading={isSubmitting} fullWidth>
         Deposit drachma
-      </Button>
-      <Button
-        onClick={handleCollect}
-        isLoading={isCollecting}
-        fullWidth
-        className="mt-4"
-      >
-        Collect Rewards
       </Button>
     </div>
   );

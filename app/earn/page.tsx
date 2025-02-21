@@ -30,6 +30,7 @@ export default function EarnPage() {
     fetchBasicIncomeInfo,
     fetchBalance,
     basicIncomeActivated,
+    setBasicIncomeActivated,
   } = useWallet();
   const [transactionId, setTransactionId] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -122,6 +123,7 @@ export default function EarnPage() {
       } else {
         setTransactionId(finalPayload.transaction_id);
         await fetchBasicIncomeInfo();
+        setBasicIncomeActivated(true);
       }
     } catch (error: any) {
       console.error("Error:", error);
@@ -240,7 +242,7 @@ export default function EarnPage() {
             </Typography>
             <Typography
               variant={{ variant: "subtitle", level: 1 }}
-              className="mx-auto mb-4 mt-4 text-center text-gray-500"
+              className="mx-auto mb-10 mt-4 text-center text-gray-500"
             >
               Earn interest every second
             </Typography>
