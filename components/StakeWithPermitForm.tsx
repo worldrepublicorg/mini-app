@@ -95,12 +95,10 @@ export function StakeWithPermitForm() {
       console.log("Converted stake amount to BigInt:", stakeAmount);
     } catch (error) {
       console.error("Error converting input to BigInt:", error);
-      alert("Please input a valid number (in token units).");
       return;
     }
 
     if (stakeAmount <= 0n) {
-      alert("Amount must be > 0");
       return;
     }
 
@@ -151,14 +149,14 @@ export function StakeWithPermitForm() {
 
       console.log("Received stake transaction response:", finalPayload);
       if (finalPayload.status === "error") {
-        alert("Transaction error. See console for details.");
+        console.error("Transaction error.");
       } else {
-        alert("Staking transaction submitted successfully!");
+        console.info("Staking transaction submitted successfully!");
         // Instead of waiting a fixed delay, set the transaction id and let the hook detect confirmation.
         setStakeTx(finalPayload.transaction_id);
       }
     } catch (error: any) {
-      alert(`Error: ${error.message}`);
+      console.error("Error:", error.message);
     } finally {
       setIsSubmitting(false);
       setAmount("");
@@ -187,13 +185,13 @@ export function StakeWithPermitForm() {
 
       console.log("Received redeem transaction response:", finalPayload);
       if (finalPayload.status === "error") {
-        alert("Redeem transaction error. See console for details.");
+        console.error("Redeem transaction error. See console for details.");
       } else {
-        alert("Rewards redeemed successfully!");
+        console.info("Rewards redeemed successfully!");
         setCollectTx(finalPayload.transaction_id);
       }
     } catch (error: any) {
-      alert(`Error: ${error.message}`);
+      console.error("Error:", error.message);
     } finally {
       setIsCollecting(false);
     }
