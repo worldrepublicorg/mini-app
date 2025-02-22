@@ -15,9 +15,14 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Should major powers negotiating peace agreements be required to include countries directly affected by the conflict?",
-    url: "https://vote.one/1mK1Ko1v",
+      "Should countries with advanced military capabilities intervene to de-escalate conflicts in regions experiencing sudden outbreaks of war?",
+    url: "https://vote.one/GrS25I8Y",
   },
+  // {
+  //   description:
+  //     "Should major powers negotiating peace agreements be required to include countries directly affected by the conflict?",
+  //   url: "https://vote.one/1mK1Ko1v",
+  // },
   {
     description:
       "Do you believe that governments worldwide should increase funding for space monitoring and asteroid deflection research?",
@@ -63,7 +68,7 @@ export function PollOfTheDay() {
         <Typography
           as="h3"
           variant={{ variant: "heading", level: 2 }}
-          className="mb-10 text-center p-4"
+          className="mb-10 p-4 text-center"
         >
           {currentPoll.description}
         </Typography>
