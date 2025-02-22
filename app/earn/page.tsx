@@ -34,6 +34,9 @@ export default function EarnPage() {
   } = useWallet();
   const [transactionId, setTransactionId] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [hasSeenSavings, setHasSeenSavings] = useState(() => {
+    return localStorage.getItem("hasSeenSavings") === "true";
+  });
 
   const [displayClaimable, setDisplayClaimable] = useState<number>(
     Number(claimableAmount) || 0
@@ -163,6 +166,14 @@ export default function EarnPage() {
       console.error("Error during claim:", error);
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const handleTabChange = (tab: string) => {
+    setActiveTab(tab);
+    if (tab === "Savings") {
+      setHasSeenSavings(true);
+      localStorage.setItem("hasSeenSavings", "true");
     }
   };
 
@@ -317,6 +328,9 @@ export default function EarnPage() {
     }
   };
 
+  console.log("hasSeenSavings:", hasSeenSavings);
+  console.log("activeTab:", activeTab);
+
   return (
     <div className="flex min-h-dvh flex-col px-6 pb-20">
       <div className="mt-5 flex items-center justify-between">
@@ -346,8 +360,15 @@ export default function EarnPage() {
       <TabSwiper
         tabs={["Basic income", "Savings", "Contribute", "Invite"]}
         activeTab={activeTab}
-        onTabChange={setActiveTab}
+        onTabChange={handleTabChange}
       />
+
+      {/* Red dot for Savings tab */}
+      {!hasSeenSavings && activeTab !== "Savings" && (
+        <div className="absolute left-[220px] top-[77px] z-10 opacity-65">
+          <span className="block h-1.5 w-1.5 rounded-full bg-error-800" />
+        </div>
+      )}
 
       <div className="flex flex-1 items-center">{renderContent()}</div>
     </div>
