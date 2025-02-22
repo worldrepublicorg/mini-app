@@ -20,10 +20,8 @@ import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { Button } from "@/components/ui/Button";
 import { ComingSoonDrawer } from "@/components/ComingSoonDrawer";
 import { StakeWithPermitForm } from "@/components/StakeWithPermitForm";
-import Spinner from "@/components/ui/Button/Spinner";
 
 export default function EarnPage() {
-  const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("Basic income");
   const {
     walletAddress,
@@ -53,14 +51,10 @@ export default function EarnPage() {
   });
 
   useEffect(() => {
-    const fetchData = async () => {
-      await fetchBasicIncomeInfo();
-      await fetchBalance();
-      setLoading(false);
-    };
-
-    fetchData();
-  }, [fetchBasicIncomeInfo, fetchBalance]);
+    if (transactionId) {
+      fetchBalance();
+    }
+  }, [transactionId, fetchBalance]);
 
   useEffect(() => {
     if (claimableAmount === undefined || claimableAmount === null) return;
@@ -371,18 +365,12 @@ export default function EarnPage() {
 
       {/* Red dot for Savings tab */}
       {!hasSeenSavings && activeTab !== "Savings" && (
-        <div className="absolute left-[219px] top-[77px] z-10 opacity-65">
+        <div className="absolute left-[220px] top-[77px] z-10 opacity-65">
           <span className="block h-1.5 w-1.5 rounded-full bg-error-800" />
         </div>
       )}
 
-      {loading ? (
-        <div className="flex flex-1 items-center justify-center">
-          <Spinner size={100} className="h-24 w-24" />
-        </div>
-      ) : (
-        <div className="flex flex-1 items-center">{renderContent()}</div>
-      )}
+      <div className="flex flex-1 items-center">{renderContent()}</div>
     </div>
   );
 }
