@@ -5,17 +5,22 @@ interface SpinnerProps {
    * Additional CSS classes to apply to the spinner
    */
   className?: string;
+  /**
+   * Size of the spinner
+   * @default 25
+   */
+  size?: number;
 }
 
-const Spinner = ({ className }: SpinnerProps) => {
+const Spinner = ({ className, size = 25 }: SpinnerProps) => {
   return (
     <svg
-      width="25"
-      height="24"
+      width={size}
+      height={size * 0.96} // Maintain aspect ratio
       viewBox="0 0 25 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("absolute h-6 w-6 animate-spin", className)}
+      className={cn("animate-spin", className)}
     >
       <circle
         cx="12.5"
