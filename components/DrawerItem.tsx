@@ -16,7 +16,7 @@ export function DrawerItem({ title, isAddNew = false }: DrawerItemProps) {
     <Drawer>
       <DrawerTrigger asChild>
         <div
-          className={`mt-4 flex cursor-pointer items-center justify-between rounded-xl border border-gray-200 p-4 opacity-50 ${
+          className={`flex w-full cursor-pointer items-center justify-between rounded-xl border border-gray-200 p-4 opacity-50 ${
             isAddNew && "border-2 border-dashed"
           }`}
         >

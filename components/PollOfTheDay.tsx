@@ -63,7 +63,7 @@ export function PollOfTheDay() {
         <Typography
           as="h3"
           variant={{ variant: "heading", level: 2 }}
-          className="mb-10 text-center p-4"
+          className="mb-10 text-center"
         >
           {currentPoll.description}
         </Typography>

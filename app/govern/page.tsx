@@ -9,10 +9,20 @@ import { OpenLetterCard } from "@/components/OpenLetterCard";
 import { PollOfTheDay } from "@/components/PollOfTheDay";
 
 export default function GovernPage() {
-  const [activeTab, setActiveTab] = useState("Open letters");
+  const [activeTab, setActiveTab] = useState("Polls");
 
   const renderContent = () => {
     switch (activeTab) {
+      case "Polls":
+        return (
+          <>
+            <SectionHeader
+              title="Poll of the Day"
+              description="Quick votes on current topics"
+            />
+            <PollOfTheDay />
+          </>
+        );
       case "Open letters":
         return (
           <>
@@ -47,16 +57,6 @@ export default function GovernPage() {
             <DrawerItem title="Add your open letter" isAddNew />
           </>
         );
-      case "Polls":
-        return (
-          <>
-            <SectionHeader
-              title="Poll of the Day"
-              description="Quick votes on current topics"
-            />
-            <PollOfTheDay />
-          </>
-        );
       case "Elections":
         return (
           <>
@@ -83,7 +83,7 @@ export default function GovernPage() {
   };
 
   return (
-    <div className="flex flex-col px-6 pb-20">
+    <div className="flex min-h-dvh flex-col px-6 pb-20">
       <div className="bg-white pt-6">
         <Typography
           as="h2"
@@ -95,12 +95,14 @@ export default function GovernPage() {
       </div>
 
       <TabSwiper
-        tabs={["Open letters", "Polls", "Elections", "Referendums"]}
+        tabs={["Polls", "Open letters", "Elections", "Referendums"]}
         activeTab={activeTab}
         onTabChange={setActiveTab}
       />
 
-      <div>{renderContent()}</div>
+      <div className="flex flex-1 flex-col items-center justify-center">
+        {renderContent()}
+      </div>
     </div>
   );
 }
