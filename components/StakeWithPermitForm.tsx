@@ -396,13 +396,15 @@ export function StakeWithPermitForm() {
           Interest:
         </Typography>
         <div className="flex items-center gap-2">
-          <button
+          <Button
             onClick={handleCollect}
-            disabled={isCollecting}
-            className="mx-2 h-9 items-center rounded-full bg-gray-900 px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-0"
+            isLoading={isCollecting}
+            variant="primary"
+            size="sm"
+            className="mr-2 h-9 rounded-full px-4 font-sans"
           >
             Collect
-          </button>
+          </Button>
           <Typography
             variant={{ variant: "number", level: 6 }}
             className="text-base"
