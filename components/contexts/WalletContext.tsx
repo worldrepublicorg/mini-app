@@ -95,7 +95,6 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       }
     } catch (error) {
       console.error("Error fetching basic income info:", error);
-      setClaimableAmount(null);
     }
   };
 
@@ -134,11 +133,11 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       });
 
       if (typeof balanceResult === "bigint") {
-        setTokenBalance(fromWei(balanceResult));
+        const newTokenBalance = fromWei(balanceResult);
+        setTokenBalance(newTokenBalance);
       }
     } catch (error) {
       console.error("Error fetching balance:", error);
-      setTokenBalance(null);
     }
   };
 
@@ -178,10 +177,10 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         functionName: "balanceOf",
         args: [walletAddress],
       });
-      setStakedBalance(fromWei(balanceResult));
+      const newStakedBalance = fromWei(balanceResult);
+      setStakedBalance(newStakedBalance);
     } catch (error) {
       console.error("Error fetching staked balance:", error);
-      setStakedBalance(null);
     }
   };
 
