@@ -248,7 +248,7 @@ export function StakeWithPermitForm() {
     if (!walletAddress) return;
     const interval = setInterval(() => {
       fetchAvailableReward();
-    }, 1000);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [walletAddress]);

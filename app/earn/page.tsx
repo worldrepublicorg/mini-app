@@ -328,9 +328,6 @@ export default function EarnPage() {
     }
   };
 
-  console.log("hasSeenSavings:", hasSeenSavings);
-  console.log("activeTab:", activeTab);
-
   return (
     <div className="flex min-h-dvh flex-col px-6 pb-20">
       <div className="mt-5 flex items-center justify-between">
