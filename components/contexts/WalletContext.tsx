@@ -17,13 +17,13 @@ interface WalletContextProps {
   tokenBalance: string | null;
   stakedBalance: string | null;
   claimableAmount: string | null;
-  basicIncomeActivated: boolean | null;
+  basicIncomeActivated: boolean;
   setWalletAddress: (address: string) => void;
   setUsername: (username: string) => void;
   fetchBasicIncomeInfo: () => Promise<void>;
   fetchBalance: () => Promise<void>;
   fetchStakedBalance: () => Promise<void>;
-  setBasicIncomeActivated: (activated: boolean | null) => void;
+  setBasicIncomeActivated: (activated: boolean) => void;
 }
 
 const WalletContext = createContext<WalletContextProps>({
@@ -32,7 +32,7 @@ const WalletContext = createContext<WalletContextProps>({
   tokenBalance: null,
   stakedBalance: null,
   claimableAmount: null,
-  basicIncomeActivated: null,
+  basicIncomeActivated: false,
   setWalletAddress: async () => {},
   setUsername: async () => {},
   fetchBasicIncomeInfo: async () => {},
@@ -51,10 +51,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [tokenBalance, setTokenBalance] = useState<string | null>(null);
   const [stakedBalance, setStakedBalance] = useState<string | null>(null);
   const [claimableAmount, setClaimableAmount] = useState<string | null>(null);
-  // Initialize as null so we know nothing has been fetched yet.
-  const [basicIncomeActivated, setBasicIncomeActivated] = useState<
-    boolean | null
-  >(null);
+  const [basicIncomeActivated, setBasicIncomeActivated] = useState(false);
 
   const fromWei = (value: bigint) => (Number(value) / 1e18).toString();
 
@@ -94,12 +91,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       if (Array.isArray(result) && result.length === 2) {
         const newClaimable = fromWei(result[1]);
         setClaimableAmount(newClaimable);
-        // Explicitly set basicIncomeActivated based on claimable rewards.
-        if (newClaimable !== "0") {
-          setBasicIncomeActivated(true);
-        } else {
-          setBasicIncomeActivated(false);
-        }
+        if (newClaimable !== "0") setBasicIncomeActivated(true);
       }
     } catch (error) {
       console.error("Error fetching basic income info:", error);

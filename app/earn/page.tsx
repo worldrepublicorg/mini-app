@@ -4,6 +4,7 @@ import { Typography } from "@/components/ui/Typography";
 import { useState, useEffect } from "react";
 import {
   PiHandCoinsFill,
+  PiPiggyBankFill,
   PiUserPlusFill,
   PiPlantFill,
   PiWalletFill,
