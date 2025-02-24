@@ -419,7 +419,7 @@ export function StakeWithPermitForm() {
             isLoading={isCollecting || isWaitingCollect}
             variant="primary"
             size="sm"
-            className="mr-2 h-9 rounded-full px-4 font-sans"
+            className="mr-2 h-9 w-20 rounded-full px-4 font-sans"
           >
             Collect
           </Button>
