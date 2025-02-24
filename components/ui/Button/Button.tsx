@@ -142,7 +142,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           <Slot style={iconContainerStyles[size]}>{icon}</Slot>
         )}
         {!isLoading && children && <span>{children}</span>}
-        {isLoading && <Spinner className="mr-2" />}
+        {isLoading && <Spinner className="mx-2" />}
       </Comp>
     );
   }
