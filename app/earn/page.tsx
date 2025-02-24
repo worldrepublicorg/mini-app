@@ -4,7 +4,6 @@ import { Typography } from "@/components/ui/Typography";
 import { useState, useEffect } from "react";
 import {
   PiHandCoinsFill,
-  PiPiggyBankFill,
   PiUserPlusFill,
   PiPlantFill,
   PiWalletFill,
@@ -362,7 +361,7 @@ export default function EarnPage() {
 
       {/* Red dot for Savings tab */}
       {!hasSeenSavings && activeTab !== "Savings" && (
-        <div className="absolute left-[220px] top-[77px] z-10 opacity-65">
+        <div className="absolute left-[219px] top-[77px] z-10 opacity-65">
           <span className="block h-1.5 w-1.5 rounded-full bg-error-800" />
         </div>
       )}

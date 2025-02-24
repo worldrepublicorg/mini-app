@@ -253,38 +253,40 @@ export function StakeWithPermitForm() {
     return () => clearInterval(interval);
   }, [walletAddress]);
 
-  const { receipt, isLoading: isWaitingReceipt } = useWaitForTransactionReceipt(
-    {
+  const { receipt: depositReceipt, isLoading: isWaitingDeposit } =
+    useWaitForTransactionReceipt({
       client: viemClient,
       appConfig: {
         app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}`,
       },
       transactionId: stakeTx!,
-    }
-  );
+    });
 
-  const { receipt: collectReceipt } = useWaitForTransactionReceipt({
-    client: viemClient,
-    appConfig: {
-      app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}`,
-    },
-    transactionId: collectTx!,
-  });
+  const { receipt: collectReceipt, isLoading: isWaitingCollect } =
+    useWaitForTransactionReceipt({
+      client: viemClient,
+      appConfig: {
+        app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}`,
+      },
+      transactionId: collectTx!,
+    });
 
   useEffect(() => {
-    if (receipt) {
-      console.log("Transaction confirmed. Receipt:", receipt);
+    if (depositReceipt) {
+      console.log("Transaction confirmed. Receipt:", depositReceipt);
       fetchStakedBalance();
       fetchBalance();
       setIsSubmitting(false);
       setStakeTx(null);
     }
-  }, [receipt]);
+  }, [depositReceipt]);
 
   useEffect(() => {
     if (collectReceipt) {
-      console.log("Collect transaction confirmed", collectReceipt);
+      console.log("Transaction confirmed. Receipt:", collectReceipt);
+      fetchStakedBalance();
       fetchBalance();
+      setIsCollecting(false);
       setCollectTx(null);
     }
   }, [collectReceipt]);
@@ -414,7 +416,7 @@ export function StakeWithPermitForm() {
         <div className="flex items-center gap-2">
           <Button
             onClick={handleCollect}
-            isLoading={isCollecting}
+            isLoading={isCollecting || isWaitingCollect}
             variant="primary"
             size="sm"
             className="mr-2 h-9 rounded-full px-4 font-sans"
@@ -433,7 +435,7 @@ export function StakeWithPermitForm() {
       {selectedAction === "deposit" ? (
         <Button
           onClick={handleStake}
-          isLoading={isSubmitting || isWaitingReceipt}
+          isLoading={isSubmitting || isWaitingDeposit}
           fullWidth
         >
           Deposit drachma
