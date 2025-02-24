@@ -21,7 +21,7 @@ export function OpenLetterCard({
   return (
     <div
       onClick={() => router.push(voteUrl)}
-      className="mb-4 flex cursor-pointer items-center justify-between rounded-xl border border-gray-200 p-4 text-gray-900"
+      className="mb-4 flex w-full cursor-pointer items-center justify-between rounded-xl border border-gray-200 p-4 text-gray-900"
     >
       <div>
         <Typography

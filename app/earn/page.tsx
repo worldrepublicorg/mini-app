@@ -4,7 +4,6 @@ import { Typography } from "@/components/ui/Typography";
 import { useState, useEffect } from "react";
 import {
   PiHandCoinsFill,
-  PiPiggyBankFill,
   PiUserPlusFill,
   PiPlantFill,
   PiWalletFill,
@@ -19,6 +18,7 @@ import { TabSwiper } from "@/components/TabSwiper";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { Button } from "@/components/ui/Button";
 import { ComingSoonDrawer } from "@/components/ComingSoonDrawer";
+import { StakeWithPermitForm } from "@/components/StakeWithPermitForm";
 
 export default function EarnPage() {
   const [activeTab, setActiveTab] = useState("Basic income");
@@ -29,9 +29,13 @@ export default function EarnPage() {
     fetchBasicIncomeInfo,
     fetchBalance,
     basicIncomeActivated,
+    setBasicIncomeActivated,
   } = useWallet();
   const [transactionId, setTransactionId] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [hasSeenSavings, setHasSeenSavings] = useState(() => {
+    return localStorage.getItem("hasSeenSavings") === "true";
+  });
 
   const [displayClaimable, setDisplayClaimable] = useState<number>(
     Number(claimableAmount) || 0
@@ -121,6 +125,7 @@ export default function EarnPage() {
       } else {
         setTransactionId(finalPayload.transaction_id);
         await fetchBasicIncomeInfo();
+        setBasicIncomeActivated(true);
       }
     } catch (error: any) {
       console.error("Error:", error);
@@ -160,6 +165,14 @@ export default function EarnPage() {
       console.error("Error during claim:", error);
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const handleTabChange = (tab: string) => {
+    setActiveTab(tab);
+    if (tab === "Savings") {
+      setHasSeenSavings(true);
+      localStorage.setItem("hasSeenSavings", "true");
     }
   };
 
@@ -231,9 +244,6 @@ export default function EarnPage() {
       case "Savings":
         return (
           <div className="flex w-full flex-col items-center py-6">
-            <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
-              <PiPiggyBankFill className="h-10 w-10 text-gray-400" />
-            </div>
             <Typography as="h2" variant={{ variant: "heading", level: 1 }}>
               Savings Account
             </Typography>
@@ -243,22 +253,7 @@ export default function EarnPage() {
             >
               Earn interest every second
             </Typography>
-            <Drawer>
-              <DrawerTrigger asChild>
-                <div className="flex h-14 w-full cursor-pointer items-center justify-between rounded-xl bg-gray-100">
-                  <div className="flex w-full items-center justify-center">
-                    <Typography
-                      as="h3"
-                      variant={{ variant: "subtitle", level: 2 }}
-                      className="line-clamp-2 font-display font-semibold tracking-normal text-gray-300"
-                    >
-                      Deposit drachma
-                    </Typography>
-                  </div>
-                </div>
-              </DrawerTrigger>
-              <ComingSoonDrawer />
-            </Drawer>
+            <StakeWithPermitForm />
           </div>
         );
       case "Contribute":
@@ -361,8 +356,15 @@ export default function EarnPage() {
       <TabSwiper
         tabs={["Basic income", "Savings", "Contribute", "Invite"]}
         activeTab={activeTab}
-        onTabChange={setActiveTab}
+        onTabChange={handleTabChange}
       />
+
+      {/* Red dot for Savings tab */}
+      {!hasSeenSavings && activeTab !== "Savings" && (
+        <div className="absolute left-[219px] top-[77px] z-10 opacity-65">
+          <span className="block h-1.5 w-1.5 rounded-full bg-error-800" />
+        </div>
+      )}
 
       <div className="flex flex-1 items-center">{renderContent()}</div>
     </div>
