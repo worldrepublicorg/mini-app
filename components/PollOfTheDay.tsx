@@ -10,18 +10,28 @@ interface Poll {
 const polls: Poll[] = [
   {
     description:
-      "Should the United States maintain its 'strategic ambiguity' policy on Taiwan to avoid escalating tensions with China?",
-    url: "https://vote.one/ZbuHndkQ",
+      "Given recent shifts in major power policies, do you believe the international community will become more cooperative or more competitive?",
+    url: "https://vote.one/UCXWIhm5",
   },
   {
     description:
-      "Should major powers negotiating peace agreements be required to include countries directly affected by the conflict?",
-    url: "https://vote.one/1mK1Ko1v",
+      "Should high-income countries be required to fund climate adaptation efforts in low-income nations most affected by extreme weather?",
+    url: "https://vote.one/jurFwZTv",
   },
   {
     description:
       "Do you believe that governments worldwide should increase funding for space monitoring and asteroid deflection research?",
     url: "https://vote.one/IS9azLpr",
+  },
+  {
+    description:
+      "Should governments prioritize regulating artificial intelligence (AI) development to prevent misuse, even if it slows innovation?",
+    url: "https://vote.one/6xsTYiEV",
+  },
+  {
+    description:
+      "Should countries with advanced military capabilities intervene to de-escalate conflicts in regions experiencing sudden outbreaks of war?",
+    url: "https://vote.one/GrS25I8Y",
   },
 ];
 
@@ -63,7 +73,7 @@ export function PollOfTheDay() {
         <Typography
           as="h3"
           variant={{ variant: "heading", level: 2 }}
-          className="mb-10 text-center"
+          className="mb-10 p-4 text-center"
         >
           {currentPoll.description}
         </Typography>
