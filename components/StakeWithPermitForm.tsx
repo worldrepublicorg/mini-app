@@ -263,6 +263,14 @@ export function StakeWithPermitForm() {
     }
   );
 
+  const { receipt: collectReceipt } = useWaitForTransactionReceipt({
+    client: viemClient,
+    appConfig: {
+      app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}`,
+    },
+    transactionId: collectTx!,
+  });
+
   useEffect(() => {
     if (receipt) {
       console.log("Transaction confirmed. Receipt:", receipt);
@@ -272,6 +280,14 @@ export function StakeWithPermitForm() {
       setStakeTx(null);
     }
   }, [receipt]);
+
+  useEffect(() => {
+    if (collectReceipt) {
+      console.log("Collect transaction confirmed", collectReceipt);
+      fetchBalance();
+      setCollectTx(null);
+    }
+  }, [collectReceipt]);
 
   useEffect(() => {
     if (!walletAddress) return;
@@ -320,7 +336,7 @@ export function StakeWithPermitForm() {
             setSelectedAction("deposit");
             setAmount("");
           }}
-          className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
+          className={`leading-narrow h-9 items-center rounded-full px-4 font-sans text-sm font-medium tracking-normal text-gray-900 transition-all duration-200 ${
             selectedAction === "deposit" ? "bg-gray-100" : ""
           }`}
         >
@@ -332,7 +348,7 @@ export function StakeWithPermitForm() {
             setSelectedAction("withdraw");
             setAmount("");
           }}
-          className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
+          className={`leading-narrow h-9 items-center rounded-full px-4 font-sans text-sm font-medium tracking-normal text-gray-900 transition-all duration-200 ${
             selectedAction === "withdraw" ? "bg-gray-100" : ""
           }`}
         >
@@ -380,7 +396,7 @@ export function StakeWithPermitForm() {
                     ) || "0"
               )
             }
-            className="h-9 items-center rounded-full bg-gray-100 px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-400"
+            className="leading-narrow h-9 items-center rounded-full bg-gray-100 px-4 font-sans text-sm font-medium tracking-normal text-gray-400"
           >
             Max
           </button>
