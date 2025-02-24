@@ -18,6 +18,7 @@ export function StakeWithPermitForm() {
   const [isCollecting, setIsCollecting] = useState(false);
   const [isWithdrawing, setIsWithdrawing] = useState(false);
   const [availableReward, setAvailableReward] = useState<string>("0");
+  const [stakedBalance, setStakedBalance] = useState<string>("0");
 
   const [stakeTx, setStakeTx] = useState<string | null>(null);
   const [collectTx, setCollectTx] = useState<string | null>(null);
@@ -27,13 +28,7 @@ export function StakeWithPermitForm() {
     "deposit"
   );
 
-  const {
-    walletAddress,
-    tokenBalance,
-    stakedBalance,
-    fetchBalance,
-    fetchStakedBalance,
-  } = useWallet();
+  const { walletAddress, tokenBalance, fetchBalance } = useWallet();
 
   const fromWei = (value: bigint) => (Number(value) / 1e18).toString();
 
@@ -53,6 +48,25 @@ export function StakeWithPermitForm() {
       setAvailableReward(fromWei(result));
     } catch (error) {
       console.error("Error fetching available reward", error);
+    }
+  };
+
+  const fetchStakedBalance = async () => {
+    if (!walletAddress) return;
+    try {
+      const balanceAbi = parseAbi([
+        "function balanceOf(address account) external view returns (uint256)",
+      ]);
+      const result: bigint = await viemClient.readContract({
+        address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
+        abi: balanceAbi,
+        functionName: "balanceOf",
+        args: [walletAddress],
+      });
+      console.log("Fetched staked balance:", result);
+      setStakedBalance(fromWei(result));
+    } catch (error) {
+      console.error("Error fetching staked balance", error);
     }
   };
 
@@ -132,50 +146,16 @@ export function StakeWithPermitForm() {
       console.log("Received stake transaction response:", finalPayload);
       if (finalPayload.status === "error") {
         console.error("Transaction error.");
-        setIsSubmitting(false);
       } else {
         console.info("Staking transaction submitted successfully!");
         setStakeTx(finalPayload.transaction_id);
       }
     } catch (error: any) {
-      console.error("Error during staking transaction:", error);
+      console.error("Error:", error.message);
+    } finally {
       setIsSubmitting(false);
       setAmount("");
     }
-
-    const unwatchStakedWithPermit = viemClient.watchContractEvent({
-      address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
-      abi: parseAbi([
-        "event StakedWithPermit(address indexed user, uint256 amount)",
-      ]),
-      eventName: "StakedWithPermit",
-      args: { user: walletAddress },
-      onLogs: (logs: unknown) => {
-        console.log("StakedWithPermit event captured:", logs);
-        fetchStakedBalance();
-        fetchBalance();
-        setIsSubmitting(false);
-      },
-    });
-
-    const unwatchWithdrawn = viemClient.watchContractEvent({
-      address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
-      abi: parseAbi(["event Withdrawn(address indexed user, uint256 amount)"]),
-      eventName: "Withdrawn",
-      args: { user: walletAddress },
-      onLogs: (logs: unknown) => {
-        console.log("Withdrawn event captured:", logs);
-        fetchAvailableReward();
-        fetchStakedBalance();
-        fetchBalance();
-        setIsSubmitting(false);
-      },
-    });
-
-    return () => {
-      unwatchStakedWithPermit();
-      unwatchWithdrawn();
-    };
   };
 
   const handleCollect = async () => {
@@ -273,43 +253,63 @@ export function StakeWithPermitForm() {
     return () => clearInterval(interval);
   }, [walletAddress]);
 
-  const { receipt: depositReceipt, isLoading: isWaitingDeposit } =
-    useWaitForTransactionReceipt({
+  const { receipt, isLoading: isWaitingReceipt } = useWaitForTransactionReceipt(
+    {
       client: viemClient,
       appConfig: {
         app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}`,
       },
       transactionId: stakeTx!,
-    });
-
-  const { receipt: collectReceipt, isLoading: isWaitingCollect } =
-    useWaitForTransactionReceipt({
-      client: viemClient,
-      appConfig: {
-        app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}`,
-      },
-      transactionId: collectTx!,
-    });
+    }
+  );
 
   useEffect(() => {
-    if (depositReceipt) {
-      console.log("Transaction confirmed. Receipt:", depositReceipt);
+    if (receipt) {
+      console.log("Transaction confirmed. Receipt:", receipt);
       fetchStakedBalance();
       fetchBalance();
       setIsSubmitting(false);
       setStakeTx(null);
     }
-  }, [depositReceipt]);
+  }, [receipt]);
 
   useEffect(() => {
-    if (collectReceipt) {
-      console.log("Transaction confirmed. Receipt:", collectReceipt);
-      fetchStakedBalance();
-      fetchBalance();
-      setIsCollecting(false);
-      setCollectTx(null);
-    }
-  }, [collectReceipt]);
+    if (!walletAddress) return;
+
+    const unwatchStakedWithPermit = viemClient.watchContractEvent({
+      address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
+      abi: parseAbi([
+        "event StakedWithPermit(address indexed user, uint256 amount)",
+      ]),
+      eventName: "StakedWithPermit",
+      args: { user: walletAddress },
+      onLogs: (logs: unknown) => {
+        console.log("StakedWithPermit event captured:", logs);
+        fetchStakedBalance();
+        fetchBalance();
+        setIsSubmitting(false);
+      },
+    });
+
+    const unwatchWithdrawn = viemClient.watchContractEvent({
+      address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
+      abi: parseAbi(["event Withdrawn(address indexed user, uint256 amount)"]),
+      eventName: "Withdrawn",
+      args: { user: walletAddress },
+      onLogs: (logs: unknown) => {
+        console.log("Withdrawn event captured:", logs);
+        fetchAvailableReward();
+        fetchStakedBalance();
+        fetchBalance();
+        setIsSubmitting(false);
+      },
+    });
+
+    return () => {
+      unwatchStakedWithPermit();
+      unwatchWithdrawn();
+    };
+  }, [walletAddress]);
 
   return (
     <div className="w-full">
@@ -398,7 +398,7 @@ export function StakeWithPermitForm() {
         <div className="flex items-center gap-2">
           <Button
             onClick={handleCollect}
-            isLoading={isCollecting || isWaitingCollect}
+            isLoading={isCollecting}
             variant="primary"
             size="sm"
             className="mr-2 h-9 rounded-full px-4 font-sans"
@@ -417,7 +417,7 @@ export function StakeWithPermitForm() {
       {selectedAction === "deposit" ? (
         <Button
           onClick={handleStake}
-          isLoading={isSubmitting || isWaitingDeposit}
+          isLoading={isSubmitting || isWaitingReceipt}
           fullWidth
         >
           Deposit drachma
