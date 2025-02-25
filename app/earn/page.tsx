@@ -37,15 +37,6 @@ export default function EarnPage() {
     return localStorage.getItem("hasSeenSavings") === "true";
   });
 
-  const [displayTokenBalance, setDisplayTokenBalance] = useState<number>(() => {
-    const stored = localStorage.getItem("tokenBalance");
-    return stored
-      ? parseFloat(stored)
-      : tokenBalance
-        ? Number(tokenBalance)
-        : 0;
-  });
-
   const [displayClaimable, setDisplayClaimable] = useState<number>(
     Number(claimableAmount) || 0
   );
@@ -113,41 +104,6 @@ export default function EarnPage() {
 
     return () => clearInterval(interval);
   }, [claimableAmount]);
-
-  useEffect(() => {
-    const numBalance = Number(tokenBalance);
-    if (!isNaN(numBalance)) {
-      const storedValue = localStorage.getItem("tokenBalance");
-      if (!storedValue || Number(storedValue) !== numBalance) {
-        localStorage.setItem("tokenBalance", numBalance.toString());
-        setDisplayTokenBalance(numBalance);
-      }
-    }
-  }, [tokenBalance]);
-
-  useEffect(() => {
-    if (!walletAddress) return;
-    let isMounted = true;
-    let retryTimer: NodeJS.Timeout;
-
-    const fetchWithRetry = async () => {
-      try {
-        await fetchBalance();
-      } catch (error) {
-        console.error("Failed to fetch token balance. Retrying...", error);
-      }
-      if (isMounted) {
-        retryTimer = setTimeout(fetchWithRetry, 5000);
-      }
-    };
-
-    fetchWithRetry();
-
-    return () => {
-      isMounted = false;
-      clearTimeout(retryTimer);
-    };
-  }, [fetchBalance, walletAddress]);
 
   const sendSetup = async () => {
     if (!MiniKit.isInstalled()) return;
@@ -389,7 +345,9 @@ export default function EarnPage() {
               variant={{ variant: "number", level: 6 }}
               className="text-base"
             >
-              {Number(displayTokenBalance).toFixed(2)} WDD
+              {tokenBalance
+                ? `${Number(tokenBalance).toFixed(2)} WDD`
+                : "0.00 WDD"}
             </Typography>
           </a>
         )}
