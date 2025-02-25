@@ -46,8 +46,9 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [username, setUsername] = useState<string | null>(null);
   const [tokenBalance, setTokenBalance] = useState<string | null>(null);
   const [claimableAmount, setClaimableAmount] = useState<string | null>(null);
+
+  // Rehydrate basicIncomeActivated from local storage.
   const [basicIncomeActivated, setBasicIncomeActivated] = useState(() => {
-    // Rehydrate basicIncomeActivated from local storage if available.
     if (typeof window !== "undefined") {
       const stored = localStorage.getItem("basicIncomeActivated");
       return stored ? JSON.parse(stored) : false;
@@ -55,9 +56,19 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     return false;
   });
 
+  // Update local storage when basicIncomeActivated changes.
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem(
+        "basicIncomeActivated",
+        JSON.stringify(basicIncomeActivated)
+      );
+    }
+  }, [basicIncomeActivated]);
+
   const fromWei = (value: bigint) => (Number(value) / 1e18).toString();
 
-  // Rehydrate authentication status on mount by calling /api/me
+  // Rehydrate authentication status on mount by calling /api/me.
   useEffect(() => {
     const checkAuthStatus = async () => {
       try {
@@ -65,7 +76,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         const data = await res.json();
         if (data.walletAddress) {
           setWalletAddress(data.walletAddress);
-          // Optionally, fetch username or other user data based on walletAddress
+          // Optionally, fetch username or other user data.
           if (MiniKit.user?.username) {
             setUsername(MiniKit.user.username);
           }
@@ -78,16 +89,11 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     checkAuthStatus();
   }, []);
 
-  // Update local storage when basicIncomeActivated changes.
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem(
-        "basicIncomeActivated",
-        JSON.stringify(basicIncomeActivated)
-      );
-    }
-  }, [basicIncomeActivated]);
-
+  /**
+   * Fetch the basic income information from the blockchain.
+   * Note that this function now always updates the
+   * basicIncomeActivated flag based on whether any claimable amount exists.
+   */
   const fetchBasicIncomeInfo = async () => {
     try {
       const result = await viemClient.readContract({
@@ -100,7 +106,9 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       });
 
       if (Array.isArray(result) && result.length === 2) {
+        const activeStake = fromWei(result[0]);
         const newClaimable = fromWei(result[1]);
+        setBasicIncomeActivated(activeStake !== "0");
         setClaimableAmount(newClaimable);
         if (newClaimable !== "0") setBasicIncomeActivated(true);
       }
