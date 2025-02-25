@@ -20,8 +20,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Do you believe that governments worldwide should increase funding for space monitoring and asteroid deflection research?",
-    url: "https://vote.one/IS9azLpr",
+      "Should countries be required to share real-time data during disease outbreaks to prevent global health crises?",
+    url: "https://vote.one/OZ2T4A53",
   },
   {
     description:
@@ -73,7 +73,7 @@ export function PollOfTheDay() {
         <Typography
           as="h3"
           variant={{ variant: "heading", level: 2 }}
-          className="mb-10 p-4 text-center"
+          className="mb-10 text-center"
         >
           {currentPoll.description}
         </Typography>
