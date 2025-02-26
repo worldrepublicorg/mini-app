@@ -6,6 +6,7 @@ import React, {
   useEffect,
   useContext,
   ReactNode,
+  useRef,
 } from "react";
 import { parseAbi } from "viem";
 import { viemClient } from "@/lib/viemClient";
@@ -84,6 +85,8 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     }
   }, []);
 
+  const fetchedBasicIncomeRef = useRef(false);
+
   const fetchBasicIncomeInfo = async () => {
     if (!walletAddress) return;
     try {
@@ -100,9 +103,13 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         const newClaimable = fromWei(result[1]);
         setClaimableAmount(newClaimable);
         setBasicIncomeActivated(newClaimable !== "0");
+        fetchedBasicIncomeRef.current = true;
       }
     } catch (error) {
       console.error("Error fetching basic income info:", error);
+      if (!fetchedBasicIncomeRef.current) {
+        setTimeout(fetchBasicIncomeInfo, 1000);
+      }
     }
   };
 
@@ -128,6 +135,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   };
 
   useEffect(() => {
+    fetchedBasicIncomeRef.current = false;
     if (!walletAddress) return;
 
     fetchBasicIncomeInfo();
