@@ -19,7 +19,6 @@ import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { Button } from "@/components/ui/Button";
 import { ComingSoonDrawer } from "@/components/ComingSoonDrawer";
 import { StakeWithPermitForm } from "@/components/StakeWithPermitForm";
-import Spinner from "@/components/ui/Button/Spinner";
 
 export default function EarnPage() {
   const [activeTab, setActiveTab] = useState("Basic income");
@@ -39,6 +38,7 @@ export default function EarnPage() {
     return localStorage.getItem("hasSeenSavings") === "true";
   });
 
+  // Optimistic UI for claimable amount using localStorage
   const [displayClaimable, setDisplayClaimable] = useState<number>(
     Number(claimableAmount) || 0
   );
@@ -73,7 +73,7 @@ export default function EarnPage() {
       baseValue = parseFloat(storedBase);
       startTime = parseInt(storedStartTime, 10);
 
-      // If the on-chain claimable has increased (e.g. due to accumulation)
+      // If the on-chain claimable has increased (due to accumulation)
       if (currentClaimable > baseValue) {
         baseValue = currentClaimable;
         startTime = Date.now();
@@ -127,7 +127,9 @@ export default function EarnPage() {
       } else {
         setTransactionId(finalPayload.transaction_id);
         await fetchBasicIncomeInfo();
+        // Update the optimistic UI state if the fetch call works.
         setBasicIncomeActivated(true);
+        localStorage.setItem("basicIncomeActivated", "true");
       }
     } catch (error: any) {
       console.error("Error:", error);
@@ -181,14 +183,6 @@ export default function EarnPage() {
   const renderContent = () => {
     switch (activeTab) {
       case "Basic income":
-        if (walletAddress && isBasicIncomeLoading) {
-          return (
-            <div className="flex w-full flex-col items-center">
-              <Spinner />
-            </div>
-          );
-        }
-
         return (
           <div className="flex w-full flex-col items-center py-6">
             <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
