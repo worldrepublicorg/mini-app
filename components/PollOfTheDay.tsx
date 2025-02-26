@@ -25,8 +25,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Should governments prioritize regulating artificial intelligence (AI) development to prevent misuse, even if it slows innovation?",
-    url: "https://vote.one/6xsTYiEV",
+      "Do you think global measures should be implemented to counter the spread of disinformation online?",
+    url: "https://vote.one/rw4L36NM",
   },
   {
     description:
