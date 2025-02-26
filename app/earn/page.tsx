@@ -181,6 +181,14 @@ export default function EarnPage() {
   const renderContent = () => {
     switch (activeTab) {
       case "Basic income":
+        if (walletAddress && isBasicIncomeLoading) {
+          return (
+            <div className="flex w-full flex-col items-center">
+              <Spinner />
+            </div>
+          );
+        }
+
         return (
           <div className="flex w-full flex-col items-center py-6">
             <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
@@ -201,8 +209,6 @@ export default function EarnPage() {
                 </Typography>
                 <WalletAuth onError={(error) => console.error(error)} />
               </>
-            ) : isBasicIncomeLoading ? (
-              <Spinner />
             ) : !basicIncomeActivated ? (
               <>
                 <Typography
