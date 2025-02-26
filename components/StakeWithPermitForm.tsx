@@ -71,6 +71,7 @@ export function StakeWithPermitForm() {
       localStorage.setItem("stakedBalance", balance);
     } catch (error) {
       console.error("Error fetching staked balance", error);
+      setTimeout(fetchStakedBalance, 1000);
     }
   };
 

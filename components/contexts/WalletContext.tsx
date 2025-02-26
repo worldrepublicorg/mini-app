@@ -127,6 +127,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       }
     } catch (error) {
       console.error("Error fetching balance:", error);
+      setTimeout(fetchBalance, 1000);
     }
   };
 
