@@ -19,6 +19,7 @@ import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { Button } from "@/components/ui/Button";
 import { ComingSoonDrawer } from "@/components/ComingSoonDrawer";
 import { StakeWithPermitForm } from "@/components/StakeWithPermitForm";
+import Spinner from "@/components/ui/Button/Spinner";
 
 export default function EarnPage() {
   const [activeTab, setActiveTab] = useState("Basic income");
@@ -30,6 +31,7 @@ export default function EarnPage() {
     fetchBalance,
     basicIncomeActivated,
     setBasicIncomeActivated,
+    isBasicIncomeLoading,
   } = useWallet();
   const [transactionId, setTransactionId] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -199,6 +201,8 @@ export default function EarnPage() {
                 </Typography>
                 <WalletAuth onError={(error) => console.error(error)} />
               </>
+            ) : isBasicIncomeLoading ? (
+              <Spinner />
             ) : !basicIncomeActivated ? (
               <>
                 <Typography
