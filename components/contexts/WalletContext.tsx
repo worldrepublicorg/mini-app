@@ -44,7 +44,10 @@ interface WalletProviderProps {
 export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [walletAddress, setWalletAddress] = useState<string | null>(null);
   const [username, setUsername] = useState<string | null>(null);
-  const [tokenBalance, setTokenBalance] = useState<string | null>(null);
+  const [tokenBalance, setTokenBalance] = useState<string | null>(() => {
+    const storedBalance = localStorage.getItem("tokenBalance");
+    return storedBalance ? storedBalance : null;
+  });
   const [claimableAmount, setClaimableAmount] = useState<string | null>(null);
   const [basicIncomeActivated, setBasicIncomeActivatedState] = useState(false);
 
@@ -55,7 +58,6 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
   const fromWei = (value: bigint) => (Number(value) / 1e18).toString();
 
-  // Rehydrate authentication status on mount by calling /api/me
   useEffect(() => {
     const checkAuthStatus = async () => {
       try {
@@ -63,7 +65,6 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         const data = await res.json();
         if (data.walletAddress) {
           setWalletAddress(data.walletAddress);
-          // Optionally, fetch username or other user data based on walletAddress
           if (MiniKit.user?.username) {
             setUsername(MiniKit.user.username);
           }
@@ -76,7 +77,6 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     checkAuthStatus();
   }, []);
 
-  // On mount, try to read basicIncomeActivated from local storage
   useEffect(() => {
     const storedActivated = localStorage.getItem("basicIncomeActivated");
     if (storedActivated !== null) {
@@ -99,8 +99,6 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       if (Array.isArray(result) && result.length === 2) {
         const newClaimable = fromWei(result[1]);
         setClaimableAmount(newClaimable);
-        // Update basic income activated flag optimistically
-        // (persisted in local storage) based on the claimable amount.
         setBasicIncomeActivated(newClaimable !== "0");
       }
     } catch (error) {
@@ -122,6 +120,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       if (typeof balanceResult === "bigint") {
         const newTokenBalance = fromWei(balanceResult);
         setTokenBalance(newTokenBalance);
+        localStorage.setItem("tokenBalance", newTokenBalance);
       }
     } catch (error) {
       console.error("Error fetching balance:", error);
