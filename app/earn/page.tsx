@@ -30,7 +30,6 @@ export default function EarnPage() {
     fetchBalance,
     basicIncomeActivated,
     setBasicIncomeActivated,
-    isBasicIncomeLoading,
   } = useWallet();
   const [transactionId, setTransactionId] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
