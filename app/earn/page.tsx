@@ -360,14 +360,8 @@ export default function EarnPage() {
         tabs={["Basic income", "Savings", "Contribute", "Invite"]}
         activeTab={activeTab}
         onTabChange={handleTabChange}
+        showSavingsIndicator={!hasSeenSavings && activeTab !== "Savings"}
       />
-
-      {/* Red dot for Savings tab */}
-      {!hasSeenSavings && activeTab !== "Savings" && (
-        <div className="absolute left-[219px] top-[77px] z-10 opacity-65">
-          <span className="block h-1.5 w-1.5 rounded-full bg-error-800" />
-        </div>
-      )}
 
       <div className="flex flex-1 items-center">{renderContent()}</div>
     </div>
