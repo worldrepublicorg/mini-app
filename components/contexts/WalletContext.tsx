@@ -100,9 +100,10 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       });
 
       if (Array.isArray(result) && result.length === 2) {
+        const stake = fromWei(result[0]);
         const newClaimable = fromWei(result[1]);
         setClaimableAmount(newClaimable);
-        setBasicIncomeActivated(newClaimable !== "0");
+        setBasicIncomeActivated(stake !== "0");
         fetchedBasicIncomeRef.current = true;
       }
     } catch (error) {
