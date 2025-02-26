@@ -37,6 +37,7 @@ export default function EarnPage() {
     return localStorage.getItem("hasSeenSavings") === "true";
   });
 
+  // Optimistic UI for claimable amount using localStorage
   const [displayClaimable, setDisplayClaimable] = useState<number>(
     Number(claimableAmount) || 0
   );
@@ -71,7 +72,7 @@ export default function EarnPage() {
       baseValue = parseFloat(storedBase);
       startTime = parseInt(storedStartTime, 10);
 
-      // If the on-chain claimable has increased (e.g. due to accumulation)
+      // If the on-chain claimable has increased (due to accumulation)
       if (currentClaimable > baseValue) {
         baseValue = currentClaimable;
         startTime = Date.now();
@@ -125,7 +126,9 @@ export default function EarnPage() {
       } else {
         setTransactionId(finalPayload.transaction_id);
         await fetchBasicIncomeInfo();
+        // Update the optimistic UI state if the fetch call works.
         setBasicIncomeActivated(true);
+        localStorage.setItem("basicIncomeActivated", "true");
       }
     } catch (error: any) {
       console.error("Error:", error);
