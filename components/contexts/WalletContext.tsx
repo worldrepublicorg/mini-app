@@ -85,8 +85,6 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     }
   }, []);
 
-  const fetchedBasicIncomeRef = useRef(false);
-
   const fetchBasicIncomeInfo = async () => {
     if (!walletAddress) return;
     try {
@@ -104,13 +102,10 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         const newClaimable = fromWei(result[1]);
         setClaimableAmount(newClaimable);
         setBasicIncomeActivated(stake !== "0");
-        fetchedBasicIncomeRef.current = true;
       }
     } catch (error) {
       console.error("Error fetching basic income info:", error);
-      if (!fetchedBasicIncomeRef.current) {
-        setTimeout(fetchBasicIncomeInfo, 1000);
-      }
+      setTimeout(fetchBasicIncomeInfo, 1000);
     }
   };
 
@@ -136,7 +131,6 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   };
 
   useEffect(() => {
-    fetchedBasicIncomeRef.current = false;
     if (!walletAddress) return;
 
     fetchBasicIncomeInfo();
