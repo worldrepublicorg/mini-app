@@ -30,8 +30,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Should countries with advanced military capabilities intervene to de-escalate conflicts in regions experiencing sudden outbreaks of war?",
-    url: "https://vote.one/GrS25I8Y",
+      "Should global authorities establish uniform standards to regulate cryptocurrencies and curb financial crimes?",
+    url: "https://vote.one/0bTVLGAB",
   },
 ];
 
