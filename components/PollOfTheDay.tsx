@@ -10,8 +10,8 @@ interface Poll {
 const polls: Poll[] = [
   {
     description:
-      "Given recent shifts in major power policies, do you believe the international community will become more cooperative or more competitive?",
-    url: "https://vote.one/UCXWIhm5",
+      "Should international collaboration on rare earth minerals be prioritized to enhance global resource security?",
+    url: "https://vote.one/5StpP7UU",
   },
   {
     description:
