@@ -24,8 +24,10 @@ export function StakeWithPermitForm() {
     "deposit"
   );
 
-  const [transactionId, setTransactionId] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isCollecting, setIsCollecting] = useState(false);
+  const [transactionId, setTransactionId] = useState<string | null>(null);
+  const [collectTx, setCollectTx] = useState<string | null>(null);
 
   const fromWei = (value: bigint) => (Number(value) / 1e18).toString();
 
@@ -77,6 +79,15 @@ export function StakeWithPermitForm() {
     },
     transactionId: transactionId!,
   });
+
+  const { isLoading: isWaitingCollect, isSuccess: isCollectSuccess } =
+    useWaitForTransactionReceipt({
+      client: viemClient,
+      appConfig: {
+        app_id: "app_66c83ab8c851fb1e54b1b1b62c6ce39d",
+      },
+      transactionId: collectTx!,
+    });
 
   useEffect(() => {
     if (!walletAddress) return;
@@ -226,7 +237,7 @@ export function StakeWithPermitForm() {
       return;
     }
 
-    setIsSubmitting(true);
+    setIsCollecting(true);
     try {
       console.log("Sending redeem transaction via MiniKit...");
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
@@ -243,14 +254,14 @@ export function StakeWithPermitForm() {
       console.log("Received redeem transaction response:", finalPayload);
       if (finalPayload.status === "error") {
         console.error("Redeem transaction error. See console for details.");
-        setIsSubmitting(false);
+        setIsCollecting(false);
       } else {
         console.info("Rewards redeemed successfully!");
-        setTransactionId(finalPayload.transaction_id);
+        setCollectTx(finalPayload.transaction_id);
       }
     } catch (error: any) {
       console.error("Error:", error.message);
-      setIsSubmitting(false);
+      setIsCollecting(false);
     }
   };
 
@@ -271,6 +282,15 @@ export function StakeWithPermitForm() {
       setTransactionId(null);
     }
   }, [isSuccess]);
+
+  useEffect(() => {
+    if (isCollectSuccess) {
+      console.log("Transaction successful");
+      fetchAvailableReward();
+      fetchBalance();
+      setCollectTx(null);
+    }
+  }, [isCollectSuccess]);
 
   useEffect(() => {
     if (!walletAddress) return;
@@ -305,7 +325,7 @@ export function StakeWithPermitForm() {
     });
 
     const unwatchRedeemed = viemClient.watchContractEvent({
-      address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012" as `0x${string}`,
+      address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
       abi: parseAbi([
         "event Redeemed(address indexed user, uint256 rewardAmount)",
       ]),
@@ -315,7 +335,7 @@ export function StakeWithPermitForm() {
         console.log("Redeemed event captured:", logs);
         fetchAvailableReward();
         fetchBalance();
-        setIsSubmitting(false);
+        setIsCollecting(false);
       },
     });
 
@@ -413,12 +433,12 @@ export function StakeWithPermitForm() {
         <div className="flex items-center gap-2">
           <Button
             onClick={handleCollect}
-            isLoading={isSubmitting || isLoading}
+            isLoading={isCollecting || isWaitingCollect}
             variant="primary"
             size="sm"
             className="mr-2 h-9 w-20 rounded-full px-4 font-sans"
           >
-            Collect 8
+            Collect
           </Button>
           <Typography
             variant={{ variant: "number", level: 6 }}
