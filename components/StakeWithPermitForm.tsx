@@ -151,12 +151,14 @@ export function StakeWithPermitForm() {
       console.log("Received stake transaction response:", finalPayload);
       if (finalPayload.status === "error") {
         console.error("Transaction error.");
+        setIsSubmitting(false);
       } else {
         console.info("Staking transaction submitted successfully!");
         setStakeTx(finalPayload.transaction_id);
       }
     } catch (error: any) {
       console.error("Error:", error.message);
+      setIsSubmitting(false);
     } finally {
       setAmount("");
     }
@@ -202,12 +204,14 @@ export function StakeWithPermitForm() {
       console.log("Received withdraw transaction response:", finalPayload);
       if (finalPayload.status === "error") {
         console.error("Withdraw transaction error. See console for details.");
+        setIsWithdrawing(false);
       } else {
         console.info("Withdraw transaction submitted successfully!");
         setWithdrawTx(finalPayload.transaction_id);
       }
     } catch (error: any) {
       console.error("Error:", error.message);
+      setIsWithdrawing(false);
     } finally {
       setAmount("");
     }
@@ -236,13 +240,13 @@ export function StakeWithPermitForm() {
       console.log("Received redeem transaction response:", finalPayload);
       if (finalPayload.status === "error") {
         console.error("Redeem transaction error. See console for details.");
+        setIsCollecting(false);
       } else {
         console.info("Rewards redeemed successfully!");
         setCollectTx(finalPayload.transaction_id);
       }
     } catch (error: any) {
       console.error("Error:", error.message);
-    } finally {
       setIsCollecting(false);
     }
   };
@@ -304,9 +308,8 @@ export function StakeWithPermitForm() {
   useEffect(() => {
     if (isCollectSuccess) {
       console.log("Transaction successful");
-      fetchStakedBalance();
+      fetchAvailableReward();
       fetchBalance();
-      setIsCollecting(false);
       setCollectTx(null);
     }
   }, [isCollectSuccess]);
@@ -343,9 +346,25 @@ export function StakeWithPermitForm() {
       },
     });
 
+    const unwatchRedeemed = viemClient.watchContractEvent({
+      address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012" as `0x${string}`,
+      abi: parseAbi([
+        "event Redeemed(address indexed user, uint256 rewardAmount)"
+      ]),
+      eventName: "Redeemed",
+      args: { user: walletAddress },
+      onLogs: (logs: unknown) => {
+        console.log("Redeemed event captured:", logs);
+        fetchAvailableReward();
+        fetchBalance();
+        setIsCollecting(false);
+      },
+    });
+
     return () => {
       unwatchStakedWithPermit();
       unwatchWithdrawn();
+      unwatchRedeemed();
     };
   }, [walletAddress]);
 

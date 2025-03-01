@@ -166,6 +166,7 @@ export default function EarnPage() {
 
       if (finalPayload.status === "error") {
         console.error("Error sending transaction", finalPayload);
+        setIsSubmitting(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
         await fetchBasicIncomeInfo();
@@ -175,6 +176,7 @@ export default function EarnPage() {
       }
     } catch (error: any) {
       console.error("Error:", error);
+      setIsSubmitting(false);
     }
   };
 
@@ -196,6 +198,7 @@ export default function EarnPage() {
 
       if (finalPayload.status === "error") {
         console.error("Error sending transaction", finalPayload);
+        setIsSubmitting(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
         setDisplayClaimable(0);
@@ -207,6 +210,7 @@ export default function EarnPage() {
       }
     } catch (error) {
       console.error("Error during claim:", error);
+      setIsSubmitting(false);
     }
   };
 
