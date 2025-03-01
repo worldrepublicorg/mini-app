@@ -7,7 +7,7 @@ import {
   PiUserPlusFill,
   PiPlantFill,
   PiWalletFill,
-  PiCoins,
+  PiCoinsFill,
 } from "react-icons/pi";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/Drawer";
 import { WalletAuth } from "@/components/WalletAuth";
@@ -335,7 +335,7 @@ export default function EarnPage() {
                     <Typography
                       as="h3"
                       variant={{ variant: "subtitle", level: 2 }}
-                      className="line-clamp-2 font-display font-medium tracking-tight text-gray-900"
+                      className="line-clamp-2 font-display text-[15px] font-medium tracking-tight text-gray-900"
                     >
                       Introducing Basic Income Plus
                     </Typography>
@@ -350,7 +350,7 @@ export default function EarnPage() {
               <DrawerContent>
                 <div className="flex flex-col items-center px-6 pb-10 pt-10">
                   <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
-                    <PiCoins className="h-10 w-10 text-gray-400" />
+                    <PiCoinsFill className="h-10 w-10 text-gray-400" />
                   </div>
                   <Typography
                     as="h2"
