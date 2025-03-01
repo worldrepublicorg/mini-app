@@ -21,7 +21,6 @@ import { ComingSoonDrawer } from "@/components/ComingSoonDrawer";
 import { StakeWithPermitForm } from "@/components/StakeWithPermitForm";
 
 export default function EarnPage() {
-  const [activeTab, setActiveTab] = useState("Basic income");
   const {
     walletAddress,
     claimableAmount,
@@ -31,23 +30,25 @@ export default function EarnPage() {
     basicIncomeActivated,
     setBasicIncomeActivated,
   } = useWallet();
-  const [transactionId, setTransactionId] = useState<string>("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const [displayClaimable, setDisplayClaimable] = useState<number>(
+    Number(claimableAmount) || 0
+  );
+  
+  const [activeTab, setActiveTab] = useState("Basic income");
   const [hasSeenSavings, setHasSeenSavings] = useState(() => {
     return localStorage.getItem("hasSeenSavings") === "true";
   });
 
-  // Optimistic UI for claimable amount using localStorage
-  const [displayClaimable, setDisplayClaimable] = useState<number>(
-    Number(claimableAmount) || 0
-  );
+  const [transactionId, setTransactionId] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const { isLoading: isConfirming } = useWaitForTransactionReceipt({
+  const { isLoading, isSuccess } = useWaitForTransactionReceipt({
     client: viemClient,
     appConfig: {
       app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}`,
     },
-    transactionId: transactionId,
+    transactionId: transactionId!,
   });
 
   useEffect(() => {
@@ -106,6 +107,49 @@ export default function EarnPage() {
     return () => clearInterval(interval);
   }, [claimableAmount]);
 
+  useEffect(() => {
+    if (!walletAddress) return;
+
+    // Listener for the basic income setup event (TokensStaked)
+    const unwatchTokensStaked = viemClient.watchContractEvent({
+      address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012" as `0x${string}`,
+      abi: parseAbi([
+        "event TokensStaked(address indexed staker, uint256 amount)",
+      ]),
+      eventName: "TokensStaked",
+      args: { staker: walletAddress },
+      onLogs: (logs: unknown) => {
+        console.log("TokensStaked event captured:", logs);
+        // Update your on-chain data here after setup.
+        fetchBasicIncomeInfo();
+        fetchBalance();
+        setIsSubmitting(false);
+      },
+    });
+
+    // Listener for the claim event (RewardsClaimed)
+    const unwatchRewardsClaimed = viemClient.watchContractEvent({
+      address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012" as `0x${string}`,
+      abi: parseAbi([
+        "event RewardsClaimed(address indexed staker, uint256 rewardAmount)",
+      ]),
+      eventName: "RewardsClaimed",
+      args: { staker: walletAddress },
+      onLogs: (logs: unknown) => {
+        console.log("RewardsClaimed event captured:", logs);
+        // Update your on-chain data here after claiming rewards.
+        fetchBasicIncomeInfo();
+        fetchBalance();
+        setIsSubmitting(false);
+      },
+    });
+
+    return () => {
+      unwatchTokensStaked();
+      unwatchRewardsClaimed();
+    };
+  }, [walletAddress]);
+
   const sendSetup = async () => {
     if (!MiniKit.isInstalled()) return;
     setIsSubmitting(true);
@@ -123,6 +167,7 @@ export default function EarnPage() {
 
       if (finalPayload.status === "error") {
         console.error("Error sending transaction", finalPayload);
+        setIsSubmitting(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
         await fetchBasicIncomeInfo();
@@ -132,7 +177,6 @@ export default function EarnPage() {
       }
     } catch (error: any) {
       console.error("Error:", error);
-    } finally {
       setIsSubmitting(false);
     }
   };
@@ -155,6 +199,7 @@ export default function EarnPage() {
 
       if (finalPayload.status === "error") {
         console.error("Error sending transaction", finalPayload);
+        setIsSubmitting(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
         setDisplayClaimable(0);
@@ -166,10 +211,18 @@ export default function EarnPage() {
       }
     } catch (error) {
       console.error("Error during claim:", error);
-    } finally {
       setIsSubmitting(false);
     }
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      console.log("Transaction successful");
+      fetchBasicIncomeInfo();
+      fetchBalance();
+      setTransactionId(null);
+    }
+  }, [isSuccess]);
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
@@ -213,7 +266,7 @@ export default function EarnPage() {
                 </Typography>
                 <Button
                   onClick={sendSetup}
-                  isLoading={isSubmitting}
+                  isLoading={isSubmitting || isLoading}
                   fullWidth
                 >
                   Activate basic income
@@ -235,7 +288,7 @@ export default function EarnPage() {
                 </div>
                 <Button
                   onClick={sendClaim}
-                  isLoading={isSubmitting}
+                  isLoading={isSubmitting || isLoading}
                   fullWidth
                 >
                   Claim
