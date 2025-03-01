@@ -296,7 +296,11 @@ export default function EarnPage() {
                 >
                   Set up your basic income
                 </Typography>
-                <Button onClick={sendSetup} isLoading={isSubmitting} fullWidth>
+                <Button
+                  onClick={sendSetup}
+                  isLoading={isSubmitting || isLoading}
+                  fullWidth
+                >
                   Activate Basic Income
                 </Button>
               </>
@@ -314,7 +318,11 @@ export default function EarnPage() {
                     {displayClaimable.toFixed(5)}
                   </p>
                 </div>
-                <Button onClick={sendClaim} isLoading={isSubmitting} fullWidth>
+                <Button
+                  onClick={sendClaim}
+                  isLoading={isSubmitting || isLoading}
+                  fullWidth
+                >
                   Claim
                 </Button>
               </>
