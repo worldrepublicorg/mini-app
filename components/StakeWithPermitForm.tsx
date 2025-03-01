@@ -426,7 +426,7 @@ export function StakeWithPermitForm() {
             size="sm"
             className="mr-2 h-9 w-20 rounded-full px-4 font-sans"
           >
-            Collect 0
+            Collect 1
           </Button>
           <Typography
             variant={{ variant: "number", level: 6 }}
