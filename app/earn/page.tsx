@@ -21,7 +21,6 @@ import { ComingSoonDrawer } from "@/components/ComingSoonDrawer";
 import { StakeWithPermitForm } from "@/components/StakeWithPermitForm";
 
 export default function EarnPage() {
-  const [activeTab, setActiveTab] = useState("Basic income");
   const {
     walletAddress,
     claimableAmount,
@@ -31,23 +30,25 @@ export default function EarnPage() {
     basicIncomeActivated,
     setBasicIncomeActivated,
   } = useWallet();
-  const [transactionId, setTransactionId] = useState<string>("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const [displayClaimable, setDisplayClaimable] = useState<number>(
+    Number(claimableAmount) || 0
+  );
+  
+  const [activeTab, setActiveTab] = useState("Basic income");
   const [hasSeenSavings, setHasSeenSavings] = useState(() => {
     return localStorage.getItem("hasSeenSavings") === "true";
   });
 
-  // Optimistic UI for claimable amount using localStorage
-  const [displayClaimable, setDisplayClaimable] = useState<number>(
-    Number(claimableAmount) || 0
-  );
+  const [transactionId, setTransactionId] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const { isLoading: isConfirming } = useWaitForTransactionReceipt({
+  const { isLoading, isSuccess } = useWaitForTransactionReceipt({
     client: viemClient,
     appConfig: {
       app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}`,
     },
-    transactionId: transactionId,
+    transactionId: transactionId!,
   });
 
   useEffect(() => {
@@ -214,6 +215,15 @@ export default function EarnPage() {
     }
   };
 
+  useEffect(() => {
+    if (isSuccess) {
+      console.log("Transaction successful");
+      fetchBasicIncomeInfo();
+      fetchBalance();
+      setTransactionId(null);
+    }
+  }, [isSuccess]);
+
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
     if (tab === "Savings") {
@@ -254,7 +264,11 @@ export default function EarnPage() {
                 >
                   Set up your basic income
                 </Typography>
-                <Button onClick={sendSetup} isLoading={isSubmitting} fullWidth>
+                <Button
+                  onClick={sendSetup}
+                  isLoading={isSubmitting || isLoading}
+                  fullWidth
+                >
                   Activate basic income
                 </Button>
               </>
@@ -272,7 +286,11 @@ export default function EarnPage() {
                     {displayClaimable.toFixed(5)}
                   </p>
                 </div>
-                <Button onClick={sendClaim} isLoading={isSubmitting} fullWidth>
+                <Button
+                  onClick={sendClaim}
+                  isLoading={isSubmitting || isLoading}
+                  fullWidth
+                >
                   Claim
                 </Button>
               </>
