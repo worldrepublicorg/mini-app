@@ -50,6 +50,8 @@ export default function EarnPage() {
     transactionId: transactionId,
   });
 
+  const username = MiniKit.user?.username;
+
   useEffect(() => {
     if (transactionId) {
       fetchBalance();
@@ -190,6 +192,12 @@ export default function EarnPage() {
             <Typography as="h2" variant="heading" level={1}>
               Basic Income
             </Typography>
+
+            {username && (
+              <Typography variant="subtitle" level={1}>
+                {username}
+              </Typography>
+            )}
 
             {walletAddress === null ? (
               <>
