@@ -455,7 +455,7 @@ export function StakeWithPermitForm() {
           isLoading={isSubmitting || isLoading}
           fullWidth
         >
-          Deposit drachma
+          Deposit Drachma
         </Button>
       ) : (
         <Button
@@ -463,7 +463,7 @@ export function StakeWithPermitForm() {
           isLoading={isSubmitting || isLoading}
           fullWidth
         >
-          Withdraw drachma
+          Withdraw Drachma
         </Button>
       )}
     </div>

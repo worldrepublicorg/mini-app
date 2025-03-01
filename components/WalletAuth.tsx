@@ -148,7 +148,7 @@ export function WalletAuth({ onError, onSuccess }: WalletAuthProps) {
 
   return (
     <Button onClick={signInWithWallet} isLoading={isLoading} fullWidth>
-      Connect wallet
+      Connect Wallet
     </Button>
   );
 }
