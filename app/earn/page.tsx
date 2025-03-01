@@ -331,7 +331,7 @@ export default function EarnPage() {
               <DrawerTrigger asChild>
                 <div className="mt-4 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-transparent py-1.5">
                   <div className="flex w-full items-center overflow-hidden">
-                    <div className="-ml-[2px] mr-[10px] size-9 rounded-full border-[6px] border-gray-900"></div>
+                    <div className="-ml-[2px] mr-[10px] size-[30px] rounded-full border-[5px] border-gray-900"></div>
                     <Typography
                       as="h3"
                       variant={{ variant: "subtitle", level: 2 }}
