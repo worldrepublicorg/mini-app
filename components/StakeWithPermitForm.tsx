@@ -433,7 +433,7 @@ export function StakeWithPermitForm() {
         <div className="flex items-center gap-2">
           <Button
             onClick={handleCollect}
-            isLoading={isCollecting || isWaitingCollect}
+            isLoading={isCollecting}
             variant="primary"
             size="sm"
             className="mr-2 h-9 w-20 rounded-full px-4 font-sans"
@@ -452,7 +452,7 @@ export function StakeWithPermitForm() {
       {selectedAction === "deposit" ? (
         <Button
           onClick={handleStake}
-          isLoading={isSubmitting || isLoading}
+          isLoading={isSubmitting}
           fullWidth
         >
           Deposit Drachma
@@ -460,7 +460,7 @@ export function StakeWithPermitForm() {
       ) : (
         <Button
           onClick={handleWithdraw}
-          isLoading={isSubmitting || isLoading}
+          isLoading={isSubmitting}
           fullWidth
         >
           Withdraw Drachma
