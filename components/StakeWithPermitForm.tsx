@@ -267,6 +267,15 @@ export function StakeWithPermitForm() {
       transactionId: stakeTx!,
     });
 
+  const { isLoading: isWaitingWithdraw, isSuccess: isWithdrawSuccess } =
+    useWaitForTransactionReceipt({
+      client: viemClient,
+      appConfig: {
+        app_id: "app_66c83ab8c851fb1e54b1b1b62c6ce39d",
+      },
+      transactionId: withdrawTx!,
+    });
+
   const { isLoading: isWaitingCollect, isSuccess: isCollectSuccess } =
     useWaitForTransactionReceipt({
       client: viemClient,
@@ -285,6 +294,16 @@ export function StakeWithPermitForm() {
       setStakeTx(null);
     }
   }, [isDepositSuccess]);
+
+  useEffect(() => {
+    if (isWithdrawSuccess) {
+      console.log("Transaction successful");
+      fetchStakedBalance();
+      fetchBalance();
+      setIsWithdrawing(false);
+      setWithdrawTx(null);
+    }
+  }, [isWithdrawSuccess]);
 
   useEffect(() => {
     if (isCollectSuccess) {
@@ -426,7 +445,7 @@ export function StakeWithPermitForm() {
             size="sm"
             className="mr-2 h-9 w-20 rounded-full px-4 font-sans"
           >
-            Collect 1
+            Collect 2
           </Button>
           <Typography
             variant={{ variant: "number", level: 6 }}
@@ -442,7 +461,7 @@ export function StakeWithPermitForm() {
           Deposit drachma
         </Button>
       ) : (
-        <Button onClick={handleWithdraw} isLoading={isWithdrawing} fullWidth>
+        <Button onClick={handleWithdraw} isLoading={isWithdrawing || isWaitingWithdraw} fullWidth>
           Withdraw drachma
         </Button>
       )}
