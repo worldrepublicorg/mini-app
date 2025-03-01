@@ -7,7 +7,6 @@ import {
   PiUserPlusFill,
   PiPlantFill,
   PiWalletFill,
-  PiCoinsFill,
 } from "react-icons/pi";
 import { Drawer, DrawerTrigger } from "@/components/ui/Drawer";
 import { WalletAuth } from "@/components/WalletAuth";
