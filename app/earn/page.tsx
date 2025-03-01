@@ -9,7 +9,7 @@ import {
   PiWalletFill,
   PiCoinsFill,
 } from "react-icons/pi";
-import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/Drawer";
+import { Drawer, DrawerTrigger } from "@/components/ui/Drawer";
 import { WalletAuth } from "@/components/WalletAuth";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { viemClient } from "@/lib/viemClient";
@@ -35,7 +35,7 @@ export default function EarnPage() {
   const [displayClaimable, setDisplayClaimable] = useState<number>(
     Number(claimableAmount) || 0
   );
-
+  
   const [activeTab, setActiveTab] = useState("Basic income");
   const [hasSeenSavings, setHasSeenSavings] = useState(() => {
     return localStorage.getItem("hasSeenSavings") === "true";
@@ -182,37 +182,6 @@ export default function EarnPage() {
     }
   };
 
-  const sendSetupPlus = async () => {
-    if (!MiniKit.isInstalled()) return;
-    setIsSubmitting(true);
-    try {
-      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
-        transaction: [
-          {
-            address: "0x15829C670F882728d88C47D1457b99964a0Cf293", // New contract address
-            abi: parseAbi(["function stake() external"]), // Assuming the same ABI as the original
-            functionName: "stake",
-            args: [],
-          },
-        ],
-      });
-
-      if (finalPayload.status === "error") {
-        console.error("Error sending transaction", finalPayload);
-        setIsSubmitting(false);
-      } else {
-        setTransactionId(finalPayload.transaction_id);
-        await fetchBasicIncomeInfo();
-        // Update the optimistic UI state if the fetch call works.
-        setBasicIncomeActivated(true);
-        localStorage.setItem("basicIncomeActivated", "true");
-      }
-    } catch (error: any) {
-      console.error("Error:", error);
-      setIsSubmitting(false);
-    }
-  };
-
   const sendClaim = async () => {
     if (!MiniKit.isInstalled()) return;
     setIsSubmitting(true);
@@ -319,55 +288,6 @@ export default function EarnPage() {
                 </Button>
               </>
             )}
-            <Drawer>
-              <DrawerTrigger asChild>
-                <div className="mt-4 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-transparent py-1.5">
-                  <div className="flex w-full items-center overflow-hidden">
-                    <div className="-ml-[2px] mr-[10px] size-[30px] rounded-full border-[5px] border-gray-900"></div>
-                    <Typography
-                      as="h3"
-                      variant={{ variant: "subtitle", level: 2 }}
-                      className="line-clamp-2 font-display text-[15px] font-medium tracking-tight text-gray-900"
-                    >
-                      Introducing Basic Income Plus
-                    </Typography>
-                    <div className="ml-1 rounded-full bg-gray-200 px-1.5 py-0.5">
-                      <p className="font-sans text-[12px] font-medium leading-narrow tracking-normal text-gray-900">
-                        New
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </DrawerTrigger>
-              <DrawerContent>
-                <div className="flex flex-col items-center px-6 pb-10 pt-10">
-                  <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
-                    <PiCoinsFill className="h-10 w-10 text-gray-400" />
-                  </div>
-                  <Typography
-                    as="h2"
-                    variant={{ variant: "heading", level: 1 }}
-                    className="text-center"
-                  >
-                    Basic Income Plus
-                  </Typography>
-                  <Typography
-                    variant={{ variant: "subtitle", level: 1 }}
-                    className="mx-auto mt-4 text-center text-gray-500"
-                  >
-                    Extra income for Orb-verified users
-                  </Typography>
-                  <Button
-                    onClick={sendSetupPlus} // New function for the new contract
-                    isLoading={isSubmitting}
-                    fullWidth
-                    className="mt-10"
-                  >
-                    Activate Basic Income Plus
-                  </Button>
-                </div>
-              </DrawerContent>
-            </Drawer>
           </div>
         );
       case "Savings":
