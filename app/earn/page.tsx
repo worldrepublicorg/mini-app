@@ -106,6 +106,49 @@ export default function EarnPage() {
     return () => clearInterval(interval);
   }, [claimableAmount]);
 
+  useEffect(() => {
+    if (!walletAddress) return;
+
+    // Listener for the basic income setup event (TokensStaked)
+    const unwatchTokensStaked = viemClient.watchContractEvent({
+      address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012" as `0x${string}`,
+      abi: parseAbi([
+        "event TokensStaked(address indexed staker, uint256 amount)",
+      ]),
+      eventName: "TokensStaked",
+      args: { staker: walletAddress },
+      onLogs: (logs: unknown) => {
+        console.log("TokensStaked event captured:", logs);
+        // Update your on-chain data here after setup.
+        fetchBasicIncomeInfo();
+        fetchBalance();
+        setIsSubmitting(false);
+      },
+    });
+
+    // Listener for the claim event (RewardsClaimed)
+    const unwatchRewardsClaimed = viemClient.watchContractEvent({
+      address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012" as `0x${string}`,
+      abi: parseAbi([
+        "event RewardsClaimed(address indexed staker, uint256 rewardAmount)",
+      ]),
+      eventName: "RewardsClaimed",
+      args: { staker: walletAddress },
+      onLogs: (logs: unknown) => {
+        console.log("RewardsClaimed event captured:", logs);
+        // Update your on-chain data here after claiming rewards.
+        fetchBasicIncomeInfo();
+        fetchBalance();
+        setIsSubmitting(false);
+      },
+    });
+
+    return () => {
+      unwatchTokensStaked();
+      unwatchRewardsClaimed();
+    };
+  }, [walletAddress, fetchBasicIncomeInfo, fetchBalance, setIsSubmitting]);
+
   const sendSetup = async () => {
     if (!MiniKit.isInstalled()) return;
     setIsSubmitting(true);
@@ -132,8 +175,6 @@ export default function EarnPage() {
       }
     } catch (error: any) {
       console.error("Error:", error);
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
@@ -166,8 +207,6 @@ export default function EarnPage() {
       }
     } catch (error) {
       console.error("Error during claim:", error);
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
@@ -211,11 +250,7 @@ export default function EarnPage() {
                 >
                   Set up your basic income
                 </Typography>
-                <Button
-                  onClick={sendSetup}
-                  isLoading={isSubmitting}
-                  fullWidth
-                >
+                <Button onClick={sendSetup} isLoading={isSubmitting} fullWidth>
                   Activate basic income
                 </Button>
               </>
@@ -233,11 +268,7 @@ export default function EarnPage() {
                     {displayClaimable.toFixed(5)}
                   </p>
                 </div>
-                <Button
-                  onClick={sendClaim}
-                  isLoading={isSubmitting}
-                  fullWidth
-                >
+                <Button onClick={sendClaim} isLoading={isSubmitting} fullWidth>
                   Claim
                 </Button>
               </>
