@@ -163,40 +163,6 @@ export function StakeWithPermitForm() {
     }
   };
 
-  const handleCollect = async () => {
-    if (!MiniKit.isInstalled()) {
-      alert("Please open this app in the World App to connect your wallet.");
-      return;
-    }
-
-    setIsCollecting(true);
-    try {
-      console.log("Sending redeem transaction via MiniKit...");
-      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
-        transaction: [
-          {
-            address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
-            abi: parseAbi(["function redeem() external"]),
-            functionName: "redeem",
-            args: [],
-          },
-        ],
-      });
-
-      console.log("Received redeem transaction response:", finalPayload);
-      if (finalPayload.status === "error") {
-        console.error("Redeem transaction error. See console for details.");
-      } else {
-        console.info("Rewards redeemed successfully!");
-        setCollectTx(finalPayload.transaction_id);
-      }
-    } catch (error: any) {
-      console.error("Error:", error.message);
-    } finally {
-      setIsCollecting(false);
-    }
-  };
-
   const handleWithdraw = async () => {
     if (!MiniKit.isInstalled()) {
       alert("Please open this app in the World App to connect your wallet.");
@@ -246,6 +212,40 @@ export function StakeWithPermitForm() {
     } finally {
       setIsWithdrawing(false);
       setAmount("");
+    }
+  };
+
+  const handleCollect = async () => {
+    if (!MiniKit.isInstalled()) {
+      alert("Please open this app in the World App to connect your wallet.");
+      return;
+    }
+
+    setIsCollecting(true);
+    try {
+      console.log("Sending redeem transaction via MiniKit...");
+      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
+        transaction: [
+          {
+            address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
+            abi: parseAbi(["function redeem() external"]),
+            functionName: "redeem",
+            args: [],
+          },
+        ],
+      });
+
+      console.log("Received redeem transaction response:", finalPayload);
+      if (finalPayload.status === "error") {
+        console.error("Redeem transaction error. See console for details.");
+      } else {
+        console.info("Rewards redeemed successfully!");
+        setCollectTx(finalPayload.transaction_id);
+      }
+    } catch (error: any) {
+      console.error("Error:", error.message);
+    } finally {
+      setIsCollecting(false);
     }
   };
 
