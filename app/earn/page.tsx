@@ -213,7 +213,7 @@ export default function EarnPage() {
                 </Typography>
                 <Button
                   onClick={sendSetup}
-                  isLoading={isSubmitting || isConfirming}
+                  isLoading={isSubmitting}
                   fullWidth
                 >
                   Activate basic income
@@ -226,7 +226,7 @@ export default function EarnPage() {
                   level={1}
                   className="mx-auto mb-10 mt-4 text-center text-gray-500"
                 >
-                  Claimable drachma test
+                  Claimable drachma
                 </Typography>
                 <div className="text-center">
                   <p className="mx-auto mb-14 font-sans text-[56px] font-semibold leading-narrow tracking-normal">

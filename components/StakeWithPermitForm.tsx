@@ -262,7 +262,7 @@ export function StakeWithPermitForm() {
     useWaitForTransactionReceipt({
       client: viemClient,
       appConfig: {
-        app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}`,
+        app_id: "app_66c83ab8c851fb1e54b1b1b62c6ce39d",
       },
       transactionId: stakeTx!,
     });
@@ -271,7 +271,7 @@ export function StakeWithPermitForm() {
     useWaitForTransactionReceipt({
       client: viemClient,
       appConfig: {
-        app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}`,
+        app_id: "app_66c83ab8c851fb1e54b1b1b62c6ce39d",
       },
       transactionId: collectTx!,
     });
