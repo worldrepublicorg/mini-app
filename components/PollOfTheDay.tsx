@@ -15,8 +15,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Should high-income countries be required to fund climate adaptation efforts in low-income nations most affected by extreme weather?",
-    url: "https://vote.one/jurFwZTv",
+      "Should wealthy countries accept more migrants fleeing conflict or climate disasters?",
+    url: "https://vote.one/SJSETLZp",
   },
   {
     description:
