@@ -258,7 +258,7 @@ export function StakeWithPermitForm() {
     return () => clearInterval(interval);
   }, [walletAddress]);
 
-  const { receipt: depositReceipt, isLoading: isWaitingDeposit,  } =
+  const { isLoading: isWaitingDeposit, isSuccess: isDepositSuccess } =
     useWaitForTransactionReceipt({
       client: viemClient,
       appConfig: {
@@ -277,14 +277,14 @@ export function StakeWithPermitForm() {
     });
 
   useEffect(() => {
-    if (depositReceipt) {
-      console.log("Transaction confirmed. Receipt:", depositReceipt);
+    if (isDepositSuccess) {
+      console.log("Transaction successful");
       fetchStakedBalance();
       fetchBalance();
       setIsSubmitting(false);
       setStakeTx(null);
     }
-  }, [depositReceipt]);
+  }, [isDepositSuccess]);
 
   useEffect(() => {
     if (isCollectSuccess) {
@@ -438,7 +438,7 @@ export function StakeWithPermitForm() {
       </div>
 
       {selectedAction === "deposit" ? (
-        <Button onClick={handleStake} isLoading={isSubmitting} fullWidth>
+        <Button onClick={handleStake} isLoading={isSubmitting || isWaitingDeposit} fullWidth>
           Deposit drachma
         </Button>
       ) : (
