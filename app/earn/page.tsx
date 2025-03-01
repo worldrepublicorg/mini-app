@@ -147,7 +147,7 @@ export default function EarnPage() {
       unwatchTokensStaked();
       unwatchRewardsClaimed();
     };
-  }, [walletAddress, fetchBasicIncomeInfo, fetchBalance, setIsSubmitting]);
+  }, [walletAddress]);
 
   const sendSetup = async () => {
     if (!MiniKit.isInstalled()) return;
