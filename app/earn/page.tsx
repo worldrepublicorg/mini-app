@@ -213,7 +213,7 @@ export default function EarnPage() {
                 </Typography>
                 <Button
                   onClick={sendSetup}
-                  isLoading={isSubmitting || isConfirming}
+                  isLoading={isSubmitting}
                   fullWidth
                 >
                   Activate basic income
@@ -235,7 +235,7 @@ export default function EarnPage() {
                 </div>
                 <Button
                   onClick={sendClaim}
-                  isLoading={isSubmitting || isConfirming}
+                  isLoading={isSubmitting}
                   fullWidth
                 >
                   Claim

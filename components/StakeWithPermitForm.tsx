@@ -262,7 +262,7 @@ export function StakeWithPermitForm() {
     useWaitForTransactionReceipt({
       client: viemClient,
       appConfig: {
-        app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}`,
+        app_id: "app_66c83ab8c851fb1e54b1b1b62c6ce39d",
       },
       transactionId: stakeTx!,
     });
@@ -271,7 +271,7 @@ export function StakeWithPermitForm() {
     useWaitForTransactionReceipt({
       client: viemClient,
       appConfig: {
-        app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}`,
+        app_id: "app_66c83ab8c851fb1e54b1b1b62c6ce39d",
       },
       transactionId: collectTx!,
     });
@@ -421,7 +421,7 @@ export function StakeWithPermitForm() {
         <div className="flex items-center gap-2">
           <Button
             onClick={handleCollect}
-            isLoading={isCollecting || isWaitingCollect}
+            isLoading={isCollecting}
             variant="primary"
             size="sm"
             className="mr-2 h-9 w-20 rounded-full px-4 font-sans"
@@ -438,11 +438,7 @@ export function StakeWithPermitForm() {
       </div>
 
       {selectedAction === "deposit" ? (
-        <Button
-          onClick={handleStake}
-          isLoading={isSubmitting || isWaitingDeposit}
-          fullWidth
-        >
+        <Button onClick={handleStake} isLoading={isSubmitting} fullWidth>
           Deposit drachma
         </Button>
       ) : (
