@@ -158,7 +158,6 @@ export function StakeWithPermitForm() {
     } catch (error: any) {
       console.error("Error:", error.message);
     } finally {
-      setIsSubmitting(false);
       setAmount("");
     }
   };
@@ -210,7 +209,6 @@ export function StakeWithPermitForm() {
     } catch (error: any) {
       console.error("Error:", error.message);
     } finally {
-      setIsWithdrawing(false);
       setAmount("");
     }
   };
@@ -290,7 +288,6 @@ export function StakeWithPermitForm() {
       console.log("Transaction successful");
       fetchStakedBalance();
       fetchBalance();
-      setIsSubmitting(false);
       setStakeTx(null);
     }
   }, [isDepositSuccess]);
@@ -300,7 +297,6 @@ export function StakeWithPermitForm() {
       console.log("Transaction successful");
       fetchStakedBalance();
       fetchBalance();
-      setIsWithdrawing(false);
       setWithdrawTx(null);
     }
   }, [isWithdrawSuccess]);
@@ -343,7 +339,7 @@ export function StakeWithPermitForm() {
         fetchAvailableReward();
         fetchStakedBalance();
         fetchBalance();
-        setIsSubmitting(false);
+        setIsWithdrawing(false);
       },
     });
 
@@ -445,7 +441,7 @@ export function StakeWithPermitForm() {
             size="sm"
             className="mr-2 h-9 w-20 rounded-full px-4 font-sans"
           >
-            Collect 2
+            Collect 3
           </Button>
           <Typography
             variant={{ variant: "number", level: 6 }}
@@ -457,11 +453,19 @@ export function StakeWithPermitForm() {
       </div>
 
       {selectedAction === "deposit" ? (
-        <Button onClick={handleStake} isLoading={isSubmitting || isWaitingDeposit} fullWidth>
+        <Button
+          onClick={handleStake}
+          isLoading={isSubmitting || isWaitingDeposit}
+          fullWidth
+        >
           Deposit drachma
         </Button>
       ) : (
-        <Button onClick={handleWithdraw} isLoading={isWithdrawing || isWaitingWithdraw} fullWidth>
+        <Button
+          onClick={handleWithdraw}
+          isLoading={isWithdrawing || isWaitingWithdraw}
+          fullWidth
+        >
           Withdraw drachma
         </Button>
       )}
