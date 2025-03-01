@@ -34,7 +34,7 @@ export default function EarnPage() {
   const [displayClaimable, setDisplayClaimable] = useState<number>(
     Number(claimableAmount) || 0
   );
-  
+
   const [activeTab, setActiveTab] = useState("Basic income");
   const [hasSeenSavings, setHasSeenSavings] = useState(() => {
     return localStorage.getItem("hasSeenSavings") === "true";
@@ -240,12 +240,12 @@ export default function EarnPage() {
             <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
               <PiHandCoinsFill className="h-10 w-10 text-gray-400" />
             </div>
-            <Typography as="h2" variant="heading" level={1}>
-              Basic Income
-            </Typography>
 
             {walletAddress === null ? (
               <>
+                <Typography as="h2" variant="heading" level={1}>
+                  Basic Income
+                </Typography>
                 <Typography
                   variant="subtitle"
                   level={1}
@@ -257,6 +257,9 @@ export default function EarnPage() {
               </>
             ) : !basicIncomeActivated ? (
               <>
+                <Typography as="h2" variant="heading" level={1}>
+                  Basic Income
+                </Typography>
                 <Typography
                   variant="subtitle"
                   level={1}
@@ -275,23 +278,24 @@ export default function EarnPage() {
             ) : (
               <>
                 <Typography
+                  as="h2"
+                  variant="heading"
+                  level={1}
+                  className="text-center"
+                >
+                  Basic Income is Upgrading
+                </Typography>
+                <Typography
                   variant="subtitle"
                   level={1}
                   className="mx-auto mb-10 mt-4 text-center text-gray-500"
                 >
-                  Claimable drachma
+                  We're currently working to improve your experience with a new
+                  feature. Rest assured, your basic income is still accumulating
+                  during the update!
                 </Typography>
-                <div className="text-center">
-                  <p className="mx-auto mb-14 font-sans text-[56px] font-semibold leading-narrow tracking-normal">
-                    {displayClaimable.toFixed(5)}
-                  </p>
-                </div>
-                <Button
-                  onClick={sendClaim}
-                  isLoading={isSubmitting || isLoading}
-                  fullWidth
-                >
-                  Claim
+                <Button disabled fullWidth>
+                  Coming soon
                 </Button>
               </>
             )}
