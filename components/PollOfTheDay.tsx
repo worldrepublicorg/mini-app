@@ -79,7 +79,7 @@ export function PollOfTheDay() {
         </Typography>
         <a href={currentPoll.url} target="_blank" rel="noopener noreferrer">
           <Button variant="primary" fullWidth>
-            Vote now
+            Vote Now
           </Button>
         </a>
       </div>

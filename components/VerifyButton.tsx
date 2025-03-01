@@ -113,7 +113,7 @@ export const VerifyButton = () => {
 
   return (
     <Button onClick={handleVerify} isLoading={isVerifying} fullWidth>
-      Verify to claim
+      Verify to Claim
     </Button>
   );
 };
