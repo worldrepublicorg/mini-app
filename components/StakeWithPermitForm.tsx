@@ -258,7 +258,7 @@ export function StakeWithPermitForm() {
     return () => clearInterval(interval);
   }, [walletAddress]);
 
-  const { receipt: depositReceipt, isLoading: isWaitingDeposit } =
+  const { receipt: depositReceipt, isLoading: isWaitingDeposit,  } =
     useWaitForTransactionReceipt({
       client: viemClient,
       appConfig: {
@@ -267,7 +267,7 @@ export function StakeWithPermitForm() {
       transactionId: stakeTx!,
     });
 
-  const { receipt: collectReceipt, isLoading: isWaitingCollect } =
+  const { isLoading: isWaitingCollect, isSuccess: isCollectSuccess } =
     useWaitForTransactionReceipt({
       client: viemClient,
       appConfig: {
@@ -287,14 +287,14 @@ export function StakeWithPermitForm() {
   }, [depositReceipt]);
 
   useEffect(() => {
-    if (collectReceipt) {
-      console.log("Transaction confirmed. Receipt:", collectReceipt);
+    if (isCollectSuccess) {
+      console.log("Transaction successful");
       fetchStakedBalance();
       fetchBalance();
       setIsCollecting(false);
       setCollectTx(null);
     }
-  }, [collectReceipt]);
+  }, [isCollectSuccess]);
 
   useEffect(() => {
     if (!walletAddress) return;
@@ -421,7 +421,7 @@ export function StakeWithPermitForm() {
         <div className="flex items-center gap-2">
           <Button
             onClick={handleCollect}
-            isLoading={isCollecting}
+            isLoading={isCollecting || isWaitingCollect}
             variant="primary"
             size="sm"
             className="mr-2 h-9 w-20 rounded-full px-4 font-sans"
