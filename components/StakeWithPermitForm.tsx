@@ -348,7 +348,7 @@ export function StakeWithPermitForm() {
 
   return (
     <div className="w-full">
-      <div className="mb-4 flex gap-1">
+      <div className="mb-2 flex gap-1">
         <button
           type="button"
           onClick={() => {

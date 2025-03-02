@@ -6,7 +6,6 @@ import React, {
   useEffect,
   useContext,
   ReactNode,
-  useRef,
 } from "react";
 import { parseAbi } from "viem";
 import { viemClient } from "@/lib/viemClient";
@@ -17,12 +16,16 @@ interface WalletContextProps {
   username: string | null;
   tokenBalance: string | null;
   claimableAmount: string | null;
+  claimableAmountPlus: string | null;
   basicIncomeActivated: boolean;
+  basicIncomePlusActivated: boolean;
   setWalletAddress: (address: string) => void;
   setUsername: (username: string) => void;
   fetchBasicIncomeInfo: () => Promise<void>;
+  fetchBasicIncomePlusInfo: () => Promise<void>;
   fetchBalance: () => Promise<void>;
   setBasicIncomeActivated: (activated: boolean) => void;
+  setBasicIncomePlusActivated: (activated: boolean) => void;
 }
 
 const WalletContext = createContext<WalletContextProps>({
@@ -30,12 +33,16 @@ const WalletContext = createContext<WalletContextProps>({
   username: null,
   tokenBalance: null,
   claimableAmount: null,
+  claimableAmountPlus: null,
   basicIncomeActivated: false,
+  basicIncomePlusActivated: false,
   setWalletAddress: () => {},
   setUsername: () => {},
   fetchBasicIncomeInfo: async () => {},
+  fetchBasicIncomePlusInfo: async () => {},
   fetchBalance: async () => {},
   setBasicIncomeActivated: () => {},
+  setBasicIncomePlusActivated: () => {},
 });
 
 interface WalletProviderProps {
@@ -50,11 +57,21 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     return storedBalance ? storedBalance : null;
   });
   const [claimableAmount, setClaimableAmount] = useState<string | null>(null);
+  const [claimableAmountPlus, setClaimableAmountPlus] = useState<string | null>(
+    null
+  );
   const [basicIncomeActivated, setBasicIncomeActivatedState] = useState(false);
+  const [basicIncomePlusActivated, setBasicIncomePlusActivatedState] =
+    useState(false);
 
   const setBasicIncomeActivated = (activated: boolean) => {
     setBasicIncomeActivatedState(activated);
     localStorage.setItem("basicIncomeActivated", activated.toString());
+  };
+
+  const setBasicIncomePlusActivated = (activated: boolean) => {
+    setBasicIncomePlusActivatedState(activated);
+    localStorage.setItem("basicIncomePlusActivated", activated.toString());
   };
 
   const fromWei = (value: bigint) => (Number(value) / 1e18).toString();
@@ -83,6 +100,12 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     if (storedActivated !== null) {
       setBasicIncomeActivatedState(storedActivated === "true");
     }
+    const storedActivatedPlus = localStorage.getItem(
+      "basicIncomePlusActivated"
+    );
+    if (storedActivatedPlus !== null) {
+      setBasicIncomePlusActivatedState(storedActivatedPlus === "true");
+    }
   }, []);
 
   const fetchBasicIncomeInfo = async () => {
@@ -106,6 +129,30 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     } catch (error) {
       console.error("Error fetching basic income info:", error);
       setTimeout(fetchBasicIncomeInfo, 1000);
+    }
+  };
+
+  const fetchBasicIncomePlusInfo = async () => {
+    if (!walletAddress) return;
+    try {
+      const result = await viemClient.readContract({
+        address: "0x15829C670F882728d88C47D1457b99964a0Cf293",
+        abi: parseAbi([
+          "function getStakeInfo(address) external view returns (uint256, uint256)",
+        ]),
+        functionName: "getStakeInfo",
+        args: [walletAddress as `0x${string}`],
+      });
+
+      if (Array.isArray(result) && result.length === 2) {
+        const stake = fromWei(result[0]);
+        const newClaimable = fromWei(result[1]);
+        setClaimableAmountPlus(newClaimable);
+        setBasicIncomePlusActivated(stake !== "0");
+      }
+    } catch (error) {
+      console.error("Error fetching basic income info:", error);
+      setTimeout(fetchBasicIncomePlusInfo, 1000);
     }
   };
 
@@ -156,6 +203,28 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   useEffect(() => {
     if (!walletAddress) return;
 
+    fetchBasicIncomePlusInfo();
+
+    try {
+      const unwatch = viemClient.watchContractEvent({
+        address: "0x15829C670F882728d88C47D1457b99964a0Cf293",
+        abi: parseAbi([
+          "event RewardsClaimed(address indexed user, uint256 amount)",
+        ]),
+        eventName: "RewardsClaimed",
+        args: { user: walletAddress },
+        onLogs: fetchBasicIncomePlusInfo,
+      });
+
+      return () => unwatch();
+    } catch (error) {
+      console.error("Error watching RewardsClaimed events:", error);
+    }
+  }, [walletAddress]);
+
+  useEffect(() => {
+    if (!walletAddress) return;
+
     fetchBalance();
 
     try {
@@ -182,12 +251,16 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         username,
         tokenBalance,
         claimableAmount,
+        claimableAmountPlus,
         basicIncomeActivated,
+        basicIncomePlusActivated,
         setWalletAddress,
         setUsername,
         fetchBasicIncomeInfo,
+        fetchBasicIncomePlusInfo,
         fetchBalance,
         setBasicIncomeActivated,
+        setBasicIncomePlusActivated,
       }}
     >
       {children}
