@@ -7,9 +7,8 @@ import {
   PiUserPlusFill,
   PiPlantFill,
   PiWalletFill,
-  PiCoinsFill,
 } from "react-icons/pi";
-import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/Drawer";
+import { Drawer, DrawerTrigger } from "@/components/ui/Drawer";
 import { WalletAuth } from "@/components/WalletAuth";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { viemClient } from "@/lib/viemClient";
@@ -39,7 +38,7 @@ export default function EarnPage() {
   const [displayClaimable, setDisplayClaimable] = useState<number>(
     Number(claimableAmount) || 0
   );
-
+  
   const [activeTab, setActiveTab] = useState("Basic income");
   const [hasSeenSavings, setHasSeenSavings] = useState(() => {
     return localStorage.getItem("hasSeenSavings") === "true";
@@ -407,11 +406,7 @@ export default function EarnPage() {
                 >
                   Set up your basic income
                 </Typography>
-                <Button
-                  onClick={sendSetup}
-                  isLoading={isSubmitting || isLoading}
-                  fullWidth
-                >
+                <Button onClick={sendSetup} isLoading={isSubmitting} fullWidth>
                   Activate Basic Income
                 </Button>
               </>
@@ -429,11 +424,7 @@ export default function EarnPage() {
                     {displayClaimable.toFixed(5)}
                   </p>
                 </div>
-                <Button
-                  onClick={sendClaim}
-                  isLoading={isSubmitting || isLoading}
-                  fullWidth
-                >
+                <Button onClick={sendClaim} isLoading={isSubmitting} fullWidth>
                   Claim
                 </Button>
                 {!basicIncomePlusActivated && (
