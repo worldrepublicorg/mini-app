@@ -20,8 +20,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Should countries be required to share real-time data during disease outbreaks to prevent global health crises?",
-    url: "https://vote.one/OZ2T4A53",
+      "Do you believe sustained diplomatic dialogue among world leaders can help reduce global tensions?",
+    url: "https://vote.one/179i7c78",
   },
   {
     description:
