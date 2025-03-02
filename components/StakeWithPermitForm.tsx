@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/Button";
 import { Typography } from "@/components/ui/Typography";
 import { parseAbi } from "viem";
@@ -29,11 +29,9 @@ export function StakeWithPermitForm() {
   const [transactionId, setTransactionId] = useState<string | null>(null);
   const [collectTx, setCollectTx] = useState<string | null>(null);
 
-  const fromWei = useCallback((value: bigint) => {
-    return (Number(value) / 1e18).toString();
-  }, []);
+  const fromWei = (value: bigint) => (Number(value) / 1e18).toString();
 
-  const fetchAvailableReward = useCallback(async () => {
+  const fetchAvailableReward = async () => {
     if (!walletAddress) return;
     try {
       const availableAbi = parseAbi([
@@ -50,9 +48,9 @@ export function StakeWithPermitForm() {
     } catch (error) {
       console.error("Error fetching available reward", error);
     }
-  }, [walletAddress, fromWei]);
+  };
 
-  const fetchStakedBalance = useCallback(async () => {
+  const fetchStakedBalance = async () => {
     if (!walletAddress) return;
     try {
       const balanceAbi = parseAbi([
@@ -72,9 +70,9 @@ export function StakeWithPermitForm() {
       console.error("Error fetching staked balance", error);
       setTimeout(fetchStakedBalance, 1000);
     }
-  }, [walletAddress, fromWei]);
+  };
 
-  const { isSuccess } = useWaitForTransactionReceipt({
+  const { isLoading, isSuccess } = useWaitForTransactionReceipt({
     client: viemClient,
     appConfig: {
       app_id: "app_66c83ab8c851fb1e54b1b1b62c6ce39d",
@@ -82,19 +80,20 @@ export function StakeWithPermitForm() {
     transactionId: transactionId!,
   });
 
-  const { isSuccess: isCollectSuccess } = useWaitForTransactionReceipt({
-    client: viemClient,
-    appConfig: {
-      app_id: "app_66c83ab8c851fb1e54b1b1b62c6ce39d",
-    },
-    transactionId: collectTx!,
-  });
+  const { isLoading: isWaitingCollect, isSuccess: isCollectSuccess } =
+    useWaitForTransactionReceipt({
+      client: viemClient,
+      appConfig: {
+        app_id: "app_66c83ab8c851fb1e54b1b1b62c6ce39d",
+      },
+      transactionId: collectTx!,
+    });
 
   useEffect(() => {
     if (!walletAddress) return;
     fetchAvailableReward();
     fetchStakedBalance();
-  }, [walletAddress, fetchAvailableReward, fetchStakedBalance]);
+  }, [walletAddress]);
 
   const handleStake = async () => {
     if (!MiniKit.isInstalled()) {
@@ -273,7 +272,7 @@ export function StakeWithPermitForm() {
     }, 2000);
 
     return () => clearInterval(interval);
-  }, [walletAddress, fetchAvailableReward]);
+  }, [walletAddress]);
 
   useEffect(() => {
     if (isSuccess) {
@@ -282,7 +281,7 @@ export function StakeWithPermitForm() {
       fetchBalance();
       setTransactionId(null);
     }
-  }, [isSuccess, fetchStakedBalance, fetchBalance]);
+  }, [isSuccess]);
 
   useEffect(() => {
     if (isCollectSuccess) {
@@ -291,7 +290,7 @@ export function StakeWithPermitForm() {
       fetchBalance();
       setCollectTx(null);
     }
-  }, [isCollectSuccess, fetchAvailableReward, fetchBalance]);
+  }, [isCollectSuccess]);
 
   useEffect(() => {
     if (!walletAddress) return;
@@ -345,11 +344,11 @@ export function StakeWithPermitForm() {
       unwatchWithdrawn();
       unwatchRedeemed();
     };
-  }, [walletAddress, fetchAvailableReward, fetchStakedBalance, fetchBalance]);
+  }, [walletAddress]);
 
   return (
     <div className="w-full">
-      <div className="mb-2 flex gap-1">
+      <div className="mb-4 flex gap-1">
         <button
           type="button"
           onClick={() => {
@@ -451,11 +450,19 @@ export function StakeWithPermitForm() {
       </div>
 
       {selectedAction === "deposit" ? (
-        <Button onClick={handleStake} isLoading={isSubmitting} fullWidth>
+        <Button
+          onClick={handleStake}
+          isLoading={isSubmitting}
+          fullWidth
+        >
           Deposit Drachma
         </Button>
       ) : (
-        <Button onClick={handleWithdraw} isLoading={isSubmitting} fullWidth>
+        <Button
+          onClick={handleWithdraw}
+          isLoading={isSubmitting}
+          fullWidth
+        >
           Withdraw Drachma
         </Button>
       )}
