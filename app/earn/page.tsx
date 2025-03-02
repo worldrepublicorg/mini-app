@@ -19,6 +19,7 @@ import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { Button } from "@/components/ui/Button";
 import { ComingSoonDrawer } from "@/components/ComingSoonDrawer";
 import { StakeWithPermitForm } from "@/components/StakeWithPermitForm";
+import { OpenLetterCard } from "@/components/OpenLetterCard";
 
 export default function EarnPage() {
   const {
@@ -34,10 +35,13 @@ export default function EarnPage() {
   const [displayClaimable, setDisplayClaimable] = useState<number>(
     Number(claimableAmount) || 0
   );
-  
+
   const [activeTab, setActiveTab] = useState("Basic income");
   const [hasSeenSavings, setHasSeenSavings] = useState(() => {
     return localStorage.getItem("hasSeenSavings") === "true";
+  });
+  const [hasSeenContribute, setHasSeenContribute] = useState(() => {
+    return localStorage.getItem("hasSeenContribute") === "true";
   });
 
   const [transactionId, setTransactionId] = useState<string | null>(null);
@@ -230,6 +234,10 @@ export default function EarnPage() {
       setHasSeenSavings(true);
       localStorage.setItem("hasSeenSavings", "true");
     }
+    if (tab === "Contribute") {
+      setHasSeenContribute(true);
+      localStorage.setItem("hasSeenContribute", "true");
+    }
   };
 
   const renderContent = () => {
@@ -319,22 +327,11 @@ export default function EarnPage() {
             >
               Get involved, get rewarded
             </Typography>
-            <Drawer>
-              <DrawerTrigger asChild>
-                <div className="flex h-14 w-full cursor-pointer items-center justify-between rounded-xl bg-gray-100">
-                  <div className="flex w-full items-center justify-center">
-                    <Typography
-                      as="h3"
-                      variant={{ variant: "subtitle", level: 2 }}
-                      className="line-clamp-2 font-display font-semibold tracking-normal text-gray-300"
-                    >
-                      Learn more
-                    </Typography>
-                  </div>
-                </div>
-              </DrawerTrigger>
-              <ComingSoonDrawer />
-            </Drawer>
+            <OpenLetterCard
+              title="Early Access Program"
+              referenceTitle="Earn WDD by testing our upcoming features"
+              voteUrl="https://t.me/worldrepublictesters"
+            />
           </div>
         );
       case "Invite":
@@ -406,6 +403,9 @@ export default function EarnPage() {
         activeTab={activeTab}
         onTabChange={handleTabChange}
         showSavingsIndicator={!hasSeenSavings && activeTab !== "Savings"}
+        showContributeIndicator={
+          !hasSeenContribute && activeTab !== "Contribute"
+        }
       />
 
       <div className="flex flex-1 items-center">{renderContent()}</div>
