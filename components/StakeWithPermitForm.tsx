@@ -170,12 +170,11 @@ export function StakeWithPermitForm() {
       } else {
         console.info("Staking transaction submitted successfully!");
         setTransactionId(finalPayload.transaction_id);
+        setAmount("");
       }
     } catch (error: any) {
       console.error("Error:", error.message);
       setIsSubmitting(false);
-    } finally {
-      setAmount("");
     }
   };
 
@@ -223,12 +222,11 @@ export function StakeWithPermitForm() {
       } else {
         console.info("Withdraw transaction submitted successfully!");
         setTransactionId(finalPayload.transaction_id);
+        setAmount("");
       }
     } catch (error: any) {
       console.error("Error:", error.message);
       setIsSubmitting(false);
-    } finally {
-      setAmount("");
     }
   };
 

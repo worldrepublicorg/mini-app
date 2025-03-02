@@ -39,7 +39,7 @@ export default function EarnPage() {
   const [displayClaimable, setDisplayClaimable] = useState<number>(
     Number(claimableAmount) || 0
   );
-  
+
   const [activeTab, setActiveTab] = useState("Basic income");
   const [hasSeenSavings, setHasSeenSavings] = useState(() => {
     return localStorage.getItem("hasSeenSavings") === "true";
@@ -48,7 +48,7 @@ export default function EarnPage() {
   const [transactionId, setTransactionId] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const { isLoading, isSuccess } = useWaitForTransactionReceipt({
+  const { isSuccess } = useWaitForTransactionReceipt({
     client: viemClient,
     appConfig: {
       app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}`,
@@ -227,7 +227,12 @@ export default function EarnPage() {
       unwatchTokensStakedPlus();
       unwatchRewardsClaimed();
     };
-  }, [walletAddress, fetchBalance, fetchBasicIncomeInfo, fetchBasicIncomePlusInfo]);
+  }, [
+    walletAddress,
+    fetchBalance,
+    fetchBasicIncomeInfo,
+    fetchBasicIncomePlusInfo,
+  ]);
 
   const sendSetup = async () => {
     if (!MiniKit.isInstalled()) return;
@@ -450,7 +455,7 @@ export default function EarnPage() {
                       </div>
                     </DrawerTrigger>
                     <DrawerContent>
-                      <div className="flex flex-col items-center px-6 pb-10 pt-10">
+                      <div className="flex flex-col items-center p-6 pt-10">
                         <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
                           <PiCoinsFill className="h-10 w-10 text-gray-400" />
                         </div>
@@ -469,7 +474,7 @@ export default function EarnPage() {
                         </Typography>
                         <Button
                           onClick={sendSetupPlus} // New function for the new contract
-                          isLoading={isSubmitting || isLoading}
+                          isLoading={isSubmitting}
                           fullWidth
                           className="mt-10"
                         >
