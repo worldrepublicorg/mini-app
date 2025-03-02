@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/Button";
 import { Typography } from "@/components/ui/Typography";
 import { parseAbi } from "viem";
@@ -29,9 +29,11 @@ export function StakeWithPermitForm() {
   const [transactionId, setTransactionId] = useState<string | null>(null);
   const [collectTx, setCollectTx] = useState<string | null>(null);
 
-  const fromWei = (value: bigint) => (Number(value) / 1e18).toString();
+  const fromWei = useCallback((value: bigint) => {
+    return (Number(value) / 1e18).toString();
+  }, []);
 
-  const fetchAvailableReward = async () => {
+  const fetchAvailableReward = useCallback(async () => {
     if (!walletAddress) return;
     try {
       const availableAbi = parseAbi([
@@ -48,9 +50,9 @@ export function StakeWithPermitForm() {
     } catch (error) {
       console.error("Error fetching available reward", error);
     }
-  };
+  }, [walletAddress, fromWei]);
 
-  const fetchStakedBalance = async () => {
+  const fetchStakedBalance = useCallback(async () => {
     if (!walletAddress) return;
     try {
       const balanceAbi = parseAbi([
@@ -70,9 +72,9 @@ export function StakeWithPermitForm() {
       console.error("Error fetching staked balance", error);
       setTimeout(fetchStakedBalance, 1000);
     }
-  };
+  }, [walletAddress, fromWei]);
 
-  const { isLoading, isSuccess } = useWaitForTransactionReceipt({
+  const { isSuccess } = useWaitForTransactionReceipt({
     client: viemClient,
     appConfig: {
       app_id: "app_66c83ab8c851fb1e54b1b1b62c6ce39d",
@@ -80,20 +82,19 @@ export function StakeWithPermitForm() {
     transactionId: transactionId!,
   });
 
-  const { isLoading: isWaitingCollect, isSuccess: isCollectSuccess } =
-    useWaitForTransactionReceipt({
-      client: viemClient,
-      appConfig: {
-        app_id: "app_66c83ab8c851fb1e54b1b1b62c6ce39d",
-      },
-      transactionId: collectTx!,
-    });
+  const { isSuccess: isCollectSuccess } = useWaitForTransactionReceipt({
+    client: viemClient,
+    appConfig: {
+      app_id: "app_66c83ab8c851fb1e54b1b1b62c6ce39d",
+    },
+    transactionId: collectTx!,
+  });
 
   useEffect(() => {
     if (!walletAddress) return;
     fetchAvailableReward();
     fetchStakedBalance();
-  }, [walletAddress]);
+  }, [walletAddress, fetchAvailableReward, fetchStakedBalance]);
 
   const handleStake = async () => {
     if (!MiniKit.isInstalled()) {
@@ -272,7 +273,7 @@ export function StakeWithPermitForm() {
     }, 2000);
 
     return () => clearInterval(interval);
-  }, [walletAddress]);
+  }, [walletAddress, fetchAvailableReward]);
 
   useEffect(() => {
     if (isSuccess) {
@@ -281,7 +282,7 @@ export function StakeWithPermitForm() {
       fetchBalance();
       setTransactionId(null);
     }
-  }, [isSuccess]);
+  }, [isSuccess, fetchStakedBalance, fetchBalance]);
 
   useEffect(() => {
     if (isCollectSuccess) {
@@ -290,7 +291,7 @@ export function StakeWithPermitForm() {
       fetchBalance();
       setCollectTx(null);
     }
-  }, [isCollectSuccess]);
+  }, [isCollectSuccess, fetchAvailableReward, fetchBalance]);
 
   useEffect(() => {
     if (!walletAddress) return;
@@ -344,7 +345,7 @@ export function StakeWithPermitForm() {
       unwatchWithdrawn();
       unwatchRedeemed();
     };
-  }, [walletAddress]);
+  }, [walletAddress, fetchAvailableReward, fetchStakedBalance, fetchBalance]);
 
   return (
     <div className="w-full">
@@ -450,19 +451,11 @@ export function StakeWithPermitForm() {
       </div>
 
       {selectedAction === "deposit" ? (
-        <Button
-          onClick={handleStake}
-          isLoading={isSubmitting}
-          fullWidth
-        >
+        <Button onClick={handleStake} isLoading={isSubmitting} fullWidth>
           Deposit Drachma
         </Button>
       ) : (
-        <Button
-          onClick={handleWithdraw}
-          isLoading={isSubmitting}
-          fullWidth
-        >
+        <Button onClick={handleWithdraw} isLoading={isSubmitting} fullWidth>
           Withdraw Drachma
         </Button>
       )}

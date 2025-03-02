@@ -7,8 +7,9 @@ import {
   PiUserPlusFill,
   PiPlantFill,
   PiWalletFill,
+  PiCoinsFill,
 } from "react-icons/pi";
-import { Drawer, DrawerTrigger } from "@/components/ui/Drawer";
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/Drawer";
 import { WalletAuth } from "@/components/WalletAuth";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { viemClient } from "@/lib/viemClient";
@@ -226,7 +227,7 @@ export default function EarnPage() {
       unwatchTokensStakedPlus();
       unwatchRewardsClaimed();
     };
-  }, [walletAddress]);
+  }, [walletAddress, fetchBalance, fetchBasicIncomeInfo, fetchBasicIncomePlusInfo]);
 
   const sendSetup = async () => {
     if (!MiniKit.isInstalled()) return;
@@ -364,7 +365,7 @@ export default function EarnPage() {
       fetchBalance();
       setTransactionId(null);
     }
-  }, [isSuccess]);
+  }, [isSuccess, fetchBalance, fetchBasicIncomeInfo, fetchBasicIncomePlusInfo]);
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
