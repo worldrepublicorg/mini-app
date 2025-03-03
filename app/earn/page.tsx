@@ -7,8 +7,9 @@ import {
   PiUserPlusFill,
   PiPlantFill,
   PiWalletFill,
+  PiCoinsFill,
 } from "react-icons/pi";
-import { Drawer, DrawerTrigger } from "@/components/ui/Drawer";
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/Drawer";
 import { WalletAuth } from "@/components/WalletAuth";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { viemClient } from "@/lib/viemClient";
@@ -24,12 +25,16 @@ import { OpenLetterCard } from "@/components/OpenLetterCard";
 export default function EarnPage() {
   const {
     walletAddress,
-    claimableAmount,
     tokenBalance,
-    fetchBasicIncomeInfo,
-    fetchBalance,
     basicIncomeActivated,
+    basicIncomePlusActivated,
+    claimableAmount,
+    claimableAmountPlus,
+    fetchBalance,
+    fetchBasicIncomeInfo,
+    fetchBasicIncomePlusInfo,
     setBasicIncomeActivated,
+    setBasicIncomePlusActivated,
   } = useWallet();
 
   const [displayClaimable, setDisplayClaimable] = useState<number>(
@@ -47,7 +52,7 @@ export default function EarnPage() {
   const [transactionId, setTransactionId] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const { isLoading, isSuccess } = useWaitForTransactionReceipt({
+  const { isSuccess } = useWaitForTransactionReceipt({
     client: viemClient,
     appConfig: {
       app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}`,
@@ -62,10 +67,18 @@ export default function EarnPage() {
   }, [transactionId, fetchBalance]);
 
   useEffect(() => {
-    if (claimableAmount === undefined || claimableAmount === null) return;
+    if (
+      claimableAmount === undefined ||
+      claimableAmount === null ||
+      claimableAmountPlus === undefined ||
+      claimableAmountPlus === null
+    )
+      return;
 
     const rate = 1 / 8640; // Increment rate (tokens per second)
+    const ratePlus = 1 / 86400; // Increment rate (tokens per second)
     const currentClaimable = Number(claimableAmount);
+    const currentClaimablePlus = Number(claimableAmountPlus);
 
     let baseValue: number;
     let startTime: number;
@@ -99,17 +112,66 @@ export default function EarnPage() {
       localStorage.setItem("basicIncomeStartTime", startTime.toString());
     }
 
+    // New code for Basic Income Plus
+    let baseValuePlus: number;
+    let startTimePlus: number;
+
+    const storedBasePlus = localStorage.getItem("basicIncomePlusBase");
+    const storedStartTimePlus = localStorage.getItem(
+      "basicIncomePlusStartTime"
+    );
+
+    if (storedBasePlus && storedStartTimePlus) {
+      baseValuePlus = parseFloat(storedBasePlus);
+      startTimePlus = parseInt(storedStartTimePlus, 10);
+
+      // If the on-chain claimable has increased (due to accumulation)
+      if (currentClaimablePlus > baseValuePlus) {
+        baseValuePlus = currentClaimablePlus;
+        startTimePlus = Date.now();
+        localStorage.setItem("basicIncomePlusBase", baseValuePlus.toString());
+        localStorage.setItem(
+          "basicIncomePlusStartTime",
+          startTimePlus.toString()
+        );
+      }
+
+      // If the on-chain claimable has decreased (i.e. a claim was made externally)
+      if (currentClaimablePlus < baseValuePlus) {
+        baseValuePlus = currentClaimablePlus;
+        startTimePlus = Date.now();
+        localStorage.setItem("basicIncomePlusBase", baseValuePlus.toString());
+        localStorage.setItem(
+          "basicIncomePlusStartTime",
+          startTimePlus.toString()
+        );
+      }
+    } else {
+      baseValuePlus = currentClaimablePlus;
+      startTimePlus = Date.now();
+      localStorage.setItem("basicIncomePlusBase", baseValuePlus.toString());
+      localStorage.setItem(
+        "basicIncomePlusStartTime",
+        startTimePlus.toString()
+      );
+    }
+
     const updateDisplay = () => {
       const elapsedSeconds = (Date.now() - startTime) / 1000;
       const newValue = baseValue + elapsedSeconds * rate;
-      setDisplayClaimable(newValue);
+
+      const elapsedSecondsPlus = (Date.now() - startTimePlus) / 1000;
+      const newValuePlus = baseValuePlus + elapsedSecondsPlus * ratePlus;
+
+      // Display the sum of both basic income and basic income plus
+      setDisplayClaimable(newValue + newValuePlus);
     };
 
     updateDisplay();
     const interval = setInterval(updateDisplay, 1000);
 
     return () => clearInterval(interval);
-  }, [claimableAmount]);
+  }, [claimableAmount, claimableAmountPlus]);
 
   useEffect(() => {
     if (!walletAddress) return;
@@ -126,7 +188,22 @@ export default function EarnPage() {
         console.log("TokensStaked event captured:", logs);
         // Update your on-chain data here after setup.
         fetchBasicIncomeInfo();
-        fetchBalance();
+        setIsSubmitting(false);
+      },
+    });
+
+    // Listener for the basic income setup event (TokensStaked)
+    const unwatchTokensStakedPlus = viemClient.watchContractEvent({
+      address: "0x15829C670F882728d88C47D1457b99964a0Cf293" as `0x${string}`,
+      abi: parseAbi([
+        "event TokensStaked(address indexed staker, uint256 amount)",
+      ]),
+      eventName: "TokensStaked",
+      args: { staker: walletAddress },
+      onLogs: (logs: unknown) => {
+        console.log("TokensStaked event captured:", logs);
+        // Update your on-chain data here after setup.
+        fetchBasicIncomePlusInfo();
         setIsSubmitting(false);
       },
     });
@@ -143,6 +220,7 @@ export default function EarnPage() {
         console.log("RewardsClaimed event captured:", logs);
         // Update your on-chain data here after claiming rewards.
         fetchBasicIncomeInfo();
+        fetchBasicIncomePlusInfo();
         fetchBalance();
         setIsSubmitting(false);
       },
@@ -150,9 +228,15 @@ export default function EarnPage() {
 
     return () => {
       unwatchTokensStaked();
+      unwatchTokensStakedPlus();
       unwatchRewardsClaimed();
     };
-  }, [walletAddress]);
+  }, [
+    walletAddress,
+    fetchBalance,
+    fetchBasicIncomeInfo,
+    fetchBasicIncomePlusInfo,
+  ]);
 
   const sendSetup = async () => {
     if (!MiniKit.isInstalled()) return;
@@ -185,6 +269,37 @@ export default function EarnPage() {
     }
   };
 
+  const sendSetupPlus = async () => {
+    if (!MiniKit.isInstalled()) return;
+    setIsSubmitting(true);
+    try {
+      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
+        transaction: [
+          {
+            address: "0x15829C670F882728d88C47D1457b99964a0Cf293", // New contract address
+            abi: parseAbi(["function stake() external"]), // Assuming the same ABI as the original
+            functionName: "stake",
+            args: [],
+          },
+        ],
+      });
+
+      if (finalPayload.status === "error") {
+        console.error("Error sending transaction", finalPayload);
+        setIsSubmitting(false);
+      } else {
+        setTransactionId(finalPayload.transaction_id);
+        await fetchBasicIncomePlusInfo();
+        // Update the optimistic UI state if the fetch call works.
+        setBasicIncomePlusActivated(true);
+        localStorage.setItem("basicIncomePlusActivated", "true");
+      }
+    } catch (error: any) {
+      console.error("Error:", error);
+      setIsSubmitting(false);
+    }
+  };
+
   const sendClaim = async () => {
     if (!MiniKit.isInstalled()) return;
     setIsSubmitting(true);
@@ -206,7 +321,6 @@ export default function EarnPage() {
         setIsSubmitting(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
-        setDisplayClaimable(0);
         await fetchBasicIncomeInfo();
         await fetchBalance();
 
@@ -219,14 +333,48 @@ export default function EarnPage() {
     }
   };
 
+  const sendClaimPlus = async () => {
+    if (!MiniKit.isInstalled()) return;
+    setIsSubmitting(true);
+    try {
+      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
+        transaction: [
+          {
+            address:
+              "0x15829C670F882728d88C47D1457b99964a0Cf293" as `0x${string}`,
+            abi: parseAbi(["function claimRewards() external"]),
+            functionName: "claimRewards",
+            args: [],
+          },
+        ],
+      });
+
+      if (finalPayload.status === "error") {
+        console.error("Error sending transaction", finalPayload);
+        setIsSubmitting(false);
+      } else {
+        setTransactionId(finalPayload.transaction_id);
+        await fetchBasicIncomePlusInfo();
+        await fetchBalance();
+
+        localStorage.setItem("basicIncomePlusBase", "0");
+        localStorage.setItem("basicIncomePlusStartTime", Date.now().toString());
+      }
+    } catch (error) {
+      console.error("Error during claim:", error);
+      setIsSubmitting(false);
+    }
+  };
+
   useEffect(() => {
     if (isSuccess) {
       console.log("Transaction successful");
       fetchBasicIncomeInfo();
+      fetchBasicIncomePlusInfo();
       fetchBalance();
       setTransactionId(null);
     }
-  }, [isSuccess]);
+  }, [isSuccess, fetchBalance, fetchBasicIncomeInfo, fetchBasicIncomePlusInfo]);
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
@@ -293,6 +441,57 @@ export default function EarnPage() {
                 <Button onClick={sendClaim} isLoading={isSubmitting} fullWidth>
                   Claim
                 </Button>
+                {!basicIncomePlusActivated && (
+                  <Drawer>
+                    <DrawerTrigger asChild>
+                      <div className="mt-4 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-transparent py-2">
+                        <div className="flex w-full items-center overflow-hidden">
+                          <div className="-ml-[2px] mr-[10px] size-[30px] rounded-full border-[5px] border-gray-900"></div>
+                          <Typography
+                            as="h3"
+                            variant={{ variant: "subtitle", level: 2 }}
+                            className="line-clamp-2 font-display text-[15px] font-medium tracking-tight text-gray-900"
+                          >
+                            Introducing Basic Income Plus
+                          </Typography>
+                          <div className="ml-1 rounded-full bg-gray-200 px-1.5 py-0.5">
+                            <p className="font-sans text-[12px] font-medium leading-narrow tracking-normal text-gray-900">
+                              New
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </DrawerTrigger>
+                    <DrawerContent>
+                      <div className="flex flex-col items-center p-6 pt-10">
+                        <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+                          <PiCoinsFill className="h-10 w-10 text-gray-400" />
+                        </div>
+                        <Typography
+                          as="h2"
+                          variant={{ variant: "heading", level: 1 }}
+                          className="text-center"
+                        >
+                          Basic Income Plus
+                        </Typography>
+                        <Typography
+                          variant={{ variant: "subtitle", level: 1 }}
+                          className="mx-auto mt-4 text-center text-gray-500"
+                        >
+                          Extra income for Orb-verified users
+                        </Typography>
+                        <Button
+                          onClick={sendSetupPlus} // New function for the new contract
+                          isLoading={isSubmitting}
+                          fullWidth
+                          className="mt-10"
+                        >
+                          Activate Basic Income Plus
+                        </Button>
+                      </div>
+                    </DrawerContent>
+                  </Drawer>
+                )}
               </>
             )}
           </div>
