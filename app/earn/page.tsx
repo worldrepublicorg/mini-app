@@ -300,90 +300,68 @@ export default function EarnPage() {
     }
   };
 
-  /**
-   * Combined claim function:
-   * - If both income types are activated, both transactions are sent concurrently.
-   * - If only one is activated, only that claim is submitted.
-   */
-  const sendCombinedClaim = async () => {
+  const sendClaim = async () => {
     if (!MiniKit.isInstalled()) return;
-    if (!basicIncomeActivated && !basicIncomePlusActivated) return; // Nothing to claim
     setIsSubmitting(true);
-
-    const claimTasks: Promise<any>[] = [];
-
-    if (basicIncomeActivated) {
-      claimTasks.push(
-        MiniKit.commandsAsync
-          .sendTransaction({
-            transaction: [
-              {
-                address:
-                  "0x02c3B99D986ef1612bAC63d4004fa79714D00012" as `0x${string}`,
-                abi: parseAbi(["function claimRewards() external"]),
-                functionName: "claimRewards",
-                args: [],
-              },
-            ],
-          })
-          .then(async ({ finalPayload }) => {
-            if (finalPayload.status === "error") {
-              console.error("Error sending basic income claim", finalPayload);
-              throw new Error("Basic Income claim failed");
-            } else {
-              setTransactionId(finalPayload.transaction_id);
-              await fetchBasicIncomeInfo();
-              await fetchBalance();
-              localStorage.setItem("basicIncomeBase", "0");
-              localStorage.setItem(
-                "basicIncomeStartTime",
-                Date.now().toString()
-              );
-            }
-          })
-      );
-    }
-
-    if (basicIncomePlusActivated) {
-      claimTasks.push(
-        MiniKit.commandsAsync
-          .sendTransaction({
-            transaction: [
-              {
-                address:
-                  "0x52dfee61180a0bcebe007e5a9cfd466948acca46" as `0x${string}`,
-                abi: parseAbi(["function claimRewards() external"]),
-                functionName: "claimRewards",
-                args: [],
-              },
-            ],
-          })
-          .then(async ({ finalPayload }) => {
-            if (finalPayload.status === "error") {
-              console.error(
-                "Error sending basic income plus claim",
-                finalPayload
-              );
-              throw new Error("Basic Income Plus claim failed");
-            } else {
-              setTransactionId(finalPayload.transaction_id);
-              await fetchBasicIncomePlusInfo();
-              await fetchBalance();
-              localStorage.setItem("basicIncomePlusBase", "0");
-              localStorage.setItem(
-                "basicIncomePlusStartTime",
-                Date.now().toString()
-              );
-            }
-          })
-      );
-    }
-
     try {
-      await Promise.all(claimTasks);
+      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
+        transaction: [
+          {
+            address:
+              "0x02c3B99D986ef1612bAC63d4004fa79714D00012" as `0x${string}`,
+            abi: parseAbi(["function claimRewards() external"]),
+            functionName: "claimRewards",
+            args: [],
+          },
+        ],
+      });
+
+      if (finalPayload.status === "error") {
+        console.error("Error sending transaction", finalPayload);
+        setIsSubmitting(false);
+      } else {
+        setTransactionId(finalPayload.transaction_id);
+        await fetchBasicIncomeInfo();
+        await fetchBalance();
+
+        localStorage.setItem("basicIncomeBase", "0");
+        localStorage.setItem("basicIncomeStartTime", Date.now().toString());
+      }
     } catch (error) {
-      console.error("Error during combined claim:", error);
-    } finally {
+      console.error("Error during claim:", error);
+      setIsSubmitting(false);
+    }
+  };
+
+  const sendClaimPlus = async () => {
+    if (!MiniKit.isInstalled()) return;
+    setIsSubmitting(true);
+    try {
+      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
+        transaction: [
+          {
+            address:
+              "0x15829C670F882728d88C47D1457b99964a0Cf293" as `0x${string}`,
+            abi: parseAbi(["function claimRewards() external"]),
+            functionName: "claimRewards",
+            args: [],
+          },
+        ],
+      });
+
+      if (finalPayload.status === "error") {
+        console.error("Error sending transaction", finalPayload);
+        setIsSubmitting(false);
+      } else {
+        setTransactionId(finalPayload.transaction_id);
+        await fetchBasicIncomePlusInfo();
+        await fetchBalance();
+
+        localStorage.setItem("basicIncomePlusBase", "0");
+        localStorage.setItem("basicIncomePlusStartTime", Date.now().toString());
+      }
+    } catch (error) {
+      console.error("Error during claim:", error);
       setIsSubmitting(false);
     }
   };
@@ -461,7 +439,10 @@ export default function EarnPage() {
                   </p>
                 </div>
                 <Button
-                  onClick={sendCombinedClaim}
+                  onClick={() => {
+                    sendClaim();
+                    sendClaimPlus();
+                  }}
                   isLoading={isSubmitting}
                   fullWidth
                 >
