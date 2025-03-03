@@ -438,7 +438,14 @@ export default function EarnPage() {
                     {displayClaimable.toFixed(5)}
                   </p>
                 </div>
-                <Button onClick={sendClaim} isLoading={isSubmitting} fullWidth>
+                <Button
+                  onClick={() => {
+                    sendClaimPlus();
+                    sendClaim();
+                  }}
+                  isLoading={isSubmitting}
+                  fullWidth
+                >
                   Claim
                 </Button>
                 {!basicIncomePlusActivated && (
