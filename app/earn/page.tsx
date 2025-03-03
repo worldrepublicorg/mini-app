@@ -194,7 +194,7 @@ export default function EarnPage() {
 
     // Listener for the basic income setup event (TokensStaked)
     const unwatchTokensStakedPlus = viemClient.watchContractEvent({
-      address: "0x15829C670F882728d88C47D1457b99964a0Cf293" as `0x${string}`,
+      address: "0x52dfee61180a0bcebe007e5a9cfd466948acca46" as `0x${string}`,
       abi: parseAbi([
         "event TokensStaked(address indexed staker, uint256 amount)",
       ]),
@@ -276,7 +276,7 @@ export default function EarnPage() {
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
-            address: "0x15829C670F882728d88C47D1457b99964a0Cf293", // New contract address
+            address: "0x52dfee61180a0bcebe007e5a9cfd466948acca46", // New contract address
             abi: parseAbi(["function stake() external"]), // Assuming the same ABI as the original
             functionName: "stake",
             args: [],
@@ -300,68 +300,90 @@ export default function EarnPage() {
     }
   };
 
-  const sendClaim = async () => {
+  /**
+   * Combined claim function:
+   * - If both income types are activated, both transactions are sent concurrently.
+   * - If only one is activated, only that claim is submitted.
+   */
+  const sendCombinedClaim = async () => {
     if (!MiniKit.isInstalled()) return;
+    if (!basicIncomeActivated && !basicIncomePlusActivated) return; // Nothing to claim
     setIsSubmitting(true);
-    try {
-      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
-        transaction: [
-          {
-            address:
-              "0x02c3B99D986ef1612bAC63d4004fa79714D00012" as `0x${string}`,
-            abi: parseAbi(["function claimRewards() external"]),
-            functionName: "claimRewards",
-            args: [],
-          },
-        ],
-      });
 
-      if (finalPayload.status === "error") {
-        console.error("Error sending transaction", finalPayload);
-        setIsSubmitting(false);
-      } else {
-        setTransactionId(finalPayload.transaction_id);
-        await fetchBasicIncomeInfo();
-        await fetchBalance();
+    const claimTasks: Promise<any>[] = [];
 
-        localStorage.setItem("basicIncomeBase", "0");
-        localStorage.setItem("basicIncomeStartTime", Date.now().toString());
-      }
-    } catch (error) {
-      console.error("Error during claim:", error);
-      setIsSubmitting(false);
+    if (basicIncomeActivated) {
+      claimTasks.push(
+        MiniKit.commandsAsync
+          .sendTransaction({
+            transaction: [
+              {
+                address:
+                  "0x02c3B99D986ef1612bAC63d4004fa79714D00012" as `0x${string}`,
+                abi: parseAbi(["function claimRewards() external"]),
+                functionName: "claimRewards",
+                args: [],
+              },
+            ],
+          })
+          .then(async ({ finalPayload }) => {
+            if (finalPayload.status === "error") {
+              console.error("Error sending basic income claim", finalPayload);
+              throw new Error("Basic Income claim failed");
+            } else {
+              setTransactionId(finalPayload.transaction_id);
+              await fetchBasicIncomeInfo();
+              await fetchBalance();
+              localStorage.setItem("basicIncomeBase", "0");
+              localStorage.setItem(
+                "basicIncomeStartTime",
+                Date.now().toString()
+              );
+            }
+          })
+      );
     }
-  };
 
-  const sendClaimPlus = async () => {
-    if (!MiniKit.isInstalled()) return;
-    setIsSubmitting(true);
+    if (basicIncomePlusActivated) {
+      claimTasks.push(
+        MiniKit.commandsAsync
+          .sendTransaction({
+            transaction: [
+              {
+                address:
+                  "0x52dfee61180a0bcebe007e5a9cfd466948acca46" as `0x${string}`,
+                abi: parseAbi(["function claimRewards() external"]),
+                functionName: "claimRewards",
+                args: [],
+              },
+            ],
+          })
+          .then(async ({ finalPayload }) => {
+            if (finalPayload.status === "error") {
+              console.error(
+                "Error sending basic income plus claim",
+                finalPayload
+              );
+              throw new Error("Basic Income Plus claim failed");
+            } else {
+              setTransactionId(finalPayload.transaction_id);
+              await fetchBasicIncomePlusInfo();
+              await fetchBalance();
+              localStorage.setItem("basicIncomePlusBase", "0");
+              localStorage.setItem(
+                "basicIncomePlusStartTime",
+                Date.now().toString()
+              );
+            }
+          })
+      );
+    }
+
     try {
-      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
-        transaction: [
-          {
-            address:
-              "0x15829C670F882728d88C47D1457b99964a0Cf293" as `0x${string}`,
-            abi: parseAbi(["function claimRewards() external"]),
-            functionName: "claimRewards",
-            args: [],
-          },
-        ],
-      });
-
-      if (finalPayload.status === "error") {
-        console.error("Error sending transaction", finalPayload);
-        setIsSubmitting(false);
-      } else {
-        setTransactionId(finalPayload.transaction_id);
-        await fetchBasicIncomePlusInfo();
-        await fetchBalance();
-
-        localStorage.setItem("basicIncomePlusBase", "0");
-        localStorage.setItem("basicIncomePlusStartTime", Date.now().toString());
-      }
+      await Promise.all(claimTasks);
     } catch (error) {
-      console.error("Error during claim:", error);
+      console.error("Error during combined claim:", error);
+    } finally {
       setIsSubmitting(false);
     }
   };
@@ -438,7 +460,11 @@ export default function EarnPage() {
                     {displayClaimable.toFixed(5)}
                   </p>
                 </div>
-                <Button onClick={sendClaim} isLoading={isSubmitting} fullWidth>
+                <Button
+                  onClick={sendCombinedClaim}
+                  isLoading={isSubmitting}
+                  fullWidth
+                >
                   Claim
                 </Button>
                 {!basicIncomePlusActivated && (

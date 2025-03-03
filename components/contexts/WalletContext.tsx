@@ -140,7 +140,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     if (!walletAddress) return;
     try {
       const result = await viemClient.readContract({
-        address: "0x15829C670F882728d88C47D1457b99964a0Cf293",
+        address: "0x52dfee61180a0bcebe007e5a9cfd466948acca46",
         abi: parseAbi([
           "function getStakeInfo(address) external view returns (uint256, uint256)",
         ]),
@@ -216,7 +216,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
     try {
       const unwatch = viemClient.watchContractEvent({
-        address: "0x15829C670F882728d88C47D1457b99964a0Cf293",
+        address: "0x52dfee61180a0bcebe007e5a9cfd466948acca46",
         abi: parseAbi([
           "event RewardsClaimed(address indexed user, uint256 amount)",
         ]),
