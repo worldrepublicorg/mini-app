@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 interface OpenLetterCardProps {
   title: string;
   referenceTitle?: string;
-  referenceUrl: string;
+  referenceUrl?: string;
   voteUrl: string;
 }
 
@@ -45,7 +45,9 @@ export function OpenLetterCard({
             >
               {referenceTitle}
             </Typography>
-            <BiLinkExternal className="size-[14px] text-gray-400" />
+            {referenceUrl && (
+              <BiLinkExternal className="size-[14px] text-gray-400" />
+            )}
           </a>
         </div>
       </div>
