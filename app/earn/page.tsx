@@ -440,8 +440,8 @@ export default function EarnPage() {
                 </div>
                 <Button
                   onClick={() => {
-                    sendClaimPlus();
                     sendClaim();
+                    sendClaimPlus();
                   }}
                   isLoading={isSubmitting}
                   fullWidth
