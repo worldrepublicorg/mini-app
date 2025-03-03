@@ -25,8 +25,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Do you think global measures should be implemented to counter the spread of disinformation online?",
-    url: "https://vote.one/rw4L36NM",
+      "Should there be mandatory international agreements to limit space debris from satellites and rockets?",
+    url: "https://vote.one/Eh0iIrW5",
   },
   {
     description:
