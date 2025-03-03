@@ -20,13 +20,13 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Should countries be required to share real-time data during disease outbreaks to prevent global health crises?",
-    url: "https://vote.one/OZ2T4A53",
+      "Do you believe sustained diplomatic dialogue among world leaders can help reduce global tensions?",
+    url: "https://vote.one/179i7c78",
   },
   {
     description:
-      "Do you think global measures should be implemented to counter the spread of disinformation online?",
-    url: "https://vote.one/rw4L36NM",
+      "Should there be mandatory international agreements to limit space debris from satellites and rockets?",
+    url: "https://vote.one/Eh0iIrW5",
   },
   {
     description:
