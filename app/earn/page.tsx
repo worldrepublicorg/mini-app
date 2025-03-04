@@ -436,7 +436,7 @@ export default function EarnPage() {
               Basic Income
             </Typography>
 
-            {/* {walletAddress === null ? (
+            {walletAddress === null ? (
               <>
                 <Typography
                   variant="subtitle"
@@ -460,137 +460,141 @@ export default function EarnPage() {
                   Activate Basic Income
                 </Button>
               </>
-            ) : ( */}
-            <>
-              <Typography
-                variant="subtitle"
-                level={1}
-                className="mx-auto mb-10 mt-4 text-center text-gray-500"
-              >
-                Claimable drachma
-              </Typography>
-              <div className="text-center">
-                <p className="mx-auto mb-14 font-sans text-[56px] font-semibold leading-narrow tracking-normal">
-                  {displayClaimable.toFixed(5)}
-                </p>
-              </div>
-              {basicIncomePlusActivated ? (
-                <div className="flex w-full flex-col gap-4">
+            ) : (
+              <>
+                <Typography
+                  variant="subtitle"
+                  level={1}
+                  className="mx-auto mb-10 mt-4 text-center text-gray-500"
+                >
+                  Claimable drachma
+                </Typography>
+                <div className="text-center">
+                  <p className="mx-auto mb-14 font-sans text-[56px] font-semibold leading-narrow tracking-normal">
+                    {displayClaimable.toFixed(5)}
+                  </p>
+                </div>
+                {basicIncomePlusActivated ? (
+                  <div className="flex w-full flex-col gap-4">
+                    <Button
+                      onClick={sendClaim}
+                      isLoading={isSubmitting}
+                      fullWidth
+                    >
+                      Claim Basic Income
+                    </Button>
+                    <Button
+                      onClick={sendClaimPlus}
+                      isLoading={isSubmitting}
+                      variant="secondary"
+                      fullWidth
+                    >
+                      Claim Basic Income Plus
+                    </Button>
+                  </div>
+                ) : (
                   <Button
                     onClick={sendClaim}
                     isLoading={isSubmitting}
                     fullWidth
                   >
-                    Claim Basic Income
+                    Claim
                   </Button>
-                  <Button
-                    onClick={sendClaimPlus}
-                    isLoading={isSubmitting}
-                    variant="secondary"
-                    fullWidth
-                  >
-                    Claim Basic Income Plus
-                  </Button>
-                </div>
-              ) : (
-                <Button onClick={sendClaim} isLoading={isSubmitting} fullWidth>
-                  Claim
-                </Button>
-              )}
-              {!basicIncomePlusActivated && (
-                <Drawer>
-                  <DrawerTrigger asChild>
-                    <div className="mt-4 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-transparent py-2">
-                      <div className="flex w-full items-center overflow-hidden">
-                        <div className="-ml-[2px] mr-[10px] size-[30px] rounded-full border-[5px] border-gray-900"></div>
-                        <Typography
-                          as="h3"
-                          variant={{ variant: "subtitle", level: 2 }}
-                          className="line-clamp-2 font-display text-[15px] font-medium tracking-tight text-gray-900"
-                        >
-                          Introducing Basic Income Plus
-                        </Typography>
-                        <div className="ml-1 rounded-full bg-gray-200 px-1.5 py-0.5">
-                          <p className="font-sans text-[12px] font-medium leading-narrow tracking-normal text-gray-900">
-                            New
-                          </p>
+                )}
+                {!basicIncomePlusActivated && (
+                  <Drawer>
+                    <DrawerTrigger asChild>
+                      <div className="mt-4 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-transparent py-2">
+                        <div className="flex w-full items-center overflow-hidden">
+                          <div className="-ml-[2px] mr-[10px] size-[30px] rounded-full border-[5px] border-gray-900"></div>
+                          <Typography
+                            as="h3"
+                            variant={{ variant: "subtitle", level: 2 }}
+                            className="line-clamp-2 font-display text-[15px] font-medium tracking-tight text-gray-900"
+                          >
+                            Introducing Basic Income Plus
+                          </Typography>
+                          <div className="ml-1 rounded-full bg-gray-200 px-1.5 py-0.5">
+                            <p className="font-sans text-[12px] font-medium leading-narrow tracking-normal text-gray-900">
+                              New
+                            </p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </DrawerTrigger>
-                  <DrawerContent>
-                    <div className="flex flex-col items-center p-6 pt-10">
-                      <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
-                        <PiCoinsFill className="h-10 w-10 text-gray-400" />
-                      </div>
-                      <Typography
-                        as="h2"
-                        variant={{ variant: "heading", level: 1 }}
-                        className="text-center"
-                      >
-                        Basic Income Plus
-                      </Typography>
-                      <Typography
-                        variant={{ variant: "subtitle", level: 1 }}
-                        className="mx-auto mt-4 text-center text-gray-500"
-                      >
-                        Extra income for verified users
-                      </Typography>
+                    </DrawerTrigger>
+                    <DrawerContent>
+                      <div className="flex flex-col items-center p-6 pt-10">
+                        <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+                          <PiCoinsFill className="h-10 w-10 text-gray-400" />
+                        </div>
+                        <Typography
+                          as="h2"
+                          variant={{ variant: "heading", level: 1 }}
+                          className="text-center"
+                        >
+                          Basic Income Plus
+                        </Typography>
+                        <Typography
+                          variant={{ variant: "subtitle", level: 1 }}
+                          className="mx-auto mt-4 text-center text-gray-500"
+                        >
+                          Extra income for verified users
+                        </Typography>
 
-                      <div className="mt-6 w-full px-3 py-4">
-                        <ul className="space-y-3">
-                          <li className="flex items-start">
-                            <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
-                              <PiTrendUpFill className="h-3.5 w-3.5 text-gray-500" />
-                            </div>
-                            <Typography
-                              variant={{ variant: "body", level: 3 }}
-                              className="text-gray-600 mt-1"
-                            >
-                              An additional 1 WDD per day
-                            </Typography>
-                          </li>
-                          <li className="flex items-start">
-                            <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
-                              <PiUserCheckFill className="h-3.5 w-3.5 text-gray-500" />
-                            </div>
-                            <Typography
-                              variant={{ variant: "body", level: 3 }}
-                              className="text-gray-600 mt-1"
-                            >
-                              Exclusive to Orb-verified users to ensure fair
-                              distribution
-                            </Typography>
-                          </li>
-                          <li className="flex items-start">
-                            <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
-                              <PiChartLineFill className="h-3.5 w-3.5 text-gray-500" />
-                            </div>
-                            <Typography
-                              variant={{ variant: "body", level: 3 }}
-                              className="text-gray-600 mt-1"
-                            >
-                              Rewards shift to Plus over time while keeping
-                              total at 11 WDD/day
-                            </Typography>
-                          </li>
-                        </ul>
-                      </div>
+                        <div className="mt-6 w-full px-3 py-4">
+                          <ul className="space-y-3">
+                            <li className="flex items-start">
+                              <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                                <PiTrendUpFill className="h-3.5 w-3.5 text-gray-500" />
+                              </div>
+                              <Typography
+                                variant={{ variant: "body", level: 3 }}
+                                className="text-gray-600 mt-1"
+                              >
+                                An additional 1 WDD per day
+                              </Typography>
+                            </li>
+                            <li className="flex items-start">
+                              <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                                <PiUserCheckFill className="h-3.5 w-3.5 text-gray-500" />
+                              </div>
+                              <Typography
+                                variant={{ variant: "body", level: 3 }}
+                                className="text-gray-600 mt-1"
+                              >
+                                Exclusive to Orb-verified users to ensure fair
+                                distribution
+                              </Typography>
+                            </li>
+                            <li className="flex items-start">
+                              <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                                <PiChartLineFill className="h-3.5 w-3.5 text-gray-500" />
+                              </div>
+                              <Typography
+                                variant={{ variant: "body", level: 3 }}
+                                className="text-gray-600 mt-1"
+                              >
+                                Rewards shift to Plus over time while keeping
+                                total at 11 WDD/day
+                              </Typography>
+                            </li>
+                          </ul>
+                        </div>
 
-                      <Button
-                        onClick={sendSetupPlus}
-                        isLoading={isSubmitting}
-                        fullWidth
-                        className="mt-6"
-                      >
-                        Activate Basic Income Plus
-                      </Button>
-                    </div>
-                  </DrawerContent>
-                </Drawer>
-              )}
-            </>
-            {/* )} */}
+                        <Button
+                          onClick={sendSetupPlus}
+                          isLoading={isSubmitting}
+                          fullWidth
+                          className="mt-6"
+                        >
+                          Activate Basic Income Plus
+                        </Button>
+                      </div>
+                    </DrawerContent>
+                  </Drawer>
+                )}
+              </>
+            )}
           </div>
         );
       case "Savings":
