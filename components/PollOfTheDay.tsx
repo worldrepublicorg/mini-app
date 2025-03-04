@@ -30,8 +30,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Should global authorities establish uniform standards to regulate cryptocurrencies and curb financial crimes?",
-    url: "https://vote.one/0bTVLGAB",
+      "Should binding international regulations be established to govern the ethical development of artificial intelligence?",
+    url: "https://vote.one/4PjcWqwV",
   },
 ];
 
