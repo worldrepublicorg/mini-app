@@ -341,7 +341,7 @@ export default function EarnPage() {
         transaction: [
           {
             address:
-              "0x15829C670F882728d88C47D1457b99964a0Cf293" as `0x${string}`,
+              "0x52dfee61180a0bcebe007e5a9cfd466948acca46" as `0x${string}`,
             abi: parseAbi(["function claimRewards() external"]),
             functionName: "claimRewards",
             args: [],
