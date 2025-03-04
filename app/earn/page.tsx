@@ -8,6 +8,10 @@ import {
   PiPlantFill,
   PiWalletFill,
   PiCoinsFill,
+  PiUserCircleFill,
+  PiChartLineFill,
+  PiTrendUpFill,
+  PiUserCheckFill,
 } from "react-icons/pi";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/Drawer";
 import { WalletAuth } from "@/components/WalletAuth";
@@ -42,12 +46,6 @@ export default function EarnPage() {
   );
 
   const [activeTab, setActiveTab] = useState("Basic income");
-  const [hasSeenSavings, setHasSeenSavings] = useState(() => {
-    return localStorage.getItem("hasSeenSavings") === "true";
-  });
-  const [hasSeenContribute, setHasSeenContribute] = useState(() => {
-    return localStorage.getItem("hasSeenContribute") === "true";
-  });
 
   const [transactionId, setTransactionId] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -272,7 +270,11 @@ export default function EarnPage() {
   const sendSetupPlus = async () => {
     if (!MiniKit.isInstalled()) return;
     setIsSubmitting(true);
+    console.log("[BasicIncomePlus] Setup initiated");
     try {
+      console.log(
+        "[BasicIncomePlus] Sending transaction to contract: 0x52dfee61180a0bcebe007e5a9cfd466948acca46"
+      );
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -284,18 +286,32 @@ export default function EarnPage() {
         ],
       });
 
+      console.log("[BasicIncomePlus] Transaction response:", finalPayload);
       if (finalPayload.status === "error") {
-        console.error("Error sending transaction", finalPayload);
+        console.error(
+          "[BasicIncomePlus] Error sending transaction",
+          finalPayload
+        );
         setIsSubmitting(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
+        console.log(
+          "[BasicIncomePlus] Transaction ID:",
+          finalPayload.transaction_id
+        );
+        console.log(
+          "[BasicIncomePlus] Fetching updated Basic Income Plus info"
+        );
         await fetchBasicIncomePlusInfo();
         // Update the optimistic UI state if the fetch call works.
         setBasicIncomePlusActivated(true);
         localStorage.setItem("basicIncomePlusActivated", "true");
+        console.log("[BasicIncomePlus] Setup completed successfully");
       }
     } catch (error: any) {
-      console.error("Error:", error);
+      console.error("[BasicIncomePlus] Setup error:", error);
+      console.error("[BasicIncomePlus] Error message:", error.message);
+      console.error("[BasicIncomePlus] Error stack:", error.stack);
       setIsSubmitting(false);
     }
   };
@@ -336,7 +352,15 @@ export default function EarnPage() {
   const sendClaimPlus = async () => {
     if (!MiniKit.isInstalled()) return;
     setIsSubmitting(true);
+    console.log("[BasicIncomePlus] Claim initiated");
     try {
+      console.log(
+        "[BasicIncomePlus] Sending claim transaction to contract: 0x52dfee61180a0bcebe007e5a9cfd466948acca46"
+      );
+      console.log(
+        "[BasicIncomePlus] Current claimable amount:",
+        claimableAmountPlus
+      );
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -349,26 +373,46 @@ export default function EarnPage() {
         ],
       });
 
+      console.log(
+        "[BasicIncomePlus] Claim transaction response:",
+        finalPayload
+      );
       if (finalPayload.status === "error") {
-        console.error("Error sending transaction", finalPayload);
+        console.error(
+          "[BasicIncomePlus] Error sending claim transaction",
+          finalPayload
+        );
         setIsSubmitting(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
+        console.log(
+          "[BasicIncomePlus] Claim transaction ID:",
+          finalPayload.transaction_id
+        );
+        console.log(
+          "[BasicIncomePlus] Fetching updated Basic Income Plus info"
+        );
         await fetchBasicIncomePlusInfo();
         await fetchBalance();
 
         localStorage.setItem("basicIncomePlusBase", "0");
         localStorage.setItem("basicIncomePlusStartTime", Date.now().toString());
+        console.log("[BasicIncomePlus] Claim completed successfully");
       }
     } catch (error) {
-      console.error("Error during claim:", error);
+      console.error("[BasicIncomePlus] Claim error:", error);
+      if (error instanceof Error) {
+        console.error("[BasicIncomePlus] Error message:", error.message);
+        console.error("[BasicIncomePlus] Error stack:", error.stack);
+      }
       setIsSubmitting(false);
     }
   };
 
   useEffect(() => {
     if (isSuccess) {
-      console.log("Transaction successful");
+      console.log("[Transaction] Transaction successful");
+      console.log("[Transaction] Transaction ID:", transactionId);
       fetchBasicIncomeInfo();
       fetchBasicIncomePlusInfo();
       fetchBalance();
@@ -378,14 +422,6 @@ export default function EarnPage() {
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
-    if (tab === "Savings") {
-      setHasSeenSavings(true);
-      localStorage.setItem("hasSeenSavings", "true");
-    }
-    if (tab === "Contribute") {
-      setHasSeenContribute(true);
-      localStorage.setItem("hasSeenContribute", "true");
-    }
   };
 
   const renderContent = () => {
@@ -400,7 +436,7 @@ export default function EarnPage() {
               Basic Income
             </Typography>
 
-            {walletAddress === null ? (
+            {/* {walletAddress === null ? (
               <>
                 <Typography
                   variant="subtitle"
@@ -424,100 +460,137 @@ export default function EarnPage() {
                   Activate Basic Income
                 </Button>
               </>
-            ) : (
-              <>
-                <Typography
-                  variant="subtitle"
-                  level={1}
-                  className="mx-auto mb-10 mt-4 text-center text-gray-500"
-                >
-                  Claimable drachma
-                </Typography>
-                <div className="text-center">
-                  <p className="mx-auto mb-14 font-sans text-[56px] font-semibold leading-narrow tracking-normal">
-                    {displayClaimable.toFixed(5)}
-                  </p>
-                </div>
-                {basicIncomePlusActivated ? (
-                  <div className="flex w-full flex-col gap-4">
-                    <Button
-                      onClick={sendClaim}
-                      isLoading={isSubmitting}
-                      fullWidth
-                    >
-                      Claim Basic Income
-                    </Button>
-                    <Button
-                      onClick={sendClaimPlus}
-                      isLoading={isSubmitting}
-                      variant="secondary"
-                      fullWidth
-                    >
-                      Claim Basic Income Plus
-                    </Button>
-                  </div>
-                ) : (
+            ) : ( */}
+            <>
+              <Typography
+                variant="subtitle"
+                level={1}
+                className="mx-auto mb-10 mt-4 text-center text-gray-500"
+              >
+                Claimable drachma
+              </Typography>
+              <div className="text-center">
+                <p className="mx-auto mb-14 font-sans text-[56px] font-semibold leading-narrow tracking-normal">
+                  {displayClaimable.toFixed(5)}
+                </p>
+              </div>
+              {basicIncomePlusActivated ? (
+                <div className="flex w-full flex-col gap-4">
                   <Button
                     onClick={sendClaim}
                     isLoading={isSubmitting}
                     fullWidth
                   >
-                    Claim
+                    Claim Basic Income
                   </Button>
-                )}
-                {!basicIncomePlusActivated && (
-                  <Drawer>
-                    <DrawerTrigger asChild>
-                      <div className="mt-4 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-transparent py-2">
-                        <div className="flex w-full items-center overflow-hidden">
-                          <div className="-ml-[2px] mr-[10px] size-[30px] rounded-full border-[5px] border-gray-900"></div>
-                          <Typography
-                            as="h3"
-                            variant={{ variant: "subtitle", level: 2 }}
-                            className="line-clamp-2 font-display text-[15px] font-medium tracking-tight text-gray-900"
-                          >
-                            Introducing Basic Income Plus
-                          </Typography>
-                          <div className="ml-1 rounded-full bg-gray-200 px-1.5 py-0.5">
-                            <p className="font-sans text-[12px] font-medium leading-narrow tracking-normal text-gray-900">
-                              New
-                            </p>
-                          </div>
+                  <Button
+                    onClick={sendClaimPlus}
+                    isLoading={isSubmitting}
+                    variant="secondary"
+                    fullWidth
+                  >
+                    Claim Basic Income Plus
+                  </Button>
+                </div>
+              ) : (
+                <Button onClick={sendClaim} isLoading={isSubmitting} fullWidth>
+                  Claim
+                </Button>
+              )}
+              {!basicIncomePlusActivated && (
+                <Drawer>
+                  <DrawerTrigger asChild>
+                    <div className="mt-4 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-transparent py-2">
+                      <div className="flex w-full items-center overflow-hidden">
+                        <div className="-ml-[2px] mr-[10px] size-[30px] rounded-full border-[5px] border-gray-900"></div>
+                        <Typography
+                          as="h3"
+                          variant={{ variant: "subtitle", level: 2 }}
+                          className="line-clamp-2 font-display text-[15px] font-medium tracking-tight text-gray-900"
+                        >
+                          Introducing Basic Income Plus
+                        </Typography>
+                        <div className="ml-1 rounded-full bg-gray-200 px-1.5 py-0.5">
+                          <p className="font-sans text-[12px] font-medium leading-narrow tracking-normal text-gray-900">
+                            New
+                          </p>
                         </div>
                       </div>
-                    </DrawerTrigger>
-                    <DrawerContent>
-                      <div className="flex flex-col items-center p-6 pt-10">
-                        <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
-                          <PiCoinsFill className="h-10 w-10 text-gray-400" />
-                        </div>
-                        <Typography
-                          as="h2"
-                          variant={{ variant: "heading", level: 1 }}
-                          className="text-center"
-                        >
-                          Basic Income Plus
-                        </Typography>
-                        <Typography
-                          variant={{ variant: "subtitle", level: 1 }}
-                          className="mx-auto mt-4 text-center text-gray-500"
-                        >
-                          Extra income for Orb-verified users
-                        </Typography>
-                        <Button
-                          onClick={sendSetupPlus} // New function for the new contract
-                          isLoading={isSubmitting}
-                          fullWidth
-                          className="mt-10"
-                        >
-                          Activate Basic Income Plus
-                        </Button>
+                    </div>
+                  </DrawerTrigger>
+                  <DrawerContent>
+                    <div className="flex flex-col items-center p-6 pt-10">
+                      <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+                        <PiCoinsFill className="h-10 w-10 text-gray-400" />
                       </div>
-                    </DrawerContent>
-                  </Drawer>
-                )}
-              </>
-            )}
+                      <Typography
+                        as="h2"
+                        variant={{ variant: "heading", level: 1 }}
+                        className="text-center"
+                      >
+                        Basic Income Plus
+                      </Typography>
+                      <Typography
+                        variant={{ variant: "subtitle", level: 1 }}
+                        className="mx-auto mt-4 text-center text-gray-500"
+                      >
+                        Extra income for verified users
+                      </Typography>
+
+                      <div className="mt-6 w-full px-3 py-4">
+                        <ul className="space-y-3">
+                          <li className="flex items-start">
+                            <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                              <PiTrendUpFill className="h-3.5 w-3.5 text-gray-500" />
+                            </div>
+                            <Typography
+                              variant={{ variant: "body", level: 3 }}
+                              className="text-gray-600 mt-1"
+                            >
+                              An additional 1 WDD per day
+                            </Typography>
+                          </li>
+                          <li className="flex items-start">
+                            <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                              <PiUserCheckFill className="h-3.5 w-3.5 text-gray-500" />
+                            </div>
+                            <Typography
+                              variant={{ variant: "body", level: 3 }}
+                              className="text-gray-600 mt-1"
+                            >
+                              Exclusive to Orb-verified users to ensure fair
+                              distribution
+                            </Typography>
+                          </li>
+                          <li className="flex items-start">
+                            <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                              <PiChartLineFill className="h-3.5 w-3.5 text-gray-500" />
+                            </div>
+                            <Typography
+                              variant={{ variant: "body", level: 3 }}
+                              className="text-gray-600 mt-1"
+                            >
+                              Rewards shift to Plus over time while keeping
+                              total at 11 WDD/day
+                            </Typography>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <Button
+                        onClick={sendSetupPlus}
+                        isLoading={isSubmitting}
+                        fullWidth
+                        className="mt-6"
+                      >
+                        Activate Basic Income Plus
+                      </Button>
+                    </div>
+                  </DrawerContent>
+                </Drawer>
+              )}
+            </>
+            {/* )} */}
           </div>
         );
       case "Savings":
@@ -625,10 +698,6 @@ export default function EarnPage() {
         tabs={["Basic income", "Savings", "Contribute", "Invite"]}
         activeTab={activeTab}
         onTabChange={handleTabChange}
-        showSavingsIndicator={!hasSeenSavings && activeTab !== "Savings"}
-        showContributeIndicator={
-          !hasSeenContribute && activeTab !== "Contribute"
-        }
       />
 
       <div className="flex flex-1 items-center">{renderContent()}</div>
