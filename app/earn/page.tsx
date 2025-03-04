@@ -38,7 +38,7 @@ export default function EarnPage() {
   } = useWallet();
 
   const [displayClaimable, setDisplayClaimable] = useState<number>(
-    Number(claimableAmount) || 0
+    (Number(claimableAmount) || 0) + (Number(claimableAmountPlus) || 0)
   );
 
   const [activeTab, setActiveTab] = useState("Basic income");
@@ -438,16 +438,33 @@ export default function EarnPage() {
                     {displayClaimable.toFixed(5)}
                   </p>
                 </div>
-                <Button
-                  onClick={() => {
-                    sendClaim();
-                    sendClaimPlus();
-                  }}
-                  isLoading={isSubmitting}
-                  fullWidth
-                >
-                  Claim
-                </Button>
+                {basicIncomePlusActivated ? (
+                  <div className="flex w-full flex-col gap-4">
+                    <Button
+                      onClick={sendClaim}
+                      isLoading={isSubmitting}
+                      fullWidth
+                    >
+                      Claim Basic Income
+                    </Button>
+                    <Button
+                      onClick={sendClaimPlus}
+                      isLoading={isSubmitting}
+                      variant="secondary"
+                      fullWidth
+                    >
+                      Claim Basic Income Plus
+                    </Button>
+                  </div>
+                ) : (
+                  <Button
+                    onClick={sendClaim}
+                    isLoading={isSubmitting}
+                    fullWidth
+                  >
+                    Claim
+                  </Button>
+                )}
                 {!basicIncomePlusActivated && (
                   <Drawer>
                     <DrawerTrigger asChild>
