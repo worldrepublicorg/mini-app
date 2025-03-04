@@ -206,7 +206,6 @@ export default function EarnPage() {
         setIsSubmitting(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
-        setDisplayClaimable(0);
         await fetchBasicIncomeInfo();
         await fetchBalance();
 
