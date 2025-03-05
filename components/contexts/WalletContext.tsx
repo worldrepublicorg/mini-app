@@ -83,16 +83,26 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   useEffect(() => {
     const checkAuthStatus = async () => {
       try {
+        console.log("[WalletContext] Checking auth status");
         const res = await fetch("/api/me");
         const data = await res.json();
+        console.log("[WalletContext] Auth status response:", data);
         if (data.walletAddress) {
+          console.log(
+            "[WalletContext] Setting wallet address:",
+            data.walletAddress
+          );
           setWalletAddress(data.walletAddress);
           if (MiniKit.user?.username) {
+            console.log(
+              "[WalletContext] Setting username:",
+              MiniKit.user.username
+            );
             setUsername(MiniKit.user.username);
           }
         }
       } catch (error) {
-        console.error("Error checking auth status", error);
+        console.error("[WalletContext] Error checking auth status", error);
       }
     };
 
@@ -114,7 +124,12 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
   const fetchBasicIncomeInfo = useCallback(async () => {
     if (!walletAddress) return;
+    console.log(
+      "[WalletContext] fetchBasicIncomeInfo called for:",
+      walletAddress
+    );
     try {
+      console.log("[WalletContext] Fetching basic income info from contract");
       const result = await viemClient.readContract({
         address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012",
         abi: parseAbi([
@@ -123,22 +138,39 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         functionName: "getStakeInfo",
         args: [walletAddress as `0x${string}`],
       });
+      console.log("[WalletContext] Basic income info result:", result);
 
       if (Array.isArray(result) && result.length === 2) {
         const stake = fromWei(result[0]);
         const newClaimable = fromWei(result[1]);
+        console.log("[WalletContext] Basic income stake:", stake);
+        console.log(
+          "[WalletContext] Basic income claimable amount:",
+          newClaimable
+        );
         setClaimableAmount(newClaimable);
         setBasicIncomeActivated(stake !== "0");
+        console.log(
+          "[WalletContext] Updated basicIncomeActivated:",
+          stake !== "0"
+        );
       }
     } catch (error) {
-      console.error("Error fetching basic income info:", error);
+      console.error("[WalletContext] Error fetching basic income info:", error);
       setTimeout(fetchBasicIncomeInfo, 1000);
     }
   }, [walletAddress, setClaimableAmount, setBasicIncomeActivated, fromWei]);
 
   const fetchBasicIncomePlusInfo = useCallback(async () => {
     if (!walletAddress) return;
+    console.log(
+      "[WalletContext] fetchBasicIncomePlusInfo called for:",
+      walletAddress
+    );
     try {
+      console.log(
+        "[WalletContext] Fetching basic income plus info from contract"
+      );
       const result = await viemClient.readContract({
         address: "0x52dfee61180a0bcebe007e5a9cfd466948acca46",
         abi: parseAbi([
@@ -147,15 +179,28 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         functionName: "getStakeInfo",
         args: [walletAddress as `0x${string}`],
       });
+      console.log("[WalletContext] Basic income plus info result:", result);
 
       if (Array.isArray(result) && result.length === 2) {
         const stake = fromWei(result[0]);
         const newClaimable = fromWei(result[1]);
+        console.log("[WalletContext] Basic income plus stake:", stake);
+        console.log(
+          "[WalletContext] Basic income plus claimable amount:",
+          newClaimable
+        );
         setClaimableAmountPlus(newClaimable);
         setBasicIncomePlusActivated(stake !== "0");
+        console.log(
+          "[WalletContext] Updated basicIncomePlusActivated:",
+          stake !== "0"
+        );
       }
     } catch (error) {
-      console.error("Error fetching basic income info:", error);
+      console.error(
+        "[WalletContext] Error fetching basic income plus info:",
+        error
+      );
       setTimeout(fetchBasicIncomePlusInfo, 1000);
     }
   }, [
@@ -189,10 +234,17 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
   useEffect(() => {
     if (!walletAddress) return;
+    console.log(
+      "[WalletContext] Wallet address changed, fetching basic income info:",
+      walletAddress
+    );
 
     fetchBasicIncomeInfo();
 
     try {
+      console.log(
+        "[WalletContext] Setting up event watcher for RewardsClaimed"
+      );
       const unwatch = viemClient.watchContractEvent({
         address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012",
         abi: parseAbi([
@@ -200,21 +252,37 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         ]),
         eventName: "RewardsClaimed",
         args: { user: walletAddress },
-        onLogs: fetchBasicIncomeInfo,
+        onLogs: (logs: unknown) => {
+          console.log("[WalletContext] RewardsClaimed event detected:", logs);
+          fetchBasicIncomeInfo();
+        },
       });
 
-      return () => unwatch();
+      return () => {
+        console.log("[WalletContext] Cleaning up RewardsClaimed event watcher");
+        unwatch();
+      };
     } catch (error) {
-      console.error("Error watching RewardsClaimed events:", error);
+      console.error(
+        "[WalletContext] Error watching RewardsClaimed events:",
+        error
+      );
     }
   }, [walletAddress, fetchBasicIncomeInfo]);
 
   useEffect(() => {
     if (!walletAddress) return;
+    console.log(
+      "[WalletContext] Wallet address changed, fetching basic income plus info:",
+      walletAddress
+    );
 
     fetchBasicIncomePlusInfo();
 
     try {
+      console.log(
+        "[WalletContext] Setting up event watcher for RewardsClaimed (Plus)"
+      );
       const unwatch = viemClient.watchContractEvent({
         address: "0x52dfee61180a0bcebe007e5a9cfd466948acca46",
         abi: parseAbi([
@@ -222,21 +290,40 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         ]),
         eventName: "RewardsClaimed",
         args: { user: walletAddress },
-        onLogs: fetchBasicIncomePlusInfo,
+        onLogs: (logs: unknown) => {
+          console.log(
+            "[WalletContext] RewardsClaimed (Plus) event detected:",
+            logs
+          );
+          fetchBasicIncomePlusInfo();
+        },
       });
 
-      return () => unwatch();
+      return () => {
+        console.log(
+          "[WalletContext] Cleaning up RewardsClaimed (Plus) event watcher"
+        );
+        unwatch();
+      };
     } catch (error) {
-      console.error("Error watching RewardsClaimed events:", error);
+      console.error(
+        "[WalletContext] Error watching RewardsClaimed (Plus) events:",
+        error
+      );
     }
   }, [walletAddress, fetchBasicIncomePlusInfo]);
 
   useEffect(() => {
     if (!walletAddress) return;
+    console.log(
+      "[WalletContext] Wallet address changed, fetching balance:",
+      walletAddress
+    );
 
     fetchBalance();
 
     try {
+      console.log("[WalletContext] Setting up event watcher for Transfer");
       const unwatch = viemClient.watchContractEvent({
         address: "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B",
         abi: parseAbi([
@@ -244,12 +331,18 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         ]),
         eventName: "Transfer",
         args: [walletAddress as `0x${string}`, walletAddress as `0x${string}`],
-        onLogs: fetchBalance,
+        onLogs: (logs: unknown) => {
+          console.log("[WalletContext] Transfer event detected:", logs);
+          fetchBalance();
+        },
       });
 
-      return () => unwatch();
+      return () => {
+        console.log("[WalletContext] Cleaning up Transfer event watcher");
+        unwatch();
+      };
     } catch (error) {
-      console.error("Error watching Transfer events:", error);
+      console.error("[WalletContext] Error watching Transfer events:", error);
     }
   }, [walletAddress, fetchBalance]);
 
