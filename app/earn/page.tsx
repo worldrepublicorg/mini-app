@@ -49,6 +49,8 @@ export default function EarnPage() {
 
   const [transactionId, setTransactionId] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isClaimingBasic, setIsClaimingBasic] = useState(false);
+  const [isClaimingPlus, setIsClaimingPlus] = useState(false);
 
   const { isSuccess } = useWaitForTransactionReceipt({
     client: viemClient,
@@ -190,7 +192,7 @@ export default function EarnPage() {
       },
     });
 
-    // Listener for the basic income setup event (TokensStaked)
+    // Listener for the basic income plus setup event (TokensStaked)
     const unwatchTokensStakedPlus = viemClient.watchContractEvent({
       address: "0x52dfee61180a0bcebe007e5a9cfd466948acca46" as `0x${string}`,
       abi: parseAbi([
@@ -206,7 +208,7 @@ export default function EarnPage() {
       },
     });
 
-    // Listener for the claim event (RewardsClaimed)
+    // Listener for the basic income claim event (RewardsClaimed)
     const unwatchRewardsClaimed = viemClient.watchContractEvent({
       address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012" as `0x${string}`,
       abi: parseAbi([
@@ -215,12 +217,33 @@ export default function EarnPage() {
       eventName: "RewardsClaimed",
       args: { staker: walletAddress },
       onLogs: (logs: unknown) => {
-        console.log("RewardsClaimed event captured:", logs);
+        console.log("RewardsClaimed event captured for Basic Income:", logs);
         // Update your on-chain data here after claiming rewards.
         fetchBasicIncomeInfo();
+        fetchBalance();
+        setIsSubmitting(false);
+        setIsClaimingBasic(false);
+      },
+    });
+
+    // Listener for the basic income plus claim event (RewardsClaimed)
+    const unwatchRewardsClaimedPlus = viemClient.watchContractEvent({
+      address: "0x52dfee61180a0bcebe007e5a9cfd466948acca46" as `0x${string}`,
+      abi: parseAbi([
+        "event RewardsClaimed(address indexed staker, uint256 rewardAmount)",
+      ]),
+      eventName: "RewardsClaimed",
+      args: { staker: walletAddress },
+      onLogs: (logs: unknown) => {
+        console.log(
+          "RewardsClaimed event captured for Basic Income Plus:",
+          logs
+        );
+        // Update your on-chain data here after claiming rewards.
         fetchBasicIncomePlusInfo();
         fetchBalance();
         setIsSubmitting(false);
+        setIsClaimingPlus(false);
       },
     });
 
@@ -228,6 +251,7 @@ export default function EarnPage() {
       unwatchTokensStaked();
       unwatchTokensStakedPlus();
       unwatchRewardsClaimed();
+      unwatchRewardsClaimedPlus();
     };
   }, [
     walletAddress,
@@ -318,7 +342,7 @@ export default function EarnPage() {
 
   const sendClaim = async () => {
     if (!MiniKit.isInstalled()) return;
-    setIsSubmitting(true);
+    setIsClaimingBasic(true);
     try {
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
@@ -334,7 +358,7 @@ export default function EarnPage() {
 
       if (finalPayload.status === "error") {
         console.error("Error sending transaction", finalPayload);
-        setIsSubmitting(false);
+        setIsClaimingBasic(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
         await fetchBasicIncomeInfo();
@@ -345,13 +369,13 @@ export default function EarnPage() {
       }
     } catch (error) {
       console.error("Error during claim:", error);
-      setIsSubmitting(false);
+      setIsClaimingBasic(false);
     }
   };
 
   const sendClaimPlus = async () => {
     if (!MiniKit.isInstalled()) return;
-    setIsSubmitting(true);
+    setIsClaimingPlus(true);
     console.log("[BasicIncomePlus] Claim initiated");
     try {
       console.log(
@@ -382,7 +406,7 @@ export default function EarnPage() {
           "[BasicIncomePlus] Error sending claim transaction",
           finalPayload
         );
-        setIsSubmitting(false);
+        setIsClaimingPlus(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
         console.log(
@@ -405,7 +429,7 @@ export default function EarnPage() {
         console.error("[BasicIncomePlus] Error message:", error.message);
         console.error("[BasicIncomePlus] Error stack:", error.stack);
       }
-      setIsSubmitting(false);
+      setIsClaimingPlus(false);
     }
   };
 
@@ -417,6 +441,9 @@ export default function EarnPage() {
       fetchBasicIncomePlusInfo();
       fetchBalance();
       setTransactionId(null);
+      setIsSubmitting(false);
+      setIsClaimingBasic(false);
+      setIsClaimingPlus(false);
     }
   }, [isSuccess, fetchBalance, fetchBasicIncomeInfo, fetchBasicIncomePlusInfo]);
 
@@ -478,14 +505,14 @@ export default function EarnPage() {
                   <div className="flex w-full flex-col gap-4">
                     <Button
                       onClick={sendClaim}
-                      isLoading={isSubmitting}
+                      isLoading={isClaimingBasic}
                       fullWidth
                     >
                       Claim Basic Income
                     </Button>
                     <Button
                       onClick={sendClaimPlus}
-                      isLoading={isSubmitting}
+                      isLoading={isClaimingPlus}
                       variant="secondary"
                       fullWidth
                     >
@@ -495,7 +522,7 @@ export default function EarnPage() {
                 ) : (
                   <Button
                     onClick={sendClaim}
-                    isLoading={isSubmitting}
+                    isLoading={isClaimingBasic}
                     fullWidth
                   >
                     Claim
