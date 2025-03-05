@@ -35,7 +35,7 @@ const faqs: FAQItem[] = [
     id: "savings",
     question: "How does the Savings Account work?",
     answer:
-      "The Savings Account allows you to deposit WDD tokens and earn a 69% annual interest rate. Through constant reinvestment of earned interest, users can achieve effective returns close to 100% annually, maximizing their WDD growth over time. Interest accumulates continuously and can be withdrawn or reinvested at any time.",
+      "The Savings Account allows you to deposit WDD tokens and earn a 69% annual interest. Through constant reinvestment of earned interest, users can achieve effective returns close to 100% annually, maximizing their WDD growth over time. Interest accumulates continuously and can be withdrawn or reinvested at any time.",
   },
   {
     id: "drachma-value",
