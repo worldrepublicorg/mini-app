@@ -576,7 +576,7 @@ export default function EarnPage() {
                               </div>
                               <Typography
                                 variant={{ variant: "body", level: 3 }}
-                                className="text-gray-600 mt-1"
+                                className="text-gray-600 mt-[3px]"
                               >
                                 An additional 1 WDD per day
                               </Typography>
@@ -587,7 +587,7 @@ export default function EarnPage() {
                               </div>
                               <Typography
                                 variant={{ variant: "body", level: 3 }}
-                                className="text-gray-600 mt-1"
+                                className="text-gray-600 mt-[3px]"
                               >
                                 Exclusive to Orb-verified users to ensure fair
                                 distribution
@@ -599,7 +599,7 @@ export default function EarnPage() {
                               </div>
                               <Typography
                                 variant={{ variant: "body", level: 3 }}
-                                className="text-gray-600 mt-1"
+                                className="text-gray-600 mt-[3px]"
                               >
                                 Rewards shift to Plus over time while keeping
                                 total at 11 WDD/day
