@@ -2,6 +2,7 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { FaLandmark, FaDollarSign, FaBars } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
 const navItems = [
   { href: "/earn", icon: FaDollarSign },
@@ -11,6 +12,21 @@ const navItems = [
 
 const BottomNav = () => {
   const pathname = usePathname();
+  const [hasMenuBeenVisited, setHasMenuBeenVisited] = useState(true);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const menuVisited = localStorage.getItem("menuVisited") === "true";
+      setHasMenuBeenVisited(menuVisited);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (pathname === "/menu" && typeof window !== "undefined") {
+      localStorage.setItem("menuVisited", "true");
+      setHasMenuBeenVisited(true);
+    }
+  }, [pathname]);
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 bg-gray-0">
@@ -25,7 +41,12 @@ const BottomNav = () => {
               e.currentTarget.click();
             }}
           >
-            <Icon className="h-6 w-6" />
+            <div className="relative">
+              <Icon className="h-6 w-6" />
+              {href === "/menu" && !hasMenuBeenVisited && (
+                <div className="absolute -right-[5px] -top-1 h-2 w-2 rounded-full bg-error-800 opacity-65"></div>
+              )}
+            </div>
           </Link>
         ))}
       </div>
