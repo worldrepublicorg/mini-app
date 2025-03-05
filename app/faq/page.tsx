@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Typography } from "@/components/ui/Typography";
 import Link from "next/link";
 import { BiChevronLeft } from "react-icons/bi";
@@ -53,7 +53,7 @@ const faqs: FAQItem[] = [
     id: "referral-codes",
     question: "When will referral codes be active?",
     answer:
-      "Referral codes will be active by mid-March, likely this week. Existing users will be able to retroactively reward those who invited them. Watch for the official announcement with complete details.",
+      "Referral codes will likely be active this week, and no later than mid-March. Existing users will be able to retroactively reward those who invited them. Watch for the official announcement with complete details.",
   },
   {
     id: "vote-requirements",
@@ -65,10 +65,15 @@ const faqs: FAQItem[] = [
 
 export default function FAQPage() {
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
-
   const toggleAccordion = (id: string) => {
     setOpenAccordion(openAccordion === id ? null : id);
   };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("faqVisited", "true");
+    }
+  }, []);
 
   return (
     <div className="flex min-h-screen flex-col px-6 pb-20">
