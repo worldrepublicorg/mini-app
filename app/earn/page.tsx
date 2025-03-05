@@ -7,8 +7,13 @@ import {
   PiUserPlusFill,
   PiPlantFill,
   PiWalletFill,
+  PiCoinsFill,
+  PiUserCircleFill,
+  PiChartLineFill,
+  PiTrendUpFill,
+  PiUserCheckFill,
 } from "react-icons/pi";
-import { Drawer, DrawerTrigger } from "@/components/ui/Drawer";
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/Drawer";
 import { WalletAuth } from "@/components/WalletAuth";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { viemClient } from "@/lib/viemClient";
@@ -24,30 +29,30 @@ import { OpenLetterCard } from "@/components/OpenLetterCard";
 export default function EarnPage() {
   const {
     walletAddress,
-    claimableAmount,
     tokenBalance,
-    fetchBasicIncomeInfo,
-    fetchBalance,
     basicIncomeActivated,
+    basicIncomePlusActivated,
+    claimableAmount,
+    claimableAmountPlus,
+    fetchBalance,
+    fetchBasicIncomeInfo,
+    fetchBasicIncomePlusInfo,
     setBasicIncomeActivated,
+    setBasicIncomePlusActivated,
   } = useWallet();
 
   const [displayClaimable, setDisplayClaimable] = useState<number>(
-    Number(claimableAmount) || 0
+    (Number(claimableAmount) || 0) + (Number(claimableAmountPlus) || 0)
   );
 
   const [activeTab, setActiveTab] = useState("Basic income");
-  const [hasSeenSavings, setHasSeenSavings] = useState(() => {
-    return localStorage.getItem("hasSeenSavings") === "true";
-  });
-  const [hasSeenContribute, setHasSeenContribute] = useState(() => {
-    return localStorage.getItem("hasSeenContribute") === "true";
-  });
 
   const [transactionId, setTransactionId] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isClaimingBasic, setIsClaimingBasic] = useState(false);
+  const [isClaimingPlus, setIsClaimingPlus] = useState(false);
 
-  const { isLoading, isSuccess } = useWaitForTransactionReceipt({
+  const { isSuccess } = useWaitForTransactionReceipt({
     client: viemClient,
     appConfig: {
       app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}`,
@@ -62,10 +67,18 @@ export default function EarnPage() {
   }, [transactionId, fetchBalance]);
 
   useEffect(() => {
-    if (claimableAmount === undefined || claimableAmount === null) return;
+    if (
+      claimableAmount === undefined ||
+      claimableAmount === null ||
+      claimableAmountPlus === undefined ||
+      claimableAmountPlus === null
+    )
+      return;
 
     const rate = 1 / 8640; // Increment rate (tokens per second)
+    const ratePlus = 1 / 86400; // Increment rate (tokens per second)
     const currentClaimable = Number(claimableAmount);
+    const currentClaimablePlus = Number(claimableAmountPlus);
 
     let baseValue: number;
     let startTime: number;
@@ -99,17 +112,66 @@ export default function EarnPage() {
       localStorage.setItem("basicIncomeStartTime", startTime.toString());
     }
 
+    // New code for Basic Income Plus
+    let baseValuePlus: number;
+    let startTimePlus: number;
+
+    const storedBasePlus = localStorage.getItem("basicIncomePlusBase");
+    const storedStartTimePlus = localStorage.getItem(
+      "basicIncomePlusStartTime"
+    );
+
+    if (storedBasePlus && storedStartTimePlus) {
+      baseValuePlus = parseFloat(storedBasePlus);
+      startTimePlus = parseInt(storedStartTimePlus, 10);
+
+      // If the on-chain claimable has increased (due to accumulation)
+      if (currentClaimablePlus > baseValuePlus) {
+        baseValuePlus = currentClaimablePlus;
+        startTimePlus = Date.now();
+        localStorage.setItem("basicIncomePlusBase", baseValuePlus.toString());
+        localStorage.setItem(
+          "basicIncomePlusStartTime",
+          startTimePlus.toString()
+        );
+      }
+
+      // If the on-chain claimable has decreased (i.e. a claim was made externally)
+      if (currentClaimablePlus < baseValuePlus) {
+        baseValuePlus = currentClaimablePlus;
+        startTimePlus = Date.now();
+        localStorage.setItem("basicIncomePlusBase", baseValuePlus.toString());
+        localStorage.setItem(
+          "basicIncomePlusStartTime",
+          startTimePlus.toString()
+        );
+      }
+    } else {
+      baseValuePlus = currentClaimablePlus;
+      startTimePlus = Date.now();
+      localStorage.setItem("basicIncomePlusBase", baseValuePlus.toString());
+      localStorage.setItem(
+        "basicIncomePlusStartTime",
+        startTimePlus.toString()
+      );
+    }
+
     const updateDisplay = () => {
       const elapsedSeconds = (Date.now() - startTime) / 1000;
       const newValue = baseValue + elapsedSeconds * rate;
-      setDisplayClaimable(newValue);
+
+      const elapsedSecondsPlus = (Date.now() - startTimePlus) / 1000;
+      const newValuePlus = baseValuePlus + elapsedSecondsPlus * ratePlus;
+
+      // Display the sum of both basic income and basic income plus
+      setDisplayClaimable(newValue + newValuePlus);
     };
 
     updateDisplay();
     const interval = setInterval(updateDisplay, 1000);
 
     return () => clearInterval(interval);
-  }, [claimableAmount]);
+  }, [claimableAmount, claimableAmountPlus]);
 
   useEffect(() => {
     if (!walletAddress) return;
@@ -126,12 +188,27 @@ export default function EarnPage() {
         console.log("TokensStaked event captured:", logs);
         // Update your on-chain data here after setup.
         fetchBasicIncomeInfo();
-        fetchBalance();
         setIsSubmitting(false);
       },
     });
 
-    // Listener for the claim event (RewardsClaimed)
+    // Listener for the basic income plus setup event (TokensStaked)
+    const unwatchTokensStakedPlus = viemClient.watchContractEvent({
+      address: "0x52dfee61180a0bcebe007e5a9cfd466948acca46" as `0x${string}`,
+      abi: parseAbi([
+        "event TokensStaked(address indexed staker, uint256 amount)",
+      ]),
+      eventName: "TokensStaked",
+      args: { staker: walletAddress },
+      onLogs: (logs: unknown) => {
+        console.log("TokensStaked event captured:", logs);
+        // Update your on-chain data here after setup.
+        fetchBasicIncomePlusInfo();
+        setIsSubmitting(false);
+      },
+    });
+
+    // Listener for the basic income claim event (RewardsClaimed)
     const unwatchRewardsClaimed = viemClient.watchContractEvent({
       address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012" as `0x${string}`,
       abi: parseAbi([
@@ -140,19 +217,48 @@ export default function EarnPage() {
       eventName: "RewardsClaimed",
       args: { staker: walletAddress },
       onLogs: (logs: unknown) => {
-        console.log("RewardsClaimed event captured:", logs);
+        console.log("RewardsClaimed event captured for Basic Income:", logs);
         // Update your on-chain data here after claiming rewards.
         fetchBasicIncomeInfo();
         fetchBalance();
         setIsSubmitting(false);
+        setIsClaimingBasic(false);
+      },
+    });
+
+    // Listener for the basic income plus claim event (RewardsClaimed)
+    const unwatchRewardsClaimedPlus = viemClient.watchContractEvent({
+      address: "0x52dfee61180a0bcebe007e5a9cfd466948acca46" as `0x${string}`,
+      abi: parseAbi([
+        "event RewardsClaimed(address indexed staker, uint256 rewardAmount)",
+      ]),
+      eventName: "RewardsClaimed",
+      args: { staker: walletAddress },
+      onLogs: (logs: unknown) => {
+        console.log(
+          "RewardsClaimed event captured for Basic Income Plus:",
+          logs
+        );
+        // Update your on-chain data here after claiming rewards.
+        fetchBasicIncomePlusInfo();
+        fetchBalance();
+        setIsSubmitting(false);
+        setIsClaimingPlus(false);
       },
     });
 
     return () => {
       unwatchTokensStaked();
+      unwatchTokensStakedPlus();
       unwatchRewardsClaimed();
+      unwatchRewardsClaimedPlus();
     };
-  }, [walletAddress]);
+  }, [
+    walletAddress,
+    fetchBalance,
+    fetchBasicIncomeInfo,
+    fetchBasicIncomePlusInfo,
+  ]);
 
   const sendSetup = async () => {
     if (!MiniKit.isInstalled()) return;
@@ -185,9 +291,58 @@ export default function EarnPage() {
     }
   };
 
-  const sendClaim = async () => {
+  const sendSetupPlus = async () => {
     if (!MiniKit.isInstalled()) return;
     setIsSubmitting(true);
+    console.log("[BasicIncomePlus] Setup initiated");
+    try {
+      console.log(
+        "[BasicIncomePlus] Sending transaction to contract: 0x52dfee61180a0bcebe007e5a9cfd466948acca46"
+      );
+      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
+        transaction: [
+          {
+            address: "0x52dfee61180a0bcebe007e5a9cfd466948acca46", // New contract address
+            abi: parseAbi(["function stake() external"]), // Assuming the same ABI as the original
+            functionName: "stake",
+            args: [],
+          },
+        ],
+      });
+
+      console.log("[BasicIncomePlus] Transaction response:", finalPayload);
+      if (finalPayload.status === "error") {
+        console.error(
+          "[BasicIncomePlus] Error sending transaction",
+          finalPayload
+        );
+        setIsSubmitting(false);
+      } else {
+        setTransactionId(finalPayload.transaction_id);
+        console.log(
+          "[BasicIncomePlus] Transaction ID:",
+          finalPayload.transaction_id
+        );
+        console.log(
+          "[BasicIncomePlus] Fetching updated Basic Income Plus info"
+        );
+        await fetchBasicIncomePlusInfo();
+        // Update the optimistic UI state if the fetch call works.
+        setBasicIncomePlusActivated(true);
+        localStorage.setItem("basicIncomePlusActivated", "true");
+        console.log("[BasicIncomePlus] Setup completed successfully");
+      }
+    } catch (error: any) {
+      console.error("[BasicIncomePlus] Setup error:", error);
+      console.error("[BasicIncomePlus] Error message:", error.message);
+      console.error("[BasicIncomePlus] Error stack:", error.stack);
+      setIsSubmitting(false);
+    }
+  };
+
+  const sendClaim = async () => {
+    if (!MiniKit.isInstalled()) return;
+    setIsClaimingBasic(true);
     try {
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
@@ -203,7 +358,7 @@ export default function EarnPage() {
 
       if (finalPayload.status === "error") {
         console.error("Error sending transaction", finalPayload);
-        setIsSubmitting(false);
+        setIsClaimingBasic(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
         await fetchBasicIncomeInfo();
@@ -214,29 +369,86 @@ export default function EarnPage() {
       }
     } catch (error) {
       console.error("Error during claim:", error);
-      setIsSubmitting(false);
+      setIsClaimingBasic(false);
+    }
+  };
+
+  const sendClaimPlus = async () => {
+    if (!MiniKit.isInstalled()) return;
+    setIsClaimingPlus(true);
+    console.log("[BasicIncomePlus] Claim initiated");
+    try {
+      console.log(
+        "[BasicIncomePlus] Sending claim transaction to contract: 0x52dfee61180a0bcebe007e5a9cfd466948acca46"
+      );
+      console.log(
+        "[BasicIncomePlus] Current claimable amount:",
+        claimableAmountPlus
+      );
+      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
+        transaction: [
+          {
+            address:
+              "0x52dfee61180a0bcebe007e5a9cfd466948acca46" as `0x${string}`,
+            abi: parseAbi(["function claimRewards() external"]),
+            functionName: "claimRewards",
+            args: [],
+          },
+        ],
+      });
+
+      console.log(
+        "[BasicIncomePlus] Claim transaction response:",
+        finalPayload
+      );
+      if (finalPayload.status === "error") {
+        console.error(
+          "[BasicIncomePlus] Error sending claim transaction",
+          finalPayload
+        );
+        setIsClaimingPlus(false);
+      } else {
+        setTransactionId(finalPayload.transaction_id);
+        console.log(
+          "[BasicIncomePlus] Claim transaction ID:",
+          finalPayload.transaction_id
+        );
+        console.log(
+          "[BasicIncomePlus] Fetching updated Basic Income Plus info"
+        );
+        await fetchBasicIncomePlusInfo();
+        await fetchBalance();
+
+        localStorage.setItem("basicIncomePlusBase", "0");
+        localStorage.setItem("basicIncomePlusStartTime", Date.now().toString());
+        console.log("[BasicIncomePlus] Claim completed successfully");
+      }
+    } catch (error) {
+      console.error("[BasicIncomePlus] Claim error:", error);
+      if (error instanceof Error) {
+        console.error("[BasicIncomePlus] Error message:", error.message);
+        console.error("[BasicIncomePlus] Error stack:", error.stack);
+      }
+      setIsClaimingPlus(false);
     }
   };
 
   useEffect(() => {
     if (isSuccess) {
-      console.log("Transaction successful");
+      console.log("[Transaction] Transaction successful");
+      console.log("[Transaction] Transaction ID:", transactionId);
       fetchBasicIncomeInfo();
+      fetchBasicIncomePlusInfo();
       fetchBalance();
       setTransactionId(null);
+      setIsSubmitting(false);
+      setIsClaimingBasic(false);
+      setIsClaimingPlus(false);
     }
-  }, [isSuccess]);
+  }, [isSuccess, fetchBalance, fetchBasicIncomeInfo, fetchBasicIncomePlusInfo]);
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
-    if (tab === "Savings") {
-      setHasSeenSavings(true);
-      localStorage.setItem("hasSeenSavings", "true");
-    }
-    if (tab === "Contribute") {
-      setHasSeenContribute(true);
-      localStorage.setItem("hasSeenContribute", "true");
-    }
   };
 
   const renderContent = () => {
@@ -289,9 +501,125 @@ export default function EarnPage() {
                     {displayClaimable.toFixed(5)}
                   </p>
                 </div>
-                <Button onClick={sendClaim} isLoading={isSubmitting} fullWidth>
-                  Claim
-                </Button>
+                {basicIncomePlusActivated ? (
+                  <div className="flex w-full flex-col gap-4">
+                    <Button
+                      onClick={sendClaim}
+                      isLoading={isClaimingBasic}
+                      fullWidth
+                    >
+                      Claim Basic Income
+                    </Button>
+                    <Button
+                      onClick={sendClaimPlus}
+                      isLoading={isClaimingPlus}
+                      variant="secondary"
+                      fullWidth
+                    >
+                      Claim Basic Income Plus
+                    </Button>
+                  </div>
+                ) : (
+                  <Button
+                    onClick={sendClaim}
+                    isLoading={isClaimingBasic}
+                    fullWidth
+                  >
+                    Claim
+                  </Button>
+                )}
+                {!basicIncomePlusActivated && (
+                  <Drawer>
+                    <DrawerTrigger asChild>
+                      <div className="mt-4 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-transparent py-2">
+                        <div className="flex w-full items-center overflow-hidden">
+                          <div className="-ml-[2px] mr-[10px] size-[30px] rounded-full border-[5px] border-gray-900"></div>
+                          <Typography
+                            as="h3"
+                            variant={{ variant: "subtitle", level: 2 }}
+                            className="line-clamp-2 font-display text-[15px] font-medium tracking-tight text-gray-900"
+                          >
+                            Introducing Basic Income Plus
+                          </Typography>
+                          <div className="ml-1 rounded-full bg-gray-200 px-1.5 py-0.5">
+                            <p className="font-sans text-[12px] font-medium leading-narrow tracking-normal text-gray-900">
+                              New
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </DrawerTrigger>
+                    <DrawerContent>
+                      <div className="flex flex-col items-center p-6 pt-10">
+                        <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+                          <PiCoinsFill className="h-10 w-10 text-gray-400" />
+                        </div>
+                        <Typography
+                          as="h2"
+                          variant={{ variant: "heading", level: 1 }}
+                          className="text-center"
+                        >
+                          Basic Income Plus
+                        </Typography>
+                        <Typography
+                          variant={{ variant: "subtitle", level: 1 }}
+                          className="mx-auto mt-4 text-center text-gray-500"
+                        >
+                          Extra income for verified users
+                        </Typography>
+
+                        <div className="mt-6 w-full px-3 py-4">
+                          <ul className="space-y-3">
+                            <li className="flex items-start">
+                              <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                                <PiTrendUpFill className="h-3.5 w-3.5 text-gray-500" />
+                              </div>
+                              <Typography
+                                variant={{ variant: "body", level: 3 }}
+                                className="text-gray-600 mt-[3px]"
+                              >
+                                An additional 1 WDD per day
+                              </Typography>
+                            </li>
+                            <li className="flex items-start">
+                              <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                                <PiUserCheckFill className="h-3.5 w-3.5 text-gray-500" />
+                              </div>
+                              <Typography
+                                variant={{ variant: "body", level: 3 }}
+                                className="text-gray-600 mt-[3px]"
+                              >
+                                Exclusive to Orb-verified users to ensure fair
+                                distribution
+                              </Typography>
+                            </li>
+                            <li className="flex items-start">
+                              <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                                <PiChartLineFill className="h-3.5 w-3.5 text-gray-500" />
+                              </div>
+                              <Typography
+                                variant={{ variant: "body", level: 3 }}
+                                className="text-gray-600 mt-[3px]"
+                              >
+                                Rewards shift to Plus over time while keeping
+                                total at 11 WDD/day
+                              </Typography>
+                            </li>
+                          </ul>
+                        </div>
+
+                        <Button
+                          onClick={sendSetupPlus}
+                          isLoading={isSubmitting}
+                          fullWidth
+                          className="mt-6"
+                        >
+                          Activate Basic Income Plus
+                        </Button>
+                      </div>
+                    </DrawerContent>
+                  </Drawer>
+                )}
               </>
             )}
           </div>
@@ -401,10 +729,6 @@ export default function EarnPage() {
         tabs={["Basic income", "Savings", "Contribute", "Invite"]}
         activeTab={activeTab}
         onTabChange={handleTabChange}
-        showSavingsIndicator={!hasSeenSavings && activeTab !== "Savings"}
-        showContributeIndicator={
-          !hasSeenContribute && activeTab !== "Contribute"
-        }
       />
 
       <div className="flex flex-1 items-center">{renderContent()}</div>
