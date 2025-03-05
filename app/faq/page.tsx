@@ -15,15 +15,15 @@ type FAQItem = {
 const faqs: FAQItem[] = [
   {
     id: "app-purpose",
-    question: "What is the purpose of the app?",
+    question: "What is the World Republic?",
     answer:
-      "The World Republic app serves as an open, democratic platform dedicated to solving humanity's most pressing global challenges. It provides infrastructure and tools for global democratic decision-making on issues like AI risks, climate change, and biosecurity that transcend national borders. The app utilizes its own digital currency (WDD) to support initiatives and enable democratic participation in global governance.",
+      "The World Republic is an open, democratic organization dedicated to solving humanity's most pressing global challenges. It provides infrastructure and tools for democratic global decision-making on issues that transcend national borders, like AI risks, climate change, or biosecurity. This mini app serves as the World Republic's main online platform, using its digital currency (WDD) to support initiatives and enable democratic participation in global governance.",
   },
   {
     id: "basic-income",
     question: "What is Basic Income?",
     answer:
-      "Basic Income is a daily subsidy of 10 WDD (world drachma) provided to all citizens of the World Republic. It accumulates in real-time and can be claimed at any moment through the app.",
+      "Our Basic Income is a daily subsidy of 10 WDD (world drachma) that is provided to all citizens of the World Republic. It accumulates in real-time and can be claimed at any moment through the app.",
   },
   {
     id: "basic-income-plus",
@@ -35,13 +35,19 @@ const faqs: FAQItem[] = [
     id: "savings",
     question: "How does the Savings Account work?",
     answer:
-      "The Savings Account allows you to deposit WDD tokens and earn a 69% annual interest rate.",
+      "The Savings Account allows you to deposit WDD tokens and earn a 69% annual interest rate. Through constant reinvestment of earned interest, users can achieve effective returns close to 100% annually, maximizing their WDD growth over time. Interest accumulates continuously and can be withdrawn or reinvested at any time.",
+  },
+  {
+    id: "drachma-value",
+    question: "Where does the drachma get its value?",
+    answer:
+      "The drachma derives its value from being the official currency of the World Republic. As our democratic global governance platform grows, WDD has the potential to become a significant medium of exchange for international cooperation, and could eventually play a role in the equitable distribution of benefits from technological advancements and global resources.",
   },
   {
     id: "top-wallets",
     question: "Who controls the biggest accounts?",
     answer:
-      "The three largest accounts are currently controlled by the project's founder, with all rights to be transferred to the community after constitution ratification. Constituent Assembly elections will be held in Q2 2024.",
+      "The three largest accounts are the World Republic Treasury, the Basic Income Fund, and the Basic Income Plus Fund. Currently, these are controlled by the project's founder, but control will be transferred to the community after our constitution is ratified. Elections for the Constituent Assembly, which will oversee this process, will take place in Q2 2025.",
   },
   {
     id: "referral-codes",
@@ -51,9 +57,9 @@ const faqs: FAQItem[] = [
   },
   {
     id: "vote-requirements",
-    question: "What will be the requirements to propose votes?",
+    question: "What are the requirements to propose votes?",
     answer:
-      "The current polls are just a showcase. Our community will collectively decide on governance requirements through the constitutional process led by the Constituent Assembly that will be elected in Q2 2024.",
+      "The current polls and open letters are just a showcase. Our community will collectively decide our system of governance through the constitutional design process led by the Constituent Assembly elected in Q2 2025.",
   },
 ];
 
@@ -78,11 +84,11 @@ export default function FAQPage() {
         </Typography>
       </div>
 
-      <div className="mt-2 space-y-0">
+      <div className="mt-2">
         {faqs.map((faq, index) => (
-          <div key={faq.id} className="overflow-hidden">
+          <div key={faq.id}>
             <button
-              className="flex w-full items-center justify-between p-4 text-left focus:outline-none"
+              className="flex w-full items-center justify-between py-5 text-left focus:outline-none"
               onClick={() => toggleAccordion(faq.id)}
             >
               <Typography
@@ -106,7 +112,7 @@ export default function FAQPage() {
                 openAccordion === faq.id ? "max-h-96" : "max-h-0"
               }`}
             >
-              <div className="px-4 pb-4">
+              <div className="pb-4">
                 <Typography
                   as="p"
                   variant={{ variant: "body", level: 2 }}
@@ -117,9 +123,7 @@ export default function FAQPage() {
               </div>
             </div>
 
-            {index < faqs.length - 1 && (
-              <div className="mx-4 h-px bg-gray-100" />
-            )}
+            {index < faqs.length - 1 && <div className="h-px bg-gray-100" />}
           </div>
         ))}
       </div>

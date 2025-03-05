@@ -9,7 +9,12 @@ const menuSections = [
     title: "CONNECT",
     links: [
       {
-        label: "Telegram",
+        label: "Community",
+        url: "https://t.me/worldrepublictesters",
+        isExternal: true,
+      },
+      {
+        label: "Announcements",
         url: "https://t.me/worldrepublicannouncements",
         isExternal: true,
       },
@@ -18,25 +23,23 @@ const menuSections = [
   },
   {
     title: "HELP",
-    links: [
-      { label: "Frequently asked questions", url: "/faq", isExternal: false },
-    ],
+    links: [{ label: "FAQ", url: "/faq", isExternal: false }],
   },
-  {
-    title: "DOCS",
-    links: [
-      {
-        label: "Community docs",
-        url: "https://github.com/worldrepublicorg/docs",
-        isExternal: true,
-      },
-      {
-        label: "Operating manual",
-        url: "https://github.com/worldrepublicorg/governing-documents/blob/main/manual.md",
-        isExternal: true,
-      },
-    ],
-  },
+  // {
+  //   title: "DOCS",
+  //   links: [
+  //     {
+  //       label: "Community docs",
+  //       url: "https://github.com/worldrepublicorg/docs",
+  //       isExternal: true,
+  //     },
+  //     {
+  //       label: "Operating manual",
+  //       url: "https://github.com/worldrepublicorg/governing-documents/blob/main/manual.md",
+  //       isExternal: true,
+  //     },
+  //   ],
+  // },
   {
     title: "CODE",
     links: [
