@@ -364,8 +364,16 @@ export default function EarnPage() {
         await fetchBasicIncomeInfo();
         await fetchBalance();
 
+        // Reset the basic income local storage and immediately update display value
         localStorage.setItem("basicIncomeBase", "0");
         localStorage.setItem("basicIncomeStartTime", Date.now().toString());
+
+        // Update display value to only show Plus amount (if active)
+        if (basicIncomePlusActivated && claimableAmountPlus !== undefined) {
+          setDisplayClaimable(Number(claimableAmountPlus || 0));
+        } else {
+          setDisplayClaimable(0);
+        }
       }
     } catch (error) {
       console.error("Error during claim:", error);
@@ -419,8 +427,17 @@ export default function EarnPage() {
         await fetchBasicIncomePlusInfo();
         await fetchBalance();
 
+        // Reset the plus income local storage and immediately update display value
         localStorage.setItem("basicIncomePlusBase", "0");
         localStorage.setItem("basicIncomePlusStartTime", Date.now().toString());
+
+        // Update display value to only show Basic Income amount (if it exists)
+        if (basicIncomeActivated && claimableAmount !== undefined) {
+          setDisplayClaimable(Number(claimableAmount || 0));
+        } else {
+          setDisplayClaimable(0);
+        }
+
         console.log("[BasicIncomePlus] Claim completed successfully");
       }
     } catch (error) {
@@ -440,12 +457,31 @@ export default function EarnPage() {
       fetchBasicIncomeInfo();
       fetchBasicIncomePlusInfo();
       fetchBalance();
+
+      // Reset displayClaimable immediately after successful transaction
+      if (isClaimingBasic && isClaimingPlus) {
+        setDisplayClaimable(0);
+      } else if (isClaimingBasic) {
+        setDisplayClaimable(Number(claimableAmountPlus || 0));
+      } else if (isClaimingPlus) {
+        setDisplayClaimable(Number(claimableAmount || 0));
+      }
+
       setTransactionId(null);
       setIsSubmitting(false);
       setIsClaimingBasic(false);
       setIsClaimingPlus(false);
     }
-  }, [isSuccess, fetchBalance, fetchBasicIncomeInfo, fetchBasicIncomePlusInfo]);
+  }, [
+    isSuccess,
+    fetchBalance,
+    fetchBasicIncomeInfo,
+    fetchBasicIncomePlusInfo,
+    claimableAmount,
+    claimableAmountPlus,
+    isClaimingBasic,
+    isClaimingPlus,
+  ]);
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
