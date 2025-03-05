@@ -10,8 +10,8 @@ interface Poll {
 const polls: Poll[] = [
   {
     description:
-      "Should international collaboration on rare earth minerals be prioritized to enhance global resource security?",
-    url: "https://vote.one/5StpP7UU",
+      "Are you confident in the world’s ability to prevent and manage emerging infectious diseases?",
+    url: "https://vote.one/tbCLGUgE",
   },
   {
     description:
