@@ -697,7 +697,7 @@ export default function EarnPage() {
                 </Typography>
                 <div className="text-center">
                   {isClaimableLoading ? (
-                    <div className="mx-auto mb-14 h-[56px] w-40 animate-pulse rounded-md bg-gray-200"></div>
+                    <div className="mx-auto mb-[61px] mt-[6px] h-[56px] w-72 animate-pulse rounded-xl bg-gray-100"></div>
                   ) : (
                     <p className="mx-auto mb-14 font-sans text-[56px] font-semibold leading-narrow tracking-normal">
                       {displayClaimable.toFixed(5)}
