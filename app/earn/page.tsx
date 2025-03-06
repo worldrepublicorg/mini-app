@@ -78,8 +78,8 @@ export default function EarnPage() {
     )
       return;
 
-    const rate = 9 / 86400; // Increment rate (tokens per second)
-    const ratePlus = 2 / 86400; // Increment rate (tokens per second)
+    const rate = 8 / 86400; // Increment rate (tokens per second)
+    const ratePlus = 3 / 86400; // Increment rate (tokens per second)
     const currentClaimable = Number(claimableAmount);
     const currentClaimablePlus = Number(claimableAmountPlus);
 
@@ -771,7 +771,7 @@ export default function EarnPage() {
                                 variant={{ variant: "body", level: 3 }}
                                 className="text-gray-600 mt-[3px]"
                               >
-                                An additional 2 WDD per day
+                                An additional 3 WDD per day
                               </Typography>
                             </li>
                             <li className="flex items-start">
