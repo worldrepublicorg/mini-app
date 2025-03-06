@@ -697,9 +697,9 @@ export default function EarnPage() {
                 </Typography>
                 <div className="text-center">
                   {isClaimableLoading ? (
-                    <div className="mx-auto mb-[61px] mt-[6px] h-[56px] w-72 animate-pulse rounded-xl bg-gray-100"></div>
+                    <div className="mx-auto mb-[57px] mt-[6px] h-[56px] w-64 animate-pulse rounded-xl bg-gray-100"></div>
                   ) : (
-                    <p className="mx-auto mb-14 font-sans text-[56px] font-semibold leading-narrow tracking-normal">
+                    <p className="mx-auto mb-[52px] font-sans text-[56px] font-semibold leading-narrow tracking-normal">
                       {displayClaimable.toFixed(5)}
                     </p>
                   )}
@@ -861,6 +861,7 @@ export default function EarnPage() {
               title="Early Access Program"
               referenceTitle="Earn WDD by testing our upcoming features"
               voteUrl="https://t.me/worldrepublictesters"
+              isExternal={true}
             />
           </div>
         );

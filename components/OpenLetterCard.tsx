@@ -8,6 +8,7 @@ interface OpenLetterCardProps {
   referenceTitle?: string;
   referenceUrl?: string;
   voteUrl: string;
+  isExternal?: boolean;
 }
 
 export function OpenLetterCard({
@@ -15,13 +16,22 @@ export function OpenLetterCard({
   referenceTitle = "Reference",
   referenceUrl,
   voteUrl,
+  isExternal = false,
 }: OpenLetterCardProps) {
   const router = useRouter();
 
+  const handleCardClick = () => {
+    if (isExternal) {
+      window.open(voteUrl, "_blank", "noopener,noreferrer");
+    } else {
+      router.push(voteUrl);
+    }
+  };
+
   return (
     <div
-      onClick={() => router.push(voteUrl)}
-      className="mb-4 flex w-full cursor-pointer items-center justify-between rounded-xl border border-gray-200 p-4 text-gray-900"
+      onClick={handleCardClick}
+      className="mb-4 flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border border-gray-200 p-4 text-gray-900"
     >
       <div>
         <Typography
@@ -31,28 +41,25 @@ export function OpenLetterCard({
         >
           {title}
         </Typography>
-        <div className="w-max-24 flex items-center gap-1">
-          <a
-            className="w-max-24 flex items-center gap-1"
-            href={referenceUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+        <div className="flex items-center gap-1">
+          <Typography
+            as="p"
+            variant={{ variant: "body", level: 3 }}
+            className="text-gray-500"
           >
-            <Typography
-              as="p"
-              variant={{ variant: "body", level: 3 }}
-              className="text-gray-500"
-            >
-              {referenceTitle}
-            </Typography>
-            {referenceUrl && (
-              <BiLinkExternal className="size-[14px] text-gray-400" />
-            )}
-          </a>
+            {referenceTitle}
+          </Typography>
+          {referenceUrl && (
+            <BiLinkExternal className="size-[14px] text-gray-400" />
+          )}
         </div>
       </div>
       <div className="rounded-full bg-gray-100 p-1.5">
-        <IoIosArrowForward className="size-[14px] flex-shrink-0 text-gray-400" />
+        {isExternal ? (
+          <BiLinkExternal className="size-[14px] flex-shrink-0 text-gray-400" />
+        ) : (
+          <IoIosArrowForward className="size-[14px] flex-shrink-0 text-gray-400" />
+        )}
       </div>
     </div>
   );
