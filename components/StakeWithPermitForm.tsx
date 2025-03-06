@@ -414,7 +414,16 @@ export function StakeWithPermitForm() {
                     ) || "0"
               )
             }
-            className="h-9 items-center rounded-full bg-gray-100 px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-400"
+            className={`h-9 items-center rounded-full bg-gray-100 px-4 font-sans text-sm font-medium leading-narrow tracking-normal ${
+              amount ===
+              (selectedAction === "deposit"
+                ? (Math.floor(Number(tokenBalance) * 1e9) / 1e9).toFixed(9) ||
+                  "0"
+                : (Math.floor(Number(stakedBalance) * 1e9) / 1e9).toFixed(9) ||
+                  "0")
+                ? "text-gray-400"
+                : "text-gray-900"
+            }`}
           >
             Max
           </button>

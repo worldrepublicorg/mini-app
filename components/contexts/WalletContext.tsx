@@ -143,7 +143,6 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       if (Array.isArray(result) && result.length === 2) {
         const stake = fromWei(result[0]);
         const newClaimable = fromWei(result[1]);
-        console.log("[WalletContext] Basic income stake:", stake);
         console.log(
           "[WalletContext] Basic income claimable amount:",
           newClaimable
@@ -184,7 +183,6 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       if (Array.isArray(result) && result.length === 2) {
         const stake = fromWei(result[0]);
         const newClaimable = fromWei(result[1]);
-        console.log("[WalletContext] Basic income plus stake:", stake);
         console.log(
           "[WalletContext] Basic income plus claimable amount:",
           newClaimable
