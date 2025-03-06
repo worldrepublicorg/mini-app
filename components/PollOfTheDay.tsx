@@ -15,8 +15,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Should wealthy countries accept more migrants fleeing conflict or climate disasters?",
-    url: "https://vote.one/SJSETLZp",
+      "Do you think the growing trend of imposing tariffs among major economies will significantly disrupt global trade stability?",
+    url: "https://vote.one/HitgAQBM",
   },
   {
     description:
