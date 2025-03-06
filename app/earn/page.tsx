@@ -691,15 +691,15 @@ export default function EarnPage() {
                 <Typography
                   variant="subtitle"
                   level={1}
-                  className="mx-auto mb-10 mt-4 text-center text-gray-500"
+                  className="mx-auto mb-4 mt-10 text-center text-gray-500"
                 >
                   Claimable drachma
                 </Typography>
                 <div className="text-center">
                   {isClaimableLoading ? (
-                    <div className="mx-auto mb-[53px] mt-[6px] h-[56px] w-64 animate-pulse rounded-xl bg-gray-100"></div>
+                    <div className="mx-auto mb-[61px] mt-[6px] h-[56px] w-64 animate-pulse rounded-xl bg-gray-100"></div>
                   ) : (
-                    <p className="mx-auto mb-12 font-sans text-[56px] font-semibold leading-narrow tracking-normal">
+                    <p className="mx-auto mb-14 font-sans text-[56px] font-semibold leading-narrow tracking-normal">
                       {displayClaimable.toFixed(5)}
                     </p>
                   )}
