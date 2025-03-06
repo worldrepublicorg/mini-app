@@ -223,40 +223,67 @@ export default function EarnPage() {
       const elapsedSeconds = (Date.now() - startTime) / 1000;
       const newValue = baseValue + elapsedSeconds * rate;
 
-      const elapsedSecondsPlus = (Date.now() - startTimePlus) / 1000;
-      const newValuePlus = baseValuePlus + elapsedSecondsPlus * ratePlus;
+      // Only calculate Plus amount if it's activated
+      let totalValue = newValue;
 
-      // Log once per second, not on every update to avoid console flood
-      if (Math.round(elapsedSeconds) % 10 === 0) {
-        console.log("[DisplayTracking] Current calculation:");
-        console.log(
-          "[DisplayTracking] baseValue:",
-          baseValue,
-          "+ elapsed:",
-          elapsedSeconds,
-          "* rate:",
-          rate,
-          "=",
-          newValue
-        );
-        console.log(
-          "[DisplayTracking] baseValuePlus:",
-          baseValuePlus,
-          "+ elapsedPlus:",
-          elapsedSecondsPlus,
-          "* ratePlus:",
-          ratePlus,
-          "=",
-          newValuePlus
-        );
-        console.log(
-          "[DisplayTracking] Setting displayClaimable to:",
-          newValue + newValuePlus
-        );
+      if (basicIncomePlusActivated) {
+        const elapsedSecondsPlus = (Date.now() - startTimePlus) / 1000;
+        const newValuePlus = baseValuePlus + elapsedSecondsPlus * ratePlus;
+        totalValue += newValuePlus;
+
+        // Log both values when activated
+        if (Math.round(elapsedSeconds) % 10 === 0) {
+          console.log("[DisplayTracking] Current calculation:");
+          console.log(
+            "[DisplayTracking] baseValue:",
+            baseValue,
+            "+ elapsed:",
+            elapsedSeconds,
+            "* rate:",
+            rate,
+            "=",
+            newValue
+          );
+          console.log(
+            "[DisplayTracking] baseValuePlus:",
+            baseValuePlus,
+            "+ elapsedPlus:",
+            elapsedSecondsPlus,
+            "* ratePlus:",
+            ratePlus,
+            "=",
+            newValuePlus
+          );
+          console.log(
+            "[DisplayTracking] Setting displayClaimable to:",
+            totalValue
+          );
+        }
+      } else {
+        // Log only basic income when Plus is not activated
+        if (Math.round(elapsedSeconds) % 10 === 0) {
+          console.log(
+            "[DisplayTracking] Current calculation (Plus not activated):"
+          );
+          console.log(
+            "[DisplayTracking] baseValue:",
+            baseValue,
+            "+ elapsed:",
+            elapsedSeconds,
+            "* rate:",
+            rate,
+            "=",
+            newValue
+          );
+          console.log(
+            "[DisplayTracking] Setting displayClaimable to:",
+            totalValue
+          );
+        }
       }
 
-      // Display the sum of both basic income and basic income plus
-      setDisplayClaimable(newValue + newValuePlus);
+      // Display the correct total based on activation status
+      setDisplayClaimable(totalValue);
     };
 
     updateDisplay();
