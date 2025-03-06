@@ -45,6 +45,226 @@ export default function EarnPage() {
     (Number(claimableAmount) || 0) + (Number(claimableAmountPlus) || 0)
   );
 
+  // Add console logs to track when values change
+  useEffect(() => {
+    console.log("[DisplayTracking] Initial claimableAmount:", claimableAmount);
+    console.log(
+      "[DisplayTracking] Initial claimableAmountPlus:",
+      claimableAmountPlus
+    );
+    console.log(
+      "[DisplayTracking] Initial displayClaimable:",
+      displayClaimable
+    );
+  }, []);
+
+  useEffect(() => {
+    console.log(
+      "[DisplayTracking] claimableAmount changed to:",
+      claimableAmount
+    );
+    console.log(
+      "[DisplayTracking] claimableAmountPlus changed to:",
+      claimableAmountPlus
+    );
+  }, [claimableAmount, claimableAmountPlus]);
+
+  useEffect(() => {
+    if (
+      claimableAmount === undefined ||
+      claimableAmount === null ||
+      claimableAmountPlus === undefined ||
+      claimableAmountPlus === null
+    )
+      return;
+
+    const rate = 1 / 8640; // Increment rate (tokens per second)
+    const ratePlus = 1 / 86400; // Increment rate (tokens per second)
+    const currentClaimable = Number(claimableAmount);
+    const currentClaimablePlus = Number(claimableAmountPlus);
+
+    console.log("[DisplayTracking] Starting real-time display update with:");
+    console.log("[DisplayTracking] currentClaimable:", currentClaimable);
+    console.log(
+      "[DisplayTracking] currentClaimablePlus:",
+      currentClaimablePlus
+    );
+
+    let baseValue: number;
+    let startTime: number;
+
+    const storedBase = localStorage.getItem("basicIncomeBase");
+    const storedStartTime = localStorage.getItem("basicIncomeStartTime");
+
+    console.log("[DisplayTracking] Stored base value:", storedBase);
+    console.log("[DisplayTracking] Stored start time:", storedStartTime);
+
+    if (storedBase && storedStartTime) {
+      baseValue = parseFloat(storedBase);
+      startTime = parseInt(storedStartTime, 10);
+
+      console.log(
+        "[DisplayTracking] Using stored values - baseValue:",
+        baseValue,
+        "startTime:",
+        startTime
+      );
+
+      // If the on-chain claimable has increased (due to accumulation)
+      if (currentClaimable > baseValue) {
+        console.log(
+          "[DisplayTracking] On-chain value increased, updating baseValue from",
+          baseValue,
+          "to",
+          currentClaimable
+        );
+        baseValue = currentClaimable;
+        startTime = Date.now();
+        localStorage.setItem("basicIncomeBase", baseValue.toString());
+        localStorage.setItem("basicIncomeStartTime", startTime.toString());
+      }
+
+      // If the on-chain claimable has decreased (i.e. a claim was made externally)
+      if (currentClaimable < baseValue) {
+        console.log(
+          "[DisplayTracking] On-chain value decreased (probably claimed), updating baseValue from",
+          baseValue,
+          "to",
+          currentClaimable
+        );
+        baseValue = currentClaimable;
+        startTime = Date.now();
+        localStorage.setItem("basicIncomeBase", baseValue.toString());
+        localStorage.setItem("basicIncomeStartTime", startTime.toString());
+      }
+    } else {
+      console.log(
+        "[DisplayTracking] No stored values, initializing with current values"
+      );
+      baseValue = currentClaimable;
+      startTime = Date.now();
+      localStorage.setItem("basicIncomeBase", baseValue.toString());
+      localStorage.setItem("basicIncomeStartTime", startTime.toString());
+    }
+
+    // New code for Basic Income Plus
+    let baseValuePlus: number;
+    let startTimePlus: number;
+
+    const storedBasePlus = localStorage.getItem("basicIncomePlusBase");
+    const storedStartTimePlus = localStorage.getItem(
+      "basicIncomePlusStartTime"
+    );
+
+    console.log("[DisplayTracking] Stored base value Plus:", storedBasePlus);
+    console.log(
+      "[DisplayTracking] Stored start time Plus:",
+      storedStartTimePlus
+    );
+
+    if (storedBasePlus && storedStartTimePlus) {
+      baseValuePlus = parseFloat(storedBasePlus);
+      startTimePlus = parseInt(storedStartTimePlus, 10);
+
+      console.log(
+        "[DisplayTracking] Using stored Plus values - baseValuePlus:",
+        baseValuePlus,
+        "startTimePlus:",
+        startTimePlus
+      );
+
+      // If the on-chain claimable has increased (due to accumulation)
+      if (currentClaimablePlus > baseValuePlus) {
+        console.log(
+          "[DisplayTracking] On-chain Plus value increased, updating baseValuePlus from",
+          baseValuePlus,
+          "to",
+          currentClaimablePlus
+        );
+        baseValuePlus = currentClaimablePlus;
+        startTimePlus = Date.now();
+        localStorage.setItem("basicIncomePlusBase", baseValuePlus.toString());
+        localStorage.setItem(
+          "basicIncomePlusStartTime",
+          startTimePlus.toString()
+        );
+      }
+
+      // If the on-chain claimable has decreased (i.e. a claim was made externally)
+      if (currentClaimablePlus < baseValuePlus) {
+        console.log(
+          "[DisplayTracking] On-chain Plus value decreased (probably claimed), updating baseValuePlus from",
+          baseValuePlus,
+          "to",
+          currentClaimablePlus
+        );
+        baseValuePlus = currentClaimablePlus;
+        startTimePlus = Date.now();
+        localStorage.setItem("basicIncomePlusBase", baseValuePlus.toString());
+        localStorage.setItem(
+          "basicIncomePlusStartTime",
+          startTimePlus.toString()
+        );
+      }
+    } else {
+      console.log(
+        "[DisplayTracking] No stored Plus values, initializing with current values"
+      );
+      baseValuePlus = currentClaimablePlus;
+      startTimePlus = Date.now();
+      localStorage.setItem("basicIncomePlusBase", baseValuePlus.toString());
+      localStorage.setItem(
+        "basicIncomePlusStartTime",
+        startTimePlus.toString()
+      );
+    }
+
+    const updateDisplay = () => {
+      const elapsedSeconds = (Date.now() - startTime) / 1000;
+      const newValue = baseValue + elapsedSeconds * rate;
+
+      const elapsedSecondsPlus = (Date.now() - startTimePlus) / 1000;
+      const newValuePlus = baseValuePlus + elapsedSecondsPlus * ratePlus;
+
+      // Log once per second, not on every update to avoid console flood
+      if (Math.round(elapsedSeconds) % 10 === 0) {
+        console.log("[DisplayTracking] Current calculation:");
+        console.log(
+          "[DisplayTracking] baseValue:",
+          baseValue,
+          "+ elapsed:",
+          elapsedSeconds,
+          "* rate:",
+          rate,
+          "=",
+          newValue
+        );
+        console.log(
+          "[DisplayTracking] baseValuePlus:",
+          baseValuePlus,
+          "+ elapsedPlus:",
+          elapsedSecondsPlus,
+          "* ratePlus:",
+          ratePlus,
+          "=",
+          newValuePlus
+        );
+        console.log(
+          "[DisplayTracking] Setting displayClaimable to:",
+          newValue + newValuePlus
+        );
+      }
+
+      // Display the sum of both basic income and basic income plus
+      setDisplayClaimable(newValue + newValuePlus);
+    };
+
+    updateDisplay();
+    const interval = setInterval(updateDisplay, 1000);
+
+    return () => clearInterval(interval);
+  }, [claimableAmount, claimableAmountPlus]);
+
   const [activeTab, setActiveTab] = useState("Basic income");
 
   const [transactionId, setTransactionId] = useState<string | null>(null);
@@ -65,113 +285,6 @@ export default function EarnPage() {
       fetchBalance();
     }
   }, [transactionId, fetchBalance]);
-
-  useEffect(() => {
-    if (
-      claimableAmount === undefined ||
-      claimableAmount === null ||
-      claimableAmountPlus === undefined ||
-      claimableAmountPlus === null
-    )
-      return;
-
-    const rate = 1 / 8640; // Increment rate (tokens per second)
-    const ratePlus = 1 / 86400; // Increment rate (tokens per second)
-    const currentClaimable = Number(claimableAmount);
-    const currentClaimablePlus = Number(claimableAmountPlus);
-
-    let baseValue: number;
-    let startTime: number;
-
-    const storedBase = localStorage.getItem("basicIncomeBase");
-    const storedStartTime = localStorage.getItem("basicIncomeStartTime");
-
-    if (storedBase && storedStartTime) {
-      baseValue = parseFloat(storedBase);
-      startTime = parseInt(storedStartTime, 10);
-
-      // If the on-chain claimable has increased (due to accumulation)
-      if (currentClaimable > baseValue) {
-        baseValue = currentClaimable;
-        startTime = Date.now();
-        localStorage.setItem("basicIncomeBase", baseValue.toString());
-        localStorage.setItem("basicIncomeStartTime", startTime.toString());
-      }
-
-      // If the on-chain claimable has decreased (i.e. a claim was made externally)
-      if (currentClaimable < baseValue) {
-        baseValue = currentClaimable;
-        startTime = Date.now();
-        localStorage.setItem("basicIncomeBase", baseValue.toString());
-        localStorage.setItem("basicIncomeStartTime", startTime.toString());
-      }
-    } else {
-      baseValue = currentClaimable;
-      startTime = Date.now();
-      localStorage.setItem("basicIncomeBase", baseValue.toString());
-      localStorage.setItem("basicIncomeStartTime", startTime.toString());
-    }
-
-    // New code for Basic Income Plus
-    let baseValuePlus: number;
-    let startTimePlus: number;
-
-    const storedBasePlus = localStorage.getItem("basicIncomePlusBase");
-    const storedStartTimePlus = localStorage.getItem(
-      "basicIncomePlusStartTime"
-    );
-
-    if (storedBasePlus && storedStartTimePlus) {
-      baseValuePlus = parseFloat(storedBasePlus);
-      startTimePlus = parseInt(storedStartTimePlus, 10);
-
-      // If the on-chain claimable has increased (due to accumulation)
-      if (currentClaimablePlus > baseValuePlus) {
-        baseValuePlus = currentClaimablePlus;
-        startTimePlus = Date.now();
-        localStorage.setItem("basicIncomePlusBase", baseValuePlus.toString());
-        localStorage.setItem(
-          "basicIncomePlusStartTime",
-          startTimePlus.toString()
-        );
-      }
-
-      // If the on-chain claimable has decreased (i.e. a claim was made externally)
-      if (currentClaimablePlus < baseValuePlus) {
-        baseValuePlus = currentClaimablePlus;
-        startTimePlus = Date.now();
-        localStorage.setItem("basicIncomePlusBase", baseValuePlus.toString());
-        localStorage.setItem(
-          "basicIncomePlusStartTime",
-          startTimePlus.toString()
-        );
-      }
-    } else {
-      baseValuePlus = currentClaimablePlus;
-      startTimePlus = Date.now();
-      localStorage.setItem("basicIncomePlusBase", baseValuePlus.toString());
-      localStorage.setItem(
-        "basicIncomePlusStartTime",
-        startTimePlus.toString()
-      );
-    }
-
-    const updateDisplay = () => {
-      const elapsedSeconds = (Date.now() - startTime) / 1000;
-      const newValue = baseValue + elapsedSeconds * rate;
-
-      const elapsedSecondsPlus = (Date.now() - startTimePlus) / 1000;
-      const newValuePlus = baseValuePlus + elapsedSecondsPlus * ratePlus;
-
-      // Display the sum of both basic income and basic income plus
-      setDisplayClaimable(newValue + newValuePlus);
-    };
-
-    updateDisplay();
-    const interval = setInterval(updateDisplay, 1000);
-
-    return () => clearInterval(interval);
-  }, [claimableAmount, claimableAmountPlus]);
 
   useEffect(() => {
     if (!walletAddress) return;
@@ -343,6 +456,8 @@ export default function EarnPage() {
   const sendClaim = async () => {
     if (!MiniKit.isInstalled()) return;
     setIsClaimingBasic(true);
+    console.log("[ClaimProcess] Starting basic claim process");
+    console.log("[ClaimProcess] Current claimableAmount:", claimableAmount);
     try {
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
@@ -361,11 +476,37 @@ export default function EarnPage() {
         setIsClaimingBasic(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
+        console.log(
+          "[ClaimProcess] Claim transaction sent, ID:",
+          finalPayload.transaction_id
+        );
+
+        console.log(
+          "[ClaimProcess] Before fetchBasicIncomeInfo, claimableAmount:",
+          claimableAmount
+        );
         await fetchBasicIncomeInfo();
+        console.log(
+          "[ClaimProcess] After fetchBasicIncomeInfo, claimableAmount:",
+          claimableAmount
+        );
         await fetchBalance();
 
+        console.log("[ClaimProcess] Resetting localStorage values");
+        console.log(
+          "[ClaimProcess] Old basicIncomeBase:",
+          localStorage.getItem("basicIncomeBase")
+        );
         localStorage.setItem("basicIncomeBase", "0");
         localStorage.setItem("basicIncomeStartTime", Date.now().toString());
+        console.log(
+          "[ClaimProcess] New basicIncomeBase:",
+          localStorage.getItem("basicIncomeBase")
+        );
+        console.log(
+          "[ClaimProcess] New basicIncomeStartTime:",
+          localStorage.getItem("basicIncomeStartTime")
+        );
       }
     } catch (error) {
       console.error("Error during claim:", error);
@@ -376,7 +517,11 @@ export default function EarnPage() {
   const sendClaimPlus = async () => {
     if (!MiniKit.isInstalled()) return;
     setIsClaimingPlus(true);
-    console.log("[BasicIncomePlus] Claim initiated");
+    console.log("[ClaimProcess] Starting basic income plus claim");
+    console.log(
+      "[ClaimProcess] Current claimableAmountPlus:",
+      claimableAmountPlus
+    );
     try {
       console.log(
         "[BasicIncomePlus] Sending claim transaction to contract: 0x52dfee61180a0bcebe007e5a9cfd466948acca46"
@@ -416,11 +561,32 @@ export default function EarnPage() {
         console.log(
           "[BasicIncomePlus] Fetching updated Basic Income Plus info"
         );
+        console.log(
+          "[ClaimProcess] Before fetchBasicIncomePlusInfo, claimableAmountPlus:",
+          claimableAmountPlus
+        );
         await fetchBasicIncomePlusInfo();
+        console.log(
+          "[ClaimProcess] After fetchBasicIncomePlusInfo, claimableAmountPlus:",
+          claimableAmountPlus
+        );
         await fetchBalance();
 
+        console.log("[ClaimProcess] Resetting localStorage values for Plus");
+        console.log(
+          "[ClaimProcess] Old basicIncomePlusBase:",
+          localStorage.getItem("basicIncomePlusBase")
+        );
         localStorage.setItem("basicIncomePlusBase", "0");
         localStorage.setItem("basicIncomePlusStartTime", Date.now().toString());
+        console.log(
+          "[ClaimProcess] New basicIncomePlusBase:",
+          localStorage.getItem("basicIncomePlusBase")
+        );
+        console.log(
+          "[ClaimProcess] New basicIncomePlusStartTime:",
+          localStorage.getItem("basicIncomePlusStartTime")
+        );
         console.log("[BasicIncomePlus] Claim completed successfully");
       }
     } catch (error) {
