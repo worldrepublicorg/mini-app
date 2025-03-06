@@ -41,6 +41,9 @@ export default function EarnPage() {
     setBasicIncomePlusActivated,
   } = useWallet();
 
+  // Add a new loading state for claimable amount
+  const [isClaimableLoading, setIsClaimableLoading] = useState<boolean>(true);
+
   const [displayClaimable, setDisplayClaimable] = useState<number>(
     (Number(claimableAmount) || 0) + (Number(claimableAmountPlus) || 0)
   );
@@ -77,6 +80,9 @@ export default function EarnPage() {
       claimableAmountPlus === null
     )
       return;
+
+    // Set loading to false once we have the data
+    setIsClaimableLoading(false);
 
     const rate = 8 / 86400; // Increment rate (tokens per second)
     const ratePlus = 3 / 86400; // Increment rate (tokens per second)
@@ -690,9 +696,13 @@ export default function EarnPage() {
                   Claimable drachma
                 </Typography>
                 <div className="text-center">
-                  <p className="mx-auto mb-14 font-sans text-[56px] font-semibold leading-narrow tracking-normal">
-                    {displayClaimable.toFixed(5)}
-                  </p>
+                  {isClaimableLoading ? (
+                    <div className="mx-auto mb-14 h-[56px] w-40 animate-pulse rounded-md bg-gray-200"></div>
+                  ) : (
+                    <p className="mx-auto mb-14 font-sans text-[56px] font-semibold leading-narrow tracking-normal">
+                      {displayClaimable.toFixed(5)}
+                    </p>
+                  )}
                 </div>
                 {basicIncomePlusActivated ? (
                   <div className="flex w-full flex-col gap-4">
