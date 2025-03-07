@@ -105,7 +105,7 @@ export function StakeWithPermitForm() {
     console.log("handleStake called with amount input:", amount);
     let stakeAmount: bigint;
     try {
-      stakeAmount = BigInt(Number(amount) * 1e18 - 420);
+      stakeAmount = BigInt(Number(amount) * 1e18 - 999999999);
       console.log("Converted stake amount to BigInt:", stakeAmount);
     } catch (error) {
       console.error("Error converting input to BigInt:", error);
@@ -187,7 +187,7 @@ export function StakeWithPermitForm() {
     console.log("handleWithdraw called with amount input:", amount);
     let withdrawAmount: bigint;
     try {
-      withdrawAmount = BigInt(Number(amount) * 1e18 - 420);
+      withdrawAmount = BigInt(Number(amount) * 1e18 - 999999999);
       console.log("Converted withdraw amount to BigInt:", withdrawAmount);
     } catch (error) {
       console.error("Error converting input to BigInt:", error);
