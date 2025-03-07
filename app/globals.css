@@ -48,8 +48,13 @@ pre {
   /* iPhone X/XS/11 Pro */ only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2),
   /* iPhone XR/11 */ only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3),
   /* iPhone 12/13 Pro */ only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3),
-  /* iPhone 12/13 Pro Max */ only screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) {
-  /* iPhone 14 Pro Max */
+  /* iPhone 12/13 Pro Max */ only screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3),
+  /* iPhone 14 Pro Max/15 Pro Max */ only screen and (device-width: 430px) and (device-height: 960px) and (-webkit-device-pixel-ratio: 3),
+  /* iPhone 16 Pro Max */ only screen and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3),
+  /* iPhone 14/15/16 */ only screen and (device-width: 420px) and (device-height: 900px) and (-webkit-device-pixel-ratio: 3),
+  /* iPhone 16 Pro */ only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3),
+  /* iPhone 14 Plus/15 Plus/16 Plus */ only screen and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) {
+  /* iPhone 14 Pro/15 Pro */
   .safe-area-spacer {
     padding-bottom: 20px;
   }
