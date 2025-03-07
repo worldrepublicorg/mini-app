@@ -20,8 +20,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Do you believe sustained diplomatic dialogue among world leaders can help reduce global tensions?",
-    url: "https://vote.one/179i7c78",
+      "Is the current global approach to climate resilience sufficient to cope with the increasing frequency of extreme weather events?",
+    url: "https://vote.one/cg9zZaKR",
   },
   {
     description:
