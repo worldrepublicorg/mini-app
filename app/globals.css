@@ -55,7 +55,7 @@ pre {
   iPhone 16 */ only screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3),
   /* iPhone 14 Pro Max/15 Pro Max,
   iPhone 16 Plus */ only screen and (device-width: 420px) and (device-height: 900px) and (-webkit-device-pixel-ratio: 3),
-  /* iPhone 16 Pro */ only screen and (device-width: 430px) and (device-height: 960px) and (-webkit-device-pixel-ratio: 3) /* iPhone 16 Pro Max */ {
+  /* iPhone 16 Pro */ only screen and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) /* iPhone 16 Pro Max */ {
   .safe-area-spacer {
     padding-bottom: 20px;
   }
