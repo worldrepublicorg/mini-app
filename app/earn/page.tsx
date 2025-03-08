@@ -903,7 +903,12 @@ export default function EarnPage() {
   useEffect(() => {
     const handleInputFocus = (e: FocusEvent) => {
       // Check if the focused element is an input
-      if (e.target && e.target instanceof HTMLElement) {
+      if (
+        e.target &&
+        (e.target instanceof HTMLInputElement ||
+          e.target instanceof HTMLTextAreaElement ||
+          e.target instanceof HTMLSelectElement)
+      ) {
         // Wait a short moment for the keyboard to appear
         setTimeout(() => {
           // Scroll the input into view
