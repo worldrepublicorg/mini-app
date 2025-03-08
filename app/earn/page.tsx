@@ -769,10 +769,8 @@ export default function EarnPage() {
           localStorage.setItem("referredByRewarded", "true");
         }
 
-        setRewardStatus({
-          success: true,
-          message: `Reward successfully sent to ${recipientUsername}!${isStoredReferrer ? " Thank you for rewarding your referrer!" : ""}`,
-        });
+        const successMessage = `Reward successfully sent to ${recipientUsername}!${isStoredReferrer ? " Thank you for rewarding your referrer!" : ""}`;
+        showToast(successMessage, "success");
       }
     } catch (error) {
       console.error("[Reward] Send error:", error);
@@ -790,10 +788,7 @@ export default function EarnPage() {
         }
       }
 
-      setRewardStatus({
-        success: false,
-        message: errorMessage,
-      });
+      showToast(errorMessage, "error");
     } finally {
       setIsSendingReward(false);
     }
@@ -1127,7 +1122,8 @@ export default function EarnPage() {
               variant={{ variant: "subtitle", level: 1 }}
               className="mx-auto mb-10 mt-4 text-center text-gray-500"
             >
-              Get 1 WDD for every verified friend you invite to test
+              Get 1 WDD for every verified friend you invite to World Republic
+              Labs
             </Typography>
             <>
               {/* Your Referral Link */}
@@ -1208,7 +1204,7 @@ export default function EarnPage() {
                   variant={{ variant: "subtitle", level: 2 }}
                   className="mb-2"
                 >
-                  Send Reward
+                  Reward a Friend
                 </Typography>
 
                 {!lookupResult ? (
@@ -1221,12 +1217,6 @@ export default function EarnPage() {
                       onChange={(e) => setRecipientUsername(e.target.value)}
                       onKeyPress={(e) => e.key === "Enter" && lookupUsername()}
                     />
-
-                    {lookupError && (
-                      <div className="mt-4 rounded-xl border border-error-300 bg-error-100 p-4 text-error-700">
-                        {lookupError}
-                      </div>
-                    )}
 
                     <Button
                       onClick={lookupUsername}
@@ -1253,18 +1243,6 @@ export default function EarnPage() {
                         {lookupResult.username}
                       </Typography>
                     </div>
-
-                    {rewardStatus && (
-                      <div
-                        className={`mt-3 rounded-xl border p-3 ${
-                          rewardStatus.success
-                            ? "border-success-300 bg-success-100 text-success-700"
-                            : "border-error-300 bg-error-100 text-error-700"
-                        }`}
-                      >
-                        {rewardStatus.message}
-                      </div>
-                    )}
 
                     <Button
                       onClick={() => sendReward(lookupResult.address)}
