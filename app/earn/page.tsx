@@ -1121,13 +1121,13 @@ export default function EarnPage() {
               <PiUserPlusFill className="h-10 w-10 text-gray-400" />
             </div>
             <Typography as="h2" variant={{ variant: "heading", level: 1 }}>
-              Referral Program
+              Referral Program Test
             </Typography>
             <Typography
               variant={{ variant: "subtitle", level: 1 }}
               className="mx-auto mb-10 mt-4 text-center text-gray-500"
             >
-              Invite friends and exchange rewards
+              Get 1 WDD for every verified friend you invite to test
             </Typography>
             <>
               {/* Your Referral Link */}
@@ -1146,7 +1146,7 @@ export default function EarnPage() {
                     readOnly
                     value={
                       username
-                        ? `https://worldcoin.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=%2F%3Fcode%3D${username}`
+                        ? `https://worldcoin.org/mini-app?app_id=app_880aceacfcfbc104c4702143603579ab&path=%2F%3Fcode%3D${username}`
                         : ""
                     }
                     placeholder="Your referral link will appear here"
@@ -1167,7 +1167,7 @@ export default function EarnPage() {
                     onClick={() => {
                       if (username) {
                         navigator.clipboard.writeText(
-                          `https://worldcoin.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=%2F%3Fcode%3D${username}`
+                          `https://worldcoin.org/mini-app?app_id=app_880aceacfcfbc104c4702143603579ab&path=%2F%3Fcode%3D${username}`
                         );
                         showToast(
                           "Referral link copied to clipboard!",
