@@ -8,16 +8,16 @@ import Spinner from "./Spinner";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "flex items-center justify-center gap-1 font-display font-semibold leading-[1.2] tracking-normal transition-colors",
+  "flex items-center justify-center gap-1 font-display font-semibold leading-[1.2] tracking-normal transition-all",
   {
     variants: {
       variant: {
         primary:
-          "bg-gray-900 text-gray-0 disabled:bg-gray-100 disabled:text-gray-300",
+          "bg-gray-900 text-gray-0 shadow-[0_3px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_6px_12px_rgba(0,0,0,0.15)] active:shadow-[0_2px_4px_rgba(0,0,0,0.15)] disabled:bg-gray-100 disabled:text-gray-300 disabled:shadow-none",
         secondary:
-          "bg-gray-200 text-gray-900 disabled:bg-gray-100 disabled:text-gray-300",
+          "bg-gray-200 text-gray-900 shadow-[0_3px_8px_rgba(0,0,0,0.08)] hover:shadow-[0_6px_12px_rgba(0,0,0,0.08)] active:shadow-[0_2px_4px_rgba(0,0,0,0.08)] disabled:bg-gray-100 disabled:text-gray-300 disabled:shadow-none",
         tertiary:
-          "border border-gray-200 bg-transparent text-gray-500 disabled:text-gray-300",
+          "border border-gray-200 bg-transparent text-gray-500 hover:shadow-[0_3px_8px_rgba(0,0,0,0.06)] active:shadow-none disabled:text-gray-300 disabled:shadow-none",
         ghost: "bg-transparent text-gray-500 disabled:text-gray-300",
       },
       size: {

@@ -1121,17 +1121,17 @@ export default function EarnPage() {
               <PiUserPlusFill className="h-10 w-10 text-gray-400" />
             </div>
             <Typography as="h2" variant={{ variant: "heading", level: 1 }}>
-              Referral Program Test
+              Referral Test
             </Typography>
             <Typography
               variant={{ variant: "subtitle", level: 1 }}
               className="mx-auto mb-10 mt-4 text-center text-gray-500"
             >
-              Get 1 WDD for every verified friend you invite to test
+              Get 1 WDD after every friend you invite
             </Typography>
             <>
               {/* Your Referral Link */}
-              <div className="mb-8 w-full">
+              <div className="relative mb-8 w-full">
                 <Typography
                   as="h3"
                   variant={{ variant: "subtitle", level: 2 }}
@@ -1151,7 +1151,7 @@ export default function EarnPage() {
                     }
                     placeholder="Your referral link will appear here"
                     className="text-gray-600 w-full overflow-ellipsis rounded-xl border border-gray-200 px-4 py-3 font-sans text-sm"
-                    onClick={() => {
+                    onClick={(e) => {
                       if (!username) {
                         showToast(
                           "Please connect your wallet to generate your referral link",
@@ -1159,6 +1159,12 @@ export default function EarnPage() {
                         );
                         // Try to load the username if it's not set yet
                         loadCurrentUsername();
+                      } else {
+                        // Auto-scroll to make input visible when clicked
+                        e.currentTarget.scrollIntoView({
+                          behavior: "smooth",
+                          block: "center",
+                        });
                       }
                     }}
                   />
