@@ -674,24 +674,37 @@ export default function EarnPage() {
     setLookupResult(null);
 
     try {
-      const response = await fetch(
-        `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(recipientUsername.trim())}`
-      );
+      // Use MiniKit API to look up username (if available)
+      if (MiniKit.isInstalled()) {
+        try {
+          // Try to get address by username first
+          const response = await fetch(
+            `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(recipientUsername.trim())}`
+          );
 
-      if (!response.ok) {
-        if (response.status === 404) {
-          setLookupError("Username not found");
-        } else {
-          setLookupError(`Error: ${response.status} ${response.statusText}`);
+          if (!response.ok) {
+            if (response.status === 404) {
+              setLookupError("Username not found");
+            } else {
+              setLookupError(
+                `Error: ${response.status} ${response.statusText}`
+              );
+            }
+            return;
+          }
+
+          const data = await response.json();
+          setLookupResult(data);
+        } catch (error) {
+          console.error("[Username] Error looking up username via API:", error);
+          setLookupError("Failed to look up username. Please try again.");
         }
-        return;
+      } else {
+        setLookupError("Please install MiniKit to look up usernames");
       }
-
-      const data = await response.json();
-      setLookupResult(data);
     } catch (error) {
       setLookupError("Failed to look up username. Please try again.");
-      console.error("Username lookup error:", error);
+      console.error("[Username] Username lookup error:", error);
     } finally {
       setIsLookingUp(false);
     }
@@ -783,6 +796,51 @@ export default function EarnPage() {
     }
   };
 
+  // Add a function to load the current user's MiniKit username
+  const loadCurrentUsername = async () => {
+    if (!MiniKit.isInstalled() || !walletAddress) return;
+
+    try {
+      // Check if username is already available via MiniKit.user
+      if (MiniKit.user && MiniKit.user.username) {
+        console.log(
+          "[Username] Using MiniKit.user.username:",
+          MiniKit.user.username
+        );
+        setUsername(MiniKit.user.username);
+        return;
+      }
+
+      // If not available directly, try getting user information by address
+      try {
+        const userInfo = await MiniKit.getUserByAddress(walletAddress);
+        if (userInfo && userInfo.username) {
+          console.log(
+            "[Username] Found username via getUserByAddress:",
+            userInfo.username
+          );
+          setUsername(userInfo.username);
+        } else {
+          console.log(
+            "[Username] No username found for address:",
+            walletAddress
+          );
+        }
+      } catch (error) {
+        console.error("[Username] Error getting user by address:", error);
+      }
+    } catch (error) {
+      console.error("[Username] Error loading username:", error);
+    }
+  };
+
+  // Load username when wallet address is available
+  useEffect(() => {
+    if (walletAddress && !username) {
+      loadCurrentUsername();
+    }
+  }, [walletAddress, username]);
+
   // Handle incoming referral codes
   useEffect(() => {
     // Parse URL for referral code
@@ -799,9 +857,8 @@ export default function EarnPage() {
             console.log("[Referral] Storing referral code");
             localStorage.setItem("referredBy", code);
 
-            // Update referrer's stats if possible
+            // Validate the referrer username
             if (walletAddress) {
-              // Validate the referrer username
               try {
                 fetch(
                   `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(code.trim())}`
@@ -811,6 +868,9 @@ export default function EarnPage() {
                       console.log(
                         "[Referral] Successfully validated referrer username"
                       );
+                    } else if (response.status === 404) {
+                      console.error("[Referral] Invalid referrer username");
+                      localStorage.removeItem("referredBy");
                     }
                   })
                   .catch((error) => {
@@ -1106,6 +1166,8 @@ export default function EarnPage() {
                           alert(
                             "Please complete your profile to generate your referral link"
                           );
+                          // Try to load the username if it's not set yet
+                          loadCurrentUsername();
                         }
                       }}
                     />
@@ -1120,6 +1182,8 @@ export default function EarnPage() {
                           alert(
                             "Please complete your profile to generate your referral link"
                           );
+                          // Try to load the username if it's not set yet
+                          loadCurrentUsername();
                         }
                       }}
                       className="absolute right-1.5 top-[7px] h-8 px-3 py-1"
@@ -1155,6 +1219,13 @@ export default function EarnPage() {
 
                   {!lookupResult ? (
                     <>
+                      <Typography
+                        variant={{ variant: "body", level: 3 }}
+                        className="mb-2 text-gray-500"
+                      >
+                        Enter a username to send a reward
+                      </Typography>
+
                       <input
                         type="text"
                         placeholder="Enter username (e.g. username.0000)"
@@ -1184,6 +1255,12 @@ export default function EarnPage() {
                   ) : (
                     <div className="space-y-4">
                       <div className="rounded-xl border border-gray-200 bg-gray-50 p-4 text-center">
+                        <Typography
+                          variant={{ variant: "body", level: 3 }}
+                          className="mb-1 text-gray-500"
+                        >
+                          Sending reward to:
+                        </Typography>
                         <Typography
                           variant={{ variant: "subtitle", level: 2 }}
                           className="text-gray-700"

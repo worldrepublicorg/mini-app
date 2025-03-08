@@ -107,16 +107,62 @@ export function WalletAuth({ onError, onSuccess }: WalletAuthProps) {
 
           let fetchedUsername = null;
           try {
-            console.log(
-              "signInWithWallet: Fetching username from https://usernames.worldcoin.org/api/v1/",
-              fetchedWalletAddress
-            );
-            const usernameRes = await fetchWithRetry(
-              `https://usernames.worldcoin.org/api/v1/${fetchedWalletAddress}`
-            );
-            const usernameData = await usernameRes.json();
-            console.log("signInWithWallet: Username response", usernameData);
-            fetchedUsername = usernameData.username || "Unknown";
+            // First try to use MiniKit to get the username
+            if (MiniKit.user && MiniKit.user.username) {
+              console.log(
+                "signInWithWallet: Using MiniKit.user.username",
+                MiniKit.user.username
+              );
+              fetchedUsername = MiniKit.user.username;
+            } else {
+              // Otherwise try to get username from the address
+              console.log(
+                "signInWithWallet: Getting username from address",
+                fetchedWalletAddress
+              );
+              try {
+                // Try MiniKit.getUserByAddress if available
+                const userInfo =
+                  await MiniKit.getUserByAddress(fetchedWalletAddress);
+                if (userInfo && userInfo.username) {
+                  console.log(
+                    "signInWithWallet: Found username via MiniKit",
+                    userInfo.username
+                  );
+                  fetchedUsername = userInfo.username;
+                } else {
+                  // Fall back to the API
+                  console.log(
+                    "signInWithWallet: Falling back to usernames API for",
+                    fetchedWalletAddress
+                  );
+                  const usernameRes = await fetchWithRetry(
+                    `https://usernames.worldcoin.org/api/v1/${fetchedWalletAddress}`
+                  );
+                  const usernameData = await usernameRes.json();
+                  console.log(
+                    "signInWithWallet: Username response",
+                    usernameData
+                  );
+                  fetchedUsername = usernameData.username || null;
+                }
+              } catch (miniKitError) {
+                console.error(
+                  "signInWithWallet: Error with MiniKit getUserByAddress",
+                  miniKitError
+                );
+                // Fall back to the API
+                const usernameRes = await fetchWithRetry(
+                  `https://usernames.worldcoin.org/api/v1/${fetchedWalletAddress}`
+                );
+                const usernameData = await usernameRes.json();
+                console.log(
+                  "signInWithWallet: Username response",
+                  usernameData
+                );
+                fetchedUsername = usernameData.username || null;
+              }
+            }
           } catch (error: any) {
             console.error("signInWithWallet: Error fetching username", error);
           } finally {
