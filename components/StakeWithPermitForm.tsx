@@ -8,12 +8,14 @@ import { MiniKit } from "@worldcoin/minikit-js";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { viemClient } from "@/lib/viemClient";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
+import { useToast } from "@/components/ui/Toast";
 
 const STAKING_CONTRACT_ADDRESS = "0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7";
 const MAIN_TOKEN_ADDRESS = "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B";
 
 export function StakeWithPermitForm() {
   const { walletAddress, tokenBalance, fetchBalance } = useWallet();
+  const { showToast } = useToast();
   const [stakedBalance, setStakedBalance] = useState<string>(() => {
     return localStorage.getItem("stakedBalance") || "0";
   });
@@ -98,7 +100,10 @@ export function StakeWithPermitForm() {
 
   const handleStake = async () => {
     if (!MiniKit.isInstalled()) {
-      alert("Please open this app in the World App to connect your wallet.");
+      showToast(
+        "Please open this app in the World App to connect your wallet.",
+        "error"
+      );
       return;
     }
 
@@ -180,7 +185,10 @@ export function StakeWithPermitForm() {
 
   const handleWithdraw = async () => {
     if (!MiniKit.isInstalled()) {
-      alert("Please open this app in the World App to connect your wallet.");
+      showToast(
+        "Please open this app in the World App to connect your wallet.",
+        "error"
+      );
       return;
     }
 
@@ -232,7 +240,10 @@ export function StakeWithPermitForm() {
 
   const handleCollect = async () => {
     if (!MiniKit.isInstalled()) {
-      alert("Please open this app in the World App to connect your wallet.");
+      showToast(
+        "Please open this app in the World App to connect your wallet.",
+        "error"
+      );
       return;
     }
 
