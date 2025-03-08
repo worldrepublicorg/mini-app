@@ -658,8 +658,13 @@ export default function EarnPage() {
   const [isLookingUp, setIsLookingUp] = useState(false);
   const [lookupError, setLookupError] = useState("");
 
+  // Add state for recipient username (for rewards)
+  const [recipientUsername, setRecipientUsername] = useState<string>(
+    localStorage.getItem("referredBy") || ""
+  );
+
   const lookupUsername = async () => {
-    if (!username || !username.trim()) {
+    if (!recipientUsername || !recipientUsername.trim()) {
       setLookupError("Please enter a username");
       return;
     }
@@ -670,7 +675,7 @@ export default function EarnPage() {
 
     try {
       const response = await fetch(
-        `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(username.trim())}`
+        `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(recipientUsername.trim())}`
       );
 
       if (!response.ok) {
@@ -712,7 +717,8 @@ export default function EarnPage() {
 
     // Check if this is the stored referrer
     const storedReferrer = localStorage.getItem("referredBy");
-    const isStoredReferrer = storedReferrer && storedReferrer === username;
+    const isStoredReferrer =
+      storedReferrer && storedReferrer === recipientUsername;
 
     try {
       console.log(`[Reward] Sending reward to ${recipientAddress}`);
@@ -749,7 +755,7 @@ export default function EarnPage() {
 
         setRewardStatus({
           success: true,
-          message: `Reward successfully sent to ${username}!${isStoredReferrer ? " Thank you for rewarding your referrer!" : ""}`,
+          message: `Reward successfully sent to ${recipientUsername}!${isStoredReferrer ? " Thank you for rewarding your referrer!" : ""}`,
         });
       }
     } catch (error) {
@@ -1052,17 +1058,24 @@ export default function EarnPage() {
               <PiUserPlusFill className="h-10 w-10 text-gray-400" />
             </div>
             <Typography as="h2" variant={{ variant: "heading", level: 1 }}>
-              Referral Program Test
+              Referral Program
             </Typography>
             <Typography
               variant={{ variant: "subtitle", level: 1 }}
               className="mx-auto mb-10 mt-4 text-center text-gray-500"
             >
-              Get 1 WDD after every verified friend you invite
+              Invite friends and exchange rewards
             </Typography>
 
-            {!walletAddress === null ? (
+            {walletAddress === null ? (
               <>
+                <Typography
+                  variant="subtitle"
+                  level={1}
+                  className="mx-auto mb-10 mt-4 text-center text-gray-500"
+                >
+                  Sign in to access the referral program
+                </Typography>
                 <WalletAuth onError={(error) => console.error(error)} />
               </>
             ) : (
@@ -1083,7 +1096,7 @@ export default function EarnPage() {
                       readOnly
                       value={
                         username
-                          ? `https://worldcoin.org/mini-app?app_id=app_880aceacfcfbc104c4702143603579ab&path=%2F%3Fcode%3D${username}`
+                          ? `https://worldcoin.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=%2F%3Fcode%3D${username}`
                           : ""
                       }
                       placeholder="Your referral link will appear here"
@@ -1100,7 +1113,7 @@ export default function EarnPage() {
                       onClick={() => {
                         if (username) {
                           navigator.clipboard.writeText(
-                            `https://worldcoin.org/mini-app?app_id=app_880aceacfcfbc104c4702143603579ab&path=%2F%3Fcode%3D${username}`
+                            `https://worldcoin.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=%2F%3Fcode%3D${username}`
                           );
                           alert("Referral link copied to clipboard!");
                         } else {
@@ -1146,12 +1159,8 @@ export default function EarnPage() {
                         type="text"
                         placeholder="Enter username (e.g. username.0000)"
                         className="w-full rounded-xl border border-gray-200 px-4 py-3 font-sans text-base"
-                        value={
-                          username
-                            ? localStorage.getItem("referredBy") || ""
-                            : ""
-                        }
-                        onChange={(e) => setUsername(e.target.value)}
+                        value={recipientUsername}
+                        onChange={(e) => setRecipientUsername(e.target.value)}
                         onKeyPress={(e) =>
                           e.key === "Enter" && lookupUsername()
                         }
