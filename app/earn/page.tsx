@@ -1331,37 +1331,41 @@ export default function EarnPage() {
 
   return (
     <div className="flex min-h-dvh flex-col px-6 pb-20">
-      <div className="mt-5 flex items-center justify-between">
-        <div className="flex h-10 items-center">
-          <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
-            Earn
-          </Typography>
-        </div>
-        {walletAddress && (
-          <a
-            href="https://worldcoin.org/mini-app?app_id=app_a4f7f3e62c1de0b9490a5260cb390b56&path=%3Ftab%3Dswap%26fromToken%3D0x2cFc85d8E48F8EAB294be644d9E25C3030863003%26amount%3D1000000000000000000%26toToken%3D0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B%26referrerAppId%3Dapp_66c83ab8c851fb1e54b1b1b62c6ce39d"
-            className="flex h-10 items-center gap-2 rounded-full bg-gray-100 px-4"
-          >
-            <PiWalletFill className="h-5 w-5" />
-            <Typography
-              variant={{ variant: "number", level: 6 }}
-              className="text-base"
-            >
-              {tokenBalance
-                ? `${Number(tokenBalance).toFixed(2)} WDD`
-                : "0.00 WDD"}
+      <div className="fixed left-0 right-0 top-0 z-10 px-6 pb-2 pt-5">
+        <div className="flex items-center justify-between bg-gray-0">
+          <div className="flex h-10 items-center">
+            <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
+              Earn
             </Typography>
-          </a>
-        )}
+          </div>
+          {walletAddress && (
+            <a
+              href="https://worldcoin.org/mini-app?app_id=app_a4f7f3e62c1de0b9490a5260cb390b56&path=%3Ftab%3Dswap%26fromToken%3D0x2cFc85d8E48F8EAB294be644d9E25C3030863003%26amount%3D1000000000000000000%26toToken%3D0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B%26referrerAppId%3Dapp_66c83ab8c851fb1e54b1b1b62c6ce39d"
+              className="flex h-10 items-center gap-2 rounded-full bg-gray-100 px-4"
+            >
+              <PiWalletFill className="h-5 w-5" />
+              <Typography
+                variant={{ variant: "number", level: 6 }}
+                className="text-base"
+              >
+                {tokenBalance
+                  ? `${Number(tokenBalance).toFixed(2)} WDD`
+                  : "0.00 WDD"}
+              </Typography>
+            </a>
+          )}
+        </div>
+
+        <TabSwiper
+          tabs={["Basic income", "Savings", "Contribute", "Referrals"]}
+          activeTab={activeTab}
+          onTabChange={handleTabChange}
+        />
       </div>
 
-      <TabSwiper
-        tabs={["Basic income", "Savings", "Contribute", "Referrals"]}
-        activeTab={activeTab}
-        onTabChange={handleTabChange}
-      />
-
-      <div className="flex flex-1 items-center">{renderContent()}</div>
+      <div className="mt-[120px] flex flex-1 items-center">
+        {renderContent()}
+      </div>
     </div>
   );
 }

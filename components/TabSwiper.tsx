@@ -10,7 +10,7 @@ interface TabSwiperProps {
 
 export function TabSwiper({ tabs, activeTab, onTabChange }: TabSwiperProps) {
   return (
-    <div className="no-scrollbar -mx-6 overflow-x-auto pb-4 pt-2">
+    <div className="no-scrollbar -mx-6 overflow-x-auto bg-gray-0 py-2">
       <div className="flex gap-1 px-6">
         {tabs.map((tab) => (
           <div className="relative" key={tab}>
