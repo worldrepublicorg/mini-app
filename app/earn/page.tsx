@@ -1182,7 +1182,7 @@ export default function EarnPage() {
                         loadCurrentUsername();
                       }
                     }}
-                    className="absolute right-[5px] top-[5px] h-9 items-center rounded-xl bg-gray-100 px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 pt-[2px]"
+                    className="absolute right-[5px] top-[5px] h-9 items-center rounded-xl bg-gray-100 px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900"
                   >
                     Copy
                   </button>

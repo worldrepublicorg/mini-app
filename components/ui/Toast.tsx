@@ -64,14 +64,14 @@ export const ToastProvider: React.FC<{ children: ReactNode }> = ({
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            className="fixed bottom-20 right-4 z-50 w-[90%] max-w-md transform"
+            className="fixed bottom-16 right-4 z-50 w-[90%] max-w-md transform"
           >
             <div
               className={`flex items-center justify-between rounded-xl px-4 py-3 shadow-lg ${
                 toast.type === "success"
-                  ? "bg-success-50 border-success-200 border"
+                  ? "border border-success-300 bg-success-100"
                   : toast.type === "error"
-                    ? "bg-error-50 border-error-200 border"
+                    ? "border border-error-300 bg-error-100"
                     : "border border-gray-200 bg-gray-100"
               }`}
             >
