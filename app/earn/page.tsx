@@ -8,7 +8,6 @@ import {
   PiPlantFill,
   PiWalletFill,
   PiCoinsFill,
-  PiUserCircleFill,
   PiChartLineFill,
   PiTrendUpFill,
   PiUserCheckFill,
@@ -22,7 +21,6 @@ import { MiniKit } from "@worldcoin/minikit-js";
 import { TabSwiper } from "@/components/TabSwiper";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { Button } from "@/components/ui/Button";
-import { ComingSoonDrawer } from "@/components/ComingSoonDrawer";
 import { StakeWithPermitForm } from "@/components/StakeWithPermitForm";
 import { OpenLetterCard } from "@/components/OpenLetterCard";
 
@@ -84,8 +82,8 @@ export default function EarnPage() {
     // Set loading to false once we have the data
     setIsClaimableLoading(false);
 
-    const rate = 8 / 86400; // Increment rate (tokens per second)
-    const ratePlus = 3 / 86400; // Increment rate (tokens per second)
+    const rate = 6 / 86400; // Increment rate (tokens per second)
+    const ratePlus = 5 / 86400; // Increment rate (tokens per second)
     const currentClaimable = Number(claimableAmount);
     const currentClaimablePlus = Number(claimableAmountPlus);
 
@@ -650,6 +648,121 @@ export default function EarnPage() {
     setActiveTab(tab);
   };
 
+  const [username, setUsername] = useState("");
+  const [lookupResult, setLookupResult] = useState<{
+    username: string;
+    address: string;
+    profile_picture_url: string | null;
+  } | null>(null);
+  const [isLookingUp, setIsLookingUp] = useState(false);
+  const [lookupError, setLookupError] = useState("");
+
+  const lookupUsername = async () => {
+    if (!username.trim()) {
+      setLookupError("Please enter a username");
+      return;
+    }
+
+    setIsLookingUp(true);
+    setLookupError("");
+    setLookupResult(null);
+
+    try {
+      const response = await fetch(
+        `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(username.trim())}`
+      );
+
+      if (!response.ok) {
+        if (response.status === 404) {
+          setLookupError("Username not found");
+        } else {
+          setLookupError(`Error: ${response.status} ${response.statusText}`);
+        }
+        return;
+      }
+
+      const data = await response.json();
+      setLookupResult(data);
+    } catch (error) {
+      setLookupError("Failed to look up username. Please try again.");
+      console.error("Username lookup error:", error);
+    } finally {
+      setIsLookingUp(false);
+    }
+  };
+
+  const [isSendingReward, setIsSendingReward] = useState(false);
+  const [rewardStatus, setRewardStatus] = useState<{
+    success: boolean;
+    message: string;
+  } | null>(null);
+
+  const sendReward = async (recipientAddress: string) => {
+    if (!MiniKit.isInstalled() || !walletAddress) {
+      setRewardStatus({
+        success: false,
+        message: "Please connect your wallet first",
+      });
+      return;
+    }
+
+    setIsSendingReward(true);
+    setRewardStatus(null);
+
+    try {
+      console.log(`[Reward] Sending reward to ${recipientAddress}`);
+
+      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
+        transaction: [
+          {
+            address: "0x0Fb49091889074c4C1f64652AC63beCb14B8AEB6",
+            abi: parseAbi(["function rewardUser(address recipient) external"]),
+            functionName: "rewardUser",
+            args: [recipientAddress],
+          },
+        ],
+      });
+
+      console.log("[Reward] Transaction response:", finalPayload);
+
+      if (finalPayload.status === "error") {
+        console.error("[Reward] Error sending transaction", finalPayload);
+        setRewardStatus({
+          success: false,
+          message: "Transaction failed. Please try again.",
+        });
+      } else {
+        setTransactionId(finalPayload.transaction_id);
+        setRewardStatus({
+          success: true,
+          message: `Reward successfully sent to ${username}!`,
+        });
+      }
+    } catch (error) {
+      console.error("[Reward] Send error:", error);
+      let errorMessage = "Failed to send reward. Please try again.";
+
+      if (error instanceof Error) {
+        if (error.message.includes("already rewarded")) {
+          errorMessage = "You have already rewarded someone.";
+        } else if (error.message.includes("Sender not verified")) {
+          errorMessage = "Your account must be verified to send rewards.";
+        } else if (error.message.includes("Insufficient")) {
+          errorMessage = "The reward contract has insufficient funds.";
+        } else {
+          errorMessage = `Error: ${error.message}`;
+        }
+      }
+
+      setRewardStatus({
+        success: false,
+        message: errorMessage,
+      });
+    } finally {
+      setIsSendingReward(false);
+    }
+  };
+
   const renderContent = () => {
     switch (activeTab) {
       case "Basic income":
@@ -781,7 +894,7 @@ export default function EarnPage() {
                                 variant={{ variant: "body", level: 3 }}
                                 className="text-gray-600 mt-[3px]"
                               >
-                                An additional 3 WDD per day
+                                An additional 5 WDD per day
                               </Typography>
                             </li>
                             <li className="flex items-start">
@@ -894,7 +1007,90 @@ export default function EarnPage() {
                   </div>
                 </div>
               </DrawerTrigger>
-              <ComingSoonDrawer />
+              <DrawerContent>
+                <div className="flex flex-col items-center px-6 pb-14 pt-10">
+                  <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+                    <PiUserPlusFill className="h-10 w-10 text-gray-400" />
+                  </div>
+                  <Typography
+                    as="h2"
+                    variant={{ variant: "heading", level: 1 }}
+                    className="text-center"
+                  >
+                    Referral Test
+                  </Typography>
+                  <Typography
+                    variant={{ variant: "subtitle", level: 1 }}
+                    className="mx-auto mb-6 mt-4 text-center text-gray-500"
+                  >
+                    Please enter a Worldcoin username to send a referral reward
+                  </Typography>
+
+                  <div className="w-full space-y-4">
+                    {!lookupResult && (
+                      <>
+                        <input
+                          type="text"
+                          placeholder="Enter username (e.g. username.0000)"
+                          className="w-full rounded-xl border border-gray-200 px-4 py-3 font-sans text-base"
+                          value={username}
+                          onChange={(e) => setUsername(e.target.value)}
+                          onKeyPress={(e) =>
+                            e.key === "Enter" && lookupUsername()
+                          }
+                        />
+
+                        {lookupError && (
+                          <div className="mt-4 rounded-xl border border-error-300 bg-error-100 p-4 text-error-700">
+                            {lookupError}
+                          </div>
+                        )}
+
+                        <Button
+                          onClick={lookupUsername}
+                          isLoading={isLookingUp}
+                          fullWidth
+                        >
+                          Lookup Address
+                        </Button>
+                      </>
+                    )}
+
+                    {lookupResult && (
+                      <div>
+                        <Typography
+                          variant={{ variant: "subtitle", level: 2 }}
+                          className="mb-[39px] mt-2 text-center"
+                        >
+                          {lookupResult.username}
+                        </Typography>
+
+                        {rewardStatus && (
+                          <div
+                            className={`mt-3 rounded-xl border p-3 ${
+                              rewardStatus.success
+                                ? "border-success-300 bg-success-100 text-success-700"
+                                : "border-error-300 bg-error-100 text-error-700"
+                            }`}
+                          >
+                            {rewardStatus.message}
+                          </div>
+                        )}
+
+                        <div className="mt-3">
+                          <Button
+                            onClick={() => sendReward(lookupResult.address)}
+                            isLoading={isSendingReward}
+                            fullWidth
+                          >
+                            Send Referral Reward
+                          </Button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </DrawerContent>
             </Drawer>
           </div>
         );
