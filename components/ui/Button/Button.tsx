@@ -13,11 +13,11 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "bg-gray-900 text-gray-0 shadow-[0_3px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_6px_12px_rgba(0,0,0,0.15)] active:shadow-[0_2px_4px_rgba(0,0,0,0.15)] disabled:bg-gray-100 disabled:text-gray-300 disabled:shadow-none",
+          "bg-gray-900 text-gray-0 shadow-[0_4px_10px_rgba(0,0,0,0.25)] hover:shadow-[0_6px_14px_rgba(0,0,0,0.28)] active:shadow-[0_2px_6px_rgba(0,0,0,0.22)] disabled:bg-gray-100 disabled:text-gray-300 disabled:shadow-none",
         secondary:
-          "bg-gray-200 text-gray-900 shadow-[0_3px_8px_rgba(0,0,0,0.08)] hover:shadow-[0_6px_12px_rgba(0,0,0,0.08)] active:shadow-[0_2px_4px_rgba(0,0,0,0.08)] disabled:bg-gray-100 disabled:text-gray-300 disabled:shadow-none",
+          "bg-gray-200 text-gray-900 shadow-[0_4px_10px_rgba(0,0,0,0.15)] hover:shadow-[0_6px_14px_rgba(0,0,0,0.18)] active:shadow-[0_2px_6px_rgba(0,0,0,0.12)] disabled:bg-gray-100 disabled:text-gray-300 disabled:shadow-none",
         tertiary:
-          "border border-gray-200 bg-transparent text-gray-500 hover:shadow-[0_3px_8px_rgba(0,0,0,0.06)] active:shadow-none disabled:text-gray-300 disabled:shadow-none",
+          "border border-gray-200 bg-transparent text-gray-500 hover:shadow-[0_3px_8px_rgba(0,0,0,0.12)] active:shadow-[0_1px_3px_rgba(0,0,0,0.08)] disabled:text-gray-300 disabled:shadow-none",
         ghost: "bg-transparent text-gray-500 disabled:text-gray-300",
       },
       size: {

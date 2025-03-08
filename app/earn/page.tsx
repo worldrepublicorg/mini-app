@@ -899,6 +899,31 @@ export default function EarnPage() {
     parseReferralCode();
   }, [walletAddress]); // Run when wallet address changes or becomes available
 
+  // Add this useEffect near your other useEffects
+  useEffect(() => {
+    const handleInputFocus = (e: FocusEvent) => {
+      // Check if the focused element is an input
+      if (e.target && e.target instanceof HTMLElement) {
+        // Wait a short moment for the keyboard to appear
+        setTimeout(() => {
+          // Scroll the input into view
+          (e.target as HTMLElement).scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+        }, 300);
+      }
+    };
+
+    // Add event listener for all input focus events
+    document.addEventListener("focusin", handleInputFocus);
+
+    // Clean up
+    return () => {
+      document.removeEventListener("focusin", handleInputFocus);
+    };
+  }, []);
+
   const renderContent = () => {
     switch (activeTab) {
       case "Basic income":
@@ -1226,6 +1251,15 @@ export default function EarnPage() {
                       value={recipientUsername}
                       onChange={(e) => setRecipientUsername(e.target.value)}
                       onKeyPress={(e) => e.key === "Enter" && lookupUsername()}
+                      onFocus={(e) => {
+                        // Ensure this input is visible when focused
+                        setTimeout(() => {
+                          e.target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "center",
+                          });
+                        }, 300);
+                      }}
                     />
 
                     {lookupError && (
