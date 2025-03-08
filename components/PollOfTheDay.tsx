@@ -25,8 +25,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Should there be mandatory international agreements to limit space debris from satellites and rockets?",
-    url: "https://vote.one/Eh0iIrW5",
+      "Do you think rapid realignments in global alliances will lead to a more secure international order?",
+    url: "https://vote.one/yhYoEjF3",
   },
   {
     description:
