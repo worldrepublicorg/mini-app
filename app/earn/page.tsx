@@ -1225,7 +1225,7 @@ export default function EarnPage() {
               <Drawer>
                 <DrawerTrigger asChild>
                   <Button variant="secondary" fullWidth>
-                    Joined Before Referral Program?
+                    Joined Before the Referral Program?
                   </Button>
                 </DrawerTrigger>
                 <DrawerContent>
