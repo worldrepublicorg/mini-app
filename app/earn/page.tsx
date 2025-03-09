@@ -1,7 +1,7 @@
 "use client";
 
 import { Typography } from "@/components/ui/Typography";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   PiHandCoinsFill,
   PiUserPlusFill,
@@ -51,7 +51,6 @@ export default function EarnPage() {
 
   const { showToast } = useToast();
 
-  // Add console logs to track when values change
   useEffect(() => {
     console.log("[DisplayTracking] Initial claimableAmount:", claimableAmount);
     console.log(
@@ -62,7 +61,7 @@ export default function EarnPage() {
       "[DisplayTracking] Initial displayClaimable:",
       displayClaimable
     );
-  }, []);
+  }, [claimableAmount, claimableAmountPlus, displayClaimable]);
 
   useEffect(() => {
     console.log(
@@ -407,6 +406,7 @@ export default function EarnPage() {
     fetchBalance,
     fetchBasicIncomeInfo,
     fetchBasicIncomePlusInfo,
+    basicIncomePlusActivated,
   ]);
 
   const sendSetup = async () => {
@@ -647,7 +647,13 @@ export default function EarnPage() {
       setIsClaimingBasic(false);
       setIsClaimingPlus(false);
     }
-  }, [isSuccess, fetchBalance, fetchBasicIncomeInfo, fetchBasicIncomePlusInfo]);
+  }, [
+    isSuccess,
+    fetchBalance,
+    fetchBasicIncomeInfo,
+    fetchBasicIncomePlusInfo,
+    transactionId,
+  ]);
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
@@ -799,8 +805,8 @@ export default function EarnPage() {
     }
   };
 
-  // Add a function to load the current user's MiniKit username
-  const loadCurrentUsername = async () => {
+  // First, wrap loadCurrentUsername with useCallback to prevent infinite loop
+  const loadCurrentUsernameCallback = useCallback(async () => {
     if (!MiniKit.isInstalled() || !walletAddress) return;
 
     try {
@@ -835,14 +841,14 @@ export default function EarnPage() {
     } catch (error) {
       console.error("[Username] Error loading username:", error);
     }
-  };
+  }, [walletAddress, setUsername]);
 
-  // Load username when wallet address is available
+  // Then update the effect to use the memoized callback
   useEffect(() => {
     if (walletAddress && !username) {
-      loadCurrentUsername();
+      loadCurrentUsernameCallback();
     }
-  }, [walletAddress, username]);
+  }, [walletAddress, username, loadCurrentUsernameCallback]);
 
   // Handle incoming referral codes
   useEffect(() => {
@@ -1175,7 +1181,7 @@ export default function EarnPage() {
                 </span>
                 <div className="absolute -right-2 bottom-full mb-2 hidden w-[296px] transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
                   <p className="text-left text-gray-700">
-                    You'll earn rewards after friends activate their Basic
+                    You&apos;ll earn rewards after friends activate their Basic
                     Income Plus.
                   </p>
                 </div>
@@ -1200,7 +1206,7 @@ export default function EarnPage() {
                         "error"
                       );
                       // Try to load the username if it's not set yet
-                      loadCurrentUsername();
+                      loadCurrentUsernameCallback();
                     }
                   }}
                   fullWidth
