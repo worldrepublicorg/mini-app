@@ -17,7 +17,7 @@ export function TabSwiper({
 }: TabSwiperProps) {
   return (
     <div className="no-scrollbar -mx-6 overflow-x-auto bg-gray-0 py-2">
-      <div className="flex gap-0.5 px-6">
+      <div className="flex gap-1 px-6">
         {tabs.map((tab) => (
           <div className="relative" key={tab}>
             <Pill checked={activeTab === tab} onClick={() => onTabChange(tab)}>

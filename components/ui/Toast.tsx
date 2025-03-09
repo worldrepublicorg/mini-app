@@ -68,16 +68,14 @@ export const ToastProvider: React.FC<{ children: ReactNode }> = ({
           >
             <div
               className={`flex items-center justify-between rounded-xl px-4 py-3 shadow-lg ${
-                toast.type === "success"
-                  ? "border border-success-300 bg-success-100"
-                  : toast.type === "error"
-                    ? "border border-error-300 bg-error-100"
-                    : "border border-gray-200 bg-gray-100"
+                toast.type === "error"
+                  ? "border border-error-300 bg-error-100"
+                  : "border border-gray-200 bg-gray-100"
               }`}
             >
               <div className="flex items-center">
                 {toast.type === "success" ? (
-                  <PiCheckCircleFill className="text-success-600 mr-3 h-5 w-5" />
+                  <PiCheckCircleFill className="text-gray-600 mr-3 h-5 w-5" />
                 ) : toast.type === "error" ? (
                   <PiXCircleFill className="text-error-600 mr-3 h-5 w-5" />
                 ) : (
@@ -85,11 +83,7 @@ export const ToastProvider: React.FC<{ children: ReactNode }> = ({
                 )}
                 <Typography
                   className={`font-sans text-sm ${
-                    toast.type === "success"
-                      ? "text-success-700"
-                      : toast.type === "error"
-                        ? "text-error-700"
-                        : "text-gray-700"
+                    toast.type === "error" ? "text-error-700" : "text-gray-700"
                   }`}
                 >
                   {toast.message}
