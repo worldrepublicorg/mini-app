@@ -1155,74 +1155,58 @@ export default function EarnPage() {
             </Typography>
             <Typography
               variant={{ variant: "subtitle", level: 1 }}
-              className="mx-auto mb-10 mt-4 text-center text-gray-500"
+              className="mx-auto mb-10 mt-4 flex items-center justify-center text-center text-gray-500"
             >
-              Get 1 WDD after every friend you invite
+              Get 1 WDD per friend who joins
+              <span className="group relative ml-1 inline-block">
+                <span className="hover:text-gray-600 cursor-help text-gray-400">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="h-4 w-4"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm11.378-3.917c-.89-.777-2.366-.777-3.255 0a.75.75 0 01-.988-1.129c1.454-1.272 3.776-1.272 5.23 0 1.513 1.324 1.513 3.518 0 4.842a3.75 3.75 0 01-.837.552c-.676.328-1.028.774-1.028 1.152v.75a.75.75 0 01-1.5 0v-.75c0-1.279 1.06-2.107 1.875-2.502.182-.088.351-.199.503-.331.83-.727.83-1.857 0-2.584zM12 18a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <div className="absolute -right-2 bottom-full mb-2 hidden w-[296px] transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
+                  <p className="text-left text-gray-700">
+                    You'll earn rewards after friends activate their Basic
+                    Income Plus.
+                  </p>
+                </div>
+              </span>
             </Typography>
             <>
               {/* Your Referral Link */}
-              <div className="relative mb-8 w-full">
-                <Typography
-                  as="h3"
-                  variant={{ variant: "subtitle", level: 2 }}
-                  className="mb-2"
-                >
-                  Your Referral Link
-                </Typography>
-
-                <div className="relative">
-                  <input
-                    type="text"
-                    readOnly
-                    value={
-                      username
-                        ? `https://worldcoin.org/mini-app?app_id=app_880aceacfcfbc104c4702143603579ab&path=%2F%3Fcode%3D${username}`
-                        : ""
+              <div className="relative mb-4 w-full">
+                <Button
+                  onClick={() => {
+                    if (username) {
+                      navigator.clipboard.writeText(
+                        `https://worldcoin.org/mini-app?app_id=app_880aceacfcfbc104c4702143603579ab&path=%2F%3Fcode%3D${username}`
+                      );
+                      showToast(
+                        "Referral link copied to clipboard!",
+                        "success"
+                      );
+                    } else {
+                      showToast(
+                        "Please connect your wallet to generate your referral link",
+                        "error"
+                      );
+                      // Try to load the username if it's not set yet
+                      loadCurrentUsername();
                     }
-                    placeholder="Your referral link will appear here"
-                    className="text-gray-600 w-full overflow-ellipsis rounded-xl border border-gray-200 px-4 py-3 font-sans text-sm"
-                    onClick={(e) => {
-                      if (!username) {
-                        showToast(
-                          "Please connect your wallet to generate your referral link",
-                          "info"
-                        );
-                        // Try to load the username if it's not set yet
-                        loadCurrentUsername();
-                      } else {
-                        // Auto-scroll to make input visible when clicked
-                        e.currentTarget.scrollIntoView({
-                          behavior: "smooth",
-                          block: "center",
-                        });
-                      }
-                    }}
-                  />
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (username) {
-                        navigator.clipboard.writeText(
-                          `https://worldcoin.org/mini-app?app_id=app_880aceacfcfbc104c4702143603579ab&path=%2F%3Fcode%3D${username}`
-                        );
-                        showToast(
-                          "Referral link copied to clipboard!",
-                          "success"
-                        );
-                      } else {
-                        showToast(
-                          "Please connect your wallet to generate your referral link",
-                          "error"
-                        );
-                        // Try to load the username if it's not set yet
-                        loadCurrentUsername();
-                      }
-                    }}
-                    className="absolute right-[5px] top-[5px] h-9 items-center rounded-xl bg-gray-100 px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900"
-                  >
-                    Copy
-                  </button>
-                </div>
+                  }}
+                  fullWidth
+                >
+                  Copy Referral Link
+                </Button>
               </div>
 
               {/* Referral Status */}
@@ -1237,90 +1221,114 @@ export default function EarnPage() {
                 </div>
               )}
 
-              {/* Send Rewards Section */}
-              <div className="w-full">
-                <Typography
-                  as="h3"
-                  variant={{ variant: "subtitle", level: 2 }}
-                  className="mb-2"
-                >
-                  Send Reward
-                </Typography>
-
-                {!lookupResult ? (
-                  <>
-                    <input
-                      type="text"
-                      placeholder="Enter username (e.g. username.0000)"
-                      className="w-full rounded-xl border border-gray-200 px-4 py-3 font-sans text-base"
-                      value={recipientUsername}
-                      onChange={(e) => setRecipientUsername(e.target.value)}
-                      onKeyPress={(e) => e.key === "Enter" && lookupUsername()}
-                      onFocus={(e) => {
-                        // Ensure this input is visible when focused
-                        setTimeout(() => {
-                          e.target.scrollIntoView({
-                            behavior: "smooth",
-                            block: "center",
-                          });
-                        }, 300);
-                      }}
-                    />
-
-                    {lookupError && (
-                      <div className="mt-4 rounded-xl border border-error-300 bg-error-100 p-4 text-error-700">
-                        {lookupError}
-                      </div>
-                    )}
-
-                    <Button
-                      onClick={lookupUsername}
-                      isLoading={isLookingUp}
-                      fullWidth
-                      className="mt-4"
-                    >
-                      Lookup User
-                    </Button>
-                  </>
-                ) : (
-                  <div className="space-y-4">
-                    <div className="rounded-xl border border-gray-200 bg-gray-50 p-4 text-center">
-                      <Typography
-                        variant={{ variant: "body", level: 3 }}
-                        className="mb-1 text-gray-500"
-                      >
-                        Sending reward to:
-                      </Typography>
-                      <Typography
-                        variant={{ variant: "subtitle", level: 2 }}
-                        className="text-gray-700"
-                      >
-                        {lookupResult.username}
-                      </Typography>
+              {/* Send Rewards Section - Now in a Drawer */}
+              <Drawer>
+                <DrawerTrigger asChild>
+                  <Button variant="secondary" fullWidth>
+                    Joined Before Referral Program?
+                  </Button>
+                </DrawerTrigger>
+                <DrawerContent>
+                  <div className="flex flex-col items-center p-6 pt-10">
+                    <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+                      <PiUserPlusFill className="h-10 w-10 text-gray-400" />
                     </div>
-
-                    {rewardStatus && (
-                      <div
-                        className={`mt-3 rounded-xl border p-3 ${
-                          rewardStatus.success
-                            ? "border-success-300 bg-success-100 text-success-700"
-                            : "border-error-300 bg-error-100 text-error-700"
-                        }`}
-                      >
-                        {rewardStatus.message}
-                      </div>
-                    )}
-
-                    <Button
-                      onClick={() => sendReward(lookupResult.address)}
-                      isLoading={isSendingReward}
-                      fullWidth
+                    <Typography
+                      as="h2"
+                      variant={{ variant: "heading", level: 1 }}
                     >
-                      Send Reward
-                    </Button>
+                      Reward a Referrer
+                    </Typography>
+                    <Typography
+                      variant={{ variant: "subtitle", level: 1 }}
+                      className="mx-auto mb-10 mt-4 text-center text-gray-500"
+                    >
+                      Send 1 WDD to the person who told you about World Republic
+                    </Typography>
+
+                    <div className="w-full">
+                      {!lookupResult ? (
+                        <>
+                          <input
+                            type="text"
+                            placeholder="Enter username (e.g. username.0000)"
+                            className="w-full rounded-xl border border-gray-200 px-4 py-3 font-sans text-base"
+                            value={recipientUsername}
+                            onChange={(e) =>
+                              setRecipientUsername(e.target.value)
+                            }
+                            onKeyPress={(e) =>
+                              e.key === "Enter" && lookupUsername()
+                            }
+                            onFocus={(e) => {
+                              // Ensure this input is visible when focused
+                              setTimeout(() => {
+                                e.target.scrollIntoView({
+                                  behavior: "smooth",
+                                  block: "center",
+                                });
+                              }, 300);
+                            }}
+                          />
+
+                          {lookupError && (
+                            <div className="mt-4 rounded-xl border border-error-300 bg-error-100 p-4 text-error-700">
+                              {lookupError}
+                            </div>
+                          )}
+
+                          <Button
+                            onClick={lookupUsername}
+                            isLoading={isLookingUp}
+                            variant="secondary"
+                            fullWidth
+                            className="mt-4"
+                          >
+                            Lookup User
+                          </Button>
+                        </>
+                      ) : (
+                        <div className="space-y-4">
+                          <div className="rounded-xl border border-gray-200 bg-gray-50 p-4 text-center">
+                            <Typography
+                              variant={{ variant: "body", level: 3 }}
+                              className="mb-1 text-gray-500"
+                            >
+                              Sending reward to:
+                            </Typography>
+                            <Typography
+                              variant={{ variant: "subtitle", level: 2 }}
+                              className="text-gray-700"
+                            >
+                              {lookupResult.username}
+                            </Typography>
+                          </div>
+
+                          {rewardStatus && (
+                            <div
+                              className={`mt-3 rounded-xl border p-3 ${
+                                rewardStatus.success
+                                  ? "border-success-300 bg-success-100 text-success-700"
+                                  : "border-error-300 bg-error-100 text-error-700"
+                              }`}
+                            >
+                              {rewardStatus.message}
+                            </div>
+                          )}
+
+                          <Button
+                            onClick={() => sendReward(lookupResult.address)}
+                            isLoading={isSendingReward}
+                            fullWidth
+                          >
+                            Send Reward
+                          </Button>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                )}
-              </div>
+                </DrawerContent>
+              </Drawer>
             </>
           </div>
         );
