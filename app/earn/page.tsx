@@ -17,7 +17,7 @@ import { WalletAuth } from "@/components/WalletAuth";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { viemClient } from "@/lib/viemClient";
 import { parseAbi } from "viem";
-import { MiniKit } from "@worldcoin/minikit-js";
+import { MiniKit, getIsUserVerified } from "@worldcoin/minikit-js";
 import { TabSwiper } from "@/components/TabSwiper";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { Button } from "@/components/ui/Button";
@@ -850,8 +850,23 @@ export default function EarnPage() {
     }
   }, [walletAddress, username, loadCurrentUsernameCallback]);
 
+  // Add this useEffect to check for stored referral information on component mount
+  useEffect(() => {
+    const storedReferrer = localStorage.getItem("referredBy");
+    if (storedReferrer) {
+      console.log(
+        "[Referral] App loaded with stored referrer:",
+        storedReferrer
+      );
+    } else {
+      console.log("[Referral] No stored referrer found on app load");
+    }
+  }, []);
+
   // Handle incoming referral codes
   useEffect(() => {
+    console.log("[Referral] Checking for referral code in URL");
+
     // Parse URL for referral code
     const parseReferralCode = () => {
       if (typeof window !== "undefined") {
@@ -859,7 +874,10 @@ export default function EarnPage() {
         const code = urlParams.get("code");
 
         if (code && code.length > 0) {
+          console.log("====== INVITE LINK DETECTED ======");
+          console.log(`[Referral] Inviter username: ${code}`);
           console.log("[Referral] Found referral code in URL:", code);
+          console.log("==================================");
 
           // Only store the code if we haven't already been referred
           if (!localStorage.getItem("referredBy")) {
@@ -877,8 +895,14 @@ export default function EarnPage() {
                       console.log(
                         "[Referral] Successfully validated referrer username"
                       );
+                      console.log(
+                        `[Referral] VALID INVITE: User was invited by ${code}`
+                      );
                     } else if (response.status === 404) {
                       console.error("[Referral] Invalid referrer username");
+                      console.error(
+                        `[Referral] Username "${code}" not found in Worldcoin system`
+                      );
                       localStorage.removeItem("referredBy");
                     }
                   })
@@ -889,7 +913,10 @@ export default function EarnPage() {
                     );
                   });
               } catch (error) {
-                console.error("[Referral] Error validating referrer:", error);
+                console.error(
+                  "[Referral] Error validating referrer username:",
+                  error
+                );
               }
             }
           } else {
@@ -934,6 +961,64 @@ export default function EarnPage() {
       document.removeEventListener("focusin", handleInputFocus);
     };
   }, []);
+
+  // Add a state to track if user is verified
+  const [isAddressVerified, setIsAddressVerified] = useState<boolean>(false);
+
+  // Check if address is verified when wallet address changes
+  useEffect(() => {
+    let retryTimeout: NodeJS.Timeout;
+
+    const checkAddressVerification = async () => {
+      if (!walletAddress) {
+        setIsAddressVerified(false);
+        return;
+      }
+
+      try {
+        // Use the getIsUserVerified function from the Address Book
+        const isVerified = await getIsUserVerified(walletAddress);
+        console.log("[AddressVerification] User verified status:", isVerified);
+        setIsAddressVerified(isVerified);
+      } catch (error) {
+        console.error(
+          "[AddressVerification] Error checking verification:",
+          error
+        );
+        setIsAddressVerified(false);
+
+        // Retry after 1 second if there's an error
+        console.log("[AddressVerification] Retrying in 1 second...");
+        retryTimeout = setTimeout(checkAddressVerification, 1000);
+      }
+    };
+
+    checkAddressVerification();
+
+    // Clean up any pending timeouts when component unmounts
+    return () => {
+      if (retryTimeout) clearTimeout(retryTimeout);
+    };
+  }, [walletAddress]);
+
+  // Add a new state to track if the Invite tab has been visited
+  const [hasInviteBeenVisited, setHasInviteBeenVisited] = useState(false);
+
+  // Load the invite visited state from localStorage
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const inviteVisited = localStorage.getItem("inviteTabVisited") === "true";
+      setHasInviteBeenVisited(inviteVisited);
+    }
+  }, []);
+
+  // Update localStorage when the Invite tab is active
+  useEffect(() => {
+    if (activeTab === "Invite" && typeof window !== "undefined") {
+      localStorage.setItem("inviteTabVisited", "true");
+      setHasInviteBeenVisited(true);
+    }
+  }, [activeTab]);
 
   const renderContent = () => {
     switch (activeTab) {
@@ -1150,14 +1235,14 @@ export default function EarnPage() {
             />
           </div>
         );
-      case "Referrals":
+      case "Invite":
         return (
           <div className="flex w-full flex-col items-center py-6">
             <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
               <PiUserPlusFill className="h-10 w-10 text-gray-400" />
             </div>
             <Typography as="h2" variant={{ variant: "heading", level: 1 }}>
-              Referral Test
+              Test Invite
             </Typography>
             <Typography
               variant={{ variant: "subtitle", level: 1 }}
@@ -1179,9 +1264,9 @@ export default function EarnPage() {
                     />
                   </svg>
                 </span>
-                <div className="absolute -right-2 bottom-full mb-2 hidden w-[296px] transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
+                <div className="absolute bottom-full right-0 mb-2 hidden w-[296px] transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
                   <p className="text-left text-gray-700">
-                    You&apos;ll earn rewards after friends activate their Basic
+                    You&apos;ll earn rewards when friends activate their Basic
                     Income Plus.
                   </p>
                 </div>
@@ -1189,7 +1274,7 @@ export default function EarnPage() {
             </Typography>
             <>
               {/* Your Referral Link */}
-              <div className="relative mb-4 w-full">
+              <div className="relative w-full">
                 <Button
                   onClick={() => {
                     if (username) {
@@ -1222,119 +1307,127 @@ export default function EarnPage() {
                     variant={{ variant: "subtitle", level: 3 }}
                     className="text-center text-success-700"
                   >
-                    You were invited by: {localStorage.getItem("referredBy")}
+                    {(() => {
+                      const referrer = localStorage.getItem("referredBy");
+                      console.log(
+                        `[Referral] Displaying referrer information: ${referrer}`
+                      );
+                      return `You were invited by: ${referrer}`;
+                    })()}
                   </Typography>
                 </div>
               )}
 
-              {/* Send Rewards Section - Now in a Drawer */}
-              <Drawer>
-                <DrawerTrigger asChild>
-                  <Button variant="secondary" fullWidth>
-                    Joined Before the Referral Program?
-                  </Button>
-                </DrawerTrigger>
-                <DrawerContent>
-                  <div className="flex flex-col items-center p-6 pt-10">
-                    <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
-                      <PiUserPlusFill className="h-10 w-10 text-gray-400" />
-                    </div>
-                    <Typography
-                      as="h2"
-                      variant={{ variant: "heading", level: 1 }}
-                    >
-                      Reward a Referrer
-                    </Typography>
-                    <Typography
-                      variant={{ variant: "subtitle", level: 1 }}
-                      className="mx-auto mb-10 mt-4 text-center text-gray-500"
-                    >
-                      Send 1 WDD to the person who told you about World Republic
-                    </Typography>
+              {/* Only show this button if the user's address is verified */}
+              {isAddressVerified && (
+                <Drawer>
+                  <DrawerTrigger asChild>
+                    <Button variant="secondary" fullWidth>
+                      Joined Before the Referral Program?
+                    </Button>
+                  </DrawerTrigger>
+                  <DrawerContent>
+                    <div className="flex flex-col items-center p-6 pt-10">
+                      <div className="mb-10 mt-4 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+                        <PiUserPlusFill className="h-10 w-10 text-gray-400" />
+                      </div>
+                      <Typography
+                        as="h2"
+                        variant={{ variant: "heading", level: 1 }}
+                      >
+                        Reward a Referrer
+                      </Typography>
+                      <Typography
+                        variant={{ variant: "subtitle", level: 1 }}
+                        className="mx-auto mb-10 mt-4 text-center text-gray-500"
+                      >
+                        Trigger a free 1 WDD reward for your referrer
+                      </Typography>
 
-                    <div className="w-full">
-                      {!lookupResult ? (
-                        <>
-                          <input
-                            type="text"
-                            placeholder="Enter username (e.g. username.0000)"
-                            className="w-full rounded-xl border border-gray-200 px-4 py-3 font-sans text-base"
-                            value={recipientUsername}
-                            onChange={(e) =>
-                              setRecipientUsername(e.target.value)
-                            }
-                            onKeyPress={(e) =>
-                              e.key === "Enter" && lookupUsername()
-                            }
-                            onFocus={(e) => {
-                              // Ensure this input is visible when focused
-                              setTimeout(() => {
-                                e.target.scrollIntoView({
-                                  behavior: "smooth",
-                                  block: "center",
-                                });
-                              }, 300);
-                            }}
-                          />
+                      <div className="w-full">
+                        {!lookupResult ? (
+                          <>
+                            <input
+                              type="text"
+                              placeholder="Enter username (e.g. username.0000)"
+                              className="w-full rounded-xl border border-gray-200 px-4 py-3 font-sans text-base"
+                              value={recipientUsername}
+                              onChange={(e) =>
+                                setRecipientUsername(e.target.value)
+                              }
+                              onKeyPress={(e) =>
+                                e.key === "Enter" && lookupUsername()
+                              }
+                              onFocus={(e) => {
+                                // Ensure this input is visible when focused
+                                setTimeout(() => {
+                                  e.target.scrollIntoView({
+                                    behavior: "smooth",
+                                    block: "center",
+                                  });
+                                }, 300);
+                              }}
+                            />
 
-                          {lookupError && (
-                            <div className="mt-4 rounded-xl border border-error-300 bg-error-100 p-4 text-error-700">
-                              {lookupError}
+                            {lookupError && (
+                              <div className="mt-4 rounded-xl border border-error-300 bg-error-100 p-4 text-error-700">
+                                {lookupError}
+                              </div>
+                            )}
+
+                            <Button
+                              onClick={lookupUsername}
+                              isLoading={isLookingUp}
+                              variant="secondary"
+                              fullWidth
+                              className="mt-4"
+                            >
+                              Lookup User
+                            </Button>
+                          </>
+                        ) : (
+                          <div className="space-y-4">
+                            <div className="rounded-xl border border-gray-200 bg-gray-50 p-4 text-center">
+                              <Typography
+                                variant={{ variant: "body", level: 3 }}
+                                className="mb-1 text-gray-500"
+                              >
+                                Sending reward to:
+                              </Typography>
+                              <Typography
+                                variant={{ variant: "subtitle", level: 2 }}
+                                className="text-gray-700"
+                              >
+                                {lookupResult.username}
+                              </Typography>
                             </div>
-                          )}
 
-                          <Button
-                            onClick={lookupUsername}
-                            isLoading={isLookingUp}
-                            variant="secondary"
-                            fullWidth
-                            className="mt-4"
-                          >
-                            Lookup User
-                          </Button>
-                        </>
-                      ) : (
-                        <div className="space-y-4">
-                          <div className="rounded-xl border border-gray-200 bg-gray-50 p-4 text-center">
-                            <Typography
-                              variant={{ variant: "body", level: 3 }}
-                              className="mb-1 text-gray-500"
+                            {rewardStatus && (
+                              <div
+                                className={`mt-3 rounded-xl border p-3 ${
+                                  rewardStatus.success
+                                    ? "border-success-300 bg-success-100 text-success-700"
+                                    : "border-error-300 bg-error-100 text-error-700"
+                                }`}
+                              >
+                                {rewardStatus.message}
+                              </div>
+                            )}
+
+                            <Button
+                              onClick={() => sendReward(lookupResult.address)}
+                              isLoading={isSendingReward}
+                              fullWidth
                             >
-                              Sending reward to:
-                            </Typography>
-                            <Typography
-                              variant={{ variant: "subtitle", level: 2 }}
-                              className="text-gray-700"
-                            >
-                              {lookupResult.username}
-                            </Typography>
+                              Send Reward
+                            </Button>
                           </div>
-
-                          {rewardStatus && (
-                            <div
-                              className={`mt-3 rounded-xl border p-3 ${
-                                rewardStatus.success
-                                  ? "border-success-300 bg-success-100 text-success-700"
-                                  : "border-error-300 bg-error-100 text-error-700"
-                              }`}
-                            >
-                              {rewardStatus.message}
-                            </div>
-                          )}
-
-                          <Button
-                            onClick={() => sendReward(lookupResult.address)}
-                            isLoading={isSendingReward}
-                            fullWidth
-                          >
-                            Send Reward
-                          </Button>
-                        </div>
-                      )}
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </DrawerContent>
-              </Drawer>
+                  </DrawerContent>
+                </Drawer>
+              )}
             </>
           </div>
         );
@@ -1371,9 +1464,10 @@ export default function EarnPage() {
         </div>
 
         <TabSwiper
-          tabs={["Basic income", "Savings", "Contribute", "Referrals"]}
+          tabs={["Basic income", "Savings", "Invite", "Contribute"]}
           activeTab={activeTab}
           onTabChange={handleTabChange}
+          tabIndicators={{ Invite: !hasInviteBeenVisited }}
         />
       </div>
 
