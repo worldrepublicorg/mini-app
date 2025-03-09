@@ -23,13 +23,13 @@ const faqs: FAQItem[] = [
     id: "basic-income",
     question: "What is Basic Income?",
     answer:
-      "Our Basic Income is a daily subsidy of 3 WDD (world drachma) that is provided to all citizens of the World Republic. It accumulates in real-time and can be claimed at any moment through the app.",
+      "Our Basic Income is a daily subsidy of 2 WDD (world drachma) that is provided to all citizens of the World Republic. It accumulates in real-time and can be claimed at any moment through the app.",
   },
   {
     id: "basic-income-plus",
     question: "How do I activate Basic Income Plus?",
     answer:
-      "Basic Income Plus provides an additional 8 WDD per day and is available exclusively to Orb-verified users. After activating Basic Income, you'll see an option to activate Basic Income Plus on the Earn page.",
+      "Basic Income Plus provides an additional 9 WDD per day and is available exclusively to Orb-verified users. After activating Basic Income, you'll see an option to activate Basic Income Plus on the Earn page.",
   },
   {
     id: "savings",
