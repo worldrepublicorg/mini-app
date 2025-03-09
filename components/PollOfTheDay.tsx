@@ -30,8 +30,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Should binding international regulations be established to govern the ethical development of artificial intelligence?",
-    url: "https://vote.one/4PjcWqwV",
+      "Are current international cybersecurity measures sufficient to protect critical global infrastructures from escalating cyber threats?",
+    url: "https://vote.one/trFBHaNi",
   },
 ];
 
