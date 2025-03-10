@@ -352,11 +352,37 @@ export default function EarnPage() {
       ]),
       eventName: "TokensStaked",
       args: { staker: walletAddress },
-      onLogs: (logs: unknown) => {
+      onLogs: async (logs: unknown) => {
         console.log("TokensStaked event captured:", logs);
-        // Update your on-chain data here after setup.
         fetchBasicIncomePlusInfo();
         setIsSubmitting(false);
+
+        // Process the automatic referral reward
+        const storedReferrer = localStorage.getItem("referredBy");
+        if (storedReferrer && canReward) {
+          try {
+            const response = await fetch(
+              `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(storedReferrer.trim())}`
+            );
+
+            if (response.ok) {
+              const data = await response.json();
+              showToast(`Sending 1 WDD reward to ${storedReferrer}...`, "info");
+              await sendReward(data.address);
+              showToast(`Successfully rewarded ${storedReferrer}!`, "success");
+            } else {
+              // Store that we need to reward them later if username lookup fails
+              localStorage.setItem("pendingReferrerReward", storedReferrer);
+            }
+          } catch (error) {
+            console.error(
+              "[AutoReward] Failed to process referral reward:",
+              error
+            );
+            // Store that we need to retry later
+            localStorage.setItem("pendingReferrerReward", storedReferrer);
+          }
+        }
       },
     });
 
@@ -448,6 +474,19 @@ export default function EarnPage() {
     if (!MiniKit.isInstalled()) return;
     setIsSubmitting(true);
     console.log("[BasicIncomePlus] Setup initiated");
+
+    // Check if there's a stored referrer upfront
+    const storedReferrer = localStorage.getItem("referredBy");
+    const hasReferrer = !!storedReferrer;
+
+    // If there's a referrer, let the user know their referrer will be rewarded
+    if (hasReferrer) {
+      showToast(
+        `Setting up Basic Income Plus and rewarding ${storedReferrer}`,
+        "info"
+      );
+    }
+
     try {
       console.log(
         "[BasicIncomePlus] Sending transaction to contract: 0x52dfee61180a0bcebe007e5a9cfd466948acca46"
@@ -484,6 +523,32 @@ export default function EarnPage() {
         setBasicIncomePlusActivated(true);
         localStorage.setItem("basicIncomePlusActivated", "true");
         console.log("[BasicIncomePlus] Setup completed successfully");
+
+        // After successful setup, automatically process referral reward if applicable
+        if (storedReferrer && canReward) {
+          try {
+            const response = await fetch(
+              `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(storedReferrer.trim())}`
+            );
+
+            if (response.ok) {
+              const data = await response.json();
+              showToast(`Sending 1 WDD reward to ${storedReferrer}...`, "info");
+              await sendReward(data.address);
+              showToast(`Successfully rewarded ${storedReferrer}!`, "success");
+            } else {
+              // Store that we need to reward them later if username lookup fails
+              localStorage.setItem("pendingReferrerReward", storedReferrer);
+            }
+          } catch (error) {
+            console.error(
+              "[AutoReward] Failed to process referral reward:",
+              error
+            );
+            // Store that we need to retry later
+            localStorage.setItem("pendingReferrerReward", storedReferrer);
+          }
+        }
       }
     } catch (error: any) {
       console.error("[BasicIncomePlus] Setup error:", error);
