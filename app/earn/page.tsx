@@ -1456,7 +1456,7 @@ export default function EarnPage() {
 
               {/* Referral Status */}
               {localStorage.getItem("referredBy") && (
-                <div className="border-success-200 bg-success-50 mb-6 w-full rounded-xl border p-4">
+                <div className="border-success-200 bg-success-50 mt-4 w-full rounded-xl border p-4">
                   <Typography
                     variant={{ variant: "subtitle", level: 3 }}
                     className="text-center text-success-700"
