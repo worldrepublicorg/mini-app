@@ -90,8 +90,8 @@ export default function EarnPage() {
     // Set loading to false once we have the data
     setIsClaimableLoading(false);
 
-    const rate = 4 / 86400; // Increment rate (tokens per second)
-    const ratePlus = 7 / 86400; // Increment rate (tokens per second)
+    const rate = 2 / 86400; // Increment rate (tokens per second)
+    const ratePlus = 9 / 86400; // Increment rate (tokens per second)
     const currentClaimable = Number(claimableAmount);
     const currentClaimablePlus = Number(claimableAmountPlus);
 
@@ -1262,7 +1262,7 @@ export default function EarnPage() {
                                 variant={{ variant: "body", level: 3 }}
                                 className="text-gray-600 mt-[3px]"
                               >
-                                An additional 7 WDD per day
+                                An additional 9 WDD per day
                               </Typography>
                             </li>
                             <li className="flex items-start">

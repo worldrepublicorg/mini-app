@@ -10,8 +10,8 @@ interface Poll {
 const polls: Poll[] = [
   {
     description:
-      "Are you confident in the world’s ability to prevent and manage emerging infectious diseases?",
-    url: "https://vote.one/tbCLGUgE",
+      "Do you believe that existing global measures effectively reduce the risk of nuclear proliferation?",
+    url: "https://vote.one/TKV1ow4O",
   },
   {
     description:
@@ -30,8 +30,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Should binding international regulations be established to govern the ethical development of artificial intelligence?",
-    url: "https://vote.one/4PjcWqwV",
+      "Are current international cybersecurity measures sufficient to protect critical global infrastructures from escalating cyber threats?",
+    url: "https://vote.one/trFBHaNi",
   },
 ];
 
