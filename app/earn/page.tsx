@@ -33,9 +33,13 @@ export default function EarnPage() {
     basicIncomePlusActivated,
     claimableAmount,
     claimableAmountPlus,
+    canReward,
+    rewardCount,
     fetchBalance,
     fetchBasicIncomeInfo,
     fetchBasicIncomePlusInfo,
+    fetchCanReward,
+    fetchRewardCount,
     setBasicIncomeActivated,
     setBasicIncomePlusActivated,
     username,
@@ -751,7 +755,7 @@ export default function EarnPage() {
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
-            address: "0x0Fb49091889074c4C1f64652AC63beCb14B8AEB6",
+            address: "0xC849c4c5d0aAb2de33cF34DDb38D9fdA72F5b0cb",
             abi: parseAbi(["function rewardUser(address recipient) external"]),
             functionName: "rewardUser",
             args: [recipientAddress],
@@ -763,42 +767,26 @@ export default function EarnPage() {
 
       if (finalPayload.status === "error") {
         console.error("[Reward] Error sending transaction", finalPayload);
+
+        // Keep error handling simple to avoid TypeScript errors
         setRewardStatus({
           success: false,
           message: "Transaction failed. Please try again.",
         });
       } else {
-        setTransactionId(finalPayload.transaction_id);
-
-        // If we successfully rewarded our referrer, mark it as completed
-        if (isStoredReferrer) {
-          localStorage.setItem("referredByRewarded", "true");
-        }
-
         setRewardStatus({
           success: true,
-          message: `Reward successfully sent to ${recipientUsername}!${isStoredReferrer ? " Thank you for rewarding your referrer!" : ""}`,
+          message: `Successfully sent reward to ${recipientUsername}!`,
         });
+
+        // After successful reward transaction, update the canReward status
+        fetchCanReward();
       }
     } catch (error) {
-      console.error("[Reward] Send error:", error);
-      let errorMessage = "Failed to send reward. Please try again.";
-
-      if (error instanceof Error) {
-        if (error.message.includes("already rewarded")) {
-          errorMessage = "You have already rewarded someone.";
-        } else if (error.message.includes("Sender not verified")) {
-          errorMessage = "Your account must be verified to send rewards.";
-        } else if (error.message.includes("Insufficient")) {
-          errorMessage = "The reward contract has insufficient funds.";
-        } else {
-          errorMessage = `Error: ${error.message}`;
-        }
-      }
-
+      console.error("[Reward] Error in reward transaction:", error);
       setRewardStatus({
         success: false,
-        message: errorMessage,
+        message: "Failed to send reward. Please try again.",
       });
     } finally {
       setIsSendingReward(false);
@@ -863,12 +851,11 @@ export default function EarnPage() {
     }
   }, []);
 
-  // Handle incoming referral codes - Add this BEFORE the useEffect
-  // This will run as soon as the module loads
+  // Add immediate check for referral code when the module loads
   if (typeof window !== "undefined") {
     console.log("====== INITIAL URL CHECK ======");
     console.log("[Referral] Initial URL:", window.location.href);
-    
+
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get("code");
     if (code) {
@@ -888,21 +875,24 @@ export default function EarnPage() {
     // Parse URL for referral code
     const parseReferralCode = () => {
       if (typeof window !== "undefined") {
-        // First check sessionStorage for a pending code
-        const pendingCode = sessionStorage.getItem("pendingReferralCode");
-        
-        // Get the code from URL parameters
+        // First check URL parameters
         const urlParams = new URLSearchParams(window.location.search);
         const urlCode = urlParams.get("code");
-        
+
+        // Then check sessionStorage for a pending code that might have been saved
+        // before any redirects happened
+        const pendingCode = sessionStorage.getItem("pendingReferralCode");
+
         // Use whichever code is available (URL takes precedence)
         const code = urlCode || pendingCode;
-        
+
         if (code && code.length > 0) {
           console.log("====== INVITE LINK DETECTED ======");
           console.log(`[Referral] Inviter username: ${code}`);
-          console.log("[Referral] Found referral code: ${code}");
-          console.log("[Referral] Source: ${urlCode ? 'URL' : 'sessionStorage'}");
+          console.log(`[Referral] Found referral code: ${code}`);
+          console.log(
+            `[Referral] Source: ${urlCode ? "URL" : "sessionStorage"}`
+          );
           console.log("==================================");
 
           // Only store the code if we haven't already been referred
@@ -918,7 +908,10 @@ export default function EarnPage() {
                 `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(code.trim())}`
               )
                 .then((response) => {
-                  console.log("[Referral] Validation response status:", response.status);
+                  console.log(
+                    "[Referral] Validation response status:",
+                    response.status
+                  );
                   if (response.ok) {
                     console.log(
                       "[Referral] Successfully validated referrer username"
@@ -926,7 +919,7 @@ export default function EarnPage() {
                     console.log(
                       `[Referral] VALID INVITE: User was invited by ${code}`
                     );
-                    
+
                     // Show a toast notification about the successful referral
                     if (showToast) {
                       showToast(`You were invited by ${code}!`, "success");
@@ -958,13 +951,15 @@ export default function EarnPage() {
             );
           }
         } else {
-          console.log("[Referral] No referral code found in URL or sessionStorage");
+          console.log(
+            "[Referral] No referral code found in URL or sessionStorage"
+          );
         }
       }
     };
 
     parseReferralCode();
-    
+
     // Run this check again after a short delay to catch any late navigation
     const delayedCheck = setTimeout(() => {
       console.log("[Referral] Running delayed check for referral code");
@@ -973,7 +968,7 @@ export default function EarnPage() {
     }, 2000);
 
     return () => clearTimeout(delayedCheck);
-  }, [walletAddress, showToast]); // Run when wallet address changes
+  }, [walletAddress, showToast]);
 
   // Add this useEffect near your other useEffects
   useEffect(() => {
@@ -1062,6 +1057,14 @@ export default function EarnPage() {
       setHasInviteBeenVisited(true);
     }
   }, [activeTab]);
+
+  // Add this to run fetchRewardCount when the component mounts or wallet changes
+  useEffect(() => {
+    if (walletAddress) {
+      fetchCanReward();
+      fetchRewardCount();
+    }
+  }, [walletAddress, fetchCanReward, fetchRewardCount]);
 
   const renderContent = () => {
     switch (activeTab) {
@@ -1289,7 +1292,7 @@ export default function EarnPage() {
             </Typography>
             <Typography
               variant={{ variant: "subtitle", level: 1 }}
-              className="mx-auto mb-10 mt-4 flex items-center justify-center text-center text-gray-500"
+              className="mx-auto mb-4 mt-4 flex items-center justify-center text-center text-gray-500"
             >
               Get 1 WDD per friend who joins
               <span className="group relative ml-1 inline-block">
@@ -1315,6 +1318,49 @@ export default function EarnPage() {
                 </div>
               </span>
             </Typography>
+
+            {/* Show the reward count statistics */}
+            {/* {walletAddress && ( */}
+            <div className="mb-10 w-full rounded-xl border border-gray-200 p-4">
+              <Typography
+                variant={{ variant: "subtitle", level: 2 }}
+                className="mb-4 text-center text-gray-900"
+              >
+                Your Referral Stats
+              </Typography>
+              <div className="flex justify-around">
+                <div className="text-center">
+                  <Typography
+                    variant={{ variant: "heading", level: 3 }}
+                    className="text-gray-900"
+                  >
+                    {rewardCount}
+                  </Typography>
+                  <Typography
+                    variant={{ variant: "body", level: 3 }}
+                    className="text-gray-500"
+                  >
+                    Invites accepted
+                  </Typography>
+                </div>
+                <div className="text-center">
+                  <Typography
+                    variant={{ variant: "heading", level: 3 }}
+                    className="text-gray-900"
+                  >
+                    {rewardCount > 0 ? `${rewardCount * 1} WDD` : "0 WDD"}
+                  </Typography>
+                  <Typography
+                    variant={{ variant: "body", level: 3 }}
+                    className="text-gray-500"
+                  >
+                    Total Rewards
+                  </Typography>
+                </div>
+              </div>
+            </div>
+            {/* )} */}
+
             <>
               {/* Your Referral Link */}
               <div className="relative w-full">
@@ -1361,12 +1407,12 @@ export default function EarnPage() {
                 </div>
               )}
 
-              {/* Only show this button if the user's address is verified */}
-              {isAddressVerified && (
+              {/* Only show this button if the user's address is verified AND canReward is true */}
+              {isAddressVerified && canReward && (
                 <Drawer>
                   <DrawerTrigger asChild>
-                    <Button variant="secondary" fullWidth>
-                      Joined Before the Referral Program?
+                    <Button variant="secondary" fullWidth className="mt-4">
+                      Reward a Past Referrer
                     </Button>
                   </DrawerTrigger>
                   <DrawerContent>
