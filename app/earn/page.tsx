@@ -863,61 +863,93 @@ export default function EarnPage() {
     }
   }, []);
 
+  // Handle incoming referral codes - Add this BEFORE the useEffect
+  // This will run as soon as the module loads
+  if (typeof window !== "undefined") {
+    console.log("====== INITIAL URL CHECK ======");
+    console.log("[Referral] Initial URL:", window.location.href);
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get("code");
+    if (code) {
+      console.log("[Referral] FOUND INITIAL CODE:", code);
+      console.log("[Referral] Immediately saving code to sessionStorage");
+      // Store in sessionStorage immediately as a backup
+      sessionStorage.setItem("pendingReferralCode", code);
+    }
+    console.log("==============================");
+  }
+
   // Handle incoming referral codes
   useEffect(() => {
     console.log("[Referral] Checking for referral code in URL");
+    console.log("[Referral] Current URL:", window.location.href);
 
     // Parse URL for referral code
     const parseReferralCode = () => {
       if (typeof window !== "undefined") {
+        // First check sessionStorage for a pending code
+        const pendingCode = sessionStorage.getItem("pendingReferralCode");
+        
+        // Get the code from URL parameters
         const urlParams = new URLSearchParams(window.location.search);
-        const code = urlParams.get("code");
-
+        const urlCode = urlParams.get("code");
+        
+        // Use whichever code is available (URL takes precedence)
+        const code = urlCode || pendingCode;
+        
         if (code && code.length > 0) {
           console.log("====== INVITE LINK DETECTED ======");
           console.log(`[Referral] Inviter username: ${code}`);
-          console.log("[Referral] Found referral code in URL:", code);
+          console.log("[Referral] Found referral code: ${code}");
+          console.log("[Referral] Source: ${urlCode ? 'URL' : 'sessionStorage'}");
           console.log("==================================");
 
           // Only store the code if we haven't already been referred
           if (!localStorage.getItem("referredBy")) {
             console.log("[Referral] Storing referral code");
             localStorage.setItem("referredBy", code);
+            // Clear the pending code from sessionStorage
+            sessionStorage.removeItem("pendingReferralCode");
 
             // Validate the referrer username
-            if (walletAddress) {
-              try {
-                fetch(
-                  `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(code.trim())}`
-                )
-                  .then((response) => {
-                    if (response.ok) {
-                      console.log(
-                        "[Referral] Successfully validated referrer username"
-                      );
-                      console.log(
-                        `[Referral] VALID INVITE: User was invited by ${code}`
-                      );
-                    } else if (response.status === 404) {
-                      console.error("[Referral] Invalid referrer username");
-                      console.error(
-                        `[Referral] Username "${code}" not found in Worldcoin system`
-                      );
-                      localStorage.removeItem("referredBy");
-                    }
-                  })
-                  .catch((error) => {
-                    console.error(
-                      "[Referral] Error validating referrer username:",
-                      error
+            try {
+              fetch(
+                `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(code.trim())}`
+              )
+                .then((response) => {
+                  console.log("[Referral] Validation response status:", response.status);
+                  if (response.ok) {
+                    console.log(
+                      "[Referral] Successfully validated referrer username"
                     );
-                  });
-              } catch (error) {
-                console.error(
-                  "[Referral] Error validating referrer username:",
-                  error
-                );
-              }
+                    console.log(
+                      `[Referral] VALID INVITE: User was invited by ${code}`
+                    );
+                    
+                    // Show a toast notification about the successful referral
+                    if (showToast) {
+                      showToast(`You were invited by ${code}!`, "success");
+                    }
+                  } else if (response.status === 404) {
+                    console.error("[Referral] Invalid referrer username");
+                    console.error(
+                      `[Referral] Username "${code}" not found in Worldcoin system`
+                    );
+                    localStorage.removeItem("referredBy");
+                  }
+                })
+                .catch((error) => {
+                  console.error(
+                    "[Referral] Error validating referrer username:",
+                    error
+                  );
+                });
+            } catch (error) {
+              console.error(
+                "[Referral] Error validating referrer username:",
+                error
+              );
             }
           } else {
             console.log(
@@ -925,12 +957,23 @@ export default function EarnPage() {
               localStorage.getItem("referredBy")
             );
           }
+        } else {
+          console.log("[Referral] No referral code found in URL or sessionStorage");
         }
       }
     };
 
     parseReferralCode();
-  }, [walletAddress]); // Run when wallet address changes or becomes available
+    
+    // Run this check again after a short delay to catch any late navigation
+    const delayedCheck = setTimeout(() => {
+      console.log("[Referral] Running delayed check for referral code");
+      console.log("[Referral] Delayed check URL:", window.location.href);
+      parseReferralCode();
+    }, 2000);
+
+    return () => clearTimeout(delayedCheck);
+  }, [walletAddress, showToast]); // Run when wallet address changes
 
   // Add this useEffect near your other useEffects
   useEffect(() => {
