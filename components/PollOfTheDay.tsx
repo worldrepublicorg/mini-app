@@ -15,8 +15,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Do you think the growing trend of imposing tariffs among major economies will significantly disrupt global trade stability?",
-    url: "https://vote.one/HitgAQBM",
+      "Do you think that creating universal digital privacy standards is crucial for protecting individual rights in an increasingly interconnected world?",
+    url: "https://vote.one/adRv9hK6",
   },
   {
     description:
