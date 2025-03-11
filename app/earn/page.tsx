@@ -1554,7 +1554,7 @@ export default function EarnPage() {
                           </>
                         ) : (
                           <div className="space-y-4">
-                            <div className="rounded-xl border border-gray-200 bg-gray-50 p-4 text-center">
+                            <div className="mt-4 rounded-xl border border-gray-200 bg-gray-50 p-4 text-center">
                               <Typography
                                 variant={{ variant: "body", level: 3 }}
                                 className="mb-1 text-gray-500"
