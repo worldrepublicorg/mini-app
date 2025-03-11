@@ -17,7 +17,7 @@ const faqs: FAQItem[] = [
     id: "app-purpose",
     question: "What is the World Republic?",
     answer:
-      "The World Republic is an open, democratic organization dedicated to solving humanity's most pressing global challenges. It provides infrastructure and tools for democratic global decision-making on issues that transcend national borders, like AI risks, climate change, or biosecurity. This mini app serves as the World Republic's main online platform, using its digital currency (WDD) to support initiatives and enable democratic participation in global governance.",
+      "The World Republic is an open, democratic organization dedicated to solving humanity's most pressing global challenges. It provides a framework for collective decision-making on issues that can only be effectively addressed at a global scale, like AI risks, climate change, or biosecurity.",
   },
   {
     id: "basic-income",
@@ -38,6 +38,12 @@ const faqs: FAQItem[] = [
       "The Savings Account allows you to deposit WDD tokens and earn a 69% annual interest. Through constant reinvestment of earned interest, users can achieve effective returns close to 100% annually, maximizing their WDD growth over time. Interest accumulates continuously and can be withdrawn or reinvested at any time.",
   },
   {
+    id: "referral-codes",
+    question: "How do referral codes work?",
+    answer:
+      "The referral program allows citizens to earn rewards by inviting others to join the World Republic. You earn 50 WDD for each friend who joins through your referral link and activates Basic Income Plus. If you joined through an invitation but haven't rewarded your referrer yet, you can do so using the 'Reward a Past Referrer' option in the same section.",
+  },
+  {
     id: "drachma-value",
     question: "Where does the drachma get its value?",
     answer:
@@ -48,12 +54,6 @@ const faqs: FAQItem[] = [
     question: "Who controls the biggest accounts?",
     answer:
       "The three largest accounts are the World Republic Treasury, the Basic Income Fund, and the Basic Income Plus Fund. Currently, these are controlled by the project's founder, but control will be transferred to the community after our constitution is ratified. Elections for the Constituent Assembly, which will oversee this process, will take place in Q2 2025.",
-  },
-  {
-    id: "referral-codes",
-    question: "When will referral codes be active?",
-    answer:
-      "Referral codes will likely be active this week, and no later than mid-March. Existing users will be able to retroactively reward those who invited them. Watch for the official announcement with complete details.",
   },
   {
     id: "vote-requirements",
