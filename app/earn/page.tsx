@@ -11,6 +11,7 @@ import {
   PiChartLineFill,
   PiTrendUpFill,
   PiUserCheckFill,
+  PiPencilSimpleFill,
 } from "react-icons/pi";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/Drawer";
 import { WalletAuth } from "@/components/WalletAuth";
@@ -1467,7 +1468,7 @@ export default function EarnPage() {
               </div>
 
               {/* Only show this button if the user's address is verified AND canReward is true */}
-              {isAddressVerified && canReward && (
+              {canReward && (
                 <Drawer>
                   <DrawerTrigger asChild>
                     <Button variant="secondary" fullWidth className="mt-4">
@@ -1561,12 +1562,23 @@ export default function EarnPage() {
                               >
                                 Sending reward to:
                               </Typography>
-                              <Typography
-                                variant={{ variant: "subtitle", level: 2 }}
-                                className="text-gray-700"
-                              >
-                                {lookupResult.username}
-                              </Typography>
+                              <div className="flex items-center justify-center gap-1">
+                                <Typography
+                                  variant={{ variant: "subtitle", level: 2 }}
+                                  className="text-gray-700"
+                                >
+                                  {lookupResult.username}
+                                </Typography>
+                                <button
+                                  onClick={() => {
+                                    setLookupResult(null);
+                                    setRewardStatus(null);
+                                  }}
+                                  className="hover:text-gray-600 text-gray-400"
+                                >
+                                  <PiPencilSimpleFill className="h-4 w-4" />
+                                </button>
+                              </div>
                             </div>
 
                             {rewardStatus && (
@@ -1580,17 +1592,6 @@ export default function EarnPage() {
                                 {rewardStatus.message}
                               </div>
                             )}
-
-                            <Button
-                              onClick={() => {
-                                setLookupResult(null);
-                                setRewardStatus(null);
-                              }}
-                              variant="ghost"
-                              fullWidth
-                            >
-                              Change username
-                            </Button>
 
                             <Button
                               onClick={() => sendReward(lookupResult.address)}
