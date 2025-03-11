@@ -1416,7 +1416,7 @@ export default function EarnPage() {
                     />
                   </svg>
                 </span>
-                <div className="absolute bottom-full right-0 mb-2 hidden w-[296px] transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
+                <div className="absolute bottom-full right-0 mb-2 hidden w-[280px] transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
                   <p className="text-left text-gray-700">
                     You&apos;ll earn rewards when friends activate their Basic
                     Income Plus.
