@@ -486,7 +486,7 @@ export default function EarnPage() {
     // If there's a referrer, let the user know their referrer will be rewarded
     if (hasReferrer) {
       showToast(
-        `Setting up Basic Income Plus and rewarding ${storedReferrer}`,
+        `Setting up Basic Income Plus first, then we'll reward ${storedReferrer}`,
         "info"
       );
     }
@@ -515,6 +515,12 @@ export default function EarnPage() {
         setIsSubmitting(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
+        if (storedReferrer) {
+          showToast(
+            `Basic Income Plus activated! Now preparing reward for ${storedReferrer}...`,
+            "success"
+          );
+        }
         console.log(
           "[BasicIncomePlus] Transaction ID:",
           finalPayload.transaction_id
@@ -529,7 +535,7 @@ export default function EarnPage() {
         console.log("[BasicIncomePlus] Setup completed successfully");
 
         // After successful setup, automatically process referral reward if applicable
-        if (storedReferrer && canReward) {
+        if (storedReferrer) {
           try {
             const response = await fetch(
               `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(storedReferrer.trim())}`
