@@ -61,15 +61,6 @@ const menuSections = [
 ] as const;
 
 export default function MenuPage() {
-  const [hasFaqBeenVisited, setHasFaqBeenVisited] = useState(true);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const visited = localStorage.getItem("faqVisited") === "true";
-      setHasFaqBeenVisited(visited);
-    }
-  }, []);
-
   return (
     <div className="flex flex-col px-6 pb-20">
       <div className="py-6">
@@ -117,18 +108,13 @@ export default function MenuPage() {
                   <Link href={link.url} className="w-full">
                     <ListItem>
                       <div className="flex h-8 w-full items-center justify-between">
-                        <div className="flex items-center">
-                          <Typography
-                            as="span"
-                            variant={{ variant: "subtitle", level: 2 }}
-                            className="text-gray-900"
-                          >
-                            {link.label}
-                          </Typography>
-                          {link.label === "FAQ" && !hasFaqBeenVisited && (
-                            <div className="ml-2 h-2 w-2 rounded-full bg-error-800 opacity-65"></div>
-                          )}
-                        </div>
+                        <Typography
+                          as="span"
+                          variant={{ variant: "subtitle", level: 2 }}
+                          className="text-gray-900"
+                        >
+                          {link.label}
+                        </Typography>
                         <IoIosArrowForward className="size-5 text-gray-400" />
                       </div>
                     </ListItem>

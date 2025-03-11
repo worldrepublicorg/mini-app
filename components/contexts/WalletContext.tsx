@@ -20,11 +20,15 @@ interface WalletContextProps {
   claimableAmountPlus: string | null;
   basicIncomeActivated: boolean;
   basicIncomePlusActivated: boolean;
+  canReward: boolean;
+  rewardCount: number;
   setWalletAddress: (address: string) => void;
   setUsername: (username: string) => void;
   fetchBasicIncomeInfo: () => Promise<void>;
   fetchBasicIncomePlusInfo: () => Promise<void>;
   fetchBalance: () => Promise<void>;
+  fetchCanReward: () => Promise<void>;
+  fetchRewardCount: () => Promise<void>;
   setBasicIncomeActivated: (activated: boolean) => void;
   setBasicIncomePlusActivated: (activated: boolean) => void;
 }
@@ -37,11 +41,15 @@ const WalletContext = createContext<WalletContextProps>({
   claimableAmountPlus: null,
   basicIncomeActivated: false,
   basicIncomePlusActivated: false,
+  canReward: false,
+  rewardCount: 0,
   setWalletAddress: () => {},
   setUsername: () => {},
   fetchBasicIncomeInfo: async () => {},
   fetchBasicIncomePlusInfo: async () => {},
   fetchBalance: async () => {},
+  fetchCanReward: async () => {},
+  fetchRewardCount: async () => {},
   setBasicIncomeActivated: () => {},
   setBasicIncomePlusActivated: () => {},
 });
@@ -64,6 +72,8 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [basicIncomeActivated, setBasicIncomeActivatedState] = useState(false);
   const [basicIncomePlusActivated, setBasicIncomePlusActivatedState] =
     useState(false);
+  const [canReward, setCanReward] = useState(false);
+  const [rewardCount, setRewardCount] = useState(0);
 
   const setBasicIncomeActivated = useCallback((activated: boolean) => {
     setBasicIncomeActivatedState(activated);
@@ -230,6 +240,125 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     }
   }, [walletAddress, setTokenBalance, fromWei]);
 
+  const fetchCanReward = async () => {
+    if (!walletAddress) return;
+
+    try {
+      console.log("[Referral] Checking if user can reward...");
+      // Use viem to interact with the smart contract
+      try {
+        // ABI for just the canReward function
+        const referralABI = [
+          {
+            inputs: [
+              {
+                internalType: "address",
+                name: "user",
+                type: "address",
+              },
+            ],
+            name: "canReward",
+            outputs: [
+              {
+                internalType: "bool",
+                name: "",
+                type: "bool",
+              },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+        ] as const; // Use const assertion for type inference
+
+        // Using viemClient for contract interaction
+        const canRewardStatus = await viemClient.readContract({
+          address:
+            "0x372dCA057682994568be074E75a03Ced3dD9E60d" as `0x${string}`,
+          abi: referralABI,
+          functionName: "canReward",
+          args: [walletAddress as `0x${string}`],
+        });
+
+        console.log(
+          `[Referral] User ${walletAddress} canReward status: ${canRewardStatus}`
+        );
+        setCanReward(!!canRewardStatus);
+      } catch (error) {
+        console.error("[Referral] Error calling canReward function:", error);
+        setCanReward(false);
+      }
+    } catch (error) {
+      console.error("[Referral] Error checking canReward status:", error);
+      setCanReward(false);
+    }
+  };
+
+  const fetchRewardCount = async () => {
+    if (!walletAddress) return;
+
+    try {
+      console.log("[Referral] Fetching reward count for user...");
+      // Use viem to interact with the smart contract
+      try {
+        // ABI for just the getRewardCount function
+        const referralABI = [
+          {
+            inputs: [
+              {
+                internalType: "address",
+                name: "user",
+                type: "address",
+              },
+            ],
+            name: "getRewardCount",
+            outputs: [
+              {
+                internalType: "uint256",
+                name: "",
+                type: "uint256",
+              },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+        ] as const; // Use const assertion for type inference
+
+        // Using viemClient for contract interaction
+        const count = await viemClient.readContract({
+          address:
+            "0x372dCA057682994568be074E75a03Ced3dD9E60d" as `0x${string}`,
+          abi: referralABI,
+          functionName: "getRewardCount",
+          args: [walletAddress as `0x${string}`],
+        });
+
+        console.log(
+          `[Referral] User ${walletAddress} has been rewarded ${count} times`
+        );
+        setRewardCount(Number(count));
+      } catch (error) {
+        console.error(
+          "[Referral] Error calling getRewardCount function:",
+          error
+        );
+      }
+    } catch (error) {
+      console.error("[Referral] Error checking reward count:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (walletAddress) {
+      fetchCanReward();
+    }
+  }, [walletAddress]);
+
+  useEffect(() => {
+    if (walletAddress) {
+      fetchRewardCount();
+    }
+  }, [walletAddress]);
+
   useEffect(() => {
     if (!walletAddress) return;
     console.log(
@@ -344,6 +473,36 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     }
   }, [walletAddress, fetchBalance]);
 
+  useEffect(() => {
+    if (!walletAddress) return;
+
+    try {
+      console.log(
+        "[WalletContext] Setting up event watcher for RewardSent events"
+      );
+      const unwatch = viemClient.watchContractEvent({
+        address: "0x372dCA057682994568be074E75a03Ced3dD9E60d" as `0x${string}`,
+        abi: parseAbi([
+          "event RewardSent(address indexed sender, address indexed recipient, uint256 amount)",
+        ]),
+        eventName: "RewardSent",
+        args: { recipient: walletAddress },
+        onLogs: (logs: unknown) => {
+          console.log("[WalletContext] RewardSent event detected:", logs);
+          fetchRewardCount(); // Update reward count when a new reward is received
+          fetchBalance();
+        },
+      });
+
+      return () => {
+        console.log("[WalletContext] Cleaning up RewardSent event watcher");
+        unwatch();
+      };
+    } catch (error) {
+      console.error("[WalletContext] Error watching RewardSent events:", error);
+    }
+  }, [walletAddress, fetchRewardCount, fetchBalance]);
+
   return (
     <WalletContext.Provider
       value={{
@@ -354,11 +513,15 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         claimableAmountPlus,
         basicIncomeActivated,
         basicIncomePlusActivated,
+        canReward,
+        rewardCount,
         setWalletAddress,
         setUsername,
         fetchBasicIncomeInfo,
         fetchBasicIncomePlusInfo,
         fetchBalance,
+        fetchCanReward,
+        fetchRewardCount,
         setBasicIncomeActivated,
         setBasicIncomePlusActivated,
       }}

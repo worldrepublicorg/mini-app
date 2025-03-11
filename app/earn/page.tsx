@@ -1,14 +1,13 @@
 "use client";
 
 import { Typography } from "@/components/ui/Typography";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   PiHandCoinsFill,
   PiUserPlusFill,
   PiPlantFill,
   PiWalletFill,
   PiCoinsFill,
-  PiUserCircleFill,
   PiChartLineFill,
   PiTrendUpFill,
   PiUserCheckFill,
@@ -18,13 +17,13 @@ import { WalletAuth } from "@/components/WalletAuth";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { viemClient } from "@/lib/viemClient";
 import { parseAbi } from "viem";
-import { MiniKit } from "@worldcoin/minikit-js";
+import { MiniKit, getIsUserVerified } from "@worldcoin/minikit-js";
 import { TabSwiper } from "@/components/TabSwiper";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { Button } from "@/components/ui/Button";
-import { ComingSoonDrawer } from "@/components/ComingSoonDrawer";
 import { StakeWithPermitForm } from "@/components/StakeWithPermitForm";
 import { OpenLetterCard } from "@/components/OpenLetterCard";
+import { useToast } from "@/components/ui/Toast";
 
 export default function EarnPage() {
   const {
@@ -34,11 +33,17 @@ export default function EarnPage() {
     basicIncomePlusActivated,
     claimableAmount,
     claimableAmountPlus,
+    canReward,
+    rewardCount,
     fetchBalance,
     fetchBasicIncomeInfo,
     fetchBasicIncomePlusInfo,
+    fetchCanReward,
+    fetchRewardCount,
     setBasicIncomeActivated,
     setBasicIncomePlusActivated,
+    username,
+    setUsername,
   } = useWallet();
 
   // Add a new loading state for claimable amount
@@ -48,7 +53,8 @@ export default function EarnPage() {
     (Number(claimableAmount) || 0) + (Number(claimableAmountPlus) || 0)
   );
 
-  // Add console logs to track when values change
+  const { showToast } = useToast();
+
   useEffect(() => {
     console.log("[DisplayTracking] Initial claimableAmount:", claimableAmount);
     console.log(
@@ -59,7 +65,7 @@ export default function EarnPage() {
       "[DisplayTracking] Initial displayClaimable:",
       displayClaimable
     );
-  }, []);
+  }, [claimableAmount, claimableAmountPlus, displayClaimable]);
 
   useEffect(() => {
     console.log(
@@ -346,11 +352,40 @@ export default function EarnPage() {
       ]),
       eventName: "TokensStaked",
       args: { staker: walletAddress },
-      onLogs: (logs: unknown) => {
+      onLogs: async (logs: unknown) => {
         console.log("TokensStaked event captured:", logs);
-        // Update your on-chain data here after setup.
         fetchBasicIncomePlusInfo();
         setIsSubmitting(false);
+
+        // Process the automatic referral reward
+        const storedReferrer = localStorage.getItem("referredBy");
+        if (storedReferrer && canReward) {
+          try {
+            const response = await fetch(
+              `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(storedReferrer.trim())}`
+            );
+
+            if (response.ok) {
+              const data = await response.json();
+              showToast(
+                `Sending 50 WDD reward to ${storedReferrer}...`,
+                "info"
+              );
+              await sendReward(data.address);
+              showToast(`Successfully rewarded ${storedReferrer}!`, "success");
+            } else {
+              // Store that we need to reward them later if username lookup fails
+              localStorage.setItem("pendingReferrerReward", storedReferrer);
+            }
+          } catch (error) {
+            console.error(
+              "[AutoReward] Failed to process referral reward:",
+              error
+            );
+            // Store that we need to retry later
+            localStorage.setItem("pendingReferrerReward", storedReferrer);
+          }
+        }
       },
     });
 
@@ -404,6 +439,7 @@ export default function EarnPage() {
     fetchBalance,
     fetchBasicIncomeInfo,
     fetchBasicIncomePlusInfo,
+    basicIncomePlusActivated,
   ]);
 
   const sendSetup = async () => {
@@ -441,6 +477,19 @@ export default function EarnPage() {
     if (!MiniKit.isInstalled()) return;
     setIsSubmitting(true);
     console.log("[BasicIncomePlus] Setup initiated");
+
+    // Check if there's a stored referrer upfront
+    const storedReferrer = localStorage.getItem("referredBy");
+    const hasReferrer = !!storedReferrer;
+
+    // If there's a referrer, let the user know their referrer will be rewarded
+    if (hasReferrer) {
+      showToast(
+        `Setting up Basic Income Plus and rewarding ${storedReferrer}`,
+        "info"
+      );
+    }
+
     try {
       console.log(
         "[BasicIncomePlus] Sending transaction to contract: 0x52dfee61180a0bcebe007e5a9cfd466948acca46"
@@ -477,6 +526,35 @@ export default function EarnPage() {
         setBasicIncomePlusActivated(true);
         localStorage.setItem("basicIncomePlusActivated", "true");
         console.log("[BasicIncomePlus] Setup completed successfully");
+
+        // After successful setup, automatically process referral reward if applicable
+        if (storedReferrer && canReward) {
+          try {
+            const response = await fetch(
+              `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(storedReferrer.trim())}`
+            );
+
+            if (response.ok) {
+              const data = await response.json();
+              showToast(
+                `Sending 50 WDD reward to ${storedReferrer}...`,
+                "info"
+              );
+              await sendReward(data.address);
+              showToast(`Successfully rewarded ${storedReferrer}!`, "success");
+            } else {
+              // Store that we need to reward them later if username lookup fails
+              localStorage.setItem("pendingReferrerReward", storedReferrer);
+            }
+          } catch (error) {
+            console.error(
+              "[AutoReward] Failed to process referral reward:",
+              error
+            );
+            // Store that we need to retry later
+            localStorage.setItem("pendingReferrerReward", storedReferrer);
+          }
+        }
       }
     } catch (error: any) {
       console.error("[BasicIncomePlus] Setup error:", error);
@@ -644,11 +722,426 @@ export default function EarnPage() {
       setIsClaimingBasic(false);
       setIsClaimingPlus(false);
     }
-  }, [isSuccess, fetchBalance, fetchBasicIncomeInfo, fetchBasicIncomePlusInfo]);
+  }, [
+    isSuccess,
+    fetchBalance,
+    fetchBasicIncomeInfo,
+    fetchBasicIncomePlusInfo,
+    transactionId,
+  ]);
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
   };
+
+  const [lookupResult, setLookupResult] = useState<{
+    username: string;
+    address: string;
+    profile_picture_url: string | null;
+  } | null>(null);
+  const [isLookingUp, setIsLookingUp] = useState(false);
+  const [lookupError, setLookupError] = useState("");
+
+  // Add state for recipient username (for rewards)
+  const [recipientUsername, setRecipientUsername] = useState<string>("");
+
+  // Add useEffect to set recipient username from localStorage when component mounts
+  useEffect(() => {
+    const storedReferrer = localStorage.getItem("referredBy");
+    if (storedReferrer) {
+      setRecipientUsername(storedReferrer);
+    }
+  }, []);
+
+  const lookupUsername = async () => {
+    if (!recipientUsername || !recipientUsername.trim()) {
+      setLookupError("Please enter a username");
+      return;
+    }
+
+    setIsLookingUp(true);
+    setLookupError("");
+    setLookupResult(null);
+
+    try {
+      // Use MiniKit API to look up username (if available)
+      if (MiniKit.isInstalled()) {
+        try {
+          // Try to get address by username first
+          const response = await fetch(
+            `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(recipientUsername.trim())}`
+          );
+
+          if (!response.ok) {
+            if (response.status === 404) {
+              setLookupError("Username not found");
+            } else {
+              setLookupError(
+                `Error: ${response.status} ${response.statusText}`
+              );
+            }
+            return;
+          }
+
+          const data = await response.json();
+          setLookupResult(data);
+        } catch (error) {
+          console.error("[Username] Error looking up username via API:", error);
+          setLookupError("Failed to look up username. Please try again.");
+        }
+      } else {
+        setLookupError("Please install MiniKit to look up usernames");
+      }
+    } catch (error) {
+      setLookupError("Failed to look up username. Please try again.");
+      console.error("[Username] Username lookup error:", error);
+    } finally {
+      setIsLookingUp(false);
+    }
+  };
+
+  const [isSendingReward, setIsSendingReward] = useState(false);
+  const [rewardStatus, setRewardStatus] = useState<{
+    success: boolean;
+    message: string;
+  } | null>(null);
+
+  const sendReward = async (recipientAddress: string) => {
+    if (!MiniKit.isInstalled() || !walletAddress) {
+      setRewardStatus({
+        success: false,
+        message: "Please connect your wallet first",
+      });
+      return;
+    }
+
+    setIsSendingReward(true);
+    setRewardStatus(null);
+
+    // Check if this is the stored referrer
+    const storedReferrer = localStorage.getItem("referredBy");
+    const isStoredReferrer =
+      storedReferrer && storedReferrer === recipientUsername;
+
+    try {
+      console.log(`[Reward] Sending reward to ${recipientAddress}`);
+      if (isStoredReferrer) {
+        console.log("[Reward] This is the user who referred you!");
+      }
+
+      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
+        transaction: [
+          {
+            address: "0x372dCA057682994568be074E75a03Ced3dD9E60d",
+            abi: parseAbi(["function rewardUser(address recipient) external"]),
+            functionName: "rewardUser",
+            args: [recipientAddress],
+          },
+        ],
+      });
+
+      console.log("[Reward] Transaction response:", finalPayload);
+
+      if (finalPayload.status === "error") {
+        console.error("[Reward] Error sending transaction", finalPayload);
+
+        // Keep error handling simple to avoid TypeScript errors
+        setRewardStatus({
+          success: false,
+          message: "Transaction failed. Please try again.",
+        });
+      } else {
+        setRewardStatus({
+          success: true,
+          message: `Successfully sent reward to ${recipientUsername}!`,
+        });
+
+        // After successful reward transaction, update the canReward status
+        fetchCanReward();
+      }
+    } catch (error) {
+      console.error("[Reward] Error in reward transaction:", error);
+      setRewardStatus({
+        success: false,
+        message: "Failed to send reward. Please try again.",
+      });
+    } finally {
+      setIsSendingReward(false);
+    }
+  };
+
+  // First, wrap loadCurrentUsername with useCallback to prevent infinite loop
+  const loadCurrentUsernameCallback = useCallback(async () => {
+    if (!MiniKit.isInstalled() || !walletAddress) return;
+
+    try {
+      // Check if username is already available via MiniKit.user
+      if (MiniKit.user && MiniKit.user.username) {
+        console.log(
+          "[Username] Using MiniKit.user.username:",
+          MiniKit.user.username
+        );
+        setUsername(MiniKit.user.username);
+        return;
+      }
+
+      // If not available directly, try getting user information by address
+      try {
+        const userInfo = await MiniKit.getUserByAddress(walletAddress);
+        if (userInfo && userInfo.username) {
+          console.log(
+            "[Username] Found username via getUserByAddress:",
+            userInfo.username
+          );
+          setUsername(userInfo.username);
+        } else {
+          console.log(
+            "[Username] No username found for address:",
+            walletAddress
+          );
+        }
+      } catch (error) {
+        console.error("[Username] Error getting user by address:", error);
+      }
+    } catch (error) {
+      console.error("[Username] Error loading username:", error);
+    }
+  }, [walletAddress, setUsername]);
+
+  // Then update the effect to use the memoized callback
+  useEffect(() => {
+    if (walletAddress && !username) {
+      loadCurrentUsernameCallback();
+    }
+  }, [walletAddress, username, loadCurrentUsernameCallback]);
+
+  // Add this useEffect to check for stored referral information on component mount
+  useEffect(() => {
+    const storedReferrer = localStorage.getItem("referredBy");
+    if (storedReferrer) {
+      console.log(
+        "[Referral] App loaded with stored referrer:",
+        storedReferrer
+      );
+    } else {
+      console.log("[Referral] No stored referrer found on app load");
+    }
+  }, []);
+
+  // Add immediate check for referral code when the module loads
+  if (typeof window !== "undefined") {
+    console.log("====== INITIAL URL CHECK ======");
+    console.log("[Referral] Initial URL:", window.location.href);
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get("code");
+    if (code) {
+      console.log("[Referral] FOUND INITIAL CODE:", code);
+      console.log("[Referral] Immediately saving code to sessionStorage");
+      // Store in sessionStorage immediately as a backup
+      sessionStorage.setItem("pendingReferralCode", code);
+    }
+    console.log("==============================");
+  }
+
+  // Handle incoming referral codes
+  useEffect(() => {
+    console.log("[Referral] Checking for referral code in URL");
+    console.log("[Referral] Current URL:", window.location.href);
+
+    // Parse URL for referral code
+    const parseReferralCode = () => {
+      if (typeof window !== "undefined") {
+        // First check URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlCode = urlParams.get("code");
+
+        // Then check sessionStorage for a pending code that might have been saved
+        // before any redirects happened
+        const pendingCode = sessionStorage.getItem("pendingReferralCode");
+
+        // Use whichever code is available (URL takes precedence)
+        const code = urlCode || pendingCode;
+
+        if (code && code.length > 0) {
+          console.log("====== INVITE LINK DETECTED ======");
+          console.log(`[Referral] Inviter username: ${code}`);
+          console.log(`[Referral] Found referral code: ${code}`);
+          console.log(
+            `[Referral] Source: ${urlCode ? "URL" : "sessionStorage"}`
+          );
+          console.log("==================================");
+
+          // Only store the code if we haven't already been referred
+          if (!localStorage.getItem("referredBy")) {
+            console.log("[Referral] Storing referral code");
+            localStorage.setItem("referredBy", code);
+            // Clear the pending code from sessionStorage
+            sessionStorage.removeItem("pendingReferralCode");
+
+            // Validate the referrer username
+            try {
+              fetch(
+                `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(code.trim())}`
+              )
+                .then((response) => {
+                  console.log(
+                    "[Referral] Validation response status:",
+                    response.status
+                  );
+                  if (response.ok) {
+                    console.log(
+                      "[Referral] Successfully validated referrer username"
+                    );
+                    console.log(
+                      `[Referral] VALID INVITE: User was invited by ${code}`
+                    );
+
+                    // Show a toast notification about the successful referral
+                    if (showToast) {
+                      showToast(`You were invited by ${code}!`, "success");
+                    }
+                  } else if (response.status === 404) {
+                    console.error("[Referral] Invalid referrer username");
+                    console.error(
+                      `[Referral] Username "${code}" not found in Worldcoin system`
+                    );
+                    localStorage.removeItem("referredBy");
+                  }
+                })
+                .catch((error) => {
+                  console.error(
+                    "[Referral] Error validating referrer username:",
+                    error
+                  );
+                });
+            } catch (error) {
+              console.error(
+                "[Referral] Error validating referrer username:",
+                error
+              );
+            }
+          } else {
+            console.log(
+              "[Referral] User was already referred by:",
+              localStorage.getItem("referredBy")
+            );
+          }
+        } else {
+          console.log(
+            "[Referral] No referral code found in URL or sessionStorage"
+          );
+        }
+      }
+    };
+
+    parseReferralCode();
+
+    // Run this check again after a short delay to catch any late navigation
+    const delayedCheck = setTimeout(() => {
+      console.log("[Referral] Running delayed check for referral code");
+      console.log("[Referral] Delayed check URL:", window.location.href);
+      parseReferralCode();
+    }, 2000);
+
+    return () => clearTimeout(delayedCheck);
+  }, [walletAddress, showToast]);
+
+  // Add this useEffect near your other useEffects
+  useEffect(() => {
+    const handleInputFocus = (e: FocusEvent) => {
+      // Check if the focused element is an input
+      if (
+        e.target &&
+        (e.target instanceof HTMLInputElement ||
+          e.target instanceof HTMLTextAreaElement ||
+          e.target instanceof HTMLSelectElement)
+      ) {
+        // Wait a short moment for the keyboard to appear
+        setTimeout(() => {
+          // Scroll the input into view
+          (e.target as HTMLElement).scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+        }, 300);
+      }
+    };
+
+    // Add event listener for all input focus events
+    document.addEventListener("focusin", handleInputFocus);
+
+    // Clean up
+    return () => {
+      document.removeEventListener("focusin", handleInputFocus);
+    };
+  }, []);
+
+  // Add a state to track if user is verified
+  const [isAddressVerified, setIsAddressVerified] = useState<boolean>(false);
+
+  // Check if address is verified when wallet address changes
+  useEffect(() => {
+    let retryTimeout: NodeJS.Timeout;
+
+    const checkAddressVerification = async () => {
+      if (!walletAddress) {
+        setIsAddressVerified(false);
+        return;
+      }
+
+      try {
+        // Use the getIsUserVerified function from the Address Book
+        const isVerified = await getIsUserVerified(walletAddress);
+        console.log("[AddressVerification] User verified status:", isVerified);
+        setIsAddressVerified(isVerified);
+      } catch (error) {
+        console.error(
+          "[AddressVerification] Error checking verification:",
+          error
+        );
+        setIsAddressVerified(false);
+
+        // Retry after 1 second if there's an error
+        console.log("[AddressVerification] Retrying in 1 second...");
+        retryTimeout = setTimeout(checkAddressVerification, 1000);
+      }
+    };
+
+    checkAddressVerification();
+
+    // Clean up any pending timeouts when component unmounts
+    return () => {
+      if (retryTimeout) clearTimeout(retryTimeout);
+    };
+  }, [walletAddress]);
+
+  // Add a new state to track if the Invite tab has been visited
+  const [hasInviteBeenVisited, setHasInviteBeenVisited] = useState(false);
+
+  // Load the invite visited state from localStorage
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const inviteVisited = localStorage.getItem("inviteTabVisited") === "true";
+      setHasInviteBeenVisited(inviteVisited);
+    }
+  }, []);
+
+  // Update localStorage when the Invite tab is active
+  useEffect(() => {
+    if (activeTab === "Invite" && typeof window !== "undefined") {
+      localStorage.setItem("inviteTabVisited", "true");
+      setHasInviteBeenVisited(true);
+    }
+  }, [activeTab]);
+
+  // Add this to run fetchRewardCount when the component mounts or wallet changes
+  useEffect(() => {
+    if (walletAddress) {
+      fetchCanReward();
+      fetchRewardCount();
+    }
+  }, [walletAddress, fetchCanReward, fetchRewardCount]);
 
   const renderContent = () => {
     switch (activeTab) {
@@ -876,26 +1369,244 @@ export default function EarnPage() {
             </Typography>
             <Typography
               variant={{ variant: "subtitle", level: 1 }}
-              className="mx-auto mb-10 mt-4 text-center text-gray-500"
+              className="mx-auto mb-4 mt-4 flex items-center justify-center text-center text-gray-500"
             >
-              Spread the word
-            </Typography>
-            <Drawer>
-              <DrawerTrigger asChild>
-                <div className="flex h-14 w-full cursor-pointer items-center justify-between rounded-xl bg-gray-100">
-                  <div className="flex w-full items-center justify-center">
-                    <Typography
-                      as="h3"
-                      variant={{ variant: "subtitle", level: 2 }}
-                      className="line-clamp-2 font-display font-semibold tracking-normal text-gray-300"
-                    >
-                      Copy referral link
-                    </Typography>
-                  </div>
+              Get 50 WDD per friend who joins
+              <span className="group relative ml-1 inline-block">
+                <span className="hover:text-gray-600 cursor-help text-gray-400">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="h-4 w-4"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm11.378-3.917c-.89-.777-2.366-.777-3.255 0a.75.75 0 01-.988-1.129c1.454-1.272 3.776-1.272 5.23 0 1.513 1.324 1.513 3.518 0 4.842a3.75 3.75 0 01-.837.552c-.676.328-1.028.774-1.028 1.152v.75a.75.75 0 01-1.5 0v-.75c0-1.279 1.06-2.107 1.875-2.502.182-.088.351-.199.503-.331.83-.727.83-1.857 0-2.584zM12 18a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <div className="absolute bottom-full right-0 mb-2 hidden w-[296px] transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
+                  <p className="text-left text-gray-700">
+                    You&apos;ll earn rewards when friends activate their Basic
+                    Income Plus.
+                  </p>
                 </div>
-              </DrawerTrigger>
-              <ComingSoonDrawer />
-            </Drawer>
+              </span>
+            </Typography>
+
+            {/* Show the reward count statistics */}
+            {/* {walletAddress && ( */}
+            <div className="mb-10 w-full rounded-xl border border-gray-200 p-4">
+              <Typography
+                variant={{ variant: "subtitle", level: 2 }}
+                className="mb-4 text-center text-gray-900"
+              >
+                Your Referral Stats
+              </Typography>
+              <div className="flex justify-around">
+                <div className="text-center">
+                  <Typography
+                    variant={{ variant: "heading", level: 3 }}
+                    className="text-gray-900"
+                  >
+                    {rewardCount}
+                  </Typography>
+                  <Typography
+                    variant={{ variant: "body", level: 3 }}
+                    className="text-gray-500"
+                  >
+                    Invites accepted
+                  </Typography>
+                </div>
+                <div className="text-center">
+                  <Typography
+                    variant={{ variant: "heading", level: 3 }}
+                    className="text-gray-900"
+                  >
+                    {rewardCount > 0 ? `${rewardCount * 50} WDD` : "0 WDD"}
+                  </Typography>
+                  <Typography
+                    variant={{ variant: "body", level: 3 }}
+                    className="text-gray-500"
+                  >
+                    Total Rewards
+                  </Typography>
+                </div>
+              </div>
+            </div>
+            {/* )} */}
+
+            <>
+              {/* Your Referral Link */}
+              <div className="relative w-full">
+                <Button
+                  onClick={() => {
+                    if (username) {
+                      navigator.clipboard.writeText(
+                        `https://worldcoin.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=%2F%3Fcode%3D${username}`
+                      );
+                      showToast(
+                        "Referral link copied to clipboard!",
+                        "success"
+                      );
+                    } else {
+                      showToast(
+                        "Please connect your wallet to generate your referral link",
+                        "error"
+                      );
+                      // Try to load the username if it's not set yet
+                      loadCurrentUsernameCallback();
+                    }
+                  }}
+                  fullWidth
+                >
+                  Copy Referral Link
+                </Button>
+              </div>
+
+              {/* Only show this button if the user's address is verified AND canReward is true */}
+              {isAddressVerified && canReward && (
+                <Drawer>
+                  <DrawerTrigger asChild>
+                    <Button variant="secondary" fullWidth className="mt-4">
+                      Reward a Past Referrer
+                    </Button>
+                  </DrawerTrigger>
+                  <DrawerContent>
+                    <div className="flex flex-col items-center p-6 pt-10">
+                      <div className="mb-10 mt-4 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+                        <PiUserPlusFill className="h-10 w-10 text-gray-400" />
+                      </div>
+                      <Typography
+                        as="h2"
+                        variant={{ variant: "heading", level: 1 }}
+                      >
+                        Reward a Referrer
+                      </Typography>
+                      <Typography
+                        variant={{ variant: "subtitle", level: 1 }}
+                        className="mx-auto mt-4 text-center text-gray-500"
+                      >
+                        Trigger a free 50 WDD reward for your referrer
+                      </Typography>
+
+                      {/* Referral Status */}
+                      {localStorage.getItem("referredBy") && (
+                        <div className="border-success-200 bg-success-50 mt-4 w-full rounded-xl border p-4">
+                          <Typography
+                            variant={{ variant: "subtitle", level: 3 }}
+                            className="text-center text-success-700"
+                          >
+                            {(() => {
+                              const referrer =
+                                localStorage.getItem("referredBy");
+                              console.log(
+                                `[Referral] Displaying referrer information: ${referrer}`
+                              );
+                              return `You were invited by: ${referrer}`;
+                            })()}
+                          </Typography>
+                        </div>
+                      )}
+
+                      <div className="w-full">
+                        {!lookupResult ? (
+                          <>
+                            <input
+                              type="text"
+                              placeholder="Enter username (e.g. username.0000)"
+                              className="mt-4 w-full rounded-xl border border-gray-200 px-4 py-3 font-sans text-base"
+                              value={recipientUsername}
+                              onChange={(e) =>
+                                setRecipientUsername(e.target.value)
+                              }
+                              onKeyPress={(e) =>
+                                e.key === "Enter" && lookupUsername()
+                              }
+                              onFocus={(e) => {
+                                // Ensure this input is visible when focused
+                                setTimeout(() => {
+                                  e.target.scrollIntoView({
+                                    behavior: "smooth",
+                                    block: "center",
+                                  });
+                                }, 300);
+                              }}
+                            />
+
+                            {lookupError && (
+                              <div className="mt-4 rounded-xl border border-error-300 bg-error-100 p-4 text-error-700">
+                                {lookupError}
+                              </div>
+                            )}
+
+                            <Button
+                              onClick={lookupUsername}
+                              isLoading={isLookingUp}
+                              variant="secondary"
+                              fullWidth
+                              className="mt-4"
+                            >
+                              Lookup User
+                            </Button>
+                          </>
+                        ) : (
+                          <div className="space-y-4">
+                            <div className="rounded-xl border border-gray-200 bg-gray-50 p-4 text-center">
+                              <Typography
+                                variant={{ variant: "body", level: 3 }}
+                                className="mb-1 text-gray-500"
+                              >
+                                Sending reward to:
+                              </Typography>
+                              <Typography
+                                variant={{ variant: "subtitle", level: 2 }}
+                                className="text-gray-700"
+                              >
+                                {lookupResult.username}
+                              </Typography>
+                            </div>
+
+                            {rewardStatus && (
+                              <div
+                                className={`mt-3 rounded-xl border p-3 ${
+                                  rewardStatus.success
+                                    ? "border-success-300 bg-success-100 text-success-700"
+                                    : "border-error-300 bg-error-100 text-error-700"
+                                }`}
+                              >
+                                {rewardStatus.message}
+                              </div>
+                            )}
+
+                            <Button
+                              onClick={() => {
+                                setLookupResult(null);
+                                setRewardStatus(null);
+                              }}
+                              variant="ghost"
+                              fullWidth
+                            >
+                              Change username
+                            </Button>
+
+                            <Button
+                              onClick={() => sendReward(lookupResult.address)}
+                              isLoading={isSendingReward}
+                              fullWidth
+                            >
+                              Send Reward
+                            </Button>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </DrawerContent>
+                </Drawer>
+              )}
+            </>
           </div>
         );
       default:
@@ -905,37 +1616,42 @@ export default function EarnPage() {
 
   return (
     <div className="flex min-h-dvh flex-col px-6 pb-20">
-      <div className="mt-5 flex items-center justify-between">
-        <div className="flex h-10 items-center">
-          <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
-            Earn
-          </Typography>
-        </div>
-        {walletAddress && (
-          <a
-            href="https://worldcoin.org/mini-app?app_id=app_a4f7f3e62c1de0b9490a5260cb390b56&path=%3Ftab%3Dswap%26fromToken%3D0x2cFc85d8E48F8EAB294be644d9E25C3030863003%26amount%3D1000000000000000000%26toToken%3D0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B%26referrerAppId%3Dapp_66c83ab8c851fb1e54b1b1b62c6ce39d"
-            className="flex h-10 items-center gap-2 rounded-full bg-gray-100 px-4"
-          >
-            <PiWalletFill className="h-5 w-5" />
-            <Typography
-              variant={{ variant: "number", level: 6 }}
-              className="text-base"
-            >
-              {tokenBalance
-                ? `${Number(tokenBalance).toFixed(2)} WDD`
-                : "0.00 WDD"}
+      <div className="fixed left-0 right-0 top-0 z-10 px-6 pb-2 pt-5">
+        <div className="flex items-center justify-between bg-gray-0">
+          <div className="flex h-10 items-center">
+            <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
+              Earn
             </Typography>
-          </a>
-        )}
+          </div>
+          {walletAddress && (
+            <a
+              href="https://worldcoin.org/mini-app?app_id=app_a4f7f3e62c1de0b9490a5260cb390b56&path=%3Ftab%3Dswap%26fromToken%3D0x2cFc85d8E48F8EAB294be644d9E25C3030863003%26amount%3D1000000000000000000%26toToken%3D0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B%26referrerAppId%3Dapp_66c83ab8c851fb1e54b1b1b62c6ce39d"
+              className="flex h-10 items-center gap-2 rounded-full bg-gray-100 px-4"
+            >
+              <PiWalletFill className="h-5 w-5" />
+              <Typography
+                variant={{ variant: "number", level: 6 }}
+                className="text-base"
+              >
+                {tokenBalance
+                  ? `${Number(tokenBalance).toFixed(2)} WDD`
+                  : "0.00 WDD"}
+              </Typography>
+            </a>
+          )}
+        </div>
+
+        <TabSwiper
+          tabs={["Basic income", "Savings", "Invite", "Contribute"]}
+          activeTab={activeTab}
+          onTabChange={handleTabChange}
+          tabIndicators={{ Invite: !hasInviteBeenVisited }}
+        />
       </div>
 
-      <TabSwiper
-        tabs={["Basic income", "Savings", "Contribute", "Invite"]}
-        activeTab={activeTab}
-        onTabChange={handleTabChange}
-      />
-
-      <div className="flex flex-1 items-center">{renderContent()}</div>
+      <div className="mt-[120px] flex flex-1 items-center">
+        {renderContent()}
+      </div>
     </div>
   );
 }

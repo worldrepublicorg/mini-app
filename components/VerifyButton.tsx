@@ -6,13 +6,15 @@ import {
 } from "@worldcoin/minikit-js";
 import { useState } from "react";
 import { Button } from "./ui/Button";
+import { useToast } from "./ui/Toast";
 
 export const VerifyButton = () => {
   const [isVerifying, setIsVerifying] = useState(false);
+  const { showToast } = useToast();
 
   const handleVerify = async () => {
     if (!MiniKit.isInstalled()) {
-      alert("Please install the World App to verify");
+      showToast("Please install the World App to verify", "error");
       return;
     }
 
@@ -85,7 +87,7 @@ export const VerifyButton = () => {
 
           const mintData = await mintResponse.json();
           console.log("Mint API success response:", mintData);
-          alert("Verification and minting successful!");
+          showToast("Verification and minting successful!", "success");
         } catch (mintError: any) {
           console.error("Mint API error:", {
             message: mintError.message,
@@ -105,7 +107,7 @@ export const VerifyButton = () => {
         stack: error.stack,
         timestamp: new Date().toISOString(),
       });
-      alert(`Error: ${error.message || "Verification failed"}`);
+      showToast(`Error: ${error.message || "Verification failed"}`, "error");
     } finally {
       setIsVerifying(false);
     }
