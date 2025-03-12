@@ -13,7 +13,7 @@ const menuSections = [
     links: [
       {
         label: "Community",
-        url: "https://t.me/worldrepublictesters",
+        url: "https://t.me/worldrepubliccommunity",
         isExternal: true,
       },
       {
