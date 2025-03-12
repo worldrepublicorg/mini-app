@@ -20,8 +20,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Is the current global approach to climate resilience sufficient to cope with the increasing frequency of extreme weather events?",
-    url: "https://vote.one/cg9zZaKR",
+      "Do you agree that space-faring nations and corporations should be legally required to remove defunct satellites to reduce orbital debris?",
+    url: "https://vote.one/4pPCTP6p",
   },
   {
     description:
