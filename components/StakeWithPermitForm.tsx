@@ -22,9 +22,7 @@ const MAIN_TOKEN_ADDRESS = "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B";
 export function StakeWithPermitForm() {
   const { walletAddress, tokenBalance, fetchBalance } = useWallet();
   const { showToast } = useToast();
-  const [stakedBalance, setStakedBalance] = useState<string>(() => {
-    return localStorage.getItem("stakedBalance") || "0";
-  });
+  const [stakedBalance, setStakedBalance] = useState<string>("0");
   const [availableReward, setAvailableReward] = useState<string>("0");
   const [displayAvailableReward, setDisplayAvailableReward] = useState<
     string | null
@@ -47,8 +45,10 @@ export function StakeWithPermitForm() {
 
   const fetchAvailableReward = useCallback(async () => {
     if (!walletAddress) return;
+
     setIsRewardLoading(true);
     setDisplayAvailableReward(null);
+
     try {
       const availableAbi = parseAbi([
         "function available(address account) external view returns (uint256)",
@@ -63,6 +63,7 @@ export function StakeWithPermitForm() {
       setAvailableReward(fromWei(result));
     } catch (error) {
       console.error("Error fetching available reward", error);
+      setIsRewardLoading(false);
     }
   }, [walletAddress, fromWei]);
 
@@ -132,49 +133,69 @@ export function StakeWithPermitForm() {
   }, [walletAddress, fetchAvailableReward, fetchStakedBalance]);
 
   useEffect(() => {
-    if (!stakedBalance || !availableReward || stakedBalance === "0") {
-      setIsRewardLoading(false);
+    if (!stakedBalance || !availableReward) {
       return;
     }
 
-    setIsRewardLoading(false);
-
-    const interestRate = 1 / (86400 * 529);
-    const stakedBalanceNum = Number(stakedBalance);
-    const baseReward = Number(availableReward);
-
-    console.log(
-      "[RewardTracking] Starting real-time reward display update with:"
-    );
-    console.log("[RewardTracking] stakedBalance:", stakedBalanceNum);
-    console.log("[RewardTracking] baseReward:", baseReward);
-
-    let baseValue: number;
-    let startTime: number;
-
-    const storedBase = localStorage.getItem("savingsRewardBase");
-    const storedStartTime = localStorage.getItem("savingsRewardStartTime");
-
-    console.log("[RewardTracking] Stored base value:", storedBase);
-    console.log("[RewardTracking] Stored start time:", storedStartTime);
-
-    if (storedBase && storedStartTime) {
-      baseValue = parseFloat(storedBase);
-      startTime = parseInt(storedStartTime, 10);
+    const timer = setTimeout(() => {
+      const interestRate = 1 / (86400 * 529);
+      const stakedBalanceNum = Number(stakedBalance);
+      const baseReward = Number(availableReward);
 
       console.log(
-        "[RewardTracking] Using stored values - baseValue:",
-        baseValue,
-        "startTime:",
-        startTime
+        "[RewardTracking] Starting real-time reward display update with:"
       );
+      console.log("[RewardTracking] stakedBalance:", stakedBalanceNum);
+      console.log("[RewardTracking] baseReward:", baseReward);
 
-      if (baseReward > baseValue) {
+      let baseValue: number;
+      let startTime: number;
+
+      const storedBase = localStorage.getItem("savingsRewardBase");
+      const storedStartTime = localStorage.getItem("savingsRewardStartTime");
+
+      console.log("[RewardTracking] Stored base value:", storedBase);
+      console.log("[RewardTracking] Stored start time:", storedStartTime);
+
+      if (storedBase && storedStartTime) {
+        baseValue = parseFloat(storedBase);
+        startTime = parseInt(storedStartTime, 10);
+
         console.log(
-          "[RewardTracking] On-chain reward increased, updating baseValue from",
+          "[RewardTracking] Using stored values - baseValue:",
           baseValue,
-          "to",
-          baseReward
+          "startTime:",
+          startTime
+        );
+
+        if (baseReward > baseValue) {
+          console.log(
+            "[RewardTracking] On-chain reward increased, updating baseValue from",
+            baseValue,
+            "to",
+            baseReward
+          );
+          baseValue = baseReward;
+          startTime = Date.now();
+          localStorage.setItem("savingsRewardBase", baseValue.toString());
+          localStorage.setItem("savingsRewardStartTime", startTime.toString());
+        }
+
+        if (baseReward < baseValue) {
+          console.log(
+            "[RewardTracking] On-chain reward decreased (probably claimed), updating baseValue from",
+            baseValue,
+            "to",
+            baseReward
+          );
+          baseValue = baseReward;
+          startTime = Date.now();
+          localStorage.setItem("savingsRewardBase", baseValue.toString());
+          localStorage.setItem("savingsRewardStartTime", startTime.toString());
+        }
+      } else {
+        console.log(
+          "[RewardTracking] No stored values, initializing with current values"
         );
         baseValue = baseReward;
         startTime = Date.now();
@@ -182,57 +203,38 @@ export function StakeWithPermitForm() {
         localStorage.setItem("savingsRewardStartTime", startTime.toString());
       }
 
-      if (baseReward < baseValue) {
-        console.log(
-          "[RewardTracking] On-chain reward decreased (probably claimed), updating baseValue from",
-          baseValue,
-          "to",
-          baseReward
-        );
-        baseValue = baseReward;
-        startTime = Date.now();
-        localStorage.setItem("savingsRewardBase", baseValue.toString());
-        localStorage.setItem("savingsRewardStartTime", startTime.toString());
-      }
-    } else {
-      console.log(
-        "[RewardTracking] No stored values, initializing with current values"
-      );
-      baseValue = baseReward;
-      startTime = Date.now();
-      localStorage.setItem("savingsRewardBase", baseValue.toString());
-      localStorage.setItem("savingsRewardStartTime", startTime.toString());
-    }
+      const updateDisplay = () => {
+        const elapsedSeconds = (Date.now() - startTime) / 1000;
+        const interestEarned = stakedBalanceNum * interestRate * elapsedSeconds;
+        const totalReward = baseValue + interestEarned;
 
-    const updateDisplay = () => {
-      const elapsedSeconds = (Date.now() - startTime) / 1000;
-      const interestEarned = stakedBalanceNum * interestRate * elapsedSeconds;
-      const totalReward = baseValue + interestEarned;
+        if (Math.round(elapsedSeconds) % 10 === 0) {
+          console.log("[RewardTracking] Current calculation:");
+          console.log(
+            "[RewardTracking] baseValue:",
+            baseValue,
+            "+ (stakedBalance:",
+            stakedBalanceNum,
+            "* rate:",
+            interestRate,
+            "* elapsed:",
+            elapsedSeconds,
+            ") =",
+            totalReward
+          );
+        }
 
-      if (Math.round(elapsedSeconds) % 10 === 0) {
-        console.log("[RewardTracking] Current calculation:");
-        console.log(
-          "[RewardTracking] baseValue:",
-          baseValue,
-          "+ (stakedBalance:",
-          stakedBalanceNum,
-          "* rate:",
-          interestRate,
-          "* elapsed:",
-          elapsedSeconds,
-          ") =",
-          totalReward
-        );
-      }
+        setDisplayAvailableReward(totalReward.toFixed(9));
+        setIsRewardLoading(false);
+      };
 
-      setDisplayAvailableReward(totalReward.toFixed(9));
-      setIsRewardLoading(false);
-    };
+      updateDisplay();
+      const interval = setInterval(updateDisplay, 1000);
 
-    updateDisplay();
-    const interval = setInterval(updateDisplay, 1000);
+      return () => clearInterval(interval);
+    }, 1000);
 
-    return () => clearInterval(interval);
+    return () => clearTimeout(timer);
   }, [stakedBalance, availableReward]);
 
   const handleStake = async () => {
