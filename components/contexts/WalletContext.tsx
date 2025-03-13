@@ -296,6 +296,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     } catch (error) {
       console.error("[Referral] Error checking canReward status:", error);
       setCanReward(false);
+      setTimeout(fetchCanReward, 1000);
     }
   };
 
@@ -347,9 +348,11 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
           "[Referral] Error calling getRewardCount function:",
           error
         );
+        setTimeout(fetchRewardCount, 1000);
       }
     } catch (error) {
       console.error("[Referral] Error checking reward count:", error);
+      setTimeout(fetchRewardCount, 1000);
     }
   };
 
