@@ -6,7 +6,13 @@ import { Typography } from "@/components/ui/Typography";
 import { parseAbi } from "viem";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useWallet } from "@/components/contexts/WalletContext";
-import { viemClient } from "@/lib/viemClient";
+import {
+  drpcClient,
+  thirdwebClient,
+  quiknodeClient,
+  alchemyClient,
+  tenderlyClient,
+} from "@/lib/viemClient";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { useToast } from "@/components/ui/Toast";
 
@@ -41,7 +47,7 @@ export function StakeWithPermitForm() {
       const availableAbi = parseAbi([
         "function available(address account) external view returns (uint256)",
       ]);
-      const result: bigint = await viemClient.readContract({
+      const result: bigint = await quiknodeClient.readContract({
         address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
         abi: availableAbi,
         functionName: "available",
@@ -60,7 +66,7 @@ export function StakeWithPermitForm() {
       const balanceAbi = parseAbi([
         "function balanceOf(address account) external view returns (uint256)",
       ]);
-      const result: bigint = await viemClient.readContract({
+      const result: bigint = await alchemyClient.readContract({
         address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
         abi: balanceAbi,
         functionName: "balanceOf",
@@ -77,7 +83,7 @@ export function StakeWithPermitForm() {
   }, [walletAddress, fromWei]);
 
   const { isSuccess } = useWaitForTransactionReceipt({
-    client: viemClient,
+    client: drpcClient,
     appConfig: {
       app_id: "app_66c83ab8c851fb1e54b1b1b62c6ce39d",
     },
@@ -85,7 +91,7 @@ export function StakeWithPermitForm() {
   });
 
   const { isSuccess: isCollectSuccess } = useWaitForTransactionReceipt({
-    client: viemClient,
+    client: thirdwebClient,
     appConfig: {
       app_id: "app_66c83ab8c851fb1e54b1b1b62c6ce39d",
     },
@@ -305,7 +311,7 @@ export function StakeWithPermitForm() {
   useEffect(() => {
     if (!walletAddress) return;
 
-    const unwatchStakedWithPermit = viemClient.watchContractEvent({
+    const unwatchStakedWithPermit = tenderlyClient.watchContractEvent({
       address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
       abi: parseAbi([
         "event StakedWithPermit(address indexed user, uint256 amount)",
@@ -320,7 +326,7 @@ export function StakeWithPermitForm() {
       },
     });
 
-    const unwatchWithdrawn = viemClient.watchContractEvent({
+    const unwatchWithdrawn = drpcClient.watchContractEvent({
       address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
       abi: parseAbi(["event Withdrawn(address indexed user, uint256 amount)"]),
       eventName: "Withdrawn",
@@ -334,7 +340,7 @@ export function StakeWithPermitForm() {
       },
     });
 
-    const unwatchRedeemed = viemClient.watchContractEvent({
+    const unwatchRedeemed = thirdwebClient.watchContractEvent({
       address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
       abi: parseAbi([
         "event Redeemed(address indexed user, uint256 rewardAmount)",
