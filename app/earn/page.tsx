@@ -1170,7 +1170,7 @@ export default function EarnPage() {
     return (Number(value) / 1e18).toString();
   }, []);
 
-  // Add the fetching functions
+  // Modify the fetchAvailableReward function to handle the transition more cleanly
   const fetchAvailableReward = useCallback(async () => {
     if (!walletAddress) return;
 
@@ -1188,9 +1188,16 @@ export default function EarnPage() {
         args: [walletAddress],
       });
       console.log("Fetched available reward:", result);
+
+      // Update the base reward value
       setAvailableReward(fromWei(result));
+
+      // Important: Also update local storage immediately to prevent flickering
+      localStorage.setItem("savingsRewardBase", fromWei(result));
+      localStorage.setItem("savingsRewardStartTime", Date.now().toString());
     } catch (error) {
       console.error("Error fetching available reward", error);
+    } finally {
       setIsRewardLoading(false);
     }
   }, [walletAddress, fromWei]);
@@ -1244,7 +1251,7 @@ export default function EarnPage() {
     return () => clearInterval(fetchInterval);
   }, [walletAddress, fetchAvailableReward, fetchStakedBalance]);
 
-  // Add effect for real-time reward tracking
+  // Modify the reward tracking effect to ensure smoother transitions
   useEffect(() => {
     if (!stakedBalance || !availableReward) {
       return;
@@ -1274,32 +1281,10 @@ export default function EarnPage() {
         baseValue = parseFloat(storedBase);
         startTime = parseInt(storedStartTime, 10);
 
-        console.log(
-          "[RewardTracking] Using stored values - baseValue:",
-          baseValue,
-          "startTime:",
-          startTime
-        );
-
-        if (baseReward > baseValue) {
+        // Ensure we're not using stale localStorage values compared to latest chain data
+        if (Math.abs(baseReward - baseValue) > 0.000001) {
           console.log(
-            "[RewardTracking] On-chain reward increased, updating baseValue from",
-            baseValue,
-            "to",
-            baseReward
-          );
-          baseValue = baseReward;
-          startTime = Date.now();
-          localStorage.setItem("savingsRewardBase", baseValue.toString());
-          localStorage.setItem("savingsRewardStartTime", startTime.toString());
-        }
-
-        if (baseReward < baseValue) {
-          console.log(
-            "[RewardTracking] On-chain reward decreased (probably claimed), updating baseValue from",
-            baseValue,
-            "to",
-            baseReward
+            "[RewardTracking] Significant difference between chain data and local storage, updating to chain data"
           );
           baseValue = baseReward;
           startTime = Date.now();
@@ -1307,9 +1292,7 @@ export default function EarnPage() {
           localStorage.setItem("savingsRewardStartTime", startTime.toString());
         }
       } else {
-        console.log(
-          "[RewardTracking] No stored values, initializing with current values"
-        );
+        // Initialize with current values
         baseValue = baseReward;
         startTime = Date.now();
         localStorage.setItem("savingsRewardBase", baseValue.toString());

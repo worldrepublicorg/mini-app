@@ -39,6 +39,7 @@ export function StakeWithPermitForm({
   const [isCollecting, setIsCollecting] = useState(false);
   const [transactionId, setTransactionId] = useState<string | null>(null);
   const [collectTx, setCollectTx] = useState<string | null>(null);
+  const [isRewardUpdating, setIsRewardUpdating] = useState(false);
 
   const { isSuccess } = useWaitForTransactionReceipt({
     client: drpcClient,
@@ -210,6 +211,7 @@ export function StakeWithPermitForm({
     }
 
     setIsCollecting(true);
+    setIsRewardUpdating(true);
     try {
       console.log("Sending redeem transaction via MiniKit...");
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
@@ -298,7 +300,9 @@ export function StakeWithPermitForm({
       args: { user: walletAddress },
       onLogs: (logs: unknown) => {
         console.log("Redeemed event captured:", logs);
-        fetchAvailableReward();
+        fetchAvailableReward().finally(() => {
+          setIsRewardUpdating(false);
+        });
         fetchBalance();
         setIsCollecting(false);
       },
@@ -419,7 +423,9 @@ export function StakeWithPermitForm({
             Collect
           </Button>
 
-          {isRewardLoading || displayAvailableReward === null ? (
+          {isRewardLoading ||
+          isRewardUpdating ||
+          displayAvailableReward === null ? (
             <div className="h-[21px] w-[104px] animate-pulse rounded-md bg-gray-100"></div>
           ) : (
             <Typography
