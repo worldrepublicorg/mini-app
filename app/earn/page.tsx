@@ -469,7 +469,7 @@ export default function EarnPage() {
         console.error("Error sending transaction", finalPayload);
         // Show error description in toast
         const errorMessage =
-          finalPayload.error_code || "Error sending transaction";
+          finalPayload.details?.description || "Error sending transaction";
         showToast(errorMessage, "error");
         setIsSubmitting(false);
       } else {
@@ -526,7 +526,7 @@ export default function EarnPage() {
           finalPayload
         );
         const errorMessage =
-          finalPayload.error_code || "Error setting up Basic Income Plus";
+          finalPayload.details?.description || "Error setting up Basic Income Plus";
         showToast(errorMessage, "error");
         setIsSubmitting(false);
       } else {
@@ -615,7 +615,7 @@ export default function EarnPage() {
         console.error("Error sending transaction", finalPayload);
         // Show the error description in a toast if available
         const errorMessage =
-          finalPayload.error_code || "Error sending transaction";
+          finalPayload.details?.description || "Error sending transaction";
         showToast(errorMessage, "error");
         setIsClaimingBasic(false);
       } else {
@@ -679,7 +679,7 @@ export default function EarnPage() {
           finalPayload
         );
         const errorMessage =
-          finalPayload.error_code || "Error claiming Basic Income Plus";
+          finalPayload.details?.description || "Error claiming Basic Income Plus";
         showToast(errorMessage, "error");
         setIsClaimingPlus(false);
       } else {
@@ -866,7 +866,7 @@ export default function EarnPage() {
       if (finalPayload.status === "error") {
         console.error("[Reward] Error sending transaction", finalPayload);
         const errorMessage =
-          finalPayload.error_code || "Error sending reward";
+          finalPayload.details?.description || "Error sending reward";
         showToast(errorMessage, "error");
         setRewardStatus({
           success: false,
