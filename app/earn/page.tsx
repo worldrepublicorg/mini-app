@@ -57,6 +57,7 @@ export default function EarnPage() {
   const { showToast } = useToast();
 
   useEffect(() => {
+    // Only log on the initial render
     console.log("[DisplayTracking] Initial claimableAmount:", claimableAmount);
     console.log(
       "[DisplayTracking] Initial claimableAmountPlus:",
@@ -66,7 +67,7 @@ export default function EarnPage() {
       "[DisplayTracking] Initial displayClaimable:",
       displayClaimable
     );
-  }, [claimableAmount, claimableAmountPlus, displayClaimable]);
+  }, []); // Empty dependency array means it only runs once on mount
 
   useEffect(() => {
     console.log(
@@ -936,7 +937,7 @@ export default function EarnPage() {
   }, []);
 
   // Add immediate check for referral code when the module loads
-  if (typeof window !== "undefined") {
+  useEffect(() => {
     console.log("====== INITIAL URL CHECK ======");
     console.log("[Referral] Initial URL:", window.location.href);
 
@@ -949,7 +950,7 @@ export default function EarnPage() {
       sessionStorage.setItem("pendingReferralCode", code);
     }
     console.log("==============================");
-  }
+  }, []);
 
   // Handle incoming referral codes
   useEffect(() => {
