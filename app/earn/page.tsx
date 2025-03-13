@@ -1170,90 +1170,24 @@ export default function EarnPage() {
     return (Number(value) / 1e18).toString();
   }, []);
 
-  // Modify the fetchAvailableReward function to handle the transition more cleanly
-  const fetchAvailableReward = useCallback(async () => {
-    if (!walletAddress) return;
+  // Add a state to track if collection is in progress
+  const [isCollectingRewards, setIsCollectingRewards] = useState(false);
 
-    setIsRewardLoading(true);
-    setDisplayAvailableReward(null);
+  // Add this handler function
+  const handleCollectStart = () => {
+    console.log("[RewardTracking] Collection started, forcing display to 0");
+    setIsCollectingRewards(true);
+    setDisplayAvailableReward("0.0");
 
-    try {
-      const availableAbi = parseAbi([
-        "function available(address account) external view returns (uint256)",
-      ]);
-      const result: bigint = await quiknodeClient.readContract({
-        address: "0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7" as `0x${string}`,
-        abi: availableAbi,
-        functionName: "available",
-        args: [walletAddress],
-      });
-      console.log("Fetched available reward:", result);
+    // Set localStorage values to 0 in the parent too, for extra safety
+    localStorage.setItem("savingsRewardBase", "0");
+    localStorage.setItem("savingsRewardStartTime", Date.now().toString());
+  };
 
-      // Update the base reward value
-      setAvailableReward(fromWei(result));
-
-      // Important: Also update local storage immediately to prevent flickering
-      localStorage.setItem("savingsRewardBase", fromWei(result));
-      localStorage.setItem("savingsRewardStartTime", Date.now().toString());
-    } catch (error) {
-      console.error("Error fetching available reward", error);
-    } finally {
-      setIsRewardLoading(false);
-    }
-  }, [walletAddress, fromWei]);
-
-  const fetchStakedBalance = useCallback(async () => {
-    if (!walletAddress) return;
-    try {
-      const balanceAbi = parseAbi([
-        "function balanceOf(address account) external view returns (uint256)",
-      ]);
-      const result: bigint = await alchemyClient.readContract({
-        address: "0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7" as `0x${string}`,
-        abi: balanceAbi,
-        functionName: "balanceOf",
-        args: [walletAddress],
-      });
-      const balance = fromWei(result);
-      console.log("Fetched staked balance:", balance);
-      setStakedBalance(balance);
-      localStorage.setItem("stakedBalance", balance);
-    } catch (error) {
-      console.error("Error fetching staked balance", error);
-      setTimeout(fetchStakedBalance, 1000);
-    }
-  }, [walletAddress, fromWei]);
-
-  // Add useEffect to fetch data when the wallet address changes
+  // Modify the reward tracking effect to respect the collecting state
   useEffect(() => {
-    if (!walletAddress) {
-      setIsRewardLoading(true);
-      setDisplayAvailableReward(null);
-      return;
-    }
-
-    // Fetch immediately when component mounts or wallet changes
-    fetchAvailableReward();
-    fetchStakedBalance();
-
-    // Then set up a much less frequent interval (every 5 minutes)
-    const fetchInterval = setInterval(
-      () => {
-        console.log(
-          "[RewardTracking] Running periodic refresh (5 min interval)"
-        );
-        fetchAvailableReward();
-        fetchStakedBalance();
-      },
-      5 * 60 * 1000
-    ); // 5 minutes in milliseconds
-
-    return () => clearInterval(fetchInterval);
-  }, [walletAddress, fetchAvailableReward, fetchStakedBalance]);
-
-  // Modify the reward tracking effect to ensure smoother transitions
-  useEffect(() => {
-    if (!stakedBalance || !availableReward) {
+    if (!stakedBalance || !availableReward || isCollectingRewards) {
+      // Skip real-time updates if collection is in progress
       return;
     }
 
@@ -1331,7 +1265,97 @@ export default function EarnPage() {
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, [stakedBalance, availableReward]);
+  }, [stakedBalance, availableReward, isCollectingRewards]);
+
+  // Modify fetchAvailableReward to reset the collection state when done
+  const fetchAvailableReward = useCallback(async () => {
+    if (!walletAddress) return;
+
+    setIsRewardLoading(true);
+    if (!isCollectingRewards) {
+      setDisplayAvailableReward(null);
+    }
+
+    try {
+      const availableAbi = parseAbi([
+        "function available(address account) external view returns (uint256)",
+      ]);
+      const result: bigint = await quiknodeClient.readContract({
+        address: "0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7" as `0x${string}`,
+        abi: availableAbi,
+        functionName: "available",
+        args: [walletAddress],
+      });
+      console.log("Fetched available reward:", result);
+
+      // If this was called after a collection, keep display at 0
+      if (isCollectingRewards) {
+        setDisplayAvailableReward("0.0");
+      } else {
+        // Regular case, let the calculation happen in the effect
+        setAvailableReward(fromWei(result));
+      }
+
+      // Always update localStorage
+      localStorage.setItem("savingsRewardBase", fromWei(result));
+      localStorage.setItem("savingsRewardStartTime", Date.now().toString());
+    } catch (error) {
+      console.error("Error fetching available reward", error);
+    } finally {
+      setIsRewardLoading(false);
+      // Reset collection state after fetch completes
+      setIsCollectingRewards(false);
+    }
+  }, [walletAddress, fromWei, isCollectingRewards]);
+
+  const fetchStakedBalance = useCallback(async () => {
+    if (!walletAddress) return;
+    try {
+      const balanceAbi = parseAbi([
+        "function balanceOf(address account) external view returns (uint256)",
+      ]);
+      const result: bigint = await alchemyClient.readContract({
+        address: "0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7" as `0x${string}`,
+        abi: balanceAbi,
+        functionName: "balanceOf",
+        args: [walletAddress],
+      });
+      const balance = fromWei(result);
+      console.log("Fetched staked balance:", balance);
+      setStakedBalance(balance);
+      localStorage.setItem("stakedBalance", balance);
+    } catch (error) {
+      console.error("Error fetching staked balance", error);
+      setTimeout(fetchStakedBalance, 1000);
+    }
+  }, [walletAddress, fromWei]);
+
+  // Add useEffect to fetch data when the wallet address changes
+  useEffect(() => {
+    if (!walletAddress) {
+      setIsRewardLoading(true);
+      setDisplayAvailableReward(null);
+      return;
+    }
+
+    // Fetch immediately when component mounts or wallet changes
+    fetchAvailableReward();
+    fetchStakedBalance();
+
+    // Then set up a much less frequent interval (every 5 minutes)
+    const fetchInterval = setInterval(
+      () => {
+        console.log(
+          "[RewardTracking] Running periodic refresh (5 min interval)"
+        );
+        fetchAvailableReward();
+        fetchStakedBalance();
+      },
+      5 * 60 * 1000
+    ); // 5 minutes in milliseconds
+
+    return () => clearInterval(fetchInterval);
+  }, [walletAddress, fetchAvailableReward, fetchStakedBalance]);
 
   const renderContent = () => {
     switch (activeTab) {
@@ -1550,6 +1574,7 @@ export default function EarnPage() {
               isRewardLoading={isRewardLoading}
               fetchStakedBalance={fetchStakedBalance}
               fetchAvailableReward={fetchAvailableReward}
+              onCollectStart={handleCollectStart}
             />
           </div>
         );

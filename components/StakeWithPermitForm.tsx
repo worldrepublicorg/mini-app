@@ -16,6 +16,7 @@ interface StakeWithPermitFormProps {
   isRewardLoading: boolean;
   fetchStakedBalance: () => Promise<void>;
   fetchAvailableReward: () => Promise<void>;
+  onCollectStart: () => void;
 }
 
 const STAKING_CONTRACT_ADDRESS = "0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7";
@@ -27,6 +28,7 @@ export function StakeWithPermitForm({
   isRewardLoading,
   fetchStakedBalance,
   fetchAvailableReward,
+  onCollectStart,
 }: StakeWithPermitFormProps) {
   const { walletAddress, tokenBalance, fetchBalance } = useWallet();
   const { showToast } = useToast();
@@ -210,8 +212,14 @@ export function StakeWithPermitForm({
       return;
     }
 
+    onCollectStart();
+
     setIsCollecting(true);
     setIsRewardUpdating(true);
+
+    localStorage.setItem("savingsRewardBase", "0");
+    localStorage.setItem("savingsRewardStartTime", Date.now().toString());
+
     try {
       console.log("Sending redeem transaction via MiniKit...");
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
