@@ -103,8 +103,25 @@ export function StakeWithPermitForm() {
 
   useEffect(() => {
     if (!walletAddress) return;
+
+    // Fetch immediately when component mounts
     fetchAvailableReward();
     fetchStakedBalance();
+
+    // Then set up a much less frequent interval (every 5 minutes)
+    // This is just a backup to ensure values stay reasonably in sync
+    const fetchInterval = setInterval(
+      () => {
+        console.log(
+          "[RewardTracking] Running periodic refresh (5 min interval)"
+        );
+        fetchAvailableReward();
+        fetchStakedBalance();
+      },
+      5 * 60 * 1000
+    ); // 5 minutes in milliseconds
+
+    return () => clearInterval(fetchInterval);
   }, [walletAddress, fetchAvailableReward, fetchStakedBalance]);
 
   useEffect(() => {
@@ -393,15 +410,6 @@ export function StakeWithPermitForm() {
   };
 
   useEffect(() => {
-    if (!walletAddress) return;
-    const interval = setInterval(() => {
-      fetchAvailableReward();
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [walletAddress, fetchAvailableReward]);
-
-  useEffect(() => {
     if (isSuccess) {
       console.log("Transaction successful");
       fetchStakedBalance();
@@ -584,7 +592,11 @@ export function StakeWithPermitForm() {
             variant={{ variant: "number", level: 6 }}
             className="text-base"
           >
-            {displayAvailableReward}
+            {isRewardLoading ? (
+              <div className="h-[21px] w-[104px] animate-pulse rounded-md bg-gray-100"></div>
+            ) : (
+              displayAvailableReward
+            )}
           </Typography>
         </div>
       </div>
