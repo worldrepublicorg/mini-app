@@ -25,8 +25,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Do you think rapid realignments in global alliances will lead to a more secure international order?",
-    url: "https://vote.one/yhYoEjF3",
+      "Should corporations operating in multiple countries be subject to a unified global minimum tax rate to reduce inequality?",
+    url: "https://vote.one/3FhzXHRG",
   },
   {
     description:
