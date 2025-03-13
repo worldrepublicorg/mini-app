@@ -300,9 +300,13 @@ export function StakeWithPermitForm({
       args: { user: walletAddress },
       onLogs: (logs: unknown) => {
         console.log("Redeemed event captured:", logs);
-        fetchAvailableReward().finally(() => {
+
+        fetchAvailableReward().then(() => {
+          localStorage.setItem("savingsRewardBase", "0");
+          localStorage.setItem("savingsRewardStartTime", Date.now().toString());
           setIsRewardUpdating(false);
         });
+
         fetchBalance();
         setIsCollecting(false);
       },
