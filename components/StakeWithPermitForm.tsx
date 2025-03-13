@@ -237,6 +237,7 @@ export function StakeWithPermitForm({
       if (finalPayload.status === "error") {
         console.error("Redeem transaction error. See console for details.");
         setIsCollecting(false);
+        setIsRewardUpdating(false);
       } else {
         console.info("Rewards redeemed successfully!");
         setCollectTx(finalPayload.transaction_id);
@@ -246,6 +247,7 @@ export function StakeWithPermitForm({
     } catch (error: any) {
       console.error("Error:", error.message);
       setIsCollecting(false);
+      setIsRewardUpdating(false);
     }
   };
 
