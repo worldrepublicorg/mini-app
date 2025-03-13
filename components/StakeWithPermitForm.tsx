@@ -131,6 +131,8 @@ export function StakeWithPermitForm() {
       return;
     }
 
+    setIsRewardLoading(false);
+
     const interestRate = 1 / (86400 * 529);
     const stakedBalanceNum = Number(stakedBalance);
     const baseReward = Number(availableReward);
@@ -589,16 +591,17 @@ export function StakeWithPermitForm() {
           >
             Collect
           </Button>
-          <Typography
-            variant={{ variant: "number", level: 6 }}
-            className="text-base"
-          >
-            {isRewardLoading || displayAvailableReward === null ? (
-              <div className="h-[21px] w-[104px] animate-pulse rounded-md bg-gray-100"></div>
-            ) : (
-              displayAvailableReward
-            )}
-          </Typography>
+
+          {isRewardLoading || displayAvailableReward === null ? (
+            <div className="h-[21px] w-[104px] animate-pulse rounded-md bg-gray-100"></div>
+          ) : (
+            <Typography
+              variant={{ variant: "number", level: 6 }}
+              className="text-base"
+            >
+              {displayAvailableReward}
+            </Typography>
+          )}
         </div>
       </div>
 
