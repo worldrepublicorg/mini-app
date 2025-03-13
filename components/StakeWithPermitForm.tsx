@@ -26,6 +26,9 @@ export function StakeWithPermitForm() {
     return localStorage.getItem("stakedBalance") || "0";
   });
   const [availableReward, setAvailableReward] = useState<string>("0");
+  const [displayAvailableReward, setDisplayAvailableReward] =
+    useState<string>("0");
+  const [isRewardLoading, setIsRewardLoading] = useState<boolean>(true);
 
   const [amount, setAmount] = useState("");
   const [selectedAction, setSelectedAction] = useState<"deposit" | "withdraw">(
@@ -103,6 +106,108 @@ export function StakeWithPermitForm() {
     fetchAvailableReward();
     fetchStakedBalance();
   }, [walletAddress, fetchAvailableReward, fetchStakedBalance]);
+
+  useEffect(() => {
+    if (!stakedBalance || !availableReward) {
+      return;
+    }
+
+    setIsRewardLoading(false);
+
+    const interestRate = 1 / (86400 * 529);
+    const stakedBalanceNum = Number(stakedBalance);
+    const baseReward = Number(availableReward);
+
+    console.log(
+      "[RewardTracking] Starting real-time reward display update with:"
+    );
+    console.log("[RewardTracking] stakedBalance:", stakedBalanceNum);
+    console.log("[RewardTracking] baseReward:", baseReward);
+
+    let baseValue: number;
+    let startTime: number;
+
+    const storedBase = localStorage.getItem("savingsRewardBase");
+    const storedStartTime = localStorage.getItem("savingsRewardStartTime");
+
+    console.log("[RewardTracking] Stored base value:", storedBase);
+    console.log("[RewardTracking] Stored start time:", storedStartTime);
+
+    if (storedBase && storedStartTime) {
+      baseValue = parseFloat(storedBase);
+      startTime = parseInt(storedStartTime, 10);
+
+      console.log(
+        "[RewardTracking] Using stored values - baseValue:",
+        baseValue,
+        "startTime:",
+        startTime
+      );
+
+      if (baseReward > baseValue) {
+        console.log(
+          "[RewardTracking] On-chain reward increased, updating baseValue from",
+          baseValue,
+          "to",
+          baseReward
+        );
+        baseValue = baseReward;
+        startTime = Date.now();
+        localStorage.setItem("savingsRewardBase", baseValue.toString());
+        localStorage.setItem("savingsRewardStartTime", startTime.toString());
+      }
+
+      if (baseReward < baseValue) {
+        console.log(
+          "[RewardTracking] On-chain reward decreased (probably claimed), updating baseValue from",
+          baseValue,
+          "to",
+          baseReward
+        );
+        baseValue = baseReward;
+        startTime = Date.now();
+        localStorage.setItem("savingsRewardBase", baseValue.toString());
+        localStorage.setItem("savingsRewardStartTime", startTime.toString());
+      }
+    } else {
+      console.log(
+        "[RewardTracking] No stored values, initializing with current values"
+      );
+      baseValue = baseReward;
+      startTime = Date.now();
+      localStorage.setItem("savingsRewardBase", baseValue.toString());
+      localStorage.setItem("savingsRewardStartTime", startTime.toString());
+    }
+
+    const updateDisplay = () => {
+      const elapsedSeconds = (Date.now() - startTime) / 1000;
+      const interestEarned = stakedBalanceNum * interestRate * elapsedSeconds;
+      const totalReward = baseValue + interestEarned;
+
+      if (Math.round(elapsedSeconds) % 10 === 0) {
+        console.log("[RewardTracking] Current calculation:");
+        console.log(
+          "[RewardTracking] baseValue:",
+          baseValue,
+          "+ (stakedBalance:",
+          stakedBalanceNum,
+          "* rate:",
+          interestRate,
+          "* elapsed:",
+          elapsedSeconds,
+          ") =",
+          totalReward
+        );
+      }
+
+      setDisplayAvailableReward(totalReward.toFixed(9));
+    };
+
+    updateDisplay();
+    const interval = setInterval(updateDisplay, 1000);
+
+    return () => clearInterval(interval);
+  }, [stakedBalance, availableReward]);
 
   const handleStake = async () => {
     if (!MiniKit.isInstalled()) {
@@ -182,6 +287,8 @@ export function StakeWithPermitForm() {
         console.info("Staking transaction submitted successfully!");
         setTransactionId(finalPayload.transaction_id);
         setAmount("");
+        localStorage.setItem("savingsRewardBase", "0");
+        localStorage.setItem("savingsRewardStartTime", Date.now().toString());
       }
     } catch (error: any) {
       console.error("Error:", error.message);
@@ -237,6 +344,8 @@ export function StakeWithPermitForm() {
         console.info("Withdraw transaction submitted successfully!");
         setTransactionId(finalPayload.transaction_id);
         setAmount("");
+        localStorage.setItem("savingsRewardBase", "0");
+        localStorage.setItem("savingsRewardStartTime", Date.now().toString());
       }
     } catch (error: any) {
       console.error("Error:", error.message);
@@ -274,6 +383,8 @@ export function StakeWithPermitForm() {
       } else {
         console.info("Rewards redeemed successfully!");
         setCollectTx(finalPayload.transaction_id);
+        localStorage.setItem("savingsRewardBase", "0");
+        localStorage.setItem("savingsRewardStartTime", Date.now().toString());
       }
     } catch (error: any) {
       console.error("Error:", error.message);
@@ -473,7 +584,7 @@ export function StakeWithPermitForm() {
             variant={{ variant: "number", level: 6 }}
             className="text-base"
           >
-            {Number(availableReward).toFixed(9)}
+            {displayAvailableReward}
           </Typography>
         </div>
       </div>
