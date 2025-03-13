@@ -467,6 +467,10 @@ export default function EarnPage() {
 
       if (finalPayload.status === "error") {
         console.error("Error sending transaction", finalPayload);
+        // Show error description in toast
+        const errorMessage =
+          finalPayload.error_code || "Error sending transaction";
+        showToast(errorMessage, "error");
         setIsSubmitting(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
@@ -477,6 +481,8 @@ export default function EarnPage() {
       }
     } catch (error: any) {
       console.error("Error:", error);
+      // For general errors outside the transaction payload
+      showToast(error.message || "An unexpected error occurred", "error");
       setIsSubmitting(false);
     }
   };
@@ -519,6 +525,9 @@ export default function EarnPage() {
           "[BasicIncomePlus] Error sending transaction",
           finalPayload
         );
+        const errorMessage =
+          finalPayload.error_code || "Error setting up Basic Income Plus";
+        showToast(errorMessage, "error");
         setIsSubmitting(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
@@ -574,6 +583,10 @@ export default function EarnPage() {
       console.error("[BasicIncomePlus] Setup error:", error);
       console.error("[BasicIncomePlus] Error message:", error.message);
       console.error("[BasicIncomePlus] Error stack:", error.stack);
+      showToast(
+        error.message || "An unexpected error occurred during setup",
+        "error"
+      );
       setIsSubmitting(false);
     }
   };
@@ -600,6 +613,10 @@ export default function EarnPage() {
 
       if (finalPayload.status === "error") {
         console.error("Error sending transaction", finalPayload);
+        // Show the error description in a toast if available
+        const errorMessage =
+          finalPayload.error_code || "Error sending transaction";
+        showToast(errorMessage, "error");
         setIsClaimingBasic(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
@@ -661,6 +678,9 @@ export default function EarnPage() {
           "[BasicIncomePlus] Error sending claim transaction",
           finalPayload
         );
+        const errorMessage =
+          finalPayload.error_code || "Error claiming Basic Income Plus";
+        showToast(errorMessage, "error");
         setIsClaimingPlus(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
@@ -674,7 +694,6 @@ export default function EarnPage() {
         console.log(
           "[ClaimProcess] Setting display to 0 while waiting for confirmation"
         );
-        setDisplayClaimable(0);
 
         // We'll do the localStorage reset in the transaction confirmation handler
       }
@@ -683,6 +702,10 @@ export default function EarnPage() {
       if (error instanceof Error) {
         console.error("[BasicIncomePlus] Error message:", error.message);
         console.error("[BasicIncomePlus] Error stack:", error.stack);
+        showToast(
+          error.message || "An unexpected error occurred while claiming",
+          "error"
+        );
       }
       setIsClaimingPlus(false);
     }
@@ -842,11 +865,12 @@ export default function EarnPage() {
 
       if (finalPayload.status === "error") {
         console.error("[Reward] Error sending transaction", finalPayload);
-
-        // Keep error handling simple to avoid TypeScript errors
+        const errorMessage =
+          finalPayload.error_code || "Error sending reward";
+        showToast(errorMessage, "error");
         setRewardStatus({
           success: false,
-          message: "Transaction failed. Please try again.",
+          message: errorMessage,
         });
       } else {
         setRewardStatus({
@@ -857,11 +881,15 @@ export default function EarnPage() {
         // After successful reward transaction, update the canReward status
         fetchCanReward();
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("[Reward] Error in reward transaction:", error);
+      showToast(
+        error.message || "An unexpected error occurred with the reward",
+        "error"
+      );
       setRewardStatus({
         success: false,
-        message: "Failed to send reward. Please try again.",
+        message: error.message || "Failed to send reward. Please try again.",
       });
     } finally {
       setIsSendingReward(false);
