@@ -22,10 +22,12 @@ const MAIN_TOKEN_ADDRESS = "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B";
 export function StakeWithPermitForm() {
   const { walletAddress, tokenBalance, fetchBalance } = useWallet();
   const { showToast } = useToast();
-  const [stakedBalance, setStakedBalance] = useState<string>(() => {
-    return localStorage.getItem("stakedBalance") || "0";
-  });
+  const [stakedBalance, setStakedBalance] = useState<string>("0");
   const [availableReward, setAvailableReward] = useState<string>("0");
+  const [displayAvailableReward, setDisplayAvailableReward] = useState<
+    string | null
+  >(null);
+  const [isRewardLoading, setIsRewardLoading] = useState<boolean>(true);
 
   const [amount, setAmount] = useState("");
   const [selectedAction, setSelectedAction] = useState<"deposit" | "withdraw">(
@@ -43,6 +45,10 @@ export function StakeWithPermitForm() {
 
   const fetchAvailableReward = useCallback(async () => {
     if (!walletAddress) return;
+
+    setIsRewardLoading(true);
+    setDisplayAvailableReward(null);
+
     try {
       const availableAbi = parseAbi([
         "function available(address account) external view returns (uint256)",
@@ -57,6 +63,7 @@ export function StakeWithPermitForm() {
       setAvailableReward(fromWei(result));
     } catch (error) {
       console.error("Error fetching available reward", error);
+      setIsRewardLoading(false);
     }
   }, [walletAddress, fromWei]);
 
@@ -99,10 +106,136 @@ export function StakeWithPermitForm() {
   });
 
   useEffect(() => {
-    if (!walletAddress) return;
+    if (!walletAddress) {
+      setIsRewardLoading(true);
+      setDisplayAvailableReward(null);
+      return;
+    }
+
+    // Fetch immediately when component mounts
     fetchAvailableReward();
     fetchStakedBalance();
+
+    // Then set up a much less frequent interval (every 5 minutes)
+    // This is just a backup to ensure values stay reasonably in sync
+    const fetchInterval = setInterval(
+      () => {
+        console.log(
+          "[RewardTracking] Running periodic refresh (5 min interval)"
+        );
+        fetchAvailableReward();
+        fetchStakedBalance();
+      },
+      5 * 60 * 1000
+    ); // 5 minutes in milliseconds
+
+    return () => clearInterval(fetchInterval);
   }, [walletAddress, fetchAvailableReward, fetchStakedBalance]);
+
+  useEffect(() => {
+    if (!stakedBalance || !availableReward) {
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      const interestRate = 1 / (86400 * 529);
+      const stakedBalanceNum = Number(stakedBalance);
+      const baseReward = Number(availableReward);
+
+      console.log(
+        "[RewardTracking] Starting real-time reward display update with:"
+      );
+      console.log("[RewardTracking] stakedBalance:", stakedBalanceNum);
+      console.log("[RewardTracking] baseReward:", baseReward);
+
+      let baseValue: number;
+      let startTime: number;
+
+      const storedBase = localStorage.getItem("savingsRewardBase");
+      const storedStartTime = localStorage.getItem("savingsRewardStartTime");
+
+      console.log("[RewardTracking] Stored base value:", storedBase);
+      console.log("[RewardTracking] Stored start time:", storedStartTime);
+
+      if (storedBase && storedStartTime) {
+        baseValue = parseFloat(storedBase);
+        startTime = parseInt(storedStartTime, 10);
+
+        console.log(
+          "[RewardTracking] Using stored values - baseValue:",
+          baseValue,
+          "startTime:",
+          startTime
+        );
+
+        if (baseReward > baseValue) {
+          console.log(
+            "[RewardTracking] On-chain reward increased, updating baseValue from",
+            baseValue,
+            "to",
+            baseReward
+          );
+          baseValue = baseReward;
+          startTime = Date.now();
+          localStorage.setItem("savingsRewardBase", baseValue.toString());
+          localStorage.setItem("savingsRewardStartTime", startTime.toString());
+        }
+
+        if (baseReward < baseValue) {
+          console.log(
+            "[RewardTracking] On-chain reward decreased (probably claimed), updating baseValue from",
+            baseValue,
+            "to",
+            baseReward
+          );
+          baseValue = baseReward;
+          startTime = Date.now();
+          localStorage.setItem("savingsRewardBase", baseValue.toString());
+          localStorage.setItem("savingsRewardStartTime", startTime.toString());
+        }
+      } else {
+        console.log(
+          "[RewardTracking] No stored values, initializing with current values"
+        );
+        baseValue = baseReward;
+        startTime = Date.now();
+        localStorage.setItem("savingsRewardBase", baseValue.toString());
+        localStorage.setItem("savingsRewardStartTime", startTime.toString());
+      }
+
+      const updateDisplay = () => {
+        const elapsedSeconds = (Date.now() - startTime) / 1000;
+        const interestEarned = stakedBalanceNum * interestRate * elapsedSeconds;
+        const totalReward = baseValue + interestEarned;
+
+        if (Math.round(elapsedSeconds) % 10 === 0) {
+          console.log("[RewardTracking] Current calculation:");
+          console.log(
+            "[RewardTracking] baseValue:",
+            baseValue,
+            "+ (stakedBalance:",
+            stakedBalanceNum,
+            "* rate:",
+            interestRate,
+            "* elapsed:",
+            elapsedSeconds,
+            ") =",
+            totalReward
+          );
+        }
+
+        setDisplayAvailableReward(totalReward.toFixed(9));
+        setIsRewardLoading(false);
+      };
+
+      updateDisplay();
+      const interval = setInterval(updateDisplay, 1000);
+
+      return () => clearInterval(interval);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [stakedBalance, availableReward]);
 
   const handleStake = async () => {
     if (!MiniKit.isInstalled()) {
@@ -182,6 +315,8 @@ export function StakeWithPermitForm() {
         console.info("Staking transaction submitted successfully!");
         setTransactionId(finalPayload.transaction_id);
         setAmount("");
+        localStorage.setItem("savingsRewardBase", "0");
+        localStorage.setItem("savingsRewardStartTime", Date.now().toString());
       }
     } catch (error: any) {
       console.error("Error:", error.message);
@@ -237,6 +372,8 @@ export function StakeWithPermitForm() {
         console.info("Withdraw transaction submitted successfully!");
         setTransactionId(finalPayload.transaction_id);
         setAmount("");
+        localStorage.setItem("savingsRewardBase", "0");
+        localStorage.setItem("savingsRewardStartTime", Date.now().toString());
       }
     } catch (error: any) {
       console.error("Error:", error.message);
@@ -274,21 +411,14 @@ export function StakeWithPermitForm() {
       } else {
         console.info("Rewards redeemed successfully!");
         setCollectTx(finalPayload.transaction_id);
+        localStorage.setItem("savingsRewardBase", "0");
+        localStorage.setItem("savingsRewardStartTime", Date.now().toString());
       }
     } catch (error: any) {
       console.error("Error:", error.message);
       setIsCollecting(false);
     }
   };
-
-  useEffect(() => {
-    if (!walletAddress) return;
-    const interval = setInterval(() => {
-      fetchAvailableReward();
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, [walletAddress, fetchAvailableReward]);
 
   useEffect(() => {
     if (isSuccess) {
@@ -469,12 +599,18 @@ export function StakeWithPermitForm() {
           >
             Collect
           </Button>
-          <Typography
-            variant={{ variant: "number", level: 6 }}
-            className="text-base"
-          >
-            {Number(availableReward).toFixed(9)}
-          </Typography>
+
+          {isRewardLoading || displayAvailableReward === null ? (
+            <div className="h-[21px] w-[104px] animate-pulse rounded-md bg-gray-100"></div>
+          ) : (
+            <Typography
+              variant={{ variant: "number", level: 6 }}
+              className="text-base"
+              data-testid="reward-value"
+            >
+              {displayAvailableReward}
+            </Typography>
+          )}
         </div>
       </div>
 
