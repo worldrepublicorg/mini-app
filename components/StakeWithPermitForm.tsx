@@ -48,6 +48,7 @@ export function StakeWithPermitForm() {
   const fetchAvailableReward = useCallback(async () => {
     if (!walletAddress) return;
     setIsRewardLoading(true);
+    setDisplayAvailableReward(null);
     try {
       const availableAbi = parseAbi([
         "function available(address account) external view returns (uint256)",
@@ -104,7 +105,11 @@ export function StakeWithPermitForm() {
   });
 
   useEffect(() => {
-    if (!walletAddress) return;
+    if (!walletAddress) {
+      setIsRewardLoading(true);
+      setDisplayAvailableReward(null);
+      return;
+    }
 
     // Fetch immediately when component mounts
     fetchAvailableReward();
@@ -127,7 +132,8 @@ export function StakeWithPermitForm() {
   }, [walletAddress, fetchAvailableReward, fetchStakedBalance]);
 
   useEffect(() => {
-    if (!stakedBalance || !availableReward) {
+    if (!stakedBalance || !availableReward || stakedBalance === "0") {
+      setIsRewardLoading(false);
       return;
     }
 
@@ -598,6 +604,7 @@ export function StakeWithPermitForm() {
             <Typography
               variant={{ variant: "number", level: 6 }}
               className="text-base"
+              data-testid="reward-value"
             >
               {displayAvailableReward}
             </Typography>
