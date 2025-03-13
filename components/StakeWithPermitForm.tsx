@@ -26,8 +26,9 @@ export function StakeWithPermitForm() {
     return localStorage.getItem("stakedBalance") || "0";
   });
   const [availableReward, setAvailableReward] = useState<string>("0");
-  const [displayAvailableReward, setDisplayAvailableReward] =
-    useState<string>("0");
+  const [displayAvailableReward, setDisplayAvailableReward] = useState<
+    string | null
+  >(null);
   const [isRewardLoading, setIsRewardLoading] = useState<boolean>(true);
 
   const [amount, setAmount] = useState("");
@@ -46,6 +47,7 @@ export function StakeWithPermitForm() {
 
   const fetchAvailableReward = useCallback(async () => {
     if (!walletAddress) return;
+    setIsRewardLoading(true);
     try {
       const availableAbi = parseAbi([
         "function available(address account) external view returns (uint256)",
@@ -128,8 +130,6 @@ export function StakeWithPermitForm() {
     if (!stakedBalance || !availableReward) {
       return;
     }
-
-    setIsRewardLoading(false);
 
     const interestRate = 1 / (86400 * 529);
     const stakedBalanceNum = Number(stakedBalance);
@@ -218,6 +218,7 @@ export function StakeWithPermitForm() {
       }
 
       setDisplayAvailableReward(totalReward.toFixed(9));
+      setIsRewardLoading(false);
     };
 
     updateDisplay();
@@ -592,7 +593,7 @@ export function StakeWithPermitForm() {
             variant={{ variant: "number", level: 6 }}
             className="text-base"
           >
-            {isRewardLoading ? (
+            {isRewardLoading || displayAvailableReward === null ? (
               <div className="h-[21px] w-[104px] animate-pulse rounded-md bg-gray-100"></div>
             ) : (
               displayAvailableReward
