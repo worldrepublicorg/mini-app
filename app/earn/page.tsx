@@ -613,7 +613,6 @@ export default function EarnPage() {
         console.log(
           "[ClaimProcess] Setting display to 0 while waiting for confirmation"
         );
-        setDisplayClaimable(0);
 
         // We'll do the localStorage reset in the transaction confirmation handler
       }
