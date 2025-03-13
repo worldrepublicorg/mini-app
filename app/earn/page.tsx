@@ -16,7 +16,13 @@ import {
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/Drawer";
 import { WalletAuth } from "@/components/WalletAuth";
 import { useWallet } from "@/components/contexts/WalletContext";
-import { viemClient } from "@/lib/viemClient";
+import {
+  drpcClient,
+  thirdwebClient,
+  quiknodeClient,
+  alchemyClient,
+  tenderlyClient,
+} from "@/lib/viemClient";
 import { parseAbi } from "viem";
 import { MiniKit, getIsUserVerified } from "@worldcoin/minikit-js";
 import { TabSwiper } from "@/components/TabSwiper";
@@ -314,7 +320,7 @@ export default function EarnPage() {
   const [isClaimingPlus, setIsClaimingPlus] = useState(false);
 
   const { isSuccess } = useWaitForTransactionReceipt({
-    client: viemClient,
+    client: drpcClient,
     appConfig: {
       app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}`,
     },
@@ -331,7 +337,7 @@ export default function EarnPage() {
     if (!walletAddress) return;
 
     // Listener for the basic income setup event (TokensStaked)
-    const unwatchTokensStaked = viemClient.watchContractEvent({
+    const unwatchTokensStaked = thirdwebClient.watchContractEvent({
       address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012" as `0x${string}`,
       abi: parseAbi([
         "event TokensStaked(address indexed staker, uint256 amount)",
@@ -347,7 +353,7 @@ export default function EarnPage() {
     });
 
     // Listener for the basic income plus setup event (TokensStaked)
-    const unwatchTokensStakedPlus = viemClient.watchContractEvent({
+    const unwatchTokensStakedPlus = quiknodeClient.watchContractEvent({
       address: "0x52dfee61180a0bcebe007e5a9cfd466948acca46" as `0x${string}`,
       abi: parseAbi([
         "event TokensStaked(address indexed staker, uint256 amount)",
@@ -392,7 +398,7 @@ export default function EarnPage() {
     });
 
     // Listener for the basic income claim event (RewardsClaimed)
-    const unwatchRewardsClaimed = viemClient.watchContractEvent({
+    const unwatchRewardsClaimed = tenderlyClient.watchContractEvent({
       address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012" as `0x${string}`,
       abi: parseAbi([
         "event RewardsClaimed(address indexed staker, uint256 rewardAmount)",
@@ -410,7 +416,7 @@ export default function EarnPage() {
     });
 
     // Listener for the basic income plus claim event (RewardsClaimed)
-    const unwatchRewardsClaimedPlus = viemClient.watchContractEvent({
+    const unwatchRewardsClaimedPlus = alchemyClient.watchContractEvent({
       address: "0x52dfee61180a0bcebe007e5a9cfd466948acca46" as `0x${string}`,
       abi: parseAbi([
         "event RewardsClaimed(address indexed staker, uint256 rewardAmount)",
