@@ -584,6 +584,8 @@ export default function EarnPage() {
     console.log("[ClaimProcess] Starting basic claim process");
     console.log("[ClaimProcess] Current claimableAmount:", claimableAmount);
     try {
+      // Don't reset localStorage here - wait until transaction confirms
+
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -606,32 +608,14 @@ export default function EarnPage() {
           finalPayload.transaction_id
         );
 
+        // Only reset the display after successful transaction submission
+        // This will prevent the flickering by just doing one reset
         console.log(
-          "[ClaimProcess] Before fetchBasicIncomeInfo, claimableAmount:",
-          claimableAmount
+          "[ClaimProcess] Setting display to 0 while waiting for confirmation"
         );
-        await fetchBasicIncomeInfo();
-        console.log(
-          "[ClaimProcess] After fetchBasicIncomeInfo, claimableAmount:",
-          claimableAmount
-        );
-        await fetchBalance();
+        setDisplayClaimable(0);
 
-        console.log("[ClaimProcess] Resetting localStorage values");
-        console.log(
-          "[ClaimProcess] Old basicIncomeBase:",
-          localStorage.getItem("basicIncomeBase")
-        );
-        localStorage.setItem("basicIncomeBase", "0");
-        localStorage.setItem("basicIncomeStartTime", Date.now().toString());
-        console.log(
-          "[ClaimProcess] New basicIncomeBase:",
-          localStorage.getItem("basicIncomeBase")
-        );
-        console.log(
-          "[ClaimProcess] New basicIncomeStartTime:",
-          localStorage.getItem("basicIncomeStartTime")
-        );
+        // We'll do the localStorage reset in the transaction confirmation handler
       }
     } catch (error) {
       console.error("Error during claim:", error);
@@ -648,6 +632,8 @@ export default function EarnPage() {
       claimableAmountPlus
     );
     try {
+      // Don't reset localStorage here - wait until transaction confirms
+
       console.log(
         "[BasicIncomePlus] Sending claim transaction to contract: 0x52dfee61180a0bcebe007e5a9cfd466948acca46"
       );
@@ -683,36 +669,15 @@ export default function EarnPage() {
           "[BasicIncomePlus] Claim transaction ID:",
           finalPayload.transaction_id
         );
-        console.log(
-          "[BasicIncomePlus] Fetching updated Basic Income Plus info"
-        );
-        console.log(
-          "[ClaimProcess] Before fetchBasicIncomePlusInfo, claimableAmountPlus:",
-          claimableAmountPlus
-        );
-        await fetchBasicIncomePlusInfo();
-        console.log(
-          "[ClaimProcess] After fetchBasicIncomePlusInfo, claimableAmountPlus:",
-          claimableAmountPlus
-        );
-        await fetchBalance();
 
-        console.log("[ClaimProcess] Resetting localStorage values for Plus");
+        // Only reset the display after successful transaction submission
+        // This will prevent the flickering by just doing one reset
         console.log(
-          "[ClaimProcess] Old basicIncomePlusBase:",
-          localStorage.getItem("basicIncomePlusBase")
+          "[ClaimProcess] Setting display to 0 while waiting for confirmation"
         );
-        localStorage.setItem("basicIncomePlusBase", "0");
-        localStorage.setItem("basicIncomePlusStartTime", Date.now().toString());
-        console.log(
-          "[ClaimProcess] New basicIncomePlusBase:",
-          localStorage.getItem("basicIncomePlusBase")
-        );
-        console.log(
-          "[ClaimProcess] New basicIncomePlusStartTime:",
-          localStorage.getItem("basicIncomePlusStartTime")
-        );
-        console.log("[BasicIncomePlus] Claim completed successfully");
+        setDisplayClaimable(0);
+
+        // We'll do the localStorage reset in the transaction confirmation handler
       }
     } catch (error) {
       console.error("[BasicIncomePlus] Claim error:", error);
@@ -728,6 +693,24 @@ export default function EarnPage() {
     if (isSuccess) {
       console.log("[Transaction] Transaction successful");
       console.log("[Transaction] Transaction ID:", transactionId);
+
+      // Reset localStorage values only after successful transaction
+      if (isClaimingBasic) {
+        console.log(
+          "[ClaimProcess] Resetting basicIncome localStorage values after confirmation"
+        );
+        localStorage.setItem("basicIncomeBase", "0");
+        localStorage.setItem("basicIncomeStartTime", Date.now().toString());
+      }
+
+      if (isClaimingPlus) {
+        console.log(
+          "[ClaimProcess] Resetting basicIncomePlus localStorage values after confirmation"
+        );
+        localStorage.setItem("basicIncomePlusBase", "0");
+        localStorage.setItem("basicIncomePlusStartTime", Date.now().toString());
+      }
+
       fetchBasicIncomeInfo();
       fetchBasicIncomePlusInfo();
       fetchBalance();
@@ -742,6 +725,8 @@ export default function EarnPage() {
     fetchBasicIncomeInfo,
     fetchBasicIncomePlusInfo,
     transactionId,
+    isClaimingBasic,
+    isClaimingPlus,
   ]);
 
   const handleTabChange = (tab: string) => {
