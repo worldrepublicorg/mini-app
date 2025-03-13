@@ -1157,6 +1157,199 @@ export default function EarnPage() {
     }
   }, [walletAddress, fetchCanReward, fetchRewardCount]);
 
+  // Add the state that we're lifting from StakeWithPermitForm
+  const [stakedBalance, setStakedBalance] = useState<string>("0");
+  const [availableReward, setAvailableReward] = useState<string>("0");
+  const [displayAvailableReward, setDisplayAvailableReward] = useState<
+    string | null
+  >(null);
+  const [isRewardLoading, setIsRewardLoading] = useState<boolean>(true);
+
+  // Add the utility function
+  const fromWei = useCallback((value: bigint) => {
+    return (Number(value) / 1e18).toString();
+  }, []);
+
+  // Add the fetching functions
+  const fetchAvailableReward = useCallback(async () => {
+    if (!walletAddress) return;
+
+    setIsRewardLoading(true);
+    setDisplayAvailableReward(null);
+
+    try {
+      const availableAbi = parseAbi([
+        "function available(address account) external view returns (uint256)",
+      ]);
+      const result: bigint = await quiknodeClient.readContract({
+        address: "0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7" as `0x${string}`,
+        abi: availableAbi,
+        functionName: "available",
+        args: [walletAddress],
+      });
+      console.log("Fetched available reward:", result);
+      setAvailableReward(fromWei(result));
+    } catch (error) {
+      console.error("Error fetching available reward", error);
+      setIsRewardLoading(false);
+    }
+  }, [walletAddress, fromWei]);
+
+  const fetchStakedBalance = useCallback(async () => {
+    if (!walletAddress) return;
+    try {
+      const balanceAbi = parseAbi([
+        "function balanceOf(address account) external view returns (uint256)",
+      ]);
+      const result: bigint = await alchemyClient.readContract({
+        address: "0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7" as `0x${string}`,
+        abi: balanceAbi,
+        functionName: "balanceOf",
+        args: [walletAddress],
+      });
+      const balance = fromWei(result);
+      console.log("Fetched staked balance:", balance);
+      setStakedBalance(balance);
+      localStorage.setItem("stakedBalance", balance);
+    } catch (error) {
+      console.error("Error fetching staked balance", error);
+      setTimeout(fetchStakedBalance, 1000);
+    }
+  }, [walletAddress, fromWei]);
+
+  // Add useEffect to fetch data when the wallet address changes
+  useEffect(() => {
+    if (!walletAddress) {
+      setIsRewardLoading(true);
+      setDisplayAvailableReward(null);
+      return;
+    }
+
+    // Fetch immediately when component mounts or wallet changes
+    fetchAvailableReward();
+    fetchStakedBalance();
+
+    // Then set up a much less frequent interval (every 5 minutes)
+    const fetchInterval = setInterval(
+      () => {
+        console.log(
+          "[RewardTracking] Running periodic refresh (5 min interval)"
+        );
+        fetchAvailableReward();
+        fetchStakedBalance();
+      },
+      5 * 60 * 1000
+    ); // 5 minutes in milliseconds
+
+    return () => clearInterval(fetchInterval);
+  }, [walletAddress, fetchAvailableReward, fetchStakedBalance]);
+
+  // Add effect for real-time reward tracking
+  useEffect(() => {
+    if (!stakedBalance || !availableReward) {
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      const interestRate = 1 / (86400 * 529);
+      const stakedBalanceNum = Number(stakedBalance);
+      const baseReward = Number(availableReward);
+
+      console.log(
+        "[RewardTracking] Starting real-time reward display update with:"
+      );
+      console.log("[RewardTracking] stakedBalance:", stakedBalanceNum);
+      console.log("[RewardTracking] baseReward:", baseReward);
+
+      let baseValue: number;
+      let startTime: number;
+
+      const storedBase = localStorage.getItem("savingsRewardBase");
+      const storedStartTime = localStorage.getItem("savingsRewardStartTime");
+
+      console.log("[RewardTracking] Stored base value:", storedBase);
+      console.log("[RewardTracking] Stored start time:", storedStartTime);
+
+      if (storedBase && storedStartTime) {
+        baseValue = parseFloat(storedBase);
+        startTime = parseInt(storedStartTime, 10);
+
+        console.log(
+          "[RewardTracking] Using stored values - baseValue:",
+          baseValue,
+          "startTime:",
+          startTime
+        );
+
+        if (baseReward > baseValue) {
+          console.log(
+            "[RewardTracking] On-chain reward increased, updating baseValue from",
+            baseValue,
+            "to",
+            baseReward
+          );
+          baseValue = baseReward;
+          startTime = Date.now();
+          localStorage.setItem("savingsRewardBase", baseValue.toString());
+          localStorage.setItem("savingsRewardStartTime", startTime.toString());
+        }
+
+        if (baseReward < baseValue) {
+          console.log(
+            "[RewardTracking] On-chain reward decreased (probably claimed), updating baseValue from",
+            baseValue,
+            "to",
+            baseReward
+          );
+          baseValue = baseReward;
+          startTime = Date.now();
+          localStorage.setItem("savingsRewardBase", baseValue.toString());
+          localStorage.setItem("savingsRewardStartTime", startTime.toString());
+        }
+      } else {
+        console.log(
+          "[RewardTracking] No stored values, initializing with current values"
+        );
+        baseValue = baseReward;
+        startTime = Date.now();
+        localStorage.setItem("savingsRewardBase", baseValue.toString());
+        localStorage.setItem("savingsRewardStartTime", startTime.toString());
+      }
+
+      const updateDisplay = () => {
+        const elapsedSeconds = (Date.now() - startTime) / 1000;
+        const interestEarned = stakedBalanceNum * interestRate * elapsedSeconds;
+        const totalReward = baseValue + interestEarned;
+
+        if (Math.round(elapsedSeconds) % 10 === 0) {
+          console.log("[RewardTracking] Current calculation:");
+          console.log(
+            "[RewardTracking] baseValue:",
+            baseValue,
+            "+ (stakedBalance:",
+            stakedBalanceNum,
+            "* rate:",
+            interestRate,
+            "* elapsed:",
+            elapsedSeconds,
+            ") =",
+            totalReward
+          );
+        }
+
+        setDisplayAvailableReward(totalReward.toFixed(9));
+        setIsRewardLoading(false);
+      };
+
+      updateDisplay();
+      const interval = setInterval(updateDisplay, 1000);
+
+      return () => clearInterval(interval);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [stakedBalance, availableReward]);
+
   const renderContent = () => {
     switch (activeTab) {
       case "Basic income":
@@ -1368,7 +1561,13 @@ export default function EarnPage() {
                 </div>
               </span>
             </Typography>
-            <StakeWithPermitForm />
+            <StakeWithPermitForm
+              stakedBalance={stakedBalance}
+              displayAvailableReward={displayAvailableReward}
+              isRewardLoading={isRewardLoading}
+              fetchStakedBalance={fetchStakedBalance}
+              fetchAvailableReward={fetchAvailableReward}
+            />
           </div>
         );
       case "Contribute":
