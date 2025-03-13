@@ -42,16 +42,26 @@ export function OpenLetterCard({
           {title}
         </Typography>
         <div className="flex items-center gap-1">
-          <Typography
-            as="p"
-            variant={{ variant: "body", level: 3 }}
-            className="text-gray-500"
+          <div
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent triggering the card's click handler
+              if (referenceUrl) {
+                window.open(referenceUrl, "_blank", "noopener,noreferrer");
+              }
+            }}
+            className={`flex items-center gap-1 ${referenceUrl ? "cursor-pointer" : ""}`}
           >
-            {referenceTitle}
-          </Typography>
-          {referenceUrl && (
-            <BiLinkExternal className="size-[14px] text-gray-400" />
-          )}
+            <Typography
+              as="p"
+              variant={{ variant: "body", level: 3 }}
+              className="text-gray-500"
+            >
+              {referenceTitle}
+            </Typography>
+            {referenceUrl && (
+              <BiLinkExternal className="size-[14px] text-gray-400" />
+            )}
+          </div>
         </div>
       </div>
       <div className="rounded-full bg-gray-100 p-1.5">
