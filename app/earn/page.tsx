@@ -1431,7 +1431,12 @@ export default function EarnPage() {
             <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
               <PiHandCoinsFill className="h-10 w-10 text-gray-400" />
             </div>
-            <Typography as="h2" variant="heading" level={1}>
+            <Typography
+              as="h2"
+              variant="heading"
+              level={1}
+              className="text-center"
+            >
               Basic Income
             </Typography>
 
@@ -1603,7 +1608,11 @@ export default function EarnPage() {
       case "Savings":
         return (
           <div className="flex w-full flex-col items-center py-6">
-            <Typography as="h2" variant={{ variant: "heading", level: 1 }}>
+            <Typography
+              as="h2"
+              variant={{ variant: "heading", level: 1 }}
+              className="text-center"
+            >
               Savings Account
             </Typography>
             <Typography
@@ -1650,7 +1659,11 @@ export default function EarnPage() {
             <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
               <PiPlantFill className="h-10 w-10 text-gray-400" />
             </div>
-            <Typography as="h2" variant={{ variant: "heading", level: 1 }}>
+            <Typography
+              as="h2"
+              variant={{ variant: "heading", level: 1 }}
+              className="text-center"
+            >
               Contribute
             </Typography>
             <Typography
@@ -1673,7 +1686,11 @@ export default function EarnPage() {
             <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
               <PiUserPlusFill className="h-10 w-10 text-gray-400" />
             </div>
-            <Typography as="h2" variant={{ variant: "heading", level: 1 }}>
+            <Typography
+              as="h2"
+              variant={{ variant: "heading", level: 1 }}
+              className="text-center"
+            >
               Invite
             </Typography>
             <Typography
@@ -1791,6 +1808,7 @@ export default function EarnPage() {
                       <Typography
                         as="h2"
                         variant={{ variant: "heading", level: 1 }}
+                        className="text-center"
                       >
                         Reward a Referrer
                       </Typography>
@@ -1925,8 +1943,8 @@ export default function EarnPage() {
 
   return (
     <div className="flex min-h-dvh flex-col px-6 pb-20">
-      <div className="fixed left-0 right-0 top-0 z-10 px-6 pb-2 pt-5">
-        <div className="flex items-center justify-between bg-gray-0">
+      <div className="fixed left-0 right-0 top-0 z-10 bg-gray-0 px-6 pb-2 pt-5">
+        <div className="flex items-center justify-between">
           <div className="flex h-10 items-center">
             <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
               Earn
