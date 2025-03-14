@@ -1659,12 +1659,19 @@ export default function EarnPage() {
             >
               Get involved, get rewarded
             </Typography>
-            <OpenLetterCard
-              title="Early Access Program"
-              referenceTitle="Earn WDD by testing our upcoming features"
-              voteUrl="https://t.me/worldrepubliccommunity"
-              isExternal={true}
-            />
+            <a
+              href="https://t.me/worldrepubliccommunity"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full"
+            >
+              <OpenLetterCard
+                title="Early Access Program"
+                referenceTitle="Earn WDD by testing our upcoming features"
+                voteUrl="https://t.me/worldrepubliccommunity"
+                isExternal={true}
+              />
+            </a>
           </div>
         );
       case "Invite":
