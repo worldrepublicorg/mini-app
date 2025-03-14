@@ -1662,7 +1662,7 @@ export default function EarnPage() {
             <OpenLetterCard
               title="Early Access Program"
               referenceTitle="Earn WDD by testing our upcoming features"
-              voteUrl="https://t.me/worldrepublictesters"
+              voteUrl="https://t.me/worldrepubliccommunity"
               isExternal={true}
             />
           </div>
