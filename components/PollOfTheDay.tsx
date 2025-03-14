@@ -30,8 +30,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Are current international cybersecurity measures sufficient to protect critical global infrastructures from escalating cyber threats?",
-    url: "https://vote.one/trFBHaNi",
+      "Should global AI developers be required to pause training models more powerful than current systems until international safety agreements are established?",
+    url: "https://vote.one/HUuPPFOS",
   },
 ];
 
