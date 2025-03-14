@@ -437,9 +437,7 @@ export function StakeWithPermitForm({
             Collect
           </Button>
 
-          {isRewardLoading ||
-          isRewardUpdating ||
-          displayAvailableReward === null ? (
+          {isRewardLoading || displayAvailableReward === null ? (
             <div className="h-[21px] w-[104px] animate-pulse rounded-md bg-gray-100"></div>
           ) : (
             <Typography

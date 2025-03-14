@@ -467,6 +467,12 @@ export default function EarnPage() {
 
       if (finalPayload.status === "error") {
         console.error("Error sending transaction", finalPayload);
+        // Only show error toast if it's not a user rejection
+        if (finalPayload.error_code !== "user_rejected") {
+          const errorMessage =
+            (finalPayload as any).description || "Error sending transaction";
+          showToast(errorMessage, "error");
+        }
         setIsSubmitting(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
@@ -477,6 +483,8 @@ export default function EarnPage() {
       }
     } catch (error: any) {
       console.error("Error:", error);
+      // For general errors outside the transaction payload
+      showToast(error.message || "An unexpected error occurred", "error");
       setIsSubmitting(false);
     }
   };
@@ -519,6 +527,13 @@ export default function EarnPage() {
           "[BasicIncomePlus] Error sending transaction",
           finalPayload
         );
+        // Only show error toast if it's not a user rejection
+        if (finalPayload.error_code !== "user_rejected") {
+          const errorMessage =
+            (finalPayload as any).description ||
+            "Error setting up Basic Income Plus";
+          showToast(errorMessage, "error");
+        }
         setIsSubmitting(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
@@ -574,6 +589,10 @@ export default function EarnPage() {
       console.error("[BasicIncomePlus] Setup error:", error);
       console.error("[BasicIncomePlus] Error message:", error.message);
       console.error("[BasicIncomePlus] Error stack:", error.stack);
+      showToast(
+        error.message || "An unexpected error occurred during setup",
+        "error"
+      );
       setIsSubmitting(false);
     }
   };
@@ -584,6 +603,8 @@ export default function EarnPage() {
     console.log("[ClaimProcess] Starting basic claim process");
     console.log("[ClaimProcess] Current claimableAmount:", claimableAmount);
     try {
+      // Don't reset localStorage here - wait until transaction confirms
+
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -598,6 +619,12 @@ export default function EarnPage() {
 
       if (finalPayload.status === "error") {
         console.error("Error sending transaction", finalPayload);
+        // Only show error toast if it's not a user rejection
+        if (finalPayload.error_code !== "user_rejected") {
+          const errorMessage =
+            (finalPayload as any).description || "Error sending transaction";
+          showToast(errorMessage, "error");
+        }
         setIsClaimingBasic(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
@@ -606,32 +633,13 @@ export default function EarnPage() {
           finalPayload.transaction_id
         );
 
+        // Only reset the display after successful transaction submission
+        // This will prevent the flickering by just doing one reset
         console.log(
-          "[ClaimProcess] Before fetchBasicIncomeInfo, claimableAmount:",
-          claimableAmount
+          "[ClaimProcess] Setting display to 0 while waiting for confirmation"
         );
-        await fetchBasicIncomeInfo();
-        console.log(
-          "[ClaimProcess] After fetchBasicIncomeInfo, claimableAmount:",
-          claimableAmount
-        );
-        await fetchBalance();
 
-        console.log("[ClaimProcess] Resetting localStorage values");
-        console.log(
-          "[ClaimProcess] Old basicIncomeBase:",
-          localStorage.getItem("basicIncomeBase")
-        );
-        localStorage.setItem("basicIncomeBase", "0");
-        localStorage.setItem("basicIncomeStartTime", Date.now().toString());
-        console.log(
-          "[ClaimProcess] New basicIncomeBase:",
-          localStorage.getItem("basicIncomeBase")
-        );
-        console.log(
-          "[ClaimProcess] New basicIncomeStartTime:",
-          localStorage.getItem("basicIncomeStartTime")
-        );
+        // We'll do the localStorage reset in the transaction confirmation handler
       }
     } catch (error) {
       console.error("Error during claim:", error);
@@ -648,6 +656,8 @@ export default function EarnPage() {
       claimableAmountPlus
     );
     try {
+      // Don't reset localStorage here - wait until transaction confirms
+
       console.log(
         "[BasicIncomePlus] Sending claim transaction to contract: 0x52dfee61180a0bcebe007e5a9cfd466948acca46"
       );
@@ -676,6 +686,13 @@ export default function EarnPage() {
           "[BasicIncomePlus] Error sending claim transaction",
           finalPayload
         );
+        // Only show error toast if it's not a user rejection
+        if (finalPayload.error_code !== "user_rejected") {
+          const errorMessage =
+            (finalPayload as any).description ||
+            "Error claiming Basic Income Plus";
+          showToast(errorMessage, "error");
+        }
         setIsClaimingPlus(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
@@ -683,42 +700,24 @@ export default function EarnPage() {
           "[BasicIncomePlus] Claim transaction ID:",
           finalPayload.transaction_id
         );
-        console.log(
-          "[BasicIncomePlus] Fetching updated Basic Income Plus info"
-        );
-        console.log(
-          "[ClaimProcess] Before fetchBasicIncomePlusInfo, claimableAmountPlus:",
-          claimableAmountPlus
-        );
-        await fetchBasicIncomePlusInfo();
-        console.log(
-          "[ClaimProcess] After fetchBasicIncomePlusInfo, claimableAmountPlus:",
-          claimableAmountPlus
-        );
-        await fetchBalance();
 
-        console.log("[ClaimProcess] Resetting localStorage values for Plus");
+        // Only reset the display after successful transaction submission
+        // This will prevent the flickering by just doing one reset
         console.log(
-          "[ClaimProcess] Old basicIncomePlusBase:",
-          localStorage.getItem("basicIncomePlusBase")
+          "[ClaimProcess] Setting display to 0 while waiting for confirmation"
         );
-        localStorage.setItem("basicIncomePlusBase", "0");
-        localStorage.setItem("basicIncomePlusStartTime", Date.now().toString());
-        console.log(
-          "[ClaimProcess] New basicIncomePlusBase:",
-          localStorage.getItem("basicIncomePlusBase")
-        );
-        console.log(
-          "[ClaimProcess] New basicIncomePlusStartTime:",
-          localStorage.getItem("basicIncomePlusStartTime")
-        );
-        console.log("[BasicIncomePlus] Claim completed successfully");
+
+        // We'll do the localStorage reset in the transaction confirmation handler
       }
     } catch (error) {
       console.error("[BasicIncomePlus] Claim error:", error);
       if (error instanceof Error) {
         console.error("[BasicIncomePlus] Error message:", error.message);
         console.error("[BasicIncomePlus] Error stack:", error.stack);
+        showToast(
+          error.message || "An unexpected error occurred while claiming",
+          "error"
+        );
       }
       setIsClaimingPlus(false);
     }
@@ -728,6 +727,24 @@ export default function EarnPage() {
     if (isSuccess) {
       console.log("[Transaction] Transaction successful");
       console.log("[Transaction] Transaction ID:", transactionId);
+
+      // Reset localStorage values only after successful transaction
+      if (isClaimingBasic) {
+        console.log(
+          "[ClaimProcess] Resetting basicIncome localStorage values after confirmation"
+        );
+        localStorage.setItem("basicIncomeBase", "0");
+        localStorage.setItem("basicIncomeStartTime", Date.now().toString());
+      }
+
+      if (isClaimingPlus) {
+        console.log(
+          "[ClaimProcess] Resetting basicIncomePlus localStorage values after confirmation"
+        );
+        localStorage.setItem("basicIncomePlusBase", "0");
+        localStorage.setItem("basicIncomePlusStartTime", Date.now().toString());
+      }
+
       fetchBasicIncomeInfo();
       fetchBasicIncomePlusInfo();
       fetchBalance();
@@ -742,6 +759,8 @@ export default function EarnPage() {
     fetchBasicIncomeInfo,
     fetchBasicIncomePlusInfo,
     transactionId,
+    isClaimingBasic,
+    isClaimingPlus,
   ]);
 
   const handleTabChange = (tab: string) => {
@@ -858,12 +877,22 @@ export default function EarnPage() {
 
       if (finalPayload.status === "error") {
         console.error("[Reward] Error sending transaction", finalPayload);
-
-        // Keep error handling simple to avoid TypeScript errors
-        setRewardStatus({
-          success: false,
-          message: "Transaction failed. Please try again.",
-        });
+        // Only show error toast if it's not a user rejection
+        if (finalPayload.error_code !== "user_rejected") {
+          const errorMessage =
+            (finalPayload as any).description || "Error sending reward";
+          showToast(errorMessage, "error");
+          setRewardStatus({
+            success: false,
+            message: errorMessage,
+          });
+        } else {
+          // Still set reward status but without showing toast
+          setRewardStatus({
+            success: false,
+            message: "Transaction was canceled",
+          });
+        }
       } else {
         setRewardStatus({
           success: true,
@@ -873,11 +902,15 @@ export default function EarnPage() {
         // After successful reward transaction, update the canReward status
         fetchCanReward();
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("[Reward] Error in reward transaction:", error);
+      showToast(
+        error.message || "An unexpected error occurred with the reward",
+        "error"
+      );
       setRewardStatus({
         success: false,
-        message: "Failed to send reward. Please try again.",
+        message: error.message || "Failed to send reward. Please try again.",
       });
     } finally {
       setIsSendingReward(false);
