@@ -64,7 +64,7 @@ export const ToastProvider: React.FC<{ children: ReactNode }> = ({
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            className="fixed bottom-14 right-4 z-50 w-[90%] max-w-md transform"
+            className="fixed bottom-14 right-6 z-50 w-[calc(100vw-48px)] max-w-md transform"
           >
             <div
               className={`flex items-center justify-between rounded-xl px-4 py-3 shadow-lg ${
