@@ -467,10 +467,12 @@ export default function EarnPage() {
 
       if (finalPayload.status === "error") {
         console.error("Error sending transaction", finalPayload);
-        // Show error description in toast
-        const errorMessage =
-          finalPayload.details?.description || "Error sending transaction";
-        showToast(errorMessage, "error");
+        // Only show error toast if it's not a user rejection
+        if (finalPayload.error_code !== "user_rejected") {
+          const errorMessage =
+            finalPayload.details?.description || "Error sending transaction";
+          showToast(errorMessage, "error");
+        }
         setIsSubmitting(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
@@ -525,9 +527,13 @@ export default function EarnPage() {
           "[BasicIncomePlus] Error sending transaction",
           finalPayload
         );
-        const errorMessage =
-          finalPayload.details?.description || "Error setting up Basic Income Plus";
-        showToast(errorMessage, "error");
+        // Only show error toast if it's not a user rejection
+        if (finalPayload.error_code !== "user_rejected") {
+          const errorMessage =
+            finalPayload.details?.description ||
+            "Error setting up Basic Income Plus";
+          showToast(errorMessage, "error");
+        }
         setIsSubmitting(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
@@ -613,10 +619,12 @@ export default function EarnPage() {
 
       if (finalPayload.status === "error") {
         console.error("Error sending transaction", finalPayload);
-        // Show the error description in a toast if available
-        const errorMessage =
-          finalPayload.details?.description || "Error sending transaction";
-        showToast(errorMessage, "error");
+        // Only show error toast if it's not a user rejection
+        if (finalPayload.error_code !== "user_rejected") {
+          const errorMessage =
+            finalPayload.details?.description || "Error sending transaction";
+          showToast(errorMessage, "error");
+        }
         setIsClaimingBasic(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
@@ -678,9 +686,13 @@ export default function EarnPage() {
           "[BasicIncomePlus] Error sending claim transaction",
           finalPayload
         );
-        const errorMessage =
-          finalPayload.details?.description || "Error claiming Basic Income Plus";
-        showToast(errorMessage, "error");
+        // Only show error toast if it's not a user rejection
+        if (finalPayload.error_code !== "user_rejected") {
+          const errorMessage =
+            finalPayload.details?.description ||
+            "Error claiming Basic Income Plus";
+          showToast(errorMessage, "error");
+        }
         setIsClaimingPlus(false);
       } else {
         setTransactionId(finalPayload.transaction_id);
@@ -865,13 +877,22 @@ export default function EarnPage() {
 
       if (finalPayload.status === "error") {
         console.error("[Reward] Error sending transaction", finalPayload);
-        const errorMessage =
-          finalPayload.details?.description || "Error sending reward";
-        showToast(errorMessage, "error");
-        setRewardStatus({
-          success: false,
-          message: errorMessage,
-        });
+        // Only show error toast if it's not a user rejection
+        if (finalPayload.error_code !== "user_rejected") {
+          const errorMessage =
+            finalPayload.details?.description || "Error sending reward";
+          showToast(errorMessage, "error");
+          setRewardStatus({
+            success: false,
+            message: errorMessage,
+          });
+        } else {
+          // Still set reward status but without showing toast
+          setRewardStatus({
+            success: false,
+            message: "Transaction was canceled",
+          });
+        }
       } else {
         setRewardStatus({
           success: true,
