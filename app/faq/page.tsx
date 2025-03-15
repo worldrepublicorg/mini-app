@@ -85,7 +85,7 @@ export default function FAQPage() {
           <BiChevronLeft className="size-6 text-gray-500" />
         </Link>
         <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
-          FAQ
+          FAQs
         </Typography>
       </div>
 
