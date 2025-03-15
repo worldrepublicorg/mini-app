@@ -1,11 +1,10 @@
 import { createPublicClient, http, fallback } from "viem";
 import { worldchain } from "viem/chains";
 
-// Common HTTP options to improve fallback reliability
 const httpOptions = {
-  timeout: 10000, // 10 seconds timeout
-  retryCount: 3,
-  retryDelay: 1000, // 1 second between retries
+  timeout: 2000, // 2 seconds timeout
+  retryCount: 2,
+  retryDelay: 500, // 0.5 second between retries
 };
 
 export const drpcClient = createPublicClient({
