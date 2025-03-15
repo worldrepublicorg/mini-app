@@ -1621,7 +1621,7 @@ export default function EarnPage() {
             >
               Earn interest every second
               <span className="group relative ml-1 inline-block">
-                <span className="hover:text-gray-600 cursor-help text-gray-400">
+                <span className="hover:text-gray-600 relative cursor-help text-gray-400">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -1634,6 +1634,10 @@ export default function EarnPage() {
                       clipRule="evenodd"
                     />
                   </svg>
+                  <span
+                    className="absolute inset-0 -m-3 cursor-pointer"
+                    aria-hidden="true"
+                  ></span>
                 </span>
                 <div className="absolute bottom-full right-0 mb-2 hidden w-[280px] transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
                   <p className="text-left text-gray-700">
@@ -1721,7 +1725,7 @@ export default function EarnPage() {
             >
               Get 50 WDD per friend who joins
               <span className="group relative ml-1 inline-block">
-                <span className="hover:text-gray-600 cursor-help text-gray-400">
+                <span className="hover:text-gray-600 relative cursor-help text-gray-400">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -1734,6 +1738,10 @@ export default function EarnPage() {
                       clipRule="evenodd"
                     />
                   </svg>
+                  <span
+                    className="absolute inset-0 -m-3 cursor-pointer"
+                    aria-hidden="true"
+                  ></span>
                 </span>
                 <div className="absolute bottom-full right-0 mb-2 hidden w-[280px] transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
                   <p className="text-left text-gray-700">
