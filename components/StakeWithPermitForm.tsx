@@ -6,7 +6,12 @@ import { Typography } from "@/components/ui/Typography";
 import { parseAbi } from "viem";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useWallet } from "@/components/contexts/WalletContext";
-import { drpcClient, thirdwebClient, tenderlyClient } from "@/lib/viemClient";
+import {
+  drpcClient,
+  thirdwebClient,
+  quiknodeClient,
+  tenderlyClient,
+} from "@/lib/viemClient";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { useToast } from "@/components/ui/Toast";
 
@@ -52,7 +57,7 @@ export function StakeWithPermitForm({
   });
 
   const { isSuccess: isCollectSuccess } = useWaitForTransactionReceipt({
-    client: thirdwebClient,
+    client: quiknodeClient,
     appConfig: {
       app_id: "app_66c83ab8c851fb1e54b1b1b62c6ce39d",
     },
@@ -272,7 +277,7 @@ export function StakeWithPermitForm({
   useEffect(() => {
     if (!walletAddress) return;
 
-    const unwatchStakedWithPermit = tenderlyClient.watchContractEvent({
+    const unwatchStakedWithPermit = drpcClient.watchContractEvent({
       address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
       abi: parseAbi([
         "event StakedWithPermit(address indexed user, uint256 amount)",
@@ -301,7 +306,7 @@ export function StakeWithPermitForm({
       },
     });
 
-    const unwatchRedeemed = thirdwebClient.watchContractEvent({
+    const unwatchRedeemed = quiknodeClient.watchContractEvent({
       address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
       abi: parseAbi([
         "event Redeemed(address indexed user, uint256 rewardAmount)",
