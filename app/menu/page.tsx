@@ -26,7 +26,7 @@ const menuSections = [
   },
   {
     title: "HELP",
-    links: [{ label: "FAQs", url: "/faq", isExternal: false }],
+    links: [{ label: "FAQ", url: "/faq", isExternal: false }],
   },
   // {
   //   title: "DOCS",
