@@ -10,8 +10,8 @@ interface Poll {
 const polls: Poll[] = [
   {
     description:
-      "Do you believe that existing global measures effectively reduce the risk of nuclear proliferation?",
-    url: "https://vote.one/TKV1ow4O",
+      "Should countries experiencing extreme weather disasters (e.g., wildfires, floods) receive prioritized financial aid from a global climate fund?",
+    url: "https://vote.one/MTHSApYb",
   },
   {
     description:
