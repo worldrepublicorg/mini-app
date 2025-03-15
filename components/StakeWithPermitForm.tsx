@@ -6,12 +6,7 @@ import { Typography } from "@/components/ui/Typography";
 import { parseAbi } from "viem";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useWallet } from "@/components/contexts/WalletContext";
-import {
-  drpcClient,
-  thirdwebClient,
-  quiknodeClient,
-  tenderlyClient,
-} from "@/lib/viemClient";
+import { viemClient } from "@/lib/viemClient";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { useToast } from "@/components/ui/Toast";
 
@@ -49,7 +44,7 @@ export function StakeWithPermitForm({
   const [isRewardUpdating, setIsRewardUpdating] = useState(false);
 
   const { isSuccess } = useWaitForTransactionReceipt({
-    client: drpcClient,
+    client: viemClient,
     appConfig: {
       app_id: "app_66c83ab8c851fb1e54b1b1b62c6ce39d",
     },
@@ -57,7 +52,7 @@ export function StakeWithPermitForm({
   });
 
   const { isSuccess: isCollectSuccess } = useWaitForTransactionReceipt({
-    client: quiknodeClient,
+    client: viemClient,
     appConfig: {
       app_id: "app_66c83ab8c851fb1e54b1b1b62c6ce39d",
     },
@@ -277,7 +272,7 @@ export function StakeWithPermitForm({
   useEffect(() => {
     if (!walletAddress) return;
 
-    const unwatchStakedWithPermit = drpcClient.watchContractEvent({
+    const unwatchStakedWithPermit = viemClient.watchContractEvent({
       address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
       abi: parseAbi([
         "event StakedWithPermit(address indexed user, uint256 amount)",
@@ -292,7 +287,7 @@ export function StakeWithPermitForm({
       },
     });
 
-    const unwatchWithdrawn = drpcClient.watchContractEvent({
+    const unwatchWithdrawn = viemClient.watchContractEvent({
       address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
       abi: parseAbi(["event Withdrawn(address indexed user, uint256 amount)"]),
       eventName: "Withdrawn",
@@ -306,7 +301,7 @@ export function StakeWithPermitForm({
       },
     });
 
-    const unwatchRedeemed = quiknodeClient.watchContractEvent({
+    const unwatchRedeemed = viemClient.watchContractEvent({
       address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
       abi: parseAbi([
         "event Redeemed(address indexed user, uint256 rewardAmount)",
