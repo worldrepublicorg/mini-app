@@ -9,13 +9,7 @@ import React, {
   useCallback,
 } from "react";
 import { parseAbi } from "viem";
-import {
-  drpcClient,
-  thirdwebClient,
-  quiknodeClient,
-  alchemyClient,
-  tenderlyClient,
-} from "@/lib/viemClient";
+import { viemClient } from "@/lib/viemClient";
 import { MiniKit } from "@worldcoin/minikit-js";
 
 interface WalletContextProps {
@@ -146,7 +140,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     );
     try {
       console.log("[WalletContext] Fetching basic income info from contract");
-      const result = await drpcClient.readContract({
+      const result = await viemClient.readContract({
         address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012",
         abi: parseAbi([
           "function getStakeInfo(address) external view returns (uint256, uint256)",
@@ -186,7 +180,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       console.log(
         "[WalletContext] Fetching basic income plus info from contract"
       );
-      const result = await alchemyClient.readContract({
+      const result = await viemClient.readContract({
         address: "0x52dfee61180a0bcebe007e5a9cfd466948acca46",
         abi: parseAbi([
           "function getStakeInfo(address) external view returns (uint256, uint256)",
@@ -226,7 +220,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
   const fetchBalance = useCallback(async () => {
     try {
-      const balanceResult = await quiknodeClient.readContract({
+      const balanceResult = await viemClient.readContract({
         address: "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B",
         abi: parseAbi([
           "function balanceOf(address) external view returns (uint256)",
@@ -277,7 +271,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         ] as const; // Use const assertion for type inference
 
         // Using viemClient for contract interaction
-        const canRewardStatus = await alchemyClient.readContract({
+        const canRewardStatus = await viemClient.readContract({
           address:
             "0x372dCA057682994568be074E75a03Ced3dD9E60d" as `0x${string}`,
           abi: referralABI,
@@ -331,7 +325,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         ] as const; // Use const assertion for type inference
 
         // Using viemClient for contract interaction
-        const count = await quiknodeClient.readContract({
+        const count = await viemClient.readContract({
           address:
             "0x372dCA057682994568be074E75a03Ced3dD9E60d" as `0x${string}`,
           abi: referralABI,
@@ -381,7 +375,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       console.log(
         "[WalletContext] Setting up event watcher for RewardsClaimed"
       );
-      const unwatch = drpcClient.watchContractEvent({
+      const unwatch = viemClient.watchContractEvent({
         address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012",
         abi: parseAbi([
           "event RewardsClaimed(address indexed user, uint256 amount)",
@@ -419,7 +413,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       console.log(
         "[WalletContext] Setting up event watcher for RewardsClaimed (Plus)"
       );
-      const unwatch = drpcClient.watchContractEvent({
+      const unwatch = viemClient.watchContractEvent({
         address: "0x52dfee61180a0bcebe007e5a9cfd466948acca46",
         abi: parseAbi([
           "event RewardsClaimed(address indexed user, uint256 amount)",
@@ -460,7 +454,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
     try {
       console.log("[WalletContext] Setting up event watcher for Transfer");
-      const unwatch = quiknodeClient.watchContractEvent({
+      const unwatch = viemClient.watchContractEvent({
         address: "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B",
         abi: parseAbi([
           "event Transfer(address indexed from, address indexed to, uint256 value)",
@@ -489,7 +483,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       console.log(
         "[WalletContext] Setting up event watcher for RewardSent events"
       );
-      const unwatch = alchemyClient.watchContractEvent({
+      const unwatch = viemClient.watchContractEvent({
         address: "0x372dCA057682994568be074E75a03Ced3dD9E60d" as `0x${string}`,
         abi: parseAbi([
           "event RewardSent(address indexed sender, address indexed recipient, uint256 amount)",
