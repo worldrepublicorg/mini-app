@@ -186,7 +186,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       console.log(
         "[WalletContext] Fetching basic income plus info from contract"
       );
-      const result = await thirdwebClient.readContract({
+      const result = await alchemyClient.readContract({
         address: "0x52dfee61180a0bcebe007e5a9cfd466948acca46",
         abi: parseAbi([
           "function getStakeInfo(address) external view returns (uint256, uint256)",
@@ -331,7 +331,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         ] as const; // Use const assertion for type inference
 
         // Using viemClient for contract interaction
-        const count = await tenderlyClient.readContract({
+        const count = await quiknodeClient.readContract({
           address:
             "0x372dCA057682994568be074E75a03Ced3dD9E60d" as `0x${string}`,
           abi: referralABI,
@@ -419,7 +419,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       console.log(
         "[WalletContext] Setting up event watcher for RewardsClaimed (Plus)"
       );
-      const unwatch = thirdwebClient.watchContractEvent({
+      const unwatch = drpcClient.watchContractEvent({
         address: "0x52dfee61180a0bcebe007e5a9cfd466948acca46",
         abi: parseAbi([
           "event RewardsClaimed(address indexed user, uint256 amount)",

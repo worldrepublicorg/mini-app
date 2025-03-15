@@ -337,7 +337,7 @@ export default function EarnPage() {
     if (!walletAddress) return;
 
     // Listener for the basic income setup event (TokensStaked)
-    const unwatchTokensStaked = thirdwebClient.watchContractEvent({
+    const unwatchTokensStaked = drpcClient.watchContractEvent({
       address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012" as `0x${string}`,
       abi: parseAbi([
         "event TokensStaked(address indexed staker, uint256 amount)",
@@ -398,7 +398,7 @@ export default function EarnPage() {
     });
 
     // Listener for the basic income claim event (RewardsClaimed)
-    const unwatchRewardsClaimed = tenderlyClient.watchContractEvent({
+    const unwatchRewardsClaimed = alchemyClient.watchContractEvent({
       address: "0x02c3B99D986ef1612bAC63d4004fa79714D00012" as `0x${string}`,
       abi: parseAbi([
         "event RewardsClaimed(address indexed staker, uint256 rewardAmount)",
