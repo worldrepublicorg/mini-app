@@ -1,6 +1,21 @@
 import { createPublicClient, http, fallback, webSocket } from "viem";
 import { worldchain } from "viem/chains";
 
+// Shared fallback config to apply to all clients
+const optimizedFallbackConfig = {
+  rank: {
+    interval: 5000,
+    sampleCount: 5,
+    timeout: 500,
+    weights: {
+      latency: 0.4,
+      stability: 0.6,
+    },
+  },
+  retryCount: 2,
+  retryDelay: 100,
+};
+
 export const drpcClient = createPublicClient({
   chain: worldchain,
   transport: fallback(
@@ -13,7 +28,7 @@ export const drpcClient = createPublicClient({
       webSocket("wss://worldchain.drpc.org"),
       webSocket("wss://worldchain-mainnet.gateway.tenderly.co"),
     ],
-    { rank: true }
+    optimizedFallbackConfig
   ),
 }) as any;
 
@@ -29,7 +44,7 @@ export const thirdwebClient = createPublicClient({
       webSocket("wss://worldchain.drpc.org"),
       webSocket("wss://worldchain-mainnet.gateway.tenderly.co"),
     ],
-    { rank: true }
+    optimizedFallbackConfig
   ),
 }) as any;
 
@@ -45,7 +60,7 @@ export const quiknodeClient = createPublicClient({
       webSocket("wss://worldchain.drpc.org"),
       webSocket("wss://worldchain-mainnet.gateway.tenderly.co"),
     ],
-    { rank: true }
+    optimizedFallbackConfig
   ),
 }) as any;
 
@@ -61,7 +76,7 @@ export const alchemyClient = createPublicClient({
       webSocket("wss://worldchain.drpc.org"),
       webSocket("wss://worldchain-mainnet.gateway.tenderly.co"),
     ],
-    { rank: true }
+    optimizedFallbackConfig
   ),
 }) as any;
 
@@ -77,6 +92,6 @@ export const tenderlyClient = createPublicClient({
       webSocket("wss://worldchain.drpc.org"),
       webSocket("wss://worldchain-mainnet.gateway.tenderly.co"),
     ],
-    { rank: true }
+    optimizedFallbackConfig
   ),
 }) as any;
