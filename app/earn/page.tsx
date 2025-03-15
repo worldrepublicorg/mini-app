@@ -29,8 +29,8 @@ import { TabSwiper } from "@/components/TabSwiper";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { Button } from "@/components/ui/Button";
 import { StakeWithPermitForm } from "@/components/StakeWithPermitForm";
-import { OpenLetterCard } from "@/components/OpenLetterCard";
 import { useToast } from "@/components/ui/Toast";
+import { BiLinkExternal } from "react-icons/bi";
 
 export default function EarnPage() {
   const {
@@ -1672,12 +1672,34 @@ export default function EarnPage() {
             >
               Get involved, get rewarded
             </Typography>
-            <OpenLetterCard
-              title="Early Access Program"
-              referenceTitle="Earn WDD by testing our upcoming features"
-              voteUrl="https://t.me/worldrepubliccommunity"
-              isExternal={true}
-            />
+            <a
+              href="https://t.me/worldrepubliccommunity"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mb-4 flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border border-gray-200 p-4 text-gray-900"
+            >
+              <div>
+                <Typography
+                  as="h3"
+                  variant={{ variant: "subtitle", level: 2 }}
+                  className="mb-1.5 line-clamp-3"
+                >
+                  Early Access Program
+                </Typography>
+                <div className="flex items-center gap-1">
+                  <Typography
+                    as="p"
+                    variant={{ variant: "body", level: 3 }}
+                    className="text-gray-500"
+                  >
+                    Earn WDD by testing our upcoming features
+                  </Typography>
+                </div>
+              </div>
+              <div className="rounded-full bg-gray-100 p-1.5">
+                <BiLinkExternal className="size-[14px] flex-shrink-0 text-gray-400" />
+              </div>
+            </a>
           </div>
         );
       case "Invite":
