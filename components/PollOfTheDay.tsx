@@ -15,8 +15,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Do you think that creating universal digital privacy standards is crucial for protecting individual rights in an increasingly interconnected world?",
-    url: "https://vote.one/adRv9hK6",
+      "Do you support global policy frameworks that balance national sovereignty with coordinated responses to shared challenges?",
+    url: "https://vote.one/67a0Lnei",
   },
   {
     description:
