@@ -10,11 +10,6 @@ interface Poll {
 const polls: Poll[] = [
   {
     description:
-      "Should countries experiencing extreme weather disasters (e.g., wildfires, floods) receive prioritized financial aid from a global climate fund?",
-    url: "https://vote.one/MTHSApYb",
-  },
-  {
-    description:
       "Do you support global policy frameworks that balance national sovereignty with coordinated responses to shared challenges?",
     url: "https://vote.one/67a0Lnei",
   },
@@ -32,6 +27,11 @@ const polls: Poll[] = [
     description:
       "Should global AI developers be required to pause training models more powerful than current systems until international safety agreements are established?",
     url: "https://vote.one/HUuPPFOS",
+  },
+  {
+    description:
+      "Should countries experiencing extreme weather disasters (e.g., wildfires, floods) receive prioritized financial aid from a global climate fund?",
+    url: "https://vote.one/MTHSApYb",
   },
 ];
 
