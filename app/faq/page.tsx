@@ -47,13 +47,13 @@ const faqs: FAQItem[] = [
     id: "drachma-value",
     question: "Where does the drachma get its value?",
     answer:
-      "The drachma derives its value from being the official currency of the World Republic. As our democratic global governance platform grows, WDD has the potential to become a significant medium of exchange for international cooperation, and could eventually play a role in the equitable distribution of benefits from technological advancements and global resources.",
+      "The drachma derives its value from being the official currency of the World Republic. As our democratic global governance platform grows, WDD has the potential to become a significant medium of exchange in the world economy, and could eventually play a role in the equitable distribution of benefits from technological advancements and global resources.",
   },
   {
     id: "top-wallets",
     question: "Who controls the biggest accounts?",
     answer:
-      "The three largest accounts are the World Republic Treasury, the Basic Income Fund, and the Basic Income Plus Fund. Currently, these are controlled by the project's founder, but control will be transferred to the community after our constitution is ratified. Elections for the Constituent Assembly, which will oversee this process, will take place in Q2 2025.",
+      "The three largest accounts are the <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='text-info-900'>World Republic Treasury</a>, the <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='text-info-900'>Basic Income Fund</a>, and the <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='text-info-900'>Basic Income Plus Fund</a>. Currently, these are controlled by the project's founder, but control will be transferred to the community after our constitution is ratified. Other key addresses include the <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='text-info-900'>Savings Account contract</a>, the <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='text-info-900'>Referral Rewards distributor</a>, and liquidity pools: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='text-info-900'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='text-info-900'>USDC/WDD</a>, and <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='text-info-900'>ETH/WDD</a>.",
   },
   {
     id: "vote-requirements",
@@ -123,7 +123,7 @@ export default function FAQPage() {
                   variant={{ variant: "body", level: 2 }}
                   className="text-gray-600"
                 >
-                  {faq.answer}
+                  <div dangerouslySetInnerHTML={{ __html: faq.answer }} />
                 </Typography>
               </div>
             </div>
