@@ -20,8 +20,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Do you agree that space-faring nations and corporations should be legally required to remove defunct satellites to reduce orbital debris?",
-    url: "https://vote.one/4pPCTP6p",
+      "Should all conflict zones with civilian humanitarian crises automatically trigger internationally coordinated aid corridors?",
+    url: "https://vote.one/l3Yu6hMi",
   },
   {
     description:
