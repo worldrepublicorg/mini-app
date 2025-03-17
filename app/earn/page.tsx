@@ -1966,8 +1966,8 @@ export default function EarnPage() {
   };
 
   return (
-    <div className="flex min-h-dvh flex-col px-6 pb-20">
-      <div className="fixed left-0 right-0 top-0 z-10 bg-gray-0 px-6 pb-2 pt-5">
+    <div className="pb-safe flex min-h-dvh flex-col px-6">
+      <div className="fixed left-0 right-0 top-0 z-10 bg-gray-0 px-6 pt-5">
         <div className="flex items-center justify-between">
           <div className="flex h-10 items-center">
             <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
@@ -2000,7 +2000,7 @@ export default function EarnPage() {
         />
       </div>
 
-      <div className="mt-[120px] flex flex-1 items-center">
+      <div className="mt-[112px] flex flex-1 items-center">
         {renderContent()}
       </div>
     </div>

@@ -44,6 +44,11 @@ pre {
   display: none; /* Chrome, Safari and Opera */
 }
 
+/* Add a new utility class for bottom padding that respects safe areas */
+.pb-safe {
+  padding-bottom: 56px; /* Default padding (14 in Tailwind units is 56px) */
+}
+
 @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3),
   /* iPhone X/XS/11 Pro */ only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2),
   /* iPhone XR/11 */ only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3),
@@ -58,5 +63,9 @@ pre {
   /* iPhone 16 Pro */ only screen and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) /* iPhone 16 Pro Max */ {
   .safe-area-spacer {
     padding-bottom: 20px;
+  }
+
+  .pb-safe {
+    padding-bottom: 76px; /* 56px (default) + 20px (safe area) = 76px */
   }
 }
