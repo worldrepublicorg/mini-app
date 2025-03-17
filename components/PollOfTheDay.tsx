@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/Button";
 import { Typography } from "./ui/Typography";
+import Link from "next/link";
 
 interface Poll {
   description: string;
@@ -82,6 +83,11 @@ export function PollOfTheDay() {
             Vote Now
           </Button>
         </a>
+        <Link href="/previous-polls" className="mt-4 block">
+          <Button variant="ghost" fullWidth>
+            Previous Polls
+          </Button>
+        </Link>
       </div>
     </div>
   );
