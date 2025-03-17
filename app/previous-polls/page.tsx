@@ -58,7 +58,7 @@ const historicalPolls = [
   },
   {
     description:
-      "Are you confident in the world’s ability to prevent and manage emerging infectious diseases?",
+      "Are you confident in the world's ability to prevent and manage emerging infectious diseases?",
     url: "https://vote.one/tbCLGUgE",
   },
   {
@@ -131,19 +131,21 @@ const historicalPolls = [
 export default function PreviousPollsPage() {
   return (
     <div className="flex min-h-screen flex-col px-6 pb-20">
-      <div className="relative flex items-center justify-center py-6">
-        <Link
-          href="/govern"
-          className="absolute left-0 flex size-10 items-center justify-center rounded-full bg-gray-100"
-        >
-          <BiChevronLeft className="size-6 text-gray-500" />
-        </Link>
-        <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
-          Previous Polls
-        </Typography>
+      <div className="fixed left-0 right-0 top-0 z-10 bg-gray-0 px-6">
+        <div className="relative flex items-center justify-center py-6">
+          <Link
+            href="/govern"
+            className="absolute left-0 flex size-10 items-center justify-center rounded-full bg-gray-100"
+          >
+            <BiChevronLeft className="size-6 text-gray-500" />
+          </Link>
+          <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
+            Previous Polls
+          </Typography>
+        </div>
       </div>
 
-      <div className="mt-4">
+      <div className="mt-24">
         <div>
           {historicalPolls.map((poll, index) => (
             <PollCard
