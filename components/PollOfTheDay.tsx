@@ -83,7 +83,7 @@ export function PollOfTheDay() {
             Vote Now
           </Button>
         </a>
-        <Link href="/previous-polls" className="mt-4 block">
+        <Link href="/previous-polls" className="mt-2 block h-10">
           <Button variant="ghost" fullWidth>
             Previous Polls
           </Button>
