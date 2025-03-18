@@ -26,8 +26,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Should corporations operating in multiple countries be subject to a unified global minimum tax rate to reduce inequality?",
-    url: "https://vote.one/3FhzXHRG",
+      "Do you think the current global economic trends signal a risk of a synchronized recession among major economies?",
+    url: "https://vote.one/VvJjBSkY",
   },
   {
     description:
