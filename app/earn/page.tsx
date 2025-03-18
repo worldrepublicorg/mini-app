@@ -24,7 +24,9 @@ import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { Button } from "@/components/ui/Button";
 import { StakeWithPermitForm } from "@/components/StakeWithPermitForm";
 import { useToast } from "@/components/ui/Toast";
+import { useRouter, useSearchParams } from "next/navigation";
 import { BiLinkExternal } from "react-icons/bi";
+import { IoIosArrowForward } from "react-icons/io";
 
 export default function EarnPage() {
   const {
@@ -759,7 +761,49 @@ export default function EarnPage() {
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
+
+    // Update URL query parameter without full page refresh
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("tab", tab);
+
+    // Update the URL to include the tab parameter
+    const newUrl = `/earn?${params.toString()}`;
+    window.history.pushState({ path: newUrl }, "", newUrl);
   };
+
+  // Keep the existing effect to handle initial URL tab parameter
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const urlParams = new URLSearchParams(window.location.search);
+      const tabParam = urlParams.get("tab");
+      if (
+        tabParam &&
+        ["Basic income", "Savings", "Invite", "Contribute"].includes(tabParam)
+      ) {
+        setActiveTab(tabParam);
+      }
+    }
+  }, []);
+
+  // Add a new effect to handle browser back/forward navigation
+  useEffect(() => {
+    const handlePopState = () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const tabParam = urlParams.get("tab");
+      if (
+        tabParam &&
+        ["Basic income", "Savings", "Invite", "Contribute"].includes(tabParam)
+      ) {
+        setActiveTab(tabParam);
+      } else {
+        // Default to "Basic income" if no valid tab is in the URL
+        setActiveTab("Basic income");
+      }
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
 
   const [lookupResult, setLookupResult] = useState<{
     username: string;
@@ -1417,6 +1461,9 @@ export default function EarnPage() {
     return () => clearInterval(fetchInterval);
   }, [walletAddress, fetchAvailableReward, fetchStakedBalance]);
 
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
   const renderContent = () => {
     switch (activeTab) {
       case "Basic income":
@@ -1547,7 +1594,7 @@ export default function EarnPage() {
                           <ul className="space-y-3">
                             <li className="flex items-start">
                               <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
-                                <PiTrendUpFill className="h-3.5 w-3.5 text-gray-500" />
+                                <PiTrendUpFill className="h-3.5 w-3.5 text-gray-400" />
                               </div>
                               <Typography
                                 variant={{ variant: "body", level: 3 }}
@@ -1558,7 +1605,7 @@ export default function EarnPage() {
                             </li>
                             <li className="flex items-start">
                               <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
-                                <PiUserCheckFill className="h-3.5 w-3.5 text-gray-500" />
+                                <PiUserCheckFill className="h-3.5 w-3.5 text-gray-400" />
                               </div>
                               <Typography
                                 variant={{ variant: "body", level: 3 }}
@@ -1570,7 +1617,7 @@ export default function EarnPage() {
                             </li>
                             <li className="flex items-start">
                               <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
-                                <PiChartLineFill className="h-3.5 w-3.5 text-gray-500" />
+                                <PiChartLineFill className="h-3.5 w-3.5 text-gray-400" />
                               </div>
                               <Typography
                                 variant={{ variant: "body", level: 3 }}
@@ -1649,55 +1696,6 @@ export default function EarnPage() {
               fetchAvailableReward={fetchAvailableReward}
               onCollectStart={handleCollectStart}
             />
-          </div>
-        );
-      case "Contribute":
-        return (
-          <div className="flex w-full flex-col items-center py-6">
-            <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
-              <PiPlantFill className="h-10 w-10 text-gray-400" />
-            </div>
-            <Typography
-              as="h2"
-              variant={{ variant: "heading", level: 1 }}
-              className="text-center"
-            >
-              Contribute
-            </Typography>
-            <Typography
-              variant={{ variant: "subtitle", level: 1 }}
-              className="mx-auto mb-10 mt-4 text-center text-gray-500"
-            >
-              Get involved, get rewarded
-            </Typography>
-            <a
-              href="https://t.me/worldrepubliccommunity"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mb-4 flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border border-gray-200 p-4 text-gray-900"
-            >
-              <div>
-                <Typography
-                  as="h3"
-                  variant={{ variant: "subtitle", level: 2 }}
-                  className="mb-1.5 line-clamp-3"
-                >
-                  Early Access Program
-                </Typography>
-                <div className="flex items-center gap-1">
-                  <Typography
-                    as="p"
-                    variant={{ variant: "body", level: 3 }}
-                    className="text-gray-500"
-                  >
-                    Earn WDD by testing our upcoming features
-                  </Typography>
-                </div>
-              </div>
-              <div className="rounded-full bg-gray-100 p-1.5">
-                <BiLinkExternal className="size-[14px] flex-shrink-0 text-gray-400" />
-              </div>
-            </a>
           </div>
         );
       case "Invite":
@@ -1958,6 +1956,181 @@ export default function EarnPage() {
                 </Drawer>
               )}
             </>
+          </div>
+        );
+      case "Contribute":
+        return (
+          <div className="flex w-full flex-col items-center py-6">
+            <Typography
+              as="h2"
+              variant={{ variant: "heading", level: 1 }}
+              className="text-center"
+            >
+              Contribute
+            </Typography>
+            <Typography
+              variant={{ variant: "subtitle", level: 1 }}
+              className="mx-auto mb-8 mt-4 text-center text-gray-500"
+            >
+              Get involved, get rewarded
+            </Typography>
+
+            {/* Weekly contests section */}
+            <div className="w-full">
+              {/* X Post Writing Contest */}
+              <Typography
+                variant={{ variant: "subtitle", level: 3 }}
+                className="mb-3 text-gray-900"
+              >
+                Contests
+              </Typography>
+              <a
+                href="/earn/contribute/x-contest"
+                className="group mb-4 flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 transition-all hover:border-gray-300 hover:bg-gray-50"
+              >
+                <div className="mb-3 flex items-center justify-between">
+                  <Typography
+                    as="h3"
+                    variant={{ variant: "subtitle", level: 2 }}
+                    className="line-clamp-1"
+                  >
+                    X Post Contest (Test)
+                  </Typography>
+                  <div className="rounded-full bg-gray-900 px-2.5 py-1">
+                    <Typography
+                      variant={{ variant: "body", level: 3 }}
+                      className="text-gray-0"
+                    >
+                      Weekly
+                    </Typography>
+                  </div>
+                </div>
+
+                <Typography
+                  as="p"
+                  variant={{ variant: "body", level: 3 }}
+                  className="mb-3 text-gray-500"
+                >
+                  Write engaging posts about the World Republic and win up to
+                  500 WDD
+                </Typography>
+
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="rounded-full bg-success-300 px-2.5 py-1">
+                      <Typography
+                        variant={{ variant: "body", level: 3 }}
+                        className="text-success-800"
+                      >
+                        500 WDD
+                      </Typography>
+                    </div>
+                    <Typography
+                      variant={{ variant: "body", level: 3 }}
+                      className="text-gray-400"
+                    >
+                      Top prize
+                    </Typography>
+                  </div>
+                  <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5 group-hover:bg-gray-200">
+                    <IoIosArrowForward className="size-[14px] text-gray-400" />
+                  </div>
+                </div>
+              </a>
+
+              {/* Petition Writing Contest */}
+              <a
+                href="/earn/contribute/petition-contest"
+                className="group flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 transition-all hover:border-gray-300 hover:bg-gray-50"
+              >
+                <div className="mb-3 flex items-center justify-between">
+                  <Typography
+                    as="h3"
+                    variant={{ variant: "subtitle", level: 2 }}
+                    className="line-clamp-1"
+                  >
+                    Petition Contest (Test)
+                  </Typography>
+                  <div className="rounded-full bg-gray-900 px-2.5 py-1">
+                    <Typography
+                      variant={{ variant: "body", level: 3 }}
+                      className="text-gray-0"
+                    >
+                      Weekly
+                    </Typography>
+                  </div>
+                </div>
+
+                <Typography
+                  as="p"
+                  variant={{ variant: "body", level: 3 }}
+                  className="mb-3 text-gray-500"
+                >
+                  Create petitions that matter and gather support from verified
+                  humans
+                </Typography>
+
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="rounded-full bg-success-300 px-2.5 py-1">
+                      <Typography
+                        variant={{ variant: "body", level: 3 }}
+                        className="text-success-800"
+                      >
+                        750 WDD
+                      </Typography>
+                    </div>
+                    <Typography
+                      variant={{ variant: "body", level: 3 }}
+                      className="text-gray-400"
+                    >
+                      Top prize
+                    </Typography>
+                  </div>
+                  <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5 group-hover:bg-gray-200">
+                    <IoIosArrowForward className="size-[14px] text-gray-400" />
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            {/* Early Access Program section */}
+            <div className="mt-8 w-full">
+              <Typography
+                variant={{ variant: "subtitle", level: 3 }}
+                className="mb-3 text-gray-900"
+              >
+                Testing
+              </Typography>
+              <a
+                href="https://t.me/worldrepubliccommunity"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border border-gray-200 p-4 transition-all hover:border-gray-300 hover:bg-gray-50"
+              >
+                <div className="flex items-center gap-3">
+                  <div>
+                    <Typography
+                      as="h3"
+                      variant={{ variant: "subtitle", level: 2 }}
+                      className="mb-1 line-clamp-1"
+                    >
+                      Early Access Program
+                    </Typography>
+                    <Typography
+                      as="p"
+                      variant={{ variant: "body", level: 3 }}
+                      className="text-gray-500"
+                    >
+                      Earn WDD by testing our upcoming features
+                    </Typography>
+                  </div>
+                </div>
+                <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5 group-hover:bg-gray-200">
+                  <BiLinkExternal className="size-[14px] text-gray-400" />
+                </div>
+              </a>
+            </div>
           </div>
         );
       default:
