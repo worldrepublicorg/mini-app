@@ -107,13 +107,13 @@ export default function XContestPage() {
           </div>
         </div>
 
-        {/* How it works */}
+        {/* How to participate */}
         <div className="mb-10">
           <Typography
             variant={{ variant: "subtitle", level: 2 }}
             className="mb-4 text-gray-900"
           >
-            How it works
+            How to participate
           </Typography>
           <div className="space-y-4">
             <div className="flex gap-3">
@@ -171,8 +171,8 @@ export default function XContestPage() {
           <ul className="text-gray-600 list-disc space-y-2 pl-5">
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                Winners are selected based on engagement (likes, reposts,
-                replies)
+                Posts must be written during the current contest week to be
+                eligible
               </Typography>
             </li>
             <li>
@@ -182,7 +182,7 @@ export default function XContestPage() {
             </li>
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                Contest closes every Sunday at 11:59 PM UTC
+                Engagement is counted every Sunday at 11:59 PM UTC
               </Typography>
             </li>
           </ul>

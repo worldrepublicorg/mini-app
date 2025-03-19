@@ -175,7 +175,8 @@ export default function PetitionContestPage() {
               <Typography variant={{ variant: "body", level: 2 }}>
                 <li>
                   <Typography variant={{ variant: "body", level: 2 }}>
-                    Winners are selected based on the number of signatures
+                    Petitions must be created during the current contest week to
+                    be eligible
                   </Typography>
                 </li>
               </Typography>
@@ -187,7 +188,7 @@ export default function PetitionContestPage() {
             </li>
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                Contest closes every Sunday at 11:59 PM UTC
+                Signatures are counted every Sunday at 11:59 PM UTC
               </Typography>
             </li>
           </ul>
