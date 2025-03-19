@@ -240,7 +240,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     }
   }, [walletAddress, setTokenBalance, fromWei]);
 
-  const fetchCanReward = async () => {
+  const fetchCanReward = useCallback(async () => {
     if (!walletAddress) return;
 
     try {
@@ -292,16 +292,14 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       setCanReward(false);
       setTimeout(fetchCanReward, 1000);
     }
-  };
+  }, [walletAddress]);
 
-  const fetchRewardCount = async () => {
+  const fetchRewardCount = useCallback(async () => {
     if (!walletAddress) return;
 
     try {
       console.log("[Referral] Fetching reward count for user...");
-      // Use viem to interact with the smart contract
       try {
-        // ABI for just the getRewardCount function
         const referralABI = [
           {
             inputs: [
@@ -322,9 +320,8 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
             stateMutability: "view",
             type: "function",
           },
-        ] as const; // Use const assertion for type inference
+        ] as const;
 
-        // Using viemClient for contract interaction
         const count = await viemClient.readContract({
           address:
             "0x372dCA057682994568be074E75a03Ced3dD9E60d" as `0x${string}`,
@@ -348,19 +345,19 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       console.error("[Referral] Error checking reward count:", error);
       setTimeout(fetchRewardCount, 1000);
     }
-  };
+  }, [walletAddress]);
 
   useEffect(() => {
     if (walletAddress) {
       fetchCanReward();
     }
-  }, [walletAddress]);
+  }, [walletAddress, fetchCanReward]);
 
   useEffect(() => {
     if (walletAddress) {
       fetchRewardCount();
     }
-  }, [walletAddress]);
+  }, [walletAddress, fetchRewardCount]);
 
   useEffect(() => {
     if (!walletAddress) return;

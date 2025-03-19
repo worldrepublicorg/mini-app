@@ -58,6 +58,8 @@ export default function EarnPage() {
     (Number(claimableAmount) || 0) + (Number(claimableAmountPlus) || 0)
   );
 
+  const [recipientUsername, setRecipientUsername] = useState<string>("");
+
   const { showToast } = useToast();
 
   useEffect(() => {
@@ -71,7 +73,7 @@ export default function EarnPage() {
       "[DisplayTracking] Initial displayClaimable:",
       displayClaimable
     );
-  }, []); // Empty dependency array means it only runs once on mount
+  }, [claimableAmount, claimableAmountPlus, displayClaimable]);
 
   useEffect(() => {
     console.log(
@@ -308,7 +310,7 @@ export default function EarnPage() {
     const interval = setInterval(updateDisplay, 1000);
 
     return () => clearInterval(interval);
-  }, [claimableAmount, claimableAmountPlus]);
+  }, [claimableAmount, claimableAmountPlus, basicIncomePlusActivated]);
 
   const [activeTab, setActiveTab] = useState("Basic income");
 
@@ -324,6 +326,90 @@ export default function EarnPage() {
     },
     transactionId: transactionId!,
   });
+
+  // Wrap sendReward in useCallback
+  const sendReward = useCallback(
+    async (recipientAddress: string) => {
+      if (!MiniKit.isInstalled() || !walletAddress) {
+        setRewardStatus({
+          success: false,
+          message: "Please connect your wallet first",
+        });
+        return;
+      }
+
+      setIsSendingReward(true);
+      setRewardStatus(null);
+
+      // Check if this is the stored referrer
+      const storedReferrer = localStorage.getItem("referredBy");
+      const isStoredReferrer =
+        storedReferrer && storedReferrer === recipientUsername;
+
+      try {
+        console.log(`[Reward] Sending reward to ${recipientAddress}`);
+        if (isStoredReferrer) {
+          console.log("[Reward] This is the user who referred you!");
+        }
+
+        const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
+          transaction: [
+            {
+              address: "0x372dCA057682994568be074E75a03Ced3dD9E60d",
+              abi: parseAbi([
+                "function rewardUser(address recipient) external",
+              ]),
+              functionName: "rewardUser",
+              args: [recipientAddress],
+            },
+          ],
+        });
+
+        console.log("[Reward] Transaction response:", finalPayload);
+
+        if (finalPayload.status === "error") {
+          console.error("[Reward] Error sending transaction", finalPayload);
+          // Only show error toast if it's not a user rejection
+          if (finalPayload.error_code !== "user_rejected") {
+            const errorMessage =
+              (finalPayload as any).description || "Error sending reward";
+            showToast(errorMessage, "error");
+            setRewardStatus({
+              success: false,
+              message: errorMessage,
+            });
+          } else {
+            // Still set reward status but without showing toast
+            setRewardStatus({
+              success: false,
+              message: "Transaction was canceled",
+            });
+          }
+        } else {
+          setRewardStatus({
+            success: true,
+            message: `Successfully sent reward to ${recipientUsername}!`,
+          });
+
+          // After successful reward transaction, update the canReward status
+          fetchCanReward();
+        }
+      } catch (error: any) {
+        console.error("[Reward] Error in reward transaction:", error);
+        showToast(
+          error.message || "An unexpected error occurred with the reward",
+          "error"
+        );
+        setRewardStatus({
+          success: false,
+          message: error.message || "Failed to send reward. Please try again.",
+        });
+      } finally {
+        setIsSendingReward(false);
+      }
+    },
+    [walletAddress, recipientUsername, showToast, fetchCanReward]
+  ); // Add dependencies
 
   useEffect(() => {
     if (transactionId) {
@@ -446,6 +532,9 @@ export default function EarnPage() {
     fetchBasicIncomeInfo,
     fetchBasicIncomePlusInfo,
     basicIncomePlusActivated,
+    canReward,
+    sendReward,
+    showToast,
   ]);
 
   const sendSetup = async () => {
@@ -815,9 +904,6 @@ export default function EarnPage() {
   const [isLookingUp, setIsLookingUp] = useState(false);
   const [lookupError, setLookupError] = useState("");
 
-  // Add state for recipient username (for rewards)
-  const [recipientUsername, setRecipientUsername] = useState<string>("");
-
   // Add useEffect to set recipient username from localStorage when component mounts
   useEffect(() => {
     const storedReferrer = localStorage.getItem("referredBy");
@@ -878,84 +964,6 @@ export default function EarnPage() {
     success: boolean;
     message: string;
   } | null>(null);
-
-  const sendReward = async (recipientAddress: string) => {
-    if (!MiniKit.isInstalled() || !walletAddress) {
-      setRewardStatus({
-        success: false,
-        message: "Please connect your wallet first",
-      });
-      return;
-    }
-
-    setIsSendingReward(true);
-    setRewardStatus(null);
-
-    // Check if this is the stored referrer
-    const storedReferrer = localStorage.getItem("referredBy");
-    const isStoredReferrer =
-      storedReferrer && storedReferrer === recipientUsername;
-
-    try {
-      console.log(`[Reward] Sending reward to ${recipientAddress}`);
-      if (isStoredReferrer) {
-        console.log("[Reward] This is the user who referred you!");
-      }
-
-      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
-        transaction: [
-          {
-            address: "0x372dCA057682994568be074E75a03Ced3dD9E60d",
-            abi: parseAbi(["function rewardUser(address recipient) external"]),
-            functionName: "rewardUser",
-            args: [recipientAddress],
-          },
-        ],
-      });
-
-      console.log("[Reward] Transaction response:", finalPayload);
-
-      if (finalPayload.status === "error") {
-        console.error("[Reward] Error sending transaction", finalPayload);
-        // Only show error toast if it's not a user rejection
-        if (finalPayload.error_code !== "user_rejected") {
-          const errorMessage =
-            (finalPayload as any).description || "Error sending reward";
-          showToast(errorMessage, "error");
-          setRewardStatus({
-            success: false,
-            message: errorMessage,
-          });
-        } else {
-          // Still set reward status but without showing toast
-          setRewardStatus({
-            success: false,
-            message: "Transaction was canceled",
-          });
-        }
-      } else {
-        setRewardStatus({
-          success: true,
-          message: `Successfully sent reward to ${recipientUsername}!`,
-        });
-
-        // After successful reward transaction, update the canReward status
-        fetchCanReward();
-      }
-    } catch (error: any) {
-      console.error("[Reward] Error in reward transaction:", error);
-      showToast(
-        error.message || "An unexpected error occurred with the reward",
-        "error"
-      );
-      setRewardStatus({
-        success: false,
-        message: error.message || "Failed to send reward. Please try again.",
-      });
-    } finally {
-      setIsSendingReward(false);
-    }
-  };
 
   // First, wrap loadCurrentUsername with useCallback to prevent infinite loop
   const loadCurrentUsernameCallback = useCallback(async () => {

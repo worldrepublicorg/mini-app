@@ -125,7 +125,7 @@ export default function PetitionContestPage() {
               >
                 Create a petition with a title that starts with{" "}
                 <span className="font-medium">
-                  "[World Republic Petition Contest]"
+                  &quot;[World Republic Petition Contest]&quot;
                 </span>
               </Typography>
             </div>
