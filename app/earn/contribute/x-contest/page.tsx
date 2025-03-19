@@ -211,7 +211,7 @@ export default function XContestPage() {
             rel="noopener noreferrer"
           >
             <Button variant="secondary" fullWidth className="mt-4">
-              Submit your Post
+              Submit Your Post
             </Button>
           </a>
         </div>

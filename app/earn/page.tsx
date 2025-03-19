@@ -1995,18 +1995,13 @@ export default function EarnPage() {
                 className="group mb-4 flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 transition-all hover:border-gray-300 hover:bg-gray-50"
               >
                 <div className="mb-3 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="rounded-full bg-gray-200 p-2">
-                      <PiMegaphoneFill className="h-4 w-4 text-gray-400" />
-                    </div>
-                    <Typography
-                      as="h3"
-                      variant={{ variant: "subtitle", level: 2 }}
-                      className="line-clamp-1"
-                    >
-                      X Post Contest
-                    </Typography>
-                  </div>
+                  <Typography
+                    as="h3"
+                    variant={{ variant: "subtitle", level: 2 }}
+                    className="line-clamp-1"
+                  >
+                    X Post Contest
+                  </Typography>
                   <div className="rounded-full bg-gray-100 px-2.5 py-1">
                     <Typography
                       variant={{ variant: "body", level: 3 }}
@@ -2055,18 +2050,13 @@ export default function EarnPage() {
                 className="group flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 transition-all hover:border-gray-300 hover:bg-gray-50"
               >
                 <div className="mb-3 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="rounded-full bg-gray-200 p-2">
-                      <PiClipboardFill className="h-4 w-4 text-gray-400" />
-                    </div>
-                    <Typography
-                      as="h3"
-                      variant={{ variant: "subtitle", level: 2 }}
-                      className="line-clamp-1"
-                    >
-                      Petition Contest
-                    </Typography>
-                  </div>
+                  <Typography
+                    as="h3"
+                    variant={{ variant: "subtitle", level: 2 }}
+                    className="line-clamp-1"
+                  >
+                    Petition Contest
+                  </Typography>
                   <div className="rounded-full bg-gray-100 px-2.5 py-1">
                     <Typography
                       variant={{ variant: "body", level: 3 }}
@@ -2123,7 +2113,7 @@ export default function EarnPage() {
                     <Typography
                       as="h3"
                       variant={{ variant: "subtitle", level: 2 }}
-                      className="mb-1 line-clamp-1"
+                      className="mb-2 line-clamp-1"
                     >
                       Early Access Program
                     </Typography>

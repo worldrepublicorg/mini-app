@@ -197,7 +197,7 @@ export default function PetitionContestPage() {
         {/* CTA Buttons */}
         <div className="mt-auto space-y-3">
           <a href="https://vote.one" target="_blank" rel="noopener noreferrer">
-            <Button fullWidth>Start your Petition</Button>
+            <Button fullWidth>Start Your Petition</Button>
           </a>
           <a
             href="https://t.me/worldrepubliccommunity/32368"
@@ -205,7 +205,7 @@ export default function PetitionContestPage() {
             rel="noopener noreferrer"
           >
             <Button variant="secondary" fullWidth className="mt-4">
-              Submit your Petition
+              Submit Your Petition
             </Button>
           </a>
         </div>
