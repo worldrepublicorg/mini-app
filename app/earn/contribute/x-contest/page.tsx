@@ -201,7 +201,7 @@ export default function XContestPage() {
             >
               <div className="flex w-full items-center justify-center">
                 <FaXTwitter className="mr-2 h-4 w-4" />
-                <span>Start posting now</span>
+                <span>Start Posting Now</span>
               </div>
             </Button>
           </a>
@@ -211,7 +211,7 @@ export default function XContestPage() {
             rel="noopener noreferrer"
           >
             <Button variant="secondary" fullWidth className="mt-4">
-              Submit your post
+              Submit your Post
             </Button>
           </a>
         </div>
