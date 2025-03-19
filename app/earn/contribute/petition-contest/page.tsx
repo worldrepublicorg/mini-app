@@ -196,11 +196,7 @@ export default function PetitionContestPage() {
 
         {/* CTA Buttons */}
         <div className="mt-auto space-y-3">
-          <a
-            href="https://vote.one/polls/new"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://vote.one" target="_blank" rel="noopener noreferrer">
             <Button fullWidth>Start your petition</Button>
           </a>
           <a
