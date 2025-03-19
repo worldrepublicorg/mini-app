@@ -123,9 +123,9 @@ export default function PetitionContestPage() {
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                Create a petition with a title that starts with{" "}
+                Create a petition with a title containing{" "}
                 <span className="font-medium">
-                  &quot;[World Republic Petition Contest]&quot;
+                  &quot;World Republic Petition Contest&quot;
                 </span>
               </Typography>
             </div>
