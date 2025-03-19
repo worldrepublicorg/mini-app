@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/Button";
 import { Typography } from "@/components/ui/Typography";
 import Link from "next/link";
-import { PiTrophy } from "react-icons/pi";
+import { PiMegaphoneFill, PiTrophy } from "react-icons/pi";
 import { FaXTwitter } from "react-icons/fa6";
 import { BiChevronLeft } from "react-icons/bi";
 
@@ -26,9 +26,9 @@ export default function XContestPage() {
 
       <div className="mt-24 flex flex-1 flex-col pb-6">
         {/* Hero section */}
-        <div className="mb-8 flex flex-col items-center">
-          <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
-            <FaXTwitter className="h-10 w-10 text-gray-400" />
+        <div className="mb-10 flex flex-col items-center">
+          <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+            <PiMegaphoneFill className="h-10 w-10 text-gray-400" />
           </div>
           <Typography
             variant={{ variant: "subtitle", level: 1 }}
@@ -40,12 +40,12 @@ export default function XContestPage() {
             variant={{ variant: "body", level: 2 }}
             className="text-center text-gray-500"
           >
-            Share your ideas about World Republic and win rewards
+            Write engaging posts about the World Republic and win up to 1000 WDD
           </Typography>
         </div>
 
         {/* Prize info */}
-        <div className="mb-6 w-full rounded-xl border border-gray-200 p-4">
+        <div className="mb-10 w-full rounded-xl border border-gray-200 p-4">
           <Typography
             variant={{ variant: "subtitle", level: 2 }}
             className="mb-4 text-center text-gray-900"
@@ -54,31 +54,14 @@ export default function XContestPage() {
           </Typography>
           <div className="grid grid-cols-3 gap-2">
             <div className="flex flex-col items-center rounded-lg bg-gray-50 p-3">
-              <div className="bg-yellow-100 mb-1 flex h-8 w-8 items-center justify-center rounded-full">
-                <PiTrophy className="text-yellow-600 h-5 w-5" />
-              </div>
-              <Typography
-                variant={{ variant: "heading", level: 3 }}
-                className="text-gray-900"
-              >
-                500
-              </Typography>
-              <Typography
-                variant={{ variant: "body", level: 3 }}
-                className="text-gray-500"
-              >
-                WDD
-              </Typography>
-            </div>
-            <div className="flex flex-col items-center rounded-lg bg-gray-50 p-3">
-              <div className="mb-1 flex h-8 w-8 items-center justify-center rounded-full bg-gray-200">
+              <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-gray-200">
                 <PiTrophy className="text-gray-600 h-5 w-5" />
               </div>
               <Typography
                 variant={{ variant: "heading", level: 3 }}
                 className="text-gray-900"
               >
-                300
+                1000
               </Typography>
               <Typography
                 variant={{ variant: "body", level: 3 }}
@@ -88,14 +71,31 @@ export default function XContestPage() {
               </Typography>
             </div>
             <div className="flex flex-col items-center rounded-lg bg-gray-50 p-3">
-              <div className="bg-amber-100 mb-1 flex h-8 w-8 items-center justify-center rounded-full">
-                <PiTrophy className="text-amber-600 h-5 w-5" />
+              <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-gray-200">
+                <PiTrophy className="text-gray-600 h-5 w-5" />
               </div>
               <Typography
                 variant={{ variant: "heading", level: 3 }}
                 className="text-gray-900"
               >
-                100
+                600
+              </Typography>
+              <Typography
+                variant={{ variant: "body", level: 3 }}
+                className="text-gray-500"
+              >
+                WDD
+              </Typography>
+            </div>
+            <div className="flex flex-col items-center rounded-lg bg-gray-50 p-3">
+              <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-gray-200">
+                <PiTrophy className="text-gray-600 h-5 w-5" />
+              </div>
+              <Typography
+                variant={{ variant: "heading", level: 3 }}
+                className="text-gray-900"
+              >
+                200
               </Typography>
               <Typography
                 variant={{ variant: "body", level: 3 }}
@@ -108,7 +108,7 @@ export default function XContestPage() {
         </div>
 
         {/* How it works */}
-        <div className="mb-6">
+        <div className="mb-10">
           <Typography
             variant={{ variant: "subtitle", level: 2 }}
             className="mb-4 text-gray-900"
@@ -117,60 +117,51 @@ export default function XContestPage() {
           </Typography>
           <div className="space-y-4">
             <div className="flex gap-3">
-              <div className="text-white flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-900">
+              <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-900 text-sm text-gray-0">
                 1
               </div>
               <Typography
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                Write X posts about World Republic, your ideas for society, or
-                how digital democracy can work.
+                Write an X post about the World Republic
               </Typography>
             </div>
             <div className="flex gap-3">
-              <div className="text-white flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-900">
+              <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-900 text-sm text-gray-0">
                 2
               </div>
               <Typography
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                Tag <span className="font-medium">@WorldRepublicEN</span> and
-                include the hashtag{" "}
-                <span className="font-medium">#WorldRepublicContest</span> in
-                your posts.
+                Tag <span className="font-medium">@WorldRepublicEN</span>
               </Typography>
             </div>
             <div className="flex gap-3">
-              <div className="text-white flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-900">
+              <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-900 text-sm text-gray-0">
                 3
               </div>
               <Typography
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                Post at least 3 times during the contest week to qualify.
-                Contests run Monday through Sunday.
-              </Typography>
-            </div>
-            <div className="flex gap-3">
-              <div className="text-white flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-900">
-                4
-              </div>
-              <Typography
-                variant={{ variant: "body", level: 2 }}
-                className="text-gray-600"
-              >
-                Winners are selected based on engagement (likes, reposts,
-                replies) and quality of content.
+                Share it in our{" "}
+                <a
+                  href="https://t.me/worldrepubliccommunity/32365"
+                  className="underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  X Post Contest Telegram channel
+                </a>
               </Typography>
             </div>
           </div>
         </div>
 
         {/* Rules */}
-        <div className="mb-6">
+        <div className="mb-10">
           <Typography
             variant={{ variant: "subtitle", level: 2 }}
             className="mb-4 text-gray-900"
@@ -180,12 +171,8 @@ export default function XContestPage() {
           <ul className="text-gray-600 list-disc space-y-2 pl-5">
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                Must have a verified World ID account to participate
-              </Typography>
-            </li>
-            <li>
-              <Typography variant={{ variant: "body", level: 2 }}>
-                Posts must be original content, not reposts
+                Winners are selected based on engagement (likes, reposts,
+                replies)
               </Typography>
             </li>
             <li>
@@ -195,60 +182,36 @@ export default function XContestPage() {
             </li>
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                Submissions close every Sunday at 11:59 PM UTC
-              </Typography>
-            </li>
-            <li>
-              <Typography variant={{ variant: "body", level: 2 }}>
-                Winners announced every Tuesday on our X account
+                Contest closes every Sunday at 11:59 PM UTC
               </Typography>
             </li>
           </ul>
         </div>
 
-        {/* Current theme */}
-        <div className="mb-8 rounded-xl bg-gray-50 p-4">
-          <Typography
-            variant={{ variant: "subtitle", level: 2 }}
-            className="mb-2 text-gray-900"
-          >
-            Current theme
-          </Typography>
-          <Typography
-            variant={{ variant: "body", level: 2 }}
-            className="text-gray-600 mb-3"
-          >
-            <span className="font-medium">"Digital Democracy in Action"</span> -
-            Share your vision for how digital tools can improve democracy and
-            governance.
-          </Typography>
-          <Typography
-            variant={{ variant: "body", level: 3 }}
-            className="text-gray-500"
-          >
-            Contest period: May 13 - May 19, 2024
-          </Typography>
-        </div>
-
         {/* CTA Buttons */}
         <div className="mt-auto space-y-3">
           <a
-            href="https://x.com/intent/tweet?text=My%20ideas%20for%20the%20World%20Republic%3A%20%0A%0A%40WorldRepublic%20%23WorldRepublicContest"
+            href="https://x.com/intent/tweet?text=%40WorldRepublicEN"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button fullWidth>
-              <FaXTwitter className="mr-2 h-4 w-4" />
-              Start posting now
+            <Button
+              fullWidth
+              className="flex flex-row items-center justify-center"
+            >
+              <div className="flex w-full items-center justify-center">
+                <FaXTwitter className="mr-2 h-4 w-4" />
+                <span>Start posting now</span>
+              </div>
             </Button>
           </a>
           <a
-            href="https://x.com/WorldRepublicEN"
+            href="https://t.me/worldrepubliccommunity/32365"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button variant="secondary" fullWidth>
-              Follow @WorldRepublicEN
+            <Button variant="secondary" fullWidth className="mt-4">
+              Submit your post
             </Button>
           </a>
         </div>

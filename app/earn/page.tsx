@@ -12,6 +12,8 @@ import {
   PiTrendUpFill,
   PiUserCheckFill,
   PiNotePencilFill,
+  PiMegaphoneFill,
+  PiClipboardFill,
 } from "react-icons/pi";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/Drawer";
 import { WalletAuth } from "@/components/WalletAuth";
@@ -1201,22 +1203,24 @@ export default function EarnPage() {
     };
   }, [walletAddress]);
 
-  // Add a new state to track if the Invite tab has been visited
-  const [hasInviteBeenVisited, setHasInviteBeenVisited] = useState(false);
+  // Change the state variable name to be more generic
+  const [hasContributeBeenVisited, setHasContributeBeenVisited] =
+    useState(false);
 
-  // Load the invite visited state from localStorage
+  // Load the contribute visited state from localStorage
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const inviteVisited = localStorage.getItem("inviteTabVisited") === "true";
-      setHasInviteBeenVisited(inviteVisited);
+      const contributeVisited =
+        localStorage.getItem("contributeTabVisited") === "true";
+      setHasContributeBeenVisited(contributeVisited);
     }
   }, []);
 
-  // Update localStorage when the Invite tab is active
+  // Update localStorage when the Contribute tab is active
   useEffect(() => {
-    if (activeTab === "Invite" && typeof window !== "undefined") {
-      localStorage.setItem("inviteTabVisited", "true");
-      setHasInviteBeenVisited(true);
+    if (activeTab === "Contribute" && typeof window !== "undefined") {
+      localStorage.setItem("contributeTabVisited", "true");
+      setHasContributeBeenVisited(true);
     }
   }, [activeTab]);
 
@@ -1658,7 +1662,7 @@ export default function EarnPage() {
             </Typography>
             <Typography
               variant={{ variant: "subtitle", level: 1 }}
-              className="mx-auto mb-4 mt-4 flex items-center justify-center text-center text-gray-500"
+              className="mx-auto mb-6 mt-4 flex items-center justify-center text-center text-gray-500"
             >
               Earn interest every second
               <span className="group relative ml-1 inline-block">
@@ -1713,7 +1717,7 @@ export default function EarnPage() {
             </Typography>
             <Typography
               variant={{ variant: "subtitle", level: 1 }}
-              className="mx-auto mb-4 mt-4 flex items-center justify-center text-center text-gray-500"
+              className="mx-auto mb-6 mt-4 flex items-center justify-center text-center text-gray-500"
             >
               Get 50 WDD per friend who joins
               <span className="group relative ml-1 inline-block">
@@ -1978,28 +1982,27 @@ export default function EarnPage() {
             {/* Weekly contests section */}
             <div className="w-full">
               {/* X Post Writing Contest */}
-              <Typography
-                variant={{ variant: "subtitle", level: 3 }}
-                className="mb-3 text-gray-900"
-              >
-                Contests
-              </Typography>
               <a
                 href="/earn/contribute/x-contest"
                 className="group mb-4 flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 transition-all hover:border-gray-300 hover:bg-gray-50"
               >
                 <div className="mb-3 flex items-center justify-between">
-                  <Typography
-                    as="h3"
-                    variant={{ variant: "subtitle", level: 2 }}
-                    className="line-clamp-1"
-                  >
-                    X Post Contest (Test)
-                  </Typography>
-                  <div className="rounded-full bg-gray-900 px-2.5 py-1">
+                  <div className="flex items-center gap-3">
+                    <div className="rounded-full bg-gray-200 p-2">
+                      <PiMegaphoneFill className="h-4 w-4 text-gray-400" />
+                    </div>
+                    <Typography
+                      as="h3"
+                      variant={{ variant: "subtitle", level: 2 }}
+                      className="line-clamp-1"
+                    >
+                      X Post Contest
+                    </Typography>
+                  </div>
+                  <div className="rounded-full bg-gray-100 px-2.5 py-1">
                     <Typography
                       variant={{ variant: "body", level: 3 }}
-                      className="text-gray-0"
+                      className="text-gray-400"
                     >
                       Weekly
                     </Typography>
@@ -2012,17 +2015,17 @@ export default function EarnPage() {
                   className="mb-3 text-gray-500"
                 >
                   Write engaging posts about the World Republic and win up to
-                  500 WDD
+                  1000 WDD
                 </Typography>
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <div className="rounded-full bg-success-300 px-2.5 py-1">
+                    <div className="rounded-full bg-gray-900 px-2.5 py-1">
                       <Typography
                         variant={{ variant: "body", level: 3 }}
-                        className="text-success-800"
+                        className="text-gray-0"
                       >
-                        500 WDD
+                        1000 WDD
                       </Typography>
                     </div>
                     <Typography
@@ -2044,17 +2047,22 @@ export default function EarnPage() {
                 className="group flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 transition-all hover:border-gray-300 hover:bg-gray-50"
               >
                 <div className="mb-3 flex items-center justify-between">
-                  <Typography
-                    as="h3"
-                    variant={{ variant: "subtitle", level: 2 }}
-                    className="line-clamp-1"
-                  >
-                    Petition Contest (Test)
-                  </Typography>
-                  <div className="rounded-full bg-gray-900 px-2.5 py-1">
+                  <div className="flex items-center gap-3">
+                    <div className="rounded-full bg-gray-200 p-2">
+                      <PiClipboardFill className="h-4 w-4 text-gray-400" />
+                    </div>
+                    <Typography
+                      as="h3"
+                      variant={{ variant: "subtitle", level: 2 }}
+                      className="line-clamp-1"
+                    >
+                      Petition Contest
+                    </Typography>
+                  </div>
+                  <div className="rounded-full bg-gray-100 px-2.5 py-1">
                     <Typography
                       variant={{ variant: "body", level: 3 }}
-                      className="text-gray-0"
+                      className="text-gray-400"
                     >
                       Weekly
                     </Typography>
@@ -2066,18 +2074,17 @@ export default function EarnPage() {
                   variant={{ variant: "body", level: 3 }}
                   className="mb-3 text-gray-500"
                 >
-                  Create petitions that matter and gather support from verified
-                  humans
+                  Start global petitions and gather support from verified humans
                 </Typography>
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <div className="rounded-full bg-success-300 px-2.5 py-1">
+                    <div className="rounded-full bg-gray-900 px-2.5 py-1">
                       <Typography
                         variant={{ variant: "body", level: 3 }}
-                        className="text-success-800"
+                        className="text-gray-0"
                       >
-                        750 WDD
+                        1500 WDD
                       </Typography>
                     </div>
                     <Typography
@@ -2096,12 +2103,6 @@ export default function EarnPage() {
 
             {/* Early Access Program section */}
             <div className="mt-8 w-full">
-              <Typography
-                variant={{ variant: "subtitle", level: 3 }}
-                className="mb-3 text-gray-900"
-              >
-                Testing
-              </Typography>
               <a
                 href="https://t.me/worldrepubliccommunity"
                 target="_blank"
@@ -2166,10 +2167,10 @@ export default function EarnPage() {
         </div>
 
         <TabSwiper
-          tabs={["Basic income", "Savings", "Invite", "Contribute"]}
+          tabs={["Basic income", "Savings", "Contribute", "Invite"]}
           activeTab={activeTab}
           onTabChange={handleTabChange}
-          tabIndicators={{ Invite: !hasInviteBeenVisited }}
+          tabIndicators={{ Contribute: !hasContributeBeenVisited }}
         />
       </div>
 
