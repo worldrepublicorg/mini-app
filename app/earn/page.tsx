@@ -1994,7 +1994,7 @@ export default function EarnPage() {
                 href="/earn/contribute/x-contest"
                 className="group mb-4 flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 transition-all hover:border-gray-300 hover:bg-gray-50"
               >
-                <div className="mb-3 flex items-center justify-between">
+                <div className="mb-4 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="rounded-full bg-gray-200 p-2">
                       <PiMegaphoneFill className="h-4 w-4 text-gray-400" />
@@ -2020,7 +2020,7 @@ export default function EarnPage() {
                 <Typography
                   as="p"
                   variant={{ variant: "body", level: 3 }}
-                  className="mb-3 text-gray-500"
+                  className="mb-4 text-gray-500"
                 >
                   Write engaging posts about the World Republic and win up to
                   1000 WDD
@@ -2054,7 +2054,7 @@ export default function EarnPage() {
                 href="/earn/contribute/petition-contest"
                 className="group flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 transition-all hover:border-gray-300 hover:bg-gray-50"
               >
-                <div className="mb-3 flex items-center justify-between">
+                <div className="mb-4 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="rounded-full bg-gray-200 p-2">
                       <PiClipboardFill className="h-4 w-4 text-gray-400" />
@@ -2080,7 +2080,7 @@ export default function EarnPage() {
                 <Typography
                   as="p"
                   variant={{ variant: "body", level: 3 }}
-                  className="mb-3 text-gray-500"
+                  className="mb-4 text-gray-500"
                 >
                   Start a global petition and gather support from verified
                   humans
