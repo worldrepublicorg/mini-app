@@ -2113,7 +2113,7 @@ export default function EarnPage() {
                     <Typography
                       as="h3"
                       variant={{ variant: "subtitle", level: 2 }}
-                      className="mb-2 line-clamp-1"
+                      className="mb-1.5 line-clamp-1"
                     >
                       Early Access Program
                     </Typography>
