@@ -1725,7 +1725,7 @@ export default function EarnPage() {
             </Typography>
             <Typography
               variant={{ variant: "subtitle", level: 1 }}
-              className="mx-auto mb-6 mt-4 flex items-center justify-center text-center text-gray-500"
+              className="mx-auto my-4 flex items-center justify-center text-center text-gray-500"
             >
               Get 50 WDD per friend who joins
               <span className="group relative ml-1 inline-block">
