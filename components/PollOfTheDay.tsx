@@ -31,8 +31,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Should global AI developers be required to pause training models more powerful than current systems until international safety agreements are established?",
-    url: "https://vote.one/HUuPPFOS",
+      "Do you support nations collaborating on a joint deep space mission to Mars?",
+    url: "https://vote.one/KP9pMsfy",
   },
 ];
 

@@ -8,6 +8,16 @@ import { PollCard } from "@/components/PollCard";
 const historicalPolls = [
   {
     description:
+      "Should all conflict zones with civilian humanitarian crises automatically trigger internationally coordinated aid corridors?",
+    url: "https://vote.one/l3Yu6hMi",
+  },
+  {
+    description:
+      "Do you support global policy frameworks that balance national sovereignty with coordinated responses to shared challenges?",
+    url: "https://vote.one/67a0Lnei",
+  },
+  {
+    description:
       "Should countries experiencing extreme weather disasters (e.g., wildfires, floods) receive prioritized financial aid from a global climate fund?",
     url: "https://vote.one/MTHSApYb",
   },
