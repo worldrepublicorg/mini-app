@@ -200,7 +200,7 @@ export default function PetitionContestPage() {
             <Button fullWidth>Start your petition</Button>
           </a>
           <a
-            href="https://forms.gle/3ZY25q1c6nkXY8427"
+            href="https://t.me/worldrepubliccommunity/32368"
             target="_blank"
             rel="noopener noreferrer"
           >
