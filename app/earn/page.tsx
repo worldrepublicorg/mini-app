@@ -2082,7 +2082,8 @@ export default function EarnPage() {
                   variant={{ variant: "body", level: 3 }}
                   className="mb-3 text-gray-500"
                 >
-                  Start global petitions and gather support from verified humans
+                  Start a global petition and gather support from verified
+                  humans
                 </Typography>
 
                 <div className="flex items-center justify-between">

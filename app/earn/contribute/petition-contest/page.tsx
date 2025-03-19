@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/Button";
 import { Typography } from "@/components/ui/Typography";
 import Link from "next/link";
-import { PiUserCheckFill, PiTrophy, PiClipboardFill } from "react-icons/pi";
+import { PiTrophy, PiClipboardTextFill } from "react-icons/pi";
 import { BiChevronLeft } from "react-icons/bi";
 
 export default function PetitionContestPage() {
@@ -26,8 +26,8 @@ export default function PetitionContestPage() {
       <div className="mt-24 flex flex-1 flex-col pb-6">
         {/* Hero section */}
         <div className="mb-10 flex flex-col items-center">
-          <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
-            <PiClipboardFill className="h-10 w-10 text-gray-400" />
+          <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+            <PiClipboardTextFill className="h-10 w-10 text-gray-400" />
           </div>
           <Typography
             variant={{ variant: "subtitle", level: 1 }}
@@ -39,7 +39,7 @@ export default function PetitionContestPage() {
             variant={{ variant: "body", level: 2 }}
             className="text-center text-gray-500"
           >
-            Start global petitions and gather support from verified humans
+            Start a global petition and gather support from verified humans
           </Typography>
         </div>
 
@@ -148,7 +148,7 @@ export default function PetitionContestPage() {
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                Submit your petition to our{" "}
+                Share your petition in our{" "}
                 <a
                   href="https://t.me/worldrepubliccommunity/32368"
                   className="underline"
@@ -200,7 +200,7 @@ export default function PetitionContestPage() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button fullWidth>Create petition</Button>
+            <Button fullWidth>Start your petition</Button>
           </a>
           <a
             href="https://forms.gle/3ZY25q1c6nkXY8427"

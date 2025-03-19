@@ -27,7 +27,7 @@ export default function XContestPage() {
       <div className="mt-24 flex flex-1 flex-col pb-6">
         {/* Hero section */}
         <div className="mb-10 flex flex-col items-center">
-          <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+          <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
             <PiMegaphoneFill className="h-10 w-10 text-gray-400" />
           </div>
           <Typography
