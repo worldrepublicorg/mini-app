@@ -557,7 +557,8 @@ export default function EarnPage() {
         // Only show error toast if it's not a user rejection
         if (finalPayload.error_code !== "user_rejected") {
           const errorMessage =
-            (finalPayload as any).description || "Error sending transaction";
+            (finalPayload as any).description ||
+            "Error activating Basic Income";
           showToast(errorMessage, "error");
         }
         setIsSubmitting(false);
@@ -618,7 +619,7 @@ export default function EarnPage() {
         if (finalPayload.error_code !== "user_rejected") {
           const errorMessage =
             (finalPayload as any).description ||
-            "Error setting up Basic Income Plus";
+            "Error activating Basic Income Plus";
           showToast(errorMessage, "error");
         }
         setIsSubmitting(false);
@@ -709,7 +710,7 @@ export default function EarnPage() {
         // Only show error toast if it's not a user rejection
         if (finalPayload.error_code !== "user_rejected") {
           const errorMessage =
-            (finalPayload as any).description || "Error sending transaction";
+            (finalPayload as any).description || "Error claiming Basic Income";
           showToast(errorMessage, "error");
         }
         setIsClaimingBasic(false);
