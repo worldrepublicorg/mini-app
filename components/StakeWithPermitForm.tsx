@@ -132,6 +132,11 @@ export function StakeWithPermitForm({
       console.log("Received stake transaction response:", finalPayload);
       if (finalPayload.status === "error") {
         console.error("Transaction error.");
+        if (finalPayload.error_code !== "user_rejected") {
+          const errorMessage =
+            (finalPayload as any).description || "Error staking tokens";
+          showToast(errorMessage, "error");
+        }
         setIsSubmitting(false);
       } else {
         console.info("Staking transaction submitted successfully!");
@@ -189,6 +194,11 @@ export function StakeWithPermitForm({
       console.log("Received withdraw transaction response:", finalPayload);
       if (finalPayload.status === "error") {
         console.error("Withdraw transaction error. See console for details.");
+        if (finalPayload.error_code !== "user_rejected") {
+          const errorMessage =
+            (finalPayload as any).description || "Error withdrawing tokens";
+          showToast(errorMessage, "error");
+        }
         setIsSubmitting(false);
       } else {
         console.info("Withdraw transaction submitted successfully!");
@@ -236,6 +246,11 @@ export function StakeWithPermitForm({
       console.log("Received redeem transaction response:", finalPayload);
       if (finalPayload.status === "error") {
         console.error("Redeem transaction error. See console for details.");
+        if (finalPayload.error_code !== "user_rejected") {
+          const errorMessage =
+            (finalPayload as any).description || "Error collecting rewards";
+          showToast(errorMessage, "error");
+        }
         setIsCollecting(false);
         setIsRewardUpdating(false);
       } else {
