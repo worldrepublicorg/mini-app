@@ -40,7 +40,7 @@ export default function XContestPage() {
             variant={{ variant: "body", level: 2 }}
             className="text-center text-gray-500"
           >
-            Write engaging posts about the World Republic and win up to 1000 WDD
+            Write engaging posts, win prizes
           </Typography>
         </div>
 
@@ -52,9 +52,9 @@ export default function XContestPage() {
           >
             Prizes
           </Typography>
-          <div className="grid grid-cols-3 gap-2">
-            <div className="flex flex-col items-center rounded-lg bg-gray-50 p-3">
-              <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-gray-200">
+          <div className="grid grid-cols-3 gap-3">
+            <div className="flex flex-col items-center rounded-lg bg-gray-50 p-3 shadow-sm">
+            <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-[#C5CED8]">
                 <PiTrophy className="text-gray-600 h-5 w-5" />
               </div>
               <Typography
@@ -70,8 +70,8 @@ export default function XContestPage() {
                 WDD
               </Typography>
             </div>
-            <div className="flex flex-col items-center rounded-lg bg-gray-50 p-3">
-              <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-gray-200">
+            <div className="flex flex-col items-center rounded-lg bg-gray-50 p-3 shadow-sm">
+              <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-[#D5DCE4]">
                 <PiTrophy className="text-gray-600 h-5 w-5" />
               </div>
               <Typography
@@ -87,8 +87,8 @@ export default function XContestPage() {
                 WDD
               </Typography>
             </div>
-            <div className="flex flex-col items-center rounded-lg bg-gray-50 p-3">
-              <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-gray-200">
+            <div className="flex flex-col items-center rounded-lg bg-gray-50 p-3 shadow-sm">
+              <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-[#E5EAF0]">
                 <PiTrophy className="text-gray-600 h-5 w-5" />
               </div>
               <Typography
@@ -135,7 +135,7 @@ export default function XContestPage() {
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                Tag <span className="font-medium">@WorldRepublicEN</span>
+                Tag @WorldRepublicEN
               </Typography>
             </div>
             <div className="flex gap-3">
@@ -146,7 +146,7 @@ export default function XContestPage() {
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                Share it in our{" "}
+                Share your post in our{" "}
                 <a
                   href="https://t.me/worldrepubliccommunity/32365"
                   className="underline"
@@ -171,8 +171,7 @@ export default function XContestPage() {
           <ul className="text-gray-600 list-disc space-y-2 pl-5">
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                Posts must be written during the current contest week to be
-                eligible
+                Only posts created during the current week are eligible
               </Typography>
             </li>
             <li>
@@ -182,7 +181,7 @@ export default function XContestPage() {
             </li>
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                Engagement is counted every Sunday at 11:59 PM UTC
+                Total engagement is counted Sunday, 11:59 PM UTC
               </Typography>
             </li>
           </ul>

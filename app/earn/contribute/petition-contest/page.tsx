@@ -39,7 +39,7 @@ export default function PetitionContestPage() {
             variant={{ variant: "body", level: 2 }}
             className="text-center text-gray-500"
           >
-            Start a global petition and gather support from verified humans
+            Get rewarded for driving collective action
           </Typography>
         </div>
 
@@ -51,9 +51,9 @@ export default function PetitionContestPage() {
           >
             Prizes
           </Typography>
-          <div className="grid grid-cols-3 gap-2">
-            <div className="flex flex-col items-center rounded-lg bg-gray-50 p-3">
-              <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-gray-200">
+          <div className="grid grid-cols-3 gap-3">
+            <div className="flex flex-col items-center rounded-lg bg-gray-50 p-3 shadow-sm">
+              <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-[#C5CED8]">
                 <PiTrophy className="text-gray-600 h-5 w-5" />
               </div>
               <Typography
@@ -69,8 +69,8 @@ export default function PetitionContestPage() {
                 WDD
               </Typography>
             </div>
-            <div className="flex flex-col items-center rounded-lg bg-gray-50 p-3">
-              <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-gray-200">
+            <div className="flex flex-col items-center rounded-lg bg-gray-50 p-3 shadow-sm">
+              <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-[#D5DCE4]">
                 <PiTrophy className="text-gray-600 h-5 w-5" />
               </div>
               <Typography
@@ -86,8 +86,8 @@ export default function PetitionContestPage() {
                 WDD
               </Typography>
             </div>
-            <div className="flex flex-col items-center rounded-lg bg-gray-50 p-3">
-              <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-gray-200">
+            <div className="flex flex-col items-center rounded-lg bg-gray-50 p-3 shadow-sm">
+              <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-[#E5EAF0]">
                 <PiTrophy className="text-gray-600 h-5 w-5" />
               </div>
               <Typography
@@ -123,10 +123,8 @@ export default function PetitionContestPage() {
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                Create a petition with a title containing{" "}
-                <span className="font-medium">
-                  &quot;World Republic Petition Contest&quot;
-                </span>
+                Create a petition and add &quot;World Republic Petition
+                Contest&quot; to its title
               </Typography>
             </div>
             <div className="flex gap-3">
@@ -137,7 +135,7 @@ export default function PetitionContestPage() {
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                Set it up so that only verified humans can sign it
+                Set it up so only verified humans can sign it
               </Typography>
             </div>
             <div className="flex gap-3">
@@ -155,6 +153,7 @@ export default function PetitionContestPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
+                  {" "}
                   Petition Contest Telegram channel
                 </a>
               </Typography>
@@ -173,12 +172,7 @@ export default function PetitionContestPage() {
           <ul className="text-gray-600 list-disc space-y-2 pl-5">
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                <li>
-                  <Typography variant={{ variant: "body", level: 2 }}>
-                    Petitions must be created during the current contest week to
-                    be eligible
-                  </Typography>
-                </li>
+                Only petitions started during the current week are eligible
               </Typography>
             </li>
             <li>
@@ -188,7 +182,7 @@ export default function PetitionContestPage() {
             </li>
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                Signatures are counted every Sunday at 11:59 PM UTC
+                Signers are counted Sunday, 11:59 PM UTC
               </Typography>
             </li>
           </ul>

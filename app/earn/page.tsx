@@ -2017,8 +2017,7 @@ export default function EarnPage() {
                   variant={{ variant: "body", level: 3 }}
                   className="mb-4 text-gray-500"
                 >
-                  Write engaging posts about the World Republic and win up to
-                  1000 WDD
+                  Write engaging posts, win prizes
                 </Typography>
 
                 <div className="flex items-center justify-between">
@@ -2072,8 +2071,7 @@ export default function EarnPage() {
                   variant={{ variant: "body", level: 3 }}
                   className="mb-4 text-gray-500"
                 >
-                  Start a global petition and gather support from verified
-                  humans
+                  Get rewarded for driving collective action
                 </Typography>
 
                 <div className="flex items-center justify-between">
