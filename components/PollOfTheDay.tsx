@@ -12,7 +12,7 @@ const polls: Poll[] = [
   {
     description:
       "Should a dedicated global healthcare aid reserve be established to protect maternal and child health during international aid freezes?",
-    url: "https://vote.one/MTHSApYb",
+    url: "https://vote.one/eTKCLYEa",
   },
   {
     description:
@@ -32,7 +32,7 @@ const polls: Poll[] = [
   {
     description:
       "Do you support nations collaborating on a joint deep space mission to Mars?",
-    url: "https://vote.one/eTKCLYEa",
+    url: "https://vote.one/KP9pMsfy",
   },
 ];
 
