@@ -11,7 +11,7 @@ interface Poll {
 const polls: Poll[] = [
   {
     description:
-      "Should countries experiencing extreme weather disasters (e.g., wildfires, floods) receive prioritized financial aid from a global climate fund?",
+      "Should a dedicated global healthcare aid reserve be established to protect maternal and child health during international aid freezes?",
     url: "https://vote.one/MTHSApYb",
   },
   {
@@ -32,7 +32,7 @@ const polls: Poll[] = [
   {
     description:
       "Do you support nations collaborating on a joint deep space mission to Mars?",
-    url: "https://vote.one/KP9pMsfy",
+    url: "https://vote.one/eTKCLYEa",
   },
 ];
 

@@ -8,6 +8,11 @@ import { PollCard } from "@/components/PollCard";
 const historicalPolls = [
   {
     description:
+      "Do you think the current global economic trends signal a risk of a synchronized recession among major economies?",
+    url: "https://vote.one/VvJjBSkY",
+  },
+  {
+    description:
       "Should all conflict zones with civilian humanitarian crises automatically trigger internationally coordinated aid corridors?",
     url: "https://vote.one/l3Yu6hMi",
   },
