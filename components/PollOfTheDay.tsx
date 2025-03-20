@@ -11,7 +11,7 @@ interface Poll {
 const polls: Poll[] = [
   {
     description:
-      "Should countries experiencing extreme weather disasters (e.g., wildfires, floods) receive prioritized financial aid from a global climate fund?",
+      "Should a dedicated global healthcare aid reserve be established to protect maternal and child health during international aid freezes?",
     url: "https://vote.one/MTHSApYb",
   },
   {
@@ -26,13 +26,13 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Should corporations operating in multiple countries be subject to a unified global minimum tax rate to reduce inequality?",
-    url: "https://vote.one/3FhzXHRG",
+      "Do you think the current global economic trends signal a risk of a synchronized recession among major economies?",
+    url: "https://vote.one/VvJjBSkY",
   },
   {
     description:
-      "Should global AI developers be required to pause training models more powerful than current systems until international safety agreements are established?",
-    url: "https://vote.one/HUuPPFOS",
+      "Do you support nations collaborating on a joint deep space mission to Mars?",
+    url: "https://vote.one/eTKCLYEa",
   },
 ];
 
