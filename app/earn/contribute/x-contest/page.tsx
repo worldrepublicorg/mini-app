@@ -146,7 +146,7 @@ export default function XContestPage() {
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                Share your post in our{" "}
+                Share the link to your post in our{" "}
                 <a
                   href="https://t.me/worldrepubliccommunity/32365"
                   className="underline"
