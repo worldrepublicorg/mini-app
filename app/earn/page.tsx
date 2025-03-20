@@ -12,6 +12,8 @@ import {
   PiTrendUpFill,
   PiUserCheckFill,
   PiNotePencilFill,
+  PiMegaphoneFill,
+  PiClipboardFill,
 } from "react-icons/pi";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/Drawer";
 import { WalletAuth } from "@/components/WalletAuth";
@@ -24,7 +26,9 @@ import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { Button } from "@/components/ui/Button";
 import { StakeWithPermitForm } from "@/components/StakeWithPermitForm";
 import { useToast } from "@/components/ui/Toast";
+import { useRouter, useSearchParams } from "next/navigation";
 import { BiLinkExternal } from "react-icons/bi";
+import { IoIosArrowForward } from "react-icons/io";
 
 export default function EarnPage() {
   const {
@@ -54,6 +58,8 @@ export default function EarnPage() {
     (Number(claimableAmount) || 0) + (Number(claimableAmountPlus) || 0)
   );
 
+  const [recipientUsername, setRecipientUsername] = useState<string>("");
+
   const { showToast } = useToast();
 
   useEffect(() => {
@@ -67,7 +73,7 @@ export default function EarnPage() {
       "[DisplayTracking] Initial displayClaimable:",
       displayClaimable
     );
-  }, []); // Empty dependency array means it only runs once on mount
+  }, [claimableAmount, claimableAmountPlus, displayClaimable]);
 
   useEffect(() => {
     console.log(
@@ -304,7 +310,7 @@ export default function EarnPage() {
     const interval = setInterval(updateDisplay, 1000);
 
     return () => clearInterval(interval);
-  }, [claimableAmount, claimableAmountPlus]);
+  }, [claimableAmount, claimableAmountPlus, basicIncomePlusActivated]);
 
   const [activeTab, setActiveTab] = useState("Basic income");
 
@@ -320,6 +326,90 @@ export default function EarnPage() {
     },
     transactionId: transactionId!,
   });
+
+  // Wrap sendReward in useCallback
+  const sendReward = useCallback(
+    async (recipientAddress: string) => {
+      if (!MiniKit.isInstalled() || !walletAddress) {
+        setRewardStatus({
+          success: false,
+          message: "Please connect your wallet first",
+        });
+        return;
+      }
+
+      setIsSendingReward(true);
+      setRewardStatus(null);
+
+      // Check if this is the stored referrer
+      const storedReferrer = localStorage.getItem("referredBy");
+      const isStoredReferrer =
+        storedReferrer && storedReferrer === recipientUsername;
+
+      try {
+        console.log(`[Reward] Sending reward to ${recipientAddress}`);
+        if (isStoredReferrer) {
+          console.log("[Reward] This is the user who referred you!");
+        }
+
+        const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
+          transaction: [
+            {
+              address: "0x372dCA057682994568be074E75a03Ced3dD9E60d",
+              abi: parseAbi([
+                "function rewardUser(address recipient) external",
+              ]),
+              functionName: "rewardUser",
+              args: [recipientAddress],
+            },
+          ],
+        });
+
+        console.log("[Reward] Transaction response:", finalPayload);
+
+        if (finalPayload.status === "error") {
+          console.error("[Reward] Error sending transaction", finalPayload);
+          // Only show error toast if it's not a user rejection
+          if (finalPayload.error_code !== "user_rejected") {
+            const errorMessage =
+              (finalPayload as any).description || "Error sending reward";
+            showToast(errorMessage, "error");
+            setRewardStatus({
+              success: false,
+              message: errorMessage,
+            });
+          } else {
+            // Still set reward status but without showing toast
+            setRewardStatus({
+              success: false,
+              message: "Transaction was canceled",
+            });
+          }
+        } else {
+          setRewardStatus({
+            success: true,
+            message: `Successfully sent reward to ${recipientUsername}!`,
+          });
+
+          // After successful reward transaction, update the canReward status
+          fetchCanReward();
+        }
+      } catch (error: any) {
+        console.error("[Reward] Error in reward transaction:", error);
+        showToast(
+          error.message || "An unexpected error occurred with the reward",
+          "error"
+        );
+        setRewardStatus({
+          success: false,
+          message: error.message || "Failed to send reward. Please try again.",
+        });
+      } finally {
+        setIsSendingReward(false);
+      }
+    },
+    [walletAddress, recipientUsername, showToast, fetchCanReward]
+  ); // Add dependencies
 
   useEffect(() => {
     if (transactionId) {
@@ -442,6 +532,9 @@ export default function EarnPage() {
     fetchBasicIncomeInfo,
     fetchBasicIncomePlusInfo,
     basicIncomePlusActivated,
+    canReward,
+    sendReward,
+    showToast,
   ]);
 
   const sendSetup = async () => {
@@ -759,7 +852,49 @@ export default function EarnPage() {
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
+
+    // Update URL query parameter without full page refresh
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("tab", tab);
+
+    // Update the URL to include the tab parameter
+    const newUrl = `/earn?${params.toString()}`;
+    window.history.pushState({ path: newUrl }, "", newUrl);
   };
+
+  // Keep the existing effect to handle initial URL tab parameter
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const urlParams = new URLSearchParams(window.location.search);
+      const tabParam = urlParams.get("tab");
+      if (
+        tabParam &&
+        ["Basic income", "Savings", "Invite", "Contribute"].includes(tabParam)
+      ) {
+        setActiveTab(tabParam);
+      }
+    }
+  }, []);
+
+  // Add a new effect to handle browser back/forward navigation
+  useEffect(() => {
+    const handlePopState = () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const tabParam = urlParams.get("tab");
+      if (
+        tabParam &&
+        ["Basic income", "Savings", "Invite", "Contribute"].includes(tabParam)
+      ) {
+        setActiveTab(tabParam);
+      } else {
+        // Default to "Basic income" if no valid tab is in the URL
+        setActiveTab("Basic income");
+      }
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
 
   const [lookupResult, setLookupResult] = useState<{
     username: string;
@@ -768,9 +903,6 @@ export default function EarnPage() {
   } | null>(null);
   const [isLookingUp, setIsLookingUp] = useState(false);
   const [lookupError, setLookupError] = useState("");
-
-  // Add state for recipient username (for rewards)
-  const [recipientUsername, setRecipientUsername] = useState<string>("");
 
   // Add useEffect to set recipient username from localStorage when component mounts
   useEffect(() => {
@@ -832,84 +964,6 @@ export default function EarnPage() {
     success: boolean;
     message: string;
   } | null>(null);
-
-  const sendReward = async (recipientAddress: string) => {
-    if (!MiniKit.isInstalled() || !walletAddress) {
-      setRewardStatus({
-        success: false,
-        message: "Please connect your wallet first",
-      });
-      return;
-    }
-
-    setIsSendingReward(true);
-    setRewardStatus(null);
-
-    // Check if this is the stored referrer
-    const storedReferrer = localStorage.getItem("referredBy");
-    const isStoredReferrer =
-      storedReferrer && storedReferrer === recipientUsername;
-
-    try {
-      console.log(`[Reward] Sending reward to ${recipientAddress}`);
-      if (isStoredReferrer) {
-        console.log("[Reward] This is the user who referred you!");
-      }
-
-      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
-        transaction: [
-          {
-            address: "0x372dCA057682994568be074E75a03Ced3dD9E60d",
-            abi: parseAbi(["function rewardUser(address recipient) external"]),
-            functionName: "rewardUser",
-            args: [recipientAddress],
-          },
-        ],
-      });
-
-      console.log("[Reward] Transaction response:", finalPayload);
-
-      if (finalPayload.status === "error") {
-        console.error("[Reward] Error sending transaction", finalPayload);
-        // Only show error toast if it's not a user rejection
-        if (finalPayload.error_code !== "user_rejected") {
-          const errorMessage =
-            (finalPayload as any).description || "Error sending reward";
-          showToast(errorMessage, "error");
-          setRewardStatus({
-            success: false,
-            message: errorMessage,
-          });
-        } else {
-          // Still set reward status but without showing toast
-          setRewardStatus({
-            success: false,
-            message: "Transaction was canceled",
-          });
-        }
-      } else {
-        setRewardStatus({
-          success: true,
-          message: `Successfully sent reward to ${recipientUsername}!`,
-        });
-
-        // After successful reward transaction, update the canReward status
-        fetchCanReward();
-      }
-    } catch (error: any) {
-      console.error("[Reward] Error in reward transaction:", error);
-      showToast(
-        error.message || "An unexpected error occurred with the reward",
-        "error"
-      );
-      setRewardStatus({
-        success: false,
-        message: error.message || "Failed to send reward. Please try again.",
-      });
-    } finally {
-      setIsSendingReward(false);
-    }
-  };
 
   // First, wrap loadCurrentUsername with useCallback to prevent infinite loop
   const loadCurrentUsernameCallback = useCallback(async () => {
@@ -1157,22 +1211,24 @@ export default function EarnPage() {
     };
   }, [walletAddress]);
 
-  // Add a new state to track if the Invite tab has been visited
-  const [hasInviteBeenVisited, setHasInviteBeenVisited] = useState(false);
+  // Change the state variable name to be more generic
+  const [hasContributeBeenVisited, setHasContributeBeenVisited] =
+    useState(false);
 
-  // Load the invite visited state from localStorage
+  // Load the contribute visited state from localStorage
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const inviteVisited = localStorage.getItem("inviteTabVisited") === "true";
-      setHasInviteBeenVisited(inviteVisited);
+      const contributeVisited =
+        localStorage.getItem("contributeTabVisited") === "true";
+      setHasContributeBeenVisited(contributeVisited);
     }
   }, []);
 
-  // Update localStorage when the Invite tab is active
+  // Update localStorage when the Contribute tab is active
   useEffect(() => {
-    if (activeTab === "Invite" && typeof window !== "undefined") {
-      localStorage.setItem("inviteTabVisited", "true");
-      setHasInviteBeenVisited(true);
+    if (activeTab === "Contribute" && typeof window !== "undefined") {
+      localStorage.setItem("contributeTabVisited", "true");
+      setHasContributeBeenVisited(true);
     }
   }, [activeTab]);
 
@@ -1417,6 +1473,9 @@ export default function EarnPage() {
     return () => clearInterval(fetchInterval);
   }, [walletAddress, fetchAvailableReward, fetchStakedBalance]);
 
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
   const renderContent = () => {
     switch (activeTab) {
       case "Basic income":
@@ -1547,7 +1606,7 @@ export default function EarnPage() {
                           <ul className="space-y-3">
                             <li className="flex items-start">
                               <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
-                                <PiTrendUpFill className="h-3.5 w-3.5 text-gray-500" />
+                                <PiTrendUpFill className="h-3.5 w-3.5 text-gray-400" />
                               </div>
                               <Typography
                                 variant={{ variant: "body", level: 3 }}
@@ -1558,7 +1617,7 @@ export default function EarnPage() {
                             </li>
                             <li className="flex items-start">
                               <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
-                                <PiUserCheckFill className="h-3.5 w-3.5 text-gray-500" />
+                                <PiUserCheckFill className="h-3.5 w-3.5 text-gray-400" />
                               </div>
                               <Typography
                                 variant={{ variant: "body", level: 3 }}
@@ -1570,7 +1629,7 @@ export default function EarnPage() {
                             </li>
                             <li className="flex items-start">
                               <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
-                                <PiChartLineFill className="h-3.5 w-3.5 text-gray-500" />
+                                <PiChartLineFill className="h-3.5 w-3.5 text-gray-400" />
                               </div>
                               <Typography
                                 variant={{ variant: "body", level: 3 }}
@@ -1611,7 +1670,7 @@ export default function EarnPage() {
             </Typography>
             <Typography
               variant={{ variant: "subtitle", level: 1 }}
-              className="mx-auto mb-4 mt-4 flex items-center justify-center text-center text-gray-500"
+              className="mx-auto mb-6 mt-4 flex items-center justify-center text-center text-gray-500"
             >
               Earn interest every second
               <span className="group relative ml-1 inline-block">
@@ -1651,55 +1710,6 @@ export default function EarnPage() {
             />
           </div>
         );
-      case "Contribute":
-        return (
-          <div className="flex w-full flex-col items-center py-6">
-            <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
-              <PiPlantFill className="h-10 w-10 text-gray-400" />
-            </div>
-            <Typography
-              as="h2"
-              variant={{ variant: "heading", level: 1 }}
-              className="text-center"
-            >
-              Contribute
-            </Typography>
-            <Typography
-              variant={{ variant: "subtitle", level: 1 }}
-              className="mx-auto mb-10 mt-4 text-center text-gray-500"
-            >
-              Get involved, get rewarded
-            </Typography>
-            <a
-              href="https://t.me/worldrepubliccommunity"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mb-4 flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border border-gray-200 p-4 text-gray-900"
-            >
-              <div>
-                <Typography
-                  as="h3"
-                  variant={{ variant: "subtitle", level: 2 }}
-                  className="mb-1.5 line-clamp-3"
-                >
-                  Early Access Program
-                </Typography>
-                <div className="flex items-center gap-1">
-                  <Typography
-                    as="p"
-                    variant={{ variant: "body", level: 3 }}
-                    className="text-gray-500"
-                  >
-                    Earn WDD by testing our upcoming features
-                  </Typography>
-                </div>
-              </div>
-              <div className="rounded-full bg-gray-100 p-1.5">
-                <BiLinkExternal className="size-[14px] flex-shrink-0 text-gray-400" />
-              </div>
-            </a>
-          </div>
-        );
       case "Invite":
         return (
           <div className="flex w-full flex-col items-center py-6">
@@ -1715,7 +1725,7 @@ export default function EarnPage() {
             </Typography>
             <Typography
               variant={{ variant: "subtitle", level: 1 }}
-              className="mx-auto mb-4 mt-4 flex items-center justify-center text-center text-gray-500"
+              className="mx-auto my-4 flex items-center justify-center text-center text-gray-500"
             >
               Get 50 WDD per friend who joins
               <span className="group relative ml-1 inline-block">
@@ -1960,6 +1970,167 @@ export default function EarnPage() {
             </>
           </div>
         );
+      case "Contribute":
+        return (
+          <div className="flex w-full flex-col items-center py-6">
+            <Typography
+              as="h2"
+              variant={{ variant: "heading", level: 1 }}
+              className="text-center"
+            >
+              Contribute
+            </Typography>
+            <Typography
+              variant={{ variant: "subtitle", level: 1 }}
+              className="mx-auto mb-8 mt-4 text-center text-gray-500"
+            >
+              Get involved, get rewarded
+            </Typography>
+
+            {/* Weekly contests section */}
+            <div className="w-full">
+              {/* X Post Writing Contest */}
+              <a
+                href="/earn/contribute/x-contest"
+                className="group mb-4 flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 transition-all hover:border-gray-300 hover:bg-gray-50"
+              >
+                <div className="mb-3 flex items-center justify-between">
+                  <Typography
+                    as="h3"
+                    variant={{ variant: "subtitle", level: 2 }}
+                    className="line-clamp-1"
+                  >
+                    X Post Contest
+                  </Typography>
+                  <div className="rounded-full bg-gray-100 px-2.5 py-1">
+                    <Typography
+                      variant={{ variant: "body", level: 3 }}
+                      className="text-gray-400"
+                    >
+                      Weekly
+                    </Typography>
+                  </div>
+                </div>
+
+                <Typography
+                  as="p"
+                  variant={{ variant: "body", level: 3 }}
+                  className="mb-4 text-gray-500"
+                >
+                  Write engaging posts, win prizes
+                </Typography>
+
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="rounded-full bg-gray-900 px-2.5 py-1">
+                      <Typography
+                        variant={{ variant: "body", level: 3 }}
+                        className="text-gray-0"
+                      >
+                        1000 WDD
+                      </Typography>
+                    </div>
+                    <Typography
+                      variant={{ variant: "body", level: 3 }}
+                      className="text-gray-400"
+                    >
+                      Top prize
+                    </Typography>
+                  </div>
+                  <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5 group-hover:bg-gray-200">
+                    <IoIosArrowForward className="size-[14px] text-gray-400" />
+                  </div>
+                </div>
+              </a>
+
+              {/* Petition Writing Contest */}
+              <a
+                href="/earn/contribute/petition-contest"
+                className="group flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 transition-all hover:border-gray-300 hover:bg-gray-50"
+              >
+                <div className="mb-3 flex items-center justify-between">
+                  <Typography
+                    as="h3"
+                    variant={{ variant: "subtitle", level: 2 }}
+                    className="line-clamp-1"
+                  >
+                    Petition Contest
+                  </Typography>
+                  <div className="rounded-full bg-gray-100 px-2.5 py-1">
+                    <Typography
+                      variant={{ variant: "body", level: 3 }}
+                      className="text-gray-400"
+                    >
+                      Weekly
+                    </Typography>
+                  </div>
+                </div>
+
+                <Typography
+                  as="p"
+                  variant={{ variant: "body", level: 3 }}
+                  className="mb-4 text-gray-500"
+                >
+                  Get rewarded for driving collective action
+                </Typography>
+
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="rounded-full bg-gray-900 px-2.5 py-1">
+                      <Typography
+                        variant={{ variant: "body", level: 3 }}
+                        className="text-gray-0"
+                      >
+                        1500 WDD
+                      </Typography>
+                    </div>
+                    <Typography
+                      variant={{ variant: "body", level: 3 }}
+                      className="text-gray-400"
+                    >
+                      Top prize
+                    </Typography>
+                  </div>
+                  <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5 group-hover:bg-gray-200">
+                    <IoIosArrowForward className="size-[14px] text-gray-400" />
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            {/* Early Access Program section */}
+            <div className="mt-8 w-full">
+              <a
+                href="https://t.me/worldrepubliccommunity"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border border-gray-200 p-4 transition-all hover:border-gray-300 hover:bg-gray-50"
+              >
+                <div className="flex items-center gap-3">
+                  <div>
+                    <Typography
+                      as="h3"
+                      variant={{ variant: "subtitle", level: 2 }}
+                      className="mb-1.5 line-clamp-1"
+                    >
+                      Early Access Program
+                    </Typography>
+                    <Typography
+                      as="p"
+                      variant={{ variant: "body", level: 3 }}
+                      className="text-gray-500"
+                    >
+                      Earn WDD by testing our upcoming features
+                    </Typography>
+                  </div>
+                </div>
+                <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5 group-hover:bg-gray-200">
+                  <BiLinkExternal className="size-[14px] text-gray-400" />
+                </div>
+              </a>
+            </div>
+          </div>
+        );
       default:
         return null;
     }
@@ -1993,10 +2164,10 @@ export default function EarnPage() {
         </div>
 
         <TabSwiper
-          tabs={["Basic income", "Savings", "Invite", "Contribute"]}
+          tabs={["Basic income", "Savings", "Contribute", "Invite"]}
           activeTab={activeTab}
           onTabChange={handleTabChange}
-          tabIndicators={{ Invite: !hasInviteBeenVisited }}
+          tabIndicators={{ Contribute: !hasContributeBeenVisited }}
         />
       </div>
 
