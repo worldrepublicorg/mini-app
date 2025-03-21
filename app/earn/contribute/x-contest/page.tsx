@@ -54,7 +54,7 @@ export default function XContestPage() {
           </Typography>
           <div className="grid grid-cols-3 gap-3">
             <div className="flex flex-col items-center rounded-lg bg-gray-50 p-3 shadow-sm">
-            <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-[#C5CED8]">
+              <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-[#C5CED8]">
                 <PiTrophy className="text-gray-600 h-5 w-5" />
               </div>
               <Typography
@@ -171,17 +171,18 @@ export default function XContestPage() {
           <ul className="text-gray-600 list-disc space-y-2 pl-5">
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                Only posts created during the current week are eligible
+                Only posts published in the current week are eligible
               </Typography>
             </li>
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                Each participant can submit up to 7 posts per week
+                Winners are selected based on total engagement (likes + reposts
+                + comments)
               </Typography>
             </li>
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                Total engagement is counted Sunday, 11:59 PM UTC
+                Contest ends every Sunday at 11:59 PM UTC
               </Typography>
             </li>
           </ul>
