@@ -16,8 +16,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Do you support global policy frameworks that balance national sovereignty with coordinated responses to shared challenges?",
-    url: "https://vote.one/67a0Lnei",
+      "Should nations create a cooperative framework to manage shared water resources amid rising global water scarcity?",
+    url: "https://vote.one/onq2P57s",
   },
   {
     description:

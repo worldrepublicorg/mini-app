@@ -8,6 +8,11 @@ import { PollCard } from "@/components/PollCard";
 const historicalPolls = [
   {
     description:
+      "Do you support nations collaborating on a joint deep space mission to Mars?",
+    url: "https://vote.one/KP9pMsfy",
+  },
+  {
+    description:
       "Do you think the current global economic trends signal a risk of a synchronized recession among major economies?",
     url: "https://vote.one/VvJjBSkY",
   },
