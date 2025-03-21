@@ -172,17 +172,17 @@ export default function PetitionContestPage() {
           <ul className="text-gray-600 list-disc space-y-2 pl-5">
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                Only petitions started during the current week are eligible
+                Only petitions started in the current week are eligible
               </Typography>
             </li>
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                Each participant can submit up to 2 petitions per week
+                Winners are selected based on total signatures
               </Typography>
             </li>
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                Signers are counted Sunday, 11:59 PM UTC
+                Contest ends every Sunday at 11:59 PM UTC
               </Typography>
             </li>
           </ul>
