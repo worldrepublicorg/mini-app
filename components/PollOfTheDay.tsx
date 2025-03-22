@@ -21,8 +21,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Should all conflict zones with civilian humanitarian crises automatically trigger internationally coordinated aid corridors?",
-    url: "https://vote.one/l3Yu6hMi",
+      "Is the international aviation infrastructure resilient enough to handle unexpected large-scale disruptions?",
+    url: "https://vote.one/32Nn7JaS",
   },
   {
     description:
