@@ -577,6 +577,39 @@ export default function EarnPage() {
     }
   };
 
+  const processPendingReferrerReward = useCallback(async () => {
+    const pendingReferrer = localStorage.getItem("pendingReferrerReward");
+    if (!pendingReferrer || !canReward) return;
+
+    try {
+      const response = await fetch(
+        `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(pendingReferrer.trim())}`
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        showToast(
+          `Processing pending reward for ${pendingReferrer}...`,
+          "info"
+        );
+        await sendReward(data.address);
+        showToast(`Successfully rewarded ${pendingReferrer}!`, "success");
+        localStorage.removeItem("pendingReferrerReward");
+      }
+    } catch (error) {
+      console.error("[AutoReward] Failed to process pending reward:", error);
+    }
+  }, [canReward, sendReward, showToast]);
+
+  useEffect(() => {
+    if (canReward) {
+      const timeout = setTimeout(() => {
+        processPendingReferrerReward();
+      }, 5000);
+      return () => clearTimeout(timeout);
+    }
+  }, [canReward, processPendingReferrerReward]);
+
   const sendSetupPlus = async () => {
     if (!MiniKit.isInstalled()) return;
     setIsSubmitting(true);
@@ -646,31 +679,35 @@ export default function EarnPage() {
 
         // After successful setup, automatically process referral reward if applicable
         if (storedReferrer) {
-          try {
-            const response = await fetch(
-              `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(storedReferrer.trim())}`
-            );
-
-            if (response.ok) {
-              const data = await response.json();
-              showToast(
-                `Sending 50 WDD reward to ${storedReferrer}...`,
-                "info"
+          // Add a delay before attempting to send the reward
+          setTimeout(async () => {
+            try {
+              const response = await fetch(
+                `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(storedReferrer.trim())}`
               );
-              await sendReward(data.address);
-              showToast(`Successfully rewarded ${storedReferrer}!`, "success");
-            } else {
-              // Store that we need to reward them later if username lookup fails
+
+              if (response.ok) {
+                const data = await response.json();
+                showToast(
+                  `Sending 50 WDD reward to ${storedReferrer}...`,
+                  "info"
+                );
+                await sendReward(data.address);
+                showToast(
+                  `Successfully rewarded ${storedReferrer}!`,
+                  "success"
+                );
+              } else {
+                localStorage.setItem("pendingReferrerReward", storedReferrer);
+              }
+            } catch (error) {
+              console.error(
+                "[AutoReward] Failed to process referral reward:",
+                error
+              );
               localStorage.setItem("pendingReferrerReward", storedReferrer);
             }
-          } catch (error) {
-            console.error(
-              "[AutoReward] Failed to process referral reward:",
-              error
-            );
-            // Store that we need to retry later
-            localStorage.setItem("pendingReferrerReward", storedReferrer);
-          }
+          }, 5000); // Wait 5 seconds after setup before attempting reward
         }
       }
     } catch (error: any) {
