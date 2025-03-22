@@ -452,7 +452,7 @@ export function StakeWithPermitForm({
             Collect
           </Button>
 
-          {isRewardLoading || displayAvailableReward === null ? (
+          {!isRewardUpdating && isRewardLoading ? (
             <div className="h-[21px] w-[104px] animate-pulse rounded-md bg-gray-100"></div>
           ) : (
             <Typography
@@ -460,7 +460,7 @@ export function StakeWithPermitForm({
               className="text-base"
               data-testid="reward-value"
             >
-              {displayAvailableReward}
+              {displayAvailableReward ?? "0.00"}
             </Typography>
           )}
         </div>
