@@ -83,8 +83,8 @@ export default function GovernPage() {
   };
 
   return (
-    <div className="flex min-h-dvh flex-col px-6 pb-20">
-      <div className="bg-white pt-6">
+    <div className="pb-safe flex min-h-dvh flex-col px-6">
+      <div className="fixed left-0 right-0 top-0 z-10 bg-gray-0 px-6 pt-6">
         <Typography
           as="h2"
           variant={{ variant: "heading", level: 2 }}
@@ -92,15 +92,15 @@ export default function GovernPage() {
         >
           Govern
         </Typography>
+
+        <TabSwiper
+          tabs={["Polls", "Open letters", "Elections", "Referendums"]}
+          activeTab={activeTab}
+          onTabChange={setActiveTab}
+        />
       </div>
 
-      <TabSwiper
-        tabs={["Polls", "Open letters", "Elections", "Referendums"]}
-        activeTab={activeTab}
-        onTabChange={setActiveTab}
-      />
-
-      <div className="flex flex-1 flex-col items-center justify-center">
+      <div className="mt-[112px] flex flex-1 flex-col items-center justify-center pb-8">
         {renderContent()}
       </div>
     </div>

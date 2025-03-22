@@ -1518,7 +1518,7 @@ export default function EarnPage() {
     switch (activeTab) {
       case "Basic income":
         return (
-          <div className="flex w-full flex-col items-center py-6">
+          <div className="flex w-full flex-col items-center py-8">
             <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
               <PiHandCoinsFill className="h-10 w-10 text-gray-400" />
             </div>
@@ -1698,7 +1698,7 @@ export default function EarnPage() {
         );
       case "Savings":
         return (
-          <div className="flex w-full flex-col items-center py-6">
+          <div className="flex w-full flex-col items-center py-8">
             <Typography
               as="h2"
               variant={{ variant: "heading", level: 1 }}
@@ -1750,7 +1750,7 @@ export default function EarnPage() {
         );
       case "Invite":
         return (
-          <div className="flex w-full flex-col items-center py-6">
+          <div className="flex w-full flex-col items-center py-8">
             <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
               <PiUserPlusFill className="h-10 w-10 text-gray-400" />
             </div>
@@ -1763,7 +1763,7 @@ export default function EarnPage() {
             </Typography>
             <Typography
               variant={{ variant: "subtitle", level: 1 }}
-              className="mx-auto my-4 flex items-center justify-center text-center text-gray-500"
+              className="mx-auto mb-5 mt-4 flex items-center justify-center text-center text-gray-500"
             >
               Get 50 WDD per friend who joins
               <span className="group relative ml-1 inline-block">
@@ -2010,7 +2010,7 @@ export default function EarnPage() {
         );
       case "Contribute":
         return (
-          <div className="flex w-full flex-col items-center py-6">
+          <div className="flex w-full flex-col items-center py-8">
             <Typography
               as="h2"
               variant={{ variant: "heading", level: 1 }}
