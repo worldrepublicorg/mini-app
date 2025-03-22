@@ -460,7 +460,7 @@ export function StakeWithPermitForm({
               className="text-base"
               data-testid="reward-value"
             >
-              {displayAvailableReward ?? "0.00"}
+              {displayAvailableReward}
             </Typography>
           )}
         </div>
