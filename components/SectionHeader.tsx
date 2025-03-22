@@ -9,7 +9,7 @@ interface SectionHeaderProps {
 
 export function SectionHeader({ title, description }: SectionHeaderProps) {
   return (
-    <div className="mb-10 mt-4 text-center">
+    <div className="mb-10 mt-8 text-center">
       <Typography as="h1" variant={{ variant: "heading", level: 1 }}>
         {title}
       </Typography>
