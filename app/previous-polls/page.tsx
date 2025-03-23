@@ -8,6 +8,11 @@ import { PollCard } from "@/components/PollCard";
 const historicalPolls = [
   {
     description:
+      "Should nations create a cooperative framework to manage shared water resources amid rising global water scarcity?",
+    url: "https://vote.one/onq2P57s",
+  },
+  {
+    description:
       "Should a dedicated global healthcare aid reserve be established to protect maternal and child health during international aid freezes?",
     url: "https://vote.one/eTKCLYEa",
   },

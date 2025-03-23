@@ -26,8 +26,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Do you think the current global economic trends signal a risk of a synchronized recession among major economies?",
-    url: "https://vote.one/VvJjBSkY",
+      "Should binding international agreements be established to secure nuclear facilities in conflict zones?",
+    url: "https://vote.one/aW6o5p2u",
   },
   {
     description:
