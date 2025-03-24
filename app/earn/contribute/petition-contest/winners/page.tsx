@@ -4,7 +4,7 @@ import { Typography } from "@/components/ui/Typography";
 import Link from "next/link";
 import { PiTrophy } from "react-icons/pi";
 import { BiChevronLeft } from "react-icons/bi";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaVoteYea } from "react-icons/fa";
 
 type Winner = {
   handle: string;
@@ -24,21 +24,21 @@ const WINNERS_DATA: WeeklyWinners[] = [
     weekOf: "March 17, 2025",
     winners: [
       {
-        handle: "@futahii_polis",
-        engagement: 11,
-        postLink: "https://x.com/futahii_polis/status/1902883491169366350",
+        handle: "@Marig18",
+        engagement: 12,
+        postLink: "https://vote.one/bP7R2nGS",
         place: 1,
       },
       {
-        handle: "@fern40557",
-        engagement: 8,
-        postLink: "https://x.com/fern40557/status/1902223336693719366",
+        handle: "The Law Is Clear",
+        engagement: 9,
+        postLink: "https://vote.one/M7NXVRt3",
         place: 2,
       },
       {
-        handle: "@oxxoxooox",
+        handle: "@umesh_kalal6",
         engagement: 6,
-        postLink: "https://x.com/oxxoxooox/status/1903355207985103117",
+        postLink: "https://vote.one/24Chi1Uj",
         place: 3,
       },
     ],
@@ -117,10 +117,10 @@ export default function XContestWinnersPage() {
                         variant={{ variant: "body", level: 3 }}
                         className="text-gray-500"
                       >
-                        {winner.engagement.toLocaleString()} engagements
+                        {winner.engagement.toLocaleString()} votes
                       </Typography>
                     </div>
-                    <FaXTwitter className="h-4 w-4 text-gray-400" />
+                    <FaVoteYea className="h-5 w-5 text-gray-400" />
                   </a>
                 ))}
               </div>
