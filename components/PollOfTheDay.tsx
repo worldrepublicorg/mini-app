@@ -37,20 +37,21 @@ const polls: Poll[] = [
 ];
 
 export function PollOfTheDay() {
-  // Calculate poll index based on the number of days since a fixed reference date.
   const getPollIndex = () => {
-    const referenceDate = new Date("2023-01-01T00:00:00Z");
+    // Use local midnight for consistency
     const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const referenceDate = new Date(2023, 0, 1); // Local midnight Jan 1, 2023
     const dayDiff = Math.floor(
-      (now.getTime() - referenceDate.getTime()) / (24 * 60 * 60 * 1000)
+      (today.getTime() - referenceDate.getTime()) / (24 * 60 * 60 * 1000)
     );
-    return dayDiff % polls.length;
+    return Math.abs(dayDiff % polls.length); // Add Math.abs for safety
   };
 
   const [pollIndex, setPollIndex] = useState(getPollIndex());
 
   useEffect(() => {
-    // Calculate how many milliseconds remain until the next day (change at midnight local time)
+    // Update at next midnight
     const now = new Date();
     const tomorrow = new Date(
       now.getFullYear(),
@@ -59,12 +60,15 @@ export function PollOfTheDay() {
     );
     const msUntilTomorrow = tomorrow.getTime() - now.getTime();
 
+    // Immediate check in case we're slightly past midnight
+    setPollIndex(getPollIndex());
+
     const timer = setTimeout(() => {
       setPollIndex(getPollIndex());
     }, msUntilTomorrow);
 
     return () => clearTimeout(timer);
-  }, [pollIndex]);
+  }, []); // Remove pollIndex dependency
 
   const currentPoll = polls[pollIndex];
 
