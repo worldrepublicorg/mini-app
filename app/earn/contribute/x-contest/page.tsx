@@ -75,7 +75,7 @@ export default function XContestPage() {
                 variant={{ variant: "heading", level: 3 }}
                 className="text-gray-900"
               >
-                1000
+                2000
               </Typography>
               <Typography
                 variant={{ variant: "body", level: 3 }}
@@ -92,7 +92,7 @@ export default function XContestPage() {
                 variant={{ variant: "heading", level: 3 }}
                 className="text-gray-900"
               >
-                600
+                1200
               </Typography>
               <Typography
                 variant={{ variant: "body", level: 3 }}
@@ -109,7 +109,7 @@ export default function XContestPage() {
                 variant={{ variant: "heading", level: 3 }}
                 className="text-gray-900"
               >
-                200
+                400
               </Typography>
               <Typography
                 variant={{ variant: "body", level: 3 }}
