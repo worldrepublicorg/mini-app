@@ -1249,24 +1249,22 @@ export default function EarnPage() {
     };
   }, [walletAddress]);
 
-  // Change the state variable name to be more generic
-  const [hasContributeBeenVisited, setHasContributeBeenVisited] =
-    useState(false);
+  const [hasSeenIncreasedPrizes, setHasSeenIncreasedPrizes] = useState(false);
 
-  // Load the contribute visited state from localStorage
+  // Update the localStorage key to be specific to the prize increase
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const contributeVisited =
-        localStorage.getItem("contributeTabVisited") === "true";
-      setHasContributeBeenVisited(contributeVisited);
+      const hasSeenNewPrizes =
+        localStorage.getItem("hasSeenIncreasedPrizes") === "true";
+      setHasSeenIncreasedPrizes(hasSeenNewPrizes);
     }
   }, []);
 
   // Update localStorage when the Contribute tab is active
   useEffect(() => {
     if (activeTab === "Contribute" && typeof window !== "undefined") {
-      localStorage.setItem("contributeTabVisited", "true");
-      setHasContributeBeenVisited(true);
+      localStorage.setItem("hasSeenIncreasedPrizes", "true");
+      setHasSeenIncreasedPrizes(true);
     }
   }, [activeTab]);
 
@@ -2065,7 +2063,7 @@ export default function EarnPage() {
                         variant={{ variant: "body", level: 3 }}
                         className="text-gray-0"
                       >
-                        1000 WDD
+                        2000 WDD
                       </Typography>
                     </div>
                     <Typography
@@ -2081,9 +2079,9 @@ export default function EarnPage() {
                 </div>
               </a>
 
-              {/* Petition Writing Contest */}
+              {/* Poll Writing Contest */}
               <a
-                href="/earn/contribute/petition-contest"
+                href="/earn/contribute/poll-contest"
                 className="group flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 transition-all hover:border-gray-300 hover:bg-gray-50"
               >
                 <div className="mb-3 flex items-center justify-between">
@@ -2092,7 +2090,7 @@ export default function EarnPage() {
                     variant={{ variant: "subtitle", level: 2 }}
                     className="line-clamp-1"
                   >
-                    Petition Contest
+                    Poll Contest
                   </Typography>
                   <div className="rounded-full bg-gray-100 px-2.5 py-1">
                     <Typography
@@ -2109,7 +2107,7 @@ export default function EarnPage() {
                   variant={{ variant: "body", level: 3 }}
                   className="mb-4 text-gray-500"
                 >
-                  Get rewarded for driving collective action
+                  Gather community feedback and earn
                 </Typography>
 
                 <div className="flex items-center justify-between">
@@ -2119,7 +2117,7 @@ export default function EarnPage() {
                         variant={{ variant: "body", level: 3 }}
                         className="text-gray-0"
                       >
-                        1500 WDD
+                        2000 WDD
                       </Typography>
                     </div>
                     <Typography
@@ -2205,7 +2203,7 @@ export default function EarnPage() {
           tabs={["Basic income", "Savings", "Contribute", "Invite"]}
           activeTab={activeTab}
           onTabChange={handleTabChange}
-          tabIndicators={{ Contribute: !hasContributeBeenVisited }}
+          tabIndicators={{ Contribute: !hasSeenIncreasedPrizes }}
         />
       </div>
 

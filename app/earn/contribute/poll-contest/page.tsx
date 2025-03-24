@@ -6,7 +6,7 @@ import Link from "next/link";
 import { PiTrophy, PiClipboardTextFill } from "react-icons/pi";
 import { BiChevronLeft } from "react-icons/bi";
 
-export default function PetitionContestPage() {
+export default function PollContestPage() {
   return (
     <div className="pb-safe flex min-h-dvh flex-col px-6">
       <div className="fixed left-0 right-0 top-0 z-10 bg-gray-0 px-6">
@@ -18,7 +18,7 @@ export default function PetitionContestPage() {
             <BiChevronLeft className="size-6 text-gray-500" />
           </Link>
           <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
-            Petition Contest
+            Poll Contest
           </Typography>
         </div>
       </div>
@@ -33,24 +33,38 @@ export default function PetitionContestPage() {
             variant={{ variant: "subtitle", level: 1 }}
             className="mx-auto mb-2 text-center text-gray-900"
           >
-            Weekly Petition Contest
+            Weekly Poll Contest
           </Typography>
           <Typography
             variant={{ variant: "body", level: 2 }}
             className="text-center text-gray-500"
           >
-            Get rewarded for driving collective action
+            Gather community feedback and earn
           </Typography>
         </div>
 
         {/* Prize info */}
         <div className="mb-10 w-full rounded-xl border border-gray-200 p-4">
-          <Typography
-            variant={{ variant: "subtitle", level: 2 }}
-            className="mb-4 text-center text-gray-900"
-          >
-            Prizes
-          </Typography>
+          <div className="mb-4 flex items-center justify-between">
+            <Typography
+              variant={{ variant: "subtitle", level: 2 }}
+              className="text-gray-900"
+            >
+              Prizes
+            </Typography>
+            <Link
+              href="/earn/contribute/poll-contest/winners"
+              className="relative before:absolute before:inset-[-16px] before:content-['']"
+            >
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-primary-600 h-[19px] px-0"
+              >
+                View past winners
+              </Button>
+            </Link>
+          </div>
           <div className="grid grid-cols-3 gap-3">
             <div className="flex flex-col items-center rounded-lg bg-gray-50 p-3 shadow-sm">
               <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-[#C5CED8]">
@@ -60,7 +74,7 @@ export default function PetitionContestPage() {
                 variant={{ variant: "heading", level: 3 }}
                 className="text-gray-900"
               >
-                1500
+                2000
               </Typography>
               <Typography
                 variant={{ variant: "body", level: 3 }}
@@ -77,7 +91,7 @@ export default function PetitionContestPage() {
                 variant={{ variant: "heading", level: 3 }}
                 className="text-gray-900"
               >
-                900
+                1200
               </Typography>
               <Typography
                 variant={{ variant: "body", level: 3 }}
@@ -94,7 +108,7 @@ export default function PetitionContestPage() {
                 variant={{ variant: "heading", level: 3 }}
                 className="text-gray-900"
               >
-                300
+                400
               </Typography>
               <Typography
                 variant={{ variant: "body", level: 3 }}
@@ -123,8 +137,8 @@ export default function PetitionContestPage() {
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                Create a petition and add &quot;World Republic Petition
-                Contest&quot; to its title
+                Create a poll related to the World Republic or global governance
+                in general
               </Typography>
             </div>
             <div className="flex gap-3">
@@ -135,7 +149,7 @@ export default function PetitionContestPage() {
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                Set it up so only verified humans can sign it
+                Set it up so only verified humans can vote
               </Typography>
             </div>
             <div className="flex gap-3">
@@ -146,7 +160,7 @@ export default function PetitionContestPage() {
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                Share your petition in our{" "}
+                Share your poll in our{" "}
                 <a
                   href="https://t.me/worldrepubliccommunity/32368"
                   className="underline"
@@ -154,7 +168,7 @@ export default function PetitionContestPage() {
                   rel="noopener noreferrer"
                 >
                   {" "}
-                  Petition Contest Telegram channel
+                  Poll Contest Telegram channel
                 </a>
               </Typography>
             </div>
@@ -172,12 +186,12 @@ export default function PetitionContestPage() {
           <ul className="text-gray-600 list-disc space-y-2 pl-5">
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                Only petitions started in the current week are eligible
+                Only polls started in the current week are eligible
               </Typography>
             </li>
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                Winners are selected based on total signatures
+                Winners are selected based on total votes
               </Typography>
             </li>
             <li>
@@ -191,7 +205,7 @@ export default function PetitionContestPage() {
         {/* CTA Buttons */}
         <div className="mt-auto space-y-3">
           <a href="https://vote.one" target="_blank" rel="noopener noreferrer">
-            <Button fullWidth>Start Your Petition</Button>
+            <Button fullWidth>Create Your Poll</Button>
           </a>
           <a
             href="https://t.me/worldrepubliccommunity/32368"
@@ -199,7 +213,7 @@ export default function PetitionContestPage() {
             rel="noopener noreferrer"
           >
             <Button variant="secondary" fullWidth className="mt-4">
-              Submit Your Petition
+              Submit Your Poll
             </Button>
           </a>
         </div>
