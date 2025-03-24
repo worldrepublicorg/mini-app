@@ -31,8 +31,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Do you support nations collaborating on a joint deep space mission to Mars?",
-    url: "https://vote.one/KP9pMsfy",
+      "Do you support the growing global movement toward four-day workweeks as a standard employment model?",
+    url: "https://vote.one/ht6lGdcr",
   },
 ];
 
