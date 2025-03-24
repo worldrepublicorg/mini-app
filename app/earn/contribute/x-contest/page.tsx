@@ -46,12 +46,26 @@ export default function XContestPage() {
 
         {/* Prize info */}
         <div className="mb-10 w-full rounded-xl border border-gray-200 p-4">
-          <Typography
-            variant={{ variant: "subtitle", level: 2 }}
-            className="mb-4 text-center text-gray-900"
-          >
-            Prizes
-          </Typography>
+          <div className="mb-4 flex items-center justify-between">
+            <Typography
+              variant={{ variant: "subtitle", level: 2 }}
+              className="text-gray-900"
+            >
+              Prizes
+            </Typography>
+            <Link
+              href="/earn/contribute/x-contest/winners"
+              className="relative before:absolute before:inset-[-16px] before:content-['']"
+            >
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-primary-600 h-[19px] px-0"
+              >
+                View past winners
+              </Button>
+            </Link>
+          </div>
           <div className="grid grid-cols-3 gap-3">
             <div className="flex flex-col items-center rounded-lg bg-gray-50 p-3 shadow-sm">
               <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-[#C5CED8]">
