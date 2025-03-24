@@ -24,21 +24,21 @@ const WINNERS_DATA: WeeklyWinners[] = [
     weekOf: "March 17, 2025",
     winners: [
       {
+        handle: "@charleskioko_",
+        engagement: 28,
+        postLink: "https://x.com/charleskioko_/status/1903012963637678105",
+        place: 1,
+      },
+      {
         handle: "@futahii_polis",
         engagement: 11,
         postLink: "https://x.com/futahii_polis/status/1902883491169366350",
-        place: 1,
+        place: 2,
       },
       {
         handle: "@fern40557",
         engagement: 8,
         postLink: "https://x.com/fern40557/status/1902223336693719366",
-        place: 2,
-      },
-      {
-        handle: "@oxxoxooox",
-        engagement: 6,
-        postLink: "https://x.com/oxxoxooox/status/1903355207985103117",
         place: 3,
       },
     ],
