@@ -8,6 +8,11 @@ import { PollCard } from "@/components/PollCard";
 const historicalPolls = [
   {
     description:
+      "Is the international aviation infrastructure resilient enough to handle unexpected large-scale disruptions?",
+    url: "https://vote.one/32Nn7JaS",
+  },
+  {
+    description:
       "Should nations create a cooperative framework to manage shared water resources amid rising global water scarcity?",
     url: "https://vote.one/onq2P57s",
   },
