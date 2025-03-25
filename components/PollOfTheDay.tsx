@@ -11,8 +11,8 @@ interface Poll {
 const polls: Poll[] = [
   {
     description:
-      "Should a dedicated global healthcare aid reserve be established to protect maternal and child health during international aid freezes?",
-    url: "https://vote.one/eTKCLYEa",
+      "Should international guidelines be implemented to protect data generated worldwide under a unified framework for digital sovereignty?",
+    url: "https://vote.one/r4VmX0XN",
   },
   {
     description:
