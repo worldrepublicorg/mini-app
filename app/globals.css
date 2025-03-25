@@ -49,6 +49,11 @@ pre {
   padding-bottom: 56px; /* Default padding (14 in Tailwind units is 56px) */
 }
 
+/* Add the margin-bottom safe area utility class */
+.mb-safe {
+  margin-bottom: 56px; /* Default margin */
+}
+
 @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3),
   /* iPhone X/XS/11 Pro */ only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2),
   /* iPhone XR/11 */ only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3),
@@ -67,5 +72,9 @@ pre {
 
   .pb-safe {
     padding-bottom: 76px; /* 56px (default) + 20px (safe area) = 76px */
+  }
+
+  .mb-safe {
+    margin-bottom: 76px; /* 56px (default) + 20px (safe area) = 76px */
   }
 }
