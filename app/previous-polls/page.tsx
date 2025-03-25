@@ -8,6 +8,11 @@ import { PollCard } from "@/components/PollCard";
 const historicalPolls = [
   {
     description:
+      "Should binding international agreements be established to secure nuclear facilities in conflict zones?",
+    url: "https://vote.one/aW6o5p2u",
+  },
+  {
+    description:
       "Is the international aviation infrastructure resilient enough to handle unexpected large-scale disruptions?",
     url: "https://vote.one/32Nn7JaS",
   },
