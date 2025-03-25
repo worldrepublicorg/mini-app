@@ -5,15 +5,12 @@ import { useState, useEffect, useCallback } from "react";
 import {
   PiHandCoinsFill,
   PiUserPlusFill,
-  PiPlantFill,
   PiWalletFill,
   PiCoinsFill,
   PiChartLineFill,
   PiTrendUpFill,
   PiUserCheckFill,
   PiNotePencilFill,
-  PiMegaphoneFill,
-  PiClipboardFill,
 } from "react-icons/pi";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/Drawer";
 import { WalletAuth } from "@/components/WalletAuth";
@@ -29,6 +26,7 @@ import { useToast } from "@/components/ui/Toast";
 import { useRouter, useSearchParams } from "next/navigation";
 import { BiLinkExternal } from "react-icons/bi";
 import { IoIosArrowForward } from "react-icons/io";
+import Link from "next/link";
 
 export default function EarnPage() {
   const {
@@ -1574,19 +1572,19 @@ export default function EarnPage() {
                 {basicIncomePlusActivated ? (
                   <div className="flex w-full flex-col gap-4">
                     <Button
-                      onClick={sendClaim}
-                      isLoading={isClaimingBasic}
-                      fullWidth
-                    >
-                      Claim Basic Income
-                    </Button>
-                    <Button
                       onClick={sendClaimPlus}
                       isLoading={isClaimingPlus}
-                      variant="secondary"
                       fullWidth
                     >
                       Claim Basic Income Plus
+                    </Button>
+                    <Button
+                      onClick={sendClaim}
+                      isLoading={isClaimingBasic}
+                      variant="secondary"
+                      fullWidth
+                    >
+                      Claim Basic Income
                     </Button>
                   </div>
                 ) : (
@@ -1786,7 +1784,13 @@ export default function EarnPage() {
                 <div className="absolute bottom-full right-0 mb-2 hidden w-[280px] transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
                   <p className="text-left text-gray-700">
                     You&apos;ll earn rewards when friends activate their Basic
-                    Income Plus.
+                    Income Plus.{" "}
+                    <Link
+                      href="/faq?q=referral-codes"
+                      className="hover:text-gray-600 text-gray-900 underline"
+                    >
+                      Learn more
+                    </Link>
                   </p>
                 </div>
               </span>
@@ -1867,7 +1871,7 @@ export default function EarnPage() {
                 <Drawer>
                   <DrawerTrigger asChild>
                     <Button variant="secondary" fullWidth className="mt-4">
-                      Reward a Past Referrer
+                      Reward Referrer
                     </Button>
                   </DrawerTrigger>
                   <DrawerContent>

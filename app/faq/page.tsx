@@ -5,6 +5,7 @@ import { Typography } from "@/components/ui/Typography";
 import Link from "next/link";
 import { BiChevronLeft } from "react-icons/bi";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
+import { useSearchParams } from "next/navigation";
 
 type FAQItem = {
   id: string;
@@ -41,7 +42,7 @@ const faqs: FAQItem[] = [
     id: "referral-codes",
     question: "How do referral codes work?",
     answer:
-      "The referral program allows citizens to earn rewards by inviting others to join the World Republic. You earn 50 WDD for each friend who joins through your referral link and activates Basic Income Plus. If you joined through an invitation but haven't rewarded your referrer yet, you can do so using the 'Reward a Past Referrer' option in the same section.",
+      "As a World Republic citizen, you can earn rewards through our referral program. Share your unique referral link with friends, and you'll receive 50 WDD for each person who joins and activates Basic Income Plus. Haven't received your reward? Your friend may need to manually trigger it by selecting the 'Reward Referrer' option in their referral section.",
   },
   {
     id: "drachma-value",
@@ -65,15 +66,24 @@ const faqs: FAQItem[] = [
 
 export default function FAQPage() {
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
-  const toggleAccordion = (id: string) => {
-    setOpenAccordion(openAccordion === id ? null : id);
-  };
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const questionId = searchParams.get("q");
+    if (questionId) {
+      setOpenAccordion(questionId);
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       localStorage.setItem("faqVisited", "true");
     }
   }, []);
+
+  const toggleAccordion = (id: string) => {
+    setOpenAccordion(openAccordion === id ? null : id);
+  };
 
   return (
     <div className="flex min-h-screen flex-col px-6 pb-20">
