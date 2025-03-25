@@ -46,7 +46,7 @@ const WINNERS_DATA: WeeklyWinners[] = [
   // Add more weeks as needed
 ];
 
-export default function XContestWinnersPage() {
+export default function PollContestWinnersPage() {
   const getTrophyColor = (place: number) => {
     switch (place) {
       case 1:
@@ -66,7 +66,7 @@ export default function XContestWinnersPage() {
       <div className="fixed left-0 right-0 top-0 z-10 bg-gray-0 px-6">
         <div className="relative flex items-center justify-center py-6">
           <Link
-            href="/earn/contribute/x-contest"
+            href="/earn/contribute/poll-contest"
             className="absolute left-0 flex size-10 items-center justify-center rounded-full bg-gray-100"
           >
             <BiChevronLeft className="size-6 text-gray-500" />
