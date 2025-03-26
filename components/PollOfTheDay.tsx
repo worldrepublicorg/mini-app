@@ -16,8 +16,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Should nations create a cooperative framework to manage shared water resources amid rising global water scarcity?",
-    url: "https://vote.one/onq2P57s",
+      "Should there be a global regulatory framework for emerging biotechnologies to ensure ethical use and safety?",
+    url: "https://vote.one/pNqgoSmf",
   },
   {
     description:

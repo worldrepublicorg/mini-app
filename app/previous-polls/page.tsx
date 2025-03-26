@@ -8,6 +8,11 @@ import { PollCard } from "@/components/PollCard";
 const historicalPolls = [
   {
     description:
+      "Do you support the growing global movement toward four-day workweeks as a standard employment model?",
+    url: "https://vote.one/ht6lGdcr",
+  },
+  {
+    description:
       "Should binding international agreements be established to secure nuclear facilities in conflict zones?",
     url: "https://vote.one/aW6o5p2u",
   },
