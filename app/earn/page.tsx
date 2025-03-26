@@ -600,13 +600,11 @@ export default function EarnPage() {
   }, [canReward, sendReward, showToast]);
 
   useEffect(() => {
-    if (canReward) {
-      const timeout = setTimeout(() => {
-        processPendingReferrerReward();
-      }, 5000);
-      return () => clearTimeout(timeout);
+    // Only process if wallet is connected AND user can reward
+    if (walletAddress && canReward) {
+      processPendingReferrerReward();
     }
-  }, [canReward, processPendingReferrerReward]);
+  }, [walletAddress, canReward, processPendingReferrerReward]);
 
   const sendSetupPlus = async () => {
     if (!MiniKit.isInstalled()) return;
