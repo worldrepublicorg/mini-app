@@ -307,13 +307,25 @@ export function StakeWithPermitForm({
       ]),
       eventName: "Redeemed",
       args: { user: walletAddress },
-      onLogs: (logs: unknown) => {
+      onLogs: async (logs: unknown) => {
         console.log("Redeemed event captured:", logs);
 
-        fetchAvailableReward().then(() => {
-          localStorage.setItem("savingsRewardBase", "0");
-          localStorage.setItem("savingsRewardStartTime", Date.now().toString());
+        // First fetch the new reward value
+        await fetchAvailableReward();
+
+        // Then update localStorage with the new values
+        const currentReward = await viemClient.readContract({
+          address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
+          abi: parseAbi([
+            "function available(address account) external view returns (uint256)",
+          ]),
+          functionName: "available",
+          args: [walletAddress],
         });
+
+        const newRewardValue = Number(currentReward) / 1e18;
+        localStorage.setItem("savingsRewardBase", newRewardValue.toString());
+        localStorage.setItem("savingsRewardStartTime", Date.now().toString());
 
         fetchBalance();
         setIsCollecting(false);
