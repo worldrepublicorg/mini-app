@@ -41,7 +41,6 @@ export function StakeWithPermitForm({
   const [isCollecting, setIsCollecting] = useState(false);
   const [transactionId, setTransactionId] = useState<string | null>(null);
   const [collectTx, setCollectTx] = useState<string | null>(null);
-  const [isRewardUpdating, setIsRewardUpdating] = useState(false);
 
   const { isSuccess } = useWaitForTransactionReceipt({
     client: viemClient,
@@ -223,12 +222,7 @@ export function StakeWithPermitForm({
     }
 
     onCollectStart();
-
     setIsCollecting(true);
-    setIsRewardUpdating(true);
-
-    localStorage.setItem("savingsRewardBase", "0");
-    localStorage.setItem("savingsRewardStartTime", Date.now().toString());
 
     try {
       console.log("Sending redeem transaction via MiniKit...");
@@ -243,7 +237,6 @@ export function StakeWithPermitForm({
         ],
       });
 
-      console.log("Received redeem transaction response:", finalPayload);
       if (finalPayload.status === "error") {
         console.error("Redeem transaction error. See console for details.");
         if (finalPayload.error_code !== "user_rejected") {
@@ -252,7 +245,6 @@ export function StakeWithPermitForm({
           showToast(errorMessage, "error");
         }
         setIsCollecting(false);
-        setIsRewardUpdating(false);
       } else {
         console.info("Rewards redeemed successfully!");
         setCollectTx(finalPayload.transaction_id);
@@ -262,7 +254,6 @@ export function StakeWithPermitForm({
     } catch (error: any) {
       console.error("Error:", error.message);
       setIsCollecting(false);
-      setIsRewardUpdating(false);
     }
   };
 
@@ -329,7 +320,6 @@ export function StakeWithPermitForm({
         fetchAvailableReward().then(() => {
           localStorage.setItem("savingsRewardBase", "0");
           localStorage.setItem("savingsRewardStartTime", Date.now().toString());
-          setIsRewardUpdating(false);
         });
 
         fetchBalance();
@@ -451,8 +441,7 @@ export function StakeWithPermitForm({
           >
             Collect
           </Button>
-
-          {!isRewardUpdating && isRewardLoading ? (
+          {isRewardLoading ? (
             <div className="h-[21px] w-[104px] animate-pulse rounded-md bg-gray-100"></div>
           ) : (
             <Typography
