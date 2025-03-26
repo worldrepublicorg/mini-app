@@ -13,10 +13,8 @@ import { useToast } from "@/components/ui/Toast";
 interface StakeWithPermitFormProps {
   stakedBalance: string;
   displayAvailableReward: string | null;
-  isRewardLoading: boolean;
   fetchStakedBalance: () => Promise<void>;
   fetchAvailableReward: () => Promise<void>;
-  onCollectStart: () => void;
 }
 
 const STAKING_CONTRACT_ADDRESS = "0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7";
@@ -25,10 +23,8 @@ const MAIN_TOKEN_ADDRESS = "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B";
 export function StakeWithPermitForm({
   stakedBalance,
   displayAvailableReward,
-  isRewardLoading,
   fetchStakedBalance,
   fetchAvailableReward,
-  onCollectStart,
 }: StakeWithPermitFormProps) {
   const { walletAddress, tokenBalance, fetchBalance } = useWallet();
   const { showToast } = useToast();
@@ -41,7 +37,6 @@ export function StakeWithPermitForm({
   const [isCollecting, setIsCollecting] = useState(false);
   const [transactionId, setTransactionId] = useState<string | null>(null);
   const [collectTx, setCollectTx] = useState<string | null>(null);
-  const [isRewardUpdating, setIsRewardUpdating] = useState(false);
 
   const { isSuccess } = useWaitForTransactionReceipt({
     client: viemClient,
@@ -222,13 +217,7 @@ export function StakeWithPermitForm({
       return;
     }
 
-    onCollectStart();
-
     setIsCollecting(true);
-    setIsRewardUpdating(true);
-
-    localStorage.setItem("savingsRewardBase", "0");
-    localStorage.setItem("savingsRewardStartTime", Date.now().toString());
 
     try {
       console.log("Sending redeem transaction via MiniKit...");
@@ -243,7 +232,6 @@ export function StakeWithPermitForm({
         ],
       });
 
-      console.log("Received redeem transaction response:", finalPayload);
       if (finalPayload.status === "error") {
         console.error("Redeem transaction error. See console for details.");
         if (finalPayload.error_code !== "user_rejected") {
@@ -252,17 +240,13 @@ export function StakeWithPermitForm({
           showToast(errorMessage, "error");
         }
         setIsCollecting(false);
-        setIsRewardUpdating(false);
       } else {
         console.info("Rewards redeemed successfully!");
         setCollectTx(finalPayload.transaction_id);
-        localStorage.setItem("savingsRewardBase", "0");
-        localStorage.setItem("savingsRewardStartTime", Date.now().toString());
       }
     } catch (error: any) {
       console.error("Error:", error.message);
       setIsCollecting(false);
-      setIsRewardUpdating(false);
     }
   };
 
@@ -323,14 +307,25 @@ export function StakeWithPermitForm({
       ]),
       eventName: "Redeemed",
       args: { user: walletAddress },
-      onLogs: (logs: unknown) => {
+      onLogs: async (logs: unknown) => {
         console.log("Redeemed event captured:", logs);
 
-        fetchAvailableReward().then(() => {
-          localStorage.setItem("savingsRewardBase", "0");
-          localStorage.setItem("savingsRewardStartTime", Date.now().toString());
-          setIsRewardUpdating(false);
+        // First fetch the new reward value
+        await fetchAvailableReward();
+
+        // Then update localStorage with the new values
+        const currentReward = await viemClient.readContract({
+          address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
+          abi: parseAbi([
+            "function available(address account) external view returns (uint256)",
+          ]),
+          functionName: "available",
+          args: [walletAddress],
         });
+
+        const newRewardValue = Number(currentReward) / 1e18;
+        localStorage.setItem("savingsRewardBase", newRewardValue.toString());
+        localStorage.setItem("savingsRewardStartTime", Date.now().toString());
 
         fetchBalance();
         setIsCollecting(false);
@@ -451,18 +446,13 @@ export function StakeWithPermitForm({
           >
             Collect
           </Button>
-
-          {!isRewardUpdating && isRewardLoading ? (
-            <div className="h-[21px] w-[104px] animate-pulse rounded-md bg-gray-100"></div>
-          ) : (
-            <Typography
-              variant={{ variant: "number", level: 6 }}
-              className="text-base"
-              data-testid="reward-value"
-            >
-              {displayAvailableReward}
-            </Typography>
-          )}
+          <Typography
+            variant={{ variant: "number", level: 6 }}
+            className="text-base"
+            data-testid="reward-value"
+          >
+            {displayAvailableReward}
+          </Typography>
         </div>
       </div>
 
