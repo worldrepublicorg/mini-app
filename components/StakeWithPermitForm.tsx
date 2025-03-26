@@ -13,10 +13,8 @@ import { useToast } from "@/components/ui/Toast";
 interface StakeWithPermitFormProps {
   stakedBalance: string;
   displayAvailableReward: string | null;
-  isRewardLoading: boolean;
   fetchStakedBalance: () => Promise<void>;
   fetchAvailableReward: () => Promise<void>;
-  onCollectStart: () => void;
 }
 
 const STAKING_CONTRACT_ADDRESS = "0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7";
@@ -25,10 +23,8 @@ const MAIN_TOKEN_ADDRESS = "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B";
 export function StakeWithPermitForm({
   stakedBalance,
   displayAvailableReward,
-  isRewardLoading,
   fetchStakedBalance,
   fetchAvailableReward,
-  onCollectStart,
 }: StakeWithPermitFormProps) {
   const { walletAddress, tokenBalance, fetchBalance } = useWallet();
   const { showToast } = useToast();
@@ -221,7 +217,6 @@ export function StakeWithPermitForm({
       return;
     }
 
-    onCollectStart();
     setIsCollecting(true);
 
     try {
@@ -248,8 +243,6 @@ export function StakeWithPermitForm({
       } else {
         console.info("Rewards redeemed successfully!");
         setCollectTx(finalPayload.transaction_id);
-        localStorage.setItem("savingsRewardBase", "0");
-        localStorage.setItem("savingsRewardStartTime", Date.now().toString());
       }
     } catch (error: any) {
       console.error("Error:", error.message);
@@ -441,17 +434,13 @@ export function StakeWithPermitForm({
           >
             Collect
           </Button>
-          {isRewardLoading ? (
-            <div className="h-[21px] w-[104px] animate-pulse rounded-md bg-gray-100"></div>
-          ) : (
-            <Typography
-              variant={{ variant: "number", level: 6 }}
-              className="text-base"
-              data-testid="reward-value"
-            >
-              {displayAvailableReward}
-            </Typography>
-          )}
+          <Typography
+            variant={{ variant: "number", level: 6 }}
+            className="text-base"
+            data-testid="reward-value"
+          >
+            {displayAvailableReward}
+          </Typography>
         </div>
       </div>
 

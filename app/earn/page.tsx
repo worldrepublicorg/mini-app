@@ -1280,7 +1280,6 @@ export default function EarnPage() {
   const [displayAvailableReward, setDisplayAvailableReward] = useState<
     string | null
   >(null);
-  const [isRewardLoading, setIsRewardLoading] = useState<boolean>(true);
 
   // Add the utility function
   const fromWei = useCallback((value: bigint) => {
@@ -1302,14 +1301,9 @@ export default function EarnPage() {
     console.log("[RewardTracking] Reset localStorage values for collection");
   };
 
-  // Modify fetchAvailableReward to handle post-collection state better
+  // Modify fetchAvailableReward to be simpler
   const fetchAvailableReward = useCallback(async () => {
     if (!walletAddress) return;
-
-    setIsRewardLoading(true);
-    if (!isCollectingRewards) {
-      setDisplayAvailableReward(null);
-    }
 
     try {
       const availableAbi = parseAbi([
@@ -1321,141 +1315,59 @@ export default function EarnPage() {
         functionName: "available",
         args: [walletAddress],
       });
-      console.log("Fetched available reward:", result);
 
-      // Convert the result to a string value
       const resultAsString = fromWei(result);
-
-      // Always update the base reward value
       setAvailableReward(resultAsString);
 
-      // If we're in collection mode, keep showing 0
-      if (isCollectingRewards) {
-        console.log(
-          "[RewardTracking] Maintaining zero display during collection"
-        );
-        setDisplayAvailableReward("0.0");
-      }
-
-      // Always update localStorage with the latest value from the chain
+      // Update localStorage with the latest value from the chain
       localStorage.setItem("savingsRewardBase", resultAsString);
       localStorage.setItem("savingsRewardStartTime", Date.now().toString());
-      console.log(
-        "[RewardTracking] Updated localStorage with latest chain data:",
-        resultAsString
-      );
     } catch (error) {
       console.error("Error fetching available reward", error);
-    } finally {
-      setIsRewardLoading(false);
-      // Reset collection state after fetch completes
-      if (isCollectingRewards) {
-        console.log(
-          "[RewardTracking] Collection process complete, resetting collection flag"
-        );
-        setIsCollectingRewards(false);
-      }
     }
-  }, [walletAddress, fromWei, isCollectingRewards]);
+  }, [walletAddress, fromWei]);
 
-  // Modify the reward tracking effect to be more robust
+  // Simplify the reward tracking effect
   useEffect(() => {
-    // If we don't have the necessary data, or collection is in progress, don't start calculations
-    if (!stakedBalance || !availableReward) {
-      console.log("[RewardTracking] Missing data, skipping calculation");
-      return;
-    }
-
-    if (isCollectingRewards) {
-      console.log(
-        "[RewardTracking] Collection in progress, skipping calculation"
-      );
-      return;
-    }
-
-    console.log("[RewardTracking] Setting up reward calculation effect");
+    if (!stakedBalance || !availableReward || isCollectingRewards) return;
 
     const interestRate = 1 / (86400 * 529);
     const stakedBalanceNum = Number(stakedBalance);
     const baseReward = Number(availableReward);
 
-    console.log(
-      "[RewardTracking] Starting real-time reward display update with:"
-    );
-    console.log("[RewardTracking] stakedBalance:", stakedBalanceNum);
-    console.log("[RewardTracking] baseReward:", baseReward);
-
-    let baseValue: number;
-    let startTime: number;
+    let baseValue = baseReward;
+    let startTime = Date.now();
 
     const storedBase = localStorage.getItem("savingsRewardBase");
     const storedStartTime = localStorage.getItem("savingsRewardStartTime");
-
-    console.log("[RewardTracking] Stored base value:", storedBase);
-    console.log("[RewardTracking] Stored start time:", storedStartTime);
 
     if (storedBase && storedStartTime) {
       baseValue = parseFloat(storedBase);
       startTime = parseInt(storedStartTime, 10);
 
-      // Ensure we're not using stale localStorage values compared to latest chain data
+      // Update if chain data is significantly different
       if (Math.abs(baseReward - baseValue) > 0.000001) {
-        console.log(
-          "[RewardTracking] Significant difference between chain data and local storage, updating to chain data"
-        );
         baseValue = baseReward;
         startTime = Date.now();
         localStorage.setItem("savingsRewardBase", baseValue.toString());
         localStorage.setItem("savingsRewardStartTime", startTime.toString());
       }
-    } else {
-      // Initialize with current values
-      baseValue = baseReward;
-      startTime = Date.now();
-      localStorage.setItem("savingsRewardBase", baseValue.toString());
-      localStorage.setItem("savingsRewardStartTime", startTime.toString());
     }
 
     const updateDisplay = () => {
-      // Double-check that we're not in collection mode before updating
-      if (isCollectingRewards) {
-        console.log(
-          "[RewardTracking] Collection started during update, stopping calculations"
-        );
-        return;
-      }
+      if (isCollectingRewards) return;
 
       const elapsedSeconds = (Date.now() - startTime) / 1000;
       const interestEarned = stakedBalanceNum * interestRate * elapsedSeconds;
       const totalReward = baseValue + interestEarned;
 
-      if (Math.round(elapsedSeconds) % 10 === 0) {
-        console.log("[RewardTracking] Current calculation:");
-        console.log(
-          "[RewardTracking] baseValue:",
-          baseValue,
-          "+ (stakedBalance:",
-          stakedBalanceNum,
-          "* rate:",
-          interestRate,
-          "* elapsed:",
-          elapsedSeconds,
-          ") =",
-          totalReward
-        );
-      }
-
       setDisplayAvailableReward(totalReward.toFixed(9));
-      setIsRewardLoading(false);
     };
 
     updateDisplay();
     const interval = setInterval(updateDisplay, 1000);
 
-    return () => {
-      console.log("[RewardTracking] Cleaning up calculation interval");
-      clearInterval(interval);
-    };
+    return () => clearInterval(interval);
   }, [stakedBalance, availableReward, isCollectingRewards]);
 
   const fetchStakedBalance = useCallback(async () => {
@@ -1483,7 +1395,6 @@ export default function EarnPage() {
   // Add useEffect to fetch data when the wallet address changes
   useEffect(() => {
     if (!walletAddress) {
-      setIsRewardLoading(true);
       setDisplayAvailableReward(null);
       return;
     }
@@ -1737,10 +1648,8 @@ export default function EarnPage() {
             <StakeWithPermitForm
               stakedBalance={stakedBalance}
               displayAvailableReward={displayAvailableReward}
-              isRewardLoading={isRewardLoading}
               fetchStakedBalance={fetchStakedBalance}
               fetchAvailableReward={fetchAvailableReward}
-              onCollectStart={handleCollectStart}
             />
           </div>
         );
