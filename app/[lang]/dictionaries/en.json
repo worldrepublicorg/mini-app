@@ -10,15 +10,10 @@
   },
   "components": {
     "walletAuth": {
-      "connect": "Connect Wallet",
-      "connecting": "Connecting...",
-      "connected": "Connected",
-      "error": "Connection Error"
+      "connect": "Connect Wallet"
     },
     "verifyButton": {
-      "verify": "Verify to Claim",
-      "verifying": "Verifying...",
-      "verified": "Verified"
+      "verify": "Verify to Claim"
     },
     "pollOfTheDay": {
       "title": "Poll of the Day",
