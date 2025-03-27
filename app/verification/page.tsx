@@ -17,7 +17,7 @@ export default function VerificationPage() {
           <BiChevronLeft className="size-6 text-gray-500" />
         </Link>
         <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
-          Verification Test
+          Verification Tests
         </Typography>
       </div>
 
@@ -40,6 +40,7 @@ export default function VerificationPage() {
           <VerifyButton
             verificationLevel={VerificationLevel.Device}
             buttonText="Verify with Device"
+            actionId="verify-device"
           />
         </div>
 
@@ -61,6 +62,7 @@ export default function VerificationPage() {
           <VerifyButton
             verificationLevel={VerificationLevel.Document}
             buttonText="Verify with Document"
+            actionId="verify-document"
           />
         </div>
 
@@ -82,6 +84,7 @@ export default function VerificationPage() {
           <VerifyButton
             verificationLevel={VerificationLevel.SecureDocument}
             buttonText="Verify with Secure Document"
+            actionId="verify-secure-document"
           />
         </div>
 
@@ -103,6 +106,7 @@ export default function VerificationPage() {
           <VerifyButton
             verificationLevel={VerificationLevel.Orb}
             buttonText="Verify with Orb"
+            actionId="verify-orb"
           />
         </div>
       </div>

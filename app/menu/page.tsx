@@ -9,6 +9,12 @@ import { useState, useEffect } from "react";
 
 const menuSections = [
   {
+    title: "TEST",
+    links: [
+      { label: "Verification tests", url: "/verification", isExternal: false },
+    ],
+  },
+  {
     title: "CONNECT",
     links: [
       {
@@ -55,11 +61,6 @@ const menuSections = [
         label: "Smart contracts",
         url: "https://github.com/worldrepublicorg/smart-contracts",
         isExternal: true,
-      },
-      {
-        label: "Verification tests",
-        url: "/verification",
-        isExternal: false,
       },
     ],
   },

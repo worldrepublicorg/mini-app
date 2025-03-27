@@ -12,11 +12,13 @@ import { useToast } from "./ui/Toast";
 interface VerifyButtonProps {
   verificationLevel?: VerificationLevel;
   buttonText?: string;
+  actionId?: string;
 }
 
 export const VerifyButton = ({
   verificationLevel = VerificationLevel.Device,
   buttonText = "Verify to Claim",
+  actionId = process.env.NEXT_PUBLIC_WLD_ACTION_ID!,
 }: VerifyButtonProps) => {
   const [isVerifying, setIsVerifying] = useState(false);
   const { showToast } = useToast();
@@ -30,7 +32,7 @@ export const VerifyButton = ({
     try {
       setIsVerifying(true);
       const verifyPayload = {
-        action: process.env.NEXT_PUBLIC_WLD_ACTION_ID!,
+        action: actionId,
         signal: "",
         verification_level: verificationLevel,
       };
