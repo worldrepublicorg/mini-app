@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formatjs/intl-localematcher": "^0.6.1",
     "@radix-ui/react-slot": "^1.1.2",
     "@worldcoin/mini-apps-ui-kit-react": "^0.0.2",
     "@worldcoin/minikit-js": "^1.8.0",
@@ -17,6 +18,7 @@
     "clsx": "^2.1.1",
     "eruda": "^3.4.1",
     "framer-motion": "^12.6.2",
+    "negotiator": "^1.0.0",
     "next": "14.2.21",
     "next-auth": "^4.24.11",
     "react": "^18.3.1",
@@ -25,10 +27,11 @@
     "swiper": "^11.2.6",
     "tailwind-merge": "^3.0.2",
     "vaul": "^1.1.2",
-    "viem": "^2.24.0"
+    "viem": "^2.24.1"
   },
   "devDependencies": {
-    "@types/node": "^20.17.27",
+    "@types/negotiator": "^0.6.3",
+    "@types/node": "^20.17.28",
     "@types/react": "^18.3.20",
     "@types/react-dom": "^18.3.5",
     "eslint": "^8.57.1",

@@ -1,0 +1,27 @@
+{
+  "components": {
+    "walletAuth": {
+      "connect": "Conectar Billetera",
+      "connecting": "Conectando...",
+      "connected": "Conectado",
+      "error": "Error de Conexión"
+    },
+    "verifyButton": {
+      "verify": "Verificar con World ID",
+      "verifying": "Verificando...",
+      "verified": "Verificado"
+    },
+    "pollOfTheDay": {
+      "title": "Encuesta del Día",
+      "viewAll": "Ver Todas las Encuestas",
+      "vote": "Votar Ahora"
+    },
+    "stakeForm": {
+      "title": "Depositar Tokens",
+      "amountPlaceholder": "Ingrese cantidad",
+      "submit": "Depositar",
+      "approving": "Aprobando...",
+      "staking": "Depositando..."
+    }
+  }
+}

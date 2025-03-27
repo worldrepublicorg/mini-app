@@ -27,8 +27,13 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { BiLinkExternal } from "react-icons/bi";
 import { IoIosArrowForward } from "react-icons/io";
 import Link from "next/link";
+import { useTranslations } from "@/hooks/useTranslations";
 
-export default function EarnPage() {
+export default function EarnPage({
+  params: { lang },
+}: {
+  params: { lang: string };
+}) {
   const {
     walletAddress,
     tokenBalance,
@@ -48,6 +53,9 @@ export default function EarnPage() {
     username,
     setUsername,
   } = useWallet();
+
+  // Replace the dictionary state and effect with useTranslations hook
+  const dictionary = useTranslations(lang);
 
   // Add a new loading state for claimable amount
   const [isClaimableLoading, setIsClaimableLoading] = useState<boolean>(true);
@@ -891,8 +899,8 @@ export default function EarnPage() {
     const params = new URLSearchParams(searchParams.toString());
     params.set("tab", tab);
 
-    // Update the URL to include the tab parameter
-    const newUrl = `/earn?${params.toString()}`;
+    // Update the URL to include both the language and tab parameter
+    const newUrl = `/${lang}/earn?${params.toString()}`;
     window.history.pushState({ path: newUrl }, "", newUrl);
   };
 
@@ -1445,7 +1453,10 @@ export default function EarnPage() {
                 >
                   Sign in to claim your basic income
                 </Typography>
-                <WalletAuth onError={(error) => console.error(error)} />
+                <WalletAuth
+                  lang={lang}
+                  onError={(error) => console.error(error)}
+                />
               </>
             ) : !basicIncomeActivated ? (
               <>
@@ -1644,6 +1655,7 @@ export default function EarnPage() {
               </span>
             </Typography>
             <StakeWithPermitForm
+              lang={lang}
               stakedBalance={stakedBalance}
               displayAvailableReward={displayAvailableReward}
               fetchStakedBalance={fetchStakedBalance}
@@ -1693,7 +1705,7 @@ export default function EarnPage() {
                     You&apos;ll earn rewards when friends activate their Basic
                     Income Plus.{" "}
                     <Link
-                      href="/faq?q=referral-codes"
+                      href={`/${lang}/faq?q=referral-codes`}
                       className="hover:text-gray-600 text-gray-900 underline"
                     >
                       Learn more

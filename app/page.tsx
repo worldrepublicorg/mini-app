@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
-export default function Home() {
-  redirect("/earn");
+export default function RootPage() {
+  redirect("/en"); // Redirect to default language
 }

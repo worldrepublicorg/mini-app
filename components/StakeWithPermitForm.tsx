@@ -9,12 +9,14 @@ import { useWallet } from "@/components/contexts/WalletContext";
 import { viemClient } from "@/lib/viemClient";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { useToast } from "@/components/ui/Toast";
+import { useTranslations } from "@/hooks/useTranslations";
 
 interface StakeWithPermitFormProps {
   stakedBalance: string;
   displayAvailableReward: string | null;
   fetchStakedBalance: () => Promise<void>;
   fetchAvailableReward: () => Promise<void>;
+  lang: string;
 }
 
 const STAKING_CONTRACT_ADDRESS = "0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7";
@@ -25,6 +27,7 @@ export function StakeWithPermitForm({
   displayAvailableReward,
   fetchStakedBalance,
   fetchAvailableReward,
+  lang,
 }: StakeWithPermitFormProps) {
   const { walletAddress, tokenBalance, fetchBalance } = useWallet();
   const { showToast } = useToast();
@@ -53,6 +56,8 @@ export function StakeWithPermitForm({
     },
     transactionId: collectTx!,
   });
+
+  const dictionary = useTranslations(lang);
 
   const handleStake = async () => {
     if (!MiniKit.isInstalled()) {

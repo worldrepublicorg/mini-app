@@ -64,7 +64,11 @@ const faqs: FAQItem[] = [
   },
 ];
 
-export default function FAQPage() {
+export default function FAQPage({
+  params: { lang },
+}: {
+  params: { lang: string };
+}) {
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
   const searchParams = useSearchParams();
 
@@ -89,7 +93,7 @@ export default function FAQPage() {
     <div className="flex min-h-screen flex-col px-6 pb-20">
       <div className="relative flex items-center justify-center py-6">
         <Link
-          href="/menu"
+          href={`/${lang}/menu`}
           className="absolute left-0 flex size-10 items-center justify-center rounded-full bg-gray-100"
         >
           <BiChevronLeft className="size-6 text-gray-500" />

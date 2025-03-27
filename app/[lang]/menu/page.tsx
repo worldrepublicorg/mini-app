@@ -5,68 +5,86 @@ import { Typography } from "@/components/ui/Typography";
 import { BiLinkExternal } from "react-icons/bi";
 import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
-import { useState, useEffect } from "react";
+import { useTranslations } from "@/hooks/useTranslations";
+import { usePathname } from "next/navigation";
 
-const menuSections = [
-  {
-    title: "TEST",
-    links: [
-      { label: "Verification tests", url: "/verification", isExternal: false },
-    ],
-  },
-  {
-    title: "CONNECT",
-    links: [
-      {
-        label: "Community",
-        url: "https://t.me/worldrepubliccommunity",
-        isExternal: true,
-      },
-      {
-        label: "Announcements",
-        url: "https://t.me/worldrepublicannouncements",
-        isExternal: true,
-      },
-      { label: "X", url: "https://x.com/WorldRepublicEN", isExternal: true },
-    ],
-  },
-  {
-    title: "HELP",
-    links: [{ label: "FAQ", url: "/faq", isExternal: false }],
-  },
-  // {
-  //   title: "DOCS",
-  //   links: [
-  //     {
-  //       label: "Community docs",
-  //       url: "https://github.com/worldrepublicorg/docs",
-  //       isExternal: true,
-  //     },
-  //     {
-  //       label: "Operating manual",
-  //       url: "https://github.com/worldrepublicorg/governing-documents/blob/main/manual.md",
-  //       isExternal: true,
-  //     },
-  //   ],
-  // },
-  {
-    title: "CODE",
-    links: [
-      {
-        label: "App",
-        url: "https://github.com/worldrepublicorg/mini-app",
-        isExternal: true,
-      },
-      {
-        label: "Smart contracts",
-        url: "https://github.com/worldrepublicorg/smart-contracts",
-        isExternal: true,
-      },
-    ],
-  },
-] as const;
+export default function MenuPage({
+  params: { lang },
+}: {
+  params: { lang: string };
+}) {
+  const pathname = usePathname();
+  const currentPath = pathname.replace(`/${lang}`, "");
+  const dictionary = useTranslations(lang);
 
-export default function MenuPage() {
+  const menuSections = [
+    {
+      title: "EXPERIMENTAL",
+      links: [
+        {
+          label: "Verification tests",
+          url: "/verification",
+          isExternal: false,
+        },
+        {
+          label: "Language",
+          url: "/language",
+          isExternal: false,
+        },
+      ],
+    },
+    {
+      title: "CONNECT",
+      links: [
+        {
+          label: "Community",
+          url: "https://t.me/worldrepubliccommunity",
+          isExternal: true,
+        },
+        {
+          label: "Announcements",
+          url: "https://t.me/worldrepublicannouncements",
+          isExternal: true,
+        },
+        { label: "X", url: "https://x.com/WorldRepublicEN", isExternal: true },
+      ],
+    },
+    {
+      title: "HELP",
+      links: [{ label: "FAQ", url: "/faq", isExternal: false }],
+    },
+    // {
+    //   title: "DOCS",
+    //   links: [
+    //     {
+    //       label: "Community docs",
+    //       url: "https://github.com/worldrepublicorg/docs",
+    //       isExternal: true,
+    //     },
+    //     {
+    //       label: "Operating manual",
+    //       url: "https://github.com/worldrepublicorg/governing-documents/blob/main/manual.md",
+    //       isExternal: true,
+    //     },
+    //   ],
+    // },
+    {
+      title: "CODE",
+      links: [
+        {
+          label: "App",
+          url: "https://github.com/worldrepublicorg/mini-app",
+          isExternal: true,
+        },
+        {
+          label: "Smart contracts",
+          url: "https://github.com/worldrepublicorg/smart-contracts",
+          isExternal: true,
+        },
+      ],
+    },
+  ] as const;
+
   return (
     <div className="flex flex-col px-6 pb-20">
       <div className="py-6">
@@ -111,7 +129,7 @@ export default function MenuPage() {
                     </ListItem>
                   </a>
                 ) : (
-                  <Link href={link.url} className="w-full">
+                  <Link href={`/${lang}${link.url}`} className="w-full">
                     <ListItem>
                       <div className="flex h-8 w-full items-center justify-between">
                         <Typography

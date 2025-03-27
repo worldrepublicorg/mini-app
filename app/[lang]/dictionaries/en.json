@@ -1,0 +1,36 @@
+{
+  "navigation": {
+    "home": "Home",
+    "menu": "Menu",
+    "faq": "FAQ"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error"
+  },
+  "components": {
+    "walletAuth": {
+      "connect": "Connect Wallet",
+      "connecting": "Connecting...",
+      "connected": "Connected",
+      "error": "Connection Error"
+    },
+    "verifyButton": {
+      "verify": "Verify to Claim",
+      "verifying": "Verifying...",
+      "verified": "Verified"
+    },
+    "pollOfTheDay": {
+      "title": "Poll of the Day",
+      "viewAll": "Previous Polls",
+      "vote": "Vote Now"
+    },
+    "stakeForm": {
+      "title": "Stake Tokens",
+      "amountPlaceholder": "Enter amount",
+      "submit": "Stake",
+      "approving": "Approving...",
+      "staking": "Staking..."
+    }
+  }
+}

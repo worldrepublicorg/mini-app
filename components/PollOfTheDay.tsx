@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/Button";
 import { Typography } from "./ui/Typography";
 import Link from "next/link";
+import { useTranslations } from "@/hooks/useTranslations";
 
 interface Poll {
   description: string;
@@ -36,7 +37,12 @@ const polls: Poll[] = [
   },
 ];
 
-export function PollOfTheDay() {
+interface PollOfTheDayProps {
+  lang: string;
+}
+
+export function PollOfTheDay({ lang }: PollOfTheDayProps) {
+  const dictionary = useTranslations(lang);
   const getPollIndex = () => {
     // Use local midnight for consistency
     const now = new Date();
@@ -73,7 +79,7 @@ export function PollOfTheDay() {
   const currentPoll = polls[pollIndex];
 
   return (
-    <div className="flex flex-col justify-center">
+    <div className="flex w-full flex-col justify-center">
       <div className="w-full">
         <Typography
           as="h3"
@@ -87,9 +93,12 @@ export function PollOfTheDay() {
             Vote Now
           </Button>
         </a>
-        <Link href="/previous-polls" className="mt-2 block h-10">
+        <Link
+          href={`/${lang}/previous-polls`}
+          className="mt-2 block h-10 w-full"
+        >
           <Button variant="ghost" fullWidth>
-            Previous Polls
+            {dictionary?.components?.pollOfTheDay?.viewAll || "Previous Polls"}
           </Button>
         </Link>
       </div>

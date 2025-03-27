@@ -8,7 +8,11 @@ import { TabSwiper } from "@/components/TabSwiper";
 import { OpenLetterCard } from "@/components/OpenLetterCard";
 import { PollOfTheDay } from "@/components/PollOfTheDay";
 
-export default function GovernPage() {
+export default function GovernPage({
+  params: { lang },
+}: {
+  params: { lang: string };
+}) {
   const [activeTab, setActiveTab] = useState("Polls");
 
   const renderContent = () => {
@@ -20,7 +24,7 @@ export default function GovernPage() {
               title="Poll of the Day"
               description="Quick votes on current topics"
             />
-            <PollOfTheDay />
+            <PollOfTheDay lang={lang} />
           </>
         );
       case "Open letters":
