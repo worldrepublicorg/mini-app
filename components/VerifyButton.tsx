@@ -59,7 +59,6 @@ export const VerifyButton = ({
       if (data.status === 200 && data.verifyRes.success) {
         // Remove the minting logic and just show success message
         console.log("Verification successful:", data.verifyRes);
-        showToast("Verification successful!", "success");
       } else {
         throw new Error(data.verifyRes.message || "Verification failed");
       }
@@ -69,7 +68,6 @@ export const VerifyButton = ({
         stack: error.stack,
         timestamp: new Date().toISOString(),
       });
-      showToast(`Error: ${error.message || "Verification failed"}`, "error");
     } finally {
       setIsVerifying(false);
     }
