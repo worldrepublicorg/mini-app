@@ -39,7 +39,7 @@ export default function VerificationPage() {
           </Typography>
           <VerifyButton
             verificationLevel={VerificationLevel.Device}
-            buttonText="Verify with Device"
+            buttonText="Test Device Verification"
             actionId="verify-device"
           />
         </div>
@@ -61,7 +61,7 @@ export default function VerificationPage() {
           </Typography>
           <VerifyButton
             verificationLevel={VerificationLevel.Document}
-            buttonText="Verify with Document"
+            buttonText="Test Document Verification"
             actionId="verify-document"
           />
         </div>
@@ -83,7 +83,7 @@ export default function VerificationPage() {
           </Typography>
           <VerifyButton
             verificationLevel={VerificationLevel.SecureDocument}
-            buttonText="Verify with Secure Document"
+            buttonText="Test Secure Document Verification"
             actionId="verify-secure-document"
           />
         </div>
@@ -105,7 +105,7 @@ export default function VerificationPage() {
           </Typography>
           <VerifyButton
             verificationLevel={VerificationLevel.Orb}
-            buttonText="Verify with Orb"
+            buttonText="Test Orb Verification"
             actionId="verify-orb"
           />
         </div>
