@@ -21,8 +21,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Is the international aviation infrastructure resilient enough to handle unexpected large-scale disruptions?",
-    url: "https://vote.one/32Nn7JaS",
+      "Should global leaders agree on protocols to prevent the militarization of space and secure it for peaceful purposes?",
+    url: "https://vote.one/vBztzW2P",
   },
   {
     description:
