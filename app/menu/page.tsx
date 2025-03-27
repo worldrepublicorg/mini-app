@@ -56,6 +56,11 @@ const menuSections = [
         url: "https://github.com/worldrepublicorg/smart-contracts",
         isExternal: true,
       },
+      {
+        label: "Verification tests",
+        url: "/verification",
+        isExternal: false,
+      },
     ],
   },
 ] as const;

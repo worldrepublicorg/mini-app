@@ -8,7 +8,16 @@ import { useState } from "react";
 import { Button } from "./ui/Button";
 import { useToast } from "./ui/Toast";
 
-export const VerifyButton = () => {
+// Define the props interface with verification level
+interface VerifyButtonProps {
+  verificationLevel?: VerificationLevel;
+  buttonText?: string;
+}
+
+export const VerifyButton = ({
+  verificationLevel = VerificationLevel.Device,
+  buttonText = "Verify to Claim",
+}: VerifyButtonProps) => {
   const [isVerifying, setIsVerifying] = useState(false);
   const { showToast } = useToast();
 
@@ -23,7 +32,7 @@ export const VerifyButton = () => {
       const verifyPayload = {
         action: process.env.NEXT_PUBLIC_WLD_ACTION_ID!,
         signal: "",
-        verification_level: VerificationLevel.Device,
+        verification_level: verificationLevel,
       };
 
       const response = await MiniKit.commandsAsync.verify(verifyPayload);
@@ -115,7 +124,7 @@ export const VerifyButton = () => {
 
   return (
     <Button onClick={handleVerify} isLoading={isVerifying} fullWidth>
-      Verify to Claim
+      {buttonText}
     </Button>
   );
 };
