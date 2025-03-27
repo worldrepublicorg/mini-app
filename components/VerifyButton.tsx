@@ -57,56 +57,9 @@ export const VerifyButton = ({
       const data = await verifyResponse.json();
 
       if (data.status === 200 && data.verifyRes.success) {
-        const address =
-          MiniKit.walletAddress || (window as any).MiniKit?.walletAddress;
-        if (!address) {
-          throw new Error("No wallet address found");
-        }
-
-        // Add more detailed logging for the mint request
-        console.log("Preparing mint request with address:", address);
-
-        try {
-          const mintResponse = await fetch("/api/mint", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              address: address,
-              // Add additional required fields if needed
-              // example: tokenAmount: 1,
-            }),
-          });
-
-          if (!mintResponse.ok) {
-            const errorData = await mintResponse.json();
-            console.error("Mint API error details:", {
-              status: mintResponse.status,
-              statusText: mintResponse.statusText,
-              error: errorData,
-              requestBody: {
-                address: address,
-              },
-            });
-            throw new Error(
-              `Minting failed: ${errorData.message || "Bad Request"}`
-            );
-          }
-
-          const mintData = await mintResponse.json();
-          console.log("Mint API success response:", mintData);
-          showToast("Verification and minting successful!", "success");
-        } catch (mintError: any) {
-          console.error("Mint API error:", {
-            message: mintError.message,
-            stack: mintError.stack,
-            requestDetails: {
-              address: address,
-            },
-          });
-          throw new Error(`Mint API error: ${mintError.message}`);
-        }
+        // Remove the minting logic and just show success message
+        console.log("Verification successful:", data.verifyRes);
+        showToast("Verification successful!", "success");
       } else {
         throw new Error(data.verifyRes.message || "Verification failed");
       }
