@@ -3,7 +3,7 @@ import Link from "next/link";
 import { PiTrophy } from "react-icons/pi";
 import { BiChevronLeft } from "react-icons/bi";
 import { FaXTwitter } from "react-icons/fa6";
-import { getClientDictionary } from "@/lib/dictionary";
+import { useTranslations } from "@/hooks/useTranslations";
 
 type Winner = {
   handle: string;
@@ -50,7 +50,7 @@ export default async function XContestWinnersPage({
 }: {
   params: { lang: string };
 }) {
-  const dictionary = await getClientDictionary(lang);
+  const dictionary = useTranslations(lang);
 
   const getTrophyColor = (place: number) => {
     switch (place) {

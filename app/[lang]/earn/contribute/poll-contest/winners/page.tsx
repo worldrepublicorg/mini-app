@@ -1,9 +1,11 @@
+"use client";
+
 import { Typography } from "@/components/ui/Typography";
 import Link from "next/link";
 import { PiTrophy } from "react-icons/pi";
 import { BiChevronLeft } from "react-icons/bi";
 import { FaVoteYea } from "react-icons/fa";
-import { getClientDictionary } from "@/lib/dictionary";
+import { useTranslations } from "@/hooks/useTranslations";
 
 type Winner = {
   handle: string;
@@ -50,7 +52,7 @@ export default async function PollContestWinnersPage({
 }: {
   params: { lang: string };
 }) {
-  const dictionary = await getClientDictionary(lang);
+  const dictionary = useTranslations(lang);
 
   const getTrophyColor = (place: number) => {
     switch (place) {
@@ -96,8 +98,8 @@ export default async function PollContestWinnersPage({
                 variant={{ variant: "subtitle", level: 2 }}
                 className="mb-4 text-gray-900"
               >
-                {dictionary?.pages?.earn?.tabs?.contribute?.contests
-                  ?.pollContest?.winners?.weekOf ?? "Week of"}{" "}
+                {dictionary?.pages.earn.tabs.contribute.contests.pollContest
+                  .winners.weekOf ?? "Week of"}
                 {week.weekOf}
               </Typography>
               <div>

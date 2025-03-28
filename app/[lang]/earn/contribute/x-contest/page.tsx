@@ -4,14 +4,14 @@ import Link from "next/link";
 import { PiMegaphoneFill, PiTrophy } from "react-icons/pi";
 import { FaXTwitter } from "react-icons/fa6";
 import { BiChevronLeft } from "react-icons/bi";
-import { getClientDictionary } from "@/lib/dictionary";
+import { useTranslations } from "@/hooks/useTranslations";
 
 export default async function XContestPage({
   params: { lang },
 }: {
   params: { lang: string };
 }) {
-  const dictionary = await getClientDictionary(lang);
+  const dictionary = useTranslations(lang);
 
   return (
     <div className="pb-safe flex min-h-dvh flex-col px-6">
@@ -216,8 +216,7 @@ export default async function XContestPage({
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
                 {dictionary?.pages?.earn?.tabs?.contribute?.xContest?.rules
-                  ?.rule3 ??
-                  "Contest ends every Sunday at 11:59 PM UTC"}
+                  ?.rule3 ?? "Contest ends every Sunday at 11:59 PM UTC"}
               </Typography>
             </li>
           </ul>

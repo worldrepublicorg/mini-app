@@ -3,14 +3,14 @@ import { Typography } from "@/components/ui/Typography";
 import Link from "next/link";
 import { PiTrophy, PiClipboardTextFill } from "react-icons/pi";
 import { BiChevronLeft } from "react-icons/bi";
-import { getClientDictionary } from "@/lib/dictionary";
+import { useTranslations } from "@/hooks/useTranslations";
 
 export default async function PollContestPage({
   params: { lang },
 }: {
   params: { lang: string };
 }) {
-  const dictionary = await getClientDictionary(lang);
+  const dictionary = useTranslations(lang);
 
   return (
     <div className="pb-safe flex min-h-dvh flex-col px-6">
