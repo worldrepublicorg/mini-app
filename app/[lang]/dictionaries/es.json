@@ -19,7 +19,7 @@
       "polls": {
         "dataSovereignty": "¿Deberían implementarse directrices internacionales para proteger los datos generados mundialmente bajo un marco unificado de soberanía digital?",
         "biotech": "¿Debería existir un marco regulatorio global para las biotecnologías emergentes que garantice su uso ético y seguridad?",
-        "spaceMilitarization": "¿Deberían los líderes globales acordar protocolos para prevenir la militarización del espacio y asegurarlo para fines pacíficos?",
+        "spaceMilitarization": "¿Deberían establecer los líderes mundiales protocolos para prevenir la militarización del espacio y garantizar su uso pacífico?",
         "nuclearSecurity": "¿Deberían establecerse acuerdos internacionales vinculantes para asegurar las instalaciones nucleares en zonas de conflicto?",
         "fourDayWeek": "¿Apoyas el creciente movimiento global hacia semanas laborales de cuatro días como modelo de empleo estándar?"
       }
@@ -344,7 +344,7 @@
       "levels": {
         "device": {
           "title": "Verificación de Dispositivo",
-          "description": "Verificación básica usando el dispositivo.",
+          "description": "Verificación básica mediante dispositivo.",
           "buttonText": "Probar Verificación de Dispositivo"
         },
         "document": {
