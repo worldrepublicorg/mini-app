@@ -76,6 +76,7 @@
           "invite": "Invite"
         },
         "basicIncome": {
+          "tabTitle": "Basic income",
           "title": "Basic Income",
           "subtitle": "Sign in to claim your basic income",
           "setupSubtitle": "Set up your basic income",
@@ -108,6 +109,7 @@
           }
         },
         "savings": {
+          "tabTitle": "Savings",
           "title": "Savings Account",
           "subtitle": "Earn interest every second",
           "tooltip": "69% APY base rate. Collect and reinvest interest to achieve close to 100% effective returns annually. Withdraw anytime."

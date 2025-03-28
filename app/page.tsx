@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function RootPage() {
-  redirect("/en"); // Redirect to default language
+  redirect("/"); // The middleware will handle language detection
 }

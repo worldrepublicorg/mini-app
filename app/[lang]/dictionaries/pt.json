@@ -1,0 +1,70 @@
+{
+  "pages": {
+    "menu": {
+      "title": "Menu",
+      "sections": {
+        "experimental": {
+          "title": "EXPERIMENTAL",
+          "links": {
+            "verification": "Testes de verificação",
+            "language": "Idioma"
+          }
+        },
+        "connect": {
+          "title": "CONECTAR",
+          "links": {
+            "community": "Comunidade",
+            "announcements": "Anúncios",
+            "x": "X"
+          }
+        },
+        "help": {
+          "title": "AJUDA",
+          "links": {
+            "faq": "Perguntas frequentes"
+          }
+        },
+        "code": {
+          "title": "CÓDIGO",
+          "links": {
+            "app": "Aplicação",
+            "contracts": "Contratos inteligentes"
+          }
+        }
+      }
+    },
+    "language": {
+      "title": "Idioma",
+      "options": {
+        "english": "English",
+        "spanish": "Español",
+        "portuguese": "Português"
+      }
+    },
+    "verification": {
+      "title": "Testes de Verificação",
+      "levels": {
+        "device": {
+          "title": "Verificação de Dispositivo",
+          "description": "Verificação básica usando o dispositivo.",
+          "buttonText": "Testar Verificação de Dispositivo"
+        },
+        "document": {
+          "title": "Verificação de Documento",
+          "description": "Verificação usando documentos de identidade.",
+          "buttonText": "Testar Verificação de Documento"
+        },
+        "secureDocument": {
+          "title": "Verificação Segura de Documento",
+          "description": "Verificação aprimorada usando documentos de identidade seguros.",
+          "buttonText": "Testar Verificação Segura de Documento"
+        },
+        "orb": {
+          "title": "Verificação Orb",
+          "description": "Máxima segurança usando verificação biométrica Orb.",
+          "buttonText": "Testar Verificação Orb"
+        }
+      }
+    }
+  }
+}

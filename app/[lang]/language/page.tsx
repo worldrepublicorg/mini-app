@@ -15,9 +15,22 @@ export default function LanguagePage({
   const dictionary = useTranslations(lang);
 
   const languages = [
+    { code: "ar", label: "العربية" },
+    { code: "bn", label: "বাংলা" },
+    { code: "zh", label: "中文" },
     { code: "en", label: "English" },
+    { code: "fil", label: "Filipino" },
+    { code: "hi", label: "हिन्दी" },
+    { code: "hr", label: "Hrvatski" },
+    { code: "ja", label: "日本語" },
+    { code: "ko", label: "한국어" },
+    { code: "ms", label: "Bahasa Melayu" },
+    { code: "pt", label: "Português" },
+    { code: "ru", label: "Русский" },
     { code: "es", label: "Español" },
-  ];
+  ].sort((a, b) =>
+    a.label.localeCompare(b.label, undefined, { sensitivity: "base" })
+  );
 
   return (
     <div className="flex flex-col px-6 pb-20">

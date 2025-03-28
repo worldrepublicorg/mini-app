@@ -1,0 +1,457 @@
+{
+  "components": {
+    "walletAuth": {
+      "connect": "Poveži novčanik"
+    },
+    "verifyButton": {
+      "verify": "Verificiraj za preuzimanje"
+    },
+    "pollOfTheDay": {
+      "previousPolls": "Prethodne ankete",
+      "vote": "Glasaj sada",
+      "polls": {
+        "dataSovereignty": "Trebaju li se implementirati međunarodne smjernice za zaštitu podataka generiranih širom svijeta pod jedinstvenim okvirom za digitalni suverenitet?",
+        "biotech": "Treba li postojati globalni regulatorni okvir za nove biotehnologije kako bi se osigurala etička uporaba i sigurnost?",
+        "spaceMilitarization": "Trebaju li se svjetski čelnici dogovoriti o protokolima za sprječavanje militarizacije svemira i osiguravanje njegove miroljubive svrhe?",
+        "nuclearSecurity": "Trebaju li se uspostaviti obvezujući međunarodni sporazumi za osiguranje nuklearnih postrojenja u zonama sukoba?",
+        "fourDayWeek": "Podržavate li rastući globalni pokret prema četverodnevnom radnom tjednu kao standardnom modelu zapošljavanja?"
+      }
+    },
+    "stakeForm": {
+      "deposit": "Depozit",
+      "withdraw": "Povuci",
+      "balance": "Stanje:",
+      "depositPlaceholder": "Iznos za depozit",
+      "withdrawPlaceholder": "Iznos za povlačenje",
+      "max": "Maksimalno",
+      "interest": "Kamata:",
+      "collect": "Prikupi",
+      "depositButton": "Položi drahme",
+      "withdrawButton": "Povuci drahme"
+    },
+    "toasts": {
+      "wallet": {
+        "connectInWorldApp": "Molimo otvorite ovu aplikaciju u World App-u za povezivanje novčanika.",
+        "stakingError": "Greška pri ulaganju tokena",
+        "withdrawError": "Greška pri povlačenju tokena",
+        "collectError": "Greška pri prikupljanju nagrada"
+      },
+      "referral": {
+        "pendingReward": "Obrada nagrade na čekanju za {{username}}...",
+        "rewardSuccess": "Uspješno nagrađen {{username}}!",
+        "sendingReward": "Slanje nagrade od 50 WDD korisniku {{username}}..."
+      },
+      "basicIncome": {
+        "setupSuccess": "Temeljni Dohodak Plus aktiviran! Sada pripremamo nagradu za {{username}}...",
+        "setupWithReferrer": "Prvo postavljamo Temeljni Dohodak Plus, zatim ćemo nagraditi {{username}}...",
+        "error": "Greška pri aktivaciji Temeljnog Dohotka",
+        "errorPlus": "Greška pri aktivaciji Temeljnog Dohotka Plus"
+      },
+      "transaction": {
+        "error": "Došlo je do neočekivane greške",
+        "errorClaim": "Došlo je do neočekivane greške prilikom preuzimanja"
+      }
+    },
+    "comingSoonDrawer": {
+      "title": "Uskoro dostupno",
+      "description": "Ova značajka je trenutno u razvoju. Ostanite uz nas!"
+    },
+    "tabSwiper": {
+      "tabs": {
+        "polls": "Ankete",
+        "openLetters": "Otvorena pisma",
+        "elections": "Izbori",
+        "referendums": "Referendumi"
+      }
+    }
+  },
+  "pages": {
+    "earn": {
+      "title": "Zarada",
+      "tabs": {
+        "tabNames": {
+          "basicIncome": "Temeljni dohodak",
+          "savings": "Štednja",
+          "contribute": "Doprinesi",
+          "invite": "Pozovi"
+        },
+        "basicIncome": {
+          "tabTitle": "Temeljni dohodak",
+          "title": "Temeljni dohodak",
+          "subtitle": "Prijavite se za preuzimanje temeljnog dohotka",
+          "setupSubtitle": "Postavite svoj temeljni dohodak",
+          "claimableSubtitle": "Dostupne drahme",
+          "activateButton": "Aktiviraj temeljni dohodak",
+          "claimButton": "Preuzmi",
+          "plus": {
+            "title": "Temeljni dohodak Plus",
+            "newBadge": "Novo",
+            "drawerTrigger": "Predstavljamo Temeljni dohodak Plus",
+            "subtitle": "Dodatni prihod za verificirane korisnike",
+            "drawer": {
+              "title": "Temeljni dohodak Plus",
+              "subtitle": "Dodatni prihod za verificirane korisnike",
+              "features": {
+                "rate": {
+                  "title": "Dodatnih 10 WDD dnevno"
+                },
+                "verification": {
+                  "title": "Ekskluzivno za Orb-verificirane korisnike radi osiguranja pravedne distribucije"
+                },
+                "rewards": {
+                  "title": "Nagrade se prebacuju na Plus tijekom vremena uz zadržavanje ukupno 11 WDD/dan"
+                }
+              },
+              "activateButton": "Aktiviraj Temeljni dohodak Plus",
+              "claimButton": "Preuzmi Temeljni dohodak Plus",
+              "claimBasicButton": "Preuzmi Temeljni dohodak"
+            }
+          }
+        },
+        "savings": {
+          "tabTitle": "Štednja",
+          "title": "Štedni račun",
+          "subtitle": "Zaradite kamatu svake sekunde",
+          "tooltip": "Osnovna stopa od 69% GPR. Prikupljajte i reinvestirajte kamatu za postizanje blizu 100% efektivnog godišnjeg prinosa. Povucite sredstva bilo kada."
+        },
+        "invite": {
+          "title": "Pozovi",
+          "subtitle": "Dobij 50 WDD po prijatelju koji se pridruži",
+          "tooltip": "Zaradit ćete nagrade kada prijatelji aktiviraju svoj Temeljni dohodak Plus.",
+          "learnMore": "Saznaj više",
+          "stats": {
+            "title": "Vaše statistike preporuka",
+            "invites": "Prihvaćeni pozivi",
+            "rewards": "Ukupne nagrade"
+          },
+          "actions": {
+            "copyLink": "Kopiraj referalni link",
+            "copied": "Referalni link kopiran u međuspremnik!",
+            "connectWallet": "Molimo povežite svoj novčanik za generiranje referalnog linka",
+            "rewardReferrer": "Nagradi preporučitelja"
+          },
+          "drawer": {
+            "title": "Nagradi preporučitelja",
+            "subtitle": "Aktiviraj besplatnu nagradu od 50 WDD za svog preporučitelja",
+            "invitedBy": "Pozvao vas je: {{username}}",
+            "input": {
+              "placeholder": "Unesite korisničko ime (npr. username.0000)",
+              "lookupButton": "Pretraži korisnika",
+              "sendingTo": "Slanje nagrade za:",
+              "editButton": "Uredi",
+              "sendButton": "Pošalji nagradu"
+            },
+            "errors": {
+              "enterUsername": "Molimo unesite korisničko ime",
+              "usernameNotFound": "Korisničko ime nije pronađeno",
+              "lookupFailed": "Neuspjelo pretraživanje korisničkog imena. Molimo pokušajte ponovno.",
+              "installMiniKit": "Molimo instalirajte MiniKit za pretraživanje korisničkih imena",
+              "connectWallet": "Molimo prvo povežite svoj novčanik",
+              "transactionCanceled": "Transakcija je otkazana"
+            },
+            "success": {
+              "rewardSent": "Uspješno poslana nagrada korisniku {{username}}!"
+            }
+          }
+        },
+        "contribute": {
+          "title": "Doprinesi",
+          "subtitle": "Uključi se, budi nagrađen",
+          "contests": {
+            "weekly": "Tjedno",
+            "topPrize": "Glavna nagrada",
+            "xPost": {
+              "title": "X Post natječaj",
+              "description": "Piši zanimljive objave, osvoji nagrade"
+            },
+            "poll": {
+              "title": "Natječaj anketa",
+              "description": "Prikupi povratne informacije zajednice i zaradi"
+            },
+            "pollContest": {
+              "title": "Natječaj anketa",
+              "weeklyTitle": "Tjedni natječaj anketa",
+              "description": "Prikupite povratne informacije zajednice i zaradite",
+              "prizes": {
+                "title": "Nagrade",
+                "viewWinners": "Pogledaj prethodne pobjednike",
+                "wdd": "WDD"
+              },
+              "howTo": {
+                "title": "Kako funkcionira",
+                "steps": {
+                  "step1": {
+                    "number": "1",
+                    "text": "Kreirajte anketu vezanu uz Svjetsku Republiku ili globalno upravljanje općenito"
+                  },
+                  "step2": {
+                    "number": "2",
+                    "text": "Postavite je tako da samo verificirani ljudi mogu glasati"
+                  },
+                  "step3": {
+                    "number": "3",
+                    "text": "Podijelite svoju anketu u našem",
+                    "link": {
+                      "text": "Telegram kanalu za natječaj anketa",
+                      "url": "https://t.me/worldrepubliccommunity/32368"
+                    }
+                  }
+                }
+              },
+              "rules": {
+                "title": "Pravila natječaja",
+                "list": {
+                  "rule1": "Samo ankete započete u trenutnom tjednu su prihvatljive",
+                  "rule2": "Pobjednici se biraju na temelju ukupnog broja glasova",
+                  "rule3": "Natječaj završava svake nedjelje u 23:59 UTC"
+                }
+              },
+              "cta": {
+                "create": "Kreiraj svoju anketu",
+                "submit": "Predaj svoju anketu"
+              },
+              "winners": {
+                "title": "Pobjednici natječaja",
+                "weekOf": "Tjedan",
+                "votes": "glasova"
+              }
+            }
+          },
+          "earlyAccess": {
+            "title": "Program ranog pristupa",
+            "description": "Zaradite WDD testiranjem naših nadolazećih značajki"
+          },
+          "xContest": {
+            "title": "X Post natječaj",
+            "weeklyTitle": "Tjedni X Post natječaj",
+            "description": "Pišite zanimljive objave, osvojite nagrade",
+            "prizes": {
+              "title": "Nagrade",
+              "viewWinners": "Pogledaj prethodne pobjednike",
+              "wdd": "WDD"
+            },
+            "howTo": {
+              "title": "Kako sudjelovati",
+              "step1": "Napišite X objavu o Svjetskoj Republici",
+              "step2": "Označite @WorldRepublicEN",
+              "step3": {
+                "prefix": "Podijelite poveznicu na vašu objavu u našem",
+                "link": "X Post Telegram kanalu za natječaj"
+              }
+            },
+            "rules": {
+              "title": "Pravila natječaja",
+              "rule1": "Samo objave objavljene u trenutnom tjednu su prihvatljive",
+              "rule2": "Pobjednici se biraju na temelju ukupnog uključivanja (lajkova + repostova + komentara)",
+              "rule3": "Natječaj završava svake nedjelje u 23:59 UTC"
+            },
+            "cta": {
+              "post": "Započnite objavljivanje sada",
+              "submit": "Predajte svoju objavu"
+            },
+            "winners": {
+              "title": "Pobjednici natječaja",
+              "weekOf": "Tjedan",
+              "engagements": "uključivanja"
+            }
+          }
+        }
+      }
+    },
+    "govern": {
+      "title": "Upravljanje",
+      "tabs": {
+        "polls": "Ankete",
+        "openLetters": "Otvorena pisma",
+        "elections": "Izbori",
+        "referendums": "Referendumi"
+      },
+      "sections": {
+        "polls": {
+          "title": "Anketa dana",
+          "description": "Brzo glasanje o aktualnim temama",
+          "previous": {
+            "title": "Prethodne ankete",
+            "backToGovern": "Natrag na Upravljanje",
+            "polls": {
+              "dataSovereignty": "Trebaju li se implementirati međunarodne smjernice za zaštitu podataka generiranih širom svijeta pod jedinstvenim okvirom za digitalni suverenitet?",
+              "fourDayWeek": "Podržavate li rastući globalni pokret prema četverodnevnom radnom tjednu kao standardnom modelu zapošljavanja?",
+              "nuclearSecurity": "Trebaju li se uspostaviti obvezujući međunarodni sporazumi za osiguranje nuklearnih postrojenja u zonama sukoba?",
+              "aviationResilience": "Je li međunarodna zrakoplovna infrastruktura dovoljno otporna za rukovanje neočekivanim velikim poremećajima?",
+              "waterResources": "Trebaju li države stvoriti okvir suradnje za upravljanje zajedničkim vodnim resursima usred rastućeg globalnog nedostatka vode?",
+              "maternalHealth": "Treba li uspostaviti namjensku globalnu zdravstvenu rezervu pomoći za zaštitu zdravlja majki i djece tijekom zamrzavanja međunarodne pomoći?",
+              "marsMission": "Podržavate li suradnju država na zajedničkoj misiji u duboki svemir prema Marsu?",
+              "globalRecession": "Mislite li da trenutni globalni ekonomski trendovi ukazuju na rizik od sinkronizirane recesije među velikim ekonomijama?",
+              "aidCorridors": "Trebaju li sve zone sukoba s humanitarnim krizama civilnog stanovništva automatski pokrenuti međunarodno koordinirane koridore pomoći?",
+              "nationalSovereignty": "Podržavate li globalne političke okvire koji uravnotežuju nacionalni suverenitet s koordiniranim odgovorima na zajedničke izazove?",
+              "climateDisasters": "Trebaju li zemlje koje doživljavaju ekstremne vremenske katastrofe (npr. požari, poplave) dobiti prioritetnu financijsku pomoć iz globalnog klimatskog fonda?",
+              "aiSafety": "Trebaju li globalni AI developeri biti obvezni pauzirati treniranje modela snažnijih od trenutnih sustava dok se ne uspostave međunarodni sigurnosni sporazumi?",
+              "corporateTax": "Trebaju li korporacije koje posluju u više zemalja biti podložne jedinstvenom globalnom minimalnom poreznom stopom radi smanjenja nejednakosti?",
+              "spaceDebris": "Slažete li se da bi svemirske nacije i korporacije trebale biti zakonski obvezne ukloniti neaktivne satelite kako bi se smanjio orbitalni otpad?",
+              "digitalPrivacy": "Mislite li da je stvaranje univerzalnih standarda digitalne privatnosti ključno za zaštitu individualnih prava u sve povezanijem svijetu?",
+              "nuclearProliferation": "Vjerujete li da postojeće globalne mjere učinkovito smanjuju rizik od nuklearne proliferacije?",
+              "cybersecurity": "Jesu li trenutne međunarodne mjere kibernetičke sigurnosti dovoljne za zaštitu kritične globalne infrastrukture od rastućih cyber prijetnji?",
+              "globalAlliances": "Mislite li da će brza preraspodjela globalnih saveza dovesti do sigurnijeg međunarodnog poretka?",
+              "climateResilience": "Je li trenutni globalni pristup klimatskoj otpornosti dovoljan za suočavanje s povećanom učestalošću ekstremnih vremenskih događaja?",
+              "tradeTariffs": "Mislite li da će rastući trend uvođenja carina među velikim ekonomijama značajno narušiti globalnu trgovinsku stabilnost?",
+              "diseaseManagement": "Jeste li uvjereni u sposobnost svijeta da spriječi i upravlja novim zaraznim bolestima?",
+              "aiRegulation": "Trebaju li se uspostaviti obvezujući međunarodni propisi za upravljanje etičkim razvojem umjetne inteligencije?",
+              "spaceRegulation": "Trebaju li postojati obvezni međunarodni sporazumi za ograničavanje svemirskog otpada od satelita i raketa?",
+              "diplomaticDialogue": "Vjerujete li da održivi diplomatski dijalog među svjetskim čelnicima može pomoći smanjiti globalne napetosti?",
+              "migration": "Trebaju li bogate zemlje prihvatiti više migranata koji bježe od sukoba ili klimatskih katastrofa?",
+              "rareEarths": "Treba li dati prioritet međunarodnoj suradnji na rijetkim zemljanim mineralima radi poboljšanja globalne sigurnosti resursa?",
+              "cryptocurrency": "Trebaju li globalne vlasti uspostaviti jedinstvene standarde za regulaciju kriptovaluta i suzbijanje financijskog kriminala?",
+              "disinformation": "Mislite li da bi trebalo implementirati globalne mjere za suzbijanje širenja dezinformacija na internetu?",
+              "diseaseOutbreaks": "Trebaju li zemlje biti obvezne dijeliti podatke u stvarnom vremenu tijekom izbijanja bolesti kako bi se spriječile globalne zdravstvene krize?",
+              "militaryIntervention": "Trebaju li zemlje s naprednim vojnim sposobnostima intervenirati za deeskalaciju sukoba u regijama koje doživljavaju iznenadne izbijanje rata?",
+              "aiDevelopment": "Trebaju li vlade dati prioritet regulaciji razvoja umjetne inteligencije (AI) kako bi spriječile zlouporabu, čak i ako to usporava inovacije?",
+              "asteroidDefense": "Vjerujete li da bi vlade širom svijeta trebale povećati financiranje za praćenje svemira i istraživanje skretanja asteroida?",
+              "peaceNegotiations": "Trebaju li velike sile koje pregovaraju o mirovnim sporazumima biti obvezne uključiti zemlje izravno pogođene sukobom?",
+              "taiwanPolicy": "Trebaju li Sjedinjene Države zadržati svoju politiku 'strateške dvosmislenosti' o Tajvanu kako bi izbjegle eskalaciju napetosti s Kinom?"
+            }
+          }
+        },
+        "openLetters": {
+          "title": "Otvorena pisma",
+          "description": "Javne izjave donositeljima odluka",
+          "addNew": "Dodaj svoje otvoreno pismo",
+          "statements": {
+            "aiRisk": {
+              "title": "Izjava o AI riziku",
+              "referenceTitle": "Centar za AI sigurnost"
+            },
+            "nuclear": {
+              "title": "UN-ovo otvoreno pismo o zabrani nuklearnog oružja",
+              "referenceTitle": "Institut za budućnost života"
+            },
+            "autonomousWeapons": {
+              "title": "Zavjet o smrtonosnom autonomnom oružju",
+              "referenceTitle": "Institut za budućnost života"
+            },
+            "longView": {
+              "title": "Otvoreno pismo koje poziva svjetske čelnike da pokažu dugoročno vodstvo o egzistencijalnim prijetnjama",
+              "referenceTitle": "Institut za budućnost života"
+            }
+          }
+        },
+        "elections": {
+          "title": "Izbori",
+          "description": "Odaberite svoje predstavnike",
+          "worldConstituent": {
+            "title": "Izbori za Svjetsku ustavotvornu skupštinu"
+          }
+        },
+        "referendums": {
+          "title": "Referendumi",
+          "description": "Izravno glasanje o važnim pitanjima",
+          "worldConstitutional": {
+            "title": "Svjetski ustavni referendum"
+          }
+        }
+      }
+    },
+    "menu": {
+      "title": "Izbornik",
+      "sections": {
+        "experimental": {
+          "title": "EKSPERIMENTALNO",
+          "links": {
+            "verification": "Testovi verifikacije",
+            "language": "Jezik"
+          }
+        },
+        "connect": {
+          "title": "POVEZIVANJE",
+          "links": {
+            "community": "Zajednica",
+            "announcements": "Obavijesti",
+            "x": "X"
+          }
+        },
+        "help": {
+          "title": "POMOĆ",
+          "links": {
+            "faq": "Česta pitanja"
+          }
+        },
+        "code": {
+          "title": "KÔD",
+          "links": {
+            "app": "Aplikacija",
+            "contracts": "Pametni ugovori"
+          }
+        }
+      }
+    },
+    "faq": {
+      "title": "Česta pitanja",
+      "items": {
+        "appPurpose": {
+          "question": "Što je Svjetska Republika?",
+          "answer": "Svjetska Republika je otvorena, demokratska organizacija posvećena rješavanju najhitnijih globalnih izazova čovječanstva. Pruža okvir za kolektivno donošenje odluka o pitanjima koja se mogu učinkovito riješiti samo na globalnoj razini, poput AI rizika, klimatskih promjena ili biosigurnosti."
+        },
+        "basicIncome": {
+          "question": "Što je Temeljni dohodak?",
+          "answer": "Naš Temeljni dohodak je dnevna subvencija od 1 WDD (svjetska drahma) koja se pruža svim građanima Svjetske Republike. Akumulira se u stvarnom vremenu i može se preuzeti u bilo kojem trenutku putem aplikacije."
+        },
+        "basicIncomePlus": {
+          "question": "Kako aktivirati Temeljni dohodak Plus?",
+          "answer": "Temeljni dohodak Plus pruža dodatnih 10 WDD dnevno i dostupan je isključivo Orb-verificiranim korisnicima. Nakon aktivacije Temeljnog dohotka, vidjet ćete opciju za aktivaciju Temeljnog dohotka Plus na stranici Zarada."
+        },
+        "savings": {
+          "question": "Kako funkcionira Štedni račun?",
+          "answer": "Štedni račun vam omogućuje polaganje WDD tokena i zaradu godišnje kamate od 69%. Kroz stalno reinvestiranje zarađene kamate, korisnici mogu postići efektivne prinose blizu 100% godišnje, maksimizirajući rast svojih WDD-a tijekom vremena. Kamata se akumulira kontinuirano i može se povući ili reinvestirati u bilo kojem trenutku."
+        },
+        "referralCodes": {
+          "question": "Kako funkcioniraju referalni kodovi?",
+          "answer": "Kao građanin Svjetske Republike, možete zaraditi nagrade kroz naš referalni program. Podijelite svoj jedinstveni referalni link s prijateljima i dobit ćete 50 WDD za svaku osobu koja se pridruži i aktivira Temeljni dohodak Plus. Niste primili nagradu? Vaš prijatelj možda treba ručno pokrenuti to odabirom opcije 'Nagradi preporučitelja' u svojem referalnom odjeljku."
+        },
+        "drachmaValue": {
+          "question": "Odakle drahma dobiva svoju vrijednost?",
+          "answer": "Drahma dobiva svoju vrijednost kao službena valuta Svjetske Republike. Kako naša demokratska platforma globalnog upravljanja raste, WDD ima potencijal postati značajno sredstvo razmjene u svjetskoj ekonomiji i mogao bi eventualno igrati ulogu u pravednoj raspodjeli koristi od tehnoloških napredaka i globalnih resursa."
+        },
+        "topWallets": {
+          "question": "Tko kontrolira najveće račune?",
+          "answer": "Tri najveća računa su <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>Riznica Svjetske Republike</a>, <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Fond Temeljnog dohotka</a> i <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Fond Temeljnog dohotka Plus</a>. Trenutno njima upravlja osnivač projekta, ali kontrola će biti prenesena na zajednicu nakon ratifikacije našeg ustava. Ostale ključne adrese uključuju <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>ugovor Štednog računa</a>, <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>distributor Referalnih nagrada</a> i likvidnosne poolove: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a> i <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
+        },
+        "voteRequirements": {
+          "question": "Koji su uvjeti za predlaganje glasanja?",
+          "answer": "Trenutne ankete i otvorena pisma su samo pokazni primjer. Naša zajednica će kolektivno odlučiti o našem sustavu upravljanja kroz proces ustavnog dizajna koji vodi Ustavotvorna skupština izabrana u Q2 2025."
+        }
+      }
+    },
+    "language": {
+      "title": "Jezik",
+      "options": {
+        "english": "English",
+        "spanish": "Español",
+        "croatian": "Hrvatski"
+      }
+    },
+    "verification": {
+      "title": "Testovi verifikacije",
+      "levels": {
+        "device": {
+          "title": "Verifikacija uređaja",
+          "description": "Osnovna verifikacija pomoću uređaja.",
+          "buttonText": "Testiraj verifikaciju uređaja"
+        },
+        "document": {
+          "title": "Verifikacija dokumenta",
+          "description": "Verifikacija pomoću osobnih dokumenata.",
+          "buttonText": "Testiraj verifikaciju dokumenta"
+        },
+        "secureDocument": {
+          "title": "Sigurna verifikacija dokumenta",
+          "description": "Poboljšana verifikacija pomoću sigurnih osobnih dokumenata.",
+          "buttonText": "Testiraj sigurnu verifikaciju dokumenta"
+        },
+        "orb": {
+          "title": "Orb verifikacija",
+          "description": "Najviša sigurnost pomoću Orb biometrijske verifikacije.",
+          "buttonText": "Testiraj Orb verifikaciju"
+        }
+      }
+    }
+  }
+}

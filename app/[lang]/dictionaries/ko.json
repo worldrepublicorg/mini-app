@@ -1,0 +1,456 @@
+{
+  "components": {
+    "walletAuth": {
+      "connect": "지갑 연결하기"
+    },
+    "verifyButton": {
+      "verify": "인증 후 수령하기"
+    },
+    "pollOfTheDay": {
+      "previousPolls": "이전 투표",
+      "vote": "투표하기",
+      "polls": {
+        "dataSovereignty": "전 세계적으로 생성되는 데이터를 디지털 주권이라는 통합된 프레임워크로 보호하기 위한 국제 지침이 마련되어야 할까요?",
+        "biotech": "생명공학 기술의 윤리적 사용과 안전을 보장하기 위한 글로벌 규제 체계가 필요할까요?",
+        "spaceMilitarization": "우주의 평화적 이용을 보장하고 군사화를 방지하기 위한 국제 협약이 필요할까요?",
+        "nuclearSecurity": "분쟁 지역의 핵시설 보안을 위한 구속력 있는 국제 협약이 수립되어야 할까요?",
+        "fourDayWeek": "주 4일 근무제를 표준 고용 모델로 채택하려는 세계적 움직임에 동의하시나요?"
+      }
+    },
+    "stakeForm": {
+      "deposit": "예치",
+      "withdraw": "출금",
+      "balance": "잔액:",
+      "depositPlaceholder": "예치할 금액",
+      "withdrawPlaceholder": "출금할 금액",
+      "max": "최대",
+      "interest": "이자:",
+      "collect": "수령",
+      "depositButton": "드라크마 예치",
+      "withdrawButton": "드라크마 출금"
+    },
+    "toasts": {
+      "wallet": {
+        "connectInWorldApp": "월드 앱에서 지갑을 연결해주세요.",
+        "stakingError": "토큰 스테이킹 중 오류가 발생했습니다",
+        "withdrawError": "토큰 출금 중 오류가 발생했습니다",
+        "collectError": "리워드 수령 중 오류가 발생했습니다"
+      },
+      "referral": {
+        "pendingReward": "{{username}}님의 리워드를 처리하는 중입니다...",
+        "rewardSuccess": "{{username}}님에게 리워드가 지급되었습니다!",
+        "sendingReward": "{{username}}님에게 50 WDD 리워드를 전송 중입니다..."
+      },
+      "basicIncome": {
+        "setupSuccess": "베이직 인컴 플러스가 활성화되었습니다! {{username}}님의 리워드를 준비하는 중입니다...",
+        "setupWithReferrer": "베이직 인컴 플러스를 먼저 설정한 후, {{username}}님에게 리워드를 지급하겠습니다...",
+        "error": "베이직 인컴 활성화 중 오류가 발생했습니다",
+        "errorPlus": "베이직 인컴 플러스 활성화 중 오류가 발생했습니다"
+      },
+      "transaction": {
+        "error": "예기치 않은 오류가 발생했습니다",
+        "errorClaim": "청구 중 예기치 않은 오류가 발생했습니다"
+      }
+    },
+    "comingSoonDrawer": {
+      "title": "출시 예정",
+      "description": "이 기능은 현재 개발 중입니다. 조금만 기다려 주세요!"
+    },
+    "tabSwiper": {
+      "tabs": {
+        "polls": "투표",
+        "openLetters": "공개 서한",
+        "elections": "선거",
+        "referendums": "국민투표"
+      }
+    }
+  },
+  "pages": {
+    "earn": {
+      "title": "수입",
+      "tabs": {
+        "tabNames": {
+          "basicIncome": "기본소득",
+          "savings": "저축",
+          "contribute": "기여",
+          "invite": "초대"
+        },
+        "basicIncome": {
+          "tabTitle": "기본소득",
+          "title": "기본소득",
+          "subtitle": "로그인하여 기본소득을 받으세요",
+          "setupSubtitle": "기본소득 설정하기",
+          "claimableSubtitle": "받을 수 있는 드라크마",
+          "activateButton": "기본소득 활성화",
+          "claimButton": "받기",
+          "plus": {
+            "title": "기본소득 플러스",
+            "newBadge": "신규",
+            "drawerTrigger": "기본소득 플러스 소개",
+            "subtitle": "인증된 사용자를 위한 추가 수입",
+            "drawer": {
+              "title": "기본소득 플러스",
+              "subtitle": "인증된 사용자를 위한 추가 수입",
+              "features": {
+                "rate": {
+                  "title": "하루 추가 10 WDD"
+                },
+                "verification": {
+                  "title": "공정한 분배를 위해 Orb 인증 사용자 전용"
+                },
+                "rewards": {
+                  "title": "총 11 WDD/일을 유지하면서 시간이 지남에 따라 플러스로 전환"
+                }
+              },
+              "activateButton": "기본소득 플러스 활성화",
+              "claimButton": "기본소득 플러스 받기",
+              "claimBasicButton": "기본소득 받기"
+            }
+          }
+        },
+        "savings": {
+          "tabTitle": "저축",
+          "title": "저축 계좌",
+          "subtitle": "매초마다 이자 획득",
+          "tooltip": "기본 연이율 69%. 이자를 수령하고 재투자하면 연간 실효 수익률 100%에 근접. 언제든지 출금 가능."
+        },
+        "invite": {
+          "title": "초대",
+          "subtitle": "친구 한 명당 50 WDD 획득",
+          "tooltip": "친구가 베이직 인컴 플러스를 활성화하면 리워드를 받을 수 있습니다.",
+          "learnMore": "자세히 알아보기",
+          "stats": {
+            "title": "나의 추천 현황",
+            "invites": "수락된 초대",
+            "rewards": "총 리워드"
+          },
+          "actions": {
+            "copyLink": "추천 링크 복사",
+            "copied": "추천 링크가 클립보드에 복사되었습니다!",
+            "connectWallet": "추천 링크를 생성하려면 지갑을 연결해주세요",
+            "rewardReferrer": "추천인 보상"
+          },
+          "drawer": {
+            "title": "추천인 보상",
+            "subtitle": "추천인에게 50 WDD 무료 리워드 지급",
+            "invitedBy": "추천인: {{username}}",
+            "input": {
+              "placeholder": "사용자 이름 입력 (예: username.0000)",
+              "lookupButton": "사용자 검색",
+              "sendingTo": "리워드 전송 대상:",
+              "editButton": "수정",
+              "sendButton": "리워드 전송"
+            },
+            "errors": {
+              "enterUsername": "사용자 이름을 입력해주세요",
+              "usernameNotFound": "존재하지 않는 사용자입니다",
+              "lookupFailed": "사용자 검색에 실패했습니다. 다시 시도해주세요.",
+              "installMiniKit": "사용자 검색을 위해 MiniKit을 설치해주세요",
+              "connectWallet": "먼저 지갑을 연결해주세요",
+              "transactionCanceled": "거래가 취소되었습니다"
+            },
+            "success": {
+              "rewardSent": "{{username}}님에게 리워드를 성공적으로 전송했습니다!"
+            }
+          }
+        },
+        "contribute": {
+          "title": "기여",
+          "subtitle": "참여하고 보상받기",
+          "contests": {
+            "weekly": "주간",
+            "topPrize": "최고 상금",
+            "xPost": {
+              "title": "X 포스트 콘테스트",
+              "description": "매력적인 게시물을 작성하고 상금을 받으세요"
+            },
+            "poll": {
+              "title": "투표 콘테스트",
+              "description": "커뮤니티 의견을 수집하고 보상받기"
+            },
+            "pollContest": {
+              "title": "투표 콘테스트",
+              "weeklyTitle": "주간 투표 콘테스트",
+              "description": "커뮤니티 의견을 수집하고 보상받기",
+              "prizes": {
+                "title": "상금",
+                "viewWinners": "지난 우승자 보기",
+                "wdd": "WDD"
+              },
+              "howTo": {
+                "title": "참여 방법",
+                "steps": {
+                  "step1": {
+                    "number": "1",
+                    "text": "월드 리퍼블릭이나 글로벌 거버넌스와 관련된 투표 만들기"
+                  },
+                  "step2": {
+                    "number": "2",
+                    "text": "인증된 사용자만 투표할 수 있도록 설정하기"
+                  },
+                  "step3": {
+                    "number": "3",
+                    "text": "우리의",
+                    "link": {
+                      "text": "투표 콘테스트 텔레그램 채널",
+                      "url": "https://t.me/worldrepubliccommunity/32368"
+                    }
+                  }
+                }
+              },
+              "rules": {
+                "title": "콘테스트 규칙",
+                "list": {
+                  "rule1": "해당 주에 시작된 투표만 참여 가능",
+                  "rule2": "총 투표 수에 따라 우승자 선정",
+                  "rule3": "매주 일요일 오후 11시 59분(UTC) 종료"
+                }
+              },
+              "cta": {
+                "create": "투표 만들기",
+                "submit": "투표 제출하기"
+              },
+              "winners": {
+                "title": "콘테스트 우승자",
+                "weekOf": "해당 주",
+                "votes": "투표"
+              }
+            }
+          },
+          "earlyAccess": {
+            "title": "얼리 액세스 프로그램",
+            "description": "출시 예정 기능을 테스트하고 WDD 획득하기"
+          },
+          "xContest": {
+            "title": "X 포스트 콘테스트",
+            "weeklyTitle": "주간 X 포스트 콘테스트",
+            "description": "매력적인 게시물을 작성하고 상금을 받으세요",
+            "prizes": {
+              "title": "상금",
+              "viewWinners": "지난 우승자 보기",
+              "wdd": "WDD"
+            },
+            "howTo": {
+              "title": "참여 방법",
+              "step1": "월드 리퍼블릭에 대한 X 포스트 작성하기",
+              "step2": "@WorldRepublicEN 태그하기",
+              "step3": {
+                "prefix": "게시물 링크를 우리의",
+                "link": "X 포스트 콘테스트 텔레그램 채널에 공유하기"
+              }
+            },
+            "rules": {
+              "title": "콘테스트 규칙",
+              "rule1": "해당 주에 게시된 포스트만 참여 가능",
+              "rule2": "총 참여도(좋아요 + 리포스트 + 댓글)에 따라 우승자 선정",
+              "rule3": "매주 일요일 오후 11시 59분(UTC) 종료"
+            },
+            "cta": {
+              "post": "지금 포스팅 시작하기",
+              "submit": "포스트 제출하기"
+            },
+            "winners": {
+              "title": "콘테스트 우승자",
+              "weekOf": "해당 주",
+              "engagements": "참여도"
+            }
+          }
+        }
+      }
+    },
+    "govern": {
+      "title": "거버넌스",
+      "tabs": {
+        "polls": "투표",
+        "openLetters": "공개 서한",
+        "elections": "선거",
+        "referendums": "국민투표"
+      },
+      "sections": {
+        "polls": {
+          "title": "오늘의 투표",
+          "description": "현안에 대한 신속한 투표",
+          "previous": {
+            "title": "이전 투표",
+            "backToGovern": "거버넌스로 돌아가기",
+            "polls": {
+              "dataSovereignty": "전 세계적으로 생성되는 데이터를 디지털 주권이라는 통합된 프레임워크로 보호하기 위한 국제 지침이 마련되어야 할까요?",
+              "fourDayWeek": "주 4일 근무제를 표준 고용 모델로 채택하려는 세계적 움직임에 동의하시나요?",
+              "nuclearSecurity": "분쟁 지역의 핵시설 보안을 위한 구속력 있는 국제 협약이 수립되어야 할까요?",
+              "aviationResilience": "국제 항공 인프라가 예기치 않은 대규모 혼란에 대처할 만큼 충분히 탄력적입니까?",
+              "waterResources": "전 세계적인 물 부족 현상이 심화되는 가운데, 국가 간 수자원 공동 관리를 위한 협력 체계를 구축해야 할까요?",
+              "maternalHealth": "국제 원조 중단 시기에도 모자 보건을 보호하기 위한 전용 글로벌 의료 지원 예비금이 마련되어야 할까요?",
+              "marsMission": "화성 탐사를 위한 국가 간 공동 심우주 미션에 찬성하시나요?",
+              "globalRecession": "현재의 세계 경제 동향이 주요 경제국들의 동시다발적 경기 침체 위험을 시사한다고 생각하시나요?",
+              "aidCorridors": "민간인 인도주의적 위기가 발생한 모든 분쟁 지역에 대해 자동으로 국제 조율된 원조 통로가 개설되어야 할까요?",
+              "nationalSovereignty": "공동의 과제에 대한 조율된 대응과 국가 주권의 균형을 맞추는 글로벌 정책 프레임워크를 지지하시나요?",
+              "climateDisasters": "극심한 기상 재해(예: 산불, 홍수)를 겪는 국가들이 글로벌 기후 기금으로부터 우선적인 재정 지원을 받아야 할까요?",
+              "aiSafety": "국제 안전 협약이 수립될 때까지 글로벌 AI 개발자들이 현재 시스템보다 더 강력한 모델의 학습을 중단해야 할까요?",
+              "corporateTax": "불평등 해소를 위해 다국적 기업들에게 통일된 글로벌 최저 법인세율을 적용해야 할까요?",
+              "spaceDebris": "우주 궤도 잔해물 감소를 위해 우주 개발 국가와 기업들이 폐기된 위성을 의무적으로 제거해야 한다는 데 동의하시나요?",
+              "digitalPrivacy": "점점 더 연결되는 세계에서 개인의 권리를 보호하기 위해 보편적인 디지털 프라이버시 표준을 만드는 것이 중요하다고 생각하시나요?",
+              "nuclearProliferation": "현재의 글로벌 조치들이 핵확산 위험을 효과적으로 줄이고 있다고 생각하시나요?",
+              "cybersecurity": "현재의 국제 사이버보안 조치들이 증가하는 사이버 위협으로부터 중요 글로벌 인프라를 보호하기에 충분하다고 보시나요?",
+              "globalAlliances": "글로벌 동맹의 급격한 재편이 더 안전한 국제 질서로 이어질 것이라고 생각하시나요?",
+              "climateResilience": "증가하는 극단적 기상 현상에 대처하기 위한 현재의 글로벌 기후 회복력 접근 방식이 충분하다고 보시나요?",
+              "tradeTariffs": "주요 경제국들 간의 관세 부과 증가 추세가 글로벌 무역 안정성을 크게 저해할 것이라고 생각하시나요?",
+              "diseaseManagement": "신종 감염병의 예방과 관리에 대한 세계의 능력을 신뢰하시나요?",
+              "aiRegulation": "AI의 윤리적 개발을 관리하기 위한 구속력 있는 국제 규제가 수립되어야 할까요?",
+              "spaceRegulation": "위성과 로켓에서 발생하는 우주 잔해물을 제한하기 위한 의무적인 국제 협약이 필요할까요?",
+              "diplomaticDialogue": "세계 지도자들 간의 지속적인 외교적 대화가 글로벌 긴장 완화에 도움이 될 것이라고 생각하시나요?",
+              "migration": "부유한 국가들이 분쟁이나 기후 재난을 피해 온 이주민들을 더 많이 받아들여야 할까요?",
+              "rareEarths": "글로벌 자원 안보 강화를 위해 희토류 광물에 대한 국제 협력이 우선시되어야 할까요?",
+              "cryptocurrency": "금융 범죄 근절을 위해 글로벌 당국이 암호화폐에 대한 통일된 규제 기준을 수립해야 할까요?",
+              "disinformation": "온라인 허위정보 확산을 막기 위한 글로벌 차원의 조치가 필요하다고 생각하시나요?",
+              "diseaseOutbreaks": "글로벌 보건 위기 예방을 위해 질병 발생 시 국가들이 실시간 데이터를 공유하도록 의무화해야 할까요?",
+              "militaryIntervention": "갑작스러운 전쟁이 발생한 지역의 분쟁 완화를 위해 군사력이 발달한 국가들이 개입해야 할까요?",
+              "aiDevelopment": "혁신이 늦춰지더라도 정부가 AI 개발의 오남용 방지를 위한 규제를 우선시해야 할까요?",
+              "asteroidDefense": "각국 정부가 우주 감시와 소행성 궤도 변경 연구에 대한 자금 지원을 늘려야 한다고 생각하시나요?",
+              "peaceNegotiations": "평화 협정 협상 시 주요 강대국들이 분쟁 당사국들을 반드시 포함시켜야 할까요?",
+              "taiwanPolicy": "미국이 중국과의 긴장 고조를 피하기 위해 대만에 대한 '전략적 모호성' 정책을 유지해야 할까요?"
+            }
+          }
+        },
+        "openLetters": {
+          "title": "공개 서한",
+          "description": "의사 결정자들에 대한 공개 성명",
+          "addNew": "공개 서한 작성하기",
+          "statements": {
+            "aiRisk": {
+              "title": "AI 위험성에 관한 성명",
+              "referenceTitle": "AI 안전 센터"
+            },
+            "nuclear": {
+              "title": "UN 핵무기 금지에 관한 공개 서한",
+              "referenceTitle": "생명의 미래 연구소"
+            },
+            "autonomousWeapons": {
+              "title": "치명적 자율무기 반대 서약",
+              "referenceTitle": "생명의 미래 연구소"
+            },
+            "longView": {
+              "title": "실존적 위협에 대한 장기적 리더십을 보여줄 것을 촉구하는 공개 서한",
+              "referenceTitle": "생명의 미래 연구소"
+            }
+          }
+        },
+        "elections": {
+          "title": "선거",
+          "description": "대표자 선출",
+          "worldConstituent": {
+            "title": "세계 제헌의회 선거"
+          }
+        },
+        "referendums": {
+          "title": "국민투표",
+          "description": "중요 사안에 대한 직접 투표",
+          "worldConstitutional": {
+            "title": "세계 헌법 국민투표"
+          }
+        }
+      }
+    },
+    "menu": {
+      "title": "메뉴",
+      "sections": {
+        "experimental": {
+          "title": "실험 기능",
+          "links": {
+            "verification": "인증 테스트",
+            "language": "언어"
+          }
+        },
+        "connect": {
+          "title": "연결",
+          "links": {
+            "community": "커뮤니티",
+            "announcements": "공지사항",
+            "x": "X"
+          }
+        },
+        "help": {
+          "title": "도움말",
+          "links": {
+            "faq": "자주 묻는 질문"
+          }
+        },
+        "code": {
+          "title": "코드",
+          "links": {
+            "app": "앱",
+            "contracts": "스마트 컨트랙트"
+          }
+        }
+      }
+    },
+    "faq": {
+      "title": "자주 묻는 질문",
+      "items": {
+        "appPurpose": {
+          "question": "월드 리퍼블릭이란 무엇인가요?",
+          "answer": "월드 리퍼블릭은 인류의 가장 시급한 글로벌 과제 해결을 위해 헌신하는 개방적이고 민주적인 조직입니다. AI 위험, 기후 변화, 생물안보와 같이 글로벌 차원에서만 효과적으로 다룰 수 있는 문제들에 대한 집단적 의사결정 프레임워크를 제공합니다."
+        },
+        "basicIncome": {
+          "question": "기본소득이란 무엇인가요?",
+          "answer": "저희의 기본소득은 월드 리퍼블릭의 모든 시민에게 제공되는 1 WDD(월드 드라크마)의 일일 보조금입니다. 실시간으로 누적되며 앱을 통해 언제든지 청구할 수 있습니다."
+        },
+        "basicIncomePlus": {
+          "question": "기본소득 플러스는 어떻게 활성화하나요?",
+          "answer": "기본소득 플러스는 하루 추가 10 WDD를 제공하며 Orb 인증을 받은 사용자만 이용할 수 있습니다. 기본소득을 활성화한 후 수입 페이지에서 기본소득 플러스 활성화 옵션을 확인할 수 있습니다."
+        },
+        "savings": {
+          "question": "저축 계좌는 어떻게 작동하나요?",
+          "answer": "저축 계좌에 WDD 토큰을 예치하면 연 69%의 이자를 받을 수 있습니다. 발생한 이자를 지속적으로 재투자하면 연간 실효 수익률이 100%에 가까워져 시간이 지날수록 WDD가 최대한 증가합니다. 이자는 계속 누적되며 언제든지 출금하거나 재투자할 수 있습니다."
+        },
+        "referralCodes": {
+          "question": "추천 코드는 어떻게 작동하나요?",
+          "answer": "월드 리퍼블릭 시민으로서 추천 프로그램을 통해 리워드를 받을 수 있습니다. 고유한 추천 링크를 친구들과 공유하면, 가입하고 기본소득 플러스를 활성화한 사람당 50 WDD를 받게 됩니다. 리워드를 받지 못하셨나요? 친구가 자신의 추천 섹션에서 '추천인 보상' 옵션을 선택하여 수동으로 트리거해야 할 수 있습니다."
+        },
+        "drachmaValue": {
+          "question": "드라크마는 어디서 가치를 얻나요?",
+          "answer": "드라크마는 월드 리퍼블릭의 공식 화폐로서 가치를 얻습니다. 우리의 민주적 글로벌 거버넌스 플랫폼이 성장함에 따라 WDD는 세계 경제에서 중요한 교환 수단이 될 잠재력이 있으며, 궁극적으로 기술 발전과 글로벌 자원의 혜택을 공평하게 분배하는 데 역할을 할 수 있습니다."
+        },
+        "topWallets": {
+          "question": "가장 큰 계정들은 누가 관리하나요?",
+          "answer": "세 개의 최대 계정은 <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>월드 리퍼블릭 재무부</a>, <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>기본소득 기금</a>, <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>기본소득 플러스 기금</a>입니다. 현재는 프로젝트 창립자가 관리하고 있지만, 헌법이 비준된 후에는 커뮤니티로 관리권이 이전될 예정입니다. 기타 주요 주소로는 <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>저축 계좌 컨트랙트</a>, <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>추천 리워드 분배자</a>, 그리고 유동성 풀: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>가 있습니다."
+        },
+        "voteRequirements": {
+          "question": "투표를 제안하기 위한 요건은 무엇인가요?",
+          "answer": "현재의 투표와 공개 서한은 단순한 시연용입니다. 우리 커뮤니티는 2025년 2분기에 선출될 제헌의회가 주도하는 헌법 설계 과정을 통해 거버넌스 시스템을 공동으로 결정하게 됩니다."
+        }
+      }
+    },
+    "language": {
+      "title": "언어",
+      "options": {
+        "english": "English",
+        "spanish": "Español"
+      }
+    },
+    "verification": {
+      "title": "인증 테스트",
+      "levels": {
+        "device": {
+          "title": "기기 인증",
+          "description": "기기를 사용한 기본 인증",
+          "buttonText": "기기 인증 테스트"
+        },
+        "document": {
+          "title": "신분증 인증",
+          "description": "신분증을 사용한 인증",
+          "buttonText": "신분증 인증 테스트"
+        },
+        "secureDocument": {
+          "title": "보안 신분증 인증",
+          "description": "보안 신분증을 사용한 고급 인증",
+          "buttonText": "보안 신분증 인증 테스트"
+        },
+        "orb": {
+          "title": "Orb 인증",
+          "description": "Orb 생체 인증을 사용한 최고 수준의 보안",
+          "buttonText": "Orb 인증 테스트"
+        }
+      }
+    }
+  }
+}

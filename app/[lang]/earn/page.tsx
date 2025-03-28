@@ -2200,12 +2200,13 @@ export default function EarnPage({
             {
               key: "Basic income",
               label:
-                dictionary?.pages?.earn?.tabs?.basicIncome?.title ??
-                "Basic Income",
+                dictionary?.pages?.earn?.tabs?.basicIncome?.tabTitle ??
+                "Basic income",
             },
             {
               key: "Savings",
-              label: dictionary?.pages?.earn?.tabs?.savings?.title ?? "Savings",
+              label:
+                dictionary?.pages?.earn?.tabs?.savings?.tabTitle ?? "Savings",
             },
             {
               key: "Contribute",

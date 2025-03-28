@@ -4,7 +4,7 @@ import { match } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
 
 // Add your supported locales here
-const locales = ["en", "es", "fr"];
+const locales = ["en", "es", "pt", "hr", "ja", "ms", "fil", "ko"];
 const defaultLocale = "en";
 
 function getLocale(request: NextRequest): string {
@@ -19,6 +19,17 @@ function getLocale(request: NextRequest): string {
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
+
+  // Skip if the request is for an asset or API route
+  if (
+    pathname.startsWith("/_next") ||
+    pathname.startsWith("/api/") ||
+    pathname.includes(".")
+  ) {
+    return;
+  }
+
+  // Check if the pathname is missing a locale
   const pathnameIsMissingLocale = locales.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   );
@@ -26,13 +37,17 @@ export function middleware(request: NextRequest) {
   // Redirect if there is no locale
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request);
-    return NextResponse.redirect(new URL(`/${locale}${pathname}`, request.url));
+    return NextResponse.redirect(
+      new URL(`/${locale}${pathname === "/" ? "" : pathname}`, request.url)
+    );
   }
 }
 
 export const config = {
   matcher: [
     // Skip all internal paths (_next)
-    "/((?!_next|api|_vercel|.*\\..*).*)",
+    "/((?!_next|api|.*\\.).*)",
+    // Optional: Match all root level pages
+    "/",
   ],
 };

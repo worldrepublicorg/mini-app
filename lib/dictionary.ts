@@ -1,11 +1,55 @@
 // This file is for client components
 const dictionaries = {
+  ar: () =>
+    import("@/app/[lang]/dictionaries/ar.json").then(
+      (module) => module.default
+    ),
+  bn: () =>
+    import("@/app/[lang]/dictionaries/bn.json").then(
+      (module) => module.default
+    ),
+  zh: () =>
+    import("@/app/[lang]/dictionaries/zh.json").then(
+      (module) => module.default
+    ),
   en: () =>
     import("@/app/[lang]/dictionaries/en.json").then(
       (module) => module.default
     ),
   es: () =>
     import("@/app/[lang]/dictionaries/es.json").then(
+      (module) => module.default
+    ),
+  fil: () =>
+    import("@/app/[lang]/dictionaries/fil.json").then(
+      (module) => module.default
+    ),
+  hi: () =>
+    import("@/app/[lang]/dictionaries/hi.json").then(
+      (module) => module.default
+    ),
+  hr: () =>
+    import("@/app/[lang]/dictionaries/hr.json").then(
+      (module) => module.default
+    ),
+  ja: () =>
+    import("@/app/[lang]/dictionaries/ja.json").then(
+      (module) => module.default
+    ),
+  ko: () =>
+    import("@/app/[lang]/dictionaries/ko.json").then(
+      (module) => module.default
+    ),
+  ms: () =>
+    import("@/app/[lang]/dictionaries/ms.json").then(
+      (module) => module.default
+    ),
+  pt: () =>
+    import("@/app/[lang]/dictionaries/pt.json").then(
+      (module) => module.default
+    ),
+  ru: () =>
+    import("@/app/[lang]/dictionaries/ru.json").then(
       (module) => module.default
     ),
 };
