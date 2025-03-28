@@ -160,6 +160,39 @@
           }
         }
       }
+    },
+    "menu": {
+      "title": "Menú",
+      "sections": {
+        "experimental": {
+          "title": "EXPERIMENTAL",
+          "links": {
+            "verification": "Pruebas de verificación",
+            "language": "Idioma"
+          }
+        },
+        "connect": {
+          "title": "CONECTAR",
+          "links": {
+            "community": "Comunidad",
+            "announcements": "Anuncios",
+            "x": "X"
+          }
+        },
+        "help": {
+          "title": "AYUDA",
+          "links": {
+            "faq": "Preguntas frecuentes"
+          }
+        },
+        "code": {
+          "title": "CÓDIGO",
+          "links": {
+            "app": "Aplicación",
+            "contracts": "Contratos inteligentes"
+          }
+        }
+      }
     }
   }
 }

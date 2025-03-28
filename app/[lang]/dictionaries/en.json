@@ -165,6 +165,39 @@
           "referendums": "Referendums"
         }
       }
+    },
+    "menu": {
+      "title": "Menu",
+      "sections": {
+        "experimental": {
+          "title": "EXPERIMENTAL",
+          "links": {
+            "verification": "Verification tests",
+            "language": "Language"
+          }
+        },
+        "connect": {
+          "title": "CONNECT",
+          "links": {
+            "community": "Community",
+            "announcements": "Announcements",
+            "x": "X"
+          }
+        },
+        "help": {
+          "title": "HELP",
+          "links": {
+            "faq": "FAQ"
+          }
+        },
+        "code": {
+          "title": "CODE",
+          "links": {
+            "app": "App",
+            "contracts": "Smart contracts"
+          }
+        }
+      }
     }
   }
 }
