@@ -52,6 +52,10 @@ const dictionaries = {
     import("@/app/[lang]/dictionaries/ru.json").then(
       (module) => module.default
     ),
+  id: () =>
+    import("@/app/[lang]/dictionaries/id.json").then(
+      (module) => module.default
+    ),
 };
 
 export const getClientDictionary = async (locale: string) => {

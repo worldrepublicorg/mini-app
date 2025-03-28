@@ -14,6 +14,7 @@ const dictionaries = {
   ms: () => import("./ms.json").then((module) => module.default),
   pt: () => import("./pt.json").then((module) => module.default),
   ru: () => import("./ru.json").then((module) => module.default),
+  id: () => import("./id.json").then((module) => module.default),
 };
 
 export const getDictionary = async (locale: string) => {

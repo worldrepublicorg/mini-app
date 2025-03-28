@@ -15,22 +15,26 @@ export default function LanguagePage({
   const dictionary = useTranslations(lang);
 
   const languages = [
-    { code: "ar", label: "العربية" },
-    { code: "bn", label: "বাংলা" },
-    { code: "zh", label: "中文" },
+    { code: "ar", label: "العربية - Arabic" },
+    { code: "bn", label: "বাংলা - Bengali" },
+    { code: "zh", label: "中文 - Chinese" },
     { code: "en", label: "English" },
     { code: "fil", label: "Filipino" },
-    { code: "hi", label: "हिन्दी" },
-    { code: "hr", label: "Hrvatski" },
-    { code: "ja", label: "日本語" },
-    { code: "ko", label: "한국어" },
-    { code: "ms", label: "Bahasa Melayu" },
-    { code: "pt", label: "Português" },
-    { code: "ru", label: "Русский" },
-    { code: "es", label: "Español" },
-  ].sort((a, b) =>
-    a.label.localeCompare(b.label, undefined, { sensitivity: "base" })
-  );
+    { code: "hi", label: "हिन्दी - Hindi" },
+    { code: "hr", label: "Hrvatski - Croatian" },
+    { code: "ja", label: "日本語 - Japanese" },
+    { code: "ko", label: "한국어 - Korean" },
+    { code: "ms", label: "Bahasa Melayu - Malay" },
+    { code: "pt", label: "Português - Portuguese" },
+    { code: "ru", label: "Русский - Russian" },
+    { code: "es", label: "Español - Spanish" },
+    { code: "id", label: "Bahasa Indonesia - Indonesian" },
+  ].sort((a, b) => {
+    // Extract the English name after the hyphen, or use the full label if no hyphen exists
+    const aName = a.label.split(" - ")[1] || a.label;
+    const bName = b.label.split(" - ")[1] || b.label;
+    return aName.localeCompare(bName);
+  });
 
   return (
     <div className="flex flex-col px-6 pb-20">
