@@ -23,6 +23,12 @@
       "withdrawButton": "Withdraw Drachma"
     },
     "toasts": {
+      "wallet": {
+        "connectInWorldApp": "Please open this app in the World App to connect your wallet.",
+        "stakingError": "Error staking tokens",
+        "withdrawError": "Error withdrawing tokens",
+        "collectError": "Error collecting rewards"
+      },
       "referral": {
         "pendingReward": "Processing pending reward for {{username}}...",
         "rewardSuccess": "Successfully rewarded {{username}}!",

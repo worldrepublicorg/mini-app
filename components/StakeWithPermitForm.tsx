@@ -62,7 +62,8 @@ export function StakeWithPermitForm({
   const handleStake = async () => {
     if (!MiniKit.isInstalled()) {
       showToast(
-        "Please open this app in the World App to connect your wallet.",
+        dictionary?.components?.toasts?.wallet?.connectInWorldApp ??
+          "Please open this app in the World App to connect your wallet.",
         "error"
       );
       return;
@@ -134,7 +135,9 @@ export function StakeWithPermitForm({
         console.error("Transaction error.");
         if (finalPayload.error_code !== "user_rejected") {
           const errorMessage =
-            (finalPayload as any).description || "Error staking tokens";
+            (finalPayload as any).description ||
+            (dictionary?.components?.toasts?.wallet?.stakingError ??
+              "Error staking tokens");
           showToast(errorMessage, "error");
         }
         setIsSubmitting(false);
@@ -154,7 +157,8 @@ export function StakeWithPermitForm({
   const handleWithdraw = async () => {
     if (!MiniKit.isInstalled()) {
       showToast(
-        "Please open this app in the World App to connect your wallet.",
+        dictionary?.components?.toasts?.wallet?.connectInWorldApp ??
+          "Please open this app in the World App to connect your wallet.",
         "error"
       );
       return;
@@ -196,7 +200,9 @@ export function StakeWithPermitForm({
         console.error("Withdraw transaction error. See console for details.");
         if (finalPayload.error_code !== "user_rejected") {
           const errorMessage =
-            (finalPayload as any).description || "Error withdrawing tokens";
+            (finalPayload as any).description ||
+            (dictionary?.components?.toasts?.wallet?.withdrawError ??
+              "Error withdrawing tokens");
           showToast(errorMessage, "error");
         }
         setIsSubmitting(false);
@@ -216,7 +222,8 @@ export function StakeWithPermitForm({
   const handleCollect = async () => {
     if (!MiniKit.isInstalled()) {
       showToast(
-        "Please open this app in the World App to connect your wallet.",
+        dictionary?.components?.toasts?.wallet?.connectInWorldApp ??
+          "Please open this app in the World App to connect your wallet.",
         "error"
       );
       return;
@@ -241,7 +248,9 @@ export function StakeWithPermitForm({
         console.error("Redeem transaction error. See console for details.");
         if (finalPayload.error_code !== "user_rejected") {
           const errorMessage =
-            (finalPayload as any).description || "Error collecting rewards";
+            (finalPayload as any).description ||
+            (dictionary?.components?.toasts?.wallet?.collectError ??
+              "Error collecting rewards");
           showToast(errorMessage, "error");
         }
         setIsCollecting(false);
