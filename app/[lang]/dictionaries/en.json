@@ -37,15 +37,25 @@
           "plus": {
             "title": "Basic Income Plus",
             "newBadge": "New",
+            "drawerTrigger": "Introducing Basic Income Plus",
             "subtitle": "Extra income for verified users",
             "drawer": {
-              "title": "Introducing Basic Income Plus",
+              "title": "Basic Income Plus",
+              "subtitle": "Extra income for verified users",
               "features": {
-                "rate": "An additional 10 WDD per day",
-                "verification": "Exclusive to Orb-verified users to ensure fair distribution",
-                "rewards": "Rewards shift to Plus over time while keeping total at 11 WDD/day"
+                "rate": {
+                  "title": "An additional 10 WDD per day"
+                },
+                "verification": {
+                  "title": "Exclusive to Orb-verified users to ensure fair distribution"
+                },
+                "rewards": {
+                  "title": "Rewards shift to Plus over time while keeping total at 11 WDD/day"
+                }
               },
-              "activateButton": "Activate Basic Income Plus"
+              "activateButton": "Activate Basic Income Plus",
+              "claimButton": "Claim Basic Income Plus",
+              "claimBasicButton": "Claim Basic Income"
             }
           }
         },
@@ -58,13 +68,18 @@
           "title": "Invite",
           "subtitle": "Get 50 WDD per friend who joins",
           "tooltip": "You'll earn rewards when friends activate their Basic Income Plus.",
+          "learnMore": "Learn more",
           "stats": {
             "title": "Your Referral Stats",
-            "invites": "Invites accepted",
+            "invites": "Invites Accepted",
             "rewards": "Total Rewards"
           },
-          "copyButton": "Copy Referral Link",
-          "rewardButton": "Reward Referrer",
+          "actions": {
+            "copyLink": "Copy Referral Link",
+            "copied": "Referral link copied to clipboard!",
+            "connectWallet": "Please connect your wallet to generate your referral link",
+            "rewardReferrer": "Reward Referrer"
+          },
           "drawer": {
             "title": "Reward a Referrer",
             "subtitle": "Trigger a free 50 WDD reward for your referrer",
@@ -73,7 +88,19 @@
               "placeholder": "Enter username (e.g. username.0000)",
               "lookupButton": "Lookup User",
               "sendingTo": "Sending reward to:",
+              "editButton": "Edit",
               "sendButton": "Send Reward"
+            },
+            "errors": {
+              "enterUsername": "Please enter a username",
+              "usernameNotFound": "Username not found",
+              "lookupFailed": "Failed to look up username. Please try again.",
+              "installMiniKit": "Please install MiniKit to look up usernames",
+              "connectWallet": "Please connect your wallet first",
+              "transactionCanceled": "Transaction was canceled"
+            },
+            "success": {
+              "rewardSent": "Successfully sent reward to {{username}}!"
             }
           }
         },

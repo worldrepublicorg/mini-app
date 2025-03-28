@@ -1441,7 +1441,8 @@ export default function EarnPage({
               level={1}
               className="text-center"
             >
-              Basic Income
+              {dictionary?.pages?.earn?.tabs?.basicIncome?.title ??
+                "Basic Income"}
             </Typography>
 
             {walletAddress === null ? (
@@ -1451,7 +1452,8 @@ export default function EarnPage({
                   level={1}
                   className="mx-auto mb-10 mt-4 text-center text-gray-500"
                 >
-                  Sign in to claim your basic income
+                  {dictionary?.pages?.earn?.tabs?.basicIncome?.subtitle ??
+                    "Sign in to claim your basic income"}
                 </Typography>
                 <WalletAuth
                   lang={lang}
@@ -1465,10 +1467,12 @@ export default function EarnPage({
                   level={1}
                   className="mx-auto mb-10 mt-4 text-center text-gray-500"
                 >
-                  Set up your basic income
+                  {dictionary?.pages?.earn?.tabs?.basicIncome?.setupSubtitle ??
+                    "Set up your basic income"}
                 </Typography>
                 <Button onClick={sendSetup} isLoading={isSubmitting} fullWidth>
-                  Activate Basic Income
+                  {dictionary?.pages?.earn?.tabs?.basicIncome?.activateButton ??
+                    "Activate Basic Income"}
                 </Button>
               </>
             ) : (
@@ -1478,7 +1482,8 @@ export default function EarnPage({
                   level={1}
                   className="mx-auto mb-10 mt-4 text-center text-gray-500"
                 >
-                  Claimable drachma
+                  {dictionary?.pages?.earn?.tabs?.basicIncome
+                    ?.claimableSubtitle ?? "Claimable drachma"}
                 </Typography>
                 <div className="text-center">
                   {isClaimableLoading ? (
@@ -1496,7 +1501,8 @@ export default function EarnPage({
                       isLoading={isClaimingPlus}
                       fullWidth
                     >
-                      Claim Basic Income Plus
+                      {dictionary?.pages?.earn?.tabs?.basicIncome?.plus?.drawer
+                        ?.claimButton ?? "Claim Basic Income Plus"}
                     </Button>
                     <Button
                       onClick={sendClaim}
@@ -1504,7 +1510,8 @@ export default function EarnPage({
                       variant="secondary"
                       fullWidth
                     >
-                      Claim Basic Income
+                      {dictionary?.pages?.earn?.tabs?.basicIncome?.plus?.drawer
+                        ?.claimBasicButton ?? "Claim Basic Income"}
                     </Button>
                   </div>
                 ) : (
@@ -1513,7 +1520,8 @@ export default function EarnPage({
                     isLoading={isClaimingBasic}
                     fullWidth
                   >
-                    Claim
+                    {dictionary?.pages?.earn?.tabs?.basicIncome?.claimButton ??
+                      "Claim"}
                   </Button>
                 )}
                 {!basicIncomePlusActivated && (
@@ -1527,11 +1535,14 @@ export default function EarnPage({
                             variant={{ variant: "subtitle", level: 2 }}
                             className="line-clamp-2 font-display text-[15px] font-medium tracking-tight text-gray-900"
                           >
-                            Introducing Basic Income Plus
+                            {dictionary?.pages?.earn?.tabs?.basicIncome?.plus
+                              ?.drawerTrigger ??
+                              "Introducing Basic Income Plus"}
                           </Typography>
                           <div className="ml-1 rounded-full bg-gray-200 px-1.5 py-0.5">
                             <p className="font-sans text-[12px] font-medium leading-narrow tracking-normal text-gray-900">
-                              New
+                              {dictionary?.pages?.earn?.tabs?.basicIncome?.plus
+                                ?.newBadge ?? "New"}
                             </p>
                           </div>
                         </div>
@@ -1547,13 +1558,16 @@ export default function EarnPage({
                           variant={{ variant: "heading", level: 1 }}
                           className="text-center"
                         >
-                          Basic Income Plus
+                          {dictionary?.pages?.earn?.tabs?.basicIncome?.plus
+                            ?.drawer?.title ?? "Basic Income Plus"}
                         </Typography>
                         <Typography
                           variant={{ variant: "subtitle", level: 1 }}
                           className="mx-auto mt-4 text-center text-gray-500"
                         >
-                          Extra income for verified users
+                          {dictionary?.pages?.earn?.tabs?.basicIncome?.plus
+                            ?.drawer?.subtitle ??
+                            "Extra income for verified users"}
                         </Typography>
 
                         <div className="mt-6 w-full px-3 py-4">
@@ -1566,7 +1580,9 @@ export default function EarnPage({
                                 variant={{ variant: "body", level: 3 }}
                                 className="text-gray-600 mt-[3px]"
                               >
-                                An additional 10 WDD per day
+                                {dictionary?.pages?.earn?.tabs?.basicIncome
+                                  ?.plus?.drawer?.features?.rate?.title ??
+                                  "An additional 10 WDD per day"}
                               </Typography>
                             </li>
                             <li className="flex items-start">
@@ -1577,8 +1593,10 @@ export default function EarnPage({
                                 variant={{ variant: "body", level: 3 }}
                                 className="text-gray-600 mt-[3px]"
                               >
-                                Exclusive to Orb-verified users to ensure fair
-                                distribution
+                                {dictionary?.pages?.earn?.tabs?.basicIncome
+                                  ?.plus?.drawer?.features?.verification
+                                  ?.title ??
+                                  "Exclusive to Orb-verified users to ensure fair distribution"}
                               </Typography>
                             </li>
                             <li className="flex items-start">
@@ -1589,8 +1607,9 @@ export default function EarnPage({
                                 variant={{ variant: "body", level: 3 }}
                                 className="text-gray-600 mt-[3px]"
                               >
-                                Rewards shift to Plus over time while keeping
-                                total at 11 WDD/day
+                                {dictionary?.pages?.earn?.tabs?.basicIncome
+                                  ?.plus?.drawer?.features?.rewards?.title ??
+                                  "Rewards shift to Plus over time while keeping total at 11 WDD/day"}
                               </Typography>
                             </li>
                           </ul>
@@ -1602,7 +1621,9 @@ export default function EarnPage({
                           fullWidth
                           className="mt-6"
                         >
-                          Activate Basic Income Plus
+                          {dictionary?.pages?.earn?.tabs?.basicIncome?.plus
+                            ?.drawer?.activateButton ??
+                            "Activate Basic Income Plus"}
                         </Button>
                       </div>
                     </DrawerContent>
@@ -1620,13 +1641,15 @@ export default function EarnPage({
               variant={{ variant: "heading", level: 1 }}
               className="text-center"
             >
-              Savings Account
+              {dictionary?.pages?.earn?.tabs?.savings?.title ??
+                "Savings Account"}
             </Typography>
             <Typography
               variant={{ variant: "subtitle", level: 1 }}
               className="mx-auto mb-6 mt-4 flex items-center justify-center text-center text-gray-500"
             >
-              Earn interest every second
+              {dictionary?.pages?.earn?.tabs?.savings?.subtitle ??
+                "Earn interest every second"}
               <span className="group relative ml-1 inline-block">
                 <span className="hover:text-gray-600 relative cursor-help text-gray-400">
                   <svg
@@ -1648,8 +1671,8 @@ export default function EarnPage({
                 </span>
                 <div className="absolute bottom-full right-0 mb-2 hidden w-[280px] transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
                   <p className="text-left text-gray-700">
-                    69% APY base rate. Collect and reinvest interest to achieve
-                    close to 100% effective returns annually. Withdraw anytime.
+                    {dictionary?.pages?.earn?.tabs?.savings?.tooltip ??
+                      "69% APY base rate. Collect and reinvest interest to achieve close to 100% effective returns annually. Withdraw anytime."}
                   </p>
                 </div>
               </span>
@@ -1674,13 +1697,14 @@ export default function EarnPage({
               variant={{ variant: "heading", level: 1 }}
               className="text-center"
             >
-              Invite
+              {dictionary?.pages?.earn?.tabs?.invite?.title ?? "Invite"}
             </Typography>
             <Typography
               variant={{ variant: "subtitle", level: 1 }}
               className="mx-auto mb-5 mt-4 flex items-center justify-center text-center text-gray-500"
             >
-              Get 50 WDD per friend who joins
+              {dictionary?.pages?.earn?.tabs?.invite?.subtitle ??
+                "Get 50 WDD per friend who joins"}
               <span className="group relative ml-1 inline-block">
                 <span className="hover:text-gray-600 relative cursor-help text-gray-400">
                   <svg
@@ -1702,27 +1726,27 @@ export default function EarnPage({
                 </span>
                 <div className="absolute bottom-full right-0 mb-2 hidden w-[280px] transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
                   <p className="text-left text-gray-700">
-                    You&apos;ll earn rewards when friends activate their Basic
-                    Income Plus.{" "}
+                    {dictionary?.pages?.earn?.tabs?.invite?.tooltip ??
+                      "You'll earn rewards when friends activate their Basic Income Plus."}{" "}
                     <Link
                       href={`/${lang}/faq?q=referral-codes`}
                       className="hover:text-gray-600 text-gray-900 underline"
                     >
-                      Learn more
+                      {dictionary?.pages?.earn?.tabs?.invite?.learnMore ??
+                        "Learn more"}
                     </Link>
                   </p>
                 </div>
               </span>
             </Typography>
 
-            {/* Show the reward count statistics */}
-            {/* {walletAddress && ( */}
             <div className="mb-10 w-full rounded-xl border border-gray-200 p-4">
               <Typography
                 variant={{ variant: "subtitle", level: 2 }}
                 className="mb-4 text-center text-gray-900"
               >
-                Your Referral Stats
+                {dictionary?.pages?.earn?.tabs?.invite?.stats?.title ??
+                  "Your Referral Stats"}
               </Typography>
               <div className="flex justify-around">
                 <div className="text-center">
@@ -1736,7 +1760,8 @@ export default function EarnPage({
                     variant={{ variant: "body", level: 3 }}
                     className="text-gray-500"
                   >
-                    Invites accepted
+                    {dictionary?.pages?.earn?.tabs?.invite?.stats?.invites ??
+                      "Invites Accepted"}
                   </Typography>
                 </div>
                 <div className="text-center">
@@ -1750,183 +1775,200 @@ export default function EarnPage({
                     variant={{ variant: "body", level: 3 }}
                     className="text-gray-500"
                   >
-                    Total Rewards
+                    {dictionary?.pages?.earn?.tabs?.invite?.stats?.rewards ??
+                      "Total Rewards"}
                   </Typography>
                 </div>
               </div>
             </div>
-            {/* )} */}
 
-            <>
-              {/* Your Referral Link */}
-              <div className="relative w-full">
-                <Button
-                  onClick={() => {
-                    if (username) {
-                      navigator.clipboard.writeText(
-                        `https://worldcoin.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=%2F%3Fcode%3D${username}`
-                      );
-                      showToast(
+            <div className="relative w-full">
+              <Button
+                onClick={() => {
+                  if (username) {
+                    navigator.clipboard.writeText(
+                      `https://worldcoin.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=%2F%3Fcode%3D${username}`
+                    );
+                    showToast(
+                      dictionary?.pages?.earn?.tabs?.invite?.actions?.copied ??
                         "Referral link copied to clipboard!",
-                        "success"
-                      );
-                    } else {
-                      showToast(
+                      "success"
+                    );
+                  } else {
+                    showToast(
+                      dictionary?.pages?.earn?.tabs?.invite?.actions
+                        ?.connectWallet ??
                         "Please connect your wallet to generate your referral link",
-                        "error"
-                      );
-                      // Try to load the username if it's not set yet
-                      loadCurrentUsernameCallback();
-                    }
-                  }}
-                  fullWidth
-                >
-                  Copy Referral Link
-                </Button>
-              </div>
+                      "error"
+                    );
+                    loadCurrentUsernameCallback();
+                  }
+                }}
+                fullWidth
+              >
+                {dictionary?.pages?.earn?.tabs?.invite?.actions?.copyLink ??
+                  "Copy Referral Link"}
+              </Button>
+            </div>
 
-              {/* Only show this button if the user's address is verified AND canReward is true */}
-              {canReward && (
-                <Drawer>
-                  <DrawerTrigger asChild>
-                    <Button variant="secondary" fullWidth className="mt-4">
-                      Reward Referrer
-                    </Button>
-                  </DrawerTrigger>
-                  <DrawerContent>
-                    <div className="flex flex-col items-center p-6 pt-10">
-                      <div className="mb-10 mt-4 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
-                        <PiUserPlusFill className="h-10 w-10 text-gray-400" />
+            {canReward && (
+              <Drawer>
+                <DrawerTrigger asChild>
+                  <Button variant="secondary" fullWidth className="mt-4">
+                    {dictionary?.pages?.earn?.tabs?.invite?.actions
+                      ?.rewardReferrer ?? "Reward Referrer"}
+                  </Button>
+                </DrawerTrigger>
+                <DrawerContent>
+                  <div className="flex flex-col items-center p-6 pt-10">
+                    <div className="mb-10 mt-4 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+                      <PiUserPlusFill className="h-10 w-10 text-gray-400" />
+                    </div>
+                    <Typography
+                      as="h2"
+                      variant={{ variant: "heading", level: 1 }}
+                      className="text-center"
+                    >
+                      {dictionary?.pages?.earn?.tabs?.invite?.drawer?.title ??
+                        "Reward a Referrer"}
+                    </Typography>
+                    <Typography
+                      variant={{ variant: "subtitle", level: 1 }}
+                      className="mx-auto mt-4 text-center text-gray-500"
+                    >
+                      {dictionary?.pages?.earn?.tabs?.invite?.drawer
+                        ?.subtitle ??
+                        "Trigger a free 50 WDD reward for your referrer"}
+                    </Typography>
+
+                    {/* Referral Status */}
+                    {localStorage.getItem("referredBy") && (
+                      <div className="border-success-200 bg-success-50 mt-4 w-full rounded-xl border p-4">
+                        <Typography
+                          variant={{ variant: "subtitle", level: 3 }}
+                          className="text-center text-success-700"
+                        >
+                          {(() => {
+                            const referrer = localStorage.getItem("referredBy");
+                            console.log(
+                              `[Referral] Displaying referrer information: ${referrer}`
+                            );
+                            return (
+                              dictionary?.pages?.earn?.tabs?.invite?.drawer?.invitedBy?.replace(
+                                "{{username}}",
+                                referrer || ""
+                              ) ?? `You were invited by: ${referrer}`
+                            );
+                          })()}
+                        </Typography>
                       </div>
-                      <Typography
-                        as="h2"
-                        variant={{ variant: "heading", level: 1 }}
-                        className="text-center"
-                      >
-                        Reward a Referrer
-                      </Typography>
-                      <Typography
-                        variant={{ variant: "subtitle", level: 1 }}
-                        className="mx-auto mt-4 text-center text-gray-500"
-                      >
-                        Trigger a free 50 WDD reward for your referrer
-                      </Typography>
+                    )}
 
-                      {/* Referral Status */}
-                      {localStorage.getItem("referredBy") && (
-                        <div className="border-success-200 bg-success-50 mt-4 w-full rounded-xl border p-4">
-                          <Typography
-                            variant={{ variant: "subtitle", level: 3 }}
-                            className="text-center text-success-700"
+                    <div className="w-full">
+                      {!lookupResult ? (
+                        <>
+                          <input
+                            type="text"
+                            placeholder={
+                              dictionary?.pages?.earn?.tabs?.invite?.drawer
+                                ?.input?.placeholder ??
+                              "Enter username (e.g. username.0000)"
+                            }
+                            className="mt-4 w-full rounded-xl border border-gray-200 px-4 py-3 font-sans text-base"
+                            value={recipientUsername}
+                            onChange={(e) =>
+                              setRecipientUsername(e.target.value)
+                            }
+                            onKeyPress={(e) =>
+                              e.key === "Enter" && lookupUsername()
+                            }
+                            onFocus={(e) => {
+                              setTimeout(() => {
+                                e.target.scrollIntoView({
+                                  behavior: "smooth",
+                                  block: "center",
+                                });
+                              }, 300);
+                            }}
+                          />
+
+                          {lookupError && (
+                            <div className="mt-4 rounded-xl border border-error-300 bg-error-100 p-4 text-error-700">
+                              {lookupError}
+                            </div>
+                          )}
+
+                          <Button
+                            onClick={lookupUsername}
+                            isLoading={isLookingUp}
+                            variant="secondary"
+                            fullWidth
+                            className="mt-4"
                           >
-                            {(() => {
-                              const referrer =
-                                localStorage.getItem("referredBy");
-                              console.log(
-                                `[Referral] Displaying referrer information: ${referrer}`
-                              );
-                              return `You were invited by: ${referrer}`;
-                            })()}
-                          </Typography>
+                            {dictionary?.pages?.earn?.tabs?.invite?.drawer
+                              ?.input?.lookupButton ?? "Lookup User"}
+                          </Button>
+                        </>
+                      ) : (
+                        <div className="space-y-4">
+                          <div className="mt-4 rounded-xl border border-gray-200 bg-gray-50 p-4 text-center">
+                            <Typography
+                              variant={{ variant: "body", level: 3 }}
+                              className="mb-1 text-gray-500"
+                            >
+                              {dictionary?.pages?.earn?.tabs?.invite?.drawer
+                                ?.input?.sendingTo ?? "Sending reward to:"}
+                            </Typography>
+                            <div className="flex items-center justify-center gap-1">
+                              <Typography
+                                variant={{ variant: "subtitle", level: 2 }}
+                                className="text-gray-700"
+                              >
+                                {lookupResult.username}
+                              </Typography>
+                              <button
+                                onClick={() => {
+                                  setLookupResult(null);
+                                  setRewardStatus(null);
+                                }}
+                                className="hover:text-gray-600 text-gray-400"
+                                aria-label={
+                                  dictionary?.pages?.earn?.tabs?.invite?.drawer
+                                    ?.input?.editButton ?? "Edit"
+                                }
+                              >
+                                <PiNotePencilFill className="h-4 w-4" />
+                              </button>
+                            </div>
+                          </div>
+
+                          {rewardStatus && (
+                            <div
+                              className={`mt-3 rounded-xl border p-3 ${
+                                rewardStatus.success
+                                  ? "border-success-300 bg-success-100 text-success-700"
+                                  : "border-error-300 bg-error-100 text-error-700"
+                              }`}
+                            >
+                              {rewardStatus.message}
+                            </div>
+                          )}
+
+                          <Button
+                            onClick={() => sendReward(lookupResult.address)}
+                            isLoading={isSendingReward}
+                            fullWidth
+                          >
+                            {dictionary?.pages?.earn?.tabs?.invite?.drawer
+                              ?.input?.sendButton ?? "Send Reward"}
+                          </Button>
                         </div>
                       )}
-
-                      <div className="w-full">
-                        {!lookupResult ? (
-                          <>
-                            <input
-                              type="text"
-                              placeholder="Enter username (e.g. username.0000)"
-                              className="mt-4 w-full rounded-xl border border-gray-200 px-4 py-3 font-sans text-base"
-                              value={recipientUsername}
-                              onChange={(e) =>
-                                setRecipientUsername(e.target.value)
-                              }
-                              onKeyPress={(e) =>
-                                e.key === "Enter" && lookupUsername()
-                              }
-                              onFocus={(e) => {
-                                // Ensure this input is visible when focused
-                                setTimeout(() => {
-                                  e.target.scrollIntoView({
-                                    behavior: "smooth",
-                                    block: "center",
-                                  });
-                                }, 300);
-                              }}
-                            />
-
-                            {lookupError && (
-                              <div className="mt-4 rounded-xl border border-error-300 bg-error-100 p-4 text-error-700">
-                                {lookupError}
-                              </div>
-                            )}
-
-                            <Button
-                              onClick={lookupUsername}
-                              isLoading={isLookingUp}
-                              variant="secondary"
-                              fullWidth
-                              className="mt-4"
-                            >
-                              Lookup User
-                            </Button>
-                          </>
-                        ) : (
-                          <div className="space-y-4">
-                            <div className="mt-4 rounded-xl border border-gray-200 bg-gray-50 p-4 text-center">
-                              <Typography
-                                variant={{ variant: "body", level: 3 }}
-                                className="mb-1 text-gray-500"
-                              >
-                                Sending reward to:
-                              </Typography>
-                              <div className="flex items-center justify-center gap-1">
-                                <Typography
-                                  variant={{ variant: "subtitle", level: 2 }}
-                                  className="text-gray-700"
-                                >
-                                  {lookupResult.username}
-                                </Typography>
-                                <button
-                                  onClick={() => {
-                                    setLookupResult(null);
-                                    setRewardStatus(null);
-                                  }}
-                                  className="hover:text-gray-600 text-gray-400"
-                                >
-                                  <PiNotePencilFill className="h-4 w-4" />
-                                </button>
-                              </div>
-                            </div>
-
-                            {rewardStatus && (
-                              <div
-                                className={`mt-3 rounded-xl border p-3 ${
-                                  rewardStatus.success
-                                    ? "border-success-300 bg-success-100 text-success-700"
-                                    : "border-error-300 bg-error-100 text-error-700"
-                                }`}
-                              >
-                                {rewardStatus.message}
-                              </div>
-                            )}
-
-                            <Button
-                              onClick={() => sendReward(lookupResult.address)}
-                              isLoading={isSendingReward}
-                              fullWidth
-                            >
-                              Send Reward
-                            </Button>
-                          </div>
-                        )}
-                      </div>
                     </div>
-                  </DrawerContent>
-                </Drawer>
-              )}
-            </>
+                  </div>
+                </DrawerContent>
+              </Drawer>
+            )}
           </div>
         );
       case "Contribute":
@@ -1937,18 +1979,17 @@ export default function EarnPage({
               variant={{ variant: "heading", level: 1 }}
               className="text-center"
             >
-              Contribute
+              {dictionary?.pages?.earn?.tabs?.contribute?.title ?? "Contribute"}
             </Typography>
             <Typography
               variant={{ variant: "subtitle", level: 1 }}
               className="mx-auto mb-8 mt-4 text-center text-gray-500"
             >
-              Get involved, get rewarded
+              {dictionary?.pages?.earn?.tabs?.contribute?.subtitle ??
+                "Get involved, get rewarded"}
             </Typography>
 
-            {/* Weekly contests section */}
             <div className="w-full">
-              {/* X Post Writing Contest */}
               <a
                 href="/earn/contribute/x-contest"
                 className="group mb-4 flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 transition-all hover:border-gray-300 hover:bg-gray-50"
@@ -1959,14 +2000,16 @@ export default function EarnPage({
                     variant={{ variant: "subtitle", level: 2 }}
                     className="line-clamp-1"
                   >
-                    X Post Contest
+                    {dictionary?.pages?.earn?.tabs?.contribute?.contests?.xPost
+                      ?.title ?? "X Post Contest"}
                   </Typography>
                   <div className="rounded-full bg-gray-100 px-2.5 py-1">
                     <Typography
                       variant={{ variant: "body", level: 3 }}
                       className="text-gray-400"
                     >
-                      Weekly
+                      {dictionary?.pages?.earn?.tabs?.contribute?.contests
+                        ?.weekly ?? "Weekly"}
                     </Typography>
                   </div>
                 </div>
@@ -1976,7 +2019,8 @@ export default function EarnPage({
                   variant={{ variant: "body", level: 3 }}
                   className="mb-4 text-gray-500"
                 >
-                  Write engaging posts, win prizes
+                  {dictionary?.pages?.earn?.tabs?.contribute?.contests?.xPost
+                    ?.description ?? "Write engaging posts, win prizes"}
                 </Typography>
 
                 <div className="flex items-center justify-between">
@@ -1993,7 +2037,8 @@ export default function EarnPage({
                       variant={{ variant: "body", level: 3 }}
                       className="text-gray-400"
                     >
-                      Top prize
+                      {dictionary?.pages?.earn?.tabs?.contribute?.contests
+                        ?.topPrize ?? "Top prize"}
                     </Typography>
                   </div>
                   <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5 group-hover:bg-gray-200">
@@ -2002,7 +2047,7 @@ export default function EarnPage({
                 </div>
               </a>
 
-              {/* Poll Writing Contest */}
+              {/* Poll Contest - similar structure with translations */}
               <a
                 href="/earn/contribute/poll-contest"
                 className="group flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 transition-all hover:border-gray-300 hover:bg-gray-50"
@@ -2013,14 +2058,16 @@ export default function EarnPage({
                     variant={{ variant: "subtitle", level: 2 }}
                     className="line-clamp-1"
                   >
-                    Poll Contest
+                    {dictionary?.pages?.earn?.tabs?.contribute?.contests?.poll
+                      ?.title ?? "Poll Contest"}
                   </Typography>
                   <div className="rounded-full bg-gray-100 px-2.5 py-1">
                     <Typography
                       variant={{ variant: "body", level: 3 }}
                       className="text-gray-400"
                     >
-                      Weekly
+                      {dictionary?.pages?.earn?.tabs?.contribute?.contests
+                        ?.weekly ?? "Weekly"}
                     </Typography>
                   </div>
                 </div>
@@ -2030,7 +2077,8 @@ export default function EarnPage({
                   variant={{ variant: "body", level: 3 }}
                   className="mb-4 text-gray-500"
                 >
-                  Gather community feedback and earn
+                  {dictionary?.pages?.earn?.tabs?.contribute?.contests?.poll
+                    ?.description ?? "Gather community feedback and earn"}
                 </Typography>
 
                 <div className="flex items-center justify-between">
@@ -2047,7 +2095,8 @@ export default function EarnPage({
                       variant={{ variant: "body", level: 3 }}
                       className="text-gray-400"
                     >
-                      Top prize
+                      {dictionary?.pages?.earn?.tabs?.contribute?.contests
+                        ?.topPrize ?? "Top prize"}
                     </Typography>
                   </div>
                   <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5 group-hover:bg-gray-200">
@@ -2057,7 +2106,6 @@ export default function EarnPage({
               </a>
             </div>
 
-            {/* Early Access Program section */}
             <div className="mt-8 w-full">
               <a
                 href="https://t.me/worldrepubliccommunity"
@@ -2072,14 +2120,17 @@ export default function EarnPage({
                       variant={{ variant: "subtitle", level: 2 }}
                       className="mb-1.5 line-clamp-1"
                     >
-                      Early Access Program
+                      {dictionary?.pages?.earn?.tabs?.contribute?.earlyAccess
+                        ?.title ?? "Early Access Program"}
                     </Typography>
                     <Typography
                       as="p"
                       variant={{ variant: "body", level: 3 }}
                       className="text-gray-500"
                     >
-                      Earn WDD by testing our upcoming features
+                      {dictionary?.pages?.earn?.tabs?.contribute?.earlyAccess
+                        ?.description ??
+                        "Earn WDD by testing our upcoming features"}
                     </Typography>
                   </div>
                 </div>
@@ -2101,7 +2152,7 @@ export default function EarnPage({
         <div className="flex items-center justify-between">
           <div className="flex h-10 items-center">
             <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
-              Earn
+              {dictionary?.pages?.earn?.title ?? "Earn"}
             </Typography>
           </div>
           {walletAddress && (
