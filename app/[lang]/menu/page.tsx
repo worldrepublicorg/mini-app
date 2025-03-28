@@ -6,14 +6,12 @@ import { BiLinkExternal } from "react-icons/bi";
 import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
 import { useTranslations } from "@/hooks/useTranslations";
-import { usePathname } from "next/navigation";
 
 export default function MenuPage({
   params: { lang },
 }: {
   params: { lang: string };
 }) {
-  const pathname = usePathname();
   const dictionary = useTranslations(lang);
 
   const menuSections = [

@@ -3,7 +3,6 @@
 import { Typography } from "@/components/ui/Typography";
 import { BiChevronLeft } from "react-icons/bi";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import ListItem from "@/components/ui/ListItem/ListItem";
 import { useTranslations } from "@/hooks/useTranslations";
 import { PiCheckCircleFill } from "react-icons/pi";
@@ -13,8 +12,6 @@ export default function LanguagePage({
 }: {
   params: { lang: string };
 }) {
-  const pathname = usePathname();
-  const currentPath = pathname.replace(`/${lang}/language`, "");
   const dictionary = useTranslations(lang);
 
   const languages = [
@@ -31,8 +28,8 @@ export default function LanguagePage({
         >
           <BiChevronLeft className="size-6 text-gray-500" />
         </Link>
-        <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
-          Language
+        <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
+          {dictionary?.pages?.language?.title ?? "Language"}
         </Typography>
       </div>
 

@@ -75,7 +75,7 @@ export default function PollContestWinnersPage({
           >
             <BiChevronLeft className="size-6 text-gray-500" />
           </Link>
-          <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
+          <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
             Contest Winners
           </Typography>
         </div>

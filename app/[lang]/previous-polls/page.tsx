@@ -193,7 +193,7 @@ export default function PreviousPollsPage({
           >
             <BiChevronLeft className="size-6 text-gray-500" />
           </Link>
-          <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
+          <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
             Previous Polls
           </Typography>
         </div>

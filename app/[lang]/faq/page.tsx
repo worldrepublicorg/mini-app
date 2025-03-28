@@ -3,66 +3,15 @@
 import { useEffect, useState } from "react";
 import { Typography } from "@/components/ui/Typography";
 import Link from "next/link";
-import { BiChevronLeft } from "react-icons/bi";
-import { BiChevronDown, BiChevronUp } from "react-icons/bi";
+import { BiChevronLeft, BiChevronDown, BiChevronUp } from "react-icons/bi";
 import { useSearchParams } from "next/navigation";
+import { useTranslations } from "@/hooks/useTranslations";
 
 type FAQItem = {
   id: string;
   question: string;
   answer: string;
 };
-
-const faqs: FAQItem[] = [
-  {
-    id: "app-purpose",
-    question: "What is the World Republic?",
-    answer:
-      "The World Republic is an open, democratic organization dedicated to solving humanity's most pressing global challenges. It provides a framework for collective decision-making on issues that can only be effectively addressed at a global scale, like AI risks, climate change, or biosecurity.",
-  },
-  {
-    id: "basic-income",
-    question: "What is Basic Income?",
-    answer:
-      "Our Basic Income is a daily subsidy of 1 WDD (world drachma) that is provided to all citizens of the World Republic. It accumulates in real-time and can be claimed at any moment through the app.",
-  },
-  {
-    id: "basic-income-plus",
-    question: "How do I activate Basic Income Plus?",
-    answer:
-      "Basic Income Plus provides an additional 10 WDD per day and is available exclusively to Orb-verified users. After activating Basic Income, you'll see an option to activate Basic Income Plus on the Earn page.",
-  },
-  {
-    id: "savings",
-    question: "How does the Savings Account work?",
-    answer:
-      "The Savings Account allows you to deposit WDD tokens and earn a 69% annual interest. Through constant reinvestment of earned interest, users can achieve effective returns close to 100% annually, maximizing their WDD growth over time. Interest accumulates continuously and can be withdrawn or reinvested at any time.",
-  },
-  {
-    id: "referral-codes",
-    question: "How do referral codes work?",
-    answer:
-      "As a World Republic citizen, you can earn rewards through our referral program. Share your unique referral link with friends, and you'll receive 50 WDD for each person who joins and activates Basic Income Plus. Haven't received your reward? Your friend may need to manually trigger it by selecting the 'Reward Referrer' option in their referral section.",
-  },
-  {
-    id: "drachma-value",
-    question: "Where does the drachma get its value?",
-    answer:
-      "The drachma derives its value from being the official currency of the World Republic. As our democratic global governance platform grows, WDD has the potential to become a significant medium of exchange in the world economy, and could eventually play a role in the equitable distribution of benefits from technological advancements and global resources.",
-  },
-  {
-    id: "top-wallets",
-    question: "Who controls the biggest accounts?",
-    answer:
-      "The three largest accounts are the <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>World Republic Treasury</a>, the <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Basic Income Fund</a>, and the <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Basic Income Plus Fund</a>. Currently, these are controlled by the project's founder, but control will be transferred to the community after our constitution is ratified. Other key addresses include the <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>Savings Account contract</a>, the <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>Referral Rewards distributor</a>, and liquidity pools: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, and <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>.",
-  },
-  {
-    id: "vote-requirements",
-    question: "What are the requirements to propose votes?",
-    answer:
-      "The current polls and open letters are just a showcase. Our community will collectively decide our system of governance through the constitutional design process led by the Constituent Assembly elected in Q2 2025.",
-  },
-];
 
 export default function FAQPage({
   params: { lang },
@@ -71,6 +20,82 @@ export default function FAQPage({
 }) {
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
   const searchParams = useSearchParams();
+  const dictionary = useTranslations(lang);
+
+  const faqs: FAQItem[] = [
+    {
+      id: "app-purpose",
+      question:
+        dictionary?.pages?.faq?.items?.appPurpose?.question ??
+        "What is the World Republic?",
+      answer:
+        dictionary?.pages?.faq?.items?.appPurpose?.answer ??
+        "The World Republic is an open, democratic organization dedicated to solving humanity's most pressing global challenges. It provides a framework for collective decision-making on issues that can only be effectively addressed at a global scale, like AI risks, climate change, or biosecurity.",
+    },
+    {
+      id: "basic-income",
+      question:
+        dictionary?.pages?.faq?.items?.basicIncome?.question ??
+        "What is Basic Income?",
+      answer:
+        dictionary?.pages?.faq?.items?.basicIncome?.answer ??
+        "Our Basic Income is a daily subsidy of 1 WDD (world drachma) that is provided to all citizens of the World Republic. It accumulates in real-time and can be claimed at any moment through the app.",
+    },
+    {
+      id: "basic-income-plus",
+      question:
+        dictionary?.pages?.faq?.items?.basicIncomePlus?.question ??
+        "How do I activate Basic Income Plus?",
+      answer:
+        dictionary?.pages?.faq?.items?.basicIncomePlus?.answer ??
+        "Basic Income Plus provides an additional 10 WDD per day and is available exclusively to Orb-verified users. After activating Basic Income, you'll see an option to activate Basic Income Plus on the Earn page.",
+    },
+    {
+      id: "savings",
+      question:
+        dictionary?.pages?.faq?.items?.savings?.question ??
+        "How does the Savings Account work?",
+      answer:
+        dictionary?.pages?.faq?.items?.savings?.answer ??
+        "The Savings Account allows you to deposit WDD tokens and earn a 69% annual interest. Through constant reinvestment of earned interest, users can achieve effective returns close to 100% annually, maximizing their WDD growth over time. Interest accumulates continuously and can be withdrawn or reinvested at any time.",
+    },
+    {
+      id: "referral-codes",
+      question:
+        dictionary?.pages?.faq?.items?.referralCodes?.question ??
+        "How do referral codes work?",
+      answer:
+        dictionary?.pages?.faq?.items?.referralCodes?.answer ??
+        "As a World Republic citizen, you can earn rewards through our referral program. Share your unique referral link with friends, and you'll receive 50 WDD for each person who joins and activates Basic Income Plus. Haven't received your reward? Your friend may need to manually trigger it by selecting the 'Reward Referrer' option in their referral section.",
+    },
+    {
+      id: "drachma-value",
+      question:
+        dictionary?.pages?.faq?.items?.drachmaValue?.question ??
+        "Where does the drachma get its value?",
+      answer:
+        dictionary?.pages?.faq?.items?.drachmaValue?.answer ??
+        "The drachma derives its value from being the official currency of the World Republic. As our democratic global governance platform grows, WDD has the potential to become a significant medium of exchange in the world economy, and could eventually play a role in the equitable distribution of benefits from technological advancements and global resources.",
+    },
+    {
+      id: "top-wallets",
+      question:
+        dictionary?.pages?.faq?.items?.topWallets?.question ??
+        "Who controls the biggest accounts?",
+      answer:
+        dictionary?.pages?.faq?.items?.topWallets?.answer ??
+        "The three largest accounts are the <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>World Republic Treasury</a>, the <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Basic Income Fund</a>, and the <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Basic Income Plus Fund</a>. Currently, these are controlled by the project's founder, but control will be transferred to the community after our constitution is ratified. Other key addresses include the <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>Savings Account contract</a>, the <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>Referral Rewards distributor</a>, and liquidity pools: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, and <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>.",
+    },
+    {
+      id: "vote-requirements",
+      question:
+        dictionary?.pages?.faq?.items?.voteRequirements?.question ??
+        "What are the requirements to propose votes?",
+      answer:
+        dictionary?.pages?.faq?.items?.voteRequirements?.answer ??
+        "The current polls and open letters are just a showcase. Our community will collectively decide our system of governance through the constitutional design process led by the Constituent Assembly elected in Q2 2025.",
+    },
+  ];
 
   useEffect(() => {
     const questionId = searchParams.get("q");
@@ -98,8 +123,8 @@ export default function FAQPage({
         >
           <BiChevronLeft className="size-6 text-gray-500" />
         </Link>
-        <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
-          FAQ
+        <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
+          {dictionary?.pages?.faq?.title ?? "FAQ"}
         </Typography>
       </div>
 
