@@ -55,6 +55,14 @@
     "comingSoonDrawer": {
       "title": "Coming soon",
       "description": "This feature is currently in development. Stay tuned!"
+    },
+    "tabSwiper": {
+      "tabs": {
+        "polls": "Polls",
+        "openLetters": "Open letters",
+        "elections": "Elections",
+        "referendums": "Referendums"
+      }
     }
   },
   "pages": {

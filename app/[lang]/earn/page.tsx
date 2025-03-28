@@ -29,6 +29,8 @@ import { IoIosArrowForward } from "react-icons/io";
 import Link from "next/link";
 import { useTranslations } from "@/hooks/useTranslations";
 
+type EarnTabKey = "Basic income" | "Savings" | "Contribute" | "Invite";
+
 export default function EarnPage({
   params: { lang },
 }: {
@@ -318,7 +320,7 @@ export default function EarnPage({
     return () => clearInterval(interval);
   }, [claimableAmount, claimableAmountPlus, basicIncomePlusActivated]);
 
-  const [activeTab, setActiveTab] = useState("Basic income");
+  const [activeTab, setActiveTab] = useState<EarnTabKey>("Basic income");
 
   const [transactionId, setTransactionId] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -912,7 +914,7 @@ export default function EarnPage({
     isClaimingPlus,
   ]);
 
-  const handleTabChange = (tab: string) => {
+  const handleTabChange = (tab: EarnTabKey) => {
     setActiveTab(tab);
 
     // Update URL query parameter without full page refresh
@@ -933,7 +935,7 @@ export default function EarnPage({
         tabParam &&
         ["Basic income", "Savings", "Invite", "Contribute"].includes(tabParam)
       ) {
-        setActiveTab(tabParam);
+        setActiveTab(tabParam as EarnTabKey);
       }
     }
   }, []);
@@ -947,7 +949,7 @@ export default function EarnPage({
         tabParam &&
         ["Basic income", "Savings", "Invite", "Contribute"].includes(tabParam)
       ) {
-        setActiveTab(tabParam);
+        setActiveTab(tabParam as EarnTabKey);
       } else {
         // Default to "Basic income" if no valid tab is in the URL
         setActiveTab("Basic income");
@@ -2193,11 +2195,37 @@ export default function EarnPage({
           )}
         </div>
 
-        <TabSwiper
-          tabs={["Basic income", "Savings", "Contribute", "Invite"]}
+        <TabSwiper<EarnTabKey>
+          tabs={[
+            {
+              key: "Basic income",
+              label:
+                dictionary?.pages?.earn?.tabs?.basicIncome?.title ??
+                "Basic Income",
+            },
+            {
+              key: "Savings",
+              label: dictionary?.pages?.earn?.tabs?.savings?.title ?? "Savings",
+            },
+            {
+              key: "Contribute",
+              label:
+                dictionary?.pages?.earn?.tabs?.contribute?.title ??
+                "Contribute",
+            },
+            {
+              key: "Invite",
+              label: dictionary?.pages?.earn?.tabs?.invite?.title ?? "Invite",
+            },
+          ]}
           activeTab={activeTab}
           onTabChange={handleTabChange}
-          tabIndicators={{ Contribute: !hasSeenIncreasedPrizes }}
+          tabIndicators={{
+            "Basic income": false,
+            Savings: false,
+            Contribute: !hasSeenIncreasedPrizes,
+            Invite: false,
+          }}
         />
       </div>
 

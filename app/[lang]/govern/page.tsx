@@ -9,33 +9,63 @@ import { OpenLetterCard } from "@/components/OpenLetterCard";
 import { PollOfTheDay } from "@/components/PollOfTheDay";
 import { useTranslations } from "@/hooks/useTranslations";
 
+const TAB_KEYS = {
+  POLLS: "polls",
+  OPEN_LETTERS: "openLetters",
+  ELECTIONS: "elections",
+  REFERENDUMS: "referendums",
+} as const;
+
+type TabKey = (typeof TAB_KEYS)[keyof typeof TAB_KEYS];
+
 export default function GovernPage({
   params: { lang },
 }: {
   params: { lang: string };
 }) {
   const dictionary = useTranslations(lang);
-  const [activeTab, setActiveTab] = useState("Polls");
+  const [activeTab, setActiveTab] = useState<TabKey>(TAB_KEYS.POLLS);
+
+  const tabs = [
+    {
+      key: TAB_KEYS.POLLS,
+      label: dictionary?.components?.tabSwiper?.tabs?.polls ?? "Polls",
+    },
+    {
+      key: TAB_KEYS.OPEN_LETTERS,
+      label:
+        dictionary?.components?.tabSwiper?.tabs?.openLetters ?? "Open letters",
+    },
+    {
+      key: TAB_KEYS.ELECTIONS,
+      label: dictionary?.components?.tabSwiper?.tabs?.elections ?? "Elections",
+    },
+    {
+      key: TAB_KEYS.REFERENDUMS,
+      label:
+        dictionary?.components?.tabSwiper?.tabs?.referendums ?? "Referendums",
+    },
+  ];
 
   const renderContent = () => {
     switch (activeTab) {
-      case "Polls":
+      case TAB_KEYS.POLLS:
         return (
           <>
             <SectionHeader
               title={
-                dictionary?.pages?.govern?.sections?.polls?.title ||
+                dictionary?.pages?.govern?.sections?.polls?.title ??
                 "Poll of the Day"
               }
               description={
-                dictionary?.pages?.govern?.sections?.polls?.description ||
+                dictionary?.pages?.govern?.sections?.polls?.description ??
                 "Quick votes on current topics"
               }
             />
             <PollOfTheDay lang={lang} />
           </>
         );
-      case "Open letters":
+      case TAB_KEYS.OPEN_LETTERS:
         return (
           <>
             <SectionHeader
@@ -109,7 +139,7 @@ export default function GovernPage({
             />
           </>
         );
-      case "Elections":
+      case TAB_KEYS.ELECTIONS:
         return (
           <>
             <SectionHeader
@@ -131,7 +161,7 @@ export default function GovernPage({
             />
           </>
         );
-      case "Referendums":
+      case TAB_KEYS.REFERENDUMS:
         return (
           <>
             <SectionHeader
@@ -167,11 +197,11 @@ export default function GovernPage({
           variant={{ variant: "heading", level: 2 }}
           className="h-9 items-center"
         >
-          {dictionary?.pages?.govern?.title || "Govern"}
+          {dictionary?.pages?.govern?.title ?? "Govern"}
         </Typography>
 
-        <TabSwiper
-          tabs={["Polls", "Open letters", "Elections", "Referendums"]}
+        <TabSwiper<TabKey>
+          tabs={tabs}
           activeTab={activeTab}
           onTabChange={setActiveTab}
         />
