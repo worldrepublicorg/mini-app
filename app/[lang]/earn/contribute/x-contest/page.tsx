@@ -6,7 +6,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { BiChevronLeft } from "react-icons/bi";
 import { useTranslations } from "@/hooks/useTranslations";
 
-export default async function XContestPage({
+export default function XContestPage({
   params: { lang },
 }: {
   params: { lang: string };

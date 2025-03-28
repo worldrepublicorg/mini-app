@@ -47,7 +47,7 @@ const WINNERS_DATA: WeeklyWinners[] = [
   // Add more weeks as needed
 ];
 
-export default async function PollContestWinnersPage({
+export default function PollContestWinnersPage({
   params: { lang },
 }: {
   params: { lang: string };

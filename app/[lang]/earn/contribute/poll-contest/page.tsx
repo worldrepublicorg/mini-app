@@ -5,7 +5,7 @@ import { PiTrophy, PiClipboardTextFill } from "react-icons/pi";
 import { BiChevronLeft } from "react-icons/bi";
 import { useTranslations } from "@/hooks/useTranslations";
 
-export default async function PollContestPage({
+export default function PollContestPage({
   params: { lang },
 }: {
   params: { lang: string };
