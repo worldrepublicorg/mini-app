@@ -26,8 +26,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Should binding international agreements be established to secure nuclear facilities in conflict zones?",
-    url: "https://vote.one/aW6o5p2u",
+      "Should global regulations require mandatory watermarking of AI-generated content to combat misinformation in elections and media?",
+    url: "https://vote.one/Jbra7uUp",
   },
   {
     description:

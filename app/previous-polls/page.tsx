@@ -8,6 +8,11 @@ import { PollCard } from "@/components/PollCard";
 const historicalPolls = [
   {
     description:
+      "Should there be a global regulatory framework for emerging biotechnologies to ensure ethical use and safety?",
+    url: "https://vote.one/pNqgoSmf",
+  },
+  {
+    description:
       "Should international guidelines be implemented to protect data generated worldwide under a unified framework for digital sovereignty?",
     url: "https://vote.one/r4VmX0XN",
   },
