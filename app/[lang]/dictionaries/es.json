@@ -15,7 +15,14 @@
       "title": "Encuesta del Día",
       "viewAll": "Ver Todas las Encuestas",
       "vote": "Votar Ahora",
-      "previousPolls": "Encuestas Anteriores"
+      "previousPolls": "Encuestas Anteriores",
+      "polls": {
+        "dataSovereignty": "¿Deberían implementarse directrices internacionales para proteger los datos generados mundialmente bajo un marco unificado de soberanía digital?",
+        "biotech": "¿Debería existir un marco regulatorio global para las biotecnologías emergentes que garantice su uso ético y seguridad?",
+        "spaceMilitarization": "¿Deberían los líderes globales acordar protocolos para prevenir la militarización del espacio y asegurarlo para fines pacíficos?",
+        "nuclearSecurity": "¿Deberían establecerse acuerdos internacionales vinculantes para asegurar las instalaciones nucleares en zonas de conflicto?",
+        "fourDayWeek": "¿Apoyas el creciente movimiento global hacia semanas laborales de cuatro días como modelo de empleo estándar?"
+      }
     },
     "stakeForm": {
       "title": "Depositar Tokens",
@@ -56,6 +63,10 @@
         "error": "Ocurrió un error inesperado",
         "errorClaim": "Ocurrió un error inesperado durante el reclamo"
       }
+    },
+    "comingSoonDrawer": {
+      "title": "Próximamente",
+      "description": "Esta función está actualmente en desarrollo. ¡Mantente atento!"
     }
   },
   "pages": {
@@ -342,6 +353,98 @@
           "title": "Verificación Orb",
           "description": "Máxima seguridad usando verificación biométrica Orb.",
           "buttonText": "Probar Verificación Orb"
+        }
+      }
+    },
+    "govern": {
+      "title": "Gobernar",
+      "tabs": {
+        "polls": "Encuestas",
+        "openLetters": "Cartas abiertas",
+        "elections": "Elecciones",
+        "referendums": "Referéndums"
+      },
+      "sections": {
+        "polls": {
+          "title": "Encuesta del Día",
+          "description": "Votaciones rápidas sobre temas actuales",
+          "previous": {
+            "title": "Encuestas Anteriores",
+            "backToGovern": "Volver a Gobernar",
+            "polls": {
+              "dataSovereignty": "¿Deberían implementarse directrices internacionales para proteger los datos generados mundialmente bajo un marco unificado de soberanía digital?",
+              "fourDayWeek": "¿Apoyas el creciente movimiento global hacia semanas laborales de cuatro días como modelo de empleo estándar?",
+              "nuclearSecurity": "¿Deberían establecerse acuerdos internacionales vinculantes para asegurar las instalaciones nucleares en zonas de conflicto?",
+              "aviationResilience": "¿Es la infraestructura de aviación internacional lo suficientemente resiliente para manejar interrupciones inesperadas a gran escala?",
+              "waterResources": "¿Deberían las naciones crear un marco cooperativo para gestionar los recursos hídricos compartidos ante la creciente escasez global de agua?",
+              "maternalHealth": "¿Debería establecerse una reserva dedicada de ayuda sanitaria global para proteger la salud materno-infantil durante las congelaciones de ayuda internacional?",
+              "marsMission": "¿Apoyas la colaboración entre naciones en una misión espacial conjunta a Marte?",
+              "globalRecession": "¿Crees que las tendencias económicas globales actuales señalan un riesgo de recesión sincronizada entre las principales economías?",
+              "aidCorridors": "¿Deberían todas las zonas de conflicto con crisis humanitarias civiles activar automáticamente corredores de ayuda coordinados internacionalmente?",
+              "nationalSovereignty": "¿Apoyas los marcos de política global que equilibran la soberanía nacional con respuestas coordinadas a desafíos compartidos?",
+              "climateDisasters": "¿Deberían los países que experimentan desastres climáticos extremos (por ejemplo, incendios forestales, inundaciones) recibir ayuda financiera prioritaria de un fondo climático global?",
+              "aiSafety": "¿Deberían los desarrolladores globales de IA estar obligados a pausar el entrenamiento de modelos más poderosos que los sistemas actuales hasta que se establezcan acuerdos internacionales de seguridad?",
+              "corporateTax": "¿Deberían las corporaciones que operan en múltiples países estar sujetas a una tasa impositiva mínima global unificada para reducir la desigualdad?",
+              "spaceDebris": "¿Estás de acuerdo en que las naciones y corporaciones espaciales deberían estar legalmente obligadas a retirar los satélites en desuso para reducir los desechos orbitales?",
+              "digitalPrivacy": "¿Crees que crear estándares universales de privacidad digital es crucial para proteger los derechos individuales en un mundo cada vez más interconectado?",
+              "nuclearProliferation": "¿Crees que las medidas globales existentes reducen efectivamente el riesgo de proliferación nuclear?",
+              "cybersecurity": "¿Son suficientes las medidas internacionales actuales de ciberseguridad para proteger las infraestructuras críticas globales de las crecientes amenazas cibernéticas?",
+              "globalAlliances": "¿Crees que los rápidos realineamientos en las alianzas globales conducirán a un orden internacional más seguro?",
+              "climateResilience": "¿Es suficiente el enfoque global actual sobre la resiliencia climática para hacer frente a la creciente frecuencia de eventos climáticos extremos?",
+              "tradeTariffs": "¿Crees que la creciente tendencia de imponer aranceles entre las principales economías perturbará significativamente la estabilidad del comercio global?",
+              "diseaseManagement": "¿Confías en la capacidad del mundo para prevenir y gestionar enfermedades infecciosas emergentes?",
+              "aiRegulation": "¿Deberían establecerse regulaciones internacionales vinculantes para gobernar el desarrollo ético de la inteligencia artificial?",
+              "spaceRegulation": "¿Deberían existir acuerdos internacionales obligatorios para limitar los desechos espaciales de satélites y cohetes?",
+              "diplomaticDialogue": "¿Crees que el diálogo diplomático sostenido entre líderes mundiales puede ayudar a reducir las tensiones globales?",
+              "migration": "¿Deberían los países ricos aceptar más migrantes que huyen de conflictos o desastres climáticos?",
+              "rareEarths": "¿Debería priorizarse la colaboración internacional en minerales de tierras raras para mejorar la seguridad global de recursos?",
+              "cryptocurrency": "¿Deberían las autoridades globales establecer estándares uniformes para regular las criptomonedas y frenar los delitos financieros?",
+              "disinformation": "¿Crees que deberían implementarse medidas globales para contrarrestar la propagación de desinformación en línea?",
+              "diseaseOutbreaks": "¿Deberían los países estar obligados a compartir datos en tiempo real durante los brotes de enfermedades para prevenir crisis sanitarias globales?",
+              "militaryIntervention": "¿Deberían los países con capacidades militares avanzadas intervenir para desescalar conflictos en regiones que experimentan brotes repentinos de guerra?",
+              "aiDevelopment": "¿Deberían los gobiernos priorizar la regulación del desarrollo de la inteligencia artificial (IA) para prevenir el mal uso, incluso si esto ralentiza la innovación?",
+              "asteroidDefense": "¿Crees que los gobiernos de todo el mundo deberían aumentar la financiación para el monitoreo espacial y la investigación de desvío de asteroides?",
+              "peaceNegotiations": "¿Deberían las potencias principales que negocian acuerdos de paz estar obligadas a incluir a los países directamente afectados por el conflicto?",
+              "taiwanPolicy": "¿Debería Estados Unidos mantener su política de 'ambigüedad estratégica' sobre Taiwán para evitar escalar las tensiones con China?"
+            }
+          }
+        },
+        "openLetters": {
+          "title": "Cartas Abiertas",
+          "description": "Declaraciones públicas a los tomadores de decisiones",
+          "addNew": "Agregar tu carta abierta",
+          "statements": {
+            "aiRisk": {
+              "title": "Declaración sobre el Riesgo de la IA",
+              "referenceTitle": "Centro para la Seguridad de la IA"
+            },
+            "nuclear": {
+              "title": "Carta Abierta sobre la Prohibición de Armas Nucleares de la ONU",
+              "referenceTitle": "Instituto del Futuro de la Vida"
+            },
+            "autonomousWeapons": {
+              "title": "Compromiso sobre Armas Autónomas Letales",
+              "referenceTitle": "Instituto del Futuro de la Vida"
+            },
+            "longView": {
+              "title": "Carta abierta pidiendo a los líderes mundiales que muestren liderazgo a largo plazo sobre amenazas existenciales",
+              "referenceTitle": "Instituto del Futuro de la Vida"
+            }
+          }
+        },
+        "elections": {
+          "title": "Elecciones",
+          "description": "Elige a tus representantes",
+          "worldConstituent": {
+            "title": "Elección de la Asamblea Constituyente Mundial"
+          }
+        },
+        "referendums": {
+          "title": "Referéndums",
+          "description": "Votos directos sobre temas importantes",
+          "worldConstitutional": {
+            "title": "Referéndum Constitucional Mundial"
+          }
         }
       }
     }

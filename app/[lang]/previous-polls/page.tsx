@@ -4,185 +4,89 @@ import Link from "next/link";
 import { BiChevronLeft } from "react-icons/bi";
 import { Typography } from "@/components/ui/Typography";
 import { PollCard } from "@/components/PollCard";
+import { useTranslations } from "@/hooks/useTranslations";
 
-const historicalPolls = [
-  {
-    description:
-      "Should international guidelines be implemented to protect data generated worldwide under a unified framework for digital sovereignty?",
-    url: "https://vote.one/r4VmX0XN",
-  },
-  {
-    description:
-      "Do you support the growing global movement toward four-day workweeks as a standard employment model?",
-    url: "https://vote.one/ht6lGdcr",
-  },
-  {
-    description:
-      "Should binding international agreements be established to secure nuclear facilities in conflict zones?",
-    url: "https://vote.one/aW6o5p2u",
-  },
-  {
-    description:
-      "Is the international aviation infrastructure resilient enough to handle unexpected large-scale disruptions?",
-    url: "https://vote.one/32Nn7JaS",
-  },
-  {
-    description:
-      "Should nations create a cooperative framework to manage shared water resources amid rising global water scarcity?",
-    url: "https://vote.one/onq2P57s",
-  },
-  {
-    description:
-      "Should a dedicated global healthcare aid reserve be established to protect maternal and child health during international aid freezes?",
-    url: "https://vote.one/eTKCLYEa",
-  },
-  {
-    description:
-      "Do you support nations collaborating on a joint deep space mission to Mars?",
-    url: "https://vote.one/KP9pMsfy",
-  },
-  {
-    description:
-      "Do you think the current global economic trends signal a risk of a synchronized recession among major economies?",
-    url: "https://vote.one/VvJjBSkY",
-  },
-  {
-    description:
-      "Should all conflict zones with civilian humanitarian crises automatically trigger internationally coordinated aid corridors?",
-    url: "https://vote.one/l3Yu6hMi",
-  },
-  {
-    description:
-      "Do you support global policy frameworks that balance national sovereignty with coordinated responses to shared challenges?",
-    url: "https://vote.one/67a0Lnei",
-  },
-  {
-    description:
-      "Should countries experiencing extreme weather disasters (e.g., wildfires, floods) receive prioritized financial aid from a global climate fund?",
-    url: "https://vote.one/MTHSApYb",
-  },
-  {
-    description:
-      "Should global AI developers be required to pause training models more powerful than current systems until international safety agreements are established?",
-    url: "https://vote.one/HUuPPFOS",
-  },
-  {
-    description:
-      "Should corporations operating in multiple countries be subject to a unified global minimum tax rate to reduce inequality?",
-    url: "https://vote.one/3FhzXHRG",
-  },
-  {
-    description:
-      "Do you agree that space-faring nations and corporations should be legally required to remove defunct satellites to reduce orbital debris?",
-    url: "https://vote.one/4pPCTP6p",
-  },
-  {
-    description:
-      "Do you think that creating universal digital privacy standards is crucial for protecting individual rights in an increasingly interconnected world?",
-    url: "https://vote.one/adRv9hK6",
-  },
-  {
-    description:
-      "Do you believe that existing global measures effectively reduce the risk of nuclear proliferation?",
-    url: "https://vote.one/TKV1ow4O",
-  },
-  {
-    description:
-      "Are current international cybersecurity measures sufficient to protect critical global infrastructures from escalating cyber threats?",
-    url: "https://vote.one/trFBHaNi",
-  },
-  {
-    description:
-      "Do you think rapid realignments in global alliances will lead to a more secure international order?",
-    url: "https://vote.one/yhYoEjF3",
-  },
-  {
-    description:
-      "Is the current global approach to climate resilience sufficient to cope with the increasing frequency of extreme weather events?",
-    url: "https://vote.one/cg9zZaKR",
-  },
-  {
-    description:
-      "Do you think the growing trend of imposing tariffs among major economies will significantly disrupt global trade stability?",
-    url: "https://vote.one/HitgAQBM",
-  },
-  {
-    description:
-      "Are you confident in the world's ability to prevent and manage emerging infectious diseases?",
-    url: "https://vote.one/tbCLGUgE",
-  },
-  {
-    description:
-      "Should binding international regulations be established to govern the ethical development of artificial intelligence?",
-    url: "https://vote.one/4PjcWqwV",
-  },
-  {
-    description:
-      "Should there be mandatory international agreements to limit space debris from satellites and rockets?",
-    url: "https://vote.one/Eh0iIrW5",
-  },
-  {
-    description:
-      "Do you believe sustained diplomatic dialogue among world leaders can help reduce global tensions?",
-    url: "https://vote.one/179i7c78",
-  },
-  {
-    description:
-      "Should wealthy countries accept more migrants fleeing conflict or climate disasters?",
-    url: "https://vote.one/SJSETLZp",
-  },
-  {
-    description:
-      "Should international collaboration on rare earth minerals be prioritized to enhance global resource security?",
-    url: "https://vote.one/5StpP7UU",
-  },
-  {
-    description:
-      "Should global authorities establish uniform standards to regulate cryptocurrencies and curb financial crimes?",
-    url: "https://vote.one/0bTVLGAB",
-  },
-  {
-    description:
-      "Do you think global measures should be implemented to counter the spread of disinformation online?",
-    url: "https://vote.one/rw4L36NM",
-  },
-  {
-    description:
-      "Should countries be required to share real-time data during disease outbreaks to prevent global health crises?",
-    url: "https://vote.one/OZ2T4A53",
-  },
-  {
-    description:
-      "Should countries with advanced military capabilities intervene to de-escalate conflicts in regions experiencing sudden outbreaks of war?",
-    url: "https://vote.one/GrS25I8Y",
-  },
-  {
-    description:
-      "Should governments prioritize regulating artificial intelligence (AI) development to prevent misuse, even if it slows innovation?",
-    url: "https://vote.one/6xsTYiEV",
-  },
-  {
-    description:
-      "Do you believe that governments worldwide should increase funding for space monitoring and asteroid deflection research?",
-    url: "https://vote.one/IS9azLpr",
-  },
-  {
-    description:
-      "Should major powers negotiating peace agreements be required to include countries directly affected by the conflict?",
-    url: "https://vote.one/1mK1Ko1v",
-  },
-  {
-    description:
-      "Should the United States maintain its 'strategic ambiguity' policy on Taiwan to avoid escalating tensions with China?",
-    url: "https://vote.one/ZbuHndkQ",
-  },
+const pollKeys = [
+  "dataSovereignty",
+  "fourDayWeek",
+  "nuclearSecurity",
+  "aviationResilience",
+  "waterResources",
+  "maternalHealth",
+  "marsMission",
+  "globalRecession",
+  "aidCorridors",
+  "nationalSovereignty",
+  "climateDisasters",
+  "aiSafety",
+  "corporateTax",
+  "spaceDebris",
+  "digitalPrivacy",
+  "nuclearProliferation",
+  "cybersecurity",
+  "globalAlliances",
+  "climateResilience",
+  "tradeTariffs",
+  "diseaseManagement",
+  "aiRegulation",
+  "spaceRegulation",
+  "diplomaticDialogue",
+  "migration",
+  "rareEarths",
+  "cryptocurrency",
+  "disinformation",
+  "diseaseOutbreaks",
+  "militaryIntervention",
+  "aiDevelopment",
+  "asteroidDefense",
+  "peaceNegotiations",
+  "taiwanPolicy",
 ];
+
+const pollUrls = {
+  dataSovereignty: "https://vote.one/r4VmX0XN",
+  fourDayWeek: "https://vote.one/ht6lGdcr",
+  nuclearSecurity: "https://vote.one/aW6o5p2u",
+  aviationResilience: "https://vote.one/32Nn7JaS",
+  waterResources: "https://vote.one/onq2P57s",
+  maternalHealth: "https://vote.one/eTKCLYEa",
+  marsMission: "https://vote.one/KP9pMsfy",
+  globalRecession: "https://vote.one/VvJjBSkY",
+  aidCorridors: "https://vote.one/l3Yu6hMi",
+  nationalSovereignty: "https://vote.one/67a0Lnei",
+  climateDisasters: "https://vote.one/MTHSApYb",
+  aiSafety: "https://vote.one/HUuPPFOS",
+  corporateTax: "https://vote.one/3FhzXHRG",
+  spaceDebris: "https://vote.one/4pPCTP6p",
+  digitalPrivacy: "https://vote.one/adRv9hK6",
+  nuclearProliferation: "https://vote.one/TKV1ow4O",
+  cybersecurity: "https://vote.one/trFBHaNi",
+  globalAlliances: "https://vote.one/yhYoEjF3",
+  climateResilience: "https://vote.one/cg9zZaKR",
+  tradeTariffs: "https://vote.one/HitgAQBM",
+  diseaseManagement: "https://vote.one/tbCLGUgE",
+  aiRegulation: "https://vote.one/4PjcWqwV",
+  spaceRegulation: "https://vote.one/Eh0iIrW5",
+  diplomaticDialogue: "https://vote.one/179i7c78",
+  migration: "https://vote.one/SJSETLZp",
+  rareEarths: "https://vote.one/5StpP7UU",
+  cryptocurrency: "https://vote.one/0bTVLGAB",
+  disinformation: "https://vote.one/rw4L36NM",
+  diseaseOutbreaks: "https://vote.one/OZ2T4A53",
+  militaryIntervention: "https://vote.one/GrS25I8Y",
+  aiDevelopment: "https://vote.one/6xsTYiEV",
+  asteroidDefense: "https://vote.one/IS9azLpr",
+  peaceNegotiations: "https://vote.one/1mK1Ko1v",
+  taiwanPolicy: "https://vote.one/ZbuHndkQ",
+};
 
 export default function PreviousPollsPage({
   params: { lang },
 }: {
   params: { lang: string };
 }) {
+  const dictionary = useTranslations(lang);
+
   return (
     <div className="flex min-h-screen flex-col px-6 pb-20">
       <div className="fixed left-0 right-0 top-0 z-10 bg-gray-0 px-6">
@@ -194,19 +98,24 @@ export default function PreviousPollsPage({
             <BiChevronLeft className="size-6 text-gray-500" />
           </Link>
           <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
-            Previous Polls
+            {dictionary?.pages?.govern?.sections?.polls?.previous?.title ??
+              "Previous Polls"}
           </Typography>
         </div>
       </div>
 
       <div className="mt-24">
         <div>
-          {historicalPolls.map((poll, index) => (
+          {pollKeys.map((key) => (
             <PollCard
-              key={`all-${index}`}
+              key={key}
               lang={lang}
-              description={poll.description}
-              voteUrl={poll.url}
+              description={
+                dictionary?.pages?.govern?.sections?.polls?.previous?.polls?.[
+                  key
+                ] ?? key
+              }
+              voteUrl={pollUrls[key as keyof typeof pollUrls]}
             />
           ))}
         </div>
