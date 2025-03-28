@@ -1,3 +1,5 @@
+"use client";
+
 import { Typography } from "@/components/ui/Typography";
 import Link from "next/link";
 import { PiTrophy } from "react-icons/pi";
