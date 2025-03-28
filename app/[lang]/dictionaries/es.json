@@ -7,21 +7,159 @@
       "error": "Error de Conexión"
     },
     "verifyButton": {
-      "verify": "Verificar con World ID",
+      "verify": "Verificar para Reclamar",
       "verifying": "Verificando...",
       "verified": "Verificado"
     },
     "pollOfTheDay": {
       "title": "Encuesta del Día",
       "viewAll": "Ver Todas las Encuestas",
-      "vote": "Votar Ahora"
+      "vote": "Votar Ahora",
+      "previousPolls": "Encuestas Anteriores"
     },
     "stakeForm": {
       "title": "Depositar Tokens",
       "amountPlaceholder": "Ingrese cantidad",
       "submit": "Depositar",
       "approving": "Aprobando...",
-      "staking": "Depositando..."
+      "staking": "Depositando...",
+      "deposit": "Depositar",
+      "withdraw": "Retirar",
+      "balance": "Saldo:",
+      "depositPlaceholder": "Cantidad a depositar",
+      "withdrawPlaceholder": "Cantidad a retirar",
+      "max": "Máximo",
+      "interest": "Interés:",
+      "collect": "Cobrar",
+      "depositButton": "Depositar Dracma",
+      "withdrawButton": "Retirar Dracma"
+    },
+    "toasts": {
+      "wallet": {
+        "connectInWorldApp": "Por favor, abra esta aplicación en World App para conectar su billetera.",
+        "stakingError": "Error al depositar tokens",
+        "withdrawError": "Error al retirar tokens",
+        "collectError": "Error al cobrar recompensas"
+      },
+      "referral": {
+        "pendingReward": "Procesando recompensa pendiente para {{username}}...",
+        "rewardSuccess": "¡Recompensa enviada exitosamente a {{username}}!",
+        "sendingReward": "Enviando recompensa de 50 WDD a {{username}}..."
+      },
+      "basicIncome": {
+        "setupSuccess": "¡Renta Básica Plus activada! Preparando recompensa para {{username}}...",
+        "setupWithReferrer": "Configurando Renta Básica Plus primero, luego recompensaremos a {{username}}...",
+        "error": "Error al activar Renta Básica",
+        "errorPlus": "Error al activar Renta Básica Plus"
+      },
+      "transaction": {
+        "error": "Ocurrió un error inesperado",
+        "errorClaim": "Ocurrió un error inesperado durante el reclamo"
+      }
+    }
+  },
+  "pages": {
+    "earn": {
+      "title": "Ganar",
+      "tabs": {
+        "basicIncome": {
+          "title": "Renta Básica",
+          "subtitle": "Inicia sesión para reclamar tu renta básica",
+          "setupSubtitle": "Configura tu renta básica",
+          "claimableSubtitle": "Dracmas reclamables",
+          "activateButton": "Activar Renta Básica",
+          "claimButton": "Reclamar",
+          "plus": {
+            "title": "Renta Básica Plus",
+            "newBadge": "Nuevo",
+            "drawerTrigger": "Presentando Renta Básica Plus",
+            "subtitle": "Ingresos extra para usuarios verificados",
+            "drawer": {
+              "title": "Renta Básica Plus",
+              "subtitle": "Ingresos extra para usuarios verificados",
+              "features": {
+                "rate": {
+                  "title": "10 WDD adicionales por día"
+                },
+                "verification": {
+                  "title": "Exclusivo para usuarios verificados con Orb para asegurar una distribución justa"
+                },
+                "rewards": {
+                  "title": "Las recompensas cambian a Plus con el tiempo manteniendo un total de 11 WDD/día"
+                }
+              },
+              "activateButton": "Activar Renta Básica Plus",
+              "claimButton": "Reclamar Renta Básica Plus",
+              "claimBasicButton": "Reclamar Renta Básica"
+            }
+          }
+        },
+        "savings": {
+          "title": "Cuenta de Ahorro",
+          "subtitle": "Gana intereses cada segundo",
+          "tooltip": "Tasa base del 69% APY. Cobra y reinvierte los intereses para alcanzar cerca del 100% de rendimiento efectivo anual. Retira en cualquier momento."
+        },
+        "invite": {
+          "title": "Invitar",
+          "subtitle": "Obtén 50 WDD por cada amigo que se una",
+          "tooltip": "Ganarás recompensas cuando tus amigos activen su Renta Básica Plus.",
+          "learnMore": "Más información",
+          "stats": {
+            "title": "Tus Estadísticas de Referidos",
+            "invites": "Invitaciones aceptadas",
+            "rewards": "Recompensas totales"
+          },
+          "actions": {
+            "copyLink": "Copiar Enlace de Referido",
+            "copied": "¡Enlace de referido copiado al portapapeles!",
+            "connectWallet": "Por favor conecta tu billetera para generar tu enlace de referido",
+            "rewardReferrer": "Recompensar Referidor"
+          },
+          "drawer": {
+            "title": "Recompensar a un Referidor",
+            "subtitle": "Activa una recompensa gratuita de 50 WDD para tu referidor",
+            "invitedBy": "Fuiste invitado por: {{username}}",
+            "input": {
+              "placeholder": "Ingresa usuario (ej. usuario.0000)",
+              "lookupButton": "Buscar Usuario",
+              "sendingTo": "Enviando recompensa a:",
+              "editButton": "Editar",
+              "sendButton": "Enviar Recompensa"
+            },
+            "errors": {
+              "enterUsername": "Por favor ingresa un nombre de usuario",
+              "usernameNotFound": "Usuario no encontrado",
+              "lookupFailed": "Error al buscar usuario. Por favor intenta de nuevo.",
+              "installMiniKit": "Por favor instala MiniKit para buscar usuarios",
+              "connectWallet": "Por favor conecta tu billetera primero",
+              "transactionCanceled": "La transacción fue cancelada"
+            },
+            "success": {
+              "rewardSent": "¡Recompensa enviada exitosamente a {{username}}!"
+            }
+          }
+        },
+        "contribute": {
+          "title": "Contribuir",
+          "subtitle": "Participa, obtén recompensas",
+          "contests": {
+            "weekly": "Semanal",
+            "topPrize": "Premio principal",
+            "xPost": {
+              "title": "Concurso de Publicaciones en X",
+              "description": "Escribe publicaciones atractivas, gana premios"
+            },
+            "poll": {
+              "title": "Concurso de Encuestas",
+              "description": "Recopila opiniones de la comunidad y gana"
+            }
+          },
+          "earlyAccess": {
+            "title": "Programa de Acceso Anticipado",
+            "description": "Gana WDD probando nuestras próximas funciones"
+          }
+        }
+      }
     }
   }
 }

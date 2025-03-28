@@ -50,6 +50,12 @@
     "earn": {
       "title": "Earn",
       "tabs": {
+        "tabNames": {
+          "basicIncome": "Basic income",
+          "savings": "Savings",
+          "contribute": "Contribute",
+          "invite": "Invite"
+        },
         "basicIncome": {
           "title": "Basic Income",
           "subtitle": "Sign in to claim your basic income",
@@ -146,6 +152,17 @@
             "title": "Early Access Program",
             "description": "Earn WDD by testing our upcoming features"
           }
+        }
+      }
+    },
+    "govern": {
+      "title": "Govern",
+      "tabs": {
+        "tabNames": {
+          "polls": "Polls",
+          "openLetters": "Open letters",
+          "elections": "Elections",
+          "referendums": "Referendums"
         }
       }
     }
