@@ -563,7 +563,8 @@ export default function EarnPage({
         // Only show error toast if it's not a user rejection
         if (finalPayload.error_code !== "user_rejected") {
           const errorMessage =
-            (finalPayload as any).description ||
+            ((finalPayload as any).description ||
+              dictionary?.components?.toasts?.basicIncome?.error) ??
             "Error activating Basic Income";
           showToast(errorMessage, "error");
         }
@@ -595,17 +596,26 @@ export default function EarnPage({
       if (response.ok) {
         const data = await response.json();
         showToast(
-          `Processing pending reward for ${pendingReferrer}...`,
+          dictionary?.components?.toasts?.referral?.pendingReward?.replace(
+            "{{username}}",
+            pendingReferrer
+          ) ?? `Processing pending reward for ${pendingReferrer}...`,
           "info"
         );
         await sendReward(data.address);
-        showToast(`Successfully rewarded ${pendingReferrer}!`, "success");
+        showToast(
+          dictionary?.components?.toasts?.referral?.rewardSuccess?.replace(
+            "{{username}}",
+            pendingReferrer
+          ) ?? `Successfully rewarded ${pendingReferrer}!`,
+          "success"
+        );
         localStorage.removeItem("pendingReferrerReward");
       }
     } catch (error) {
       console.error("[AutoReward] Failed to process pending reward:", error);
     }
-  }, [canReward, sendReward, showToast]);
+  }, [canReward, sendReward, showToast, dictionary]);
 
   useEffect(() => {
     // Only process if wallet is connected AND user can reward
@@ -619,14 +629,16 @@ export default function EarnPage({
     setIsSubmitting(true);
     console.log("[BasicIncomePlus] Setup initiated");
 
-    // Check if there's a stored referrer upfront
     const storedReferrer = localStorage.getItem("referredBy");
     const hasReferrer = !!storedReferrer;
 
-    // If there's a referrer, let the user know their referrer will be rewarded
     if (hasReferrer) {
       showToast(
-        `Setting up Basic Income Plus first, then we'll reward ${storedReferrer}`,
+        dictionary?.components?.toasts?.basicIncome?.setupWithReferrer?.replace(
+          "{{username}}",
+          storedReferrer
+        ) ??
+          `Setting up Basic Income Plus first, then we'll reward ${storedReferrer}`,
         "info"
       );
     }
@@ -655,7 +667,8 @@ export default function EarnPage({
         // Only show error toast if it's not a user rejection
         if (finalPayload.error_code !== "user_rejected") {
           const errorMessage =
-            (finalPayload as any).description ||
+            ((finalPayload as any).description ||
+              dictionary?.components?.toasts?.basicIncome?.errorPlus) ??
             "Error activating Basic Income Plus";
           showToast(errorMessage, "error");
         }
@@ -664,7 +677,11 @@ export default function EarnPage({
         setTransactionId(finalPayload.transaction_id);
         if (storedReferrer) {
           showToast(
-            `Basic Income Plus activated! Now preparing reward for ${storedReferrer}...`,
+            dictionary?.components?.toasts?.basicIncome?.setupSuccess?.replace(
+              "{{username}}",
+              storedReferrer
+            ) ??
+              `Basic Income Plus activated! Now preparing reward for ${storedReferrer}...`,
             "success"
           );
         }
@@ -719,7 +736,8 @@ export default function EarnPage({
       console.error("[BasicIncomePlus] Error message:", error.message);
       console.error("[BasicIncomePlus] Error stack:", error.stack);
       showToast(
-        error.message || "An unexpected error occurred during setup",
+        (error.message || dictionary?.components?.toasts?.transaction?.error) ??
+          "An unexpected error occurred",
         "error"
       );
       setIsSubmitting(false);
@@ -751,7 +769,9 @@ export default function EarnPage({
         // Only show error toast if it's not a user rejection
         if (finalPayload.error_code !== "user_rejected") {
           const errorMessage =
-            (finalPayload as any).description || "Error claiming Basic Income";
+            ((finalPayload as any).description ||
+              dictionary?.components?.toasts?.transaction?.errorClaim) ??
+            "Error claiming Basic Income";
           showToast(errorMessage, "error");
         }
         setIsClaimingBasic(false);
@@ -1761,7 +1781,7 @@ export default function EarnPage({
                     className="text-gray-500"
                   >
                     {dictionary?.pages?.earn?.tabs?.invite?.stats?.invites ??
-                      "Invites Accepted"}
+                      "Invites accepted"}
                   </Typography>
                 </div>
                 <div className="text-center">
@@ -1776,7 +1796,7 @@ export default function EarnPage({
                     className="text-gray-500"
                   >
                     {dictionary?.pages?.earn?.tabs?.invite?.stats?.rewards ??
-                      "Total Rewards"}
+                      "Total rewards"}
                   </Typography>
                 </div>
               </div>
