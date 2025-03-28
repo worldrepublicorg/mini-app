@@ -152,11 +152,93 @@
             "poll": {
               "title": "Concurso de Encuestas",
               "description": "Recopila opiniones de la comunidad y gana"
+            },
+            "pollContest": {
+              "title": "Concurso de Encuestas",
+              "weeklyTitle": "Concurso Semanal de Encuestas",
+              "description": "Recopila opiniones de la comunidad y gana",
+              "prizes": {
+                "title": "Premios",
+                "viewWinners": "Ver ganadores anteriores",
+                "wdd": "WDD"
+              },
+              "howTo": {
+                "title": "Cómo funciona",
+                "steps": {
+                  "step1": {
+                    "number": "1",
+                    "text": "Crea una encuesta relacionada con la República Mundial o la gobernanza global en general"
+                  },
+                  "step2": {
+                    "number": "2",
+                    "text": "Configúrala para que solo los humanos verificados puedan votar"
+                  },
+                  "step3": {
+                    "number": "3",
+                    "text": "Comparte tu encuesta en nuestro",
+                    "link": {
+                      "text": "canal de Telegram del Concurso de Encuestas",
+                      "url": "https://t.me/worldrepubliccommunity/32368"
+                    }
+                  }
+                }
+              },
+              "rules": {
+                "title": "Reglas del concurso",
+                "list": {
+                  "rule1": "Solo las encuestas iniciadas en la semana actual son elegibles",
+                  "rule2": "Los ganadores son seleccionados según el total de votos",
+                  "rule3": "El concurso termina cada domingo a las 11:59 PM UTC"
+                }
+              },
+              "cta": {
+                "create": "Crear Tu Encuesta",
+                "submit": "Enviar Tu Encuesta"
+              },
+              "winners": {
+                "title": "Ganadores del Concurso",
+                "weekOf": "Semana del",
+                "votes": "votos"
+              }
             }
           },
           "earlyAccess": {
             "title": "Programa de Acceso Anticipado",
             "description": "Gana WDD probando nuestras próximas funciones"
+          },
+          "xContest": {
+            "title": "Concurso de Publicaciones",
+            "weeklyTitle": "Concurso Semanal de Publicaciones en X",
+            "description": "Escribe publicaciones atractivas, gana premios",
+            "prizes": {
+              "title": "Premios",
+              "viewWinners": "Ver ganadores anteriores",
+              "wdd": "WDD"
+            },
+            "howTo": {
+              "title": "Cómo participar",
+              "step1": "Escribe una publicación en X sobre la República Mundial",
+              "step2": "Etiqueta a @WorldRepublicEN",
+              "step3": {
+                "prefix": "Comparte el enlace de tu publicación en nuestro",
+                "link": "canal de Telegram del Concurso de Publicaciones en X"
+              }
+            },
+            "rules": {
+              "title": "Reglas del concurso",
+              "rule1": "Solo las publicaciones de la semana actual son elegibles",
+              "rule2": "Los ganadores son seleccionados según el engagement total (me gusta + reposteos + comentarios)",
+              "rule3": "El concurso termina cada domingo a las 11:59 PM UTC"
+            },
+            "cta": {
+              "post": "Empezar a Publicar",
+              "submit": "Enviar tu Publicación"
+            },
+            "winners": {
+              "title": "Ganadores del Concurso",
+              "weekOf": "Semana del",
+              "engagements": "interacciones "
+            }
           }
         }
       }

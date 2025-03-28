@@ -1,16 +1,17 @@
-"use client";
-
 import { Button } from "@/components/ui/Button";
 import { Typography } from "@/components/ui/Typography";
 import Link from "next/link";
 import { PiTrophy, PiClipboardTextFill } from "react-icons/pi";
 import { BiChevronLeft } from "react-icons/bi";
+import { getClientDictionary } from "@/lib/dictionary";
 
-export default function PollContestPage({
+export default async function PollContestPage({
   params: { lang },
 }: {
   params: { lang: string };
 }) {
+  const dictionary = await getClientDictionary(lang);
+
   return (
     <div className="pb-safe flex min-h-dvh flex-col px-6">
       <div className="fixed left-0 right-0 top-0 z-10 bg-gray-0 px-6">
@@ -22,7 +23,8 @@ export default function PollContestPage({
             <BiChevronLeft className="size-6 text-gray-500" />
           </Link>
           <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
-            Poll Contest
+            {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
+              ?.title ?? "Poll Contest"}
           </Typography>
         </div>
       </div>
@@ -37,13 +39,15 @@ export default function PollContestPage({
             variant={{ variant: "subtitle", level: 1 }}
             className="mx-auto mb-2 text-center text-gray-900"
           >
-            Weekly Poll Contest
+            {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
+              ?.weeklyTitle ?? "Weekly Poll Contest"}
           </Typography>
           <Typography
             variant={{ variant: "body", level: 2 }}
             className="text-center text-gray-500"
           >
-            Gather community feedback and earn
+            {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
+              ?.description ?? "Gather community feedback and earn"}
           </Typography>
         </div>
 
@@ -54,7 +58,8 @@ export default function PollContestPage({
               variant={{ variant: "subtitle", level: 2 }}
               className="text-gray-900"
             >
-              Prizes
+              {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
+                ?.prizes?.title ?? "Prizes"}
             </Typography>
             <Link
               href={`/${lang}/earn/contribute/poll-contest/winners`}
@@ -65,7 +70,8 @@ export default function PollContestPage({
                 size="sm"
                 className="text-primary-600 h-[19px] px-0"
               >
-                View past winners
+                {dictionary?.pages?.earn?.tabs?.contribute?.contests
+                  ?.pollContest?.prizes?.viewWinners ?? "View past winners"}
               </Button>
             </Link>
           </div>
@@ -130,49 +136,72 @@ export default function PollContestPage({
             variant={{ variant: "subtitle", level: 2 }}
             className="mb-4 text-gray-900"
           >
-            How it works
+            {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
+              ?.howTo?.title ?? "How it works"}
           </Typography>
           <div className="space-y-4">
             <div className="flex gap-3">
               <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-900 text-sm text-gray-0">
-                1
+                {
+                  dictionary.pages.earn.tabs.contribute.contests.pollContest
+                    .howTo.steps.step1.number
+                }
               </div>
               <Typography
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                Create a poll related to the World Republic or global governance
-                in general
+                {
+                  dictionary.pages.earn.tabs.contribute.contests.pollContest
+                    .howTo.steps.step1.text
+                }
               </Typography>
             </div>
             <div className="flex gap-3">
               <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-900 text-sm text-gray-0">
-                2
+                {
+                  dictionary.pages.earn.tabs.contribute.contests.pollContest
+                    .howTo.steps.step2.number
+                }
               </div>
               <Typography
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                Set it up so only verified humans can vote
+                {
+                  dictionary.pages.earn.tabs.contribute.contests.pollContest
+                    .howTo.steps.step2.text
+                }
               </Typography>
             </div>
             <div className="flex gap-3">
               <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-900 text-sm text-gray-0">
-                3
+                {
+                  dictionary.pages.earn.tabs.contribute.contests.pollContest
+                    .howTo.steps.step3.number
+                }
               </div>
               <Typography
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                Share your poll in our{" "}
+                {
+                  dictionary.pages.earn.tabs.contribute.contests.pollContest
+                    .howTo.steps.step3.text
+                }{" "}
                 <a
-                  href="https://t.me/worldrepubliccommunity/32368"
+                  href={
+                    dictionary.pages.earn.tabs.contribute.contests.pollContest
+                      .howTo.steps.step3.link.url
+                  }
                   className="underline"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {" "}
-                  Poll Contest Telegram channel
+                  {
+                    dictionary.pages.earn.tabs.contribute.contests.pollContest
+                      .howTo.steps.step3.link.text
+                  }
                 </a>
               </Typography>
             </div>
@@ -185,22 +214,32 @@ export default function PollContestPage({
             variant={{ variant: "subtitle", level: 2 }}
             className="mb-4 text-gray-900"
           >
-            Contest rules
+            {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
+              ?.rules?.title ?? "Contest rules"}
           </Typography>
           <ul className="text-gray-600 list-disc space-y-2 pl-5">
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                Only polls started in the current week are eligible
+                {
+                  dictionary.pages.earn.tabs.contribute.contests.pollContest
+                    .rules.list.rule1
+                }
               </Typography>
             </li>
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                Winners are selected based on total votes
+                {
+                  dictionary.pages.earn.tabs.contribute.contests.pollContest
+                    .rules.list.rule2
+                }
               </Typography>
             </li>
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                Contest ends every Sunday at 11:59 PM UTC
+                {
+                  dictionary.pages.earn.tabs.contribute.contests.pollContest
+                    .rules.list.rule3
+                }
               </Typography>
             </li>
           </ul>
@@ -209,7 +248,10 @@ export default function PollContestPage({
         {/* CTA Buttons */}
         <div className="mt-auto space-y-3">
           <a href="https://vote.one" target="_blank" rel="noopener noreferrer">
-            <Button fullWidth>Create Your Poll</Button>
+            <Button fullWidth>
+              {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
+                ?.cta?.create ?? "Create Your Poll"}
+            </Button>
           </a>
           <a
             href="https://t.me/worldrepubliccommunity/32368"
@@ -217,7 +259,8 @@ export default function PollContestPage({
             rel="noopener noreferrer"
           >
             <Button variant="secondary" fullWidth className="mt-4">
-              Submit Your Poll
+              {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
+                ?.cta?.submit ?? "Submit Your Poll"}
             </Button>
           </a>
         </div>

@@ -1,17 +1,18 @@
-"use client";
-
 import { Button } from "@/components/ui/Button";
 import { Typography } from "@/components/ui/Typography";
 import Link from "next/link";
 import { PiMegaphoneFill, PiTrophy } from "react-icons/pi";
 import { FaXTwitter } from "react-icons/fa6";
 import { BiChevronLeft } from "react-icons/bi";
+import { getClientDictionary } from "@/lib/dictionary";
 
-export default function XContestPage({
+export default async function XContestPage({
   params: { lang },
 }: {
   params: { lang: string };
 }) {
+  const dictionary = await getClientDictionary(lang);
+
   return (
     <div className="pb-safe flex min-h-dvh flex-col px-6">
       <div className="fixed left-0 right-0 top-0 z-10 bg-gray-0 px-6">
@@ -23,7 +24,8 @@ export default function XContestPage({
             <BiChevronLeft className="size-6 text-gray-500" />
           </Link>
           <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
-            X Post Contest
+            {dictionary?.pages?.earn?.tabs?.contribute?.xContest?.title ??
+              "X Post Contest"}
           </Typography>
         </div>
       </div>
@@ -38,13 +40,15 @@ export default function XContestPage({
             variant={{ variant: "subtitle", level: 1 }}
             className="mx-auto mb-2 text-center text-gray-900"
           >
-            Weekly X Post Contest
+            {dictionary?.pages?.earn?.tabs?.contribute?.xContest?.weeklyTitle ??
+              "Weekly X Post Contest"}
           </Typography>
           <Typography
             variant={{ variant: "body", level: 2 }}
             className="text-center text-gray-500"
           >
-            Write engaging posts, win prizes
+            {dictionary?.pages?.earn?.tabs?.contribute?.xContest?.description ??
+              "Write engaging posts, win prizes"}
           </Typography>
         </div>
 
@@ -55,7 +59,8 @@ export default function XContestPage({
               variant={{ variant: "subtitle", level: 2 }}
               className="text-gray-900"
             >
-              Prizes
+              {dictionary?.pages?.earn?.tabs?.contribute?.xContest?.prizes
+                ?.title ?? "Prizes"}
             </Typography>
             <Link
               href={`/${lang}/earn/contribute/x-contest/winners`}
@@ -66,7 +71,8 @@ export default function XContestPage({
                 size="sm"
                 className="text-primary-600 h-[19px] px-0"
               >
-                View past winners
+                {dictionary?.pages?.earn?.tabs?.contribute?.xContest?.prizes
+                  ?.viewWinners ?? "View past winners"}
               </Button>
             </Link>
           </div>
@@ -131,7 +137,8 @@ export default function XContestPage({
             variant={{ variant: "subtitle", level: 2 }}
             className="mb-4 text-gray-900"
           >
-            How to participate
+            {dictionary?.pages?.earn?.tabs?.contribute?.xContest?.howTo
+              ?.title ?? "How to participate"}
           </Typography>
           <div className="space-y-4">
             <div className="flex gap-3">
@@ -142,7 +149,8 @@ export default function XContestPage({
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                Write an X post about the World Republic
+                {dictionary?.pages?.earn?.tabs?.contribute?.xContest?.howTo
+                  ?.step1 ?? "Write an X post about the World Republic"}
               </Typography>
             </div>
             <div className="flex gap-3">
@@ -153,7 +161,8 @@ export default function XContestPage({
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                Tag @WorldRepublicEN
+                {dictionary?.pages?.earn?.tabs?.contribute?.xContest?.howTo
+                  ?.step2 ?? "Tag @WorldRepublicEN"}
               </Typography>
             </div>
             <div className="flex gap-3">
@@ -164,14 +173,16 @@ export default function XContestPage({
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                Share the link to your post in our{" "}
+                {dictionary?.pages?.earn?.tabs?.contribute?.xContest?.howTo
+                  ?.step3?.prefix ?? "Share the link to your post in our"}{" "}
                 <a
                   href="https://t.me/worldrepubliccommunity/32365"
                   className="underline"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  X Post Contest Telegram channel
+                  {dictionary?.pages?.earn?.tabs?.contribute?.xContest?.howTo
+                    ?.step3?.link ?? "X Post Contest Telegram channel"}
                 </a>
               </Typography>
             </div>
@@ -184,23 +195,29 @@ export default function XContestPage({
             variant={{ variant: "subtitle", level: 2 }}
             className="mb-4 text-gray-900"
           >
-            Contest rules
+            {dictionary?.pages?.earn?.tabs?.contribute?.xContest?.rules
+              ?.title ?? "Contest rules"}
           </Typography>
           <ul className="text-gray-600 list-disc space-y-2 pl-5">
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                Only posts published in the current week are eligible
+                {dictionary?.pages?.earn?.tabs?.contribute?.xContest?.rules
+                  ?.rule1 ??
+                  "Only posts published in the current week are eligible"}
               </Typography>
             </li>
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                Winners are selected based on total engagement (likes + reposts
-                + comments)
+                {dictionary?.pages?.earn?.tabs?.contribute?.xContest?.rules
+                  ?.rule2 ??
+                  "Winners are selected based on total engagement (likes + reposts + comments)"}
               </Typography>
             </li>
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                Contest ends every Sunday at 11:59 PM UTC
+                {dictionary?.pages?.earn?.tabs?.contribute?.xContest?.rules
+                  ?.rule3 ??
+                  "Contest ends every Sunday at 11:59 PM UTC"}
               </Typography>
             </li>
           </ul>
@@ -219,7 +236,10 @@ export default function XContestPage({
             >
               <div className="flex w-full items-center justify-center">
                 <FaXTwitter className="mr-2 h-4 w-4" />
-                <span>Start Posting Now</span>
+                <span>
+                  {dictionary?.pages?.earn?.tabs?.contribute?.xContest?.cta
+                    ?.post ?? "Start Posting Now"}
+                </span>
               </div>
             </Button>
           </a>
@@ -229,7 +249,8 @@ export default function XContestPage({
             rel="noopener noreferrer"
           >
             <Button variant="secondary" fullWidth className="mt-4">
-              Submit Your Post
+              {dictionary?.pages?.earn?.tabs?.contribute?.xContest?.cta
+                ?.submit ?? "Submit Your Post"}
             </Button>
           </a>
         </div>

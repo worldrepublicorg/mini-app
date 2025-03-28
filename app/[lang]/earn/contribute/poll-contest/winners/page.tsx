@@ -1,10 +1,9 @@
-"use client";
-
 import { Typography } from "@/components/ui/Typography";
 import Link from "next/link";
 import { PiTrophy } from "react-icons/pi";
 import { BiChevronLeft } from "react-icons/bi";
 import { FaVoteYea } from "react-icons/fa";
+import { getClientDictionary } from "@/lib/dictionary";
 
 type Winner = {
   handle: string;
@@ -46,11 +45,13 @@ const WINNERS_DATA: WeeklyWinners[] = [
   // Add more weeks as needed
 ];
 
-export default function PollContestWinnersPage({
+export default async function PollContestWinnersPage({
   params: { lang },
 }: {
   params: { lang: string };
 }) {
+  const dictionary = await getClientDictionary(lang);
+
   const getTrophyColor = (place: number) => {
     switch (place) {
       case 1:
@@ -76,7 +77,8 @@ export default function PollContestWinnersPage({
             <BiChevronLeft className="size-6 text-gray-500" />
           </Link>
           <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
-            Contest Winners
+            {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
+              ?.winners?.title ?? "Contest Winners"}
           </Typography>
         </div>
       </div>
@@ -94,7 +96,9 @@ export default function PollContestWinnersPage({
                 variant={{ variant: "subtitle", level: 2 }}
                 className="mb-4 text-gray-900"
               >
-                Week of {week.weekOf}
+                {dictionary?.pages?.earn?.tabs?.contribute?.contests
+                  ?.pollContest?.winners?.weekOf ?? "Week of"}{" "}
+                {week.weekOf}
               </Typography>
               <div>
                 {week.winners.map((winner) => (
@@ -121,7 +125,9 @@ export default function PollContestWinnersPage({
                         variant={{ variant: "body", level: 3 }}
                         className="text-gray-500"
                       >
-                        {winner.engagement.toLocaleString()} votes
+                        {winner.engagement.toLocaleString()}{" "}
+                        {dictionary?.pages?.earn?.tabs?.contribute?.contests
+                          ?.pollContest?.winners?.votes ?? "votes"}
                       </Typography>
                     </div>
                     <FaVoteYea className="h-5 w-5 text-gray-400" />

@@ -146,11 +146,93 @@
             "poll": {
               "title": "Poll Contest",
               "description": "Gather community feedback and earn"
+            },
+            "pollContest": {
+              "title": "Poll Contest",
+              "weeklyTitle": "Weekly Poll Contest",
+              "description": "Gather community feedback and earn",
+              "prizes": {
+                "title": "Prizes",
+                "viewWinners": "View past winners",
+                "wdd": "WDD"
+              },
+              "howTo": {
+                "title": "How it works",
+                "steps": {
+                  "step1": {
+                    "number": "1",
+                    "text": "Create a poll related to the World Republic or global governance in general"
+                  },
+                  "step2": {
+                    "number": "2",
+                    "text": "Set it up so only verified humans can vote"
+                  },
+                  "step3": {
+                    "number": "3",
+                    "text": "Share your poll in our",
+                    "link": {
+                      "text": "Poll Contest Telegram channel",
+                      "url": "https://t.me/worldrepubliccommunity/32368"
+                    }
+                  }
+                }
+              },
+              "rules": {
+                "title": "Contest rules",
+                "list": {
+                  "rule1": "Only polls started in the current week are eligible",
+                  "rule2": "Winners are selected based on total votes",
+                  "rule3": "Contest ends every Sunday at 11:59 PM UTC"
+                }
+              },
+              "cta": {
+                "create": "Create Your Poll",
+                "submit": "Submit Your Poll"
+              },
+              "winners": {
+                "title": "Contest Winners",
+                "weekOf": "Week of",
+                "votes": "votes"
+              }
             }
           },
           "earlyAccess": {
             "title": "Early Access Program",
             "description": "Earn WDD by testing our upcoming features"
+          },
+          "xContest": {
+            "title": "X Post Contest",
+            "weeklyTitle": "Weekly X Post Contest",
+            "description": "Write engaging posts, win prizes",
+            "prizes": {
+              "title": "Prizes",
+              "viewWinners": "View past winners",
+              "wdd": "WDD"
+            },
+            "howTo": {
+              "title": "How to participate",
+              "step1": "Write an X post about the World Republic",
+              "step2": "Tag @WorldRepublicEN",
+              "step3": {
+                "prefix": "Share the link to your post in our",
+                "link": "X Post Contest Telegram channel"
+              }
+            },
+            "rules": {
+              "title": "Contest rules",
+              "rule1": "Only posts published in the current week are eligible",
+              "rule2": "Winners are selected based on total engagement (likes + reposts + comments)",
+              "rule3": "Contest ends every Sunday at 11:59 PM UTC"
+            },
+            "cta": {
+              "post": "Start Posting Now",
+              "submit": "Submit Your Post"
+            },
+            "winners": {
+              "title": "Contest Winners",
+              "weekOf": "Week of",
+              "engagements": "engagements"
+            }
           }
         }
       }

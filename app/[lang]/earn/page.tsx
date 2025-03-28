@@ -2011,7 +2011,7 @@ export default function EarnPage({
 
             <div className="w-full">
               <a
-                href="/earn/contribute/x-contest"
+                href={`/${lang}/earn/contribute/x-contest`}
                 className="group mb-4 flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 transition-all hover:border-gray-300 hover:bg-gray-50"
               >
                 <div className="mb-3 flex items-center justify-between">
@@ -2069,7 +2069,7 @@ export default function EarnPage({
 
               {/* Poll Contest - similar structure with translations */}
               <a
-                href="/earn/contribute/poll-contest"
+                href={`/${lang}/earn/contribute/poll-contest`}
                 className="group flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 transition-all hover:border-gray-300 hover:bg-gray-50"
               >
                 <div className="mb-3 flex items-center justify-between">

@@ -1,10 +1,9 @@
-"use client";
-
 import { Typography } from "@/components/ui/Typography";
 import Link from "next/link";
 import { PiTrophy } from "react-icons/pi";
 import { BiChevronLeft } from "react-icons/bi";
 import { FaXTwitter } from "react-icons/fa6";
+import { getClientDictionary } from "@/lib/dictionary";
 
 type Winner = {
   handle: string;
@@ -46,11 +45,13 @@ const WINNERS_DATA: WeeklyWinners[] = [
   // Add more weeks as needed
 ];
 
-export default function XContestWinnersPage({
+export default async function XContestWinnersPage({
   params: { lang },
 }: {
   params: { lang: string };
 }) {
+  const dictionary = await getClientDictionary(lang);
+
   const getTrophyColor = (place: number) => {
     switch (place) {
       case 1:
@@ -76,7 +77,8 @@ export default function XContestWinnersPage({
             <BiChevronLeft className="size-6 text-gray-500" />
           </Link>
           <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
-            Contest Winners
+            {dictionary?.pages?.earn?.tabs?.contribute?.xContest?.winners
+              ?.title ?? "Contest Winners"}
           </Typography>
         </div>
       </div>
@@ -94,7 +96,9 @@ export default function XContestWinnersPage({
                 variant={{ variant: "subtitle", level: 2 }}
                 className="mb-4 text-gray-900"
               >
-                Week of {week.weekOf}
+                {dictionary?.pages?.earn?.tabs?.contribute?.xContest?.winners
+                  ?.weekOf ?? "Week of"}{" "}
+                {week.weekOf}
               </Typography>
               <div>
                 {week.winners.map((winner) => (
@@ -121,7 +125,9 @@ export default function XContestWinnersPage({
                         variant={{ variant: "body", level: 3 }}
                         className="text-gray-500"
                       >
-                        {winner.engagement.toLocaleString()} engagements
+                        {winner.engagement.toLocaleString()}{" "}
+                        {dictionary?.pages?.earn?.tabs?.contribute?.xContest
+                          ?.winners?.engagements ?? "engagements"}
                       </Typography>
                     </div>
                     <FaXTwitter className="h-4 w-4 text-gray-400" />
