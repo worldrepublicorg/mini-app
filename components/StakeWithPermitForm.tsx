@@ -357,7 +357,7 @@ export function StakeWithPermitForm({
             selectedAction === "deposit" ? "bg-gray-100" : ""
           }`}
         >
-          Deposit
+          {dictionary.components?.stakeForm?.deposit ?? "Deposit"}
         </button>
         <button
           type="button"
@@ -369,7 +369,7 @@ export function StakeWithPermitForm({
             selectedAction === "withdraw" ? "bg-gray-100" : ""
           }`}
         >
-          Withdraw
+          {dictionary.components?.stakeForm?.withdraw ?? "Withdraw"}
         </button>
       </div>
 
@@ -380,7 +380,7 @@ export function StakeWithPermitForm({
             variant={{ variant: "body", level: 1 }}
             className="mb-4 font-medium text-gray-900"
           >
-            Balance:
+            {dictionary.components?.stakeForm?.balance ?? "Balance:"}
           </Typography>
           <Typography
             variant={{ variant: "number", level: 6 }}
@@ -396,8 +396,10 @@ export function StakeWithPermitForm({
             onChange={(e) => setAmount(e.target.value)}
             placeholder={
               selectedAction === "deposit"
-                ? "Amount to deposit"
-                : "Amount to withdraw"
+                ? (dictionary.components?.stakeForm?.depositPlaceholder ??
+                  "Amount to deposit")
+                : (dictionary.components?.stakeForm?.withdrawPlaceholder ??
+                  "Amount to withdraw")
             }
             className="-ml-2 mr-2 h-9 w-full rounded-xl pl-2"
           />
@@ -428,7 +430,7 @@ export function StakeWithPermitForm({
                 : "text-gray-900"
             }`}
           >
-            Max
+            {dictionary.components?.stakeForm?.max ?? "Max"}
           </button>
         </div>
       </div>
@@ -439,7 +441,7 @@ export function StakeWithPermitForm({
           variant={{ variant: "body", level: 1 }}
           className="font-medium text-gray-900"
         >
-          Interest:
+          {dictionary.components?.stakeForm?.interest ?? "Interest:"}
         </Typography>
         <div className="flex items-center gap-2">
           <Button
@@ -449,7 +451,7 @@ export function StakeWithPermitForm({
             size="sm"
             className="mr-2 h-9 w-20 rounded-full px-4 font-sans"
           >
-            Collect
+            {dictionary.components?.stakeForm?.collect ?? "Collect"}
           </Button>
           <Typography
             variant={{ variant: "number", level: 6 }}
@@ -463,11 +465,12 @@ export function StakeWithPermitForm({
 
       {selectedAction === "deposit" ? (
         <Button onClick={handleStake} isLoading={isSubmitting} fullWidth>
-          Deposit Drachma
+          {dictionary.components?.stakeForm?.depositButton ?? "Deposit Drachma"}
         </Button>
       ) : (
         <Button onClick={handleWithdraw} isLoading={isSubmitting} fullWidth>
-          Withdraw Drachma
+          {dictionary.components?.stakeForm?.withdrawButton ??
+            "Withdraw Drachma"}
         </Button>
       )}
     </div>

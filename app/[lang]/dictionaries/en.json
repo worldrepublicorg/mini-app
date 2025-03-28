@@ -1,13 +1,4 @@
 {
-  "navigation": {
-    "home": "Home",
-    "menu": "Menu",
-    "faq": "FAQ"
-  },
-  "common": {
-    "loading": "Loading...",
-    "error": "Error"
-  },
   "components": {
     "walletAuth": {
       "connect": "Connect Wallet"
@@ -16,16 +7,97 @@
       "verify": "Verify to Claim"
     },
     "pollOfTheDay": {
-      "title": "Poll of the Day",
-      "viewAll": "Previous Polls",
+      "previousPolls": "Previous Polls",
       "vote": "Vote Now"
     },
     "stakeForm": {
-      "title": "Stake Tokens",
-      "amountPlaceholder": "Enter amount",
-      "submit": "Stake",
-      "approving": "Approving...",
-      "staking": "Staking..."
+      "deposit": "Deposit",
+      "withdraw": "Withdraw",
+      "balance": "Balance:",
+      "depositPlaceholder": "Amount to deposit",
+      "withdrawPlaceholder": "Amount to withdraw",
+      "max": "Max",
+      "interest": "Interest:",
+      "collect": "Collect",
+      "depositButton": "Deposit Drachma",
+      "withdrawButton": "Withdraw Drachma"
+    }
+  },
+  "pages": {
+    "earn": {
+      "title": "Earn",
+      "tabs": {
+        "basicIncome": {
+          "title": "Basic Income",
+          "subtitle": "Sign in to claim your basic income",
+          "setupSubtitle": "Set up your basic income",
+          "claimableSubtitle": "Claimable drachma",
+          "activateButton": "Activate Basic Income",
+          "claimButton": "Claim",
+          "plus": {
+            "title": "Basic Income Plus",
+            "newBadge": "New",
+            "subtitle": "Extra income for verified users",
+            "drawer": {
+              "title": "Introducing Basic Income Plus",
+              "features": {
+                "rate": "An additional 10 WDD per day",
+                "verification": "Exclusive to Orb-verified users to ensure fair distribution",
+                "rewards": "Rewards shift to Plus over time while keeping total at 11 WDD/day"
+              },
+              "activateButton": "Activate Basic Income Plus"
+            }
+          }
+        },
+        "savings": {
+          "title": "Savings Account",
+          "subtitle": "Earn interest every second",
+          "tooltip": "69% APY base rate. Collect and reinvest interest to achieve close to 100% effective returns annually. Withdraw anytime."
+        },
+        "invite": {
+          "title": "Invite",
+          "subtitle": "Get 50 WDD per friend who joins",
+          "tooltip": "You'll earn rewards when friends activate their Basic Income Plus.",
+          "stats": {
+            "title": "Your Referral Stats",
+            "invites": "Invites accepted",
+            "rewards": "Total Rewards"
+          },
+          "copyButton": "Copy Referral Link",
+          "rewardButton": "Reward Referrer",
+          "drawer": {
+            "title": "Reward a Referrer",
+            "subtitle": "Trigger a free 50 WDD reward for your referrer",
+            "invitedBy": "You were invited by: {{username}}",
+            "input": {
+              "placeholder": "Enter username (e.g. username.0000)",
+              "lookupButton": "Lookup User",
+              "sendingTo": "Sending reward to:",
+              "sendButton": "Send Reward"
+            }
+          }
+        },
+        "contribute": {
+          "title": "Contribute",
+          "subtitle": "Get involved, get rewarded",
+          "contests": {
+            "weekly": "Weekly",
+            "topPrize": "Top prize",
+            "xPost": {
+              "title": "X Post Contest",
+              "description": "Write engaging posts, win prizes"
+            },
+            "poll": {
+              "title": "Poll Contest",
+              "description": "Gather community feedback and earn"
+            }
+          },
+          "earlyAccess": {
+            "title": "Early Access Program",
+            "description": "Earn WDD by testing our upcoming features"
+          }
+        }
+      }
     }
   }
 }

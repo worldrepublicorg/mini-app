@@ -90,7 +90,7 @@ export function PollOfTheDay({ lang }: PollOfTheDayProps) {
         </Typography>
         <a href={currentPoll.url} target="_blank" rel="noopener noreferrer">
           <Button variant="primary" fullWidth>
-            Vote Now
+            {dictionary?.components?.pollOfTheDay?.vote || "Vote Now"}
           </Button>
         </a>
         <Link
@@ -98,7 +98,8 @@ export function PollOfTheDay({ lang }: PollOfTheDayProps) {
           className="mt-2 block h-10 w-full"
         >
           <Button variant="ghost" fullWidth>
-            {dictionary?.components?.pollOfTheDay?.viewAll || "Previous Polls"}
+            {dictionary?.components?.pollOfTheDay?.previousPolls ||
+              "Previous Polls"}
           </Button>
         </Link>
       </div>
