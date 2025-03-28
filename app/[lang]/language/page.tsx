@@ -34,10 +34,10 @@ export default function LanguagePage({
 
   return (
     <div className="flex flex-col px-6 pb-20">
-      <div className="relative flex items-center justify-center py-6">
+      <div className="fixed left-0 right-0 top-0 z-10 flex items-center justify-center bg-gray-0 px-6 py-6">
         <Link
           href={`/${lang}/menu`}
-          className="absolute left-0 flex size-10 items-center justify-center rounded-full bg-gray-100"
+          className="absolute left-6 flex size-10 items-center justify-center rounded-full bg-gray-100"
         >
           <BiChevronLeft className="size-6 text-gray-500" />
         </Link>
@@ -46,7 +46,7 @@ export default function LanguagePage({
         </Typography>
       </div>
 
-      <div className="mt-4">
+      <div className="mt-[88px]">
         {languages.map((language) => (
           <Link
             key={language.code}

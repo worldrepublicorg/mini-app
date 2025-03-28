@@ -1,457 +1,447 @@
 {
-    "components": {
-      "walletAuth": {
-        "connect": "Connect Wallet"
-      },
-      "verifyButton": {
-        "verify": "Verify to Claim"
-      },
-      "pollOfTheDay": {
-        "previousPolls": "Previous Polls",
-        "vote": "Vote Now",
-        "polls": {
-          "dataSovereignty": "Should international guidelines be implemented to protect data generated worldwide under a unified framework for digital sovereignty?",
-          "biotech": "Should there be a global regulatory framework for emerging biotechnologies to ensure ethical use and safety?",
-          "spaceMilitarization": "Should global leaders agree on protocols to prevent the militarization of space and secure it for peaceful purposes?",
-          "nuclearSecurity": "Should binding international agreements be established to secure nuclear facilities in conflict zones?",
-          "fourDayWeek": "Do you support the growing global movement toward four-day workweeks as a standard employment model?"
-        }
-      },
-      "stakeForm": {
-        "deposit": "Deposit",
-        "withdraw": "Withdraw",
-        "balance": "Balance:",
-        "depositPlaceholder": "Amount to deposit",
-        "withdrawPlaceholder": "Amount to withdraw",
-        "max": "Max",
-        "interest": "Interest:",
-        "collect": "Collect",
-        "depositButton": "Deposit Drachma",
-        "withdrawButton": "Withdraw Drachma"
-      },
-      "toasts": {
-        "wallet": {
-          "connectInWorldApp": "Please open this app in the World App to connect your wallet.",
-          "stakingError": "Error staking tokens",
-          "withdrawError": "Error withdrawing tokens",
-          "collectError": "Error collecting rewards"
-        },
-        "referral": {
-          "pendingReward": "Processing pending reward for {{username}}...",
-          "rewardSuccess": "Successfully rewarded {{username}}!",
-          "sendingReward": "Sending 50 WDD reward to {{username}}..."
-        },
-        "basicIncome": {
-          "setupSuccess": "Basic Income Plus activated! Now preparing reward for {{username}}...",
-          "setupWithReferrer": "Setting up Basic Income Plus first, then we'll reward {{username}}...",
-          "error": "Error activating Basic Income",
-          "errorPlus": "Error activating Basic Income Plus"
-        },
-        "transaction": {
-          "error": "An unexpected error occurred",
-          "errorClaim": "An unexpected error occurred while claiming"
-        }
-      },
-      "comingSoonDrawer": {
-        "title": "Coming soon",
-        "description": "This feature is currently in development. Stay tuned!"
-      },
-      "tabSwiper": {
-        "tabs": {
-          "polls": "Polls",
-          "openLetters": "Open letters",
-          "elections": "Elections",
-          "referendums": "Referendums"
-        }
+  "components": {
+    "walletAuth": {
+      "connect": "ওয়ালেট সংযুক্ত করুন"
+    },
+    "verifyButton": {
+      "verify": "দাবি করতে যাচাই করুন"
+    },
+    "pollOfTheDay": {
+      "previousPolls": "পূর্ববর্তী ভোটগুলি",
+      "vote": "এখন ভোট দিন",
+      "polls": {
+        "dataSovereignty": "বিশ্বব্যাপী উৎপন্ন তথ্যের সুরক্ষার জন্য ডিজিটাল সার্বভৌমত্বের একটি একীভূত কাঠামোর অধীনে আন্তর্জাতিক নির্দেশিকা প্রয়োগ করা উচিত কি?",
+        "biotech": "নৈতিক ব্যবহার এবং নিরাপত্তা নিশ্চিত করতে উদীয়মান জৈবপ্রযুক্তির জন্য একটি বৈশ্বিক নিয়ন্ত্রক কাঠামো থাকা উচিত কি?",
+        "spaceMilitarization": "মহাকাশকে শান্তিপূর্ণ উদ্দেশ্যে নিরাপদ করতে এবং মহাকাশের সামরিকীকরণ রোধ করতে বিশ্ব নেতাদের প্রোটোকলে সম্মত হওয়া উচিত কি?",
+        "nuclearSecurity": "সংঘর্ষ অঞ্চলে পারমাণবিক সুবিধাগুলি নিরাপদ করতে বাধ্যতামূলক আন্তর্জাতিক চুক্তি স্থাপন করা উচিত কি?",
+        "fourDayWeek": "আপনি কি মানক কর্মসংস্থান মডেল হিসাবে চার-দিনের কর্মসপ্তাহের দিকে বর্ধমান বৈশ্বিক আন্দোলনকে সমর্থন করেন?"
       }
     },
-    "pages": {
-      "earn": {
-        "title": "Earn",
-        "tabs": {
-          "tabNames": {
-            "basicIncome": "Basic income",
-            "savings": "Savings",
-            "contribute": "Contribute",
-            "invite": "Invite"
-          },
-          "basicIncome": {
-            "tabTitle": "Basic income",
-            "title": "Basic Income",
-            "subtitle": "Sign in to claim your basic income",
-            "setupSubtitle": "Set up your basic income",
-            "claimableSubtitle": "Claimable drachma",
-            "activateButton": "Activate Basic Income",
-            "claimButton": "Claim",
-            "plus": {
-              "title": "Basic Income Plus",
-              "newBadge": "New",
-              "drawerTrigger": "Introducing Basic Income Plus",
-              "subtitle": "Extra income for verified users",
-              "drawer": {
-                "title": "Basic Income Plus",
-                "subtitle": "Extra income for verified users",
-                "features": {
-                  "rate": {
-                    "title": "An additional 10 WDD per day"
-                  },
-                  "verification": {
-                    "title": "Exclusive to Orb-verified users to ensure fair distribution"
-                  },
-                  "rewards": {
-                    "title": "Rewards shift to Plus over time while keeping total at 11 WDD/day"
-                  }
-                },
-                "activateButton": "Activate Basic Income Plus",
-                "claimButton": "Claim Basic Income Plus",
-                "claimBasicButton": "Claim Basic Income"
-              }
-            }
-          },
-          "savings": {
-            "tabTitle": "Savings",
-            "title": "Savings Account",
-            "subtitle": "Earn interest every second",
-            "tooltip": "69% APY base rate. Collect and reinvest interest to achieve close to 100% effective returns annually. Withdraw anytime."
-          },
-          "invite": {
-            "title": "Invite",
-            "subtitle": "Get 50 WDD per friend who joins",
-            "tooltip": "You'll earn rewards when friends activate their Basic Income Plus.",
-            "learnMore": "Learn more",
-            "stats": {
-              "title": "Your Referral Stats",
-              "invites": "Invites accepted",
-              "rewards": "Total rewards"
-            },
-            "actions": {
-              "copyLink": "Copy Referral Link",
-              "copied": "Referral link copied to clipboard!",
-              "connectWallet": "Please connect your wallet to generate your referral link",
-              "rewardReferrer": "Reward Referrer"
-            },
+    "stakeForm": {
+      "deposit": "জমা করুন",
+      "withdraw": "তুলে নিন",
+      "balance": "ব্যালেন্স:",
+      "depositPlaceholder": "জমা করার পরিমাণ",
+      "withdrawPlaceholder": "তোলার পরিমাণ",
+      "max": "সর্বোচ্চ",
+      "interest": "সুদ:",
+      "collect": "সংগ্রহ করুন",
+      "depositButton": "ড্রাকমা জমা করুন",
+      "withdrawButton": "ড্রাকমা তুলুন"
+    },
+    "toasts": {
+      "wallet": {
+        "connectInWorldApp": "আপনার ওয়ালেট সংযুক্ত করতে ওয়ার্ল্ড অ্যাপে এই অ্যাপটি খুলুন।",
+        "stakingError": "টোকেন স্টেকিং এ ত্রুটি",
+        "withdrawError": "টোকেন তোলার সময় ত্রুটি",
+        "collectError": "পুরস্কার সংগ্রহে ত্রুটি"
+      },
+      "referral": {
+        "pendingReward": "{{username}} এর জন্য অপেক্ষমান পুরস্কার প্রক্রিয়াকরণ হচ্ছে...",
+        "rewardSuccess": "{{username}} কে সফলভাবে পুরস্কৃত করা হয়েছে!",
+        "sendingReward": "{{username}} কে ৫০ WDD পুরস্কার পাঠানো হচ্ছে..."
+      },
+      "basicIncome": {
+        "setupSuccess": "বেসিক ইনকাম প্লাস সক্রিয় হয়েছে! এখন {{username}} এর জন্য পুরস্কার প্রস্তুত করা হচ্ছে...",
+        "setupWithReferrer": "প্রথমে বেসিক ইনকাম প্লাস সেট আপ করা হচ্ছে, তারপর {{username}} কে পুরস্কৃত করা হবে...",
+        "error": "বেসিক ইনকাম সক্রিয় করতে ত্রুটি",
+        "errorPlus": "বেসিক ইনকাম প্লাস সক্রিয় করতে ত্রুটি"
+      },
+      "transaction": {
+        "error": "একটি অপ্রত্যাশিত ত্রুটি ঘটেছে",
+        "errorClaim": "দাবি করার সময় একটি অপ্রত্যাশিত ত্রুটি ঘটেছে"
+      }
+    },
+    "comingSoonDrawer": {
+      "title": "শীঘ্রই আসছে",
+      "description": "এই বৈশিষ্ট্যটি বর্তমানে উন্নয়নাধীন। অপেক্ষায় থাকুন!"
+    },
+    "tabSwiper": {
+      "tabs": {
+        "polls": "ভোটগুলি",
+        "openLetters": "উন্মুক্ত চিঠি",
+        "elections": "নির্বাচন",
+        "referendums": "গণভোট"
+      }
+    }
+  },
+  "pages": {
+    "earn": {
+      "title": "আয়",
+      "tabs": {
+        "tabNames": {
+          "basicIncome": "মৌলিক আয়",
+          "savings": "সঞ্চয়",
+          "contribute": "অবদান রাখুন",
+          "invite": "আমন্ত্রণ"
+        },
+        "basicIncome": {
+          "tabTitle": "মৌলিক আয়",
+          "title": "মৌলিক আয়",
+          "subtitle": "আপনার মৌলিক আয় দাবি করতে সাইন ইন করুন",
+          "setupSubtitle": "আপনার মৌলিক আয় সেট আপ করুন",
+          "claimableSubtitle": "দাবিযোগ্য ড্রাকমা",
+          "activateButton": "মৌলিক আয় সক্রিয় করুন",
+          "claimButton": "দাবি করুন",
+          "plus": {
+            "title": "মৌলিক আয় প্লাস",
+            "newBadge": "নতুন",
+            "drawerTrigger": "মৌলিক আয় প্লাস পরিচিতি",
+            "subtitle": "যাচাইকৃত ব্যবহারকারীদের জন্য অতিরিক্ত আয়",
             "drawer": {
-              "title": "Reward a Referrer",
-              "subtitle": "Trigger a free 50 WDD reward for your referrer",
-              "invitedBy": "You were invited by: {{username}}",
-              "input": {
-                "placeholder": "Enter username (e.g. username.0000)",
-                "lookupButton": "Lookup User",
-                "sendingTo": "Sending reward to:",
-                "editButton": "Edit",
-                "sendButton": "Send Reward"
-              },
-              "errors": {
-                "enterUsername": "Please enter a username",
-                "usernameNotFound": "Username not found",
-                "lookupFailed": "Failed to look up username. Please try again.",
-                "installMiniKit": "Please install MiniKit to look up usernames",
-                "connectWallet": "Please connect your wallet first",
-                "transactionCanceled": "Transaction was canceled"
-              },
-              "success": {
-                "rewardSent": "Successfully sent reward to {{username}}!"
-              }
-            }
-          },
-          "contribute": {
-            "title": "Contribute",
-            "subtitle": "Get involved, get rewarded",
-            "contests": {
-              "weekly": "Weekly",
-              "topPrize": "Top prize",
-              "xPost": {
-                "title": "X Post Contest",
-                "description": "Write engaging posts, win prizes"
-              },
-              "poll": {
-                "title": "Poll Contest",
-                "description": "Gather community feedback and earn"
-              },
-              "pollContest": {
-                "title": "Poll Contest",
-                "weeklyTitle": "Weekly Poll Contest",
-                "description": "Gather community feedback and earn",
-                "prizes": {
-                  "title": "Prizes",
-                  "viewWinners": "View past winners",
-                  "wdd": "WDD"
+              "title": "মৌলিক আয় প্লাস",
+              "subtitle": "যাচাইকৃত ব্যবহারকারীদের জন্য অতিরিক্ত আয়",
+              "features": {
+                "rate": {
+                  "title": "প্রতিদিন অতিরিক্ত ১০ WDD"
                 },
-                "howTo": {
-                  "title": "How it works",
-                  "steps": {
-                    "step1": {
-                      "number": "1",
-                      "text": "Create a poll related to the World Republic or global governance in general"
-                    },
-                    "step2": {
-                      "number": "2",
-                      "text": "Set it up so only verified humans can vote"
-                    },
-                    "step3": {
-                      "number": "3",
-                      "text": "Share your poll in our",
-                      "link": {
-                        "text": "Poll Contest Telegram channel",
-                        "url": "https://t.me/worldrepubliccommunity/32368"
-                      }
-                    }
-                  }
+                "verification": {
+                  "title": "ন্যায্য বিতরণ নিশ্চিত করতে শুধুমাত্র Orb-যাচাইকৃত ব্যবহারকারীদের জন্য"
                 },
-                "rules": {
-                  "title": "Contest rules",
-                  "list": {
-                    "rule1": "Only polls started in the current week are eligible",
-                    "rule2": "Winners are selected based on total votes",
-                    "rule3": "Contest ends every Sunday at 11:59 PM UTC"
-                  }
-                },
-                "cta": {
-                  "create": "Create Your Poll",
-                  "submit": "Submit Your Poll"
-                },
-                "winners": {
-                  "title": "Contest Winners",
-                  "weekOf": "Week of",
-                  "votes": "votes"
+                "rewards": {
+                  "title": "মোট ১১ WDD/দিন রেখে পুরস্কার ক্রমশ প্লাসে স্থানান্তরিত হয়"
                 }
-              }
+              },
+              "activateButton": "মৌলিক আয় প্লাস সক্রিয় করুন",
+              "claimButton": "মৌলিক আয় প্লাস দাবি করুন",
+              "claimBasicButton": "মৌলিক আয় দাবি করুন"
+            }
+          }
+        },
+        "savings": {
+          "tabTitle": "সঞ্চয়",
+          "title": "সঞ্চয় অ্যাকাউন্ট",
+          "subtitle": "প্রতি সেকেন্ডে সুদ অর্জন করুন",
+          "tooltip": "৬৯% বার্ষিক মূল হার। বার্ষিক প্রায় ১০০% কার্যকর রিটার্ন পেতে সুদ সংগ্রহ করুন এবং পুনঃবিনিয়োগ করুন। যেকোনো সময় তুলতে পারবেন।"
+        },
+        "invite": {
+          "title": "আমন্ত্রণ",
+          "subtitle": "প্রতি বন্ধু যোগদানে ৫০ WDD পান",
+          "tooltip": "বন্ধুরা তাদের মৌলিক আয় প্লাস সক্রিয় করলে আপনি পুরস্কার পাবেন।",
+          "learnMore": "আরও জানুন",
+          "stats": {
+            "title": "আপনার রেফারেল পরিসংখ্যান",
+            "invites": "গৃহীত আমন্ত্রণ",
+            "rewards": "মোট পুরস্কার"
+          },
+          "actions": {
+            "copyLink": "রেফারেল লিঙ্ক কপি করুন",
+            "copied": "রেফারেল লিঙ্ক ক্লিপবোর্ডে কপি করা হয়েছে!",
+            "connectWallet": "আপনার রেফারেল লিঙ্ক তৈরি করতে অনুগ্রহ করে আপনার ওয়ালেট সংযুক্ত করুন",
+            "rewardReferrer": "রেফারারকে পুরস্কৃত করুন"
+          },
+          "drawer": {
+            "title": "রেফারারকে পুরস্কৃত করুন",
+            "subtitle": "আপনার রেফারারের জন্য ৫০ WDD বিনামূল্যে পুরস্কার ট্রিগার করুন",
+            "invitedBy": "আপনাকে আমন্ত্রণ করেছেন: {{username}}",
+            "input": {
+              "placeholder": "ইউজারনেম লিখুন (যেমন username.0000)",
+              "lookupButton": "ব্যবহারকারী খুঁজুন",
+              "sendingTo": "পুরস্কার পাঠানো হচ্ছে:",
+              "editButton": "সম্পাদনা",
+              "sendButton": "পুরস্কার পাঠান"
             },
-            "earlyAccess": {
-              "title": "Early Access Program",
-              "description": "Earn WDD by testing our upcoming features"
+            "errors": {
+              "enterUsername": "অনুগ্রহ করে একটি ইউজারনেম লিখুন",
+              "usernameNotFound": "ইউজারনেম পাওয়া যায়নি",
+              "lookupFailed": "ইউজারনেম খোঁজা ব্যর্থ হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।",
+              "installMiniKit": "ইউজারনেম খুঁজতে অনুগ্রহ করে MiniKit ইনস্টল করুন",
+              "connectWallet": "প্রথমে আপনার ওয়ালেট সংযুক্ত করুন",
+              "transactionCanceled": "লেনদেন বাতিল করা হয়েছে"
             },
-            "xContest": {
-              "title": "X Post Contest",
-              "weeklyTitle": "Weekly X Post Contest",
-              "description": "Write engaging posts, win prizes",
+            "success": {
+              "rewardSent": "{{username}} কে সফলভাবে পুরস্কার পাঠানো হয়েছে!"
+            }
+          }
+        },
+        "contribute": {
+          "title": "অবদান রাখুন",
+          "subtitle": "যুক্ত হোন, পুরস্কৃত হোন",
+          "contests": {
+            "weekly": "সাপ্তাহিক",
+            "topPrize": "সর্বোচ্চ পুরস্কার",
+            "xPost": {
+              "title": "X পোস্ট প্রতিযোগিতা",
+              "description": "আকর্ষণীয় পোস্ট লিখুন, পুরস্কার জিতুন"
+            },
+            "poll": {
+              "title": "ভোট প্রতিযোগিতা",
+              "description": "কমিউনিটির মতামত সংগ্রহ করুন এবং আয় করুন"
+            },
+            "pollContest": {
+              "title": "ভোট প্রতিযোগিতা",
+              "weeklyTitle": "সাপ্তাহিক ভোট প্রতিযোগিতা",
+              "description": "কমিউনিটির মতামত সংগ্রহ করুন এবং আয় করুন",
               "prizes": {
-                "title": "Prizes",
-                "viewWinners": "View past winners",
+                "title": "পুরস্কার",
+                "viewWinners": "পূর্ববর্তী বিজয়ীদের দেখুন",
                 "wdd": "WDD"
               },
               "howTo": {
-                "title": "How to participate",
-                "step1": "Write an X post about the World Republic",
-                "step2": "Tag @WorldRepublicEN",
-                "step3": {
-                  "prefix": "Share the link to your post in our",
-                  "link": "X Post Contest Telegram channel"
+                "title": "কিভাবে কাজ করে",
+                "steps": {
+                  "step1": {
+                    "number": "১",
+                    "text": "ওয়ার্ল্ড রিপাবলিক বা সামগ্রিক বৈশ্বিক শাসন সম্পর্কিত একটি ভোট তৈরি করুন"
+                  },
+                  "step2": {
+                    "number": "২",
+                    "text": "শুধুমাত্র যাচাইকৃত মানুষরা যাতে ভোট দিতে পারেন তা সেট করুন"
+                  },
+                  "step3": {
+                    "number": "৩",
+                    "text": "আমাদের",
+                    "link": {
+                      "text": "ভোট প্রতিযোগিতা টেলিগ্রাম চ্যানেলে",
+                      "url": "https://t.me/worldrepubliccommunity/32368"
+                    }
+                  }
                 }
               },
               "rules": {
-                "title": "Contest rules",
-                "rule1": "Only posts published in the current week are eligible",
-                "rule2": "Winners are selected based on total engagement (likes + reposts + comments)",
-                "rule3": "Contest ends every Sunday at 11:59 PM UTC"
-              },
-              "cta": {
-                "post": "Start Posting Now",
-                "submit": "Submit Your Post"
-              },
-              "winners": {
-                "title": "Contest Winners",
-                "weekOf": "Week of",
-                "engagements": "engagements"
+                "title": "প্রতিযোগিতার নিয়মাবলী",
+                "list": {
+                  "rule1": "শুধুমাত্র চলতি সপ্তাহে শুরু হওয়া ভোটগুলি যোগ্য",
+                  "rule2": "মোট ভোটের ভিত্তিতে বিজয়ী নির্বাচন করা হয়",
+                  "rule3": "প্রতিযোগিতা প্রতি রবিবার রাত ১১:৫৯ UTC-তে শেষ হয়"
+                }
               }
+            }
+          },
+          "earlyAccess": {
+            "title": "প্রারম্ভিক অ্যাক্সেস প্রোগ্রাম",
+            "description": "আমাদের আসন্ন বৈশিষ্ট্যগুলি পরীক্ষা করে WDD অর্জন করুন"
+          },
+          "xContest": {
+            "title": "X পোস্ট প্রতিযোগিতা",
+            "weeklyTitle": "সাপ্তাহিক X পোস্ট প্রতিযোগিতা",
+            "description": "আকর্ষণীয় পোস্ট লিখুন, পুরস্কার জিতুন",
+            "prizes": {
+              "title": "পুরস্কার",
+              "viewWinners": "পূর্ববর্তী বিজয়ীদের দেখুন",
+              "wdd": "WDD"
+            },
+            "howTo": {
+              "title": "কিভাবে অংশগ্রহণ করবেন",
+              "step1": "ওয়ার্ল্ড রিপাবলিক সম্পর্কে একটি X পোস্ট লিখুন",
+              "step2": "@WorldRepublicEN ট্যাগ করুন",
+              "step3": {
+                "prefix": "আপনার পোস্টের লিঙ্কটি আমাদের",
+                "link": "X পোস্ট প্রতিযোগিতা টেলিগ্রাম চ্যানেলে শেয়ার করুন"
+              }
+            },
+            "rules": {
+              "title": "প্রতিযোগিতার নিয়মাবলী",
+              "rule1": "শুধুমাত্র চলতি সপ্তাহে প্রকাশিত পোস্টগুলি যোগ্য",
+              "rule2": "মোট এনগেজমেন্টের (লাইক + রিপোস্ট + মন্তব্য) ভিত্তিতে বিজয়ী নির্বাচন করা হয়",
+              "rule3": "প্রতিযোগিতা প্রতি রবিবার রাত ১১:৫৯ UTC-তে শেষ হয়"
+            },
+            "cta": {
+              "post": "এখনই পোস্ট করা শুরু করুন",
+              "submit": "আপনার পোস্ট জমা দিন"
+            },
+            "winners": {
+              "title": "প্রতিযোগিতার বিজয়ীরা",
+              "weekOf": "সপ্তাহের",
+              "engagements": "এনগেজমেন্ট"
             }
           }
         }
+      }
+    },
+    "govern": {
+      "title": "শাসন",
+      "tabs": {
+        "polls": "ভোটগুলি",
+        "openLetters": "উন্মুক্ত চিঠি",
+        "elections": "নির্বাচন",
+        "referendums": "গণভোট"
       },
-      "govern": {
-        "title": "Govern",
-        "tabs": {
-          "polls": "Polls",
-          "openLetters": "Open letters",
-          "elections": "Elections",
-          "referendums": "Referendums"
+      "sections": {
+        "polls": {
+          "title": "দিনের ভোট",
+          "description": "বর্তমান বিষয়ে দ্রুত ভোট",
+          "previous": {
+            "title": "পূর্ববর্তী ভোটগুলি",
+            "backToGovern": "শাসনে ফিরে যান",
+            "polls": {
+              "dataSovereignty": "বিশ্বব্যাপী উৎপন্ন তথ্যের সুরক্ষার জন্য ডিজিটাল সার্বভৌমত্বের একটি একীভূত কাঠামোর অধীনে আন্তর্জাতিক নির্দেশিকা প্রয়োগ করা উচিত কি?",
+              "fourDayWeek": "আপনি কি মানক কর্মসংস্থান মডেল হিসাবে চার-দিনের কর্মসপ্তাহের দিকে বর্ধমান বৈশ্বিক আন্দোলনকে সমর্থন করেন?",
+              "nuclearSecurity": "সংঘর্ষ অঞ্চলে পারমাণবিক সুবিধাগুলি নিরাপদ করতে বাধ্যতামূলক আন্তর্জাতিক চুক্তি স্থাপন করা উচিত কি?",
+              "aviationResilience": "অপ্রত্যাশিত বড় মাত্রার বিঘ্ন মোকাবেলা করার জন্য আন্তর্জাতিক বিমান পরিবহন অবকাঠামো কি যথেষ্ট সহনশীল?",
+              "waterResources": "ক্রমবর্ধমান বৈশ্বিক জলসংকটের মধ্যে ভাগাভাগি জল সম্পদ পরিচালনার জন্য দেশগুলির একটি সহযোগিতামূলক কাঠামো তৈরি করা উচিত কি?",
+              "maternalHealth": "আন্তর্জাতিক সহায়তা স্থগিতের সময় মাতৃ ও শিশু স্বাস্থ্য সুরক্ষার জন্য একটি নির্দিষ্ট বৈশ্বিক স্বাস্থ্যসেবা সহায়তা সংরক্ষণ স্থাপন করা উচিত কি?",
+              "marsMission": "আপনি কি মঙ্গল গ্রহে যৌথ গভীর মহাকাশ মিশনে দেশগুলির সহযোগিতাকে সমর্থন করেন?",
+              "globalRecession": "আপনি কি মনে করেন বর্তমান বৈশ্বিক অর্থনৈতিক প্রবণতাগুলি প্রধান অর্থনীতিগুলির মধ্যে একটি সমন্বিত মন্দার ঝুঁকির ইঙ্গিত দেয়?",
+              "aidCorridors": "বেসামরিক মানবিক সংকটযুক্ত সকল সংঘর্ষ অঞ্চলে কি স্বয়ংক্রিয়ভাবে আন্তর্জাতিকভাবে সমন্বিত সহায়তা করিডোর চালু হওয়া উচিত?",
+              "nationalSovereignty": "আপনি কি সাধারণ চ্যালেঞ্জগুলির সমন্বিত প্রতিক্রিয়ার সাথে জাতীয় সার্বভৌমত্বের ভারসাম্য রক্ষাকারী বৈশ্বিক নীতি কাঠামোকে সমর্থন করেন?",
+              "climateDisasters": "চরম আবহাওয়াজনিত দুর্যোগ (যেমন দাবানল, বন্যা) অনুভব করা দেশগুলি কি একটি বৈশ্বিক জলবায়ু তহবিল থেকে অগ্রাধিকারভিত্তিক আর্থিক সহায়তা পাওয়া উচিত?",
+              "aiSafety": "আন্তর্জাতিক নিরাপত্তা চুক্তি প্রতিষ্ঠিত না হওয়া পর্যন্ত বৈশ্বিক AI ডেভেলপারদের কি বর্তমান সিস্টেমের চেয়ে শক্তিশালী মডেল প্রশিক্ষণ স্থগিত রাখা বাধ্যতামূলক করা উচিত?",
+              "corporateTax": "অসমতা কমাতে একাধিক দেশে কার্যরত কর্পোরেশনগুলি কি একটি একীভূত বৈশ্বিক ন্যূনতম করহারের অধীন হওয়া উচিত?",
+              "spaceDebris": "আপনি কি একমত যে কক্ষপথের আবর্জনা কমাতে মহাকাশযাত্রী দেশ ও কর্পোরেশনগুলিকে অকেজো উপগ্রহ অপসারণ করা আইনগতভাবে বাধ্যতামূলক করা উচিত?",
+              "digitalPrivacy": "আপনি কি মনে করেন ক্রমবর্ধমান আন্তঃসংযুক্ত বিশ্বে ব্যক্তিগত অধিকার রক্ষায় সার্বজনীন ডিজিটাল গোপনীয়তা মান তৈরি করা অত্যাবশ্যক?",
+              "nuclearProliferation": "আপনি কি মনে করেন পারমাণবিক প্রসারের ঝুঁকি কমাতে বিদ্যমান বৈশ্বিক ব্যবস্থাগুলি কার্যকর?",
+              "cybersecurity": "ক্রমবর্ধমান সাইবার হুমকি থেকে গুরুত্বপূর্ণ বৈশ্বিক অবকাঠামো রক্ষায় বর্তমান আন্তর্জাতিক সাইবার নিরাপত্তা ব্যবস্থাগুলি কি যথেষ্ট?",
+              "globalAlliances": "আপনি কি মনে করেন বৈশ্বিক জোটগুলির দ্রুত পুনর্বিন্যাস একটি আরও নিরাপদ আন্তর্জাতিক শৃঙ্খলায় পরিচালিত করবে?",
+              "climateResilience": "ক্রমবর্ধমান চরম আবহাওয়া ঘটনা মোকাবেলায় জলবায়ু সহনশীলতার প্রতি বর্তমান বৈশ্বিক দৃষ্টিভঙ্গি কি যথেষ্ট?",
+              "tradeTariffs": "আপনি কি মনে করেন প্রধান অর্থনীতিগুলির মধ্যে শুল্ক আরোপের বর্ধমান প্রবণতা বৈশ্বিক বাণিজ্য স্থিতিশীলতাকে উল্লেখযোগ্যভাবে বিঘ্নিত করবে?",
+              "diseaseManagement": "উদীয়মান সংক্রামক রোগ প্রতিরোধ ও ব্যবস্থাপনায় বিশ্বের সক্ষমতা সম্পর্কে আপনি কি আত্মবিশ্বাসী?",
+              "aiRegulation": "কৃত্রিম বুদ্ধিমত্তার নৈতিক বিকাশ নিয়ন্ত্রণে বাধ্যতামূলক আন্তর্জাতিক নিয়ন্ত্রণ প্রতিষ্ঠা করা উচিত কি?",
+              "spaceRegulation": "উপগ্রহ ও রকেট থেকে মহাকাশ আবর্জনা সীমিত করতে বাধ্যতামূলক আন্তর্জাতিক চুক্তি থাকা উচিত কি?",
+              "diplomaticDialogue": "আপনি কি মনে করেন বিশ্ব নেতাদের মধ্যে অব্যাহত কূটনৈতিক সংলাপ বৈশ্বিক উত্তেজনা কমাতে সাহায্য করতে পারে?",
+              "migration": "ধনী দেশগুলি কি সংঘর্ষ বা জলবায়ু দুর্যোগ থেকে পালিয়ে আসা আরও অভিবাসীদের গ্রহণ করা উচিত?",
+              "rareEarths": "বৈশ্বিক সম্পদ নিরাপত্তা বাড়াতে বিরল মৃত্তিকা খনিজের ক্ষেত্রে আন্তর্জাতিক সহযোগিতাকে অগ্রাধিকার দেওয়া উচিত কি?",
+              "cryptocurrency": "আর্থিক অপরাধ দমন করতে ক্রিপ্টোকারেন্সি নিয়ন্ত্রণে বৈশ্বিক কর্তৃপক্ষের একটি একীভূত মানদণ্ড প্রতিষ্ঠা করা উচিত কি?",
+              "disinformation": "অনলাইনে ভুল তথ্যের বিস্তার প্রতিরোধে বৈশ্বিক ব্যবস্থা বাস্তবায়ন করা উচিত বলে আপনি মনে করেন কি?",
+              "diseaseOutbreaks": "বৈশ্বিক স্বাস্থ্য সংকট প্রতিরোধে রোগ প্রাদুর্ভাবের সময় দেশগুলিকে রিয়েল-টাইম তথ্য শেয়ার করা বাধ্যতামূলক করা উচিত কি?",
+              "militaryIntervention": "হঠাৎ যুদ্ধ শুরু হওয়া অঞ্চলে সংঘাত প্রশমিত করতে উন্নত সামরিক সক্ষমতাসম্পন্ন দেশগুলির হস্তক্ষেপ করা উচিত কি?",
+              "aiDevelopment": "উদ্ভাবন ধীর হলেও, অপব্যবহার রোধে সরকারগুলির কি কৃত্রিম বুদ্ধিমত্তা (AI) বিকাশ নিয়ন্ত্রণকে অগ্রাধিকার দেওয়া উচিত?",
+              "asteroidDefense": "আপনি কি মনে করেন সরকারগুলির মহাকাশ পর্যবেক্ষণ ও গ্রহাণু প্রতিরোধ গবেষণার জন্য অর্থায়ন বাড়ানো উচিত?",
+              "peaceNegotiations": "শান্তি চুক্তি আলোচনাকারী প্রধান শক্তিগুলির জন্য সংঘর্ষে প্রত্যক্ষভাবে প্রভাবিত দেশগুলিকে অন্তর্ভুক্ত করা বাধ্যতামূলক করা উচিত কি?",
+              "taiwanPolicy": "চীনের সাথে উত্তেজনা এড়াতে মার্কিন যুক্তরাষ্ট্রের কি তাইওয়ান সম্পর্কে তার 'কৌশলগত অস্পষ্টতা' নীতি বজায় রাখা উচিত?"
+            }
+          }
         },
-        "sections": {
-          "polls": {
-            "title": "Poll of the Day",
-            "description": "Quick votes on current topics",
-            "previous": {
-              "title": "Previous Polls",
-              "backToGovern": "Back to Govern",
-              "polls": {
-                "dataSovereignty": "Should international guidelines be implemented to protect data generated worldwide under a unified framework for digital sovereignty?",
-                "fourDayWeek": "Do you support the growing global movement toward four-day workweeks as a standard employment model?",
-                "nuclearSecurity": "Should binding international agreements be established to secure nuclear facilities in conflict zones?",
-                "aviationResilience": "Is the international aviation infrastructure resilient enough to handle unexpected large-scale disruptions?",
-                "waterResources": "Should nations create a cooperative framework to manage shared water resources amid rising global water scarcity?",
-                "maternalHealth": "Should a dedicated global healthcare aid reserve be established to protect maternal and child health during international aid freezes?",
-                "marsMission": "Do you support nations collaborating on a joint deep space mission to Mars?",
-                "globalRecession": "Do you think the current global economic trends signal a risk of a synchronized recession among major economies?",
-                "aidCorridors": "Should all conflict zones with civilian humanitarian crises automatically trigger internationally coordinated aid corridors?",
-                "nationalSovereignty": "Do you support global policy frameworks that balance national sovereignty with coordinated responses to shared challenges?",
-                "climateDisasters": "Should countries experiencing extreme weather disasters (e.g., wildfires, floods) receive prioritized financial aid from a global climate fund?",
-                "aiSafety": "Should global AI developers be required to pause training models more powerful than current systems until international safety agreements are established?",
-                "corporateTax": "Should corporations operating in multiple countries be subject to a unified global minimum tax rate to reduce inequality?",
-                "spaceDebris": "Do you agree that space-faring nations and corporations should be legally required to remove defunct satellites to reduce orbital debris?",
-                "digitalPrivacy": "Do you think that creating universal digital privacy standards is crucial for protecting individual rights in an increasingly interconnected world?",
-                "nuclearProliferation": "Do you believe that existing global measures effectively reduce the risk of nuclear proliferation?",
-                "cybersecurity": "Are current international cybersecurity measures sufficient to protect critical global infrastructures from escalating cyber threats?",
-                "globalAlliances": "Do you think rapid realignments in global alliances will lead to a more secure international order?",
-                "climateResilience": "Is the current global approach to climate resilience sufficient to cope with the increasing frequency of extreme weather events?",
-                "tradeTariffs": "Do you think the growing trend of imposing tariffs among major economies will significantly disrupt global trade stability?",
-                "diseaseManagement": "Are you confident in the world's ability to prevent and manage emerging infectious diseases?",
-                "aiRegulation": "Should binding international regulations be established to govern the ethical development of artificial intelligence?",
-                "spaceRegulation": "Should there be mandatory international agreements to limit space debris from satellites and rockets?",
-                "diplomaticDialogue": "Do you believe sustained diplomatic dialogue among world leaders can help reduce global tensions?",
-                "migration": "Should wealthy countries accept more migrants fleeing conflict or climate disasters?",
-                "rareEarths": "Should international collaboration on rare earth minerals be prioritized to enhance global resource security?",
-                "cryptocurrency": "Should global authorities establish uniform standards to regulate cryptocurrencies and curb financial crimes?",
-                "disinformation": "Do you think global measures should be implemented to counter the spread of disinformation online?",
-                "diseaseOutbreaks": "Should countries be required to share real-time data during disease outbreaks to prevent global health crises?",
-                "militaryIntervention": "Should countries with advanced military capabilities intervene to de-escalate conflicts in regions experiencing sudden outbreaks of war?",
-                "aiDevelopment": "Should governments prioritize regulating artificial intelligence (AI) development to prevent misuse, even if it slows innovation?",
-                "asteroidDefense": "Do you believe that governments worldwide should increase funding for space monitoring and asteroid deflection research?",
-                "peaceNegotiations": "Should major powers negotiating peace agreements be required to include countries directly affected by the conflict?",
-                "taiwanPolicy": "Should the United States maintain its 'strategic ambiguity' policy on Taiwan to avoid escalating tensions with China?"
-              }
-            }
-          },
-          "openLetters": {
-            "title": "Open Letters",
-            "description": "Public statements to decision makers",
-            "addNew": "Add your open letter",
-            "statements": {
-              "aiRisk": {
-                "title": "Statement on AI Risk",
-                "referenceTitle": "Center for AI Safety"
-              },
-              "nuclear": {
-                "title": "UN Ban on Nuclear Weapons Open Letter",
-                "referenceTitle": "Future of Life Institute"
-              },
-              "autonomousWeapons": {
-                "title": "Lethal Autonomous Weapons Pledge",
-                "referenceTitle": "Future of Life Institute"
-              },
-              "longView": {
-                "title": "Open letter calling on world leaders to show long-view leadership on existential threats",
-                "referenceTitle": "Future of Life Institute"
-              }
-            }
-          },
-          "elections": {
-            "title": "Elections",
-            "description": "Choose your representatives",
-            "worldConstituent": {
-              "title": "World Constituent Assembly Election"
-            }
-          },
-          "referendums": {
-            "title": "Referendums",
-            "description": "Direct votes on important issues",
-            "worldConstitutional": {
-              "title": "World Constitutional Referendum"
+        "openLetters": {
+          "title": "উন্মুক্ত চিঠি",
+          "description": "সিদ্ধান্ত গ্রহণকারীদের প্রতি জনসাধারণের বক্তব্য",
+          "addNew": "আপনার উন্মুক্ত চিঠি যোগ করুন",
+          "statements": {
+            "aiRisk": {
+              "title": "AI ঝুঁকি সম্পর্কিত বিবৃতি",
+              "referenceTitle": "AI নিরাপত্তা কেন্দ্র"
+            },
+            "nuclear": {
+              "title": "পারমাণবিক অস্ত্র নিষিদ্ধকরণে জাতিসংঘের প্রতি উন্মুক্ত চিঠি",
+              "referenceTitle": "ফিউচার অফ লাইফ ইনস্টিটিউট"
+            },
+            "autonomousWeapons": {
+              "title": "মারাত্মক স্বয়ংক্রিয় অস্ত্র সম্পর্কিত প্রতিশ্রুতি",
+              "referenceTitle": "ফিউচার অফ লাইফ ইনস্টিটিউট"
+            },
+            "longView": {
+              "title": "অস্তিত্বগত হুমকি মোকাবেলায় দীর্ঘমেয়াদী নেতৃত্ব প্রদর্শনের জন্য বিশ্ব নেতাদের প্রতি উন্মুক্ত চিঠি",
+              "referenceTitle": "ফিউচার অফ লাইফ ইনস্টিটিউট"
             }
           }
-        }
-      },
-      "menu": {
-        "title": "Menu",
-        "sections": {
-          "experimental": {
-            "title": "EXPERIMENTAL",
-            "links": {
-              "verification": "Verification tests",
-              "language": "Language"
-            }
-          },
-          "connect": {
-            "title": "CONNECT",
-            "links": {
-              "community": "Community",
-              "announcements": "Announcements",
-              "x": "X"
-            }
-          },
-          "help": {
-            "title": "HELP",
-            "links": {
-              "faq": "FAQ"
-            }
-          },
-          "code": {
-            "title": "CODE",
-            "links": {
-              "app": "App",
-              "contracts": "Smart contracts"
-            }
+        },
+        "elections": {
+          "title": "নির্বাচন",
+          "description": "আপনার প্রতিনিধি নির্বাচন করুন",
+          "worldConstituent": {
+            "title": "বিশ্ব সংবিধান সভা নির্বাচন"
+          }
+        },
+        "referendums": {
+          "title": "গণভোট",
+          "description": "গুরুত্বপূর্ণ বিষয়ে সরাসরি ভোট",
+          "worldConstitutional": {
+            "title": "বিশ্ব সাংবিধানিক গণভোট"
           }
         }
-      },
-      "faq": {
-        "title": "FAQ",
-        "items": {
-          "appPurpose": {
-            "question": "What is the World Republic?",
-            "answer": "The World Republic is an open, democratic organization dedicated to solving humanity's most pressing global challenges. It provides a framework for collective decision-making on issues that can only be effectively addressed at a global scale, like AI risks, climate change, or biosecurity."
-          },
-          "basicIncome": {
-            "question": "What is Basic Income?",
-            "answer": "Our Basic Income is a daily subsidy of 1 WDD (world drachma) that is provided to all citizens of the World Republic. It accumulates in real-time and can be claimed at any moment through the app."
-          },
-          "basicIncomePlus": {
-            "question": "How do I activate Basic Income Plus?",
-            "answer": "Basic Income Plus provides an additional 10 WDD per day and is available exclusively to Orb-verified users. After activating Basic Income, you'll see an option to activate Basic Income Plus on the Earn page."
-          },
-          "savings": {
-            "question": "How does the Savings Account work?",
-            "answer": "The Savings Account allows you to deposit WDD tokens and earn a 69% annual interest. Through constant reinvestment of earned interest, users can achieve effective returns close to 100% annually, maximizing their WDD growth over time. Interest accumulates continuously and can be withdrawn or reinvested at any time."
-          },
-          "referralCodes": {
-            "question": "How do referral codes work?",
-            "answer": "As a World Republic citizen, you can earn rewards through our referral program. Share your unique referral link with friends, and you'll receive 50 WDD for each person who joins and activates Basic Income Plus. Haven't received your reward? Your friend may need to manually trigger it by selecting the 'Reward Referrer' option in their referral section."
-          },
-          "drachmaValue": {
-            "question": "Where does the drachma get its value?",
-            "answer": "The drachma derives its value from being the official currency of the World Republic. As our democratic global governance platform grows, WDD has the potential to become a significant medium of exchange in the world economy, and could eventually play a role in the equitable distribution of benefits from technological advancements and global resources."
-          },
-          "topWallets": {
-            "question": "Who controls the biggest accounts?",
-            "answer": "The three largest accounts are the <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>World Republic Treasury</a>, the <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Basic Income Fund</a>, and the <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Basic Income Plus Fund</a>. Currently, these are controlled by the project's founder, but control will be transferred to the community after our constitution is ratified. Other key addresses include the <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>Savings Account contract</a>, the <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>Referral Rewards distributor</a>, and liquidity pools: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, and <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
-          },
-          "voteRequirements": {
-            "question": "What are the requirements to propose votes?",
-            "answer": "The current polls and open letters are just a showcase. Our community will collectively decide our system of governance through the constitutional design process led by the Constituent Assembly elected in Q2 2025."
+      }
+    },
+    "menu": {
+      "title": "মেনু",
+      "sections": {
+        "experimental": {
+          "title": "পরীক্ষামূলক",
+          "links": {
+            "verification": "যাচাইকরণ পরীক্ষা",
+            "language": "ভাষা"
+          }
+        },
+        "connect": {
+          "title": "সংযোগ",
+          "links": {
+            "community": "কমিউনিটি",
+            "announcements": "ঘোষণা",
+            "x": "X"
+          }
+        },
+        "help": {
+          "title": "সহায়তা",
+          "links": {
+            "faq": "সাধারণ জিজ্ঞাসা"
+          }
+        },
+        "code": {
+          "title": "কোড",
+          "links": {
+            "app": "অ্যাপ",
+            "contracts": "স্মার্ট কন্ট্র্যাক্টস"
           }
         }
-      },
-      "language": {
-        "title": "Language",
-        "options": {
-          "english": "English",
-          "spanish": "Español"
+      }
+    },
+    "faq": {
+      "title": "সাধারণ জিজ্ঞাসা",
+      "items": {
+        "appPurpose": {
+          "question": "ওয়ার্ল্ড রিপাবলিক কী?",
+          "answer": "ওয়ার্ল্ড রিপাবলিক একটি উন্মুক্ত, গণতান্ত্রিক সংগঠন যা মানবতার সবচেয়ে জরুরি বৈশ্বিক চ্যালেঞ্জগুলি সমাধানে নিবেদিত। এটি এমন বিষয়গুলিতে যৌথ সিদ্ধান্ত গ্রহণের জন্য একটি কাঠামো প্রদান করে যা শুধুমাত্র বৈশ্বিক স্তরে কার্যকরভাবে সমাধান করা যায়, যেমন AI ঝুঁকি, জলবায়ু পরিবর্তন, বা জৈব নিরাপত্তা।"
+        },
+        "basicIncome": {
+          "question": "মৌলিক আয় কী?",
+          "answer": "আমাদের মৌলিক আয় হল ১ WDD (ওয়ার্ল্ড ড্রাকমা) এর দৈনিক ভর্তুকি যা ওয়ার্ল্ড রিপাবলিকের সকল নাগরিককে প্রদান করা হয়। এটি রিয়েল-টাইমে জমা হয় এবং অ্যাপের মাধ্যমে যেকোনো সময় দাবি করা যায়।"
+        },
+        "basicIncomePlus": {
+          "question": "আমি কিভাবে মৌলিক আয় প্লাস সক্রিয় করব?",
+          "answer": "মৌলিক আয় প্লাস প্রতিদিন অতিরিক্ত ১০ WDD প্রদান করে এবং এটি শুধুমাত্র Orb-যাচাইকৃত ব্যবহারকারীদের জন্য উপলব্ধ। মৌলিক আয় সক্রিয় করার পর, আপনি আয় পৃষ্ঠায় মৌলিক আয় প্লাস সক্রিয় করার বিকল্প দেখতে পাবেন।"
+        },
+        "savings": {
+          "question": "সঞ্চয় অ্যাকাউন্ট কিভাবে কাজ করে?",
+          "answer": "সঞ্চয় অ্যাকাউন্ট আপনাকে WDD টোকেন জমা করে ৬৯% বার্ষিক সুদ অর্জন করতে দেয়। অর্জিত সুদের ক্রমাগত পুনঃবিনিয়োগের মাধ্যমে, ব্যবহারকারীরা বার্ষিক প্রায় ১০০% কার্যকর রিটার্ন অর্জন করতে পারেন, সময়ের সাথে তাদের WDD বৃদ্ধি সর্বোচ্চ করে। সুদ নিরবিচ্ছিন্নভাবে জমা হয় এবং যেকোনো সময় তোলা বা পুনঃবিনিয়োগ করা যায়।"
+        },
+        "referralCodes": {
+          "question": "রেফারেল কোড কিভাবে কাজ করে?",
+          "answer": "একজন ওয়ার্ল্ড রিপাবলিক নাগরিক হিসেবে, আপনি আমাদের রেফারেল প্রোগ্রামের মাধ্যমে পুরস্কার অর্জন করতে পারেন। আপনার অনন্য রেফারেল লিঙ্ক বন্ধুদের সাথে শেয়ার করুন, এবং যারা যোগ দিয়ে মৌলিক আয় প্লাস সক্রিয় করবে তাদের প্রত্যেকের জন্য আপনি ৫০ WDD পাবেন। পুরস্কার পাননি? আপনার বন্ধুকে তাদের রেফারেল বিভাগে 'রেফারারকে পুরস্কৃত করুন' বিকল্প নির্বাচন করে ম্যানুয়ালি এটি ট্রিগার করতে হতে পারে।"
+        },
+        "drachmaValue": {
+          "question": "ড্রাকমা তার মূল্য কোথা থেকে পায়?",
+          "answer": "ড্রাকমা ওয়ার্ল্ড রিপাবলিকের আনুষ্ঠানিক মুদ্রা হিসেবে তার মূল্য পায়। আমাদের গণতান্ত্রিক বৈশ্বিক শাসন প্ল্যাটফর্ম বৃদ্ধির সাথে সাথে, WDD বিশ্ব অর্থনীতিতে একটি গুরুত্বপূর্ণ বিনিময় মাধ্যম হয়ে উঠতে পারে, এবং শেষ পর্যন্ত প্রযুক্তিগত অগ্রগতি এবং বৈশ্বিক সম্পদের সুবিধাগুলির ন্যায্য বণ্টনে ভূমিকা রাখতে পারে।"
+        },
+        "topWallets": {
+          "question": "সবচেয়ে বড় অ্যাকাউন্টগুলি কে নিয়ন্ত্রণ করে?",
+          "answer": "তিনটি বৃহত্তম অ্যাকাউন্ট হল <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>ওয়ার্ল্ড রিপাবলিক ট্রেজারি</a>, <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>মৌলিক আয় তহবিল</a>, এবং <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>মৌলিক আয় প্লাস তহবিল</a>। বর্তমানে, এগুলি প্রকল্পের প্রতিষ্ঠাতার নিয়ন্ত্রণে রয়েছে, তবে আমাদের সংবিধান অনুমোদনের পর নিয়ন্ত্রণ সম্প্রদায়ের কাছে হস্তান্তর করা হবে। অন্যান্য গুরুত্বপূর্ণ ঠিকানাগুলির মধ্যে রয়েছে <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>সঞ্চয় অ্যাকাউন্ট কন্ট্র্যাক্ট</a>, <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>রেফারেল পুরস্কার বিতরণকারী</a>, এবং লিকুইডিটি পুল: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, এবং <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>।"
+        },
+        "voteRequirements": {
+          "question": "ভোট প্রস্তাব করার জন্য কী কী প্রয়োজনীয়তা রয়েছে?",
+          "answer": "বর্তমান ভোট এবং উন্মুক্ত চিঠিগুলি শুধুমাত্র একটি প্রদর্শন। আমাদের সম্প্রদায় ২০২৫ সালের দ্বিতীয় ত্রৈমাসিকে নির্বাচিত সংবিধান সভার নেতৃত্বে সাংবিধানিক নকশা প্রক্রিয়ার মাধ্যমে আমাদের শাসন ব্যবস্থা সম্পর্কে যৌথভাবে সিদ্ধান্ত নেবে।"
         }
-      },
-      "verification": {
-        "title": "Verification Tests",
-        "levels": {
-          "device": {
-            "title": "Device Verification",
-            "description": "Basic verification using the device.",
-            "buttonText": "Test Device Verification"
-          },
-          "document": {
-            "title": "Document Verification",
-            "description": "Verification using identity documents.",
-            "buttonText": "Test Document Verification"
-          },
-          "secureDocument": {
-            "title": "Secure Document Verification",
-            "description": "Enhanced verification using secure identity documents.",
-            "buttonText": "Test Secure Document Verification"
-          },
-          "orb": {
-            "title": "Orb Verification",
-            "description": "Highest security using Orb biometric verification.",
-            "buttonText": "Test Orb Verification"
-          }
+      }
+    },
+    "language": {
+      "title": "ভাষা",
+      "options": {
+        "english": "ইংরেজি",
+        "spanish": "স্প্যানিশ"
+      }
+    },
+    "verification": {
+      "title": "যাচাইকরণ পরীক্ষা",
+      "levels": {
+        "device": {
+          "title": "ডিভাইস যাচাইকরণ",
+          "description": "ডিভাইস ব্যবহার করে মৌলিক যাচাইকরণ।",
+          "buttonText": "ডিভাইস যাচাইকরণ পরীক্ষা করুন"
+        },
+        "document": {
+          "title": "নথি যাচাইকরণ",
+          "description": "পরিচয় নথি ব্যবহার করে যাচাইকরণ।",
+          "buttonText": "নথি যাচাইকরণ পরীক্ষা করুন"
+        },
+        "secureDocument": {
+          "title": "নিরাপদ নথি যাচাইকরণ",
+          "description": "নিরাপদ পরিচয় নথি ব্যবহার করে উন্নত যাচাইকরণ।",
+          "buttonText": "নিরাপদ নথি যাচাইকরণ পরীক্ষা করুন"
+        },
+        "orb": {
+          "title": "Orb যাচাইকরণ",
+          "description": "Orb বায়োমেট্রিক যাচাইকরণ ব্যবহার করে সর্বোচ্চ নিরাপত্তা।",
+          "buttonText": "Orb যাচাইকরণ পরীক্ষা করুন"
         }
       }
     }
   }
-  
+}
