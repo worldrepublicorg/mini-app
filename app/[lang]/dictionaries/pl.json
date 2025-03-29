@@ -1,457 +1,456 @@
 {
-    "components": {
-      "walletAuth": {
-        "connect": "Connect Wallet"
-      },
-      "verifyButton": {
-        "verify": "Verify to Claim"
-      },
-      "pollOfTheDay": {
-        "previousPolls": "Previous Polls",
-        "vote": "Vote Now",
-        "polls": {
-          "dataSovereignty": "Should international guidelines be implemented to protect data generated worldwide under a unified framework for digital sovereignty?",
-          "biotech": "Should there be a global regulatory framework for emerging biotechnologies to ensure ethical use and safety?",
-          "spaceMilitarization": "Should global leaders agree on protocols to prevent the militarization of space and secure it for peaceful purposes?",
-          "nuclearSecurity": "Should binding international agreements be established to secure nuclear facilities in conflict zones?",
-          "fourDayWeek": "Do you support the growing global movement toward four-day workweeks as a standard employment model?"
-        }
-      },
-      "stakeForm": {
-        "deposit": "Deposit",
-        "withdraw": "Withdraw",
-        "balance": "Balance:",
-        "depositPlaceholder": "Amount to deposit",
-        "withdrawPlaceholder": "Amount to withdraw",
-        "max": "Max",
-        "interest": "Interest:",
-        "collect": "Collect",
-        "depositButton": "Deposit Drachma",
-        "withdrawButton": "Withdraw Drachma"
-      },
-      "toasts": {
-        "wallet": {
-          "connectInWorldApp": "Please open this app in the World App to connect your wallet.",
-          "stakingError": "Error staking tokens",
-          "withdrawError": "Error withdrawing tokens",
-          "collectError": "Error collecting rewards"
-        },
-        "referral": {
-          "pendingReward": "Processing pending reward for {{username}}...",
-          "rewardSuccess": "Successfully rewarded {{username}}!",
-          "sendingReward": "Sending 50 WDD reward to {{username}}..."
-        },
-        "basicIncome": {
-          "setupSuccess": "Basic Income Plus activated! Now preparing reward for {{username}}...",
-          "setupWithReferrer": "Setting up Basic Income Plus first, then we'll reward {{username}}...",
-          "error": "Error activating Basic Income",
-          "errorPlus": "Error activating Basic Income Plus"
-        },
-        "transaction": {
-          "error": "An unexpected error occurred",
-          "errorClaim": "An unexpected error occurred while claiming"
-        }
-      },
-      "comingSoonDrawer": {
-        "title": "Coming soon",
-        "description": "This feature is currently in development. Stay tuned!"
-      },
-      "tabSwiper": {
-        "tabs": {
-          "polls": "Polls",
-          "openLetters": "Open letters",
-          "elections": "Elections",
-          "referendums": "Referendums"
-        }
+  "components": {
+    "walletAuth": {
+      "connect": "Połącz Portfel"
+    },
+    "verifyButton": {
+      "verify": "Zweryfikuj, aby Odebrać"
+    },
+    "pollOfTheDay": {
+      "previousPolls": "Poprzednie Ankiety",
+      "vote": "Zagłosuj Teraz",
+      "polls": {
+        "dataSovereignty": "Czy należy wdrożyć międzynarodowe wytyczne chroniące dane generowane na całym świecie w ramach jednolitych ram suwerenności cyfrowej?",
+        "biotech": "Czy powinny istnieć globalne ramy regulacyjne dla powstających biotechnologii w celu zapewnienia etycznego wykorzystania i bezpieczeństwa?",
+        "spaceMilitarization": "Czy światowi przywódcy powinni uzgodnić protokoły zapobiegające militaryzacji przestrzeni kosmicznej i zabezpieczające ją do celów pokojowych?",
+        "nuclearSecurity": "Czy należy ustanowić wiążące umowy międzynarodowe w celu zabezpieczenia obiektów jądrowych w strefach konfliktów?",
+        "fourDayWeek": "Czy popierasz rosnący globalny ruch w kierunku czterodniowego tygodnia pracy jako standardowego modelu zatrudnienia?"
       }
     },
-    "pages": {
-      "earn": {
-        "title": "Earn",
-        "tabs": {
-          "tabNames": {
-            "basicIncome": "Basic income",
-            "savings": "Savings",
-            "contribute": "Contribute",
-            "invite": "Invite"
-          },
-          "basicIncome": {
-            "tabTitle": "Basic income",
-            "title": "Basic Income",
-            "subtitle": "Sign in to claim your basic income",
-            "setupSubtitle": "Set up your basic income",
-            "claimableSubtitle": "Claimable drachma",
-            "activateButton": "Activate Basic Income",
-            "claimButton": "Claim",
-            "plus": {
-              "title": "Basic Income Plus",
-              "newBadge": "New",
-              "drawerTrigger": "Introducing Basic Income Plus",
-              "subtitle": "Extra income for verified users",
-              "drawer": {
-                "title": "Basic Income Plus",
-                "subtitle": "Extra income for verified users",
-                "features": {
-                  "rate": {
-                    "title": "An additional 10 WDD per day"
-                  },
-                  "verification": {
-                    "title": "Exclusive to Orb-verified users to ensure fair distribution"
-                  },
-                  "rewards": {
-                    "title": "Rewards shift to Plus over time while keeping total at 11 WDD/day"
-                  }
-                },
-                "activateButton": "Activate Basic Income Plus",
-                "claimButton": "Claim Basic Income Plus",
-                "claimBasicButton": "Claim Basic Income"
-              }
-            }
-          },
-          "savings": {
-            "tabTitle": "Savings",
-            "title": "Savings Account",
-            "subtitle": "Earn interest every second",
-            "tooltip": "69% APY base rate. Collect and reinvest interest to achieve close to 100% effective returns annually. Withdraw anytime."
-          },
-          "invite": {
-            "title": "Invite",
-            "subtitle": "Get 50 WDD per friend who joins",
-            "tooltip": "You'll earn rewards when friends activate their Basic Income Plus.",
-            "learnMore": "Learn more",
-            "stats": {
-              "title": "Your Referral Stats",
-              "invites": "Invites accepted",
-              "rewards": "Total rewards"
-            },
-            "actions": {
-              "copyLink": "Copy Referral Link",
-              "copied": "Referral link copied to clipboard!",
-              "connectWallet": "Please connect your wallet to generate your referral link",
-              "rewardReferrer": "Reward Referrer"
-            },
+    "stakeForm": {
+      "deposit": "Wpłać",
+      "withdraw": "Wypłać",
+      "balance": "Saldo:",
+      "depositPlaceholder": "Kwota do wpłaty",
+      "withdrawPlaceholder": "Kwota do wypłaty",
+      "max": "Maksimum",
+      "interest": "Odsetki:",
+      "collect": "Odbierz",
+      "depositButton": "Wpłać Drachmy",
+      "withdrawButton": "Wypłać Drachmy"
+    },
+    "toasts": {
+      "wallet": {
+        "connectInWorldApp": "Proszę otworzyć tę aplikację w World App, aby połączyć portfel.",
+        "stakingError": "Błąd podczas stakowania tokenów",
+        "withdrawError": "Błąd podczas wypłacania tokenów",
+        "collectError": "Błąd podczas odbierania nagród"
+      },
+      "referral": {
+        "pendingReward": "Przetwarzanie oczekującej nagrody dla {{username}}...",
+        "rewardSuccess": "Pomyślnie nagrodzono {{username}}!",
+        "sendingReward": "Wysyłanie nagrody 50 WDD do {{username}}..."
+      },
+      "basicIncome": {
+        "setupSuccess": "Dochód Podstawowy Plus aktywowany! Przygotowywanie nagrody dla {{username}}...",
+        "setupWithReferrer": "Najpierw konfigurujemy Dochód Podstawowy Plus, potem nagrodzimy {{username}}...",
+        "error": "Błąd podczas aktywacji Dochodu Podstawowego",
+        "errorPlus": "Błąd podczas aktywacji Dochodu Podstawowego Plus"
+      },
+      "transaction": {
+        "error": "Wystąpił nieoczekiwany błąd",
+        "errorClaim": "Wystąpił nieoczekiwany błąd podczas odbierania"
+      }
+    },
+    "comingSoonDrawer": {
+      "title": "Wkrótce dostępne",
+      "description": "Ta funkcja jest obecnie w fazie rozwoju. Bądź na bieżąco!"
+    },
+    "tabSwiper": {
+      "tabs": {
+        "polls": "Ankiety",
+        "openLetters": "Listy otwarte",
+        "elections": "Wybory",
+        "referendums": "Referenda"
+      }
+    }
+  },
+  "pages": {
+    "earn": {
+      "title": "Zarabiaj",
+      "tabs": {
+        "tabNames": {
+          "basicIncome": "Dochód podstawowy",
+          "savings": "Oszczędności",
+          "contribute": "Współtwórz",
+          "invite": "Zaproś"
+        },
+        "basicIncome": {
+          "tabTitle": "Dochód podstawowy",
+          "title": "Dochód Podstawowy",
+          "subtitle": "Zaloguj się, aby odebrać swój dochód podstawowy",
+          "setupSubtitle": "Skonfiguruj swój dochód podstawowy",
+          "claimableSubtitle": "Drachmy do odebrania",
+          "activateButton": "Aktywuj Dochód Podstawowy",
+          "claimButton": "Odbierz",
+          "plus": {
+            "title": "Dochód Podstawowy Plus",
+            "newBadge": "Nowość",
+            "drawerTrigger": "Przedstawiamy Dochód Podstawowy Plus",
+            "subtitle": "Dodatkowy dochód dla zweryfikowanych użytkowników",
             "drawer": {
-              "title": "Reward a Referrer",
-              "subtitle": "Trigger a free 50 WDD reward for your referrer",
-              "invitedBy": "You were invited by: {{username}}",
-              "input": {
-                "placeholder": "Enter username (e.g. username.0000)",
-                "lookupButton": "Lookup User",
-                "sendingTo": "Sending reward to:",
-                "editButton": "Edit",
-                "sendButton": "Send Reward"
-              },
-              "errors": {
-                "enterUsername": "Please enter a username",
-                "usernameNotFound": "Username not found",
-                "lookupFailed": "Failed to look up username. Please try again.",
-                "installMiniKit": "Please install MiniKit to look up usernames",
-                "connectWallet": "Please connect your wallet first",
-                "transactionCanceled": "Transaction was canceled"
-              },
-              "success": {
-                "rewardSent": "Successfully sent reward to {{username}}!"
-              }
-            }
-          },
-          "contribute": {
-            "title": "Contribute",
-            "subtitle": "Get involved, get rewarded",
-            "contests": {
-              "weekly": "Weekly",
-              "topPrize": "Top prize",
-              "xPost": {
-                "title": "X Post Contest",
-                "description": "Write engaging posts, win prizes"
-              },
-              "poll": {
-                "title": "Poll Contest",
-                "description": "Gather community feedback and earn"
-              },
-              "pollContest": {
-                "title": "Poll Contest",
-                "weeklyTitle": "Weekly Poll Contest",
-                "description": "Gather community feedback and earn",
-                "prizes": {
-                  "title": "Prizes",
-                  "viewWinners": "View past winners",
-                  "wdd": "WDD"
+              "title": "Dochód Podstawowy Plus",
+              "subtitle": "Dodatkowy dochód dla zweryfikowanych użytkowników",
+              "features": {
+                "rate": {
+                  "title": "Dodatkowe 10 WDD dziennie"
                 },
-                "howTo": {
-                  "title": "How it works",
-                  "steps": {
-                    "step1": {
-                      "number": "1",
-                      "text": "Create a poll related to the World Republic or global governance in general"
-                    },
-                    "step2": {
-                      "number": "2",
-                      "text": "Set it up so only verified humans can vote"
-                    },
-                    "step3": {
-                      "number": "3",
-                      "text": "Share your poll in our",
-                      "link": {
-                        "text": "Poll Contest Telegram channel",
-                        "url": "https://t.me/worldrepubliccommunity/32368"
-                      }
-                    }
-                  }
+                "verification": {
+                  "title": "Dostępne wyłącznie dla użytkowników zweryfikowanych przez Orb, aby zapewnić sprawiedliwą dystrybucję"
                 },
-                "rules": {
-                  "title": "Contest rules",
-                  "list": {
-                    "rule1": "Only polls started in the current week are eligible",
-                    "rule2": "Winners are selected based on total votes",
-                    "rule3": "Contest ends every Sunday at 11:59 PM UTC"
-                  }
-                },
-                "cta": {
-                  "create": "Create Your Poll",
-                  "submit": "Submit Your Poll"
-                },
-                "winners": {
-                  "title": "Contest Winners",
-                  "weekOf": "Week of",
-                  "votes": "votes"
+                "rewards": {
+                  "title": "Nagrody przechodzą na Plus z czasem, utrzymując łączną sumę 11 WDD/dzień"
                 }
-              }
+              },
+              "activateButton": "Aktywuj Dochód Podstawowy Plus",
+              "claimButton": "Odbierz Dochód Podstawowy Plus",
+              "claimBasicButton": "Odbierz Dochód Podstawowy"
+            }
+          }
+        },
+        "savings": {
+          "tabTitle": "Oszczędności",
+          "title": "Konto Oszczędnościowe",
+          "subtitle": "Zarabiaj odsetki co sekundę",
+          "tooltip": "Podstawowa stopa 69% APY. Zbieraj i reinwestuj odsetki, aby osiągnąć blisko 100% efektywnego zwrotu rocznie. Wypłać w dowolnym momencie."
+        },
+        "invite": {
+          "title": "Zaproś",
+          "subtitle": "Otrzymaj 50 WDD za każdego zaproszonego znajomego",
+          "tooltip": "Otrzymasz nagrody, gdy znajomi aktywują swój Dochód Podstawowy Plus.",
+          "learnMore": "Dowiedz się więcej",
+          "stats": {
+            "title": "Twoje Statystyki Polecania",
+            "invites": "Przyjęte zaproszenia",
+            "rewards": "Łączne nagrody"
+          },
+          "actions": {
+            "copyLink": "Kopiuj Link Polecający",
+            "copied": "Link polecający skopiowany do schowka!",
+            "connectWallet": "Połącz portfel, aby wygenerować swój link polecający",
+            "rewardReferrer": "Nagródź Polecającego"
+          },
+          "drawer": {
+            "title": "Nagródź Polecającego",
+            "subtitle": "Aktywuj darmową nagrodę 50 WDD dla swojego polecającego",
+            "invitedBy": "Zostałeś zaproszony przez: {{username}}",
+            "input": {
+              "placeholder": "Wprowadź nazwę użytkownika (np. username.0000)",
+              "lookupButton": "Wyszukaj Użytkownika",
+              "sendingTo": "Wysyłanie nagrody do:",
+              "editButton": "Edytuj",
+              "sendButton": "Wyślij Nagrodę"
             },
-            "earlyAccess": {
-              "title": "Early Access Program",
-              "description": "Earn WDD by testing our upcoming features"
+            "errors": {
+              "enterUsername": "Wprowadź nazwę użytkownika",
+              "usernameNotFound": "Nie znaleziono użytkownika",
+              "lookupFailed": "Nie udało się wyszukać użytkownika. Spróbuj ponownie.",
+              "installMiniKit": "Zainstaluj MiniKit, aby wyszukiwać użytkowników",
+              "connectWallet": "Najpierw połącz swój portfel",
+              "transactionCanceled": "Transakcja została anulowana"
             },
-            "xContest": {
-              "title": "X Post Contest",
-              "weeklyTitle": "Weekly X Post Contest",
-              "description": "Write engaging posts, win prizes",
+            "success": {
+              "rewardSent": "Pomyślnie wysłano nagrodę do {{username}}!"
+            }
+          }
+        },
+        "contribute": {
+          "title": "Współtwórz",
+          "subtitle": "Zaangażuj się, otrzymuj nagrody",
+          "contests": {
+            "weekly": "Tygodniowy",
+            "topPrize": "Główna nagroda",
+            "xPost": {
+              "title": "Konkurs Postów X",
+              "description": "Pisz angażujące posty, wygrywaj nagrody"
+            },
+            "poll": {
+              "title": "Konkurs Ankiet",
+              "description": "Zbieraj opinie społeczności i zarabiaj"
+            },
+            "pollContest": {
+              "title": "Konkurs Ankiet",
+              "weeklyTitle": "Tygodniowy Konkurs Ankiet",
+              "description": "Zbieraj opinie społeczności i zarabiaj",
               "prizes": {
-                "title": "Prizes",
-                "viewWinners": "View past winners",
+                "title": "Nagrody",
+                "viewWinners": "Zobacz poprzednich zwycięzców",
                 "wdd": "WDD"
               },
               "howTo": {
-                "title": "How to participate",
-                "step1": "Write an X post about the World Republic",
-                "step2": "Tag @WorldRepublicEN",
-                "step3": {
-                  "prefix": "Share the link to your post in our",
-                  "link": "X Post Contest Telegram channel"
+                "title": "Jak to działa",
+                "steps": {
+                  "step1": {
+                    "number": "1",
+                    "text": "Stwórz ankietę związaną z Republiką Świata lub ogólnie z zarządzaniem globalnym"
+                  },
+                  "step2": {
+                    "number": "2",
+                    "text": "Ustaw tak, aby tylko zweryfikowani ludzie mogli głosować"
+                  },
+                  "step3": {
+                    "number": "3",
+                    "text": "Udostępnij swoją ankietę w naszym",
+                    "link": {
+                      "text": "kanale Telegram Konkursu Ankiet",
+                      "url": "https://t.me/worldrepubliccommunity/32368"
+                    }
+                  }
                 }
               },
               "rules": {
-                "title": "Contest rules",
-                "rule1": "Only posts published in the current week are eligible",
-                "rule2": "Winners are selected based on total engagement (likes + reposts + comments)",
-                "rule3": "Contest ends every Sunday at 11:59 PM UTC"
+                "title": "Zasady konkursu",
+                "list": {
+                  "rule1": "Kwalifikują się tylko ankiety rozpoczęte w bieżącym tygodniu",
+                  "rule2": "Zwycięzcy są wybierani na podstawie łącznej liczby głosów",
+                  "rule3": "Konkurs kończy się w każdą niedzielę o 23:59 UTC"
+                }
               },
               "cta": {
-                "post": "Start Posting Now",
-                "submit": "Submit Your Post"
+                "create": "Stwórz Swoją Ankietę",
+                "submit": "Zgłoś Swoją Ankietę"
               },
               "winners": {
-                "title": "Contest Winners",
-                "weekOf": "Week of",
-                "engagements": "engagements"
+                "title": "Zwycięzcy Konkursu",
+                "weekOf": "Tydzień",
+                "votes": "głosów"
               }
+            }
+          },
+          "earlyAccess": {
+            "title": "Program Wczesnego Dostępu",
+            "description": "Zarabiaj WDD testując nasze nadchodzące funkcje"
+          },
+          "xContest": {
+            "title": "Konkurs Postów X",
+            "weeklyTitle": "Tygodniowy Konkurs Postów X",
+            "description": "Pisz angażujące posty, wygrywaj nagrody",
+            "prizes": {
+              "title": "Nagrody",
+              "viewWinners": "Zobacz poprzednich zwycięzców",
+              "wdd": "WDD"
+            },
+            "howTo": {
+              "title": "Jak wziąć udział",
+              "step1": "Napisz post na X o Republice Świata",
+              "step2": "Oznacz @WorldRepublicEN",
+              "step3": {
+                "prefix": "Udostępnij link do swojego posta w naszym",
+                "link": "kanale Telegram Konkursu Postów X"
+              }
+            },
+            "rules": {
+              "title": "Zasady konkursu",
+              "rule1": "Kwalifikują się tylko posty opublikowane w bieżącym tygodniu",
+              "rule2": "Zwycięzcy są wybierani na podstawie łącznego zaangażowania (polubienia + udostępnienia + komentarze)",
+              "rule3": "Konkurs kończy się w każdą niedzielę o 23:59 UTC"
+            },
+            "cta": {
+              "post": "Zacznij Publikować Teraz",
+              "submit": "Zgłoś Swój Post"
+            },
+            "winners": {
+              "title": "Zwycięzcy Konkursu",
+              "weekOf": "Tydzień",
+              "engagements": "zaangażowań"
             }
           }
         }
+      }
+    },
+    "govern": {
+      "title": "Zarządzaj",
+      "tabs": {
+        "polls": "Ankiety",
+        "openLetters": "Listy otwarte",
+        "elections": "Wybory",
+        "referendums": "Referenda"
       },
-      "govern": {
-        "title": "Govern",
-        "tabs": {
-          "polls": "Polls",
-          "openLetters": "Open letters",
-          "elections": "Elections",
-          "referendums": "Referendums"
+      "sections": {
+        "polls": {
+          "title": "Ankieta Dnia",
+          "description": "Szybkie głosowania na aktualne tematy",
+          "previous": {
+            "title": "Poprzednie Ankiety",
+            "backToGovern": "Powrót do Zarządzania",
+            "polls": {
+              "dataSovereignty": "Czy należy wdrożyć międzynarodowe wytyczne chroniące dane generowane na całym świecie w ramach jednolitych ram suwerenności cyfrowej?",
+              "fourDayWeek": "Czy popierasz rosnący globalny ruch w kierunku czterodniowego tygodnia pracy jako standardowego modelu zatrudnienia?",
+              "nuclearSecurity": "Czy należy ustanowić wiążące umowy międzynarodowe w celu zabezpieczenia obiektów jądrowych w strefach konfliktów?",
+              "aviationResilience": "Czy międzynarodowa infrastruktura lotnicza jest wystarczająco odporna na nieoczekiwane zakłócenia na dużą skalę?",
+              "waterResources": "Czy narody powinny stworzyć ramy współpracy w zarządzaniu wspólnymi zasobami wodnymi w obliczu rosnącego globalnego niedoboru wody?",
+              "maternalHealth": "Czy należy utworzyć dedykowaną globalną rezerwę pomocy zdrowotnej w celu ochrony zdrowia matki i dziecka podczas zamrożenia pomocy międzynarodowej?",
+              "marsMission": "Czy popierasz współpracę narodów przy wspólnej misji w głęboką przestrzeń kosmiczną na Marsa?",
+              "globalRecession": "Czy uważasz, że obecne globalne trendy gospodarcze sygnalizują ryzyko zsynchronizowanej recesji wśród głównych gospodarek?",
+              "aidCorridors": "Czy wszystkie strefy konfliktów z kryzysami humanitarnymi powinny automatycznie uruchamiać międzynarodowo koordynowane korytarze pomocy?",
+              "nationalSovereignty": "Czy popierasz globalne ramy polityczne, które równoważą suwerenność narodową ze skoordynowanymi odpowiedziami na wspólne wyzwania?",
+              "climateDisasters": "Czy kraje doświadczające ekstremalnych katastrof pogodowych (np. pożarów, powodzi) powinny otrzymywać priorytetową pomoc finansową z globalnego funduszu klimatycznego?",
+              "aiSafety": "Czy globalni deweloperzy AI powinni być zobowiązani do wstrzymania treningu modeli potężniejszych niż obecne systemy do czasu ustanowienia międzynarodowych porozumień bezpieczeństwa?",
+              "corporateTax": "Czy korporacje działające w wielu krajach powinny podlegać jednolitej globalnej minimalnej stawce podatkowej w celu zmniejszenia nierówności?",
+              "spaceDebris": "Czy zgadzasz się, że narody i korporacje kosmiczne powinny być prawnie zobowiązane do usuwania niedziałających satelitów w celu zmniejszenia śmieci kosmicznych?",
+              "digitalPrivacy": "Czy uważasz, że stworzenie uniwersalnych standardów prywatności cyfrowej jest kluczowe dla ochrony praw jednostki w coraz bardziej połączonym świecie?",
+              "nuclearProliferation": "Czy uważasz, że istniejące globalne środki skutecznie zmniejszają ryzyko proliferacji jądrowej?",
+              "cybersecurity": "Czy obecne międzynarodowe środki cyberbezpieczeństwa są wystarczające do ochrony krytycznej infrastruktury globalnej przed narastającymi zagrożeniami cybernetycznymi?",
+              "globalAlliances": "Czy uważasz, że szybkie zmiany w globalnych sojuszach doprowadzą do bezpieczniejszego porządku międzynarodowego?",
+              "climateResilience": "Czy obecne globalne podejście do odporności klimatycznej jest wystarczające, aby radzić sobie z rosnącą częstotliwością ekstremalnych zjawisk pogodowych?",
+              "tradeTariffs": "Czy uważasz, że rosnący trend nakładania ceł wśród głównych gospodarek znacząco zakłóci stabilność handlu globalnego?",
+              "diseaseManagement": "Czy masz zaufanie do zdolności świata do zapobiegania i zarządzania pojawiającymi się chorobami zakaźnymi?",
+              "aiRegulation": "Czy należy ustanowić wiążące międzynarodowe regulacje dotyczące etycznego rozwoju sztucznej inteligencji?",
+              "spaceRegulation": "Czy powinny istnieć obowiązkowe umowy międzynarodowe ograniczające śmieci kosmiczne z satelitów i rakiet?",
+              "diplomaticDialogue": "Czy uważasz, że stały dialog dyplomatyczny między światowymi przywódcami może pomóc zmniejszyć globalne napięcia?",
+              "migration": "Czy bogate kraje powinny przyjmować więcej migrantów uciekających przed konfliktami lub katastrofami klimatycznymi?",
+              "rareEarths": "Czy należy priorytetowo traktować międzynarodową współpracę w zakresie minerałów ziem rzadkich w celu zwiększenia globalnego bezpieczeństwa zasobów?",
+              "cryptocurrency": "Czy globalne władze powinny ustanowić jednolite standardy regulacji kryptowalut i ograniczania przestępstw finansowych?",
+              "disinformation": "Czy uważasz, że należy wdrożyć globalne środki przeciwdziałania rozprzestrzenianiu się dezinformacji w internecie?",
+              "diseaseOutbreaks": "Czy kraje powinny być zobowiązane do udostępniania danych w czasie rzeczywistym podczas wybuchów chorób, aby zapobiegać globalnym kryzysom zdrowotnym?",
+              "militaryIntervention": "Czy kraje z zaawansowanymi zdolnościami militarnymi powinny interweniować w celu deeskalacji konfliktów w regionach doświadczających nagłych wybuchów wojny?",
+              "aiDevelopment": "Czy rządy powinny priorytetowo traktować regulację rozwoju sztucznej inteligencji (AI), aby zapobiec nadużyciom, nawet jeśli spowolni to innowacje?",
+              "asteroidDefense": "Czy uważasz, że rządy na całym świecie powinny zwiększyć finansowanie monitorowania przestrzeni kosmicznej i badań nad odchylaniem asteroid?",
+              "peaceNegotiations": "Czy mocarstwa negocjujące porozumienia pokojowe powinny być zobowiązane do włączenia krajów bezpośrednio dotkniętych konfliktem?",
+              "taiwanPolicy": "Czy Stany Zjednoczone powinny utrzymać swoją politykę 'strategicznej dwuznaczności' wobec Tajwanu, aby uniknąć eskalacji napięć z Chinami?"
+            }
+          }
         },
-        "sections": {
-          "polls": {
-            "title": "Poll of the Day",
-            "description": "Quick votes on current topics",
-            "previous": {
-              "title": "Previous Polls",
-              "backToGovern": "Back to Govern",
-              "polls": {
-                "dataSovereignty": "Should international guidelines be implemented to protect data generated worldwide under a unified framework for digital sovereignty?",
-                "fourDayWeek": "Do you support the growing global movement toward four-day workweeks as a standard employment model?",
-                "nuclearSecurity": "Should binding international agreements be established to secure nuclear facilities in conflict zones?",
-                "aviationResilience": "Is the international aviation infrastructure resilient enough to handle unexpected large-scale disruptions?",
-                "waterResources": "Should nations create a cooperative framework to manage shared water resources amid rising global water scarcity?",
-                "maternalHealth": "Should a dedicated global healthcare aid reserve be established to protect maternal and child health during international aid freezes?",
-                "marsMission": "Do you support nations collaborating on a joint deep space mission to Mars?",
-                "globalRecession": "Do you think the current global economic trends signal a risk of a synchronized recession among major economies?",
-                "aidCorridors": "Should all conflict zones with civilian humanitarian crises automatically trigger internationally coordinated aid corridors?",
-                "nationalSovereignty": "Do you support global policy frameworks that balance national sovereignty with coordinated responses to shared challenges?",
-                "climateDisasters": "Should countries experiencing extreme weather disasters (e.g., wildfires, floods) receive prioritized financial aid from a global climate fund?",
-                "aiSafety": "Should global AI developers be required to pause training models more powerful than current systems until international safety agreements are established?",
-                "corporateTax": "Should corporations operating in multiple countries be subject to a unified global minimum tax rate to reduce inequality?",
-                "spaceDebris": "Do you agree that space-faring nations and corporations should be legally required to remove defunct satellites to reduce orbital debris?",
-                "digitalPrivacy": "Do you think that creating universal digital privacy standards is crucial for protecting individual rights in an increasingly interconnected world?",
-                "nuclearProliferation": "Do you believe that existing global measures effectively reduce the risk of nuclear proliferation?",
-                "cybersecurity": "Are current international cybersecurity measures sufficient to protect critical global infrastructures from escalating cyber threats?",
-                "globalAlliances": "Do you think rapid realignments in global alliances will lead to a more secure international order?",
-                "climateResilience": "Is the current global approach to climate resilience sufficient to cope with the increasing frequency of extreme weather events?",
-                "tradeTariffs": "Do you think the growing trend of imposing tariffs among major economies will significantly disrupt global trade stability?",
-                "diseaseManagement": "Are you confident in the world's ability to prevent and manage emerging infectious diseases?",
-                "aiRegulation": "Should binding international regulations be established to govern the ethical development of artificial intelligence?",
-                "spaceRegulation": "Should there be mandatory international agreements to limit space debris from satellites and rockets?",
-                "diplomaticDialogue": "Do you believe sustained diplomatic dialogue among world leaders can help reduce global tensions?",
-                "migration": "Should wealthy countries accept more migrants fleeing conflict or climate disasters?",
-                "rareEarths": "Should international collaboration on rare earth minerals be prioritized to enhance global resource security?",
-                "cryptocurrency": "Should global authorities establish uniform standards to regulate cryptocurrencies and curb financial crimes?",
-                "disinformation": "Do you think global measures should be implemented to counter the spread of disinformation online?",
-                "diseaseOutbreaks": "Should countries be required to share real-time data during disease outbreaks to prevent global health crises?",
-                "militaryIntervention": "Should countries with advanced military capabilities intervene to de-escalate conflicts in regions experiencing sudden outbreaks of war?",
-                "aiDevelopment": "Should governments prioritize regulating artificial intelligence (AI) development to prevent misuse, even if it slows innovation?",
-                "asteroidDefense": "Do you believe that governments worldwide should increase funding for space monitoring and asteroid deflection research?",
-                "peaceNegotiations": "Should major powers negotiating peace agreements be required to include countries directly affected by the conflict?",
-                "taiwanPolicy": "Should the United States maintain its 'strategic ambiguity' policy on Taiwan to avoid escalating tensions with China?"
-              }
-            }
-          },
-          "openLetters": {
-            "title": "Open Letters",
-            "description": "Public statements to decision makers",
-            "addNew": "Add your open letter",
-            "statements": {
-              "aiRisk": {
-                "title": "Statement on AI Risk",
-                "referenceTitle": "Center for AI Safety"
-              },
-              "nuclear": {
-                "title": "UN Ban on Nuclear Weapons Open Letter",
-                "referenceTitle": "Future of Life Institute"
-              },
-              "autonomousWeapons": {
-                "title": "Lethal Autonomous Weapons Pledge",
-                "referenceTitle": "Future of Life Institute"
-              },
-              "longView": {
-                "title": "Open letter calling on world leaders to show long-view leadership on existential threats",
-                "referenceTitle": "Future of Life Institute"
-              }
-            }
-          },
-          "elections": {
-            "title": "Elections",
-            "description": "Choose your representatives",
-            "worldConstituent": {
-              "title": "World Constituent Assembly Election"
-            }
-          },
-          "referendums": {
-            "title": "Referendums",
-            "description": "Direct votes on important issues",
-            "worldConstitutional": {
-              "title": "World Constitutional Referendum"
+        "openLetters": {
+          "title": "Listy Otwarte",
+          "description": "Publiczne oświadczenia do decydentów",
+          "addNew": "Dodaj swój list otwarty",
+          "statements": {
+            "aiRisk": {
+              "title": "Oświadczenie w sprawie Ryzyka AI",
+              "referenceTitle": "Centrum Bezpieczeństwa AI"
+            },
+            "nuclear": {
+              "title": "List Otwarty w sprawie Zakazu Broni Jądrowej ONZ",
+              "referenceTitle": "Instytut Przyszłości Życia"
+            },
+            "autonomousWeapons": {
+              "title": "Zobowiązanie dotyczące Śmiercionośnej Broni Autonomicznej",
+              "referenceTitle": "Instytut Przyszłości Życia"
+            },
+            "longView": {
+              "title": "List otwarty wzywający światowych przywódców do wykazania się długoterminowym przywództwem w sprawie zagrożeń egzystencjalnych",
+              "referenceTitle": "Instytut Przyszłości Życia"
             }
           }
-        }
-      },
-      "menu": {
-        "title": "Menu",
-        "sections": {
-          "experimental": {
-            "title": "EXPERIMENTAL",
-            "links": {
-              "verification": "Verification tests",
-              "language": "Language"
-            }
-          },
-          "connect": {
-            "title": "CONNECT",
-            "links": {
-              "community": "Community",
-              "announcements": "Announcements",
-              "x": "X"
-            }
-          },
-          "help": {
-            "title": "HELP",
-            "links": {
-              "faq": "FAQ"
-            }
-          },
-          "code": {
-            "title": "CODE",
-            "links": {
-              "app": "App",
-              "contracts": "Smart contracts"
-            }
+        },
+        "elections": {
+          "title": "Wybory",
+          "description": "Wybierz swoich przedstawicieli",
+          "worldConstituent": {
+            "title": "Wybory do Światowego Zgromadzenia Konstytucyjnego"
+          }
+        },
+        "referendums": {
+          "title": "Referenda",
+          "description": "Bezpośrednie głosowania w ważnych sprawach",
+          "worldConstitutional": {
+            "title": "Światowe Referendum Konstytucyjne"
           }
         }
-      },
-      "faq": {
-        "title": "FAQ",
-        "items": {
-          "appPurpose": {
-            "question": "What is the World Republic?",
-            "answer": "The World Republic is an open, democratic organization dedicated to solving humanity's most pressing global challenges. It provides a framework for collective decision-making on issues that can only be effectively addressed at a global scale, like AI risks, climate change, or biosecurity."
-          },
-          "basicIncome": {
-            "question": "What is Basic Income?",
-            "answer": "Our Basic Income is a daily subsidy of 1 WDD (world drachma) that is provided to all citizens of the World Republic. It accumulates in real-time and can be claimed at any moment through the app."
-          },
-          "basicIncomePlus": {
-            "question": "How do I activate Basic Income Plus?",
-            "answer": "Basic Income Plus provides an additional 10 WDD per day and is available exclusively to Orb-verified users. After activating Basic Income, you'll see an option to activate Basic Income Plus on the Earn page."
-          },
-          "savings": {
-            "question": "How does the Savings Account work?",
-            "answer": "The Savings Account allows you to deposit WDD tokens and earn a 69% annual interest. Through constant reinvestment of earned interest, users can achieve effective returns close to 100% annually, maximizing their WDD growth over time. Interest accumulates continuously and can be withdrawn or reinvested at any time."
-          },
-          "referralCodes": {
-            "question": "How do referral codes work?",
-            "answer": "As a World Republic citizen, you can earn rewards through our referral program. Share your unique referral link with friends, and you'll receive 50 WDD for each person who joins and activates Basic Income Plus. Haven't received your reward? Your friend may need to manually trigger it by selecting the 'Reward Referrer' option in their referral section."
-          },
-          "drachmaValue": {
-            "question": "Where does the drachma get its value?",
-            "answer": "The drachma derives its value from being the official currency of the World Republic. As our democratic global governance platform grows, WDD has the potential to become a significant medium of exchange in the world economy, and could eventually play a role in the equitable distribution of benefits from technological advancements and global resources."
-          },
-          "topWallets": {
-            "question": "Who controls the biggest accounts?",
-            "answer": "The three largest accounts are the <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>World Republic Treasury</a>, the <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Basic Income Fund</a>, and the <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Basic Income Plus Fund</a>. Currently, these are controlled by the project's founder, but control will be transferred to the community after our constitution is ratified. Other key addresses include the <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>Savings Account contract</a>, the <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>Referral Rewards distributor</a>, and liquidity pools: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, and <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
-          },
-          "voteRequirements": {
-            "question": "What are the requirements to propose votes?",
-            "answer": "The current polls and open letters are just a showcase. Our community will collectively decide our system of governance through the constitutional design process led by the Constituent Assembly elected in Q2 2025."
+      }
+    },
+    "menu": {
+      "title": "Menu",
+      "sections": {
+        "experimental": {
+          "title": "EKSPERYMENTALNE",
+          "links": {
+            "verification": "Testy weryfikacyjne",
+            "language": "Język"
+          }
+        },
+        "connect": {
+          "title": "POŁĄCZ",
+          "links": {
+            "community": "Społeczność",
+            "announcements": "Ogłoszenia",
+            "x": "X"
+          }
+        },
+        "help": {
+          "title": "POMOC",
+          "links": {
+            "faq": "FAQ"
+          }
+        },
+        "code": {
+          "title": "KOD",
+          "links": {
+            "app": "Aplikacja",
+            "contracts": "Inteligentne kontrakty"
           }
         }
-      },
-      "language": {
-        "title": "Language",
-        "options": {
-          "english": "English",
-          "spanish": "Español"
+      }
+    },
+    "faq": {
+      "title": "FAQ",
+      "items": {
+        "appPurpose": {
+          "question": "Czym jest Republika Świata?",
+          "answer": "Republika Świata to otwarta, demokratyczna organizacja poświęcona rozwiązywaniu najpilniejszych globalnych wyzwań ludzkości. Zapewnia ramy dla wspólnego podejmowania decyzji w sprawach, które można skutecznie rozwiązać tylko na skalę globalną, takich jak zagrożenia związane z AI, zmiany klimatu czy bezpieczeństwo biologiczne."
+        },
+        "basicIncome": {
+          "question": "Czym jest Dochód Podstawowy?",
+          "answer": "Nasz Dochód Podstawowy to dzienna dotacja w wysokości 1 WDD (drachma światowa), która jest przyznawana wszystkim obywatelom Republiki Świata. Akumuluje się w czasie rzeczywistym i można go odebrać w dowolnym momencie przez aplikację."
+        },
+        "basicIncomePlus": {
+          "question": "Jak aktywować Dochód Podstawowy Plus?",
+          "answer": "Dochód Podstawowy Plus zapewnia dodatkowe 10 WDD dziennie i jest dostępny wyłącznie dla użytkowników zweryfikowanych przez Orb. Po aktywacji Dochodu Podstawowego zobaczysz opcję aktywacji Dochodu Podstawowego Plus na stronie Zarabiaj."
+        },
+        "savings": {
+          "question": "Jak działa Konto Oszczędnościowe?",
+          "answer": "Konto Oszczędnościowe pozwala wpłacać tokeny WDD i zarabiać 69% rocznych odsetek. Poprzez ciągłe reinwestowanie zarobionych odsetek, użytkownicy mogą osiągnąć efektywne zwroty bliskie 100% rocznie, maksymalizując wzrost WDD w czasie. Odsetki akumulują się nieprzerwanie i można je wypłacić lub reinwestować w dowolnym momencie."
+        },
+        "referralCodes": {
+          "question": "Jak działają kody polecające?",
+          "answer": "Jako obywatel Republiki Świata możesz zarabiać nagrody poprzez nasz program poleceń. Udostępnij swój unikalny link polecający znajomym, a otrzymasz 50 WDD za każdą osobę, która dołączy i aktywuje Dochód Podstawowy Plus. Nie otrzymałeś swojej nagrody? Twój znajomy może musieć ręcznie ją uruchomić, wybierając opcję 'Nagródź Polecającego' w swojej sekcji poleceń."
+        },
+        "drachmaValue": {
+          "question": "Skąd drachma czerpie swoją wartość?",
+          "answer": "Drachma czerpie swoją wartość z bycia oficjalną walutą Republiki Świata. W miarę rozwoju naszej demokratycznej platformy zarządzania globalnego, WDD ma potencjał, aby stać się znaczącym środkiem wymiany w światowej gospodarce i może ostatecznie odegrać rolę w sprawiedliwej dystrybucji korzyści z postępu technologicznego i zasobów globalnych."
+        },
+        "topWallets": {
+          "question": "Kto kontroluje największe konta?",
+          "answer": "Trzy największe konta to <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>Skarbiec Republiki Świata</a>, <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Fundusz Dochodu Podstawowego</a> i <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Fundusz Dochodu Podstawowego Plus</a>. Obecnie są one kontrolowane przez założyciela projektu, ale kontrola zostanie przekazana społeczności po ratyfikacji naszej konstytucji. Inne kluczowe adresy to <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>kontrakt Konta Oszczędnościowego</a>, <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>dystrybutor Nagród za Polecenia</a> i pule płynności: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a> i <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
+        },
+        "voteRequirements": {
+          "question": "Jakie są wymagania do proponowania głosowań?",
+          "answer": "Obecne ankiety i listy otwarte są tylko pokazem. Nasza społeczność wspólnie zdecyduje o naszym systemie zarządzania poprzez proces projektowania konstytucji prowadzony przez Zgromadzenie Konstytucyjne wybrane w II kwartale 2025 roku."
         }
-      },
-      "verification": {
-        "title": "Verification Tests",
-        "levels": {
-          "device": {
-            "title": "Device Verification",
-            "description": "Basic verification using the device.",
-            "buttonText": "Test Device Verification"
-          },
-          "document": {
-            "title": "Document Verification",
-            "description": "Verification using identity documents.",
-            "buttonText": "Test Document Verification"
-          },
-          "secureDocument": {
-            "title": "Secure Document Verification",
-            "description": "Enhanced verification using secure identity documents.",
-            "buttonText": "Test Secure Document Verification"
-          },
-          "orb": {
-            "title": "Orb Verification",
-            "description": "Highest security using Orb biometric verification.",
-            "buttonText": "Test Orb Verification"
-          }
+      }
+    },
+    "language": {
+      "title": "Język",
+      "options": {
+        "english": "English",
+        "spanish": "Español"
+      }
+    },
+    "verification": {
+      "title": "Testy Weryfikacyjne",
+      "levels": {
+        "device": {
+          "title": "Weryfikacja Urządzenia",
+          "description": "Podstawowa weryfikacja przy użyciu urządzenia.",
+          "buttonText": "Testuj Weryfikację Urządzenia"
+        },
+        "document": {
+          "title": "Weryfikacja Dokumentów",
+          "description": "Weryfikacja przy użyciu dokumentów tożsamości.",
+          "buttonText": "Testuj Weryfikację Dokumentów"
+        },
+        "secureDocument": {
+          "title": "Bezpieczna Weryfikacja Dokumentów",
+          "description": "Ulepszona weryfikacja przy użyciu bezpiecznych dokumentów tożsamości.",
+          "buttonText": "Testuj Bezpieczną Weryfikację Dokumentów"
+        },
+        "orb": {
+          "title": "Weryfikacja Orb",
+          "description": "Najwyższe bezpieczeństwo przy użyciu weryfikacji biometrycznej Orb.",
+          "buttonText": "Testuj Weryfikację Orb"
         }
       }
     }
   }
-  
+}

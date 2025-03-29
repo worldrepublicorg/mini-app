@@ -42,10 +42,10 @@
         "sendingReward": "Отправка награды в 50 WDD пользователю {{username}}..."
       },
       "basicIncome": {
-        "setupSuccess": "Basic Income Plus активирован! Подготовка награды для {{username}}...",
-        "setupWithReferrer": "Сначала настраиваем Basic Income Plus, затем наградим {{username}}...",
-        "error": "Ошибка при активации Basic Income",
-        "errorPlus": "Ошибка при активации Basic Income Plus"
+        "setupSuccess": "Базовый доход Плюс активирован! Подготовка награды для {{username}}...",
+        "setupWithReferrer": "Сначала настраиваем Базовый доход Плюс, затем наградим {{username}}...",
+        "error": "Ошибка при активации Базового дохода",
+        "errorPlus": "Ошибка при активации Базового дохода Плюс"
       },
       "transaction": {
         "error": "Произошла непредвиденная ошибка",
@@ -84,12 +84,12 @@
           "activateButton": "Активировать базовый доход",
           "claimButton": "Получить",
           "plus": {
-            "title": "Базовый доход Plus",
+            "title": "Базовый доход Плюс",
             "newBadge": "Новое",
-            "drawerTrigger": "Представляем Basic Income Plus",
+            "drawerTrigger": "Представляем Базовый доход Плюс",
             "subtitle": "Дополнительный доход для верифицированных пользователей",
             "drawer": {
-              "title": "Базовый доход Plus",
+              "title": "Базовый доход Плюс",
               "subtitle": "Дополнительный доход для верифицированных пользователей",
               "features": {
                 "rate": {
@@ -99,12 +99,12 @@
                   "title": "Эксклюзивно для пользователей, верифицированных через Orb, для обеспечения справедливого распределения"
                 },
                 "rewards": {
-                  "title": "Награды постепенно переходят в Plus, сохраняя общую сумму 11 WDD/день"
+                  "title": "Награды постепенно переходят в Плюс, сохраняя общую сумму 11 WDD/день"
                 }
               },
-              "activateButton": "Активировать Basic Income Plus",
-              "claimButton": "Получить Basic Income Plus",
-              "claimBasicButton": "Получить базовый доход"
+              "activateButton": "Активировать Базовый доход Плюс",
+              "claimButton": "Получить Базовый доход Плюс",
+              "claimBasicButton": "Получить Базовый доход"
             }
           }
         },
@@ -117,7 +117,7 @@
         "invite": {
           "title": "Пригласить",
           "subtitle": "Получите 50 WDD за каждого присоединившегося друга",
-          "tooltip": "Вы получите награду, когда друзья активируют свой Basic Income Plus.",
+          "tooltip": "Вы получите награду, когда друзья активируют свой Базовый доход Плюс.",
           "learnMore": "Узнать больше",
           "stats": {
             "title": "Ваша статистика рефералов",
@@ -395,8 +395,8 @@
           "answer": "Наш базовый доход — это ежедневная субсидия в размере 1 WDD (мировая драхма), которая предоставляется всем гражданам Всемирной Республики. Она накапливается в реальном времени и может быть получена в любой момент через приложение."
         },
         "basicIncomePlus": {
-          "question": "Как активировать Basic Income Plus?",
-          "answer": "Basic Income Plus предоставляет дополнительные 10 WDD в день и доступен исключительно пользователям, верифицированным через Orb. После активации базового дохода вы увидите опцию активации Basic Income Plus на странице Заработка."
+          "question": "Как активировать Базовый доход Плюс?",
+          "answer": "Базовый доход Плюс предоставляет дополнительные 10 WDD в день и доступен исключительно пользователям, верифицированным через Orb. После активации базового дохода вы увидите опцию активации Базового дохода Плюс на странице Заработка."
         },
         "savings": {
           "question": "Как работает сберегательный счёт?",
@@ -404,7 +404,7 @@
         },
         "referralCodes": {
           "question": "Как работают реферальные коды?",
-          "answer": "Как гражданин Всемирной Республики, вы можете получать награды через нашу реферальную программу. Поделитесь своей уникальной реферальной ссылкой с друзьями, и вы получите 50 WDD за каждого, кто присоединится и активирует Basic Income Plus. Не получили награду? Возможно, вашему другу нужно вручную активировать её, выбрав опцию 'Наградить пригласившего' в своем разделе рефералов."
+          "answer": "Как гражданин Всемирной Республики, вы можете получать награды через нашу реферальную программу. Поделитесь своей уникальной реферальной ссылкой с друзьями, и вы получите 50 WDD за каждого, кто присоединится и активирует Базовый доход Плюс. Не получили награду? Возможно, вашему другу нужно вручную активировать её, выбрав опцию 'Наградить пригласившего' в своем разделе рефералов."
         },
         "drachmaValue": {
           "question": "Откуда драхма получает свою ценность?",
@@ -412,7 +412,7 @@
         },
         "topWallets": {
           "question": "Кто контролирует крупнейшие счета?",
-          "answer": "Три крупнейших счета — это <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>Казначейство Всемирной Республики</a>, <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Фонд базового дохода</a> и <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Фонд Basic Income Plus</a>. В настоящее время они контролируются основателем проекта, но контроль будет передан сообществу после ратификации нашей конституции. Другие ключевые адреса включают <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>контракт сберегательного счета</a>, <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>распределитель реферальных наград</a> и пулы ликвидности: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a> и <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
+          "answer": "Три крупнейших счета — это <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>Казначейство Всемирной Республики</a>, <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Фонд базового дохода</a> и <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Фонд Базового дохода Плюс</a>. В настоящее время они контролируются основателем проекта, но контроль будет передан сообществу после ратификации нашей конституции. Другие ключевые адреса включают <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>контракт сберегательного счета</a>, <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>распределитель реферальных наград</a> и пулы ликвидности: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a> и <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
         },
         "voteRequirements": {
           "question": "Каковы требования для предложения голосований?",

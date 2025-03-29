@@ -42,10 +42,10 @@
         "sendingReward": "Mengirim hadiah 50 WDD ke {{username}}..."
       },
       "basicIncome": {
-        "setupSuccess": "Basic Income Plus diaktifkan! Sedang menyiapkan hadiah untuk {{username}}...",
-        "setupWithReferrer": "Menyiapkan Basic Income Plus terlebih dahulu, kemudian akan memberi hadiah kepada {{username}}...",
-        "error": "Kesalahan mengaktifkan Basic Income",
-        "errorPlus": "Kesalahan mengaktifkan Basic Income Plus"
+        "setupSuccess": "Pendapatan Dasar Plus diaktifkan! Sedang menyiapkan hadiah untuk {{username}}...",
+        "setupWithReferrer": "Menyiapkan Pendapatan Dasar Plus terlebih dahulu, kemudian akan memberi hadiah kepada {{username}}...",
+        "error": "Kesalahan mengaktifkan Pendapatan Dasar",
+        "errorPlus": "Kesalahan mengaktifkan Pendapatan Dasar Plus"
       },
       "transaction": {
         "error": "Terjadi kesalahan yang tidak terduga",
@@ -117,7 +117,7 @@
         "invite": {
           "title": "Undang",
           "subtitle": "Dapatkan 50 WDD untuk setiap teman yang bergabung",
-          "tooltip": "Anda akan mendapatkan hadiah ketika teman mengaktifkan Basic Income Plus mereka.",
+          "tooltip": "Anda akan mendapatkan hadiah ketika teman mengaktifkan Pendapatan Dasar Plus mereka.",
           "learnMore": "Pelajari lebih lanjut",
           "stats": {
             "title": "Statistik Referral Anda",
