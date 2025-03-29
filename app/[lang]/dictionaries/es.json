@@ -82,6 +82,7 @@
       "title": "Ganar",
       "tabs": {
         "basicIncome": {
+          "tabTitle": "Renta básica",
           "title": "Renta Básica",
           "subtitle": "Inicia sesión para reclamar tu renta básica",
           "setupSubtitle": "Configura tu renta básica",
