@@ -1549,7 +1549,7 @@ export default function EarnPage({
                 {!basicIncomePlusActivated && (
                   <Drawer>
                     <DrawerTrigger asChild>
-                      <div className="mt-4 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-transparent py-2">
+                      <div className="mt-4 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-transparent py-2 pr-4">
                         <div className="flex w-full items-center overflow-hidden">
                           <div className="-ml-[2px] mr-[10px] size-[30px] rounded-full border-[5px] border-gray-900"></div>
                           <Typography
