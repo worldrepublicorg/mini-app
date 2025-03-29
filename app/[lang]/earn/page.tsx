@@ -1685,7 +1685,7 @@ export default function EarnPage({
                     clipRule="evenodd"
                   />
                 </svg>
-                <div className="absolute -right-4 bottom-full mb-2 hidden w-[calc(100dvw/2+24px)] transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
+                <div className="absolute -right-4 bottom-full mb-2 hidden w-[calc(100dvw/2+24px)] max-w-sm transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
                   <p className="text-left text-gray-700">
                     {dictionary?.pages?.earn?.tabs?.savings?.tooltip ??
                       "69% APY base rate. Collect and reinvest interest to achieve close to 100% effective returns annually. Withdraw anytime."}
@@ -1904,7 +1904,7 @@ export default function EarnPage({
                     clipRule="evenodd"
                   />
                 </svg>
-                <div className="absolute -right-4 bottom-full mb-2 hidden w-[calc(100dvw/2+24px)] transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
+                <div className="absolute -right-4 bottom-full mb-2 hidden w-[calc(100dvw/2+24px)] max-w-sm transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
                   <p className="text-left text-gray-700">
                     {dictionary?.pages?.earn?.tabs?.invite?.tooltip ??
                       "You'll earn rewards when friends activate their Basic Income Plus."}{" "}
