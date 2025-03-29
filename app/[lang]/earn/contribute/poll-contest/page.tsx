@@ -144,66 +144,50 @@ export default function PollContestPage({
           <div className="space-y-4">
             <div className="flex gap-3">
               <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-900 text-sm text-gray-0">
-                {
-                  dictionary.pages.earn.tabs.contribute.contests.pollContest
-                    .howTo.steps.step1.number
-                }
+                1
               </div>
               <Typography
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                {
-                  dictionary.pages.earn.tabs.contribute.contests.pollContest
-                    .howTo.steps.step1.text
-                }
+                {dictionary?.pages?.earn?.tabs?.contribute?.contests
+                  ?.pollContest?.howTo?.steps?.step1?.text ??
+                  "Create a poll related to the World Republic or global governance in general"}
               </Typography>
             </div>
             <div className="flex gap-3">
               <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-900 text-sm text-gray-0">
-                {
-                  dictionary.pages.earn.tabs.contribute.contests.pollContest
-                    .howTo.steps.step2.number
-                }
+                2
               </div>
               <Typography
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                {
-                  dictionary.pages.earn.tabs.contribute.contests.pollContest
-                    .howTo.steps.step2.text
-                }
+                {dictionary?.pages?.earn?.tabs?.contribute?.contests
+                  ?.pollContest?.howTo?.steps?.step2?.text ??
+                  "Set it up so only verified humans can vote"}
               </Typography>
             </div>
             <div className="flex gap-3">
               <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-900 text-sm text-gray-0">
-                {
-                  dictionary.pages.earn.tabs.contribute.contests.pollContest
-                    .howTo.steps.step3.number
-                }
+                3
               </div>
               <Typography
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                {
-                  dictionary.pages.earn.tabs.contribute.contests.pollContest
-                    .howTo.steps.step3.text
-                }{" "}
+                {dictionary?.pages?.earn?.tabs?.contribute?.contests
+                  ?.pollContest?.howTo?.steps?.step3?.text ??
+                  "Share your poll in our"}
                 <a
-                  href={
-                    dictionary.pages.earn.tabs.contribute.contests.pollContest
-                      .howTo.steps.step3.link.url
-                  }
+                  href={"https://t.me/worldrepubliccommunity/32368"}
                   className="underline"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {
-                    dictionary.pages.earn.tabs.contribute.contests.pollContest
-                      .howTo.steps.step3.link.text
-                  }
+                  {dictionary?.pages?.earn?.tabs?.contribute?.contests
+                    ?.pollContest?.howTo?.steps?.step3?.link?.text ??
+                    "Poll Contest Telegram channel"}
                 </a>
               </Typography>
             </div>
@@ -222,26 +206,23 @@ export default function PollContestPage({
           <ul className="text-gray-600 list-disc space-y-2 pl-5">
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                {
-                  dictionary.pages.earn.tabs.contribute.contests.pollContest
-                    .rules.list.rule1
-                }
+                {dictionary?.pages?.earn?.tabs?.contribute?.contests
+                  ?.pollContest?.rules?.list?.rule1 ??
+                  "Only polls started in the current week are eligible"}
               </Typography>
             </li>
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                {
-                  dictionary.pages.earn.tabs.contribute.contests.pollContest
-                    .rules.list.rule2
-                }
+                {dictionary?.pages?.earn?.tabs?.contribute?.contests
+                  ?.pollContest?.rules?.list?.rule2 ??
+                  "Winners are selected based on total votes"}
               </Typography>
             </li>
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                {
-                  dictionary.pages.earn.tabs.contribute.contests.pollContest
-                    .rules.list.rule3
-                }
+                {dictionary?.pages?.earn?.tabs?.contribute?.contests
+                  ?.pollContest?.rules?.list?.rule3 ??
+                  "Contest ends every Sunday at 11:59 PM UTC"}
               </Typography>
             </li>
           </ul>
