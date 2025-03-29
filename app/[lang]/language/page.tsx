@@ -57,7 +57,7 @@ export default function LanguagePage({
         {languages.map((language) => (
           <Link
             key={language.code}
-            href={`/${language.code}/language`}
+            href={`/${language.code}/menu`}
             className="w-full"
           >
             <ListItem>
