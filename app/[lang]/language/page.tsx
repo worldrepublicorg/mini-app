@@ -58,6 +58,9 @@ export default function LanguagePage({
           <Link
             key={language.code}
             href={`/${language.code}/menu`}
+            onClick={() => {
+              localStorage.setItem("preferredLanguage", language.code);
+            }}
             className="w-full"
           >
             <ListItem>
