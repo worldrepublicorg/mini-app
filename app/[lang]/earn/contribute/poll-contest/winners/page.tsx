@@ -98,8 +98,8 @@ export default function PollContestWinnersPage({
                 variant={{ variant: "subtitle", level: 2 }}
                 className="mb-4 text-gray-900"
               >
-                {dictionary?.pages.earn.tabs.contribute.contests.pollContest
-                  .winners.weekOf ?? "Week of"}
+                {dictionary?.pages?.earn?.tabs?.contribute?.contests
+                  ?.pollContest?.winners?.weekOf ?? "Week of"}{" "}
                 {week.weekOf}
               </Typography>
               <div>
