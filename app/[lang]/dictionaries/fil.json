@@ -215,19 +215,19 @@
           "addNew": "Magdagdag ng iyong liham bukas",
           "statements": {
             "aiRisk": {
-              "title": "Pahayag sa AI Risk",
+              "title": "Statement tungkol sa AI Risk",
               "referenceTitle": "Center for AI Safety"
             },
             "nuclear": {
-              "title": "UN Ban on Nuclear Weapons Open Letter",
+              "title": "Open Letter para sa UN Ban sa Nuclear Weapons",
               "referenceTitle": "Future of Life Institute"
             },
             "autonomousWeapons": {
-              "title": "Lethal Autonomous Weapons Pledge",
+              "title": "Pledge laban sa Lethal Autonomous Weapons",
               "referenceTitle": "Future of Life Institute"
             },
             "longView": {
-              "title": "Liham bukas na nananawagan sa mga pandaigdigang lider na magpakita ng long-view leadership sa existential threats",
+              "title": "Open Letter na nanawagan sa global leaders na magpakita ng long-term leadership sa existential threats",
               "referenceTitle": "Future of Life Institute"
             }
           }
