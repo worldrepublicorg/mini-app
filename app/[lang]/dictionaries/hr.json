@@ -285,7 +285,7 @@
               "aidCorridors": "Trebaju li sve zone sukoba s humanitarnim krizama civilnog stanovništva automatski pokrenuti međunarodno koordinirane koridore pomoći?",
               "nationalSovereignty": "Podržavate li globalne političke okvire koji uravnotežuju nacionalni suverenitet s koordiniranim odgovorima na zajedničke izazove?",
               "climateDisasters": "Trebaju li zemlje koje doživljavaju ekstremne vremenske katastrofe (npr. požari, poplave) dobiti prioritetnu financijsku pomoć iz globalnog klimatskog fonda?",
-              "aiSafety": "Trebaju li globalni AI developeri biti obvezni pauzirati treniranje modela snažnijih od trenutnih sustava dok se ne uspostave međunarodni sigurnosni sporazumi?",
+              "aiSafety": "Trebaju li globalni UI developeri biti obvezni pauzirati treniranje modela snažnijih od trenutnih sustava dok se ne uspostave međunarodni sigurnosni sporazumi?",
               "corporateTax": "Trebaju li korporacije koje posluju u više zemalja biti podložne jedinstvenom globalnom minimalnom poreznom stopom radi smanjenja nejednakosti?",
               "spaceDebris": "Slažete li se da bi svemirske nacije i korporacije trebale biti zakonski obvezne ukloniti neaktivne satelite kako bi se smanjio orbitalni otpad?",
               "digitalPrivacy": "Mislite li da je stvaranje univerzalnih standarda digitalne privatnosti ključno za zaštitu individualnih prava u sve povezanijem svijetu?",
@@ -304,7 +304,7 @@
               "disinformation": "Mislite li da bi trebalo implementirati globalne mjere za suzbijanje širenja dezinformacija na internetu?",
               "diseaseOutbreaks": "Trebaju li zemlje biti obvezne dijeliti podatke u stvarnom vremenu tijekom izbijanja bolesti kako bi se spriječile globalne zdravstvene krize?",
               "militaryIntervention": "Trebaju li zemlje s naprednim vojnim sposobnostima intervenirati za deeskalaciju sukoba u regijama koje doživljavaju iznenadne izbijanje rata?",
-              "aiDevelopment": "Trebaju li vlade dati prioritet regulaciji razvoja umjetne inteligencije (AI) kako bi spriječile zlouporabu, čak i ako to usporava inovacije?",
+              "aiDevelopment": "Trebaju li vlade dati prioritet regulaciji razvoja umjetne inteligencije (UI) kako bi spriječile zlouporabu, čak i ako to usporava inovacije?",
               "asteroidDefense": "Vjerujete li da bi vlade širom svijeta trebale povećati financiranje za praćenje svemira i istraživanje skretanja asteroida?",
               "peaceNegotiations": "Trebaju li velike sile koje pregovaraju o mirovnim sporazumima biti obvezne uključiti zemlje izravno pogođene sukobom?",
               "taiwanPolicy": "Trebaju li Sjedinjene Države zadržati svoju politiku 'strateške dvosmislenosti' o Tajvanu kako bi izbjegle eskalaciju napetosti s Kinom?"
@@ -317,8 +317,8 @@
           "addNew": "Dodaj svoje otvoreno pismo",
           "statements": {
             "aiRisk": {
-              "title": "Izjava o AI riziku",
-              "referenceTitle": "Centar za AI sigurnost"
+              "title": "Izjava o UI riziku",
+              "referenceTitle": "Centar za UI sigurnost"
             },
             "nuclear": {
               "title": "UN-ovo otvoreno pismo o zabrani nuklearnog oružja",
@@ -388,7 +388,7 @@
       "items": {
         "appPurpose": {
           "question": "Što je Svjetska Republika?",
-          "answer": "Svjetska Republika je otvorena, demokratska organizacija posvećena rješavanju najhitnijih globalnih izazova čovječanstva. Pruža okvir za kolektivno donošenje odluka o pitanjima koja se mogu učinkovito riješiti samo na globalnoj razini, poput AI rizika, klimatskih promjena ili biosigurnosti."
+          "answer": "Svjetska Republika je otvorena, demokratska organizacija posvećena rješavanju najhitnijih globalnih izazova čovječanstva. Pruža okvir za kolektivno donošenje odluka o pitanjima koja se mogu učinkovito riješiti samo na globalnoj razini, poput UI rizika, klimatskih promjena ili biosigurnosti."
         },
         "basicIncome": {
           "question": "Što je Temeljni dohodak?",

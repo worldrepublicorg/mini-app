@@ -18,16 +18,16 @@
       }
     },
     "stakeForm": {
-      "deposit": "Deposito",
-      "withdraw": "I-withdraw",
-      "balance": "Balanse:",
-      "depositPlaceholder": "Halaga para i-deposito",
-      "withdrawPlaceholder": "Halaga para i-withdraw",
-      "max": "Maximum",
-      "interest": "Interes:",
+      "deposit": "Maghulog",
+      "withdraw": "Kumuha",
+      "balance": "Natitirang halaga",
+      "depositPlaceholder": "Halagang ihuhulog",
+      "withdrawPlaceholder": "Halagang kukuhanin",
+      "max": "Pinakamataas",
+      "interest": "Tubo",
       "collect": "Kunin",
-      "depositButton": "Mag-deposito ng Drachma",
-      "withdrawButton": "Mag-withdraw ng Drachma"
+      "depositButton": "Maghulog ng Drachma",
+      "withdrawButton": "Kumuha ng Drachma"
     },
     "toasts": {
       "wallet": {
@@ -58,10 +58,10 @@
     },
     "tabSwiper": {
       "tabs": {
-        "polls": "Mga Botohan",
-        "openLetters": "Mga Liham Bukas",
-        "elections": "Mga Eleksyon",
-        "referendums": "Mga Referendum"
+        "polls": "Mga Tanong",
+        "openLetters": "Mga Bukas na Liham",
+        "elections": "Mga Halalan",
+        "referendums": "Mga Pagbobotohan"
       }
     }
   },
@@ -71,9 +71,9 @@
       "tabs": {
         "tabNames": {
           "basicIncome": "Basic Income",
-          "savings": "Pagtitipid",
-          "contribute": "Mag-ambag",
-          "invite": "Mag-imbita"
+          "savings": "Ipon",
+          "contribute": "Tumulong",
+          "invite": "Mag-anyaya"
         },
         "basicIncome": {
           "tabTitle": "Basic Income",
