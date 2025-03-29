@@ -60,6 +60,7 @@ export default function LanguagePage({
             href={`/${language.code}/menu`}
             onClick={() => {
               localStorage.setItem("preferredLanguage", language.code);
+              document.cookie = `preferredLanguage=${language.code};path=/;max-age=${365 * 24 * 60 * 60}`;
             }}
             className="w-full"
           >

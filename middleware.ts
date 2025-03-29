@@ -61,22 +61,9 @@ export function middleware(request: NextRequest) {
   // Redirect if there is no locale
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request);
-
-    // When redirecting, also set the preference as a cookie
-    const response = NextResponse.redirect(
+    return NextResponse.redirect(
       new URL(`/${locale}${pathname === "/" ? "" : pathname}`, request.url)
     );
-
-    // Get the stored preference from localStorage (passed as a header)
-    const storedPreference = request.headers.get("x-preferred-language");
-    if (storedPreference && locales.includes(storedPreference)) {
-      response.cookies.set("preferredLanguage", storedPreference, {
-        maxAge: 365 * 24 * 60 * 60, // 1 year
-        path: "/",
-      });
-    }
-
-    return response;
   }
 }
 

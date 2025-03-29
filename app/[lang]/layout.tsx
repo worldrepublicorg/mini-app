@@ -7,7 +7,6 @@ import BottomNav from "@/components/BottomNav";
 import "@worldcoin/mini-apps-ui-kit-react/styles.css";
 import dynamic from "next/dynamic";
 import { ToastProvider } from "@/components/providers/ToastProvider";
-import { ClientPreference } from "../../components/ClientPreference";
 
 export const metadata: Metadata = {
   title: "World Republic",
@@ -52,7 +51,6 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <ClientPreference />
         <ToastProvider>
           <NextAuthProvider>
             <ErudaProvider>
