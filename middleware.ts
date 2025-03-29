@@ -19,6 +19,9 @@ const locales = [
   "ru",
   "zh",
   "id",
+  "fr",
+  "de",
+  "pl",
 ];
 const defaultLocale = "en";
 
