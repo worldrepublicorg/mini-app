@@ -182,7 +182,7 @@
                 "steps": {
                   "step1": {
                     "number": "1",
-                    "text": "World Republicまたはグローバルガバナンスに関する投票を作成"
+                    "text": "ワールドリパブリックまたはグローバルガバナンスに関する投票を作成"
                   },
                   "step2": {
                     "number": "2",
@@ -232,7 +232,7 @@
             },
             "howTo": {
               "title": "参加方法",
-              "step1": "World RepublicについてXに投稿",
+              "step1": "ワールドリパブリックについてXに投稿",
               "step2": "@WorldRepublicENをタグ付け",
               "step3": {
                 "prefix": "投稿のリンクを",
@@ -387,12 +387,12 @@
       "title": "よくある質問",
       "items": {
         "appPurpose": {
-          "question": "World Republicとは何ですか？",
-          "answer": "World Republicは、人類の最も差し迫ったグローバルな課題を解決するための開かれた民主的な組織です。AIリスク、気候変動、バイオセキュリティなど、グローバル規模でのみ効果的に対処できる問題に関する集団的意思決定のためのフレームワークを提供します。"
+          "question": "ワールドリパブリックとは何ですか？",
+          "answer": "ワールドリパブリックは、人類の最も差し迫ったグローバルな課題を解決するための開かれた民主的な組織です。AIリスク、気候変動、バイオセキュリティなど、グローバル規模でのみ効果的に対処できる問題に関する集団的意思決定のためのフレームワークを提供します。"
         },
         "basicIncome": {
           "question": "ベーシックインカムとは何ですか？",
-          "answer": "ベーシックインカムは、World Republicの全市民に提供される1日1 WDD（ワールドドラクマ）の補助金です。リアルタイムで蓄積され、アプリを通じていつでも請求できます。"
+          "answer": "ベーシックインカムは、ワールドリパブリックの全市民に提供される1日1 WDD（ワールドドラクマ）の補助金です。リアルタイムで蓄積され、アプリを通じていつでも請求できます。"
         },
         "basicIncomePlus": {
           "question": "ベーシックインカムプラスを有効化するにはどうすればよいですか？",
@@ -404,15 +404,15 @@
         },
         "referralCodes": {
           "question": "紹介コードはどのように機能しますか？",
-          "answer": "World Republicの市民として、紹介プログラムを通じて報酬を獲得できます。ユニークな紹介リンクを友達と共有し、参加してベーシックインカムプラスを有効化した人1人につき50 WDDを獲得できます。報酬を受け取っていない場合、友達が紹介セクションで「紹介者に報酬を送る」オプションを選択して手動でトリガーする必要があるかもしれません。"
+          "answer": "ワールドリパブリックの市民として、紹介プログラムを通じて報酬を獲得できます。ユニークな紹介リンクを友達と共有し、参加してベーシックインカムプラスを有効化した人1人につき50 WDDを獲得できます。報酬を受け取っていない場合、友達が紹介セクションで「紹介者に報酬を送る」オプションを選択して手動でトリガーする必要があるかもしれません。"
         },
         "drachmaValue": {
           "question": "ドラクマの価値はどこから来るのですか？",
-          "answer": "ドラクマは、World Republicの公式通貨であることから価値を得ています。私たちの民主的なグローバルガバナンスプラットフォームが成長するにつれ、WDDは世界経済における重要な交換手段となる可能性があり、最終的には技術的進歩とグローバル資源からの利益の公平な分配に役割を果たす可能性があります。"
+          "answer": "ドラクマは、ワールドリパブリックの公式通貨であることから価値を得ています。私たちの民主的なグローバルガバナンスプラットフォームが成長するにつれ、WDDは世界経済における重要な交換手段となる可能性があり、最終的には技術的進歩とグローバル資源からの利益の公平な分配に役割を果たす可能性があります。"
         },
         "topWallets": {
           "question": "最大のアカウントは誰が管理しているのですか？",
-          "answer": "3つの最大アカウントは、<a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>World Republic財務省</a>、<a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>ベーシックインカム基金</a>、<a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>ベーシックインカムプラス基金</a>です。現在、これらはプロジェクトの創設者が管理していますが、憲法が批准された後はコミュニティに移管されます。その他の主要なアドレスには、<a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>貯金口座コントラクト</a>、<a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>紹介報酬配布者</a>、および流動性プール：<a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>、<a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>、<a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>が含まれます。"
+          "answer": "3つの最大アカウントは、<a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>ワールドリパブリック財務省</a>、<a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>ベーシックインカム基金</a>、<a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>ベーシックインカムプラス基金</a>です。現在、これらはプロジェクトの創設者が管理していますが、憲法が批准された後はコミュニティに移管されます。その他の主要なアドレスには、<a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>貯金口座コントラクト</a>、<a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>紹介報酬配布者</a>、および流動性プール：<a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>、<a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>、<a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>が含まれます。"
         },
         "voteRequirements": {
           "question": "投票を提案するための要件は何ですか？",

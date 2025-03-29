@@ -182,7 +182,7 @@
                 "steps": {
                   "step1": {
                     "number": "1",
-                    "text": "Cipta undian berkaitan dengan World Republic atau tadbir urus global secara amnya"
+                    "text": "Cipta undian berkaitan dengan Republik Dunia atau tadbir urus global secara amnya"
                   },
                   "step2": {
                     "number": "2",
@@ -232,7 +232,7 @@
             },
             "howTo": {
               "title": "Cara menyertai",
-              "step1": "Tulis catatan X tentang World Republic",
+              "step1": "Tulis catatan X tentang Republik Dunia",
               "step2": "Tag @WorldRepublicEN",
               "step3": {
                 "prefix": "Kongsi pautan ke catatan anda dalam",
@@ -387,12 +387,12 @@
       "title": "Soalan Lazim",
       "items": {
         "appPurpose": {
-          "question": "Apakah World Republic?",
-          "answer": "World Republic ialah organisasi terbuka dan demokratik yang didedikasikan untuk menyelesaikan cabaran global manusia yang paling mendesak. Ia menyediakan rangka kerja untuk membuat keputusan kolektif mengenai isu yang hanya boleh ditangani secara berkesan pada skala global, seperti risiko AI, perubahan iklim, atau keselamatan bio."
+          "question": "Apakah Republik Dunia?",
+          "answer": "Republik Dunia ialah organisasi terbuka dan demokratik yang didedikasikan untuk menyelesaikan cabaran global manusia yang paling mendesak. Ia menyediakan rangka kerja untuk membuat keputusan kolektif mengenai isu yang hanya boleh ditangani secara berkesan pada skala global, seperti risiko AI, perubahan iklim, atau keselamatan bio."
         },
         "basicIncome": {
           "question": "Apakah Pendapatan Asas?",
-          "answer": "Pendapatan Asas kami ialah subsidi harian 1 WDD (drachma dunia) yang disediakan kepada semua warganegara World Republic. Ia terkumpul secara masa nyata dan boleh dituntut pada bila-bila masa melalui aplikasi."
+          "answer": "Pendapatan Asas kami ialah subsidi harian 1 WDD (drachma dunia) yang disediakan kepada semua warganegara Republik Dunia. Ia terkumpul secara masa nyata dan boleh dituntut pada bila-bila masa melalui aplikasi."
         },
         "basicIncomePlus": {
           "question": "Bagaimana saya mengaktifkan Pendapatan Asas Plus?",
@@ -404,15 +404,15 @@
         },
         "referralCodes": {
           "question": "Bagaimana kod rujukan berfungsi?",
-          "answer": "Sebagai warganegara World Republic, anda boleh memperoleh ganjaran melalui program rujukan kami. Kongsi pautan rujukan unik anda dengan rakan, dan anda akan menerima 50 WDD untuk setiap orang yang menyertai dan mengaktifkan Pendapatan Asas Plus. Belum menerima ganjaran anda? Rakan anda mungkin perlu mencetuskan secara manual dengan memilih pilihan 'Ganjarkan Pemberi Rujukan' dalam bahagian rujukan mereka."
+          "answer": "Sebagai warganegara Republik Dunia, anda boleh memperoleh ganjaran melalui program rujukan kami. Kongsi pautan rujukan unik anda dengan rakan, dan anda akan menerima 50 WDD untuk setiap orang yang menyertai dan mengaktifkan Pendapatan Asas Plus. Belum menerima ganjaran anda? Rakan anda mungkin perlu mencetuskan secara manual dengan memilih pilihan 'Ganjarkan Pemberi Rujukan' dalam bahagian rujukan mereka."
         },
         "drachmaValue": {
           "question": "Dari mana drachma mendapat nilainya?",
-          "answer": "Drachma mendapat nilainya dari menjadi mata wang rasmi World Republic. Apabila platform tadbir urus global demokratik kami berkembang, WDD berpotensi menjadi medium pertukaran yang penting dalam ekonomi dunia, dan akhirnya boleh memainkan peranan dalam pengagihan faedah yang saksama dari kemajuan teknologi dan sumber global."
+          "answer": "Drachma mendapat nilainya dari menjadi mata wang rasmi Republik Dunia. Apabila platform tadbir urus global demokratik kami berkembang, WDD berpotensi menjadi medium pertukaran yang penting dalam ekonomi dunia, dan akhirnya boleh memainkan peranan dalam pengagihan faedah yang saksama dari kemajuan teknologi dan sumber global."
         },
         "topWallets": {
           "question": "Siapa yang mengawal akaun terbesar?",
-          "answer": "Tiga akaun terbesar ialah <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>Perbendaharaan World Republic</a>, <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Dana Pendapatan Asas</a>, dan <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Dana Pendapatan Asas Plus</a>. Pada masa ini, ini dikawal oleh pengasas projek, tetapi kawalan akan dipindahkan kepada komuniti selepas perlembagaan kami disahkan. Alamat utama lain termasuk <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>kontrak Akaun Simpanan</a>, <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>pengedar Ganjaran Rujukan</a>, dan kolam kecairan: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, dan <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
+          "answer": "Tiga akaun terbesar ialah <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>Perbendaharaan Republik Dunia</a>, <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Dana Pendapatan Asas</a>, dan <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Dana Pendapatan Asas Plus</a>. Pada masa ini, ini dikawal oleh pengasas projek, tetapi kawalan akan dipindahkan kepada komuniti selepas perlembagaan kami disahkan. Alamat utama lain termasuk <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>kontrak Akaun Simpanan</a>, <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>pengedar Ganjaran Rujukan</a>, dan kolam kecairan: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, dan <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
         },
         "voteRequirements": {
           "question": "Apakah keperluan untuk mencadangkan undian?",
