@@ -31,8 +31,8 @@ const polls: Poll[] = [
   },
   {
     description:
-      "Do you support the growing global movement toward four-day workweeks as a standard employment model?",
-    url: "https://vote.one/ht6lGdcr",
+      "Should a global rapid-response fund be established to provide immediate relief for devastating natural disasters like major earthquakes?",
+    url: "https://vote.one/kKlY77pD",
   },
 ];
 

@@ -8,6 +8,11 @@ import { PollCard } from "@/components/PollCard";
 const historicalPolls = [
   {
     description:
+      "Should global leaders agree on protocols to prevent the militarization of space and secure it for peaceful purposes?",
+    url: "https://vote.one/vBztzW2P",
+  },
+  {
+    description:
       "Should there be a global regulatory framework for emerging biotechnologies to ensure ethical use and safety?",
     url: "https://vote.one/pNqgoSmf",
   },
