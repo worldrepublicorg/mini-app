@@ -424,7 +424,7 @@ export function StakeWithPermitForm({
                     ) || "0"
               )
             }
-            className={`h-9 items-center rounded-full bg-gray-100 px-4 font-sans text-sm font-medium leading-narrow tracking-normal ${
+            className={`flex h-9 items-center justify-center whitespace-nowrap rounded-full bg-gray-100 px-4 font-sans text-sm font-medium leading-narrow tracking-normal ${
               amount ===
                 (selectedAction === "deposit"
                   ? (Math.floor(Number(tokenBalance) * 1e9) / 1e9).toFixed(9) ||
