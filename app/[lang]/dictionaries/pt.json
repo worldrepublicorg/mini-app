@@ -8,14 +8,7 @@
     },
     "pollOfTheDay": {
       "previousPolls": "Votações Anteriores",
-      "vote": "Votar Agora",
-      "polls": {
-        "dataSovereignty": "Devem ser implementadas diretrizes internacionais para proteger os dados gerados mundialmente sob uma estrutura unificada de soberania digital?",
-        "biotech": "Deve haver uma estrutura regulatória global para biotecnologias emergentes para garantir o uso ético e a segurança?",
-        "spaceMilitarization": "Os líderes globais devem concordar com protocolos para prevenir a militarização do espaço e garantir seu uso para fins pacíficos?",
-        "nuclearSecurity": "Devem ser estabelecidos acordos internacionais vinculantes para proteger instalações nucleares em zonas de conflito?",
-        "fourDayWeek": "Você apoia o crescente movimento global em direção a semanas de trabalho de quatro dias como modelo padrão de emprego?"
-      }
+      "vote": "Votar Agora"
     },
     "stakeForm": {
       "deposit": "Depositar",
@@ -274,9 +267,14 @@
             "title": "Votações Anteriores",
             "backToGovern": "Voltar para Governar",
             "polls": {
-              "dataSovereignty": "Devem ser implementadas diretrizes internacionais para proteger os dados gerados mundialmente sob uma estrutura unificada de soberania digital?",
-              "fourDayWeek": "Você apoia o crescente movimento global em direção a semanas de trabalho de quatro dias como modelo padrão de emprego?",
+              "techTransparency": "As empresas globais de tecnologia devem ser obrigadas a adotar políticas transparentes de tomada de decisão para proteger a confiança pública?",
+              "disasterRelief": "Deve ser estabelecido um fundo global de resposta rápida para fornecer alívio imediato para desastres naturais devastadores como grandes terremotos?",
+              "aiWatermarking": "As regulamentações globais devem exigir marca d'água obrigatória de conteúdo gerado por IA para combater a desinformação em eleições e mídia?",
+              "biotech": "Deve existir uma estrutura regulatória global para biotecnologias emergentes para garantir seu uso ético e segurança?",
+              "spaceMilitarization": "Os líderes globais devem concordar com protocolos para prevenir a militarização do espaço e garantir seu uso pacífico?",
+              "dataSovereignty": "Diretrizes internacionais devem ser implementadas para proteger dados gerados em todo o mundo sob uma estrutura unificada de soberania digital?",
               "nuclearSecurity": "Devem ser estabelecidos acordos internacionais vinculantes para proteger instalações nucleares em zonas de conflito?",
+              "fourDayWeek": "Você apoia o crescente movimento global em direção a semanas de trabalho de quatro dias como modelo padrão de emprego?",
               "aviationResilience": "A infraestrutura da aviação internacional é resiliente o suficiente para lidar com interrupções inesperadas em larga escala?",
               "waterResources": "As nações devem criar uma estrutura cooperativa para gerenciar recursos hídricos compartilhados em meio à crescente escassez global de água?",
               "maternalHealth": "Deve ser estabelecida uma reserva global dedicada de ajuda à saúde para proteger a saúde materna e infantil durante o congelamento de ajuda internacional?",

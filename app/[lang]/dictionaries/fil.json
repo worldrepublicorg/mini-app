@@ -8,14 +8,7 @@
     },
     "pollOfTheDay": {
       "previousPolls": "Mga Nakaraang Botohan",
-      "vote": "Bumoto Ngayon",
-      "polls": {
-        "dataSovereignty": "Dapat bang magpatupad ng mga internasyunal na gabay para protektahan ang data na nabubuo sa buong mundo sa ilalim ng isang pinag-isang balangkas para sa digital na soberanya?",
-        "biotech": "Dapat bang magkaroon ng pandaigdigang regulatory framework para sa mga umuusbong na bioteknolohiya upang matiyak ang etikal na paggamit at kaligtasan?",
-        "spaceMilitarization": "Dapat bang magkasundo ang mga pandaigdigang lider sa mga protokol para pigilan ang militarisasyon ng kalawakan at tiyakin ito para sa mapayapang layunin?",
-        "nuclearSecurity": "Dapat bang magtatag ng mga nagbubuklod na internasyunal na kasunduan para protektahan ang mga pasilidad nuklear sa mga lugar ng kaguluhan?",
-        "fourDayWeek": "Sinusuportahan mo ba ang lumalaking pandaigdigang kilusan patungo sa apat na araw na trabaho bilang pamantayang modelo ng empleyo?"
-      }
+      "vote": "Bumoto Ngayon"
     },
     "stakeForm": {
       "deposit": "Maghulog",
@@ -170,9 +163,14 @@
           "description": "Mabilisang mga boto sa kasalukuyang mga paksa",
           "previous": {
             "title": "Mga Nakaraang Botohan",
-            "backToGovern": "Bumalik sa Govern",
+            "backToGovern": "Bumalik sa Pamamahala",
             "polls": {
-              "dataSovereignty": "Dapat bang magpatupad ng mga internasyunal na gabay para protektahan ang data na nabubuo sa buong mundo sa ilalim ng isang pinag-isang balangkas para sa digital na soberanya?",
+              "techTransparency": "Dapat bang obligahin ang mga global na kumpanya ng teknolohiya na magpatupad ng mga transparent na patakaran sa pagdedesisyon upang protektahan ang tiwala ng publiko?",
+              "disasterRelief": "Dapat bang magtatag ng global na quick response fund para magbigay ng agarang tulong sa mga mapaminsalang natural na sakuna tulad ng malalaking lindol?",
+              "aiWatermarking": "Dapat bang iatas ng mga global na regulasyon ang mandatory watermarking ng AI-generated content upang labanan ang disinformation sa mga eleksyon at media?",
+              "biotech": "Dapat bang magkaroon ng global na regulatory framework para sa mga umuusbong na bioteknolohiya upang matiyak ang etikal na paggamit at kaligtasan nito?",
+              "spaceMilitarization": "Dapat bang sumang-ayon ang mga global na lider sa mga protokol upang maiwasan ang militarisasyon ng kalawakan at matiyak ang mapayapang paggamit nito?",
+              "dataSovereignty": "Dapat bang ipatupad ang mga internasyonal na alituntunin upang protektahan ang data na ginagawa sa buong mundo sa ilalim ng isang pinag-isang framework ng digital sovereignty?",
               "fourDayWeek": "Sinusuportahan mo ba ang lumalaking pandaigdigang kilusan patungo sa apat na araw na trabaho bilang pamantayang modelo ng empleyo?",
               "nuclearSecurity": "Dapat bang magtatag ng mga nagbubuklod na internasyunal na kasunduan para protektahan ang mga pasilidad nuklear sa mga lugar ng kaguluhan?",
               "aviationResilience": "Sapat na ba ang katatagan ng internasyunal na imprastraktura ng aviation para harapin ang mga hindi inaasahang malalaking pagkaantala?",

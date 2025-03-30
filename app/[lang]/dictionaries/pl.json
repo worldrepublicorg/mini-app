@@ -8,14 +8,7 @@
     },
     "pollOfTheDay": {
       "previousPolls": "Poprzednie Ankiety",
-      "vote": "Zagłosuj Teraz",
-      "polls": {
-        "dataSovereignty": "Czy należy wdrożyć międzynarodowe wytyczne chroniące dane generowane na całym świecie w ramach jednolitych ram suwerenności cyfrowej?",
-        "biotech": "Czy powinny istnieć globalne ramy regulacyjne dla powstających biotechnologii w celu zapewnienia etycznego wykorzystania i bezpieczeństwa?",
-        "spaceMilitarization": "Czy światowi przywódcy powinni uzgodnić protokoły zapobiegające militaryzacji przestrzeni kosmicznej i zabezpieczające ją do celów pokojowych?",
-        "nuclearSecurity": "Czy należy ustanowić wiążące umowy międzynarodowe w celu zabezpieczenia obiektów jądrowych w strefach konfliktów?",
-        "fourDayWeek": "Czy popierasz rosnący globalny ruch w kierunku czterodniowego tygodnia pracy jako standardowego modelu zatrudnienia?"
-      }
+      "vote": "Zagłosuj Teraz"
     },
     "stakeForm": {
       "deposit": "Wpłać",
@@ -307,7 +300,12 @@
               "aiDevelopment": "Czy rządy powinny priorytetowo traktować regulację rozwoju sztucznej inteligencji (AI), aby zapobiec nadużyciom, nawet jeśli spowolni to innowacje?",
               "asteroidDefense": "Czy uważasz, że rządy na całym świecie powinny zwiększyć finansowanie monitorowania przestrzeni kosmicznej i badań nad odchylaniem asteroid?",
               "peaceNegotiations": "Czy mocarstwa negocjujące porozumienia pokojowe powinny być zobowiązane do włączenia krajów bezpośrednio dotkniętych konfliktem?",
-              "taiwanPolicy": "Czy Stany Zjednoczone powinny utrzymać swoją politykę 'strategicznej dwuznaczności' wobec Tajwanu, aby uniknąć eskalacji napięć z Chinami?"
+              "taiwanPolicy": "Czy Stany Zjednoczone powinny utrzymać swoją politykę 'strategicznej dwuznaczności' wobec Tajwanu, aby uniknąć eskalacji napięć z Chinami?",
+              "techTransparency": "Czy globalne firmy technologiczne powinny być zobowiązane do przyjęcia przejrzystych polityk podejmowania decyzji w celu ochrony zaufania publicznego?",
+              "disasterRelief": "Czy należy utworzyć globalny fundusz szybkiego reagowania, aby zapewnić natychmiastową pomoc w przypadku niszczycielskich klęsk żywiołowych, takich jak duże trzęsienia ziemi?",
+              "aiWatermarking": "Czy globalne przepisy powinny wymagać obowiązkowego znakowania wodnego treści generowanych przez AI w celu zwalczania dezinformacji w wyborach i mediach?",
+              "biotech": "Czy powinny istnieć globalne ramy regulacyjne dla powstających biotechnologii, aby zapewnić ich etyczne wykorzystanie i bezpieczeństwo?",
+              "spaceMilitarization": "Czy światowi przywódcy powinni uzgodnić protokoły zapobiegające militaryzacji przestrzeni kosmicznej i zapewniające jej pokojowe wykorzystanie?"
             }
           }
         },

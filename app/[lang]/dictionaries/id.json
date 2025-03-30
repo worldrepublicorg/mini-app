@@ -8,14 +8,7 @@
     },
     "pollOfTheDay": {
       "previousPolls": "Polling Sebelumnya",
-      "vote": "Voting Sekarang",
-      "polls": {
-        "dataSovereignty": "Haruskah pedoman internasional diterapkan untuk melindungi data yang dihasilkan di seluruh dunia di bawah kerangka terpadu untuk kedaulatan digital?",
-        "biotech": "Haruskah ada kerangka regulasi global untuk bioteknologi yang muncul untuk memastikan penggunaan dan keamanan yang etis?",
-        "spaceMilitarization": "Haruskah para pemimpin global menyetujui protokol untuk mencegah militerisasi ruang angkasa dan mengamankannya untuk tujuan damai?",
-        "nuclearSecurity": "Haruskah perjanjian internasional yang mengikat dibuat untuk mengamankan fasilitas nuklir di zona konflik?",
-        "fourDayWeek": "Apakah Anda mendukung gerakan global yang berkembang menuju minggu kerja empat hari sebagai model kerja standar?"
-      }
+      "vote": "Voting Sekarang"
     },
     "stakeForm": {
       "deposit": "Setor",
@@ -274,7 +267,12 @@
             "title": "Polling Sebelumnya",
             "backToGovern": "Kembali ke Kelola",
             "polls": {
-              "dataSovereignty": "Haruskah pedoman internasional diterapkan untuk melindungi data yang dihasilkan di seluruh dunia di bawah kerangka terpadu untuk kedaulatan digital?",
+              "techTransparency": "Apakah perusahaan teknologi global harus diwajibkan untuk mengadopsi kebijakan pengambilan keputusan yang transparan untuk melindungi kepercayaan publik?",
+              "disasterRelief": "Haruskah dibentuk dana respons cepat global untuk memberikan bantuan segera untuk bencana alam yang menghancurkan seperti gempa bumi besar?",
+              "aiWatermarking": "Haruskah peraturan global mewajibkan watermark pada konten yang dihasilkan AI untuk memerangi disinformasi dalam pemilu dan media?",
+              "biotech": "Haruskah ada kerangka regulasi global untuk bioteknologi yang sedang berkembang untuk memastikan penggunaan etis dan keamanannya?",
+              "spaceMilitarization": "Haruskah para pemimpin global menyetujui protokol untuk mencegah militarisasi ruang angkasa dan memastikan penggunaannya secara damai?",
+              "dataSovereignty": "Haruskah pedoman internasional diterapkan untuk melindungi data yang dihasilkan secara global di bawah kerangka kedaulatan digital yang terpadu?",
               "fourDayWeek": "Apakah Anda mendukung gerakan global yang berkembang menuju minggu kerja empat hari sebagai model kerja standar?",
               "nuclearSecurity": "Haruskah perjanjian internasional yang mengikat dibuat untuk mengamankan fasilitas nuklir di zona konflik?",
               "aviationResilience": "Apakah infrastruktur penerbangan internasional cukup tangguh untuk menangani gangguan skala besar yang tidak terduga?",

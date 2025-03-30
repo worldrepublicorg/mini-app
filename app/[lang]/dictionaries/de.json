@@ -8,14 +8,7 @@
     },
     "pollOfTheDay": {
       "previousPolls": "Vorherige Umfragen",
-      "vote": "Jetzt abstimmen",
-      "polls": {
-        "dataSovereignty": "Sollten internationale Richtlinien zum Schutz weltweit generierter Daten unter einem einheitlichen Rahmen für digitale Souveränität eingeführt werden?",
-        "biotech": "Sollte es einen globalen Regulierungsrahmen für neue Biotechnologien geben, um ethische Nutzung und Sicherheit zu gewährleisten?",
-        "spaceMilitarization": "Sollten sich globale Führungskräfte auf Protokolle einigen, um die Militarisierung des Weltraums zu verhindern und ihn für friedliche Zwecke zu sichern?",
-        "nuclearSecurity": "Sollten verbindliche internationale Abkommen zur Sicherung von Nuklearanlagen in Konfliktgebieten geschlossen werden?",
-        "fourDayWeek": "Unterstützen Sie die wachsende globale Bewegung hin zur Vier-Tage-Woche als Standard-Arbeitsmodell?"
-      }
+      "vote": "Jetzt abstimmen"
     },
     "stakeForm": {
       "deposit": "Einzahlen",
@@ -274,7 +267,12 @@
             "title": "Vorherige Umfragen",
             "backToGovern": "Zurück zu Regieren",
             "polls": {
-              "dataSovereignty": "Sollten internationale Richtlinien zum Schutz weltweit generierter Daten unter einem einheitlichen Rahmen für digitale Souveränität eingeführt werden?",
+              "techTransparency": "Sollten globale Technologieunternehmen verpflichtet werden, transparente Entscheidungsfindungspolitiken einzuführen, um das öffentliche Vertrauen zu schützen?",
+              "disasterRelief": "Sollte ein globaler Schnellreaktionsfonds eingerichtet werden, um sofortige Hilfe bei verheerenden Naturkatastrophen wie großen Erdbeben zu leisten?",
+              "aiWatermarking": "Sollten globale Vorschriften eine obligatorische Wasserzeichenkennzeichnung von KI-generierten Inhalten vorschreiben, um Desinformation in Wahlen und Medien zu bekämpfen?",
+              "biotech": "Sollte es einen globalen regulatorischen Rahmen für aufstrebende Biotechnologien geben, um deren ethische Nutzung und Sicherheit zu gewährleisten?",
+              "spaceMilitarization": "Sollten sich globale Führer auf Protokolle einigen, um die Militarisierung des Weltraums zu verhindern und seine friedliche Nutzung zu sichern?",
+              "dataSovereignty": "Sollten internationale Richtlinien eingeführt werden, um weltweit generierte Daten unter einem einheitlichen Rahmen für digitale Souveränität zu schützen?",
               "fourDayWeek": "Unterstützen Sie die wachsende globale Bewegung hin zur Vier-Tage-Woche als Standard-Arbeitsmodell?",
               "nuclearSecurity": "Sollten verbindliche internationale Abkommen zur Sicherung von Nuklearanlagen in Konfliktgebieten geschlossen werden?",
               "aviationResilience": "Ist die internationale Luftfahrtinfrastruktur ausreichend robust, um unerwartete große Skalenschocks zu bewältigen?",

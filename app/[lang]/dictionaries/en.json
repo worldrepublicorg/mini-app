@@ -8,14 +8,7 @@
     },
     "pollOfTheDay": {
       "previousPolls": "Previous Polls",
-      "vote": "Vote Now",
-      "polls": {
-        "dataSovereignty": "Should international guidelines be implemented to protect data generated worldwide under a unified framework for digital sovereignty?",
-        "biotech": "Should there be a global regulatory framework for emerging biotechnologies to ensure ethical use and safety?",
-        "spaceMilitarization": "Should global leaders agree on protocols to prevent the militarization of space and secure it for peaceful purposes?",
-        "nuclearSecurity": "Should binding international agreements be established to secure nuclear facilities in conflict zones?",
-        "fourDayWeek": "Do you support the growing global movement toward four-day workweeks as a standard employment model?"
-      }
+      "vote": "Vote Now"
     },
     "stakeForm": {
       "deposit": "Deposit",
@@ -274,6 +267,11 @@
             "title": "Previous Polls",
             "backToGovern": "Back to Govern",
             "polls": {
+              "techTransparency": "Should global tech companies be required to adopt transparent decision-making policies to safeguard public trust?",
+              "disasterRelief": "Should a global rapid-response fund be established to provide immediate relief for devastating natural disasters like major earthquakes?",
+              "aiWatermarking": "Should global regulations require mandatory watermarking of AI-generated content to combat misinformation in elections and media?",
+              "biotech": "Should there be a global regulatory framework for emerging biotechnologies to ensure ethical use and safety?",
+              "spaceMilitarization": "Should global leaders agree on protocols to prevent the militarization of space and secure it for peaceful purposes?",
               "dataSovereignty": "Should international guidelines be implemented to protect data generated worldwide under a unified framework for digital sovereignty?",
               "fourDayWeek": "Do you support the growing global movement toward four-day workweeks as a standard employment model?",
               "nuclearSecurity": "Should binding international agreements be established to secure nuclear facilities in conflict zones?",

@@ -8,14 +8,7 @@
     },
     "pollOfTheDay": {
       "previousPolls": "Undian Sebelumnya",
-      "vote": "Undi Sekarang",
-      "polls": {
-        "dataSovereignty": "Adakah garis panduan antarabangsa perlu dilaksanakan untuk melindungi data yang dijana di seluruh dunia di bawah rangka kerja kesatuan untuk kedaulatan digital?",
-        "biotech": "Adakah perlu ada rangka kerja kawal selia global untuk bioteknologi baharu untuk memastikan penggunaan etika dan keselamatan?",
-        "spaceMilitarization": "Adakah pemimpin global perlu bersetuju dengan protokol untuk mencegah pemiliteran angkasa dan mengamankannya untuk tujuan damai?",
-        "nuclearSecurity": "Adakah perjanjian antarabangsa yang mengikat perlu ditubuhkan untuk mengamankan kemudahan nuklear di zon konflik?",
-        "fourDayWeek": "Adakah anda menyokong gerakan global yang semakin berkembang ke arah minggu kerja empat hari sebagai model pekerjaan standard?"
-      }
+      "vote": "Undi Sekarang"
     },
     "stakeForm": {
       "deposit": "Simpan",
@@ -274,7 +267,6 @@
             "title": "Undian Sebelumnya",
             "backToGovern": "Kembali ke Tadbir Urus",
             "polls": {
-              "dataSovereignty": "Adakah garis panduan antarabangsa perlu dilaksanakan untuk melindungi data yang dijana di seluruh dunia di bawah rangka kerja kesatuan untuk kedaulatan digital?",
               "fourDayWeek": "Adakah anda menyokong gerakan global yang semakin berkembang ke arah minggu kerja empat hari sebagai model pekerjaan standard?",
               "nuclearSecurity": "Adakah perjanjian antarabangsa yang mengikat perlu ditubuhkan untuk mengamankan kemudahan nuklear di zon konflik?",
               "aviationResilience": "Adakah infrastruktur penerbangan antarabangsa cukup tahan lasak untuk menangani gangguan besar-besaran yang tidak dijangka?",
@@ -307,7 +299,13 @@
               "aiDevelopment": "Adakah kerajaan perlu mengutamakan mengawal perkembangan kecerdasan buatan (AI) untuk mencegah penyalahgunaan, walaupun ia memperlahankan inovasi?",
               "asteroidDefense": "Adakah anda percaya bahawa kerajaan di seluruh dunia perlu meningkatkan pembiayaan untuk pemantauan angkasa dan penyelidikan pesongan asteroid?",
               "peaceNegotiations": "Adakah kuasa besar yang berunding perjanjian damai perlu diwajibkan untuk memasukkan negara yang terjejas secara langsung oleh konflik?",
-              "taiwanPolicy": "Adakah Amerika Syarikat perlu mengekalkan dasar 'kekaburan strategik' mengenai Taiwan untuk mengelakkan ketegangan dengan China?"
+              "taiwanPolicy": "Adakah Amerika Syarikat perlu mengekalkan dasar 'kekaburan strategik' mengenai Taiwan untuk mengelakkan ketegangan dengan China?",
+              "techTransparency": "Haruskah syarikat teknologi global diwajibkan untuk mengamalkan dasar membuat keputusan yang telus untuk melindungi kepercayaan awam?",
+              "disasterRelief": "Haruskah dana tindak balas segera global ditubuhkan untuk memberikan bantuan segera bagi bencana alam yang memusnahkan seperti gempa bumi besar?",
+              "aiWatermarking": "Haruskah peraturan global memerlukan tanda air wajib untuk kandungan yang dihasilkan AI untuk memerangi maklumat salah dalam pilihan raya dan media?",
+              "biotech": "Haruskah wujud rangka kerja pengawalseliaan global untuk bioteknologi yang sedang berkembang untuk memastikan penggunaan beretika dan keselamatannya?",
+              "spaceMilitarization": "Haruskah pemimpin global bersetuju dengan protokol untuk mencegah pemilitaran angkasa lepas dan memastikan penggunaannya secara aman?",
+              "dataSovereignty": "Haruskah garis panduan antarabangsa dilaksanakan untuk melindungi data yang dijana secara global di bawah rangka kerja kedaulatan digital yang bersepadu?"
             }
           }
         },

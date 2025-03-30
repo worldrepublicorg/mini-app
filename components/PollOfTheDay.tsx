@@ -11,8 +11,8 @@ interface Poll {
 
 const polls: Poll[] = [
   {
-    key: "dataSovereignty",
-    url: "https://vote.one/r4VmX0XN",
+    key: "techTransparency",
+    url: "https://vote.one/aOXsaVpq",
   },
   {
     key: "biotech",
@@ -23,12 +23,12 @@ const polls: Poll[] = [
     url: "https://vote.one/vBztzW2P",
   },
   {
-    key: "nuclearSecurity",
-    url: "https://vote.one/aW6o5p2u",
+    key: "aiWatermarking",
+    url: "https://vote.one/Jbra7uUp",
   },
   {
-    key: "fourDayWeek",
-    url: "https://vote.one/ht6lGdcr",
+    key: "disasterRelief",
+    url: "https://vote.one/kKlY77pD",
   },
 ];
 
@@ -79,7 +79,11 @@ export function PollOfTheDay({ lang }: PollOfTheDayProps) {
           variant={{ variant: "heading", level: 2 }}
           className="mb-10 text-center"
         >
-          {dictionary?.components?.pollOfTheDay?.polls?.[currentPoll.key]}
+          {
+            dictionary?.pages?.govern?.sections?.polls?.previous?.polls?.[
+              currentPoll.key
+            ]
+          }
         </Typography>
         <a href={currentPoll.url} target="_blank" rel="noopener noreferrer">
           <Button variant="primary" fullWidth>

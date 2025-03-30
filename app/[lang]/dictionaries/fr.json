@@ -8,14 +8,7 @@
     },
     "pollOfTheDay": {
       "previousPolls": "Sondages précédents",
-      "vote": "Voter maintenant",
-      "polls": {
-        "dataSovereignty": "Faut-il mettre en place des directives internationales pour protéger les données générées dans le monde entier dans le cadre d'une souveraineté numérique unifiée ?",
-        "biotech": "Devrait-il y avoir un cadre réglementaire mondial pour les biotechnologies émergentes afin d'assurer une utilisation éthique et la sécurité ?",
-        "spaceMilitarization": "Les dirigeants mondiaux devraient-ils s'accorder sur des protocoles pour empêcher la militarisation de l'espace et le sécuriser à des fins pacifiques ?",
-        "nuclearSecurity": "Faut-il établir des accords internationaux contraignants pour sécuriser les installations nucléaires dans les zones de conflit ?",
-        "fourDayWeek": "Soutenez-vous le mouvement mondial croissant en faveur de la semaine de travail de quatre jours comme modèle d'emploi standard ?"
-      }
+      "vote": "Voter maintenant"
     },
     "stakeForm": {
       "deposit": "Dépôt",
@@ -274,7 +267,6 @@
             "title": "Sondages précédents",
             "backToGovern": "Retour à Gouverner",
             "polls": {
-              "dataSovereignty": "Faut-il mettre en place des directives internationales pour protéger les données générées dans le monde entier dans le cadre d'une souveraineté numérique unifiée ?",
               "fourDayWeek": "Soutenez-vous le mouvement mondial croissant en faveur de la semaine de travail de quatre jours comme modèle d'emploi standard ?",
               "nuclearSecurity": "Faut-il établir des accords internationaux contraignants pour sécuriser les installations nucléaires dans les zones de conflit ?",
               "aviationResilience": "L'infrastructure de l'aviation internationale est-elle suffisamment résiliente pour gérer des perturbations imprévues à grande échelle ?",
@@ -307,7 +299,13 @@
               "aiDevelopment": "Les gouvernements devraient-ils prioriser la réglementation du développement de l'intelligence artificielle (IA) pour prévenir les abus, même si cela ralentit l'innovation ?",
               "asteroidDefense": "Pensez-vous que les gouvernements du monde entier devraient augmenter le financement de la surveillance spatiale et de la recherche sur la déviation des astéroïdes ?",
               "peaceNegotiations": "Les grandes puissances négociant des accords de paix devraient-elles être tenues d'inclure les pays directement touchés par le conflit ?",
-              "taiwanPolicy": "Les États-Unis devraient-ils maintenir leur politique d''ambiguïté stratégique' concernant Taïwan pour éviter d'aggraver les tensions avec la Chine ?"
+              "taiwanPolicy": "Les États-Unis devraient-ils maintenir leur politique d''ambiguïté stratégique' concernant Taïwan pour éviter d'aggraver les tensions avec la Chine ?",
+              "techTransparency": "Les entreprises technologiques mondiales devraient-elles être tenues d'adopter des politiques de prise de décision transparentes pour protéger la confiance du public ?",
+              "disasterRelief": "Un fonds mondial de réponse rapide devrait-il être créé pour fournir une aide immédiate en cas de catastrophes naturelles dévastatrices comme les grands séismes ?",
+              "aiWatermarking": "Les réglementations mondiales devraient-elles exiger le marquage obligatoire du contenu généré par l'IA pour lutter contre la désinformation dans les élections et les médias ?",
+              "biotech": "Devrait-il exister un cadre réglementaire mondial pour les biotechnologies émergentes afin d'assurer leur utilisation éthique et leur sécurité ?",
+              "spaceMilitarization": "Les dirigeants mondiaux devraient-ils convenir de protocoles pour prévenir la militarisation de l'espace et garantir son utilisation pacifique ?",
+              "dataSovereignty": "Des directives internationales devraient-elles être mises en œuvre pour protéger les données générées dans le monde entier dans le cadre d'un système unifié de souveraineté numérique ?"
             }
           }
         },

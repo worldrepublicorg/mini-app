@@ -7,6 +7,9 @@ import { PollCard } from "@/components/PollCard";
 import { useTranslations } from "@/hooks/useTranslations";
 
 const pollKeys = [
+  "aiWatermarking",
+  "spaceMilitarization",
+  "biotech",
   "dataSovereignty",
   "fourDayWeek",
   "nuclearSecurity",
@@ -44,6 +47,9 @@ const pollKeys = [
 ];
 
 const pollUrls = {
+  aiWatermarking: "https://vote.one/Jbra7uUp",
+  spaceMilitarization: "https://vote.one/vBztzW2P",
+  biotech: "https://vote.one/pNqgoSmf",
   dataSovereignty: "https://vote.one/r4VmX0XN",
   fourDayWeek: "https://vote.one/ht6lGdcr",
   nuclearSecurity: "https://vote.one/aW6o5p2u",

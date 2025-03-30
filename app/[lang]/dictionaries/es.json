@@ -15,14 +15,7 @@
       "title": "Encuesta del Día",
       "viewAll": "Ver Todas las Encuestas",
       "vote": "Votar Ahora",
-      "previousPolls": "Encuestas Anteriores",
-      "polls": {
-        "dataSovereignty": "¿Deberían implementarse directrices internacionales para proteger los datos generados mundialmente bajo un marco unificado de soberanía digital?",
-        "biotech": "¿Debería existir un marco regulatorio global para las biotecnologías emergentes que garantice su uso ético y seguridad?",
-        "spaceMilitarization": "¿Deberían establecer los líderes mundiales protocolos para prevenir la militarización del espacio y garantizar su uso pacífico?",
-        "nuclearSecurity": "¿Deberían establecerse acuerdos internacionales vinculantes para asegurar las instalaciones nucleares en zonas de conflicto?",
-        "fourDayWeek": "¿Apoyas el creciente movimiento global hacia semanas laborales de cuatro días como modelo de empleo estándar?"
-      }
+      "previousPolls": "Encuestas Anteriores"
     },
     "stakeForm": {
       "title": "Depositar Tokens",
@@ -382,6 +375,11 @@
             "title": "Encuestas Anteriores",
             "backToGovern": "Volver a Gobernar",
             "polls": {
+              "techTransparency": "¿Deberían las empresas tecnológicas globales estar obligadas a adoptar políticas de toma de decisiones transparentes para salvaguardar la confianza pública?",
+              "disasterRelief": "¿Debería establecerse un fondo global de respuesta rápida para proporcionar ayuda inmediata en desastres naturales devastadores como terremotos mayores?",
+              "aiWatermarking": "¿Deberían las regulaciones globales exigir el marcado de agua obligatorio del contenido generado por IA para combatir la desinformación en elecciones y medios?",
+              "biotech": "¿Debería existir un marco regulatorio global para las biotecnologías emergentes que garantice su uso ético y seguridad?",
+              "spaceMilitarization": "¿Deberían los líderes globales acordar protocolos para prevenir la militarización del espacio y garantizar su uso pacífico?",
               "dataSovereignty": "¿Deberían implementarse directrices internacionales para proteger los datos generados mundialmente bajo un marco unificado de soberanía digital?",
               "fourDayWeek": "¿Apoyas el creciente movimiento global hacia semanas laborales de cuatro días como modelo de empleo estándar?",
               "nuclearSecurity": "¿Deberían establecerse acuerdos internacionales vinculantes para asegurar las instalaciones nucleares en zonas de conflicto?",

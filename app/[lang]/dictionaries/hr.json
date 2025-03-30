@@ -8,14 +8,7 @@
     },
     "pollOfTheDay": {
       "previousPolls": "Prethodne ankete",
-      "vote": "Glasaj sada",
-      "polls": {
-        "dataSovereignty": "Trebaju li se implementirati međunarodne smjernice za zaštitu podataka generiranih širom svijeta pod jedinstvenim okvirom za digitalni suverenitet?",
-        "biotech": "Treba li postojati globalni regulatorni okvir za nove biotehnologije kako bi se osigurala etička uporaba i sigurnost?",
-        "spaceMilitarization": "Trebaju li se svjetski čelnici dogovoriti o protokolima za sprječavanje militarizacije svemira i osiguravanje njegove miroljubive svrhe?",
-        "nuclearSecurity": "Trebaju li se uspostaviti obvezujući međunarodni sporazumi za osiguranje nuklearnih postrojenja u zonama sukoba?",
-        "fourDayWeek": "Podržavate li rastući globalni pokret prema četverodnevnom radnom tjednu kao standardnom modelu zapošljavanja?"
-      }
+      "vote": "Glasaj sada"
     },
     "stakeForm": {
       "deposit": "Depozit",
@@ -271,10 +264,15 @@
           "title": "Anketa dana",
           "description": "Brzo glasanje o aktualnim temama",
           "previous": {
-            "title": "Prethodne ankete",
-            "backToGovern": "Natrag na Upravljanje",
+            "title": "Prethodne Ankete",
+            "backToGovern": "Povratak na Upravljanje",
             "polls": {
-              "dataSovereignty": "Trebaju li se implementirati međunarodne smjernice za zaštitu podataka generiranih širom svijeta pod jedinstvenim okvirom za digitalni suverenitet?",
+              "techTransparency": "Trebaju li globalne tehnološke tvrtke biti obvezne usvojiti transparentne politike odlučivanja kako bi zaštitile povjerenje javnosti?",
+              "disasterRelief": "Treba li uspostaviti globalni fond za brzi odgovor kako bi se pružila trenutna pomoć za razorne prirodne katastrofe poput velikih potresa?",
+              "aiWatermarking": "Trebaju li globalni propisi zahtijevati obvezno označavanje vodenim žigom sadržaja generiranog umjetnom inteligencijom kako bi se suzbilo dezinformiranje u izborima i medijima?",
+              "biotech": "Treba li postojati globalni regulatorni okvir za nove biotehnologije kako bi se osigurala njihova etička uporaba i sigurnost?",
+              "spaceMilitarization": "Trebaju li se globalni čelnici dogovoriti o protokolima za sprječavanje militarizacije svemira i osiguravanje njegove miroljubive uporabe?",
+              "dataSovereignty": "Trebaju li se provesti međunarodne smjernice za zaštitu globalno generiranih podataka pod jedinstvenim okvirom digitalne suverenosti?",
               "fourDayWeek": "Podržavate li rastući globalni pokret prema četverodnevnom radnom tjednu kao standardnom modelu zapošljavanja?",
               "nuclearSecurity": "Trebaju li se uspostaviti obvezujući međunarodni sporazumi za osiguranje nuklearnih postrojenja u zonama sukoba?",
               "aviationResilience": "Je li međunarodna zrakoplovna infrastruktura dovoljno otporna za rukovanje neočekivanim velikim poremećajima?",
