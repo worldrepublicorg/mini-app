@@ -115,7 +115,8 @@
             "copyLink": "Copy Referral Link",
             "copied": "Referral link copied to clipboard!",
             "connectWallet": "Please connect your wallet to generate your referral link",
-            "rewardReferrer": "Reward Referrer"
+            "rewardReferrer": "Reward Referrer",
+            "share": "Share Invite Link"
           },
           "drawer": {
             "title": "Reward a Referrer",
@@ -139,6 +140,10 @@
             "success": {
               "rewardSent": "Successfully sent reward to {{username}}!"
             }
+          },
+          "share": {
+            "title": "Join me in the World Republic",
+            "text": "Use my invite link to join the World Republic and earn rewards together!"
           }
         },
         "contribute": {
