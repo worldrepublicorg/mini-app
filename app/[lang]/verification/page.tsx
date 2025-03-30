@@ -35,31 +35,6 @@ export default function VerificationPage({
             variant={{ variant: "subtitle", level: 1 }}
             className="mb-2"
           >
-            {dictionary?.pages?.verification?.levels?.device?.title}
-          </Typography>
-          <Typography
-            as="p"
-            variant={{ variant: "body", level: 1 }}
-            className="mb-4 text-gray-500"
-          >
-            {dictionary?.pages?.verification?.levels?.device?.description}
-          </Typography>
-          <VerifyButton
-            lang={lang}
-            verificationLevel={VerificationLevel.Device}
-            buttonText={
-              dictionary?.pages?.verification?.levels?.device?.buttonText
-            }
-            actionId="verify-device"
-          />
-        </div>
-
-        <div>
-          <Typography
-            as="h3"
-            variant={{ variant: "subtitle", level: 1 }}
-            className="mb-2"
-          >
             {dictionary?.pages?.verification?.levels?.document?.title}
           </Typography>
           <Typography

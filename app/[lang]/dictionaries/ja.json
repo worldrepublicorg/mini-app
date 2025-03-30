@@ -422,11 +422,6 @@
     "verification": {
       "title": "認証状態",
       "levels": {
-        "device": {
-          "title": "デバイス認証",
-          "description": "デバイスの認証状態を確認",
-          "buttonText": "状態を確認"
-        },
         "document": {
           "title": "書類認証",
           "description": "書類の認証状態を確認",

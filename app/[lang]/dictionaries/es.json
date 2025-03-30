@@ -257,108 +257,6 @@
         }
       }
     },
-    "menu": {
-      "title": "Menú",
-      "sections": {
-        "experimental": {
-          "title": "EXPERIMENTAL",
-          "links": {
-            "verification": "Estado de verificación",
-            "language": "Idioma"
-          }
-        },
-        "connect": {
-          "title": "CONECTAR",
-          "links": {
-            "community": "Comunidad",
-            "announcements": "Anuncios",
-            "x": "X"
-          }
-        },
-        "help": {
-          "title": "AYUDA",
-          "links": {
-            "faq": "Preguntas frecuentes"
-          }
-        },
-        "code": {
-          "title": "CÓDIGO",
-          "links": {
-            "app": "Aplicación",
-            "contracts": "Contratos inteligentes"
-          }
-        }
-      }
-    },
-    "faq": {
-      "title": "Preguntas Frecuentes",
-      "items": {
-        "appPurpose": {
-          "question": "¿Qué es la República Mundial?",
-          "answer": "La República Mundial es una organización abierta y democrática dedicada a resolver los desafíos globales más urgentes de la humanidad. Proporciona un marco para la toma de decisiones colectivas sobre temas que solo pueden abordarse efectivamente a escala global, como los riesgos de la IA, el cambio climático o la bioseguridad."
-        },
-        "basicIncome": {
-          "question": "¿Qué es la Renta Básica?",
-          "answer": "Nuestra Renta Básica es un subsidio diario de 1 WDD (dracma mundial) que se proporciona a todos los ciudadanos de la República Mundial. Se acumula en tiempo real y se puede reclamar en cualquier momento a través de la aplicación."
-        },
-        "basicIncomePlus": {
-          "question": "¿Cómo activo la Renta Básica Plus?",
-          "answer": "La Renta Básica Plus proporciona 10 WDD adicionales por día y está disponible exclusivamente para usuarios verificados con Orb. Después de activar la Renta Básica, verás una opción para activar la Renta Básica Plus en la página Ganar."
-        },
-        "savings": {
-          "question": "¿Cómo funciona la Cuenta de Ahorro?",
-          "answer": "La Cuenta de Ahorro te permite depositar tokens WDD y ganar un interés anual del 69%. A través de la reinversión constante de los intereses ganados, los usuarios pueden alcanzar rendimientos efectivos cercanos al 100% anual, maximizando su crecimiento de WDD a lo largo del tiempo. Los intereses se acumulan continuamente y se pueden retirar o reinvertir en cualquier momento."
-        },
-        "referralCodes": {
-          "question": "¿Cómo funcionan los códigos de referido?",
-          "answer": "Como ciudadano de la República Mundial, puedes ganar recompensas a través de nuestro programa de referidos. Comparte tu enlace único de referido con amigos y recibirás 50 WDD por cada persona que se una y active la Renta Básica Plus. ¿No has recibido tu recompensa? Tu amigo puede necesitar activarla manualmente seleccionando la opción 'Recompensar Referidor' en su sección de referidos."
-        },
-        "drachmaValue": {
-          "question": "¿De dónde obtiene su valor el dracma?",
-          "answer": "El dracma deriva su valor de ser la moneda oficial de la República Mundial. A medida que nuestra plataforma de gobernanza global democrática crece, WDD tiene el potencial de convertirse en un medio de intercambio significativo en la economía mundial, y eventualmente podría desempeñar un papel en la distribución equitativa de los beneficios de los avances tecnológicos y los recursos globales."
-        },
-        "topWallets": {
-          "question": "¿Quién controla las cuentas más grandes?",
-          "answer": "Las tres cuentas más grandes son el <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>Tesoro de la República Mundial</a>, el <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Fondo de Renta Básica</a>, y el <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Fondo de Renta Básica Plus</a>. Actualmente, estos están controlados por el fundador del proyecto, pero el control será transferido a la comunidad después de que nuestra constitución sea ratificada. Otras direcciones clave incluyen el <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>contrato de Cuenta de Ahorro</a>, el <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>distribuidor de Recompensas de Referidos</a>, y los pools de liquidez: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, y <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
-        },
-        "voteRequirements": {
-          "question": "¿Cuáles son los requisitos para proponer votaciones?",
-          "answer": "Las encuestas y cartas abiertas actuales son solo una muestra. Nuestra comunidad decidirá colectivamente nuestro sistema de gobernanza a través del proceso de diseño constitucional dirigido por la Asamblea Constituyente elegida en el segundo trimestre de 2025."
-        }
-      }
-    },
-    "language": {
-      "title": "Idioma",
-      "options": {
-        "english": "English",
-        "spanish": "Español"
-      }
-    },
-    "verification": {
-      "title": "Estado de Verificación",
-      "levels": {
-        "device": {
-          "title": "Verificación de Dispositivo",
-          "description": "Verificar estado de verificación de dispositivo",
-          "buttonText": "Verificar Estado"
-        },
-        "document": {
-          "title": "Verificación de Documento",
-          "description": "Verificar estado de verificación de documento",
-          "buttonText": "Verificar Estado"
-        },
-        "secureDocument": {
-          "title": "Verificación Segura de Documento",
-          "description": "Verificar estado de verificación segura de documento",
-          "buttonText": "Verificar Estado"
-        },
-        "orb": {
-          "title": "Verificación Orb",
-          "description": "Verificar estado de verificación Orb",
-          "buttonText": "Verificar Estado"
-        }
-      }
-    },
     "govern": {
       "title": "Gobernar",
       "tabs": {
@@ -453,6 +351,103 @@
           "worldConstitutional": {
             "title": "Referéndum Constitucional Mundial"
           }
+        }
+      }
+    },
+    "menu": {
+      "title": "Menú",
+      "sections": {
+        "experimental": {
+          "title": "EXPERIMENTAL",
+          "links": {
+            "verification": "Estado de verificación",
+            "language": "Idioma"
+          }
+        },
+        "connect": {
+          "title": "CONECTAR",
+          "links": {
+            "community": "Comunidad",
+            "announcements": "Anuncios",
+            "x": "X"
+          }
+        },
+        "help": {
+          "title": "AYUDA",
+          "links": {
+            "faq": "Preguntas frecuentes"
+          }
+        },
+        "code": {
+          "title": "CÓDIGO",
+          "links": {
+            "app": "Aplicación",
+            "contracts": "Contratos inteligentes"
+          }
+        }
+      }
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "items": {
+        "appPurpose": {
+          "question": "¿Qué es la República Mundial?",
+          "answer": "La República Mundial es una organización abierta y democrática dedicada a resolver los desafíos globales más urgentes de la humanidad. Proporciona un marco para la toma de decisiones colectivas sobre temas que solo pueden abordarse efectivamente a escala global, como los riesgos de la IA, el cambio climático o la bioseguridad."
+        },
+        "basicIncome": {
+          "question": "¿Qué es la Renta Básica?",
+          "answer": "Nuestra Renta Básica es un subsidio diario de 1 WDD (dracma mundial) que se proporciona a todos los ciudadanos de la República Mundial. Se acumula en tiempo real y se puede reclamar en cualquier momento a través de la aplicación."
+        },
+        "basicIncomePlus": {
+          "question": "¿Cómo activo la Renta Básica Plus?",
+          "answer": "La Renta Básica Plus proporciona 10 WDD adicionales por día y está disponible exclusivamente para usuarios verificados con Orb. Después de activar la Renta Básica, verás una opción para activar la Renta Básica Plus en la página Ganar."
+        },
+        "savings": {
+          "question": "¿Cómo funciona la Cuenta de Ahorro?",
+          "answer": "La Cuenta de Ahorro te permite depositar tokens WDD y ganar un interés anual del 69%. A través de la reinversión constante de los intereses ganados, los usuarios pueden alcanzar rendimientos efectivos cercanos al 100% anual, maximizando su crecimiento de WDD a lo largo del tiempo. Los intereses se acumulan continuamente y se pueden retirar o reinvertir en cualquier momento."
+        },
+        "referralCodes": {
+          "question": "¿Cómo funcionan los códigos de referido?",
+          "answer": "Como ciudadano de la República Mundial, puedes ganar recompensas a través de nuestro programa de referidos. Comparte tu enlace único de referido con amigos y recibirás 50 WDD por cada persona que se una y active la Renta Básica Plus. ¿No has recibido tu recompensa? Tu amigo puede necesitar activarla manualmente seleccionando la opción 'Recompensar Referidor' en su sección de referidos."
+        },
+        "drachmaValue": {
+          "question": "¿De dónde obtiene su valor el dracma?",
+          "answer": "El dracma deriva su valor de ser la moneda oficial de la República Mundial. A medida que nuestra plataforma de gobernanza global democrática crece, WDD tiene el potencial de convertirse en un medio de intercambio significativo en la economía mundial, y eventualmente podría desempeñar un papel en la distribución equitativa de los beneficios de los avances tecnológicos y los recursos globales."
+        },
+        "topWallets": {
+          "question": "¿Quién controla las cuentas más grandes?",
+          "answer": "Las tres cuentas más grandes son el <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>Tesoro de la República Mundial</a>, el <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Fondo de Renta Básica</a>, y el <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Fondo de Renta Básica Plus</a>. Actualmente, estos están controlados por el fundador del proyecto, pero el control será transferido a la comunidad después de que nuestra constitución sea ratificada. Otras direcciones clave incluyen el <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>contrato de Cuenta de Ahorro</a>, el <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>distribuidor de Recompensas de Referidos</a>, y los pools de liquidez: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, y <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
+        },
+        "voteRequirements": {
+          "question": "¿Cuáles son los requisitos para proponer votaciones?",
+          "answer": "Las encuestas y cartas abiertas actuales son solo una muestra. Nuestra comunidad decidirá colectivamente nuestro sistema de gobernanza a través del proceso de diseño constitucional dirigido por la Asamblea Constituyente elegida en el segundo trimestre de 2025."
+        }
+      }
+    },
+    "language": {
+      "title": "Idioma",
+      "options": {
+        "english": "English",
+        "spanish": "Español"
+      }
+    },
+    "verification": {
+      "title": "Estado de Verificación",
+      "levels": {
+        "document": {
+          "title": "Verificación de Documento",
+          "description": "Verificar estado de verificación de documento",
+          "buttonText": "Verificar Estado"
+        },
+        "secureDocument": {
+          "title": "Verificación Segura de Documento",
+          "description": "Verificar estado de verificación segura de documento",
+          "buttonText": "Verificar Estado"
+        },
+        "orb": {
+          "title": "Verificación Orb",
+          "description": "Verificar estado de verificación Orb",
+          "buttonText": "Verificar Estado"
         }
       }
     }

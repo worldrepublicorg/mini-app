@@ -422,11 +422,6 @@
     "verification": {
       "title": "Status Verifikasi",
       "levels": {
-        "device": {
-          "title": "Verifikasi Perangkat",
-          "description": "Periksa status verifikasi perangkat",
-          "buttonText": "Periksa Status"
-        },
         "document": {
           "title": "Verifikasi Dokumen",
           "description": "Periksa status verifikasi dokumen",

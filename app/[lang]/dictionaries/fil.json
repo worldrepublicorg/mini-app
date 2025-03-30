@@ -422,11 +422,6 @@
     "verification": {
       "title": "Katayuan ng Pagpapatunay",
       "levels": {
-        "device": {
-          "title": "Pagpapatunay ng Device",
-          "description": "Suriin ang katayuan ng pagpapatunay ng device",
-          "buttonText": "Suriin ang Katayuan"
-        },
         "document": {
           "title": "Pagpapatunay ng Dokumento",
           "description": "Suriin ang katayuan ng pagpapatunay ng dokumento",

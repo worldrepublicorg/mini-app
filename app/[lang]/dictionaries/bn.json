@@ -413,11 +413,6 @@
     "verification": {
       "title": "যাচাই অবস্থা",
       "levels": {
-        "device": {
-          "title": "ডিভাইস যাচাই",
-          "description": "ডিভাইস যাচাই অবস্থা পরীক্ষা করুন",
-          "buttonText": "অবস্থা পরীক্ষা করুন"
-        },
         "document": {
           "title": "নথি যাচাই",
           "description": "নথি যাচাই অবস্থা পরীক্ষা করুন",

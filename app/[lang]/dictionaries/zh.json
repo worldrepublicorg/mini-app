@@ -422,11 +422,6 @@
     "verification": {
       "title": "验证状态",
       "levels": {
-        "device": {
-          "title": "设备验证",
-          "description": "检查设备验证状态",
-          "buttonText": "检查状态"
-        },
         "document": {
           "title": "证件验证",
           "description": "检查证件验证状态",

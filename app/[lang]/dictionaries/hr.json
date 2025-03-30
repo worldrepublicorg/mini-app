@@ -423,11 +423,6 @@
     "verification": {
       "title": "Status Provjere",
       "levels": {
-        "device": {
-          "title": "Provjera Uređaja",
-          "description": "Provjeri status provjere uređaja",
-          "buttonText": "Provjeri Status"
-        },
         "document": {
           "title": "Provjera Dokumenta",
           "description": "Provjeri status provjere dokumenta",

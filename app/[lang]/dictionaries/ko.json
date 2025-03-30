@@ -425,11 +425,6 @@
     "verification": {
       "title": "인증 상태",
       "levels": {
-        "device": {
-          "title": "기기 인증",
-          "description": "기기 인증 상태 확인",
-          "buttonText": "상태 확인"
-        },
         "document": {
           "title": "문서 인증",
           "description": "문서 인증 상태 확인",

@@ -422,11 +422,6 @@
     "verification": {
       "title": "Verifizierungsstatus",
       "levels": {
-        "device": {
-          "title": "Geräteverifizierung",
-          "description": "Verifizierungsstatus des Geräts prüfen",
-          "buttonText": "Status prüfen"
-        },
         "document": {
           "title": "Dokumentenverifizierung",
           "description": "Verifizierungsstatus des Dokuments prüfen",

@@ -422,11 +422,6 @@
     "verification": {
       "title": "Status Pengesahan",
       "levels": {
-        "device": {
-          "title": "Pengesahan Peranti",
-          "description": "Semak status pengesahan peranti",
-          "buttonText": "Semak Status"
-        },
         "document": {
           "title": "Pengesahan Dokumen",
           "description": "Semak status pengesahan dokumen",
