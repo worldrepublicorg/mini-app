@@ -26,6 +26,10 @@ export default function GovernPage({
   const dictionary = useTranslations(lang);
   const [activeTab, setActiveTab] = useState<TabKey>(TAB_KEYS.POLLS);
 
+  if (!dictionary) {
+    return null;
+  }
+
   const tabs = [
     {
       key: TAB_KEYS.POLLS,
