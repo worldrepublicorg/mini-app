@@ -1978,27 +1978,55 @@ export default function EarnPage({
 
             <div className="relative w-full">
               <Button
-                onClick={() => {
-                  if (username) {
-                    navigator.clipboard.writeText(
-                      `https://worldcoin.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=%2F%3Fcode%3D${username}`
-                    );
-                    showToast(
-                      dictionary?.pages?.earn?.tabs?.invite?.actions?.copied,
-                      "success"
-                    );
-                  } else {
+                onClick={async () => {
+                  if (!username) {
                     showToast(
                       dictionary?.pages?.earn?.tabs?.invite?.actions
                         ?.connectWallet,
                       "error"
                     );
                     loadCurrentUsernameCallback();
+                    return;
+                  }
+
+                  const shareUrl = `https://worldcoin.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=%2F%3Fcode%3D${username}`;
+
+                  // Check if Web Share API is supported
+                  if (navigator.share) {
+                    try {
+                      await navigator.share({
+                        title:
+                          dictionary?.pages?.earn?.tabs?.invite?.share?.title,
+                        text: dictionary?.pages?.earn?.tabs?.invite?.share
+                          ?.text,
+                        url: shareUrl,
+                      });
+                    } catch (error) {
+                      // User cancelled or share failed - fallback to clipboard
+                      if (
+                        error instanceof Error &&
+                        error.name !== "AbortError"
+                      ) {
+                        await navigator.clipboard.writeText(shareUrl);
+                        showToast(
+                          dictionary?.pages?.earn?.tabs?.invite?.actions
+                            ?.copied,
+                          "success"
+                        );
+                      }
+                    }
+                  } else {
+                    // Fallback for browsers that don't support Web Share API
+                    await navigator.clipboard.writeText(shareUrl);
+                    showToast(
+                      dictionary?.pages?.earn?.tabs?.invite?.actions?.copied,
+                      "success"
+                    );
                   }
                 }}
                 fullWidth
               >
-                {dictionary?.pages?.earn?.tabs?.invite?.actions?.copyLink}
+                {dictionary?.pages?.earn?.tabs?.invite?.actions?.share}
               </Button>
             </div>
 
