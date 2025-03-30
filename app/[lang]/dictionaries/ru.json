@@ -62,12 +62,6 @@
     "earn": {
       "title": "Заработок",
       "tabs": {
-        "tabNames": {
-          "basicIncome": "Базовый доход",
-          "savings": "Сбережения",
-          "contribute": "Участвовать",
-          "invite": "Пригласить"
-        },
         "basicIncome": {
           "tabTitle": "Базовый доход",
           "title": "Базовый доход",

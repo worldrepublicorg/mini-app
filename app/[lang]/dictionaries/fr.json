@@ -62,12 +62,6 @@
     "earn": {
       "title": "Gagner",
       "tabs": {
-        "tabNames": {
-          "basicIncome": "Revenu de base",
-          "savings": "Épargne",
-          "contribute": "Contribuer",
-          "invite": "Inviter"
-        },
         "basicIncome": {
           "tabTitle": "Revenu de base",
           "title": "Revenu de Base",

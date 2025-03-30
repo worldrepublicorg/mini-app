@@ -62,12 +62,6 @@
     "earn": {
       "title": "収益",
       "tabs": {
-        "tabNames": {
-          "basicIncome": "ベーシックインカム",
-          "savings": "貯金",
-          "contribute": "貢献",
-          "invite": "招待"
-        },
         "basicIncome": {
           "tabTitle": "ベーシックインカム",
           "title": "ベーシックインカム",

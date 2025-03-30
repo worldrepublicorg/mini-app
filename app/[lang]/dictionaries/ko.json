@@ -62,12 +62,6 @@
     "earn": {
       "title": "수입",
       "tabs": {
-        "tabNames": {
-          "basicIncome": "기본소득",
-          "savings": "저축",
-          "contribute": "기여",
-          "invite": "초대"
-        },
         "basicIncome": {
           "tabTitle": "기본소득",
           "title": "기본소득",

@@ -62,12 +62,6 @@
     "earn": {
       "title": "Ganhar",
       "tabs": {
-        "tabNames": {
-          "basicIncome": "Renda básica",
-          "savings": "Poupança",
-          "contribute": "Contribuir",
-          "invite": "Convidar"
-        },
         "basicIncome": {
           "tabTitle": "Renda básica",
           "title": "Renda Básica",

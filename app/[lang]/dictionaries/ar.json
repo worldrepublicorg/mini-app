@@ -62,12 +62,6 @@
     "earn": {
       "title": "اكسب",
       "tabs": {
-        "tabNames": {
-          "basicIncome": "الدخل الأساسي",
-          "savings": "المدخرات",
-          "contribute": "ساهم",
-          "invite": "دعوة"
-        },
         "basicIncome": {
           "tabTitle": "الدخل الأساسي",
           "title": "الدخل الأساسي",

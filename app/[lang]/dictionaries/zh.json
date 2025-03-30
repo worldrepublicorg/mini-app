@@ -62,12 +62,6 @@
     "earn": {
       "title": "赚取",
       "tabs": {
-        "tabNames": {
-          "basicIncome": "基本收入",
-          "savings": "储蓄",
-          "contribute": "贡献",
-          "invite": "邀请"
-        },
         "basicIncome": {
           "tabTitle": "基本收入",
           "title": "基本收入",

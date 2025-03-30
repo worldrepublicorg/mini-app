@@ -62,12 +62,6 @@
     "earn": {
       "title": "कमाएं",
       "tabs": {
-        "tabNames": {
-          "basicIncome": "बेसिक इनकम",
-          "savings": "बचत",
-          "contribute": "योगदान",
-          "invite": "आमंत्रित करें"
-        },
         "basicIncome": {
           "tabTitle": "बेसिक इनकम",
           "title": "बेसिक इनकम",

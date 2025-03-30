@@ -62,12 +62,6 @@
     "earn": {
       "title": "আয়",
       "tabs": {
-        "tabNames": {
-          "basicIncome": "মৌলিক আয়",
-          "savings": "সঞ্চয়",
-          "contribute": "অবদান রাখুন",
-          "invite": "আমন্ত্রণ"
-        },
         "basicIncome": {
           "tabTitle": "মৌলিক আয়",
           "title": "মৌলিক আয়",

@@ -62,12 +62,6 @@
     "earn": {
       "title": "Kumita",
       "tabs": {
-        "tabNames": {
-          "basicIncome": "Basic Income",
-          "savings": "Ipon",
-          "contribute": "Tumulong",
-          "invite": "Mag-anyaya"
-        },
         "basicIncome": {
           "tabTitle": "Basic Income",
           "title": "Basic Income",
@@ -106,6 +100,108 @@
           "title": "Savings Account",
           "subtitle": "Kumita ng interes bawat segundo",
           "tooltip": "69% APY base rate. Kunin at i-reinvest ang interes para makamit ang halos 100% effective returns taun-taon. Mag-withdraw kahit kailan."
+        },
+        "contribute": {
+          "title": "Mag-ambag",
+          "subtitle": "Makiisa, kumuha ng gantimpala",
+          "contests": {
+            "weekly": "Weekly",
+            "topPrize": "Pinakamataas na premyo",
+            "xPost": {
+              "title": "X Post Contest",
+              "description": "Sumulat ng mga nakakaengganyong post, manalo ng premyo"
+            },
+            "poll": {
+              "title": "Poll Contest",
+              "description": "Magtipon ng feedback ng komunidad at kumita"
+            },
+            "pollContest": {
+              "title": "Poll Contest",
+              "weeklyTitle": "Weekly Poll Contest",
+              "description": "Magtipon ng feedback ng komunidad at kumita",
+              "prizes": {
+                "title": "Mga Premyo",
+                "viewWinners": "Tingnan ang mga nakaraang nanalo",
+                "wdd": "WDD"
+              },
+              "howTo": {
+                "title": "Paano ito gumagana",
+                "steps": {
+                  "step1": {
+                    "number": "1",
+                    "text": "Gumawa ng poll na may kaugnayan sa World Republic o global governance sa pangkalahatan"
+                  },
+                  "step2": {
+                    "number": "2",
+                    "text": "I-setup ito para sa mga verified na tao lang ang makakaboto"
+                  },
+                  "step3": {
+                    "number": "3",
+                    "text": "Ibahagi ang iyong poll sa aming",
+                    "link": {
+                      "text": "Poll Contest Telegram channel",
+                      "url": "https://t.me/worldrepubliccommunity/32368"
+                    }
+                  }
+                }
+              },
+              "rules": {
+                "title": "Mga patakaran ng paligsahan",
+                "list": {
+                  "rule1": "Mga poll na sinimulan sa kasalukuyang linggo lang ang eligible",
+                  "rule2": "Ang mga nanalo ay pinipili batay sa kabuuang boto",
+                  "rule3": "Nagtatapos ang paligsahan tuwing Linggo sa 11:59 PM UTC"
+                }
+              },
+              "cta": {
+                "create": "Gumawa ng Iyong Poll",
+                "submit": "I-submit ang Iyong Poll"
+              },
+              "winners": {
+                "title": "Mga Nanalo sa Paligsahan",
+                "weekOf": "Linggo ng",
+                "votes": "mga boto"
+              }
+            }
+          },
+          "earlyAccess": {
+            "title": "Early Access Program",
+            "description": "Kumita ng WDD sa pamamagitan ng pagte-test ng aming mga darating na feature"
+          },
+          "xContest": {
+            "title": "X Post Contest",
+            "weeklyTitle": "Weekly X Post Contest",
+            "description": "Sumulat ng mga nakakaengganyong post, manalo ng premyo",
+            "prizes": {
+              "title": "Mga Premyo",
+              "viewWinners": "Tingnan ang mga nakaraang nanalo",
+              "wdd": "WDD"
+            },
+            "howTo": {
+              "title": "Paano sumali",
+              "step1": "Sumulat ng X post tungkol sa World Republic",
+              "step2": "I-tag si @WorldRepublicEN",
+              "step3": {
+                "prefix": "Ibahagi ang link ng iyong post sa aming",
+                "link": "X Post Contest Telegram channel"
+              }
+            },
+            "rules": {
+              "title": "Mga patakaran ng paligsahan",
+              "rule1": "Mga post na na-publish sa kasalukuyang linggo lang ang eligible",
+              "rule2": "Ang mga nanalo ay pinipili batay sa kabuuang engagement (likes + reposts + comments)",
+              "rule3": "Nagtatapos ang paligsahan tuwing Linggo sa 11:59 PM UTC"
+            },
+            "cta": {
+              "post": "Simulan ang Pagpo-post Ngayon",
+              "submit": "I-submit ang Iyong Post"
+            },
+            "winners": {
+              "title": "Mga Nanalo sa Paligsahan",
+              "weekOf": "Linggo ng",
+              "engagements": "mga engagement"
+            }
+          }
         },
         "invite": {
           "title": "Mag-imbita",
@@ -345,108 +441,6 @@
           "title": "Orb Verification",
           "description": "Pinakamataas na seguridad gamit ang Orb biometric verification.",
           "buttonText": "I-test ang Orb Verification"
-        }
-      }
-    },
-    "contribute": {
-      "title": "Mag-ambag",
-      "subtitle": "Makiisa, kumuha ng gantimpala",
-      "contests": {
-        "weekly": "Weekly",
-        "topPrize": "Pinakamataas na premyo",
-        "xPost": {
-          "title": "X Post Contest",
-          "description": "Sumulat ng mga nakakaengganyong post, manalo ng premyo"
-        },
-        "poll": {
-          "title": "Poll Contest",
-          "description": "Magtipon ng feedback ng komunidad at kumita"
-        },
-        "pollContest": {
-          "title": "Poll Contest",
-          "weeklyTitle": "Weekly Poll Contest",
-          "description": "Magtipon ng feedback ng komunidad at kumita",
-          "prizes": {
-            "title": "Mga Premyo",
-            "viewWinners": "Tingnan ang mga nakaraang nanalo",
-            "wdd": "WDD"
-          },
-          "howTo": {
-            "title": "Paano ito gumagana",
-            "steps": {
-              "step1": {
-                "number": "1",
-                "text": "Gumawa ng poll na may kaugnayan sa World Republic o global governance sa pangkalahatan"
-              },
-              "step2": {
-                "number": "2",
-                "text": "I-setup ito para sa mga verified na tao lang ang makakaboto"
-              },
-              "step3": {
-                "number": "3",
-                "text": "Ibahagi ang iyong poll sa aming",
-                "link": {
-                  "text": "Poll Contest Telegram channel",
-                  "url": "https://t.me/worldrepubliccommunity/32368"
-                }
-              }
-            }
-          },
-          "rules": {
-            "title": "Mga patakaran ng paligsahan",
-            "list": {
-              "rule1": "Mga poll na sinimulan sa kasalukuyang linggo lang ang eligible",
-              "rule2": "Ang mga nanalo ay pinipili batay sa kabuuang boto",
-              "rule3": "Nagtatapos ang paligsahan tuwing Linggo sa 11:59 PM UTC"
-            }
-          },
-          "cta": {
-            "create": "Gumawa ng Iyong Poll",
-            "submit": "I-submit ang Iyong Poll"
-          },
-          "winners": {
-            "title": "Mga Nanalo sa Paligsahan",
-            "weekOf": "Linggo ng",
-            "votes": "mga boto"
-          }
-        }
-      },
-      "earlyAccess": {
-        "title": "Early Access Program",
-        "description": "Kumita ng WDD sa pamamagitan ng pagte-test ng aming mga darating na feature"
-      },
-      "xContest": {
-        "title": "X Post Contest",
-        "weeklyTitle": "Weekly X Post Contest",
-        "description": "Sumulat ng mga nakakaengganyong post, manalo ng premyo",
-        "prizes": {
-          "title": "Mga Premyo",
-          "viewWinners": "Tingnan ang mga nakaraang nanalo",
-          "wdd": "WDD"
-        },
-        "howTo": {
-          "title": "Paano sumali",
-          "step1": "Sumulat ng X post tungkol sa World Republic",
-          "step2": "I-tag si @WorldRepublicEN",
-          "step3": {
-            "prefix": "Ibahagi ang link ng iyong post sa aming",
-            "link": "X Post Contest Telegram channel"
-          }
-        },
-        "rules": {
-          "title": "Mga patakaran ng paligsahan",
-          "rule1": "Mga post na na-publish sa kasalukuyang linggo lang ang eligible",
-          "rule2": "Ang mga nanalo ay pinipili batay sa kabuuang engagement (likes + reposts + comments)",
-          "rule3": "Nagtatapos ang paligsahan tuwing Linggo sa 11:59 PM UTC"
-        },
-        "cta": {
-          "post": "Simulan ang Pagpo-post Ngayon",
-          "submit": "I-submit ang Iyong Post"
-        },
-        "winners": {
-          "title": "Mga Nanalo sa Paligsahan",
-          "weekOf": "Linggo ng",
-          "engagements": "mga engagement"
         }
       }
     }

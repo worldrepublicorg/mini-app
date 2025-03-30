@@ -62,12 +62,6 @@
     "earn": {
       "title": "Zarada",
       "tabs": {
-        "tabNames": {
-          "basicIncome": "Temeljni dohodak",
-          "savings": "Štednja",
-          "contribute": "Doprinesi",
-          "invite": "Pozovi"
-        },
         "basicIncome": {
           "tabTitle": "Temeljni dohodak",
           "title": "Temeljni dohodak",

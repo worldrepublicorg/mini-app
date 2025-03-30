@@ -62,12 +62,6 @@
     "earn": {
       "title": "Perolehan",
       "tabs": {
-        "tabNames": {
-          "basicIncome": "Pendapatan Asas",
-          "savings": "Simpanan",
-          "contribute": "Sumbangan",
-          "invite": "Jemputan"
-        },
         "basicIncome": {
           "tabTitle": "Pendapatan Asas",
           "title": "Pendapatan Asas",

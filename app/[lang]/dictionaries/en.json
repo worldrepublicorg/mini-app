@@ -62,12 +62,6 @@
     "earn": {
       "title": "Earn",
       "tabs": {
-        "tabNames": {
-          "basicIncome": "Basic income",
-          "savings": "Savings",
-          "contribute": "Contribute",
-          "invite": "Invite"
-        },
         "basicIncome": {
           "tabTitle": "Basic income",
           "title": "Basic Income",
