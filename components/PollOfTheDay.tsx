@@ -51,10 +51,6 @@ export function PollOfTheDay({ lang }: PollOfTheDayProps) {
 
   const [pollIndex, setPollIndex] = useState(getPollIndex());
 
-  if (!dictionary) {
-    return null;
-  }
-
   useEffect(() => {
     const now = new Date();
     const tomorrow = new Date(
@@ -72,6 +68,10 @@ export function PollOfTheDay({ lang }: PollOfTheDayProps) {
 
     return () => clearTimeout(timer);
   }, []);
+
+  if (!dictionary) {
+    return null;
+  }
 
   const currentPoll = polls[pollIndex];
 
