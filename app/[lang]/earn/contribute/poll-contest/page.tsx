@@ -25,8 +25,10 @@ export default function PollContestPage({
             <BiChevronLeft className="size-6 text-gray-500" />
           </Link>
           <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
-            {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
-              ?.title}
+            {
+              dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
+                ?.title
+            }
           </Typography>
         </div>
       </div>
@@ -41,15 +43,19 @@ export default function PollContestPage({
             variant={{ variant: "subtitle", level: 1 }}
             className="mx-auto mb-2 text-center text-gray-900"
           >
-            {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
-              ?.weeklyTitle}
+            {
+              dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
+                ?.weeklyTitle
+            }
           </Typography>
           <Typography
             variant={{ variant: "body", level: 2 }}
             className="text-center text-gray-500"
           >
-            {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
-              ?.description}
+            {
+              dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
+                ?.description
+            }
           </Typography>
         </div>
 
@@ -60,8 +66,10 @@ export default function PollContestPage({
               variant={{ variant: "subtitle", level: 2 }}
               className="text-gray-900"
             >
-              {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
-                ?.prizes?.title}
+              {
+                dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
+                  ?.prizes?.title
+              }
             </Typography>
             <Link
               href={`/${lang}/earn/contribute/poll-contest/winners`}
@@ -72,8 +80,10 @@ export default function PollContestPage({
                 size="sm"
                 className="text-primary-600 h-[19px] px-0"
               >
-                {dictionary?.pages?.earn?.tabs?.contribute?.contests
-                  ?.pollContest?.prizes?.viewWinners}
+                {
+                  dictionary?.pages?.earn?.tabs?.contribute?.contests
+                    ?.pollContest?.prizes?.viewWinners
+                }
               </Button>
             </Link>
           </div>
@@ -138,8 +148,10 @@ export default function PollContestPage({
             variant={{ variant: "subtitle", level: 2 }}
             className="mb-4 text-gray-900"
           >
-            {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
-              ?.howTo?.title}
+            {
+              dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
+                ?.howTo?.title
+            }
           </Typography>
           <div className="space-y-4">
             <div className="flex gap-3">
@@ -150,8 +162,10 @@ export default function PollContestPage({
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                {dictionary?.pages?.earn?.tabs?.contribute?.contests
-                  ?.pollContest?.howTo?.steps?.step1?.text}
+                {
+                  dictionary?.pages?.earn?.tabs?.contribute?.contests
+                    ?.pollContest?.howTo?.steps?.step1?.text
+                }
               </Typography>
             </div>
             <div className="flex gap-3">
@@ -162,8 +176,10 @@ export default function PollContestPage({
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                {dictionary?.pages?.earn?.tabs?.contribute?.contests
-                  ?.pollContest?.howTo?.steps?.step2?.text}
+                {
+                  dictionary?.pages?.earn?.tabs?.contribute?.contests
+                    ?.pollContest?.howTo?.steps?.step2?.text
+                }
               </Typography>
             </div>
             <div className="flex gap-3">
@@ -174,16 +190,20 @@ export default function PollContestPage({
                 variant={{ variant: "body", level: 2 }}
                 className="text-gray-600"
               >
-                {dictionary?.pages?.earn?.tabs?.contribute?.contests
-                  ?.pollContest?.howTo?.steps?.step3?.text}
+                {
+                  dictionary?.pages?.earn?.tabs?.contribute?.contests
+                    ?.pollContest?.howTo?.steps?.step3?.text
+                }{" "}
                 <a
                   href={"https://t.me/worldrepubliccommunity/32368"}
                   className="underline"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {dictionary?.pages?.earn?.tabs?.contribute?.contests
-                    ?.pollContest?.howTo?.steps?.step3?.link?.text}
+                  {
+                    dictionary?.pages?.earn?.tabs?.contribute?.contests
+                      ?.pollContest?.howTo?.steps?.step3?.link?.text
+                  }
                 </a>
               </Typography>
             </div>
@@ -196,26 +216,34 @@ export default function PollContestPage({
             variant={{ variant: "subtitle", level: 2 }}
             className="mb-4 text-gray-900"
           >
-            {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
-              ?.rules?.title}
+            {
+              dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
+                ?.rules?.title
+            }
           </Typography>
           <ul className="text-gray-600 list-disc space-y-2 pl-5">
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                {dictionary?.pages?.earn?.tabs?.contribute?.contests
-                  ?.pollContest?.rules?.list?.rule1}
+                {
+                  dictionary?.pages?.earn?.tabs?.contribute?.contests
+                    ?.pollContest?.rules?.list?.rule1
+                }
               </Typography>
             </li>
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                {dictionary?.pages?.earn?.tabs?.contribute?.contests
-                  ?.pollContest?.rules?.list?.rule2}
+                {
+                  dictionary?.pages?.earn?.tabs?.contribute?.contests
+                    ?.pollContest?.rules?.list?.rule2
+                }
               </Typography>
             </li>
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
-                {dictionary?.pages?.earn?.tabs?.contribute?.contests
-                  ?.pollContest?.rules?.list?.rule3}
+                {
+                  dictionary?.pages?.earn?.tabs?.contribute?.contests
+                    ?.pollContest?.rules?.list?.rule3
+                }
               </Typography>
             </li>
           </ul>
@@ -225,8 +253,10 @@ export default function PollContestPage({
         <div className="mt-auto space-y-3">
           <a href="https://vote.one" target="_blank" rel="noopener noreferrer">
             <Button fullWidth>
-              {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
-                ?.cta?.create}
+              {
+                dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
+                  ?.cta?.create
+              }
             </Button>
           </a>
           <a
@@ -235,8 +265,10 @@ export default function PollContestPage({
             rel="noopener noreferrer"
           >
             <Button variant="secondary" fullWidth className="mt-4">
-              {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
-                ?.cta?.submit}
+              {
+                dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
+                  ?.cta?.submit
+              }
             </Button>
           </a>
         </div>
