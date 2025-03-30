@@ -116,7 +116,7 @@
         "invite": {
           "title": "Invitar",
           "subtitle": "Obtén 50 WDD por cada amigo que se una",
-          "tooltip": "Ganarás recompensas cuando tus amigos activen su Renta Básica Plus.",
+          "tooltip": "Las recompensas requieren que los amigos estén verificados con Orb.",
           "learnMore": "Más información",
           "stats": {
             "title": "Tus Estadísticas de Referidos",

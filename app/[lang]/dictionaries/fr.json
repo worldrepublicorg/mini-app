@@ -104,7 +104,7 @@
         "invite": {
           "title": "Inviter",
           "subtitle": "Recevez 50 WDD par ami qui rejoint",
-          "tooltip": "Vous gagnerez des récompenses lorsque vos amis activeront leur Revenu de Base Plus.",
+          "tooltip": "Les récompenses nécessitent que les amis soient vérifiés par Orb.",
           "learnMore": "En savoir plus",
           "stats": {
             "title": "Vos Statistiques de Parrainage",

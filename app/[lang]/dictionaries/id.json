@@ -104,7 +104,7 @@
         "invite": {
           "title": "Undang",
           "subtitle": "Dapatkan 50 WDD untuk setiap teman yang bergabung",
-          "tooltip": "Anda akan mendapatkan hadiah ketika teman mengaktifkan Pendapatan Dasar Plus mereka.",
+          "tooltip": "Hadiah memerlukan teman diverifikasi oleh Orb.",
           "learnMore": "Pelajari lebih lanjut",
           "stats": {
             "title": "Statistik Referral Anda",

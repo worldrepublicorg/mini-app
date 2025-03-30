@@ -104,7 +104,7 @@
         "invite": {
           "title": "Zaproś",
           "subtitle": "Otrzymaj 50 WDD za każdego zaproszonego znajomego",
-          "tooltip": "Otrzymasz nagrody, gdy znajomi aktywują swój Dochód Podstawowy Plus.",
+          "tooltip": "Nagrody wymagają weryfikacji Orb od znajomych.",
           "learnMore": "Dowiedz się więcej",
           "stats": {
             "title": "Twoje Statystyki Polecania",

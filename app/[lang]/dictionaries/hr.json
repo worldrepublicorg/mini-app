@@ -104,7 +104,7 @@
         "invite": {
           "title": "Pozovi",
           "subtitle": "Dobij 50 WDD po prijatelju koji se pridruži",
-          "tooltip": "Zaradit ćete nagrade kada prijatelji aktiviraju svoj Temeljni dohodak Plus.",
+          "tooltip": "Nagrade zahtijevaju Orb provjeru prijatelja.",
           "learnMore": "Saznaj više",
           "stats": {
             "title": "Vaše statistike preporuka",

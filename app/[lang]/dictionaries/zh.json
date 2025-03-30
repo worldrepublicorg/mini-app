@@ -104,7 +104,7 @@
         "invite": {
           "title": "邀请",
           "subtitle": "每邀请一位朋友加入获得50 WDD",
-          "tooltip": "当朋友激活基本收入增强版时，您将获得奖励。",
+          "tooltip": "奖励需要朋友完成 Orb 验证。",
           "learnMore": "了解更多",
           "stats": {
             "title": "您的推荐统计",

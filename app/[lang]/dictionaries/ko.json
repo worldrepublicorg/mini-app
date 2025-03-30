@@ -104,7 +104,7 @@
         "invite": {
           "title": "초대",
           "subtitle": "친구 한 명당 50 WDD 획득",
-          "tooltip": "친구가 베이직 인컴 플러스를 활성화하면 리워드를 받을 수 있습니다.",
+          "tooltip": "보상은 친구들의 Orb 인증이 필요합니다.",
           "learnMore": "자세히 알아보기",
           "stats": {
             "title": "나의 추천 현황",

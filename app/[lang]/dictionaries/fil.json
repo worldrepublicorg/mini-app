@@ -206,7 +206,7 @@
         "invite": {
           "title": "Mag-imbita",
           "subtitle": "Kumuha ng 50 WDD para sa bawat kaibigang sumali",
-          "tooltip": "Kukuha ka ng gantimpala kapag na-activate ng mga kaibigan ang kanilang Basic Income Plus.",
+          "tooltip": "Ang mga gantimpala ay nangangailangan ng Orb verification ng mga kaibigan.",
           "learnMore": "Alamin pa",
           "stats": {
             "title": "Mga Stats ng Iyong Referral",
