@@ -1023,6 +1023,10 @@ export default function EarnPage({
     message: string;
   } | null>(null);
 
+  const buttonText = navigator.canShare()
+    ? dictionary?.pages?.earn?.tabs?.invite?.actions?.share
+    : dictionary?.pages?.earn?.tabs?.invite?.actions?.copyLink;
+
   // First, wrap loadCurrentUsername with useCallback to prevent infinite loop
   const loadCurrentUsernameCallback = useCallback(async () => {
     if (!MiniKit.isInstalled() || !walletAddress) return;
@@ -2026,9 +2030,7 @@ export default function EarnPage({
                 }}
                 fullWidth
               >
-                {navigator.canShare()
-                  ? dictionary?.pages?.earn?.tabs?.invite?.actions?.share
-                  : dictionary?.pages?.earn?.tabs?.invite?.actions?.copyLink}
+                {buttonText}
               </Button>
             </div>
 
