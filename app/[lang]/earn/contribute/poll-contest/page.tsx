@@ -26,7 +26,7 @@ export default function PollContestPage({
           </Link>
           <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
             {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
-              ?.title ?? "Poll Contest"}
+              ?.title}
           </Typography>
         </div>
       </div>
@@ -42,14 +42,14 @@ export default function PollContestPage({
             className="mx-auto mb-2 text-center text-gray-900"
           >
             {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
-              ?.weeklyTitle ?? "Weekly Poll Contest"}
+              ?.weeklyTitle}
           </Typography>
           <Typography
             variant={{ variant: "body", level: 2 }}
             className="text-center text-gray-500"
           >
             {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
-              ?.description ?? "Gather community feedback and earn"}
+              ?.description}
           </Typography>
         </div>
 
@@ -61,7 +61,7 @@ export default function PollContestPage({
               className="text-gray-900"
             >
               {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
-                ?.prizes?.title ?? "Prizes"}
+                ?.prizes?.title}
             </Typography>
             <Link
               href={`/${lang}/earn/contribute/poll-contest/winners`}
@@ -73,7 +73,7 @@ export default function PollContestPage({
                 className="text-primary-600 h-[19px] px-0"
               >
                 {dictionary?.pages?.earn?.tabs?.contribute?.contests
-                  ?.pollContest?.prizes?.viewWinners ?? "View past winners"}
+                  ?.pollContest?.prizes?.viewWinners}
               </Button>
             </Link>
           </div>
@@ -139,7 +139,7 @@ export default function PollContestPage({
             className="mb-4 text-gray-900"
           >
             {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
-              ?.howTo?.title ?? "How it works"}
+              ?.howTo?.title}
           </Typography>
           <div className="space-y-4">
             <div className="flex gap-3">
@@ -151,8 +151,7 @@ export default function PollContestPage({
                 className="text-gray-600"
               >
                 {dictionary?.pages?.earn?.tabs?.contribute?.contests
-                  ?.pollContest?.howTo?.steps?.step1?.text ??
-                  "Create a poll related to the World Republic or global governance in general"}
+                  ?.pollContest?.howTo?.steps?.step1?.text}
               </Typography>
             </div>
             <div className="flex gap-3">
@@ -164,8 +163,7 @@ export default function PollContestPage({
                 className="text-gray-600"
               >
                 {dictionary?.pages?.earn?.tabs?.contribute?.contests
-                  ?.pollContest?.howTo?.steps?.step2?.text ??
-                  "Set it up so only verified humans can vote"}
+                  ?.pollContest?.howTo?.steps?.step2?.text}
               </Typography>
             </div>
             <div className="flex gap-3">
@@ -177,8 +175,7 @@ export default function PollContestPage({
                 className="text-gray-600"
               >
                 {dictionary?.pages?.earn?.tabs?.contribute?.contests
-                  ?.pollContest?.howTo?.steps?.step3?.text ??
-                  "Share your poll in our"}
+                  ?.pollContest?.howTo?.steps?.step3?.text}
                 <a
                   href={"https://t.me/worldrepubliccommunity/32368"}
                   className="underline"
@@ -186,8 +183,7 @@ export default function PollContestPage({
                   rel="noopener noreferrer"
                 >
                   {dictionary?.pages?.earn?.tabs?.contribute?.contests
-                    ?.pollContest?.howTo?.steps?.step3?.link?.text ??
-                    "Poll Contest Telegram channel"}
+                    ?.pollContest?.howTo?.steps?.step3?.link?.text}
                 </a>
               </Typography>
             </div>
@@ -201,28 +197,25 @@ export default function PollContestPage({
             className="mb-4 text-gray-900"
           >
             {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
-              ?.rules?.title ?? "Contest rules"}
+              ?.rules?.title}
           </Typography>
           <ul className="text-gray-600 list-disc space-y-2 pl-5">
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
                 {dictionary?.pages?.earn?.tabs?.contribute?.contests
-                  ?.pollContest?.rules?.list?.rule1 ??
-                  "Only polls started in the current week are eligible"}
+                  ?.pollContest?.rules?.list?.rule1}
               </Typography>
             </li>
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
                 {dictionary?.pages?.earn?.tabs?.contribute?.contests
-                  ?.pollContest?.rules?.list?.rule2 ??
-                  "Winners are selected based on total votes"}
+                  ?.pollContest?.rules?.list?.rule2}
               </Typography>
             </li>
             <li>
               <Typography variant={{ variant: "body", level: 2 }}>
                 {dictionary?.pages?.earn?.tabs?.contribute?.contests
-                  ?.pollContest?.rules?.list?.rule3 ??
-                  "Contest ends every Sunday at 11:59 PM UTC"}
+                  ?.pollContest?.rules?.list?.rule3}
               </Typography>
             </li>
           </ul>
@@ -233,7 +226,7 @@ export default function PollContestPage({
           <a href="https://vote.one" target="_blank" rel="noopener noreferrer">
             <Button fullWidth>
               {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
-                ?.cta?.create ?? "Create Your Poll"}
+                ?.cta?.create}
             </Button>
           </a>
           <a
@@ -243,7 +236,7 @@ export default function PollContestPage({
           >
             <Button variant="secondary" fullWidth className="mt-4">
               {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
-                ?.cta?.submit ?? "Submit Your Poll"}
+                ?.cta?.submit}
             </Button>
           </a>
         </div>

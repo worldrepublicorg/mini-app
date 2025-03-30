@@ -29,21 +29,19 @@ export default function GovernPage({
   const tabs = [
     {
       key: TAB_KEYS.POLLS,
-      label: dictionary?.components?.tabSwiper?.tabs?.polls ?? "Polls",
+      label: dictionary?.components?.tabSwiper?.tabs?.polls,
     },
     {
       key: TAB_KEYS.OPEN_LETTERS,
-      label:
-        dictionary?.components?.tabSwiper?.tabs?.openLetters ?? "Open letters",
+      label: dictionary?.components?.tabSwiper?.tabs?.openLetters,
     },
     {
       key: TAB_KEYS.ELECTIONS,
-      label: dictionary?.components?.tabSwiper?.tabs?.elections ?? "Elections",
+      label: dictionary?.components?.tabSwiper?.tabs?.elections,
     },
     {
       key: TAB_KEYS.REFERENDUMS,
-      label:
-        dictionary?.components?.tabSwiper?.tabs?.referendums ?? "Referendums",
+      label: dictionary?.components?.tabSwiper?.tabs?.referendums,
     },
   ];
 
@@ -53,13 +51,9 @@ export default function GovernPage({
         return (
           <>
             <SectionHeader
-              title={
-                dictionary?.pages?.govern?.sections?.polls?.title ??
-                "Poll of the Day"
-              }
+              title={dictionary?.pages?.govern?.sections?.polls?.title}
               description={
-                dictionary?.pages?.govern?.sections?.polls?.description ??
-                "Quick votes on current topics"
+                dictionary?.pages?.govern?.sections?.polls?.description
               }
             />
             <PollOfTheDay lang={lang} />
@@ -69,23 +63,19 @@ export default function GovernPage({
         return (
           <>
             <SectionHeader
-              title={
-                dictionary?.pages?.govern?.sections?.openLetters?.title ||
-                "Open Letters"
-              }
+              title={dictionary?.pages?.govern?.sections?.openLetters?.title}
               description={
-                dictionary?.pages?.govern?.sections?.openLetters?.description ||
-                "Public statements to decision makers"
+                dictionary?.pages?.govern?.sections?.openLetters?.description
               }
             />
             <OpenLetterCard
               title={
                 dictionary?.pages?.govern?.sections?.openLetters?.statements
-                  ?.aiRisk?.title || "Statement on AI Risk"
+                  ?.aiRisk?.title
               }
               referenceTitle={
                 dictionary?.pages?.govern?.sections?.openLetters?.statements
-                  ?.aiRisk?.referenceTitle || "Center for AI Safety"
+                  ?.aiRisk?.referenceTitle
               }
               referenceUrl="https://www.safe.ai/work/statement-on-ai-risk"
               voteUrl="https://vote.one/kJc54AbK"
@@ -93,11 +83,11 @@ export default function GovernPage({
             <OpenLetterCard
               title={
                 dictionary?.pages?.govern?.sections?.openLetters?.statements
-                  ?.nuclear?.title || "UN Ban on Nuclear Weapons Open Letter"
+                  ?.nuclear?.title
               }
               referenceTitle={
                 dictionary?.pages?.govern?.sections?.openLetters?.statements
-                  ?.nuclear?.referenceTitle || "Future of Life Institute"
+                  ?.nuclear?.referenceTitle
               }
               referenceUrl="https://futureoflife.org/open-letter/nuclear-open-letter/"
               voteUrl="https://vote.one/w1MDn0Dt"
@@ -105,13 +95,11 @@ export default function GovernPage({
             <OpenLetterCard
               title={
                 dictionary?.pages?.govern?.sections?.openLetters?.statements
-                  ?.autonomousWeapons?.title ||
-                "Lethal Autonomous Weapons Pledge"
+                  ?.autonomousWeapons?.title
               }
               referenceTitle={
                 dictionary?.pages?.govern?.sections?.openLetters?.statements
-                  ?.autonomousWeapons?.referenceTitle ||
-                "Future of Life Institute"
+                  ?.autonomousWeapons?.referenceTitle
               }
               referenceUrl="https://futureoflife.org/open-letter/lethal-autonomous-weapons-pledge/"
               voteUrl="https://vote.one/eASgdeUE"
@@ -119,21 +107,17 @@ export default function GovernPage({
             <OpenLetterCard
               title={
                 dictionary?.pages?.govern?.sections?.openLetters?.statements
-                  ?.longView?.title ||
-                "Open letter calling on world leaders to show long-view leadership on existential threats"
+                  ?.longView?.title
               }
               referenceTitle={
                 dictionary?.pages?.govern?.sections?.openLetters?.statements
-                  ?.longView?.referenceTitle || "Future of Life Institute"
+                  ?.longView?.referenceTitle
               }
               referenceUrl="https://futureoflife.org/open-letter/long-view-leadership-on-existential-threats/"
               voteUrl="https://vote.one/NtprLPWh"
             />
             <DrawerItem
-              title={
-                dictionary?.pages?.govern?.sections?.openLetters?.addNew ||
-                "Add your open letter"
-              }
+              title={dictionary?.pages?.govern?.sections?.openLetters?.addNew}
               isAddNew
               lang={lang}
             />
@@ -143,19 +127,15 @@ export default function GovernPage({
         return (
           <>
             <SectionHeader
-              title={
-                dictionary?.pages?.govern?.sections?.elections?.title ||
-                "Elections"
-              }
+              title={dictionary?.pages?.govern?.sections?.elections?.title}
               description={
-                dictionary?.pages?.govern?.sections?.elections?.description ||
-                "Choose your representatives"
+                dictionary?.pages?.govern?.sections?.elections?.description
               }
             />
             <DrawerItem
               title={
                 dictionary?.pages?.govern?.sections?.elections?.worldConstituent
-                  ?.title || "World Constituent Assembly Election"
+                  ?.title
               }
               lang={lang}
             />
@@ -165,20 +145,15 @@ export default function GovernPage({
         return (
           <>
             <SectionHeader
-              title={
-                dictionary?.pages?.govern?.sections?.referendums?.title ||
-                "Referendums"
-              }
+              title={dictionary?.pages?.govern?.sections?.referendums?.title}
               description={
-                dictionary?.pages?.govern?.sections?.referendums?.description ||
-                "Direct votes on important issues"
+                dictionary?.pages?.govern?.sections?.referendums?.description
               }
             />
             <DrawerItem
               title={
                 dictionary?.pages?.govern?.sections?.referendums
-                  ?.worldConstitutional?.title ||
-                "World Constitutional Referendum"
+                  ?.worldConstitutional?.title
               }
               lang={lang}
             />
@@ -197,7 +172,7 @@ export default function GovernPage({
           variant={{ variant: "heading", level: 2 }}
           className="h-9 items-center"
         >
-          {dictionary?.pages?.govern?.title ?? "Govern"}
+          {dictionary?.pages?.govern?.title}
         </Typography>
 
         <TabSwiper<TabKey>

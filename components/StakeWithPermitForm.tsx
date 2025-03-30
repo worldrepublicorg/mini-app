@@ -62,8 +62,7 @@ export function StakeWithPermitForm({
   const handleStake = async () => {
     if (!MiniKit.isInstalled()) {
       showToast(
-        dictionary?.components?.toasts?.wallet?.connectInWorldApp ??
-          "Please open this app in the World App to connect your wallet.",
+        dictionary?.components?.toasts?.wallet?.connectInWorldApp,
         "error"
       );
       return;
@@ -136,8 +135,7 @@ export function StakeWithPermitForm({
         if (finalPayload.error_code !== "user_rejected") {
           const errorMessage =
             (finalPayload as any).description ||
-            (dictionary?.components?.toasts?.wallet?.stakingError ??
-              "Error staking tokens");
+            dictionary?.components?.toasts?.wallet?.stakingError;
           showToast(errorMessage, "error");
         }
         setIsSubmitting(false);
@@ -157,8 +155,7 @@ export function StakeWithPermitForm({
   const handleWithdraw = async () => {
     if (!MiniKit.isInstalled()) {
       showToast(
-        dictionary?.components?.toasts?.wallet?.connectInWorldApp ??
-          "Please open this app in the World App to connect your wallet.",
+        dictionary?.components?.toasts?.wallet?.connectInWorldApp,
         "error"
       );
       return;
@@ -201,8 +198,7 @@ export function StakeWithPermitForm({
         if (finalPayload.error_code !== "user_rejected") {
           const errorMessage =
             (finalPayload as any).description ||
-            (dictionary?.components?.toasts?.wallet?.withdrawError ??
-              "Error withdrawing tokens");
+            dictionary?.components?.toasts?.wallet?.withdrawError;
           showToast(errorMessage, "error");
         }
         setIsSubmitting(false);
@@ -222,8 +218,7 @@ export function StakeWithPermitForm({
   const handleCollect = async () => {
     if (!MiniKit.isInstalled()) {
       showToast(
-        dictionary?.components?.toasts?.wallet?.connectInWorldApp ??
-          "Please open this app in the World App to connect your wallet.",
+        dictionary?.components?.toasts?.wallet?.connectInWorldApp,
         "error"
       );
       return;
@@ -249,8 +244,7 @@ export function StakeWithPermitForm({
         if (finalPayload.error_code !== "user_rejected") {
           const errorMessage =
             (finalPayload as any).description ||
-            (dictionary?.components?.toasts?.wallet?.collectError ??
-              "Error collecting rewards");
+            dictionary?.components?.toasts?.wallet?.collectError;
           showToast(errorMessage, "error");
         }
         setIsCollecting(false);
@@ -366,7 +360,7 @@ export function StakeWithPermitForm({
             selectedAction === "deposit" ? "bg-gray-100" : ""
           }`}
         >
-          {dictionary?.components?.stakeForm?.deposit ?? "Deposit"}
+          {dictionary?.components?.stakeForm?.deposit}
         </button>
         <button
           type="button"
@@ -378,7 +372,7 @@ export function StakeWithPermitForm({
             selectedAction === "withdraw" ? "bg-gray-100" : ""
           }`}
         >
-          {dictionary?.components?.stakeForm?.withdraw ?? "Withdraw"}
+          {dictionary?.components?.stakeForm?.withdraw}
         </button>
       </div>
 
@@ -389,7 +383,7 @@ export function StakeWithPermitForm({
             variant={{ variant: "body", level: 1 }}
             className="mb-4 font-medium text-gray-900"
           >
-            {dictionary?.components?.stakeForm?.balance ?? "Balance:"}
+            {dictionary?.components?.stakeForm?.balance}
           </Typography>
           <Typography
             variant={{ variant: "number", level: 6 }}
@@ -405,10 +399,8 @@ export function StakeWithPermitForm({
             onChange={(e) => setAmount(e.target.value)}
             placeholder={
               selectedAction === "deposit"
-                ? (dictionary?.components?.stakeForm?.depositPlaceholder ??
-                  "Amount to deposit")
-                : (dictionary?.components?.stakeForm?.withdrawPlaceholder ??
-                  "Amount to withdraw")
+                ? dictionary?.components?.stakeForm?.depositPlaceholder
+                : dictionary?.components?.stakeForm?.withdrawPlaceholder
             }
             className="-ml-2 mr-2 h-9 w-full rounded-xl pl-2"
           />
@@ -439,7 +431,7 @@ export function StakeWithPermitForm({
                 : "text-gray-900"
             }`}
           >
-            {dictionary?.components?.stakeForm?.max ?? "Max"}
+            {dictionary?.components?.stakeForm?.max}
           </button>
         </div>
       </div>
@@ -450,7 +442,7 @@ export function StakeWithPermitForm({
           variant={{ variant: "body", level: 1 }}
           className="font-medium text-gray-900"
         >
-          {dictionary?.components?.stakeForm?.interest ?? "Interest:"}
+          {dictionary?.components?.stakeForm?.interest}
         </Typography>
         <div className="flex items-center gap-2">
           <Button
@@ -460,7 +452,7 @@ export function StakeWithPermitForm({
             size="sm"
             className="mr-2 h-9 min-w-20 rounded-full px-4 font-sans"
           >
-            {dictionary?.components?.stakeForm?.collect ?? "Collect"}
+            {dictionary?.components?.stakeForm?.collect}
           </Button>
           <Typography
             variant={{ variant: "number", level: 6 }}
@@ -474,13 +466,11 @@ export function StakeWithPermitForm({
 
       {selectedAction === "deposit" ? (
         <Button onClick={handleStake} isLoading={isSubmitting} fullWidth>
-          {dictionary?.components?.stakeForm?.depositButton ??
-            "Deposit Drachma"}
+          {dictionary?.components?.stakeForm?.depositButton}
         </Button>
       ) : (
         <Button onClick={handleWithdraw} isLoading={isSubmitting} fullWidth>
-          {dictionary?.components?.stakeForm?.withdrawButton ??
-            "Withdraw Drachma"}
+          {dictionary?.components?.stakeForm?.withdrawButton}
         </Button>
       )}
     </div>

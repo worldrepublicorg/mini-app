@@ -79,8 +79,10 @@ export default function PollContestWinnersPage({
             <BiChevronLeft className="size-6 text-gray-500" />
           </Link>
           <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
-            {dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
-              ?.winners?.title ?? "Contest Winners"}
+            {
+              dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
+                ?.winners?.title
+            }
           </Typography>
         </div>
       </div>
@@ -98,8 +100,10 @@ export default function PollContestWinnersPage({
                 variant={{ variant: "subtitle", level: 2 }}
                 className="mb-4 text-gray-900"
               >
-                {dictionary?.pages?.earn?.tabs?.contribute?.contests
-                  ?.pollContest?.winners?.weekOf ?? "Week of"}{" "}
+                {
+                  dictionary?.pages?.earn?.tabs?.contribute?.contests
+                    ?.pollContest?.winners?.weekOf
+                }{" "}
                 {week.weekOf}
               </Typography>
               <div>
@@ -128,8 +132,10 @@ export default function PollContestWinnersPage({
                         className="text-gray-500"
                       >
                         {winner.engagement.toLocaleString()}{" "}
-                        {dictionary?.pages?.earn?.tabs?.contribute?.contests
-                          ?.pollContest?.winners?.votes ?? "votes"}
+                        {
+                          dictionary?.pages?.earn?.tabs?.contribute?.contests
+                            ?.pollContest?.winners?.votes
+                        }
                       </Typography>
                     </div>
                     <FaVoteYea className="h-5 w-5 text-gray-400" />

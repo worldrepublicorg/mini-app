@@ -79,12 +79,11 @@ export function PollOfTheDay({ lang }: PollOfTheDayProps) {
           variant={{ variant: "heading", level: 2 }}
           className="mb-10 text-center"
         >
-          {dictionary?.components?.pollOfTheDay?.polls?.[currentPoll.key] ??
-            currentPoll.key}
+          {dictionary?.components?.pollOfTheDay?.polls?.[currentPoll.key]}
         </Typography>
         <a href={currentPoll.url} target="_blank" rel="noopener noreferrer">
           <Button variant="primary" fullWidth>
-            {dictionary?.components?.pollOfTheDay?.vote ?? "Vote Now"}
+            {dictionary?.components?.pollOfTheDay?.vote}
           </Button>
         </a>
         <Link
@@ -92,8 +91,7 @@ export function PollOfTheDay({ lang }: PollOfTheDayProps) {
           className="mt-2 block h-10 w-full"
         >
           <Button variant="ghost" fullWidth>
-            {dictionary?.components?.pollOfTheDay?.previousPolls ??
-              "Previous Polls"}
+            {dictionary?.components?.pollOfTheDay?.previousPolls}
           </Button>
         </Link>
       </div>

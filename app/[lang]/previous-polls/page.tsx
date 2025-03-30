@@ -98,8 +98,7 @@ export default function PreviousPollsPage({
             <BiChevronLeft className="size-6 text-gray-500" />
           </Link>
           <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
-            {dictionary?.pages?.govern?.sections?.polls?.previous?.title ??
-              "Previous Polls"}
+            {dictionary?.pages?.govern?.sections?.polls?.previous?.title}
           </Typography>
         </div>
       </div>
@@ -113,7 +112,7 @@ export default function PreviousPollsPage({
               description={
                 dictionary?.pages?.govern?.sections?.polls?.previous?.polls?.[
                   key
-                ] ?? key
+                ]
               }
               voteUrl={pollUrls[key as keyof typeof pollUrls]}
             />

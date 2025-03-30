@@ -24,7 +24,7 @@ export default function VerificationPage({
           <BiChevronLeft className="size-6 text-gray-500" />
         </Link>
         <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
-          {dictionary?.pages?.verification?.title ?? "Verification"}
+          {dictionary?.pages?.verification?.title}
         </Typography>
       </div>
 
@@ -35,23 +35,20 @@ export default function VerificationPage({
             variant={{ variant: "subtitle", level: 1 }}
             className="mb-2"
           >
-            {dictionary?.pages?.verification?.levels?.device?.title ??
-              "Device verification"}
+            {dictionary?.pages?.verification?.levels?.device?.title}
           </Typography>
           <Typography
             as="p"
             variant={{ variant: "body", level: 1 }}
             className="mb-4 text-gray-500"
           >
-            {dictionary?.pages?.verification?.levels?.device?.description ??
-              "Verify your device to get started"}
+            {dictionary?.pages?.verification?.levels?.device?.description}
           </Typography>
           <VerifyButton
             lang={lang}
             verificationLevel={VerificationLevel.Device}
             buttonText={
-              dictionary?.pages?.verification?.levels?.device?.buttonText ??
-              "Verify device"
+              dictionary?.pages?.verification?.levels?.device?.buttonText
             }
             actionId="verify-device"
           />
@@ -63,23 +60,20 @@ export default function VerificationPage({
             variant={{ variant: "subtitle", level: 1 }}
             className="mb-2"
           >
-            {dictionary?.pages?.verification?.levels?.document?.title ??
-              "Document verification"}
+            {dictionary?.pages?.verification?.levels?.document?.title}
           </Typography>
           <Typography
             as="p"
             variant={{ variant: "body", level: 1 }}
             className="mb-4 text-gray-500"
           >
-            {dictionary?.pages?.verification?.levels?.document?.description ??
-              "Verify with your ID document"}
+            {dictionary?.pages?.verification?.levels?.document?.description}
           </Typography>
           <VerifyButton
             lang={lang}
             verificationLevel={VerificationLevel.Document}
             buttonText={
-              dictionary?.pages?.verification?.levels?.document?.buttonText ??
-              "Verify with document"
+              dictionary?.pages?.verification?.levels?.document?.buttonText
             }
             actionId="verify-document"
           />
@@ -91,23 +85,24 @@ export default function VerificationPage({
             variant={{ variant: "subtitle", level: 1 }}
             className="mb-2"
           >
-            {dictionary?.pages?.verification?.levels?.secureDocument?.title ??
-              "Secure Document Verification"}
+            {dictionary?.pages?.verification?.levels?.secureDocument?.title}
           </Typography>
           <Typography
             as="p"
             variant={{ variant: "body", level: 1 }}
             className="mb-4 text-gray-500"
           >
-            {dictionary?.pages?.verification?.levels?.secureDocument?.description ??
-              "Verify your secure document"}
+            {
+              dictionary?.pages?.verification?.levels?.secureDocument
+                ?.description
+            }
           </Typography>
           <VerifyButton
             lang={lang}
             verificationLevel={VerificationLevel.SecureDocument}
             buttonText={
               dictionary?.pages?.verification?.levels?.secureDocument
-                ?.buttonText ?? "Verify secure document"
+                ?.buttonText
             }
             actionId="verify-secure-document"
           />
@@ -119,23 +114,20 @@ export default function VerificationPage({
             variant={{ variant: "subtitle", level: 1 }}
             className="mb-2"
           >
-            {dictionary?.pages?.verification?.levels?.orb?.title ??
-              "Orb Verification"}
+            {dictionary?.pages?.verification?.levels?.orb?.title}
           </Typography>
           <Typography
             as="p"
             variant={{ variant: "body", level: 1 }}
             className="mb-4 text-gray-500"
           >
-            {dictionary?.pages?.verification?.levels?.orb?.description ??
-              "Verify your orb"}
+            {dictionary?.pages?.verification?.levels?.orb?.description}
           </Typography>
           <VerifyButton
             lang={lang}
             verificationLevel={VerificationLevel.Orb}
             buttonText={
-              dictionary?.pages?.verification?.levels?.orb?.buttonText ??
-              "Verify orb"
+              dictionary?.pages?.verification?.levels?.orb?.buttonText
             }
             actionId="verify-orb"
           />

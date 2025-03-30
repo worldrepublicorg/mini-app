@@ -79,8 +79,10 @@ export default function XContestWinnersPage({
             <BiChevronLeft className="size-6 text-gray-500" />
           </Link>
           <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
-            {dictionary?.pages?.earn?.tabs?.contribute?.xContest?.winners
-              ?.title ?? "Contest Winners"}
+            {
+              dictionary?.pages?.earn?.tabs?.contribute?.xContest?.winners
+                ?.title
+            }
           </Typography>
         </div>
       </div>
@@ -98,8 +100,10 @@ export default function XContestWinnersPage({
                 variant={{ variant: "subtitle", level: 2 }}
                 className="mb-4 text-gray-900"
               >
-                {dictionary?.pages?.earn?.tabs?.contribute?.xContest?.winners
-                  ?.weekOf ?? "Week of"}{" "}
+                {
+                  dictionary?.pages?.earn?.tabs?.contribute?.xContest?.winners
+                    ?.weekOf
+                }{" "}
                 {week.weekOf}
               </Typography>
               <div>
@@ -128,8 +132,10 @@ export default function XContestWinnersPage({
                         className="text-gray-500"
                       >
                         {winner.engagement.toLocaleString()}{" "}
-                        {dictionary?.pages?.earn?.tabs?.contribute?.xContest
-                          ?.winners?.engagements ?? "engagements"}
+                        {
+                          dictionary?.pages?.earn?.tabs?.contribute?.xContest
+                            ?.winners?.engagements
+                        }
                       </Typography>
                     </div>
                     <FaXTwitter className="h-4 w-4 text-gray-400" />

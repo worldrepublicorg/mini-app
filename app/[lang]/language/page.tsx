@@ -49,7 +49,7 @@ export default function LanguagePage({
           <BiChevronLeft className="size-6 text-gray-500" />
         </Link>
         <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
-          {dictionary?.pages?.language?.title ?? "Language"}
+          {dictionary?.pages?.language?.title}
         </Typography>
       </div>
 

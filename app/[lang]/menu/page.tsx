@@ -16,55 +16,50 @@ export default function MenuPage({
 
   const menuSections = [
     {
-      title:
-        dictionary?.pages?.menu?.sections?.experimental?.title ??
-        "EXPERIMENTAL",
+      title: dictionary?.pages?.menu?.sections?.experimental?.title,
       links: [
         {
           label:
             dictionary?.pages?.menu?.sections?.experimental?.links
-              ?.verification ?? "Verification tests",
+              ?.verification,
           url: "/verification",
           isExternal: false,
         },
         {
           label:
-            dictionary?.pages?.menu?.sections?.experimental?.links?.language ??
-            "Language",
+            dictionary?.pages?.menu?.sections?.experimental?.links?.language,
           url: "/language",
           isExternal: false,
         },
       ],
     },
     {
-      title: dictionary?.pages?.menu?.sections?.connect?.title ?? "CONNECT",
+      title: dictionary?.pages?.menu?.sections?.connect?.title,
       links: [
         {
           label:
-            dictionary?.pages?.menu?.sections?.connect?.links?.community ??
-            "Community",
+            dictionary?.pages?.menu?.sections?.connect?.links?.community,
           url: "https://t.me/worldrepubliccommunity",
           isExternal: true,
         },
         {
           label:
-            dictionary?.pages?.menu?.sections?.connect?.links?.announcements ??
-            "Announcements",
+            dictionary?.pages?.menu?.sections?.connect?.links?.announcements,
           url: "https://t.me/worldrepublicannouncements",
           isExternal: true,
         },
         {
-          label: dictionary?.pages?.menu?.sections?.connect?.links?.x ?? "X",
+          label: dictionary?.pages?.menu?.sections?.connect?.links?.x,
           url: "https://x.com/WorldRepublicEN",
           isExternal: true,
         },
       ],
     },
     {
-      title: dictionary?.pages?.menu?.sections?.help?.title ?? "HELP",
+      title: dictionary?.pages?.menu?.sections?.help?.title,
       links: [
         {
-          label: dictionary?.pages?.menu?.sections?.help?.links?.faq ?? "FAQ",
+          label: dictionary?.pages?.menu?.sections?.help?.links?.faq,
           url: "/faq",
           isExternal: false,
         },
@@ -86,17 +81,15 @@ export default function MenuPage({
     //   ],
     // },
     {
-      title: dictionary?.pages?.menu?.sections?.code?.title ?? "CODE",
+      title: dictionary?.pages?.menu?.sections?.code?.title,
       links: [
         {
-          label: dictionary?.pages?.menu?.sections?.code?.links?.app ?? "App",
+          label: dictionary?.pages?.menu?.sections?.code?.links?.app,
           url: "https://github.com/worldrepublicorg/mini-app",
           isExternal: true,
         },
         {
-          label:
-            dictionary?.pages?.menu?.sections?.code?.links?.contracts ??
-            "Smart contracts",
+          label: dictionary?.pages?.menu?.sections?.code?.links?.contracts,
           url: "https://github.com/worldrepublicorg/smart-contracts",
           isExternal: true,
         },
@@ -108,7 +101,7 @@ export default function MenuPage({
     <div className="flex flex-col px-6 pb-20">
       <div className="fixed left-0 right-0 top-0 z-10 bg-gray-0 px-6 py-6">
         <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
-          {dictionary?.pages?.menu?.title ?? "Menu"}
+          {dictionary?.pages?.menu?.title}
         </Typography>
       </div>
 
