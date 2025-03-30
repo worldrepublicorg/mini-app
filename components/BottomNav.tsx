@@ -1,6 +1,7 @@
 "use client";
 import { usePathname, useRouter } from "next/navigation";
 import { FaLandmark, FaDollarSign, FaBars } from "react-icons/fa";
+import { MiniKit } from "@worldcoin/minikit-js";
 
 const BottomNav = () => {
   const pathname = usePathname();
@@ -26,6 +27,11 @@ const BottomNav = () => {
     path: string
   ) => {
     e.preventDefault();
+    // Add haptic feedback
+    MiniKit.commands.sendHapticFeedback({
+      hapticsType: "selection-changed",
+    });
+
     // Navigate directly to the correct path: /{language}/{route}
     const targetPath = `/${lang}${path}`;
     if (pathname !== targetPath) {
