@@ -39,10 +39,6 @@ interface PollOfTheDayProps {
 export function PollOfTheDay({ lang }: PollOfTheDayProps) {
   const dictionary = useTranslations(lang);
 
-  if (!dictionary) {
-    return null;
-  }
-
   const getPollIndex = () => {
     const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
@@ -54,6 +50,10 @@ export function PollOfTheDay({ lang }: PollOfTheDayProps) {
   };
 
   const [pollIndex, setPollIndex] = useState(getPollIndex());
+
+  if (!dictionary) {
+    return null;
+  }
 
   useEffect(() => {
     const now = new Date();
