@@ -112,10 +112,11 @@
             "rewards": "Ukupne nagrade"
           },
           "actions": {
-            "copyLink": "Kopiraj referalni link",
-            "copied": "Referalni link kopiran u međuspremnik!",
-            "connectWallet": "Molimo povežite svoj novčanik za generiranje referalnog linka",
-            "rewardReferrer": "Nagradi preporučitelja"
+            "copyLink": "Kopiraj Referentni Link",
+            "copied": "Referentni link kopiran u međuspremnik!",
+            "connectWallet": "Molimo povežite novčanik za generiranje referentnog linka",
+            "rewardReferrer": "Nagradi Referenta",
+            "share": "Podijeli Link Pozivnice"
           },
           "drawer": {
             "title": "Nagradi preporučitelja",
@@ -139,6 +140,10 @@
             "success": {
               "rewardSent": "Uspješno poslana nagrada korisniku {{username}}!"
             }
+          },
+          "share": {
+            "title": "Pridružite se Svjetskoj Republici",
+            "text": "Koristite moj link pozivnice da se pridružite Svjetskoj Republici i zajedno zaradite nagrade!"
           }
         },
         "contribute": {

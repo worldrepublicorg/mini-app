@@ -114,8 +114,9 @@
           "actions": {
             "copyLink": "Kopiuj Link Polecający",
             "copied": "Link polecający skopiowany do schowka!",
-            "connectWallet": "Połącz portfel, aby wygenerować swój link polecający",
-            "rewardReferrer": "Nagródź Polecającego"
+            "connectWallet": "Proszę połącz portfel, aby wygenerować link polecający",
+            "rewardReferrer": "Nagródź Polecającego",
+            "share": "Udostępnij Link Zaproszenia"
           },
           "drawer": {
             "title": "Nagródź Polecającego",
@@ -139,6 +140,10 @@
             "success": {
               "rewardSent": "Pomyślnie wysłano nagrodę do {{username}}!"
             }
+          },
+          "share": {
+            "title": "Dołącz do Republiki Światowej",
+            "text": "Użyj mojego linku zaproszenia, aby dołączyć do Republiki Światowej i razem zdobywaj nagrody!"
           }
         },
         "contribute": {

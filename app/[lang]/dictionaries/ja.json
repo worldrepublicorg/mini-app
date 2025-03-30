@@ -112,10 +112,11 @@
             "rewards": "総報酬"
           },
           "actions": {
-            "copyLink": "招待リンクをコピー",
-            "copied": "招待リンクをクリップボードにコピーしました！",
-            "connectWallet": "招待リンクを生成するにはウォレットを接続してください",
-            "rewardReferrer": "紹介者に報酬を送る"
+            "copyLink": "紹介リンクをコピー",
+            "copied": "紹介リンクをクリップボードにコピーしました！",
+            "connectWallet": "紹介リンクを生成するにはウォレットを接続してください",
+            "rewardReferrer": "紹介者に報酬を送る",
+            "share": "招待リンクを共有"
           },
           "drawer": {
             "title": "紹介者に報酬を送る",
@@ -139,6 +140,10 @@
             "success": {
               "rewardSent": "{{username}}に報酬を正常に送信しました！"
             }
+          },
+          "share": {
+            "title": "世界共和国に参加",
+            "text": "私の招待リンクを使って世界共和国に参加し、一緒に報酬を獲得しましょう！"
           }
         },
         "contribute": {

@@ -112,10 +112,11 @@
             "rewards": "Gesamtleistungen"
           },
           "actions": {
-            "copyLink": "Referral Link kopieren",
-            "copied": "Referral Link wurde in die Zwischenablage kopiert!",
-            "connectWallet": "Bitte verbinden Sie Ihre Wallet, um Ihren Referral Link zu generieren",
-            "rewardReferrer": "Belohnung Referrer"
+            "copyLink": "Empfehlungslink kopieren",
+            "copied": "Empfehlungslink in die Zwischenablage kopiert!",
+            "connectWallet": "Bitte verbinden Sie Ihre Wallet, um Ihren Empfehlungslink zu generieren",
+            "rewardReferrer": "Empfehler belohnen",
+            "share": "Einladungslink teilen"
           },
           "drawer": {
             "title": "Belohnung einem Referrer gewähren",
@@ -139,6 +140,10 @@
             "success": {
               "rewardSent": "Belohnung erfolgreich an {{username}} gesendet!"
             }
+          },
+          "share": {
+            "title": "Treten Sie der Weltrepublik bei",
+            "text": "Nutzen Sie meinen Einladungslink, um der Weltrepublik beizutreten und gemeinsam Belohnungen zu verdienen!"
           }
         },
         "contribute": {

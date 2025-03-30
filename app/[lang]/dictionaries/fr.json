@@ -112,10 +112,11 @@
             "rewards": "Récompenses totales"
           },
           "actions": {
-            "copyLink": "Copier le lien de parrainage",
+            "copyLink": "Copier le Lien de Parrainage",
             "copied": "Lien de parrainage copié dans le presse-papiers !",
             "connectWallet": "Veuillez connecter votre portefeuille pour générer votre lien de parrainage",
-            "rewardReferrer": "Récompenser le Parrain"
+            "rewardReferrer": "Récompenser le Parrain",
+            "share": "Partager le Lien d'Invitation"
           },
           "drawer": {
             "title": "Récompenser un Parrain",
@@ -139,6 +140,10 @@
             "success": {
               "rewardSent": "Récompense envoyée avec succès à {{username}} !"
             }
+          },
+          "share": {
+            "title": "Rejoignez la République Mondiale",
+            "text": "Utilisez mon lien d'invitation pour rejoindre la République Mondiale et gagner des récompenses ensemble !"
           }
         },
         "contribute": {

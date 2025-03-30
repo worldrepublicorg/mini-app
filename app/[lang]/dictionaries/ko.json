@@ -114,8 +114,9 @@
           "actions": {
             "copyLink": "추천 링크 복사",
             "copied": "추천 링크가 클립보드에 복사되었습니다!",
-            "connectWallet": "추천 링크를 생성하려면 지갑을 연결해주세요",
-            "rewardReferrer": "추천인 보상"
+            "connectWallet": "추천 링크를 생성하려면 지갑을 연결하세요",
+            "rewardReferrer": "추천인에게 보상 지급",
+            "share": "초대 링크 공유"
           },
           "drawer": {
             "title": "추천인 보상",
@@ -139,6 +140,10 @@
             "success": {
               "rewardSent": "{{username}}님에게 리워드를 성공적으로 전송했습니다!"
             }
+          },
+          "share": {
+            "title": "세계 공화국에 참여하세요",
+            "text": "내 초대 링크를 사용하여 세계 공화국에 참여하고 함께 보상을 받으세요!"
           }
         },
         "contribute": {

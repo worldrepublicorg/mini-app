@@ -115,7 +115,8 @@
             "copyLink": "Copiar Link de Indicação",
             "copied": "Link de indicação copiado para a área de transferência!",
             "connectWallet": "Por favor, conecte sua carteira para gerar seu link de indicação",
-            "rewardReferrer": "Recompensar Indicador"
+            "rewardReferrer": "Recompensar Indicador",
+            "share": "Compartilhar Link de Convite"
           },
           "drawer": {
             "title": "Recompensar um Indicador",
@@ -139,6 +140,10 @@
             "success": {
               "rewardSent": "Recompensa enviada com sucesso para {{username}}!"
             }
+          },
+          "share": {
+            "title": "Junte-se à República Mundial",
+            "text": "Use meu link de convite para se juntar à República Mundial e ganhe recompensas juntos!"
           }
         },
         "contribute": {

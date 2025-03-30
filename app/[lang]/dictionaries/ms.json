@@ -113,9 +113,10 @@
           },
           "actions": {
             "copyLink": "Salin Pautan Rujukan",
-            "copied": "Pautan rujukan disalin ke papan klip!",
-            "connectWallet": "Sila sambung dompet anda untuk menjana pautan rujukan anda",
-            "rewardReferrer": "Ganjarkan Pemberi Rujukan"
+            "copied": "Pautan rujukan disalin ke clipboard!",
+            "connectWallet": "Sila sambungkan dompet anda untuk menjana pautan rujukan",
+            "rewardReferrer": "Hadiahkan Pemberi Rujukan",
+            "share": "Kongsi Pautan Jemputan"
           },
           "drawer": {
             "title": "Ganjarkan Pemberi Rujukan",
@@ -139,6 +140,10 @@
             "success": {
               "rewardSent": "Berjaya menghantar ganjaran kepada {{username}}!"
             }
+          },
+          "share": {
+            "title": "Sertai Republik Dunia",
+            "text": "Gunakan pautan jemputan saya untuk menyertai Republik Dunia dan dapatkan ganjaran bersama!"
           }
         },
         "contribute": {

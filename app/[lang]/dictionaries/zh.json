@@ -114,8 +114,9 @@
           "actions": {
             "copyLink": "复制推荐链接",
             "copied": "推荐链接已复制到剪贴板！",
-            "connectWallet": "请连接您的钱包以生成推荐链接",
-            "rewardReferrer": "奖励推荐人"
+            "connectWallet": "请连接钱包以生成您的推荐链接",
+            "rewardReferrer": "奖励推荐人",
+            "share": "分享邀请链接"
           },
           "drawer": {
             "title": "奖励推荐人",
@@ -139,6 +140,10 @@
             "success": {
               "rewardSent": "成功向{{username}}发送奖励！"
             }
+          },
+          "share": {
+            "title": "加入世界共和国",
+            "text": "使用我的邀请链接加入世界共和国，一起赚取奖励！"
           }
         },
         "contribute": {

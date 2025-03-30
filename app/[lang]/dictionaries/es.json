@@ -127,7 +127,8 @@
             "copyLink": "Copiar Enlace de Referido",
             "copied": "¡Enlace de referido copiado al portapapeles!",
             "connectWallet": "Por favor conecta tu billetera para generar tu enlace de referido",
-            "rewardReferrer": "Recompensar Referidor"
+            "rewardReferrer": "Recompensar Referidor",
+            "share": "Compartir Enlace de Invitación"
           },
           "drawer": {
             "title": "Recompensar a un Referidor",
@@ -151,6 +152,10 @@
             "success": {
               "rewardSent": "¡Recompensa enviada exitosamente a {{username}}!"
             }
+          },
+          "share": {
+            "title": "Únete a la República Mundial",
+            "text": "¡Usa mi enlace de invitación para unirte a la República Mundial y ganar recompensas juntos!"
           }
         },
         "contribute": {

@@ -115,7 +115,8 @@
             "copyLink": "Salin Tautan Referral",
             "copied": "Tautan referral disalin ke clipboard!",
             "connectWallet": "Silakan hubungkan dompet Anda untuk menghasilkan tautan referral",
-            "rewardReferrer": "Beri Hadiah Pereferral"
+            "rewardReferrer": "Hadiahkan Referrer",
+            "share": "Bagikan Tautan Undangan"
           },
           "drawer": {
             "title": "Beri Hadiah Pereferral",
@@ -139,6 +140,10 @@
             "success": {
               "rewardSent": "Berhasil mengirim hadiah ke {{username}}!"
             }
+          },
+          "share": {
+            "title": "Bergabung dengan Republik Dunia",
+            "text": "Gunakan tautan undangan saya untuk bergabung dengan Republik Dunia dan dapatkan hadiah bersama!"
           }
         },
         "contribute": {

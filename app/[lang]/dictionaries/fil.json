@@ -214,10 +214,11 @@
             "rewards": "Kabuuang gantimpala"
           },
           "actions": {
-            "copyLink": "Kopyahin ang Referral Link",
-            "copied": "Na-kopya na ang referral link sa clipboard!",
-            "connectWallet": "Mangyaring i-connect ang iyong wallet para mag-generate ng referral link",
-            "rewardReferrer": "Gantimpalaan ang Referrer"
+            "copyLink": "Kopyahin ang Link ng Referral",
+            "copied": "Na-kopya ang link ng referral sa clipboard!",
+            "connectWallet": "Mangyaring i-connect ang wallet para makabuo ng referral link",
+            "rewardReferrer": "Gantimpalaan ang Referrer",
+            "share": "Ibahagi ang Link ng Imbitasyon"
           },
           "drawer": {
             "title": "Gantimpalaan ang Referrer",
@@ -241,6 +242,10 @@
             "success": {
               "rewardSent": "Matagumpay na naipadala ang gantimpala kay {{username}}!"
             }
+          },
+          "share": {
+            "title": "Sumali sa World Republic",
+            "text": "Gamitin ang aking link ng imbitasyon para sumali sa World Republic at magkasamang kumita ng mga gantimpala!"
           }
         }
       }
