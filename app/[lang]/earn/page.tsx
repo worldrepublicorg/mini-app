@@ -1998,7 +1998,7 @@ export default function EarnPage({
                 }}
                 fullWidth
               >
-                {dictionary?.pages?.earn?.tabs?.invite?.actions?.copyLink}{navigator.canShare() ? "can share" : "cannot share"}
+                {dictionary?.pages?.earn?.tabs?.invite?.actions?.copyLink}
               </Button>
             </div>
 
