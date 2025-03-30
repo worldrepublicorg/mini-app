@@ -16,29 +16,10 @@ export default function MenuPage({
 
   const menuSections = [
     {
-      title: dictionary?.pages?.menu?.sections?.experimental?.title,
-      links: [
-        {
-          label:
-            dictionary?.pages?.menu?.sections?.experimental?.links
-              ?.verification,
-          url: "/verification",
-          isExternal: false,
-        },
-        {
-          label:
-            dictionary?.pages?.menu?.sections?.experimental?.links?.language,
-          url: "/language",
-          isExternal: false,
-        },
-      ],
-    },
-    {
       title: dictionary?.pages?.menu?.sections?.connect?.title,
       links: [
         {
-          label:
-            dictionary?.pages?.menu?.sections?.connect?.links?.community,
+          label: dictionary?.pages?.menu?.sections?.connect?.links?.community,
           url: "https://t.me/worldrepubliccommunity",
           isExternal: true,
         },
@@ -92,6 +73,24 @@ export default function MenuPage({
           label: dictionary?.pages?.menu?.sections?.code?.links?.contracts,
           url: "https://github.com/worldrepublicorg/smart-contracts",
           isExternal: true,
+        },
+      ],
+    },
+    {
+      title: dictionary?.pages?.menu?.sections?.experimental?.title,
+      links: [
+        {
+          label:
+            dictionary?.pages?.menu?.sections?.experimental?.links
+              ?.verification,
+          url: "/verification",
+          isExternal: false,
+        },
+        {
+          label:
+            dictionary?.pages?.menu?.sections?.experimental?.links?.language,
+          url: "/language",
+          isExternal: false,
         },
       ],
     },
