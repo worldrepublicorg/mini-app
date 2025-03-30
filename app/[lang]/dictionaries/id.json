@@ -348,7 +348,7 @@
         "experimental": {
           "title": "EKSPERIMENTAL",
           "links": {
-            "verification": "Tes verifikasi",
+            "verification": "Status verifikasi",
             "language": "Bahasa"
           }
         },
@@ -420,27 +420,27 @@
       }
     },
     "verification": {
-      "title": "Tes Verifikasi",
+      "title": "Status Verifikasi",
       "levels": {
         "device": {
           "title": "Verifikasi Perangkat",
-          "description": "Verifikasi dasar menggunakan perangkat.",
-          "buttonText": "Uji Verifikasi Perangkat"
+          "description": "Periksa status verifikasi perangkat",
+          "buttonText": "Periksa Status"
         },
         "document": {
           "title": "Verifikasi Dokumen",
-          "description": "Verifikasi menggunakan dokumen identitas.",
-          "buttonText": "Uji Verifikasi Dokumen"
+          "description": "Periksa status verifikasi dokumen",
+          "buttonText": "Periksa Status"
         },
         "secureDocument": {
           "title": "Verifikasi Dokumen Aman",
-          "description": "Verifikasi yang ditingkatkan menggunakan dokumen identitas yang aman.",
-          "buttonText": "Uji Verifikasi Dokumen Aman"
+          "description": "Periksa status verifikasi dokumen aman",
+          "buttonText": "Periksa Status"
         },
         "orb": {
           "title": "Verifikasi Orb",
-          "description": "Keamanan tertinggi menggunakan verifikasi biometrik Orb.",
-          "buttonText": "Uji Verifikasi Orb"
+          "description": "Periksa status verifikasi Orb",
+          "buttonText": "Periksa Status"
         }
       }
     }

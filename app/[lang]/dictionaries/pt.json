@@ -348,7 +348,7 @@
         "experimental": {
           "title": "EXPERIMENTAL",
           "links": {
-            "verification": "Testes de verificação",
+            "verification": "Estado de verificação",
             "language": "Idioma"
           }
         },
@@ -420,27 +420,27 @@
       }
     },
     "verification": {
-      "title": "Testes de Verificação",
+      "title": "Estado de Verificação",
       "levels": {
         "device": {
           "title": "Verificação de Dispositivo",
-          "description": "Verificação básica usando o dispositivo.",
-          "buttonText": "Testar Verificação de Dispositivo"
+          "description": "Verificar estado de verificação do dispositivo",
+          "buttonText": "Verificar Estado"
         },
         "document": {
           "title": "Verificação de Documento",
-          "description": "Verificação usando documentos de identidade.",
-          "buttonText": "Testar Verificação de Documento"
+          "description": "Verificar estado de verificação do documento",
+          "buttonText": "Verificar Estado"
         },
         "secureDocument": {
-          "title": "Verificação de Documento Seguro",
-          "description": "Verificação aprimorada usando documentos de identidade seguros.",
-          "buttonText": "Testar Verificação de Documento Seguro"
+          "title": "Verificação Segura de Documento",
+          "description": "Verificar estado de verificação segura do documento",
+          "buttonText": "Verificar Estado"
         },
         "orb": {
           "title": "Verificação Orb",
-          "description": "Máxima segurança usando verificação biométrica Orb.",
-          "buttonText": "Testar Verificação Orb"
+          "description": "Verificar estado de verificação do Orb",
+          "buttonText": "Verificar Estado"
         }
       }
     }

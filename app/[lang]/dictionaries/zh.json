@@ -348,7 +348,7 @@
         "experimental": {
           "title": "实验性功能",
           "links": {
-            "verification": "验证测试",
+            "verification": "验证状态",
             "language": "语言"
           }
         },
@@ -420,27 +420,27 @@
       }
     },
     "verification": {
-      "title": "验证测试",
+      "title": "验证状态",
       "levels": {
         "device": {
           "title": "设备验证",
-          "description": "使用设备进行基本验证。",
-          "buttonText": "测试设备验证"
+          "description": "检查设备验证状态",
+          "buttonText": "检查状态"
         },
         "document": {
           "title": "证件验证",
-          "description": "使用身份证件进行验证。",
-          "buttonText": "测试证件验证"
+          "description": "检查证件验证状态",
+          "buttonText": "检查状态"
         },
         "secureDocument": {
           "title": "安全证件验证",
-          "description": "使用安全身份证件进行增强验证。",
-          "buttonText": "测试安全证件验证"
+          "description": "检查安全证件验证状态",
+          "buttonText": "检查状态"
         },
         "orb": {
           "title": "Orb验证",
-          "description": "使用Orb生物识别验证进行最高安全级别验证。",
-          "buttonText": "测试Orb验证"
+          "description": "检查Orb验证状态",
+          "buttonText": "检查状态"
         }
       }
     }

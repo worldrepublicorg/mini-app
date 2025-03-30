@@ -351,7 +351,7 @@
         "experimental": {
           "title": "실험 기능",
           "links": {
-            "verification": "인증 테스트",
+            "verification": "인증 상태",
             "language": "언어"
           }
         },
@@ -423,27 +423,27 @@
       }
     },
     "verification": {
-      "title": "인증 테스트",
+      "title": "인증 상태",
       "levels": {
         "device": {
           "title": "기기 인증",
-          "description": "기기를 사용한 기본 인증",
-          "buttonText": "기기 인증 테스트"
+          "description": "기기 인증 상태 확인",
+          "buttonText": "상태 확인"
         },
         "document": {
-          "title": "신분증 인증",
-          "description": "신분증을 사용한 인증",
-          "buttonText": "신분증 인증 테스트"
+          "title": "문서 인증",
+          "description": "문서 인증 상태 확인",
+          "buttonText": "상태 확인"
         },
         "secureDocument": {
-          "title": "보안 신분증 인증",
-          "description": "보안 신분증을 사용한 고급 인증",
-          "buttonText": "보안 신분증 인증 테스트"
+          "title": "보안 문서 인증",
+          "description": "보안 문서 인증 상태 확인",
+          "buttonText": "상태 확인"
         },
         "orb": {
           "title": "Orb 인증",
-          "description": "Orb 생체 인증을 사용한 최고 수준의 보안",
-          "buttonText": "Orb 인증 테스트"
+          "description": "Orb 인증 상태 확인",
+          "buttonText": "상태 확인"
         }
       }
     }

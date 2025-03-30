@@ -348,7 +348,7 @@
         "experimental": {
           "title": "EKSPERYMENTALNE",
           "links": {
-            "verification": "Testy weryfikacyjne",
+            "verification": "Status weryfikacji",
             "language": "Język"
           }
         },
@@ -420,27 +420,27 @@
       }
     },
     "verification": {
-      "title": "Testy Weryfikacyjne",
+      "title": "Status Weryfikacji",
       "levels": {
         "device": {
           "title": "Weryfikacja Urządzenia",
-          "description": "Podstawowa weryfikacja przy użyciu urządzenia.",
-          "buttonText": "Testuj Weryfikację Urządzenia"
+          "description": "Sprawdź status weryfikacji urządzenia",
+          "buttonText": "Sprawdź Status"
         },
         "document": {
-          "title": "Weryfikacja Dokumentów",
-          "description": "Weryfikacja przy użyciu dokumentów tożsamości.",
-          "buttonText": "Testuj Weryfikację Dokumentów"
+          "title": "Weryfikacja Dokumentu",
+          "description": "Sprawdź status weryfikacji dokumentu",
+          "buttonText": "Sprawdź Status"
         },
         "secureDocument": {
-          "title": "Bezpieczna Weryfikacja Dokumentów",
-          "description": "Ulepszona weryfikacja przy użyciu bezpiecznych dokumentów tożsamości.",
-          "buttonText": "Testuj Bezpieczną Weryfikację Dokumentów"
+          "title": "Bezpieczna Weryfikacja Dokumentu",
+          "description": "Sprawdź status bezpiecznej weryfikacji dokumentu",
+          "buttonText": "Sprawdź Status"
         },
         "orb": {
           "title": "Weryfikacja Orb",
-          "description": "Najwyższe bezpieczeństwo przy użyciu weryfikacji biometrycznej Orb.",
-          "buttonText": "Testuj Weryfikację Orb"
+          "description": "Sprawdź status weryfikacji Orb",
+          "buttonText": "Sprawdź Status"
         }
       }
     }

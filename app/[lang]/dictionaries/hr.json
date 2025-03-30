@@ -348,7 +348,7 @@
         "experimental": {
           "title": "EKSPERIMENTALNO",
           "links": {
-            "verification": "Testovi verifikacije",
+            "verification": "Status provjere",
             "language": "Jezik"
           }
         },
@@ -421,27 +421,27 @@
       }
     },
     "verification": {
-      "title": "Testovi verifikacije",
+      "title": "Status Provjere",
       "levels": {
         "device": {
-          "title": "Verifikacija uređaja",
-          "description": "Osnovna verifikacija pomoću uređaja.",
-          "buttonText": "Testiraj verifikaciju uređaja"
+          "title": "Provjera Uređaja",
+          "description": "Provjeri status provjere uređaja",
+          "buttonText": "Provjeri Status"
         },
         "document": {
-          "title": "Verifikacija dokumenta",
-          "description": "Verifikacija pomoću osobnih dokumenata.",
-          "buttonText": "Testiraj verifikaciju dokumenta"
+          "title": "Provjera Dokumenta",
+          "description": "Provjeri status provjere dokumenta",
+          "buttonText": "Provjeri Status"
         },
         "secureDocument": {
-          "title": "Sigurna verifikacija dokumenta",
-          "description": "Poboljšana verifikacija pomoću sigurnih osobnih dokumenata.",
-          "buttonText": "Testiraj sigurnu verifikaciju dokumenta"
+          "title": "Sigurna Provjera Dokumenta",
+          "description": "Provjeri status sigurne provjere dokumenta",
+          "buttonText": "Provjeri Status"
         },
         "orb": {
-          "title": "Orb verifikacija",
-          "description": "Najviša sigurnost pomoću Orb biometrijske verifikacije.",
-          "buttonText": "Testiraj Orb verifikaciju"
+          "title": "Provjera Orb",
+          "description": "Provjeri status provjere Orb",
+          "buttonText": "Provjeri Status"
         }
       }
     }

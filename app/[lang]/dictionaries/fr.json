@@ -348,7 +348,7 @@
         "experimental": {
           "title": "EXPÉRIMENTAL",
           "links": {
-            "verification": "Tests de vérification",
+            "verification": "État de vérification",
             "language": "Langue"
           }
         },
@@ -420,27 +420,27 @@
       }
     },
     "verification": {
-      "title": "Tests de Vérification",
+      "title": "État de Vérification",
       "levels": {
         "device": {
-          "title": "Vérification de l'Appareil",
-          "description": "Vérification de base utilisant l'appareil.",
-          "buttonText": "Tester la Vérification de l'Appareil"
+          "title": "Vérification d'Appareil",
+          "description": "Vérifier l'état de vérification d'appareil",
+          "buttonText": "Vérifier l'État"
         },
         "document": {
-          "title": "Vérification des Documents",
-          "description": "Vérification utilisant des documents d'identité.",
-          "buttonText": "Tester la Vérification des Documents"
+          "title": "Vérification de Document",
+          "description": "Vérifier l'état de vérification de document",
+          "buttonText": "Vérifier l'État"
         },
         "secureDocument": {
-          "title": "Vérification Sécurisée des Documents",
-          "description": "Vérification renforcée utilisant des documents d'identité sécurisés.",
-          "buttonText": "Tester la Vérification Sécurisée des Documents"
+          "title": "Vérification Sécurisée de Document",
+          "description": "Vérifier l'état de vérification sécurisée de document",
+          "buttonText": "Vérifier l'État"
         },
         "orb": {
           "title": "Vérification Orb",
-          "description": "Sécurité maximale utilisant la vérification biométrique Orb.",
-          "buttonText": "Tester la Vérification Orb"
+          "description": "Vérifier l'état de vérification Orb",
+          "buttonText": "Vérifier l'État"
         }
       }
     }

@@ -348,7 +348,7 @@
         "experimental": {
           "title": "EKSPERIMENTAL",
           "links": {
-            "verification": "Mga verification test",
+            "verification": "Katayuan ng pagpapatunay",
             "language": "Wika"
           }
         },
@@ -420,27 +420,27 @@
       }
     },
     "verification": {
-      "title": "Mga Verification Test",
+      "title": "Katayuan ng Pagpapatunay",
       "levels": {
         "device": {
-          "title": "Device Verification",
-          "description": "Basic verification gamit ang device.",
-          "buttonText": "I-test ang Device Verification"
+          "title": "Pagpapatunay ng Device",
+          "description": "Suriin ang katayuan ng pagpapatunay ng device",
+          "buttonText": "Suriin ang Katayuan"
         },
         "document": {
-          "title": "Document Verification",
-          "description": "Verification gamit ang mga dokumento ng pagkakakilanlan.",
-          "buttonText": "I-test ang Document Verification"
+          "title": "Pagpapatunay ng Dokumento",
+          "description": "Suriin ang katayuan ng pagpapatunay ng dokumento",
+          "buttonText": "Suriin ang Katayuan"
         },
         "secureDocument": {
-          "title": "Secure Document Verification",
-          "description": "Pinasulong na verification gamit ang mga ligtas na dokumento ng pagkakakilanlan.",
-          "buttonText": "I-test ang Secure Document Verification"
+          "title": "Ligtas na Pagpapatunay ng Dokumento",
+          "description": "Suriin ang katayuan ng ligtas na pagpapatunay ng dokumento",
+          "buttonText": "Suriin ang Katayuan"
         },
         "orb": {
-          "title": "Orb Verification",
-          "description": "Pinakamataas na seguridad gamit ang Orb biometric verification.",
-          "buttonText": "I-test ang Orb Verification"
+          "title": "Pagpapatunay ng Orb",
+          "description": "Suriin ang katayuan ng pagpapatunay ng Orb",
+          "buttonText": "Suriin ang Katayuan"
         }
       }
     }

@@ -76,7 +76,7 @@ export function VerifyButton({ lang, ...props }: VerifyButtonProps) {
 
   return (
     <Button onClick={handleVerify} isLoading={isVerifying} fullWidth>
-      {dictionary?.components?.verifyButton?.verify || "Verify to Claim"}
+      {props.buttonText}
     </Button>
   );
 }

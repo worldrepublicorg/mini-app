@@ -81,15 +81,15 @@ export default function MenuPage({
       links: [
         {
           label:
-            dictionary?.pages?.menu?.sections?.experimental?.links
-              ?.verification,
-          url: "/verification",
+            dictionary?.pages?.menu?.sections?.experimental?.links?.language,
+          url: "/language",
           isExternal: false,
         },
         {
           label:
-            dictionary?.pages?.menu?.sections?.experimental?.links?.language,
-          url: "/language",
+            dictionary?.pages?.menu?.sections?.experimental?.links
+              ?.verification,
+          url: "/verification",
           isExternal: false,
         },
       ],

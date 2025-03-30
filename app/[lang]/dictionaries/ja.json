@@ -348,7 +348,7 @@
         "experimental": {
           "title": "実験的機能",
           "links": {
-            "verification": "認証テスト",
+            "verification": "認証状態",
             "language": "言語"
           }
         },
@@ -420,27 +420,27 @@
       }
     },
     "verification": {
-      "title": "認証テスト",
+      "title": "認証状態",
       "levels": {
         "device": {
           "title": "デバイス認証",
-          "description": "デバイスを使用した基本的な認証。",
-          "buttonText": "デバイス認証をテスト"
+          "description": "デバイスの認証状態を確認",
+          "buttonText": "状態を確認"
         },
         "document": {
-          "title": "文書認証",
-          "description": "身分証明書を使用した認証。",
-          "buttonText": "文書認証をテスト"
+          "title": "書類認証",
+          "description": "書類の認証状態を確認",
+          "buttonText": "状態を確認"
         },
         "secureDocument": {
-          "title": "セキュア文書認証",
-          "description": "セキュアな身分証明書を使用した強化された認証。",
-          "buttonText": "セキュア文書認証をテスト"
+          "title": "セキュア書類認証",
+          "description": "セキュア書類の認証状態を確認",
+          "buttonText": "状態を確認"
         },
         "orb": {
           "title": "Orb認証",
-          "description": "Orb生体認証を使用した最高レベルのセキュリティ。",
-          "buttonText": "Orb認証をテスト"
+          "description": "Orbの認証状態を確認",
+          "buttonText": "状態を確認"
         }
       }
     }

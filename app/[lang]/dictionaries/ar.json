@@ -348,7 +348,7 @@
         "experimental": {
           "title": "تجريبي",
           "links": {
-            "verification": "اختبارات التحقق",
+            "verification": "حالة التحقق",
             "language": "اللغة"
           }
         },
@@ -420,27 +420,27 @@
       }
     },
     "verification": {
-      "title": "اختبارات التحقق",
+      "title": "حالة التحقق",
       "levels": {
         "device": {
           "title": "التحقق من الجهاز",
-          "description": "تحقق أساسي باستخدام الجهاز.",
-          "buttonText": "اختبار التحقق من الجهاز"
+          "description": "تحقق من حالة التحقق من الجهاز",
+          "buttonText": "تحقق من الحالة"
         },
         "document": {
           "title": "التحقق من المستند",
-          "description": "التحقق باستخدام وثائق الهوية.",
-          "buttonText": "اختبار التحقق من المستند"
+          "description": "تحقق من حالة التحقق من المستند",
+          "buttonText": "تحقق من الحالة"
         },
         "secureDocument": {
           "title": "التحقق الآمن من المستند",
-          "description": "تحقق معزز باستخدام وثائق هوية آمنة.",
-          "buttonText": "اختبار التحقق الآمن من المستند"
+          "description": "تحقق من حالة التحقق الآمن من المستند",
+          "buttonText": "تحقق من الحالة"
         },
         "orb": {
           "title": "التحقق من Orb",
-          "description": "أعلى أمان باستخدام التحقق البيومتري من Orb.",
-          "buttonText": "اختبار التحقق من Orb"
+          "description": "تحقق من حالة التحقق من Orb",
+          "buttonText": "تحقق من الحالة"
         }
       }
     }
