@@ -8,6 +8,11 @@ import { PollCard } from "@/components/PollCard";
 const historicalPolls = [
   {
     description:
+      "Should global regulations require mandatory watermarking of AI-generated content to combat misinformation in elections and media?",
+    url: "https://vote.one/Jbra7uUp",
+  },
+  {
+    description:
       "Should global leaders agree on protocols to prevent the militarization of space and secure it for peaceful purposes?",
     url: "https://vote.one/vBztzW2P",
   },

@@ -11,8 +11,8 @@ interface Poll {
 const polls: Poll[] = [
   {
     description:
-      "Should international guidelines be implemented to protect data generated worldwide under a unified framework for digital sovereignty?",
-    url: "https://vote.one/r4VmX0XN",
+      "Should global tech companies be required to adopt transparent decision-making policies to safeguard public trust?",
+    url: "https://vote.one/aOXsaVpq",
   },
   {
     description:
