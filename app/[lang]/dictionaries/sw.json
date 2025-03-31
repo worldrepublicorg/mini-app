@@ -1,0 +1,448 @@
+{
+  "components": {
+    "walletAuth": {
+      "connect": "Unganisha Pochi"
+    },
+    "verifyButton": {
+      "verify": "Thibitisha Ili Kuchukua"
+    },
+    "pollOfTheDay": {
+      "previousPolls": "Kura za Awali",
+      "vote": "Piga Kura Sasa"
+    },
+    "stakeForm": {
+      "deposit": "Weka",
+      "withdraw": "Toa",
+      "balance": "Salio:",
+      "depositPlaceholder": "Kiasi cha kuweka",
+      "withdrawPlaceholder": "Kiasi cha kutoa",
+      "max": "Kiwango cha juu",
+      "interest": "Riba:",
+      "collect": "Chukua",
+      "depositButton": "Weka Drachma",
+      "withdrawButton": "Toa Drachma"
+    },
+    "toasts": {
+      "wallet": {
+        "connectInWorldApp": "Tafadhali fungua programu hii katika World App ili kuunganisha pochi yako.",
+        "stakingError": "Hitilafu katika kuhifadhi tokeni",
+        "withdrawError": "Hitilafu katika kutoa tokeni",
+        "collectError": "Hitilafu katika kuchukua malipo"
+      },
+      "referral": {
+        "pendingReward": "Inatunza malipo yanayosubiri kwa {{username}}...",
+        "rewardSuccess": "Malipo yamepewa {{username}} kwa mafanikio!",
+        "sendingReward": "Inatuma malipo ya WDD 50 kwa {{username}}..."
+      },
+      "basicIncome": {
+        "setupSuccess": "Mapato ya Msingi Plus yameanzishwa! Sasa inatayarisha malipo kwa {{username}}...",
+        "setupWithReferrer": "Inaweka Mapato ya Msingi Plus kwanza, kisha tutampa malipo {{username}}...",
+        "error": "Hitilafu katika kuanzisha Mapato ya Msingi",
+        "errorPlus": "Hitilafu katika kuanzisha Mapato ya Msingi Plus"
+      },
+      "transaction": {
+        "error": "Hitilafu isiyotarajiwa imetokea",
+        "errorClaim": "Hitilafu isiyotarajiwa imetokea wakati wa kuchukua"
+      }
+    },
+    "comingSoonDrawer": {
+      "title": "Inakuja hivi karibuni",
+      "description": "Hii kipengele kipo katika maendeleo. Subiri!"
+    },
+    "tabSwiper": {
+      "tabs": {
+        "polls": "Kura",
+        "openLetters": "Barua wazi",
+        "elections": "Uchaguzi",
+        "referendums": "Kura za maoni"
+      }
+    }
+  },
+  "pages": {
+    "earn": {
+      "title": "Pata",
+      "tabs": {
+        "basicIncome": {
+          "tabTitle": "Mapato ya msingi",
+          "title": "Mapato ya Msingi",
+          "subtitle": "Ingia ili kuchukua mapato yako ya msingi",
+          "setupSubtitle": "Weka mapato yako ya msingi",
+          "claimableSubtitle": "Drachma zinazoweza kuchukuliwa",
+          "activateButton": "Anzisha Mapato ya Msingi",
+          "claimButton": "Chukua",
+          "plus": {
+            "title": "Mapato ya Msingi Plus",
+            "newBadge": "Mpya",
+            "drawerTrigger": "Mapato ya Msingi Plus",
+            "subtitle": "Mapato ya ziada kwa watumiaji waliohakikiwa",
+            "drawer": {
+              "title": "Mapato ya Msingi Plus",
+              "subtitle": "Mapato ya ziada kwa watumiaji waliohakikiwa",
+              "features": {
+                "rate": {
+                  "title": "WDD 10 za ziada kwa siku"
+                },
+                "verification": {
+                  "title": "Kwa watumiaji waliohakikiwa na Orb tu ili kuhakikisha usambazaji wa haki"
+                },
+                "rewards": {
+                  "title": "Malipo hubadilika kuwa Plus baada ya muda huku kikifuata jumla ya WDD 11/siku"
+                }
+              },
+              "activateButton": "Anzisha Mapato ya Msingi Plus",
+              "claimButton": "Chukua Mapato ya Msingi Plus",
+              "claimBasicButton": "Chukua Mapato ya Msingi"
+            }
+          }
+        },
+        "savings": {
+          "tabTitle": "Akiba",
+          "title": "Akaunti ya Akiba",
+          "subtitle": "Pata riba kila sekunde",
+          "tooltip": "69% APY kiwango cha msingi. Chukua na uweke tena riba ili kupata mapato ya karibu 100% kwa mwaka. Toa wakati wowote."
+        },
+        "invite": {
+          "title": "Karibisha",
+          "subtitle": "Pata WDD 50 kwa kila rafiki anayejiunga",
+          "tooltip": "Malipo yanahitaji rafiki awe na uthibitisho wa Orb.",
+          "learnMore": "Jifunze zaidi",
+          "stats": {
+            "title": "Takwimu zako za Urafiki",
+            "invites": "Mialiko iliyokubaliwa",
+            "rewards": "Jumla ya malipo"
+          },
+          "actions": {
+            "copyLink": "Nakili Kiungo cha Urafiki",
+            "copied": "Kiungo cha urafiki kimenakiliwa kwenye clipboard!",
+            "connectWallet": "Tafadhali unganisha pochi yako ili kuzalisha kiungo chako cha urafiki",
+            "rewardReferrer": "Mpa Malipo Mrafiki",
+            "share": "Shiriki Mialiko"
+          },
+          "drawer": {
+            "title": "Mpa Malipo Mrafiki",
+            "subtitle": "Toa malipo ya WDD 50 bila malipo kwa mrafiki wako",
+            "invitedBy": "Uliakaribishwa na: {{username}}",
+            "input": {
+              "placeholder": "Ingiza jina la mtumiaji (mfano: username.0000)",
+              "lookupButton": "Tafuta Mtumiaji",
+              "sendingTo": "Inatuma malipo kwa:",
+              "editButton": "Hariri",
+              "sendButton": "Tuma Malipo"
+            },
+            "errors": {
+              "enterUsername": "Tafadhali ingiza jina la mtumiaji",
+              "usernameNotFound": "Jina la mtumiaji halipatikani",
+              "lookupFailed": "Imeshindwa kumtafuta mtumiaji. Tafadhali jaribu tena.",
+              "installMiniKit": "Tafadhali usakinishe MiniKit ili kumtafuta mtumiaji",
+              "connectWallet": "Tafadhali unganisha pochi yako kwanza",
+              "transactionCanceled": "Muamala ulighairiwa"
+            },
+            "success": {
+              "rewardSent": "Malipo yametumwa kwa mafanikio kwa {{username}}!"
+            }
+          },
+          "share": {
+            "title": "Jiunge nami katika Jamhuri ya Dunia",
+            "text": "Tumia kiungo changu cha urafiki ili kujiunga na Jamhuri ya Dunia na kupata malipo pamoja!"
+          }
+        },
+        "contribute": {
+          "title": "Changia",
+          "subtitle": "Shiriki, pata malipo",
+          "contests": {
+            "weekly": "Kila wiki",
+            "topPrize": "Tuzo kuu",
+            "xPost": {
+              "title": "Shindano la Chapisho X",
+              "description": "Andika machapisho mazuri, pata tuzo"
+            },
+            "poll": {
+              "title": "Shindano la Kura",
+              "description": "Pata maoni ya jamii na pata malipo"
+            },
+            "pollContest": {
+              "title": "Shindano la Kura",
+              "weeklyTitle": "Shindano la Kura la Wiki",
+              "description": "Pata maoni ya jamii na pata malipo",
+              "prizes": {
+                "title": "Tuzo",
+                "viewWinners": "Tazama washindi wa awali",
+                "wdd": "WDD"
+              },
+              "howTo": {
+                "title": "Inavyofanya kazi",
+                "steps": {
+                  "step1": {
+                    "number": "1",
+                    "text": "Unda kura inayohusiana na Jamhuri ya Dunia au utawala wa kimataifa kwa ujumla"
+                  },
+                  "step2": {
+                    "number": "2",
+                    "text": "Iweke ili tu watu waliohakikiwa wapige kura"
+                  },
+                  "step3": {
+                    "number": "3",
+                    "text": "Shiriki kura yako katika",
+                    "link": {
+                      "text": "Kituo cha Shindano la Kura cha Telegram",
+                      "url": "https://t.me/worldrepubliccommunity/32368"
+                    }
+                  }
+                }
+              },
+              "rules": {
+                "title": "Sheria za shindano",
+                "list": {
+                  "rule1": "Tu kura zilizoanzishwa katika wiki ya sasa zinaweza kushiriki",
+                  "rule2": "Washindi huchaguliwa kulingana na jumla ya kura",
+                  "rule3": "Shindano linamalizika kila Jumapili saa 11:59 PM UTC"
+                }
+              },
+              "cta": {
+                "create": "Unda Kura Yako",
+                "submit": "Wasilisha Kura Yako"
+              },
+              "winners": {
+                "title": "Washindi wa Shindano",
+                "weekOf": "Wiki ya",
+                "votes": "kura"
+              }
+            }
+          },
+          "earlyAccess": {
+            "title": "Programu ya Ufikiaji wa Mapema",
+            "description": "Pata WDD kwa kujaribia vipengele vyetu vipya"
+          },
+          "xContest": {
+            "title": "Shindano la Chapisho X",
+            "weeklyTitle": "Shindano la Chapisho X la Wiki",
+            "description": "Andika machapisho mazuri, pata tuzo",
+            "prizes": {
+              "title": "Tuzo",
+              "viewWinners": "Tazama washindi wa awali",
+              "wdd": "WDD"
+            },
+            "howTo": {
+              "title": "Jinsi ya kushiriki",
+              "step1": "Andika chapisho la X kuhusu Jamhuri ya Dunia",
+              "step2": "Taja @WorldRepublicEN",
+              "step3": {
+                "prefix": "Shiriki kiungo cha chapisho lako katika",
+                "link": "Kituo cha Shindano la Chapisho X cha Telegram"
+              }
+            },
+            "rules": {
+              "title": "Sheria za shindano",
+              "rule1": "Tu machapisho yaliyochapishwa katika wiki ya sasa yanaweza kushiriki",
+              "rule2": "Washindi huchaguliwa kulingana na jumla ya ushiriki (pendeleo + ushiriki tena + maoni)",
+              "rule3": "Shindano linamalizika kila Jumapili saa 11:59 PM UTC"
+            },
+            "cta": {
+              "post": "Anza Kuchapisha Sasa",
+              "submit": "Wasilisha Chapisho Lako"
+            },
+            "winners": {
+              "title": "Washindi wa Shindano",
+              "weekOf": "Wiki ya",
+              "engagements": "ushiriki"
+            }
+          }
+        }
+      }
+    },
+    "govern": {
+      "title": "Tawala",
+      "tabs": {
+        "polls": "Kura",
+        "openLetters": "Barua wazi",
+        "elections": "Uchaguzi",
+        "referendums": "Kura za maoni"
+      },
+      "sections": {
+        "polls": {
+          "title": "Kura ya Siku",
+          "description": "Kura za haraka kuhusu mada za sasa",
+          "previous": {
+            "title": "Kura za Awali",
+            "backToGovern": "Rudi kwa Tawala",
+            "polls": {
+              "techTransparency": "Je, kampuni za teknolojia za kimataifa zinapaswa kuchukuliwa kufuata sera za ufumbuzi wa maamuzi ili kulinda imani ya umma?",
+              "disasterRelief": "Je, mfuko wa haraka wa kimataifa unapaswa kuanzishwa kutoa misaada ya haraka kwa majanga makubwa ya asili kama vile matetemeko makubwa ya ardhi?",
+              "aiWatermarking": "Je, sheria za kimataifa zinapaswa kuhitaji alama ya maji ya lazima ya maudhui yanayozalishwa na AI kupambana na habari potofu katika uchaguzi na vyombo vya habari?",
+              "biotech": "Je, kuna hitaji la mfumo wa udhibiti wa kimataifa kwa bioteknolojia zinazoibuka ili kuhakikisha matumizi ya kimaadili na usalama?",
+              "spaceMilitarization": "Je, viongozi wa kimataifa wanapaswa kukubaliana kuhusu itifaki za kuzuia kujitengeza kwa anga na kuhifadhi kwa madhumuni ya amani?",
+              "dataSovereignty": "Je, miongozo ya kimataifa inapaswa kutekelezwa kulinda data inayozalishwa duniani kote chini ya mfumo wa umoja wa uhuru wa kidijitali?",
+              "fourDayWeek": "Je, unasaidia harakati inayoongezeka ya kimataifa kuelekea wiki za kazi za siku nne kama mfano wa kawaida wa ajira?",
+              "nuclearSecurity": "Je, makubaliano ya kimataifa yanayofunga yanapaswa kuanzishwa kulinda vifaa vya nyuklia katika maeneo ya migogoro?",
+              "aviationResilience": "Je, miundombinu ya anga ya kimataifa ina uwezo wa kutosha kushughulikia usumbufu mkubwa wa ghafla?",
+              "waterResources": "Je, mataifa yanapaswa kuunda mfumo wa ushirikiano kusimamia rasilimali za maji zinazoshirikiwa wakati wa uhaba unaoongezeka wa maji duniani?",
+              "maternalHealth": "Je, hifadhi ya misaada ya afya ya kimataifa inapaswa kuanzishwa kulinda afya ya mama na mtoto wakati wa kufungwa kwa misaada ya kimataifa?",
+              "marsMission": "Je, unasaidia mataifa kushirikiana katika misheni ya kina ya anga kwenda Mars?",
+              "globalRecession": "Je, unafikiri mwenendo wa sasa wa uchumi wa kimataifa unaonyesha hatari ya kufungamana kwa uchumi miongoni mwa uchumi mkuu?",
+              "aidCorridors": "Je, maeneo yote ya migogoro yenye mgogoro wa kibinadamu yanapaswa kuchochea moja kwa moja njia za misaada zinazoshirikiana kimataifa?",
+              "nationalSovereignty": "Je, unasaidia mifumo ya sera ya kimataifa inayofanikisha uhuru wa kitaifa na majibu yanayoshirikiana kwa changamoto zinazoshirikiwa?",
+              "climateDisasters": "Je, nchi zinazokumbwa na majanga makubwa ya hali ya hewa (mfano: moto wa msitu, mafuriko) zinapaswa kupokea misaada ya kifedha kwa vipaumbele kutoka kwa mfuko wa hali ya hewa wa kimataifa?",
+              "aiSafety": "Je, wabuni wa AI wa kimataifa wanapaswa kuhitaji kusimamisha mafunzo ya mifano yenye nguvu zaidi kuliko mifumo ya sasa hadi makubaliano ya usalama ya kimataifa yaanzishwe?",
+              "corporateTax": "Je, makampuni yanayofanya kazi katika nchi nyingi yanapaswa kufuata kiwango cha chini cha ushuru wa kimataifa kupunguza usawa?",
+              "spaceDebris": "Je, unakubali kwamba mataifa na makampuni yanayofanya kazi angani yanapaswa kuhitajika kisheria kuondoa satelaiti zisizofanya kazi kupunguza taka za anga?",
+              "digitalPrivacy": "Je, unafikiri kwamba kuunda viwango vya ulimwengu vya faragha ya kidijitali ni muhimu kulinda haki za mtu binafsi katika ulimwengu unaounganishwa zaidi?",
+              "nuclearProliferation": "Je, unaamini kwamba hatua zilizopo za kimataifa zinafaa kupunguza hatari ya kuenea kwa nyuklia?",
+              "cybersecurity": "Je, hatua za sasa za usalama wa kidijitali za kimataifa zinafaa kulinda miundombinu muhimu ya kimataifa kutoka kwa vitisho vya kidijitali vinavyozidi?",
+              "globalAlliances": "Je, unafikiri upangaji upya wa haraka wa ushirikiano wa kimataifa utaongoza kwa mpangilio wa kimataifa salama zaidi?",
+              "climateResilience": "Je, mbinu ya sasa ya kimataifa kwa uwezo wa hali ya hewa inafaa kukabiliana na marudio yanayoongezeka ya matukio makubwa ya hali ya hewa?",
+              "tradeTariffs": "Je, unafikiri mwenendo unaoongezeka wa kutoa ushuru miongoni mwa uchumi mkuu utasumbua kwa kiasi kikubwa utulivu wa biashara ya kimataifa?",
+              "diseaseManagement": "Je, una uhakika katika uwezo wa ulimwengu kuzuia na kusimamia magonjwa yanayoibuka?",
+              "aiRegulation": "Je, sheria zinazofunga za kimataifa zinapaswa kuanzishwa kudhibiti maendeleo ya kimaadili ya akili bandia?",
+              "spaceRegulation": "Je, kuna hitaji la makubaliano ya lazima ya kimataifa kudhibiti taka za anga kutoka kwa satelaiti na roketi?",
+              "diplomaticDialogue": "Je, unaamini mazungumzo endelevu ya kidiplomasia miongoni mwa viongozi wa ulimwengu yanaweza kusaidia kupunguza mvutano wa kimataifa?",
+              "migration": "Je, nchi tajiri zinapaswa kukubali wahamiaji wengi zaidi wanaokimbia migogoro au majanga ya hali ya hewa?",
+              "rareEarths": "Je, ushirikiano wa kimataifa kuhusu madini nadra unapaswa kufanywa kipaumbele kuimarisha usalama wa rasilimali duniani?",
+              "cryptocurrency": "Je, mamlaka za kimataifa zinapaswa kuanzisha viwango vya umoja kudhibiti sarafu za kidijitali na kuzuia uhalifu wa kifedha?",
+              "disinformation": "Je, unafikiri hatua za kimataifa zinapaswa kutekelezwa kupambana na kuenea kwa habari potofu mtandaoni?",
+              "diseaseOutbreaks": "Je, nchi zinapaswa kuhitajika kushiriki data ya wakati halisi wakati wa milipuko ya magonjwa kuzuia mgogoro wa afya wa kimataifa?",
+              "militaryIntervention": "Je, nchi zilizo na uwezo wa kijeshi zinapaswa kuingilia kati kupunguza migogoro katika maeneo yanayokumbwa na milipuko ya ghafla ya vita?",
+              "aiDevelopment": "Je, serikali zinapaswa kufanya kipaumbele kudhibiti maendeleo ya akili bandia (AI) kuzuia matumizi mabaya, hata kama itapunguza uvumbuzi?",
+              "asteroidDefense": "Je, unaamini kwamba serikali duniani kote zinapaswa kuongeza ufadhili wa ufuatiliaji wa anga na utafiti wa kuzuia asteroidi?",
+              "peaceNegotiations": "Je, nguvu kuu zinazowasiliana makubaliano ya amani zinapaswa kuhitaji kujumuisha nchi zinazoathiriwa moja kwa moja na migogoro?",
+              "taiwanPolicy": "Je, Marekani inapaswa kudumisha sera yake ya 'utata wa kimkakati' kuhusu Taiwan kuzuia kuongezeka kwa mvutano na China?"
+            }
+          }
+        },
+        "openLetters": {
+          "title": "Barua Wazi",
+          "description": "Taarifa za umma kwa wafanya maamuzi",
+          "addNew": "Ongeza barua yako wazi",
+          "statements": {
+            "aiRisk": {
+              "title": "Taarifa kuhusu Hatari ya AI",
+              "referenceTitle": "Kituo cha Usalama wa AI"
+            },
+            "nuclear": {
+              "title": "Barua Wazi ya UN Kuhusu Kukataza Silaha za Nyuklia",
+              "referenceTitle": "Taasisi ya Mustakabali wa Maisha"
+            },
+            "autonomousWeapons": {
+              "title": "Ahadi ya Silaha Zisizotawaliwa na Binadamu",
+              "referenceTitle": "Taasisi ya Mustakabali wa Maisha"
+            },
+            "longView": {
+              "title": "Barua wazi inayowataka viongozi wa ulimwengu kuonyesha uongozi wa mtazamo mrefu kuhusu vitisho vya kuwepo",
+              "referenceTitle": "Taasisi ya Mustakabali wa Maisha"
+            }
+          }
+        },
+        "elections": {
+          "title": "Uchaguzi",
+          "description": "Chagua wawakilishi wako",
+          "worldConstituent": {
+            "title": "Uchaguzi wa Bunge la Katiba la Dunia"
+          }
+        },
+        "referendums": {
+          "title": "Kura za Maoni",
+          "description": "Kura za moja kwa moja kuhusu masuala muhimu",
+          "worldConstitutional": {
+            "title": "Kura ya Maoni ya Katiba ya Dunia"
+          }
+        }
+      }
+    },
+    "menu": {
+      "title": "Menyu",
+      "sections": {
+        "experimental": {
+          "title": "MAJARIBIO",
+          "links": {
+            "verification": "Hali ya uthibitishaji",
+            "language": "Lugha"
+          }
+        },
+        "connect": {
+          "title": "UNGANISHA",
+          "links": {
+            "community": "Jumuiya",
+            "announcements": "Matangazo",
+            "x": "X"
+          }
+        },
+        "help": {
+          "title": "Msaada",
+          "links": {
+            "faq": "Maswali Yanayoulizwa Mara kwa Mara"
+          }
+        },
+        "code": {
+          "title": "Msimbo",
+          "links": {
+            "app": "Programu",
+            "contracts": "Mikataba ya akili"
+          }
+        }
+      }
+    },
+    "faq": {
+      "title": "Maswali Yanayoulizwa Mara kwa Mara",
+      "items": {
+        "appPurpose": {
+          "question": "Je, Jamhuri ya Dunia ni nini?",
+          "answer": "Jamhuri ya Dunia ni shirika la kidemokrasia linalojitolea kutatua changamoto muhimu za kimataifa za wanadamu. Inatoa mfumo wa kufanya maamuzi pamoja kuhusu masuala yanayoweza kutatuliwa kwa ufanisi katika kiwango cha kimataifa, kama vile hatari za AI, mabadiliko ya hali ya hewa, au usalama wa kibiolojia."
+        },
+        "basicIncome": {
+          "question": "Je, Mapato ya Msingi ni nini?",
+          "answer": "Mapato yetu ya Msingi ni ruzuku ya kila siku ya WDD 1 (drachma ya ulimwengu) inayotolewa kwa raia wote wa Jamhuri ya Dunia. Inaongezeka kwa wakati halisi na inaweza kuchukuliwa wakati wowote kupitia programu."
+        },
+        "basicIncomePlus": {
+          "question": "Je, ninawezaje kuanzisha Mapato ya Msingi Plus?",
+          "answer": "Mapato ya Msingi Plus yanatoa WDD 10 za ziada kwa siku na yanapatikana kwa watumiaji waliohakikiwa na Orb tu. Baada ya kuanzisha Mapato ya Msingi, utaona chaguo la kuanzisha Mapato ya Msingi Plus kwenye ukurasa wa Kupata."
+        },
+        "savings": {
+          "question": "Je, Akaunti ya Akiba inafanya kazi vipi?",
+          "answer": "Akaunti ya Akiba inakuruhusu kuweka tokeni za WDD na kupata riba ya 69% kwa mwaka. Kupitia uwekezaji endelevu wa riba iliyopatikana, watumiaji wanaweza kupata mapato halisi karibu 100% kwa mwaka, kuongeza ukuaji wao wa WDD baada ya muda. Riba inaongezeka endelevu na inaweza kuchukuliwa au kuwekezwa tena wakati wowote."
+        },
+        "referralCodes": {
+          "question": "Je, nambari za urafiki zinafanya kazi vipi?",
+          "answer": "Kama raia wa Jamhuri ya Dunia, unaweza kupata malipo kupitia programu yetu ya urafiki. Shiriki kiungo chako cha kipekee cha urafiki na rafiki, na utapokea WDD 50 kwa kila mtu anayejiunga na kuanzisha Mapato ya Msingi Plus. Hujapokea malipo yako? Rafiki yako anaweza kuhitaji kuchochea moja kwa moja kwa kuchagua chaguo la 'Mpa Malipo Mrafiki' katika sehemu yake ya urafiki."
+        },
+        "drachmaValue": {
+          "question": "Je, drachma inapata thamani yake wapi?",
+          "answer": "Drachma inapata thamani yake kutoka kwa kuwa sarafu rasmi ya Jamhuri ya Dunia. Kadiri jukwaa letu la utawala wa kidemokrasia wa kimataifa linavyokua, WDD ina uwezo wa kuwa njia muhimu ya kubadilishana katika uchumi wa ulimwengu, na inaweza hatimaye kucheza jukumu katika usambazaji wa haki wa faida kutoka kwa maendeleo ya teknolojia na rasilimali za kimataifa."
+        },
+        "topWallets": {
+          "question": "Je, ni nani anayetawala akaunti kubwa zaidi?",
+          "answer": "Akaunti tatu kubwa zaidi ni <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'> Hazina ya Jamhuri ya Dunia</a>, <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Mfuko wa Mapato ya Msingi</a>, na <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Mfuko wa Mapato ya Msingi Plus</a>. Kwa sasa, hizi zinatawaliwa na mwanzilishi wa mradi, lakini udhibiti utahamishwa kwa jumuiya baada ya katiba yetu kuthibitishwa. Anwani zingine muhimu ni pamoja na <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>mkataba wa Akaunti ya Akiba</a>, <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>msambazaji wa Malipo ya Urafiki</a>, na vifaa vya uwezo: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, na <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
+        },
+        "voteRequirements": {
+          "question": "Je, ni mahitaji gani ya kupendekeza kura?",
+          "answer": "Kura za sasa na barua wazi ni tu onyesho. Jumuiya yetu itaamua pamoja mfumo wetu wa utawala kupitia mchakato wa kubuni katiba unaoongozwa na Bunge la Katiba lililochaguliwa mwaka 2025 Q2."
+        }
+      }
+    },
+    "language": {
+      "title": "Lugha",
+      "options": {
+        "english": "Kiingereza",
+        "spanish": "Kihispania"
+      }
+    },
+    "verification": {
+      "title": "Hali ya Uthibitishaji",
+      "levels": {
+        "document": {
+          "title": "Uthibitishaji wa Nyaraka",
+          "description": "Angalia hali ya uthibitishaji wa nyaraka",
+          "buttonText": "Angalia Hali"
+        },
+        "secureDocument": {
+          "title": "Uthibitishaji Salama wa Nyaraka",
+          "description": "Angalia hali ya uthibitishaji salama wa nyaraka",
+          "buttonText": "Angalia Hali"
+        },
+        "orb": {
+          "title": "Uthibitishaji wa Orb",
+          "description": "Angalia hali ya uthibitishaji wa Orb",
+          "buttonText": "Angalia Hali"
+        }
+      }
+    }
+  }
+}

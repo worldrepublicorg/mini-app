@@ -68,6 +68,26 @@ const dictionaries = {
     import("@/app/[lang]/dictionaries/pl.json").then(
       (module) => module.default
     ),
+  ur: () =>
+    import("@/app/[lang]/dictionaries/ur.json").then(
+      (module) => module.default
+    ),
+  sw: () =>
+    import("@/app/[lang]/dictionaries/sw.json").then(
+      (module) => module.default
+    ),
+  pcm: () =>
+    import("@/app/[lang]/dictionaries/pcm.json").then(
+      (module) => module.default
+    ),
+  tl: () =>
+    import("@/app/[lang]/dictionaries/tl.json").then(
+      (module) => module.default
+    ),
+  tr: () =>
+    import("@/app/[lang]/dictionaries/tr.json").then(
+      (module) => module.default
+    ),
 };
 export const getClientDictionary = async (locale: string) => {
   return dictionaries[locale as keyof typeof dictionaries]();

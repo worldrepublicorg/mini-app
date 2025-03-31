@@ -1,0 +1,448 @@
+{
+  "components": {
+    "walletAuth": {
+      "connect": "Cüzdanı Bağla"
+    },
+    "verifyButton": {
+      "verify": "Talep Etmek İçin Doğrula"
+    },
+    "pollOfTheDay": {
+      "previousPolls": "Önceki Anketler",
+      "vote": "Şimdi Oyla"
+    },
+    "stakeForm": {
+      "deposit": "Yatır",
+      "withdraw": "Çek",
+      "balance": "Bakiye:",
+      "depositPlaceholder": "Yatırılacak miktar",
+      "withdrawPlaceholder": "Çekilecek miktar",
+      "max": "Maksimum",
+      "interest": "Faiz:",
+      "collect": "Topla",
+      "depositButton": "Drahmi Yatır",
+      "withdrawButton": "Drahmi Çek"
+    },
+    "toasts": {
+      "wallet": {
+        "connectInWorldApp": "Lütfen cüzdanınızı bağlamak için bu uygulamayı World App'te açın.",
+        "stakingError": "Token stake etme hatası",
+        "withdrawError": "Token çekme hatası",
+        "collectError": "Ödül toplama hatası"
+      },
+      "referral": {
+        "pendingReward": "{{username}} için bekleyen ödül işleniyor...",
+        "rewardSuccess": "{{username}} başarıyla ödüllendirildi!",
+        "sendingReward": "{{username}}'e 50 WDD ödülü gönderiliyor..."
+      },
+      "basicIncome": {
+        "setupSuccess": "Temel Gelir Plus aktifleştirildi! {{username}} için ödül hazırlanıyor...",
+        "setupWithReferrer": "Önce Temel Gelir Plus kuruluyor, sonra {{username}}'i ödüllendireceğiz...",
+        "error": "Temel Gelir aktifleştirme hatası",
+        "errorPlus": "Temel Gelir Plus aktifleştirme hatası"
+      },
+      "transaction": {
+        "error": "Beklenmeyen bir hata oluştu",
+        "errorClaim": "Talep ederken beklenmeyen bir hata oluştu"
+      }
+    },
+    "comingSoonDrawer": {
+      "title": "Yakında",
+      "description": "Bu özellik şu anda geliştirme aşamasında. Takipte kalın!"
+    },
+    "tabSwiper": {
+      "tabs": {
+        "polls": "Anketler",
+        "openLetters": "Açık mektuplar",
+        "elections": "Seçimler",
+        "referendums": "Referandumlar"
+      }
+    }
+  },
+  "pages": {
+    "earn": {
+      "title": "Kazan",
+      "tabs": {
+        "basicIncome": {
+          "tabTitle": "Temel gelir",
+          "title": "Temel Gelir",
+          "subtitle": "Temel gelirinizi talep etmek için giriş yapın",
+          "setupSubtitle": "Temel gelirinizi ayarlayın",
+          "claimableSubtitle": "Talep edilebilir drahmi",
+          "activateButton": "Temel Geliri Aktifleştir",
+          "claimButton": "Talep Et",
+          "plus": {
+            "title": "Temel Gelir Plus",
+            "newBadge": "Yeni",
+            "drawerTrigger": "Temel Gelir Plus'ı Tanıtıyoruz",
+            "subtitle": "Doğrulanmış kullanıcılar için ek gelir",
+            "drawer": {
+              "title": "Temel Gelir Plus",
+              "subtitle": "Doğrulanmış kullanıcılar için ek gelir",
+              "features": {
+                "rate": {
+                  "title": "Günde ek 10 WDD"
+                },
+                "verification": {
+                  "title": "Adil dağıtım için sadece Orb-doğrulanmış kullanıcılara özel"
+                },
+                "rewards": {
+                  "title": "Toplam günlük 11 WDD'yi korurken ödüller zamanla Plus'a geçer"
+                }
+              },
+              "activateButton": "Temel Gelir Plus'ı Aktifleştir",
+              "claimButton": "Temel Gelir Plus'ı Talep Et",
+              "claimBasicButton": "Temel Geliri Talep Et"
+            }
+          }
+        },
+        "savings": {
+          "tabTitle": "Tasarruf",
+          "title": "Tasarruf Hesabı",
+          "subtitle": "Her saniye faiz kazanın",
+          "tooltip": "%69 APY temel oran. Faizi toplayıp yeniden yatırarak yıllık yaklaşık %100 etkin getiri elde edin. İstediğiniz zaman çekin."
+        },
+        "invite": {
+          "title": "Davet Et",
+          "subtitle": "Katılan her arkadaş için 50 WDD kazanın",
+          "tooltip": "Ödüller için arkadaşlarınızın Orb-doğrulanmış olması gerekir.",
+          "learnMore": "Daha fazla bilgi",
+          "stats": {
+            "title": "Davet İstatistikleriniz",
+            "invites": "Kabul edilen davetler",
+            "rewards": "Toplam ödüller"
+          },
+          "actions": {
+            "copyLink": "Davet Bağlantısını Kopyala",
+            "copied": "Davet bağlantısı panoya kopyalandı!",
+            "connectWallet": "Davet bağlantınızı oluşturmak için lütfen cüzdanınızı bağlayın",
+            "rewardReferrer": "Davet Edeni Ödüllendir",
+            "share": "Daveti Paylaş"
+          },
+          "drawer": {
+            "title": "Davet Edeni Ödüllendir",
+            "subtitle": "Davet edeniniz için ücretsiz 50 WDD ödülü tetikleyin",
+            "invitedBy": "Sizi davet eden: {{username}}",
+            "input": {
+              "placeholder": "Kullanıcı adı girin (örn. kullanici.0000)",
+              "lookupButton": "Kullanıcı Ara",
+              "sendingTo": "Ödül gönderiliyor:",
+              "editButton": "Düzenle",
+              "sendButton": "Ödül Gönder"
+            },
+            "errors": {
+              "enterUsername": "Lütfen bir kullanıcı adı girin",
+              "usernameNotFound": "Kullanıcı adı bulunamadı",
+              "lookupFailed": "Kullanıcı adı arama başarısız oldu. Lütfen tekrar deneyin.",
+              "installMiniKit": "Kullanıcı adlarını aramak için lütfen MiniKit'i yükleyin",
+              "connectWallet": "Lütfen önce cüzdanınızı bağlayın",
+              "transactionCanceled": "İşlem iptal edildi"
+            },
+            "success": {
+              "rewardSent": "{{username}}'e başarıyla ödül gönderildi!"
+            }
+          },
+          "share": {
+            "title": "Dünya Cumhuriyeti'ne Katılın",
+            "text": "Dünya Cumhuriyeti'ne katılmak için davet bağlantımı kullanın ve birlikte ödüller kazanın!"
+          }
+        },
+        "contribute": {
+          "title": "Katkıda Bulun",
+          "subtitle": "Katılın, ödül kazanın",
+          "contests": {
+            "weekly": "Haftalık",
+            "topPrize": "En yüksek ödül",
+            "xPost": {
+              "title": "X Gönderi Yarışması",
+              "description": "İlgi çekici gönderiler yazın, ödüller kazanın"
+            },
+            "poll": {
+              "title": "Anket Yarışması",
+              "description": "Topluluk geri bildirimi toplayın ve kazanın"
+            },
+            "pollContest": {
+              "title": "Anket Yarışması",
+              "weeklyTitle": "Haftalık Anket Yarışması",
+              "description": "Topluluk geri bildirimi toplayın ve kazanın",
+              "prizes": {
+                "title": "Ödüller",
+                "viewWinners": "Geçmiş kazananları görüntüle",
+                "wdd": "WDD"
+              },
+              "howTo": {
+                "title": "Nasıl çalışır",
+                "steps": {
+                  "step1": {
+                    "number": "1",
+                    "text": "Dünya Cumhuriyeti veya genel olarak küresel yönetimle ilgili bir anket oluşturun"
+                  },
+                  "step2": {
+                    "number": "2",
+                    "text": "Sadece doğrulanmış insanların oy kullanabilmesi için ayarlayın"
+                  },
+                  "step3": {
+                    "number": "3",
+                    "text": "Anketinizi bizim",
+                    "link": {
+                      "text": "Anket Yarışması Telegram kanalımızda",
+                      "url": "https://t.me/worldrepubliccommunity/32368"
+                    }
+                  }
+                }
+              },
+              "rules": {
+                "title": "Yarışma kuralları",
+                "list": {
+                  "rule1": "Sadece mevcut haftada başlatılan anketler uygun",
+                  "rule2": "Kazananlar toplam oya göre seçilir",
+                  "rule3": "Yarışma her Pazar UTC 23:59'da sona erer"
+                }
+              },
+              "cta": {
+                "create": "Anketinizi Oluşturun",
+                "submit": "Anketinizi Gönderin"
+              },
+              "winners": {
+                "title": "Yarışma Kazananları",
+                "weekOf": "Hafta",
+                "votes": "oy"
+              }
+            }
+          },
+          "earlyAccess": {
+            "title": "Erken Erişim Programı",
+            "description": "Yaklaşan özelliklerimizi test ederek WDD kazanın"
+          },
+          "xContest": {
+            "title": "X Gönderi Yarışması",
+            "weeklyTitle": "Haftalık X Gönderi Yarışması",
+            "description": "İlgi çekici gönderiler yazın, ödüller kazanın",
+            "prizes": {
+              "title": "Ödüller",
+              "viewWinners": "Geçmiş kazananları görüntüle",
+              "wdd": "WDD"
+            },
+            "howTo": {
+              "title": "Nasıl katılınır",
+              "step1": "Dünya Cumhuriyeti hakkında bir X gönderisi yazın",
+              "step2": "@WorldRepublicEN etiketleyin",
+              "step3": {
+                "prefix": "Gönderinizin bağlantısını bizim",
+                "link": "X Gönderi Yarışması Telegram kanalımızda paylaşın"
+              }
+            },
+            "rules": {
+              "title": "Yarışma kuralları",
+              "rule1": "Sadece mevcut haftada yayınlanan gönderiler uygun",
+              "rule2": "Kazananlar toplam etkileşime göre seçilir (beğeni + yeniden paylaşım + yorum)",
+              "rule3": "Yarışma her Pazar UTC 23:59'da sona erer"
+            },
+            "cta": {
+              "post": "Şimdi Paylaşmaya Başlayın",
+              "submit": "Gönderinizi Gönderin"
+            },
+            "winners": {
+              "title": "Yarışma Kazananları",
+              "weekOf": "Hafta",
+              "engagements": "etkileşim"
+            }
+          }
+        }
+      }
+    },
+    "govern": {
+      "title": "Yönet",
+      "tabs": {
+        "polls": "Anketler",
+        "openLetters": "Açık mektuplar",
+        "elections": "Seçimler",
+        "referendums": "Referandumlar"
+      },
+      "sections": {
+        "polls": {
+          "title": "Günün Anketi",
+          "description": "Güncel konularda hızlı oylamalar",
+          "previous": {
+            "title": "Önceki Anketler",
+            "backToGovern": "Yönet'e Dön",
+            "polls": {
+              "techTransparency": "Küresel teknoloji şirketlerinin kamu güvenini korumak için şeffaf karar verme politikalarını benimsemesi zorunlu olmalı mı?",
+              "disasterRelief": "Büyük depremler gibi yıkıcı doğal afetler için acil yardım sağlamak üzere küresel bir hızlı müdahale fonu kurulmalı mı?",
+              "aiWatermarking": "Seçimlerde ve medyada yanlış bilgilendirmeyle mücadele etmek için küresel düzenlemeler AI tarafından oluşturulan içeriğin zorunlu filigranlanmasını gerektirmeli mi?",
+              "biotech": "Yeni biyoteknolojilerin etik kullanımını ve güvenliğini sağlamak için küresel bir düzenleme çerçevesi olmalı mı?",
+              "spaceMilitarization": "Küresel liderler, uzayın militarizasyonunu önlemek ve barışçıl amaçlar için güvence altına almak üzere protokoller üzerinde anlaşmalı mı?",
+              "dataSovereignty": "Dünya çapında üretilen verileri birleşik bir dijital egemenlik çerçevesi altında korumak için uluslararası yönergeler uygulanmalı mı?",
+              "fourDayWeek": "Dört günlük çalışma haftasını standart bir istihdam modeli olarak destekliyor musunuz?",
+              "nuclearSecurity": "Çatışma bölgelerindeki nükleer tesisleri güvence altına almak için bağlayıcı uluslararası anlaşmalar yapılmalı mı?",
+              "aviationResilience": "Uluslararası havacılık altyapısı beklenmedik büyük ölçekli kesintileri yönetmek için yeterince dayanıklı mı?",
+              "waterResources": "Artan küresel su kıtlığı karşısında uluslar paylaşılan su kaynaklarını yönetmek için işbirliği çerçevesi oluşturmalı mı?",
+              "maternalHealth": "Uluslararası yardım dondurulmaları sırasında anne ve çocuk sağlığını korumak için özel bir küresel sağlık yardımı rezervi kurulmalı mı?",
+              "marsMission": "Ulusların Mars'a ortak bir derin uzay görevi için işbirliği yapmasını destekliyor musunuz?",
+              "globalRecession": "Mevcut küresel ekonomik trendlerin büyük ekonomiler arasında senkronize bir durgunluk riskine işaret ettiğini düşünüyor musunuz?",
+              "aidCorridors": "Sivil insani krizler yaşayan tüm çatışma bölgeleri otomatik olarak uluslararası koordineli yardım koridorları tetiklemeli mi?",
+              "nationalSovereignty": "Ulusal egemenlik ile ortak zorluklara koordineli yanıtlar arasındaki dengeyi sağlayan küresel politika çerçevelerini destekliyor musunuz?",
+              "climateDisasters": "Aşırı hava felaketleri yaşayan ülkeler (örn. orman yangınları, seller) küresel bir iklim fonundan öncelikli mali yardım almalı mı?",
+              "aiSafety": "Küresel AI geliştiricileri, uluslararası güvenlik anlaşmaları kurulana kadar mevcut sistemlerden daha güçlü modellerin eğitimini durdurmaya zorlanmalı mı?",
+              "corporateTax": "Birden fazla ülkede faaliyet gösteren şirketler, eşitsizliği azaltmak için birleşik bir küresel minimum vergi oranına tabi olmalı mı?",
+              "spaceDebris": "Uzay-faaliyet gösteren ulusların ve şirketlerin, yörünge enkazını azaltmak için kullanım dışı uyduları yasal olarak kaldırması gerektiğine katılıyor musunuz?",
+              "digitalPrivacy": "Giderek daha fazla birbirine bağlı bir dünyada bireysel hakları korumak için evrensel dijital gizlilik standartları oluşturmanın çok önemli olduğunu düşünüyor musunuz?",
+              "nuclearProliferation": "Mevcut küresel önlemlerin nükleer yayılma riskini etkili bir şekilde azalttığına inanıyor musunuz?",
+              "cybersecurity": "Mevcut uluslararası siber güvenlik önlemleri, kritik küresel altyapıları artan siber tehditlerden yeterince koruyor mu?",
+              "globalAlliances": "Küresel ittifaklardaki hızlı yeniden düzenlemelerin daha güvenli bir uluslararası düzen yaratacağını düşünüyor musunuz?",
+              "climateResilience": "Mevcut küresel iklim dayanıklılığı yaklaşımı, artan aşırı hava olayları sıklığıyla başa çıkmak için yeterli mi?",
+              "tradeTariffs": "Büyük ekonomiler arasında artan tarife uygulama trendinin küresel ticaret istikrarını önemli ölçüde bozacağını düşünüyor musunuz?",
+              "diseaseManagement": "Dünyanın yeni bulaşıcı hastalıkları önleme ve yönetme yeteneğine güveniyor musunuz?",
+              "aiRegulation": "Yapay zekanın etik gelişimini yönetmek için bağlayıcı uluslararası düzenlemeler kurulmalı mı?",
+              "spaceRegulation": "Uydulardan ve roketlerden kaynaklanan uzay enkazını sınırlamak için zorunlu uluslararası anlaşmalar olmalı mı?",
+              "diplomaticDialogue": "Dünya liderleri arasındaki sürdürülebilir diplomatik diyaloğun küresel gerginlikleri azaltmaya yardımcı olabileceğine inanıyor musunuz?",
+              "migration": "Zengin ülkeler çatışma veya iklim felaketlerinden kaçan daha fazla mülteci kabul etmeli mi?",
+              "rareEarths": "Küresel kaynak güvenliğini artırmak için nadir toprak elementleri üzerinde uluslararası işbirliği önceliklendirilmeli mi?",
+              "cryptocurrency": "Küresel yetkililer kripto para birimlerini düzenlemek ve finansal suçları engellemek için tek tip standartlar belirlemeli mi?",
+              "disinformation": "Küresel önlemlerin çevrimiçi yanlış bilgilendirmeyle mücadele etmek için uygulanması gerektiğini düşünüyor musunuz?",
+              "diseaseOutbreaks": "Ülkeler küresel sağlık krizlerini önlemek için hastalık salgınları sırasında gerçek zamanlı veri paylaşmaya zorlanmalı mı?",
+              "militaryIntervention": "Gelişmiş askeri yeteneklere sahip ülkeler, savaşın ani patlak verdiği bölgelerdeki çatışmaları de-escalate etmek için müdahale etmeli mi?",
+              "aiDevelopment": "Hükümetler, yeniliği yavaşlatsa bile yapay zeka (AI) gelişimini kötüye kullanımı önlemek için düzenlemeyi önceliklendirmeli mi?",
+              "asteroidDefense": "Dünya çapındaki hükümetlerin uzay izleme ve asteroit saptırma araştırması için fonları artırması gerektiğine inanıyor musunuz?",
+              "peaceNegotiations": "Barış anlaşmalarını müzakere eden büyük güçler, çatışmadan doğrudan etkilenen ülkeleri dahil etmeye zorlanmalı mı?",
+              "taiwanPolicy": "Amerika Birleşik Devletleri, Çin ile gerginlikleri artırmamak için Tayvan konusundaki 'stratejik belirsizlik' politikasını sürdürmeli mi?"
+            }
+          }
+        },
+        "openLetters": {
+          "title": "Açık Mektuplar",
+          "description": "Karar vericilere açık beyanlar",
+          "addNew": "Açık mektubunuzu ekleyin",
+          "statements": {
+            "aiRisk": {
+              "title": "AI Risk Beyanı",
+              "referenceTitle": "AI Güvenliği Merkezi"
+            },
+            "nuclear": {
+              "title": "BM Nükleer Silahların Yasaklanması Açık Mektubu",
+              "referenceTitle": "Yaşamın Geleceği Enstitüsü"
+            },
+            "autonomousWeapons": {
+              "title": "Ölümcül Otonom Silahlar Taahhüdü",
+              "referenceTitle": "Yaşamın Geleceği Enstitüsü"
+            },
+            "longView": {
+              "title": "Dünya liderlerini varoluşsal tehditler konusunda uzun vadeli liderlik göstermeye çağıran açık mektup",
+              "referenceTitle": "Yaşamın Geleceği Enstitüsü"
+            }
+          }
+        },
+        "elections": {
+          "title": "Seçimler",
+          "description": "Temsilcilerinizi seçin",
+          "worldConstituent": {
+            "title": "Dünya Kurucu Meclis Seçimi"
+          }
+        },
+        "referendums": {
+          "title": "Referandumlar",
+          "description": "Önemli konularda doğrudan oylamalar",
+          "worldConstitutional": {
+            "title": "Dünya Anayasal Referandumu"
+          }
+        }
+      }
+    },
+    "menu": {
+      "title": "Menü",
+      "sections": {
+        "experimental": {
+          "title": "DENEYSEL",
+          "links": {
+            "verification": "Doğrulama durumu",
+            "language": "Dil"
+          }
+        },
+        "connect": {
+          "title": "BAĞLAN",
+          "links": {
+            "community": "Topluluk",
+            "announcements": "Duyurular",
+            "x": "X"
+          }
+        },
+        "help": {
+          "title": "YARDIM",
+          "links": {
+            "faq": "SSS"
+          }
+        },
+        "code": {
+          "title": "KOD",
+          "links": {
+            "app": "Uygulama",
+            "contracts": "Akıllı sözleşmeler"
+          }
+        }
+      }
+    },
+    "faq": {
+      "title": "SSS",
+      "items": {
+        "appPurpose": {
+          "question": "Dünya Cumhuriyeti nedir?",
+          "answer": "Dünya Cumhuriyeti, insanlığın en acil küresel zorluklarını çözmeye adanmış açık, demokratik bir organizasyondur. AI riskleri, iklim değişikliği veya biyogüvenlik gibi sadece küresel ölçekte etkili bir şekilde ele alınabilecek konularda kolektif karar verme için bir çerçeve sunar."
+        },
+        "basicIncome": {
+          "question": "Temel Gelir nedir?",
+          "answer": "Temel Gelirimiz, Dünya Cumhuriyeti'nin tüm vatandaşlarına sağlanan günlük 1 WDD (dünya drahmi) sübvansiyonudur. Gerçek zamanlı olarak birikir ve uygulama üzerinden her an talep edilebilir."
+        },
+        "basicIncomePlus": {
+          "question": "Temel Gelir Plus'ı nasıl aktifleştiririm?",
+          "answer": "Temel Gelir Plus, günlük ek 10 WDD sağlar ve sadece Orb-doğrulanmış kullanıcılara özeldir. Temel Geliri aktifleştirdikten sonra, Kazan sayfasında Temel Gelir Plus'ı aktifleştirme seçeneğini göreceksiniz."
+        },
+        "savings": {
+          "question": "Tasarruf Hesabı nasıl çalışır?",
+          "answer": "Tasarruf Hesabı, WDD tokenlerini yatırmanıza ve %69 yıllık faiz kazanmanıza olanak tanır. Kazanılan faizi sürekli yeniden yatırım yaparak, kullanıcılar yıllık yaklaşık %100 etkin getiri elde edebilir ve zaman içinde WDD büyümelerini maksimize edebilir. Faiz sürekli birikir ve her zaman çekilebilir veya yeniden yatırılabilir."
+        },
+        "referralCodes": {
+          "question": "Davet kodları nasıl çalışır?",
+          "answer": "Dünya Cumhuriyeti vatandaşı olarak, davet programımız aracılığıyla ödüller kazanabilirsiniz. Arkadaşlarınızla benzersiz davet bağlantınızı paylaşın ve katılan ve Temel Gelir Plus'ı aktifleştiren her kişi için 50 WDD kazanın. Ödülünüzü almadınız mı? Arkadaşınızın davet bölümündeki 'Davet Edeni Ödüllendir' seçeneğini seçerek manuel olarak tetiklemesi gerekebilir."
+        },
+        "drachmaValue": {
+          "question": "Drahmi değerini nereden alıyor?",
+          "answer": "Drahmi, Dünya Cumhuriyeti'nin resmi para birimi olmasından değerini alır. Demokratik küresel yönetim platformumuz büyüdükçe, WDD dünya ekonomisinde önemli bir değişim aracı olma potansiyeline sahip olabilir ve nihayetinde teknolojik gelişmelerin ve küresel kaynakların faydalarının adil dağılımında rol oynayabilir."
+        },
+        "topWallets": {
+          "question": "En büyük hesapları kim kontrol ediyor?",
+          "answer": "En büyük üç hesap <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>Dünya Cumhuriyeti Hazinesi</a>, <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Temel Gelir Fonu</a> ve <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Temel Gelir Plus Fonu</a>'dur. Şu anda bunlar projenin kurucusu tarafından kontrol ediliyor, ancak kontrol anayasamız onaylandıktan sonra topluluğa devredilecek. Diğer önemli adresler arasında <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>Tasarruf Hesabı sözleşmesi</a>, <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>Davet Ödülleri dağıtıcısı</a> ve likidite havuzları: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a> ve <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a> bulunmaktadır."
+        },
+        "voteRequirements": {
+          "question": "Oylama önerisi için gereksinimler nelerdir?",
+          "answer": "Mevcut anketler ve açık mektuplar sadece bir gösterimdir. Topluluğumuz, 2025'in 2. çeyreğinde seçilen Kurucu Meclis önderliğindeki anayasal tasarım süreci aracılığıyla yönetim sistemimizi kolektif olarak belirleyecek."
+        }
+      }
+    },
+    "language": {
+      "title": "Dil",
+      "options": {
+        "english": "İngilizce",
+        "spanish": "İspanyolca"
+      }
+    },
+    "verification": {
+      "title": "Doğrulama Durumu",
+      "levels": {
+        "document": {
+          "title": "Belge Doğrulama",
+          "description": "Belge doğrulama durumunu kontrol edin",
+          "buttonText": "Durumu Kontrol Et"
+        },
+        "secureDocument": {
+          "title": "Güvenli Belge Doğrulama",
+          "description": "Güvenli belge doğrulama durumunu kontrol edin",
+          "buttonText": "Durumu Kontrol Et"
+        },
+        "orb": {
+          "title": "Orb Doğrulama",
+          "description": "Orb doğrulama durumunu kontrol edin",
+          "buttonText": "Durumu Kontrol Et"
+        }
+      }
+    }
+  }
+}

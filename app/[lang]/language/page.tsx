@@ -32,6 +32,11 @@ export default function LanguagePage({
     { code: "fr", label: "Français - French" },
     { code: "de", label: "Deutsch - German" },
     { code: "pl", label: "Polski - Polish" },
+    { code: "ur", label: "اردو - Urdu" },
+    { code: "sw", label: "Kiswahili - Swahili" },
+    { code: "pcm", label: "Pidgin English - Pidgin English" },
+    { code: "tl", label: "Tagalog - Tagalog" },
+    { code: "tr", label: "Türkçe - Turkish" },
   ].sort((a, b) => {
     // Extract the English name after the hyphen, or use the full label if no hyphen exists
     const aName = a.label.split(" - ")[1] || a.label;

@@ -1,0 +1,448 @@
+{
+  "components": {
+    "walletAuth": {
+      "connect": "I-konekta ang Wallet"
+    },
+    "verifyButton": {
+      "verify": "I-verify para Makakuha"
+    },
+    "pollOfTheDay": {
+      "previousPolls": "Mga Nakaraang Poll",
+      "vote": "Bumoto Ngayon"
+    },
+    "stakeForm": {
+      "deposit": "Magdeposito",
+      "withdraw": "Mag-withdraw",
+      "balance": "Balanse:",
+      "depositPlaceholder": "Halaga para sa deposito",
+      "withdrawPlaceholder": "Halaga para sa pag-withdraw",
+      "max": "Maximum",
+      "interest": "Interes:",
+      "collect": "Kunin",
+      "depositButton": "Magdeposito ng Drachma",
+      "withdrawButton": "Mag-withdraw ng Drachma"
+    },
+    "toasts": {
+      "wallet": {
+        "connectInWorldApp": "Mangyaring buksan ang app na ito sa World App para ma-konekta ang iyong wallet.",
+        "stakingError": "May error sa pag-stake ng tokens",
+        "withdrawError": "May error sa pag-withdraw ng tokens",
+        "collectError": "May error sa pagkuha ng rewards"
+      },
+      "referral": {
+        "pendingReward": "Pinoproseso ang pending na reward para kay {{username}}...",
+        "rewardSuccess": "Matagumpay na na-reward si {{username}}!",
+        "sendingReward": "Nagpapadala ng 50 WDD reward kay {{username}}..."
+      },
+      "basicIncome": {
+        "setupSuccess": "Na-activate na ang Basic Income Plus! Inihahanda na ang reward para kay {{username}}...",
+        "setupWithReferrer": "Ise-setup muna ang Basic Income Plus, tapos ire-reward natin si {{username}}...",
+        "error": "May error sa pag-activate ng Basic Income",
+        "errorPlus": "May error sa pag-activate ng Basic Income Plus"
+      },
+      "transaction": {
+        "error": "May hindi inaasahang error na naganap",
+        "errorClaim": "May hindi inaasahang error na naganap habang nagke-claim"
+      }
+    },
+    "comingSoonDrawer": {
+      "title": "Magpapakita na",
+      "description": "Ang feature na ito ay kasalukuyang nasa development. Abangan!"
+    },
+    "tabSwiper": {
+      "tabs": {
+        "polls": "Mga Poll",
+        "openLetters": "Mga Open Letter",
+        "elections": "Mga Eleksyon",
+        "referendums": "Mga Referendum"
+      }
+    }
+  },
+  "pages": {
+    "earn": {
+      "title": "Kumita",
+      "tabs": {
+        "basicIncome": {
+          "tabTitle": "Basic income",
+          "title": "Basic Income",
+          "subtitle": "Mag-sign in para makuha ang iyong basic income",
+          "setupSubtitle": "I-setup ang iyong basic income",
+          "claimableSubtitle": "Maaaring kunin na drachma",
+          "activateButton": "I-activate ang Basic Income",
+          "claimButton": "Kunin",
+          "plus": {
+            "title": "Basic Income Plus",
+            "newBadge": "Bago",
+            "drawerTrigger": "Ipinakikilala ang Basic Income Plus",
+            "subtitle": "Extra income para sa mga verified na user",
+            "drawer": {
+              "title": "Basic Income Plus",
+              "subtitle": "Extra income para sa mga verified na user",
+              "features": {
+                "rate": {
+                  "title": "Dagdagan ng 10 WDD bawat araw"
+                },
+                "verification": {
+                  "title": "Eksklusibo para sa mga Orb-verified na user para masiguro ang patas na distribusyon"
+                },
+                "rewards": {
+                  "title": "Ang mga rewards ay lilipat sa Plus sa paglipas ng panahon habang pinapanatili ang total na 11 WDD/araw"
+                }
+              },
+              "activateButton": "I-activate ang Basic Income Plus",
+              "claimButton": "Kunin ang Basic Income Plus",
+              "claimBasicButton": "Kunin ang Basic Income"
+            }
+          }
+        },
+        "savings": {
+          "tabTitle": "Savings",
+          "title": "Savings Account",
+          "subtitle": "Kumita ng interes bawat segundo",
+          "tooltip": "69% APY base rate. Kunin at i-reinvest ang interes para makamit ang halos 100% effective returns taun-taon. Mag-withdraw kahit kailan."
+        },
+        "invite": {
+          "title": "Mag-invite",
+          "subtitle": "Kumuha ng 50 WDD bawat kaibigang sumali",
+          "tooltip": "Kailangan na Orb-verified ang mga kaibigan para sa rewards.",
+          "learnMore": "Matuto pa",
+          "stats": {
+            "title": "Mga Referral Stats Mo",
+            "invites": "Mga tinanggap na imbitasyon",
+            "rewards": "Kabuuang rewards"
+          },
+          "actions": {
+            "copyLink": "Kopyahin ang Referral Link",
+            "copied": "Na-kopya na ang referral link sa clipboard!",
+            "connectWallet": "Mangyaring i-konekta ang iyong wallet para magenerate ng referral link",
+            "rewardReferrer": "Reward ang Referrer",
+            "share": "Ibahagi ang Imbitasyon"
+          },
+          "drawer": {
+            "title": "Reward ang Referrer",
+            "subtitle": "Mag-trigger ng libreng 50 WDD reward para sa iyong referrer",
+            "invitedBy": "Inimbita ka ni: {{username}}",
+            "input": {
+              "placeholder": "Ilagay ang username (hal. username.0000)",
+              "lookupButton": "Hanapin ang User",
+              "sendingTo": "Nagpapadala ng reward kay:",
+              "editButton": "I-edit",
+              "sendButton": "Ipadala ang Reward"
+            },
+            "errors": {
+              "enterUsername": "Mangyaring maglagay ng username",
+              "usernameNotFound": "Hindi nahanap ang username",
+              "lookupFailed": "Hindi matagumpay ang paghahanap ng username. Subukan mo ulit.",
+              "installMiniKit": "Mangyaring i-install ang MiniKit para makita ang mga username",
+              "connectWallet": "Mangyaring i-konekta muna ang iyong wallet",
+              "transactionCanceled": "Na-cancel ang transaction"
+            },
+            "success": {
+              "rewardSent": "Matagumpay na naipadala ang reward kay {{username}}!"
+            }
+          },
+          "share": {
+            "title": "Sumali ka sa World Republic",
+            "text": "Gamitin ang aking invite link para sumali sa World Republic at magkasamang kumita ng rewards!"
+          }
+        },
+        "contribute": {
+          "title": "Mag-ambag",
+          "subtitle": "Makiisa, makatanggap ng reward",
+          "contests": {
+            "weekly": "Weekly",
+            "topPrize": "Pinakamataas na premyo",
+            "xPost": {
+              "title": "X Post Contest",
+              "description": "Sumulat ng mga engaging na post, manalo ng premyo"
+            },
+            "poll": {
+              "title": "Poll Contest",
+              "description": "Mangalap ng community feedback at kumita"
+            },
+            "pollContest": {
+              "title": "Poll Contest",
+              "weeklyTitle": "Weekly Poll Contest",
+              "description": "Mangalap ng community feedback at kumita",
+              "prizes": {
+                "title": "Mga Premyo",
+                "viewWinners": "Tingnan ang mga nakaraang nanalo",
+                "wdd": "WDD"
+              },
+              "howTo": {
+                "title": "Paano ito gumagana",
+                "steps": {
+                  "step1": {
+                    "number": "1",
+                    "text": "Gumawa ng poll na may kinalaman sa World Republic o global governance sa pangkalahatan"
+                  },
+                  "step2": {
+                    "number": "2",
+                    "text": "I-setup ito para sa mga verified na tao lang ang pwedeng bumoto"
+                  },
+                  "step3": {
+                    "number": "3",
+                    "text": "Ibahagi ang iyong poll sa aming",
+                    "link": {
+                      "text": "Poll Contest Telegram channel",
+                      "url": "https://t.me/worldrepubliccommunity/32368"
+                    }
+                  }
+                }
+              },
+              "rules": {
+                "title": "Mga patakaran ng contest",
+                "list": {
+                  "rule1": "Ang mga poll lang na sinimulan sa kasalukuyang linggo ang eligible",
+                  "rule2": "Ang mga nanalo ay pinipili batay sa kabuuang boto",
+                  "rule3": "Nagtatapos ang contest tuwing Linggo ng 11:59 PM UTC"
+                }
+              },
+              "cta": {
+                "create": "Gumawa ng Iyong Poll",
+                "submit": "I-submit ang Iyong Poll"
+              },
+              "winners": {
+                "title": "Mga Nanalo sa Contest",
+                "weekOf": "Linggo ng",
+                "votes": "mga boto"
+              }
+            }
+          },
+          "earlyAccess": {
+            "title": "Early Access Program",
+            "description": "Kumita ng WDD sa pamamagitan ng pagte-test ng aming mga darating na features"
+          },
+          "xContest": {
+            "title": "X Post Contest",
+            "weeklyTitle": "Weekly X Post Contest",
+            "description": "Sumulat ng mga engaging na post, manalo ng premyo",
+            "prizes": {
+              "title": "Mga Premyo",
+              "viewWinners": "Tingnan ang mga nakaraang nanalo",
+              "wdd": "WDD"
+            },
+            "howTo": {
+              "title": "Paano sumali",
+              "step1": "Sumulat ng X post tungkol sa World Republic",
+              "step2": "I-tag si @WorldRepublicEN",
+              "step3": {
+                "prefix": "Ibahagi ang link ng iyong post sa aming",
+                "link": "X Post Contest Telegram channel"
+              }
+            },
+            "rules": {
+              "title": "Mga patakaran ng contest",
+              "rule1": "Ang mga post lang na na-publish sa kasalukuyang linggo ang eligible",
+              "rule2": "Ang mga nanalo ay pinipili batay sa kabuuang engagement (likes + reposts + comments)",
+              "rule3": "Nagtatapos ang contest tuwing Linggo ng 11:59 PM UTC"
+            },
+            "cta": {
+              "post": "Simulan ang Pagpo-post Ngayon",
+              "submit": "I-submit ang Iyong Post"
+            },
+            "winners": {
+              "title": "Mga Nanalo sa Contest",
+              "weekOf": "Linggo ng",
+              "engagements": "mga engagement"
+            }
+          }
+        }
+      }
+    },
+    "govern": {
+      "title": "Mamahala",
+      "tabs": {
+        "polls": "Mga Poll",
+        "openLetters": "Mga Open Letter",
+        "elections": "Mga Eleksyon",
+        "referendums": "Mga Referendum"
+      },
+      "sections": {
+        "polls": {
+          "title": "Poll ng Araw",
+          "description": "Mabilisang boto sa mga kasalukuyang paksa",
+          "previous": {
+            "title": "Mga Nakaraang Poll",
+            "backToGovern": "Bumalik sa Govern",
+            "polls": {
+              "techTransparency": "Dapat bang i-require ang mga global tech companies na mag-adopt ng transparent na decision-making policies para maprotektahan ang public trust?",
+              "disasterRelief": "Dapat bang magtatag ng global rapid-response fund para sa agarang tulong sa mga nakakapinsalang natural disasters tulad ng malalaking lindol?",
+              "aiWatermarking": "Dapat bang i-require ng global regulations ang mandatory na watermarking ng AI-generated content para labanan ang misinformation sa mga eleksyon at media?",
+              "biotech": "Dapat bang magkaroon ng global regulatory framework para sa mga emerging biotechnologies para masiguro ang ethical na paggamit at kaligtasan?",
+              "spaceMilitarization": "Dapat bang magkasundo ang mga global leaders sa mga protocol para maiwasan ang militarization ng space at masiguro ito para sa mapayapang layunin?",
+              "dataSovereignty": "Dapat bang i-implement ang mga international guidelines para protektahan ang data na nagenerate sa buong mundo sa ilalim ng unified framework para sa digital sovereignty?",
+              "fourDayWeek": "Sinusuportahan mo ba ang lumalagong global movement patungo sa four-day workweeks bilang standard na employment model?",
+              "nuclearSecurity": "Dapat bang magtatag ng binding international agreements para i-secure ang mga nuclear facilities sa mga conflict zones?",
+              "aviationResilience": "Sapat na ba ang international aviation infrastructure para harapin ang mga hindi inaasahang large-scale disruptions?",
+              "waterResources": "Dapat bang gumawa ang mga bansa ng cooperative framework para pamahalaan ang mga shared water resources sa gitna ng tumataas na global water scarcity?",
+              "maternalHealth": "Dapat bang magtatag ng dedicated global healthcare aid reserve para protektahan ang maternal at child health sa panahon ng international aid freezes?",
+              "marsMission": "Sinusuportahan mo ba ang pakikipagtulungan ng mga bansa sa joint deep space mission sa Mars?",
+              "globalRecession": "Sa tingin mo ba, ang kasalukuyang global economic trends ay nagpapahiwatig ng panganib ng synchronized recession sa mga major economies?",
+              "aidCorridors": "Dapat bang automatic na mag-trigger ng internationally coordinated aid corridors ang lahat ng conflict zones na may civilian humanitarian crises?",
+              "nationalSovereignty": "Sinusuportahan mo ba ang mga global policy frameworks na nagbabalanse sa national sovereignty at coordinated responses sa shared challenges?",
+              "climateDisasters": "Dapat bang makatanggap ng prioritized financial aid mula sa global climate fund ang mga bansang nakakaranas ng extreme weather disasters (hal. wildfires, floods)?",
+              "aiSafety": "Dapat bang i-require ang mga global AI developers na i-pause ang training ng mga models na mas powerful kaysa sa kasalukuyang systems hanggang magkaroon ng international safety agreements?",
+              "corporateTax": "Dapat bang sumailalim sa unified global minimum tax rate ang mga corporations na nag-ooperate sa maraming bansa para mabawasan ang inequality?",
+              "spaceDebris": "Sumasang-ayon ka ba na dapat legal na i-require ang mga space-faring nations at corporations na alisin ang mga defunct satellites para mabawasan ang orbital debris?",
+              "digitalPrivacy": "Sa tingin mo ba, mahalaga ang paggawa ng universal digital privacy standards para protektahan ang individual rights sa isang lalong nagiging interconnected na mundo?",
+              "nuclearProliferation": "Naniniwala ka ba na epektibo ang mga umiiral na global measures para mabawasan ang panganib ng nuclear proliferation?",
+              "cybersecurity": "Sapat na ba ang kasalukuyang international cybersecurity measures para protektahan ang mga kritikal na global infrastructures mula sa tumataas na cyber threats?",
+              "globalAlliances": "Sa tingin mo ba, ang mabilis na realignments sa global alliances ay magdudulot ng mas secure na international order?",
+              "climateResilience": "Sapat na ba ang kasalukuyang global approach sa climate resilience para harapin ang tumataas na frequency ng extreme weather events?",
+              "tradeTariffs": "Sa tingin mo ba, ang lumalagong trend ng pagpataw ng tariffs sa mga major economies ay magdudulot ng significant disruption sa global trade stability?",
+              "diseaseManagement": "Kumpiyansa ka ba sa kakayahan ng mundo na pigilan at pamahalaan ang mga emerging infectious diseases?",
+              "aiRegulation": "Dapat bang magtatag ng binding international regulations para pamahalaan ang ethical development ng artificial intelligence?",
+              "spaceRegulation": "Dapat bang magkaroon ng mandatory international agreements para limitahan ang space debris mula sa mga satellites at rockets?",
+              "diplomaticDialogue": "Naniniwala ka ba na makakatulong ang sustained diplomatic dialogue sa mga world leaders para mabawasan ang global tensions?",
+              "migration": "Dapat bang tanggapin ng mga mayayamang bansa ang mas maraming migrants na tumatakas mula sa conflict o climate disasters?",
+              "rareEarths": "Dapat bang i-prioritize ang international collaboration sa rare earth minerals para mapahusay ang global resource security?",
+              "cryptocurrency": "Dapat bang magtatag ng uniform standards ang mga global authorities para i-regulate ang cryptocurrencies at sugpuin ang financial crimes?",
+              "disinformation": "Sa tingin mo ba, dapat i-implement ang mga global measures para labanan ang pagkalat ng disinformation online?",
+              "diseaseOutbreaks": "Dapat bang i-require ang mga bansa na magbahagi ng real-time data sa panahon ng disease outbreaks para maiwasan ang global health crises?",
+              "militaryIntervention": "Dapat bang mamagitan ang mga bansang may advanced military capabilities para i-de-escalate ang mga conflicts sa mga regions na may biglaang outbreak ng digmaan?",
+              "aiDevelopment": "Dapat bang i-prioritize ng mga gobyerno ang pag-regulate sa artificial intelligence (AI) development para maiwasan ang misuse, kahit na bumagal ang innovation?",
+              "asteroidDefense": "Naniniwala ka ba na dapat dagdagan ng funding ang mga gobyerno sa buong mundo para sa space monitoring at asteroid deflection research?",
+              "peaceNegotiations": "Dapat bang i-require ang mga major powers na magsama ng mga bansang direktang apektado ng conflict sa mga peace agreement negotiations?",
+              "taiwanPolicy": "Dapat bang panatilihin ng United States ang kanyang 'strategic ambiguity' policy sa Taiwan para maiwasan ang pagtaas ng tensyon sa China?"
+            }
+          }
+        },
+        "openLetters": {
+          "title": "Mga Open Letter",
+          "description": "Mga pampublikong pahayag sa mga decision makers",
+          "addNew": "Magdagdag ng iyong open letter",
+          "statements": {
+            "aiRisk": {
+              "title": "Pahayag sa AI Risk",
+              "referenceTitle": "Center for AI Safety"
+            },
+            "nuclear": {
+              "title": "UN Ban on Nuclear Weapons Open Letter",
+              "referenceTitle": "Future of Life Institute"
+            },
+            "autonomousWeapons": {
+              "title": "Lethal Autonomous Weapons Pledge",
+              "referenceTitle": "Future of Life Institute"
+            },
+            "longView": {
+              "title": "Open letter na nananawagan sa mga world leaders na magpakita ng long-view leadership sa existential threats",
+              "referenceTitle": "Future of Life Institute"
+            }
+          }
+        },
+        "elections": {
+          "title": "Mga Eleksyon",
+          "description": "Piliin ang iyong mga kinatawan",
+          "worldConstituent": {
+            "title": "World Constituent Assembly Election"
+          }
+        },
+        "referendums": {
+          "title": "Mga Referendum",
+          "description": "Direktang boto sa mga mahalagang isyu",
+          "worldConstitutional": {
+            "title": "World Constitutional Referendum"
+          }
+        }
+      }
+    },
+    "menu": {
+      "title": "Menu",
+      "sections": {
+        "experimental": {
+          "title": "EXPERIMENTAL",
+          "links": {
+            "verification": "Verification status",
+            "language": "Wika"
+          }
+        },
+        "connect": {
+          "title": "KUMONEKTA",
+          "links": {
+            "community": "Community",
+            "announcements": "Mga Anunsyo",
+            "x": "X"
+          }
+        },
+        "help": {
+          "title": "TULONG",
+          "links": {
+            "faq": "FAQ"
+          }
+        },
+        "code": {
+          "title": "CODE",
+          "links": {
+            "app": "App",
+            "contracts": "Smart contracts"
+          }
+        }
+      }
+    },
+    "faq": {
+      "title": "FAQ",
+      "items": {
+        "appPurpose": {
+          "question": "Ano ang World Republic?",
+          "answer": "Ang World Republic ay isang bukas at demokratikong organisasyon na nakatuon sa paglutas ng mga pinakamapaminsalang global challenges ng sangkatauhan. Nagbibigay ito ng framework para sa collective decision-making sa mga isyu na maaari lang mabisang tugunan sa global scale, tulad ng AI risks, climate change, o biosecurity."
+        },
+        "basicIncome": {
+          "question": "Ano ang Basic Income?",
+          "answer": "Ang aming Basic Income ay isang pang-araw-araw na subsidy na 1 WDD (world drachma) na ibinibigay sa lahat ng mamamayan ng World Republic. Ito ay naaaccumulate sa real-time at maaaring kunin sa anumang oras sa pamamagitan ng app."
+        },
+        "basicIncomePlus": {
+          "question": "Paano ko i-activate ang Basic Income Plus?",
+          "answer": "Ang Basic Income Plus ay nagbibigay ng karagdagang 10 WDD bawat araw at available lamang sa mga Orb-verified na user. Pagkatapos i-activate ang Basic Income, makakakita ka ng option para i-activate ang Basic Income Plus sa Earn page."
+        },
+        "savings": {
+          "question": "Paano gumagana ang Savings Account?",
+          "answer": "Ang Savings Account ay nagpapahintulot sa iyo na magdeposito ng WDD tokens at kumita ng 69% na taunang interes. Sa pamamagitan ng patuloy na pag-reinvest ng earned interest, maaaring makamit ng mga user ang effective returns na halos 100% taun-taon, na pinapamaximize ang kanilang WDD growth sa paglipas ng panahon. Na-aaccumulate ang interes nang patuloy at maaaring i-withdraw o i-reinvest sa anumang oras."
+        },
+        "referralCodes": {
+          "question": "Paano gumagana ang mga referral code?",
+          "answer": "Bilang isang World Republic citizen, maaari kang kumita ng rewards sa pamamagitan ng aming referral program. Ibahagi ang iyong unique referral link sa mga kaibigan, at makakatanggap ka ng 50 WDD para sa bawat taong sumali at nag-activate ng Basic Income Plus. Hindi pa natatanggap ang iyong reward? Maaaring kailanganin ng iyong kaibigan na manually i-trigger ito sa pamamagitan ng pagpili ng 'Reward Referrer' option sa kanilang referral section."
+        },
+        "drachmaValue": {
+          "question": "Saan nagmumula ang halaga ng drachma?",
+          "answer": "Ang drachma ay kumukuha ng halaga mula sa pagiging opisyal na currency ng World Republic. Habang lumalago ang aming demokratikong global governance platform, ang WDD ay may potensyal na maging significant na medium of exchange sa world economy, at maaaring kalaunan ay magkaroon ng papel sa equitable distribution ng mga benepisyo mula sa technological advancements at global resources."
+        },
+        "topWallets": {
+          "question": "Sino ang kumokontrol sa mga pinakamalaking account?",
+          "answer": "Ang tatlong pinakamalaking account ay ang <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>World Republic Treasury</a>, ang <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Basic Income Fund</a>, at ang <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Basic Income Plus Fund</a>. Sa kasalukuyan, ang mga ito ay kontrolado ng project founder, ngunit ililipat ang kontrol sa community pagkatapos ma-ratify ang aming constitution. Ang iba pang mahalagang addresses ay kinabibilangan ng <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>Savings Account contract</a>, ang <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>Referral Rewards distributor</a>, at liquidity pools: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, at <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
+        },
+        "voteRequirements": {
+          "question": "Ano ang mga requirements para magpropose ng mga boto?",
+          "answer": "Ang kasalukuyang mga poll at open letters ay showcase lamang. Ang aming community ay sama-samang magdedesisyon sa aming sistema ng governance sa pamamagitan ng constitutional design process na pinamumunuan ng Constituent Assembly na ihahalal sa Q2 2025."
+        }
+      }
+    },
+    "language": {
+      "title": "Wika",
+      "options": {
+        "english": "English",
+        "spanish": "Español"
+      }
+    },
+    "verification": {
+      "title": "Verification Status",
+      "levels": {
+        "document": {
+          "title": "Document Verification",
+          "description": "I-check ang document verification status",
+          "buttonText": "I-check ang Status"
+        },
+        "secureDocument": {
+          "title": "Secure Document Verification",
+          "description": "I-check ang secure document verification status",
+          "buttonText": "I-check ang Status"
+        },
+        "orb": {
+          "title": "Orb Verification",
+          "description": "I-check ang Orb verification status",
+          "buttonText": "I-check ang Status"
+        }
+      }
+    }
+  }
+}

@@ -17,6 +17,11 @@ const dictionaries = {
   id: () => import("./id.json").then((module) => module.default),
   fr: () => import("./fr.json").then((module) => module.default),
   de: () => import("./de.json").then((module) => module.default),
+  ur: () => import("./ur.json").then((module) => module.default),
+  sw: () => import("./sw.json").then((module) => module.default),
+  pcm: () => import("./pcm.json").then((module) => module.default),
+  tl: () => import("./tl.json").then((module) => module.default),
+  tr: () => import("./tr.json").then((module) => module.default),
 };
 
 export const getDictionary = async (locale: string) => {
