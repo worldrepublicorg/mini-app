@@ -1,0 +1,448 @@
+{
+  "components": {
+    "walletAuth": {
+      "connect": "Connect Your Wallet"
+    },
+    "verifyButton": {
+      "verify": "Verify Before You Collect"
+    },
+    "pollOfTheDay": {
+      "previousPolls": "Old Polls Dem",
+      "vote": "Vote Now Now"
+    },
+    "stakeForm": {
+      "deposit": "Put Money",
+      "withdraw": "Comot Money",
+      "balance": "Your Balance:",
+      "depositPlaceholder": "How much you wan put",
+      "withdrawPlaceholder": "How much you wan comot",
+      "max": "Maximum",
+      "interest": "Interest:",
+      "collect": "Collect",
+      "depositButton": "Put Drachma Inside",
+      "withdrawButton": "Comot Your Drachma"
+    },
+    "toasts": {
+      "wallet": {
+        "connectInWorldApp": "Abeg open dis app for World App to connect your wallet.",
+        "stakingError": "Wahala dey to stake tokens",
+        "withdrawError": "Wahala dey to withdraw tokens",
+        "collectError": "Wahala dey to collect rewards"
+      },
+      "referral": {
+        "pendingReward": "We dey process reward for {{username}}...",
+        "rewardSuccess": "We don successfully reward {{username}}!",
+        "sendingReward": "We dey send 50 WDD reward give {{username}}..."
+      },
+      "basicIncome": {
+        "setupSuccess": "Basic Income Plus don set! We dey prepare reward for {{username}}...",
+        "setupWithReferrer": "We dey set up Basic Income Plus first, then we go reward {{username}}...",
+        "error": "Wahala dey to activate Basic Income",
+        "errorPlus": "Wahala dey to activate Basic Income Plus"
+      },
+      "transaction": {
+        "error": "An unexpected error occurred",
+        "errorClaim": "An unexpected error occurred while claiming"
+      }
+    },
+    "comingSoonDrawer": {
+      "title": "E dey come soon",
+      "description": "We still dey work on dis feature. Make you stay tuned!"
+    },
+    "tabSwiper": {
+      "tabs": {
+        "polls": "Polls",
+        "openLetters": "Open Letters",
+        "elections": "Elections",
+        "referendums": "Referendums"
+      }
+    }
+  },
+  "pages": {
+    "earn": {
+      "title": "Make Money",
+      "tabs": {
+        "basicIncome": {
+          "tabTitle": "Basic income",
+          "title": "Basic Income",
+          "subtitle": "Sign in to collect your basic income",
+          "setupSubtitle": "Set up your basic income",
+          "claimableSubtitle": "Drachma wey you fit collect",
+          "activateButton": "Start Basic Income",
+          "claimButton": "Collect",
+          "plus": {
+            "title": "Basic Income Plus",
+            "newBadge": "New One",
+            "drawerTrigger": "See Basic Income Plus",
+            "subtitle": "Extra money for verified users",
+            "drawer": {
+              "title": "Basic Income Plus",
+              "subtitle": "Extra money for verified users",
+              "features": {
+                "rate": {
+                  "title": "Extra 10 WDD every day"
+                },
+                "verification": {
+                  "title": "Na only for Orb-verified users to make sure say e fair"
+                },
+                "rewards": {
+                  "title": "Rewards go dey change to Plus as time dey go, but total go still be 11 WDD/day"
+                }
+              },
+              "activateButton": "Start Basic Income Plus",
+              "claimButton": "Collect Basic Income Plus",
+              "claimBasicButton": "Collect Basic Income"
+            }
+          }
+        },
+        "savings": {
+          "tabTitle": "Savings",
+          "title": "Savings Account",
+          "subtitle": "Dey earn interest every second",
+          "tooltip": "69% APY base rate. Collect and reinvest interest make you fit get close to 100% returns for year. You fit withdraw anytime."
+        },
+        "invite": {
+          "title": "Invite People",
+          "subtitle": "Collect 50 WDD for each person wey you bring",
+          "tooltip": "Your friends need to get Orb verification before you go see reward.",
+          "learnMore": "Learn more",
+          "stats": {
+            "title": "Your Referral Stats",
+            "invites": "People wey don accept",
+            "rewards": "Total rewards"
+          },
+          "actions": {
+            "copyLink": "Copy Your Invite Link",
+            "copied": "We don copy your invite link!",
+            "connectWallet": "Abeg connect your wallet first make you get your invite link",
+            "rewardReferrer": "Give Person Wey Invite You Money",
+            "share": "Share Your Invite"
+          },
+          "drawer": {
+            "title": "Give Person Wey Invite You Money",
+            "subtitle": "Give person wey invite you free 50 WDD",
+            "invitedBy": "Na {{username}} invite you",
+            "input": {
+              "placeholder": "Put username (example: username.0000)",
+              "lookupButton": "Find Person",
+              "sendingTo": "We dey send money to:",
+              "editButton": "Change am",
+              "sendButton": "Send Money"
+            },
+            "errors": {
+              "enterUsername": "Abeg put username",
+              "usernameNotFound": "We no see dat username",
+              "lookupFailed": "E no gree find username. Abeg try again.",
+              "installMiniKit": "Abeg install MiniKit first make you fit find usernames",
+              "connectWallet": "Abeg connect your wallet first",
+              "transactionCanceled": "You don cancel de transaction"
+            },
+            "success": {
+              "rewardSent": "We don successfully send money give {{username}}!"
+            }
+          },
+          "share": {
+            "title": "Make you join me for World Republic",
+            "text": "Use my invite link join World Republic make we dey earn money together!"
+          }
+        },
+        "contribute": {
+          "title": "Contribute",
+          "subtitle": "Join hand, collect money",
+          "contests": {
+            "weekly": "Every Week",
+            "topPrize": "Biggest Prize",
+            "xPost": {
+              "title": "X Post Competition",
+              "description": "Write better posts, win money"
+            },
+            "poll": {
+              "title": "Poll Competition",
+              "description": "Ask people wetin dem think, earn money"
+            },
+            "pollContest": {
+              "title": "Poll Competition",
+              "weeklyTitle": "Weekly Poll Competition",
+              "description": "Ask people wetin dem think, earn money",
+              "prizes": {
+                "title": "Prizes",
+                "viewWinners": "See people wey don win before",
+                "wdd": "WDD"
+              },
+              "howTo": {
+                "title": "How e dey work",
+                "steps": {
+                  "step1": {
+                    "number": "1",
+                    "text": "Create poll about World Republic or how to govern de world"
+                  },
+                  "step2": {
+                    "number": "2",
+                    "text": "Make only verified humans fit vote"
+                  },
+                  "step3": {
+                    "number": "3",
+                    "text": "Share your poll for our",
+                    "link": {
+                      "text": "Poll Competition Telegram channel",
+                      "url": "https://t.me/worldrepubliccommunity/32368"
+                    }
+                  }
+                }
+              },
+              "rules": {
+                "title": "Competition rules",
+                "list": {
+                  "rule1": "Na only polls wey start dis week fit enter",
+                  "rule2": "De person wey get most votes na im go win",
+                  "rule3": "Competition dey end every Sunday by 11:59 PM UTC"
+                }
+              },
+              "cta": {
+                "create": "Create Your Poll",
+                "submit": "Submit Your Poll"
+              },
+              "winners": {
+                "title": "People Wey Win",
+                "weekOf": "For week of",
+                "votes": "votes"
+              }
+            }
+          },
+          "earlyAccess": {
+            "title": "Early Access Program",
+            "description": "Collect WDD as you dey test our new features"
+          },
+          "xContest": {
+            "title": "X Post Competition",
+            "weeklyTitle": "Weekly X Post Competition",
+            "description": "Write better posts, win money",
+            "prizes": {
+              "title": "Prizes",
+              "viewWinners": "See people wey don win before",
+              "wdd": "WDD"
+            },
+            "howTo": {
+              "title": "How e dey work",
+              "step1": "Write post about World Republic for X",
+              "step2": "Tag @WorldRepublicEN",
+              "step3": {
+                "prefix": "Share your post link for our",
+                "link": "X Post Competition Telegram channel"
+              }
+            },
+            "rules": {
+              "title": "Competition rules",
+              "rule1": "Na only posts wey start dis week fit enter",
+              "rule2": "De person wey get most engagement (likes + reposts + comments) na im go win",
+              "rule3": "Competition dey end every Sunday by 11:59 PM UTC"
+            },
+            "cta": {
+              "post": "Start To Post Now",
+              "submit": "Submit Your Post"
+            },
+            "winners": {
+              "title": "People Wey Win",
+              "weekOf": "For week of",
+              "engagements": "engagements"
+            }
+          }
+        }
+      }
+    },
+    "govern": {
+      "title": "Make Rules",
+      "tabs": {
+        "polls": "Voting",
+        "openLetters": "Open Letters",
+        "elections": "Elections",
+        "referendums": "Referendums"
+      },
+      "sections": {
+        "polls": {
+          "title": "Today Poll",
+          "description": "Quick quick vote for matter wey dey ground",
+          "previous": {
+            "title": "Old Polls",
+            "backToGovern": "Go Back",
+            "polls": {
+              "techTransparency": "You think say make big tech companies dey show how dem dey take make decisions to make people trust dem?",
+              "disasterRelief": "Make we create special money wey go dey ready to help when big disaster like earthquake happen?",
+              "aiWatermarking": "Make we force people to put mark for AI content so e go hard to use am deceive people for election?",
+              "biotech": "Make we get rules wey go control how dem dey use new biotech make e safe?",
+              "spaceMilitarization": "Make world leaders agree say nobody go carry fight enter space?",
+              "dataSovereignty": "Make we get rules wey go protect everybody data for world?",
+              "fourDayWeek": "You support make people dey work four days for week instead of five?",
+              "nuclearSecurity": "Make we get strong rules to protect nuclear places when war dey?",
+              "aviationResilience": "You think say our air travel system fit handle big wahala if e happen?",
+              "waterResources": "Make countries join hand manage water well as e dey scarce?",
+              "maternalHealth": "Make we keep special money for mama and pikin health when other help no dey come?",
+              "marsMission": "You support make countries join hand go Mars?",
+              "globalRecession": "You think say de way money matter be now fit cause big wahala for world economy?",
+              "aidCorridors": "Make we dey automatically send help when civilians dey suffer for war area?",
+              "nationalSovereignty": "You support make countries still get power but still dey work together for big problems?",
+              "climateDisasters": "Make countries wey disaster like fire or flood catch get quick money from climate fund?",
+              "aiSafety": "Make we tell AI developers make dem stop to build stronger AI until we get safety rules?",
+              "corporateTax": "Make big companies wey dey work for many countries pay same minimum tax to reduce inequality?",
+              "spaceDebris": "You agree say make dem force countries and companies to remove their old satellites from space?",
+              "digitalPrivacy": "You think say we need strong privacy rules for everybody for this digital world?",
+              "nuclearProliferation": "You believe say the way we dey control nuclear weapons now dey work well?",
+              "cybersecurity": "The way we dey protect important computer systems now strong enough?",
+              "globalAlliances": "You think say the way countries dey change who dem be friend with go make world better?",
+              "climateResilience": "We dey handle climate wahala well as e dey worse every time?",
+              "tradeTariffs": "You think say the way big countries dey put tax for goods go spoil world trade?",
+              "diseaseManagement": "You trust say world fit handle new sickness if e come?",
+              "aiRegulation": "Make we get strong rules for how dem dey develop AI?",
+              "spaceRegulation": "Make we get rules wey go control how much trash dey for space?",
+              "diplomaticDialogue": "You believe say if world leaders dey talk well well, e go reduce tension?",
+              "migration": "Make rich countries collect more people wey dey run from war or climate wahala?",
+              "rareEarths": "Make countries join hand work together for rare minerals matter?",
+              "cryptocurrency": "Make we get same rules everywhere for cryptocurrency to stop bad things?",
+              "disinformation": "Make we get rules to stop fake news for internet?",
+              "diseaseOutbreaks": "Make countries dey share information quick quick when sickness start?",
+              "militaryIntervention": "Make countries wey get strong military dey enter stop war for other places?",
+              "aiDevelopment": "Make government control AI development well well even if e go slow things down?",
+              "asteroidDefense": "You believe say make government put more money for space watching and asteroid protection?",
+              "peaceNegotiations": "Make dem force big countries to put small countries wey war affect for peace talk?",
+              "taiwanPolicy": "Make America continue their policy wey no too clear for Taiwan matter to avoid China wahala?"
+            }
+          }
+        },
+        "openLetters": {
+          "title": "Open Letters",
+          "description": "Message wey everybody fit see for big people",
+          "addNew": "Write your own letter",
+          "statements": {
+            "aiRisk": {
+              "title": "Wetin We Talk About AI Danger",
+              "referenceTitle": "Center for AI Safety"
+            },
+            "nuclear": {
+              "title": "Letter to UN Make Dem Ban Nuclear Weapons",
+              "referenceTitle": "Future of Life Institute"
+            },
+            "autonomousWeapons": {
+              "title": "Promise About Weapons Wey Dey Work By Demself",
+              "referenceTitle": "Future of Life Institute"
+            },
+            "longView": {
+              "title": "Letter wey dey tell world leaders make dem think far about big wahala wey fit finish world",
+              "referenceTitle": "Future of Life Institute"
+            }
+          }
+        },
+        "elections": {
+          "title": "Elections",
+          "description": "Choose who go represent you",
+          "worldConstituent": {
+            "title": "World Assembly Election"
+          }
+        },
+        "referendums": {
+          "title": "Referendums",
+          "description": "Vote direct for important matter",
+          "worldConstitutional": {
+            "title": "World Constitution Voting"
+          }
+        }
+      }
+    },
+    "menu": {
+      "title": "Menu",
+      "sections": {
+        "experimental": {
+          "title": "NEW THINGS",
+          "links": {
+            "verification": "Check Your Status",
+            "language": "Language"
+          }
+        },
+        "connect": {
+          "title": "JOIN",
+          "links": {
+            "community": "Our People",
+            "announcements": "News",
+            "x": "X"
+          }
+        },
+        "help": {
+          "title": "HELP",
+          "links": {
+            "faq": "Questions Wey People Dey Ask"
+          }
+        },
+        "code": {
+          "title": "CODE",
+          "links": {
+            "app": "App",
+            "contracts": "Smart contracts"
+          }
+        }
+      }
+    },
+    "faq": {
+      "title": "Questions Wey People Dey Ask",
+      "items": {
+        "appPurpose": {
+          "question": "Wetin be World Republic?",
+          "answer": "World Republic na open, democratic organization wey dey work to solve big big problems wey affect everybody for world. E dey help make everybody fit join hand take decision for matter wey need everybody for world to solve am, like AI wahala, climate change, or how to make sure say new science no go wound us."
+        },
+        "basicIncome": {
+          "question": "Wetin be Basic Income?",
+          "answer": "Our Basic Income na 1 WDD (world drachma) wey we dey give every citizen of World Republic every day. E dey add up as time dey go and you fit collect am anytime through de app."
+        },
+        "basicIncomePlus": {
+          "question": "How I go take start Basic Income Plus?",
+          "answer": "Basic Income Plus dey give extra 10 WDD every day, but na only people wey don do Orb verification fit get am. After you don start normal Basic Income, you go see option to start Basic Income Plus for de Earn page."
+        },
+        "savings": {
+          "question": "How de Savings Account dey work?",
+          "answer": "De Savings Account dey let you keep your WDD tokens and get 69% interest every year. If you dey collect and put back de interest wey you don get, you fit get close to 100% returns for year, wey go make your WDD grow well well. Interest dey add up every time and you fit collect am or put am back anytime."
+        },
+        "referralCodes": {
+          "question": "How referral codes dey work?",
+          "answer": "As World Republic citizen, you fit earn money when you bring people join. Share your special invite link with your friends, and you go get 50 WDD for each person wey join and start Basic Income Plus. You never see your money? Make your friend click 'Give Person Wey Invite You Money' for their referral section."
+        },
+        "drachmaValue": {
+          "question": "Where drachma dey get im value from?",
+          "answer": "Drachma get value because na de official money for World Republic. As our democratic platform dey grow, WDD fit become important money wey people go dey use for world economy, and e fit help make sure say everybody dey benefit from new technology and world resources."
+        },
+        "topWallets": {
+          "question": "Who dey control de biggest accounts?",
+          "answer": "De three biggest accounts na de <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>World Republic Treasury</a>, de <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Basic Income Fund</a>, and de <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Basic Income Plus Fund</a>. For now, na de person wey start de project dey control am, but we go give de control to everybody after we don agree on our constitution. Other important addresses na de <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>Savings Account contract</a>, de <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>Referral Rewards distributor</a>, and liquidity pools: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, and <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
+        },
+        "voteRequirements": {
+          "question": "Wetin person need before e fit start vote?",
+          "answer": "De polls and open letters wey dey now na just example. Our community go decide how we go dey govern ourselves when we don elect World Assembly for Q2 2025."
+        }
+      }
+    },
+    "language": {
+      "title": "Language",
+      "options": {
+        "english": "English",
+        "spanish": "Español"
+      }
+    },
+    "verification": {
+      "title": "Check Your Status",
+      "levels": {
+        "document": {
+          "title": "Document Check",
+          "description": "Check if your document don verify",
+          "buttonText": "Check Am"
+        },
+        "secureDocument": {
+          "title": "Secure Document Check",
+          "description": "Check if your secure document don verify",
+          "buttonText": "Check Am"
+        },
+        "orb": {
+          "title": "Orb Check",
+          "description": "Check if your Orb don verify",
+          "buttonText": "Check Am"
+        }
+      }
+    }
+  }
+}

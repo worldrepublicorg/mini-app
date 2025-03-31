@@ -22,6 +22,11 @@ const locales = [
   "fr",
   "de",
   "pl",
+  "ur",
+  "sw",
+  "pcm",
+  "tl",
+  "tr",
 ];
 const defaultLocale = "en";
 
