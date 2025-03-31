@@ -11,12 +11,8 @@ interface Poll {
 
 const polls: Poll[] = [
   {
-    key: "techTransparency",
-    url: "https://vote.one/aOXsaVpq",
-  },
-  {
-    key: "biotech",
-    url: "https://vote.one/pNqgoSmf",
+    key: "quakeCodes",
+    url: "https://vote.one/soAE4aHn",
   },
   {
     key: "spaceMilitarization",
@@ -29,6 +25,10 @@ const polls: Poll[] = [
   {
     key: "disasterRelief",
     url: "https://vote.one/kKlY77pD",
+  },
+  {
+    key: "techTransparency",
+    url: "https://vote.one/aOXsaVpq",
   },
 ];
 
