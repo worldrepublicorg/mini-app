@@ -1023,7 +1023,18 @@ export default function EarnPage({
     message: string;
   } | null>(null);
 
-  const buttonText = navigator.canShare()
+  // Add state for share capability
+  const [canShare, setCanShare] = useState(false);
+
+  // Check share capability on client side only
+  useEffect(() => {
+    setCanShare(
+      typeof navigator !== "undefined" && navigator.canShare() ? true : false
+    );
+  }, []);
+
+  // Update the buttonText to use the state instead of directly accessing navigator
+  const buttonText = canShare
     ? dictionary?.pages?.earn?.tabs?.invite?.actions?.share
     : dictionary?.pages?.earn?.tabs?.invite?.actions?.copyLink;
 
