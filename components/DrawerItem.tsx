@@ -1,6 +1,6 @@
 "use client";
 
-import { BiLinkExternal, BiPlus } from "react-icons/bi";
+import { BiPlus } from "react-icons/bi";
 import { Drawer, DrawerTrigger } from "@/components/ui/Drawer/Drawer";
 import { Typography } from "@/components/ui/Typography";
 import { ComingSoonDrawer } from "@/components/ComingSoonDrawer";
@@ -9,9 +9,10 @@ import { IoIosArrowForward } from "react-icons/io";
 interface DrawerItemProps {
   title: string;
   isAddNew?: boolean;
+  lang: string;
 }
 
-export function DrawerItem({ title, isAddNew = false }: DrawerItemProps) {
+export function DrawerItem({ title, isAddNew = false, lang }: DrawerItemProps) {
   return (
     <Drawer>
       <DrawerTrigger asChild>
@@ -38,7 +39,7 @@ export function DrawerItem({ title, isAddNew = false }: DrawerItemProps) {
           )}
         </div>
       </DrawerTrigger>
-      <ComingSoonDrawer />
+      <ComingSoonDrawer lang={lang} />
     </Drawer>
   );
 }

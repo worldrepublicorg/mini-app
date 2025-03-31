@@ -1,0 +1,448 @@
+{
+  "components": {
+    "walletAuth": {
+      "connect": "ウォレットを接続"
+    },
+    "verifyButton": {
+      "verify": "認証して受け取る"
+    },
+    "pollOfTheDay": {
+      "previousPolls": "過去の投票",
+      "vote": "投票する"
+    },
+    "stakeForm": {
+      "deposit": "預入",
+      "withdraw": "引き出し",
+      "balance": "残高：",
+      "depositPlaceholder": "預入金額",
+      "withdrawPlaceholder": "引き出し金額",
+      "max": "最大",
+      "interest": "利息：",
+      "collect": "受け取る",
+      "depositButton": "ドラクマを預入",
+      "withdrawButton": "ドラクマを引き出す"
+    },
+    "toasts": {
+      "wallet": {
+        "connectInWorldApp": "Worldアプリでこのアプリを開いてウォレットを接続してください。",
+        "stakingError": "トークンのステーキングエラー",
+        "withdrawError": "トークンの引き出しエラー",
+        "collectError": "報酬の受け取りエラー"
+      },
+      "referral": {
+        "pendingReward": "{{username}}の保留中の報酬を処理中...",
+        "rewardSuccess": "{{username}}に報酬を正常に送信しました！",
+        "sendingReward": "{{username}}に50 WDDの報酬を送信中..."
+      },
+      "basicIncome": {
+        "setupSuccess": "ベーシックインカムプラスが有効化されました！{{username}}の報酬を準備中...",
+        "setupWithReferrer": "まずベーシックインカムプラスを設定し、その後{{username}}に報酬を送信します...",
+        "error": "ベーシックインカムの有効化エラー",
+        "errorPlus": "ベーシックインカムプラスの有効化エラー"
+      },
+      "transaction": {
+        "error": "予期せぬエラーが発生しました",
+        "errorClaim": "請求中に予期せぬエラーが発生しました"
+      }
+    },
+    "comingSoonDrawer": {
+      "title": "近日公開",
+      "description": "この機能は現在開発中です。お楽しみに！"
+    },
+    "tabSwiper": {
+      "tabs": {
+        "polls": "投票",
+        "openLetters": "公開書簡",
+        "elections": "選挙",
+        "referendums": "国民投票"
+      }
+    }
+  },
+  "pages": {
+    "earn": {
+      "title": "収益",
+      "tabs": {
+        "basicIncome": {
+          "tabTitle": "ベーシックインカム",
+          "title": "ベーシックインカム",
+          "subtitle": "サインインしてベーシックインカムを受け取る",
+          "setupSubtitle": "ベーシックインカムを設定",
+          "claimableSubtitle": "請求可能なドラクマ",
+          "activateButton": "ベーシックインカムを有効化",
+          "claimButton": "請求",
+          "plus": {
+            "title": "ベーシックインカムプラス",
+            "newBadge": "新着",
+            "drawerTrigger": "ベーシックインカムプラスのご紹介",
+            "subtitle": "認証済みユーザー向けの追加収入",
+            "drawer": {
+              "title": "ベーシックインカムプラス",
+              "subtitle": "認証済みユーザー向けの追加収入",
+              "features": {
+                "rate": {
+                  "title": "1日あたり追加10 WDD"
+                },
+                "verification": {
+                  "title": "公平な配布を確保するため、Orb認証済みユーザーのみ"
+                },
+                "rewards": {
+                  "title": "報酬は時間とともにベーシックインカムプラスに移行し、合計は11 WDD/日を維持"
+                }
+              },
+              "activateButton": "ベーシックインカムプラスを有効化",
+              "claimButton": "ベーシックインカムプラスを請求",
+              "claimBasicButton": "ベーシックインカムを請求"
+            }
+          }
+        },
+        "savings": {
+          "tabTitle": "貯金",
+          "title": "貯金口座",
+          "subtitle": "毎秒利息が発生",
+          "tooltip": "基本年利69%。利息を収集して再投資することで、年間約100%の実質リターンを達成可能。いつでも引き出し可能。"
+        },
+        "invite": {
+          "title": "招待",
+          "subtitle": "友達が参加すると50 WDD獲得",
+          "tooltip": "報酬には友達のOrb認証が必要です。",
+          "learnMore": "詳細を見る",
+          "stats": {
+            "title": "招待統計",
+            "invites": "承認された招待",
+            "rewards": "総報酬"
+          },
+          "actions": {
+            "copyLink": "紹介リンクをコピー",
+            "copied": "紹介リンクをクリップボードにコピーしました！",
+            "connectWallet": "紹介リンクを生成するにはウォレットを接続してください",
+            "rewardReferrer": "紹介者に報酬を送る",
+            "share": "招待リンクを共有"
+          },
+          "drawer": {
+            "title": "紹介者に報酬を送る",
+            "subtitle": "紹介者に無料で50 WDDの報酬を送信",
+            "invitedBy": "あなたは{{username}}に招待されました",
+            "input": {
+              "placeholder": "ユーザー名を入力（例：username.0000）",
+              "lookupButton": "ユーザーを検索",
+              "sendingTo": "報酬を送信先：",
+              "editButton": "編集",
+              "sendButton": "報酬を送信"
+            },
+            "errors": {
+              "enterUsername": "ユーザー名を入力してください",
+              "usernameNotFound": "ユーザーが見つかりません",
+              "lookupFailed": "ユーザー検索に失敗しました。もう一度お試しください。",
+              "installMiniKit": "ユーザー名を検索するにはMiniKitをインストールしてください",
+              "connectWallet": "先にウォレットを接続してください",
+              "transactionCanceled": "取引がキャンセルされました"
+            },
+            "success": {
+              "rewardSent": "{{username}}に報酬を正常に送信しました！"
+            }
+          },
+          "share": {
+            "title": "世界共和国に参加",
+            "text": "私の招待リンクを使って世界共和国に参加し、一緒に報酬を獲得しましょう！"
+          }
+        },
+        "contribute": {
+          "title": "貢献",
+          "subtitle": "参加して報酬を獲得",
+          "contests": {
+            "weekly": "週間",
+            "topPrize": "最高賞",
+            "xPost": {
+              "title": "X投稿コンテスト",
+              "description": "魅力的な投稿を書いて賞品を獲得"
+            },
+            "poll": {
+              "title": "投票コンテスト",
+              "description": "コミュニティのフィードバックを集めて報酬を獲得"
+            },
+            "pollContest": {
+              "title": "投票コンテスト",
+              "weeklyTitle": "週間投票コンテスト",
+              "description": "コミュニティのフィードバックを集めて報酬を獲得",
+              "prizes": {
+                "title": "賞品",
+                "viewWinners": "過去の受賞者を見る",
+                "wdd": "WDD"
+              },
+              "howTo": {
+                "title": "参加方法",
+                "steps": {
+                  "step1": {
+                    "number": "1",
+                    "text": "ワールドリパブリックまたはグローバルガバナンスに関する投票を作成"
+                  },
+                  "step2": {
+                    "number": "2",
+                    "text": "認証済みの人間のみが投票できるように設定"
+                  },
+                  "step3": {
+                    "number": "3",
+                    "text": "投票を",
+                    "link": {
+                      "text": "投票コンテストTelegramチャンネル",
+                      "url": "https://t.me/worldrepubliccommunity/32368"
+                    }
+                  }
+                }
+              },
+              "rules": {
+                "title": "コンテストルール",
+                "list": {
+                  "rule1": "現在の週に開始された投票のみが対象",
+                  "rule2": "受賞者は総投票数に基づいて選出",
+                  "rule3": "コンテストは毎週日曜日UTC 23:59に終了"
+                }
+              },
+              "cta": {
+                "create": "投票を作成",
+                "submit": "投票を提出"
+              },
+              "winners": {
+                "title": "コンテスト受賞者",
+                "weekOf": "週",
+                "votes": "票"
+              }
+            }
+          },
+          "earlyAccess": {
+            "title": "早期アクセスプログラム",
+            "description": "今後の機能をテストしてWDDを獲得"
+          },
+          "xContest": {
+            "title": "X投稿コンテスト",
+            "weeklyTitle": "週間X投稿コンテスト",
+            "description": "魅力的な投稿を書いて賞品を獲得",
+            "prizes": {
+              "title": "賞品",
+              "viewWinners": "過去の受賞者を見る",
+              "wdd": "WDD"
+            },
+            "howTo": {
+              "title": "参加方法",
+              "step1": "ワールドリパブリックについてXに投稿",
+              "step2": "@WorldRepublicENをタグ付け",
+              "step3": {
+                "prefix": "投稿のリンクを",
+                "link": "X投稿コンテストTelegramチャンネル"
+              }
+            },
+            "rules": {
+              "title": "コンテストルール",
+              "rule1": "現在の週に公開された投稿のみが対象",
+              "rule2": "受賞者は総エンゲージメント（いいね+リポスト+コメント）に基づいて選出",
+              "rule3": "コンテストは毎週日曜日UTC 23:59に終了"
+            },
+            "cta": {
+              "post": "今すぐ投稿を開始",
+              "submit": "投稿を提出"
+            },
+            "winners": {
+              "title": "コンテスト受賞者",
+              "weekOf": "週",
+              "engagements": "エンゲージメント"
+            }
+          }
+        }
+      }
+    },
+    "govern": {
+      "title": "ガバナンス",
+      "tabs": {
+        "polls": "投票",
+        "openLetters": "公開書簡",
+        "elections": "選挙",
+        "referendums": "国民投票"
+      },
+      "sections": {
+        "polls": {
+          "title": "今日の投票",
+          "description": "現在のトピックに関するクイック投票",
+          "previous": {
+            "title": "過去の投票",
+            "backToGovern": "ガバナンスに戻る",
+            "polls": {
+              "techTransparency": "グローバルテクノロジー企業は、公共の信頼を守るために透明な意思決定ポリシーを採用することを義務付けられるべきでしょうか？",
+              "disasterRelief": "大地震などの壊滅的な自然災害に対して即座の救援を提供するためのグローバルな緊急対応基金を設立すべきでしょうか？",
+              "aiWatermarking": "選挙やメディアでの誤情報対策として、AI生成コンテンツの必須透かしをグローバル規制で要求すべきでしょうか？",
+              "biotech": "新興バイオテクノロジーの倫理的使用と安全性を確保するためのグローバルな規制フレームワークを設けるべきでしょうか？",
+              "spaceMilitarization": "宇宙の軍事化を防ぎ、平和目的での利用を確保するためのプロトコルについて、グローバルリーダーが合意すべきでしょうか？",
+              "dataSovereignty": "デジタル主権の統一フレームワークの下で、世界中で生成されるデータを保護するための国際ガイドラインを実施すべきでしょうか？",
+              "fourDayWeek": "標準的な雇用モデルとして4日間労働週のグローバルな動きを支持しますか？",
+              "nuclearSecurity": "紛争地域の核施設を保護するための拘束力のある国際合意を確立すべきでしょうか？",
+              "aviationResilience": "国際航空インフラは予期せぬ大規模な混乱に十分に対応できるでしょうか？",
+              "waterResources": "世界的な水不足の中で、共有水資源を管理するための協力フレームワークを各国が作成すべきでしょうか？",
+              "maternalHealth": "国際援助凍結時に母子の健康を保護するための専用グローバルヘルスケア援助準備金を設立すべきでしょうか？",
+              "marsMission": "火星への共同深宇宙探査ミッションに各国が協力することを支持しますか？",
+              "globalRecession": "現在の世界経済のトレンドは、主要経済国間で同時不況のリスクを示していると思いますか？",
+              "aidCorridors": "民間人の人道的危機を抱えるすべての紛争地域で、国際的に調整された援助回廊を自動的に開始すべきでしょうか？",
+              "nationalSovereignty": "共有の課題に対する調整された対応と国家主権のバランスを取るグローバル政策フレームワークを支持しますか？",
+              "climateDisasters": "極端な気象災害（山火事、洪水など）に見舞われている国々は、グローバル気候基金から優先的な財政援助を受けるべきでしょうか？",
+              "aiSafety": "国際安全協定が確立されるまで、現在のシステムより強力なAIモデルの訓練を一時停止することをグローバルAI開発者に要求すべきでしょうか？",
+              "corporateTax": "複数の国で事業を行う企業は、不平等を減らすための統一されたグローバル最低税率の対象とすべきでしょうか？",
+              "spaceDebris": "宇宙進出国と企業は、軌道上のデブリを削減するために、使用済み衛星の除去を法的に義務付けられるべきでしょうか？",
+              "digitalPrivacy": "ますます相互接続される世界で個人の権利を保護するために、普遍的なデジタルプライバシー基準の作成が重要だと思いますか？",
+              "nuclearProliferation": "既存のグローバル措置が核拡散のリスクを効果的に軽減していると思いますか？",
+              "cybersecurity": "現在の国際サイバーセキュリティ対策は、エスカレートするサイバー脅威から重要なグローバルインフラを十分に保護できていますか？",
+              "globalAlliances": "グローバル同盟の急速な再編成は、より安全な国際秩序につながると思いますか？",
+              "climateResilience": "現在のグローバルな気候レジリエンスへのアプローチは、極端な気象イベントの増加に対応するのに十分でしょうか？",
+              "tradeTariffs": "主要経済国間での関税課徴の増加傾向が、世界貿易の安定を著しく混乱させると考えますか？",
+              "diseaseManagement": "新興感染症の予防と管理における世界の能力に自信がありますか？",
+              "aiRegulation": "人工知能の倫理的な開発を統治するための拘束力のある国際規制を確立すべきでしょうか？",
+              "spaceRegulation": "衛星やロケットからの宇宙デブリを制限するための必須の国際合意を設けるべきでしょうか？",
+              "diplomaticDialogue": "世界のリーダー間の持続的な外交対話が、グローバルな緊張を軽減するのに役立つと信じますか？",
+              "migration": "富裕国は、紛争や気候災害から逃れる移民をより多く受け入れるべきでしょうか？",
+              "rareEarths": "グローバルな資源セキュリティを強化するために、レアアース鉱物に関する国際協力を優先すべきでしょうか？",
+              "cryptocurrency": "グローバル当局は、暗号通貨を規制し金融犯罪を抑制するための統一基準を確立すべきでしょうか？",
+              "disinformation": "オンラインでの誤情報の拡散に対抗するためのグローバル措置を実施すべきだと思いますか？",
+              "diseaseOutbreaks": "グローバルな健康危機を防ぐために、疾病発生時にリアルタイムデータを共有することを各国に要求すべきでしょうか？",
+              "militaryIntervention": "戦争が突然勃発した地域の紛争を緩和するために、高度な軍事能力を持つ国々が介入すべきでしょうか？",
+              "aiDevelopment": "革新を遅らせることになっても、人工知能（AI）開発の規制を政府が優先すべきでしょうか？",
+              "asteroidDefense": "世界中の政府が宇宙監視と小惑星偏向研究の資金を増やすべきだと思いますか？",
+              "peaceNegotiations": "和平交渉を行う主要国は、紛争の直接影響を受ける国々を含めることを要求されるべきでしょうか？",
+              "taiwanPolicy": "アメリカは、中国との緊張をエスカレートさせないために、台湾に関する「戦略的曖昧さ」政策を維持すべきでしょうか？"
+            }
+          }
+        },
+        "openLetters": {
+          "title": "公開書簡",
+          "description": "意思決定者への公開声明",
+          "addNew": "公開書簡を追加",
+          "statements": {
+            "aiRisk": {
+              "title": "AIリスクに関する声明",
+              "referenceTitle": "AI安全性センター"
+            },
+            "nuclear": {
+              "title": "国連核兵器禁止条約公開書簡",
+              "referenceTitle": "生命の未来研究所"
+            },
+            "autonomousWeapons": {
+              "title": "致死性自律兵器に関する誓約",
+              "referenceTitle": "生命の未来研究所"
+            },
+            "longView": {
+              "title": "存在脅威に対する長期的視点のリーダーシップを世界のリーダーに求める公開書簡",
+              "referenceTitle": "生命の未来研究所"
+            }
+          }
+        },
+        "elections": {
+          "title": "選挙",
+          "description": "代表を選ぶ",
+          "worldConstituent": {
+            "title": "世界制憲議会選挙"
+          }
+        },
+        "referendums": {
+          "title": "国民投票",
+          "description": "重要な問題に関する直接投票",
+          "worldConstitutional": {
+            "title": "世界憲法国民投票"
+          }
+        }
+      }
+    },
+    "menu": {
+      "title": "メニュー",
+      "sections": {
+        "experimental": {
+          "title": "実験的機能",
+          "links": {
+            "verification": "認証状態",
+            "language": "言語"
+          }
+        },
+        "connect": {
+          "title": "接続",
+          "links": {
+            "community": "コミュニティ",
+            "announcements": "お知らせ",
+            "x": "X"
+          }
+        },
+        "help": {
+          "title": "ヘルプ",
+          "links": {
+            "faq": "よくある質問"
+          }
+        },
+        "code": {
+          "title": "コード",
+          "links": {
+            "app": "アプリ",
+            "contracts": "スマートコントラクト"
+          }
+        }
+      }
+    },
+    "faq": {
+      "title": "よくある質問",
+      "items": {
+        "appPurpose": {
+          "question": "ワールドリパブリックとは何ですか？",
+          "answer": "ワールドリパブリックは、人類の最も差し迫ったグローバルな課題を解決するための開かれた民主的な組織です。AIリスク、気候変動、バイオセキュリティなど、グローバル規模でのみ効果的に対処できる問題に関する集団的意思決定のためのフレームワークを提供します。"
+        },
+        "basicIncome": {
+          "question": "ベーシックインカムとは何ですか？",
+          "answer": "ベーシックインカムは、ワールドリパブリックの全市民に提供される1日1 WDD（ワールドドラクマ）の補助金です。リアルタイムで蓄積され、アプリを通じていつでも請求できます。"
+        },
+        "basicIncomePlus": {
+          "question": "ベーシックインカムプラスを有効化するにはどうすればよいですか？",
+          "answer": "ベーシックインカムプラスは1日あたり追加10 WDDを提供し、Orb認証済みユーザーのみが利用できます。ベーシックインカムを有効化した後、Earnページでベーシックインカムプラスを有効化するオプションが表示されます。"
+        },
+        "savings": {
+          "question": "貯金口座はどのように機能しますか？",
+          "answer": "貯金口座では、WDDトークンを預入して年利69%の利息を獲得できます。獲得した利息を継続的に再投資することで、年間約100%の実質リターンを達成し、時間とともにWDDの成長を最大化できます。利息は継続的に蓄積され、いつでも引き出しまたは再投資が可能です。"
+        },
+        "referralCodes": {
+          "question": "紹介コードはどのように機能しますか？",
+          "answer": "ワールドリパブリックの市民として、紹介プログラムを通じて報酬を獲得できます。ユニークな紹介リンクを友達と共有し、参加してベーシックインカムプラスを有効化した人1人につき50 WDDを獲得できます。報酬を受け取っていない場合、友達が紹介セクションで「紹介者に報酬を送る」オプションを選択して手動でトリガーする必要があるかもしれません。"
+        },
+        "drachmaValue": {
+          "question": "ドラクマの価値はどこから来るのですか？",
+          "answer": "ドラクマは、ワールドリパブリックの公式通貨であることから価値を得ています。私たちの民主的なグローバルガバナンスプラットフォームが成長するにつれ、WDDは世界経済における重要な交換手段となる可能性があり、最終的には技術的進歩とグローバル資源からの利益の公平な分配に役割を果たす可能性があります。"
+        },
+        "topWallets": {
+          "question": "最大のアカウントは誰が管理しているのですか？",
+          "answer": "3つの最大アカウントは、<a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>ワールドリパブリック財務省</a>、<a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>ベーシックインカム基金</a>、<a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>ベーシックインカムプラス基金</a>です。現在、これらはプロジェクトの創設者が管理していますが、憲法が批准された後はコミュニティに移管されます。その他の主要なアドレスには、<a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>貯金口座コントラクト</a>、<a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>紹介報酬配布者</a>、および流動性プール：<a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>、<a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>、<a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>が含まれます。"
+        },
+        "voteRequirements": {
+          "question": "投票を提案するための要件は何ですか？",
+          "answer": "現在の投票と公開書簡はデモンストレーション用です。私たちのコミュニティは、2025年第2四半期に選出される制憲議会が主導する憲法設計プロセスを通じて、ガバナンスシステムを集団的に決定します。"
+        }
+      }
+    },
+    "language": {
+      "title": "言語",
+      "options": {
+        "english": "English",
+        "spanish": "Español"
+      }
+    },
+    "verification": {
+      "title": "認証状態",
+      "levels": {
+        "document": {
+          "title": "書類認証",
+          "description": "書類の認証状態を確認",
+          "buttonText": "状態を確認"
+        },
+        "secureDocument": {
+          "title": "セキュア書類認証",
+          "description": "セキュア書類の認証状態を確認",
+          "buttonText": "状態を確認"
+        },
+        "orb": {
+          "title": "Orb認証",
+          "description": "Orbの認証状態を確認",
+          "buttonText": "状態を確認"
+        }
+      }
+    }
+  }
+}

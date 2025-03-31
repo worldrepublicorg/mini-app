@@ -9,12 +9,14 @@ import { useWallet } from "@/components/contexts/WalletContext";
 import { viemClient } from "@/lib/viemClient";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { useToast } from "@/components/ui/Toast";
+import { useTranslations } from "@/hooks/useTranslations";
 
 interface StakeWithPermitFormProps {
   stakedBalance: string;
   displayAvailableReward: string | null;
   fetchStakedBalance: () => Promise<void>;
   fetchAvailableReward: () => Promise<void>;
+  lang: string;
 }
 
 const STAKING_CONTRACT_ADDRESS = "0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7";
@@ -25,6 +27,7 @@ export function StakeWithPermitForm({
   displayAvailableReward,
   fetchStakedBalance,
   fetchAvailableReward,
+  lang,
 }: StakeWithPermitFormProps) {
   const { walletAddress, tokenBalance, fetchBalance } = useWallet();
   const { showToast } = useToast();
@@ -54,10 +57,12 @@ export function StakeWithPermitForm({
     transactionId: collectTx!,
   });
 
+  const dictionary = useTranslations(lang);
+
   const handleStake = async () => {
     if (!MiniKit.isInstalled()) {
       showToast(
-        "Please open this app in the World App to connect your wallet.",
+        dictionary?.components?.toasts?.wallet?.connectInWorldApp,
         "error"
       );
       return;
@@ -129,7 +134,8 @@ export function StakeWithPermitForm({
         console.error("Transaction error.");
         if (finalPayload.error_code !== "user_rejected") {
           const errorMessage =
-            (finalPayload as any).description || "Error staking tokens";
+            (finalPayload as any).description ||
+            dictionary?.components?.toasts?.wallet?.stakingError;
           showToast(errorMessage, "error");
         }
         setIsSubmitting(false);
@@ -149,7 +155,7 @@ export function StakeWithPermitForm({
   const handleWithdraw = async () => {
     if (!MiniKit.isInstalled()) {
       showToast(
-        "Please open this app in the World App to connect your wallet.",
+        dictionary?.components?.toasts?.wallet?.connectInWorldApp,
         "error"
       );
       return;
@@ -191,7 +197,8 @@ export function StakeWithPermitForm({
         console.error("Withdraw transaction error. See console for details.");
         if (finalPayload.error_code !== "user_rejected") {
           const errorMessage =
-            (finalPayload as any).description || "Error withdrawing tokens";
+            (finalPayload as any).description ||
+            dictionary?.components?.toasts?.wallet?.withdrawError;
           showToast(errorMessage, "error");
         }
         setIsSubmitting(false);
@@ -211,7 +218,7 @@ export function StakeWithPermitForm({
   const handleCollect = async () => {
     if (!MiniKit.isInstalled()) {
       showToast(
-        "Please open this app in the World App to connect your wallet.",
+        dictionary?.components?.toasts?.wallet?.connectInWorldApp,
         "error"
       );
       return;
@@ -236,7 +243,8 @@ export function StakeWithPermitForm({
         console.error("Redeem transaction error. See console for details.");
         if (finalPayload.error_code !== "user_rejected") {
           const errorMessage =
-            (finalPayload as any).description || "Error collecting rewards";
+            (finalPayload as any).description ||
+            dictionary?.components?.toasts?.wallet?.collectError;
           showToast(errorMessage, "error");
         }
         setIsCollecting(false);
@@ -352,7 +360,7 @@ export function StakeWithPermitForm({
             selectedAction === "deposit" ? "bg-gray-100" : ""
           }`}
         >
-          Deposit
+          {dictionary?.components?.stakeForm?.deposit}
         </button>
         <button
           type="button"
@@ -364,7 +372,7 @@ export function StakeWithPermitForm({
             selectedAction === "withdraw" ? "bg-gray-100" : ""
           }`}
         >
-          Withdraw
+          {dictionary?.components?.stakeForm?.withdraw}
         </button>
       </div>
 
@@ -375,7 +383,7 @@ export function StakeWithPermitForm({
             variant={{ variant: "body", level: 1 }}
             className="mb-4 font-medium text-gray-900"
           >
-            Balance:
+            {dictionary?.components?.stakeForm?.balance}
           </Typography>
           <Typography
             variant={{ variant: "number", level: 6 }}
@@ -391,8 +399,8 @@ export function StakeWithPermitForm({
             onChange={(e) => setAmount(e.target.value)}
             placeholder={
               selectedAction === "deposit"
-                ? "Amount to deposit"
-                : "Amount to withdraw"
+                ? dictionary?.components?.stakeForm?.depositPlaceholder
+                : dictionary?.components?.stakeForm?.withdrawPlaceholder
             }
             className="-ml-2 mr-2 h-9 w-full rounded-xl pl-2"
           />
@@ -408,7 +416,7 @@ export function StakeWithPermitForm({
                     ) || "0"
               )
             }
-            className={`h-9 items-center rounded-full bg-gray-100 px-4 font-sans text-sm font-medium leading-narrow tracking-normal ${
+            className={`flex h-9 items-center justify-center whitespace-nowrap rounded-full bg-gray-100 px-4 font-sans text-sm font-medium leading-narrow tracking-normal ${
               amount ===
                 (selectedAction === "deposit"
                   ? (Math.floor(Number(tokenBalance) * 1e9) / 1e9).toFixed(9) ||
@@ -423,7 +431,7 @@ export function StakeWithPermitForm({
                 : "text-gray-900"
             }`}
           >
-            Max
+            {dictionary?.components?.stakeForm?.max}
           </button>
         </div>
       </div>
@@ -434,7 +442,7 @@ export function StakeWithPermitForm({
           variant={{ variant: "body", level: 1 }}
           className="font-medium text-gray-900"
         >
-          Interest:
+          {dictionary?.components?.stakeForm?.interest}
         </Typography>
         <div className="flex items-center gap-2">
           <Button
@@ -442,9 +450,9 @@ export function StakeWithPermitForm({
             isLoading={isCollecting}
             variant="primary"
             size="sm"
-            className="mr-2 h-9 w-20 rounded-full px-4 font-sans"
+            className="mr-2 h-9 min-w-20 rounded-full px-4 font-sans"
           >
-            Collect
+            {dictionary?.components?.stakeForm?.collect}
           </Button>
           <Typography
             variant={{ variant: "number", level: 6 }}
@@ -458,11 +466,11 @@ export function StakeWithPermitForm({
 
       {selectedAction === "deposit" ? (
         <Button onClick={handleStake} isLoading={isSubmitting} fullWidth>
-          Deposit Drachma
+          {dictionary?.components?.stakeForm?.depositButton}
         </Button>
       ) : (
         <Button onClick={handleWithdraw} isLoading={isSubmitting} fullWidth>
-          Withdraw Drachma
+          {dictionary?.components?.stakeForm?.withdrawButton}
         </Button>
       )}
     </div>

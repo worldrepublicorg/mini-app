@@ -1,12 +1,16 @@
 import { Typography } from "@/components/ui/Typography";
 import { BiLinkExternal } from "react-icons/bi";
+import { useTranslations } from "@/hooks/useTranslations";
 
 interface PollCardProps {
+  lang: string;
   description: string;
   voteUrl: string;
 }
 
-export function PollCard({ description, voteUrl }: PollCardProps) {
+export function PollCard({ lang, description, voteUrl }: PollCardProps) {
+  const dictionary = useTranslations(lang);
+
   const handleCardClick = () => {
     window.open(voteUrl, "_blank", "noopener,noreferrer");
   };

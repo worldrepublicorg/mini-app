@@ -1,0 +1,448 @@
+{
+  "components": {
+    "walletAuth": {
+      "connect": "连接钱包"
+    },
+    "verifyButton": {
+      "verify": "验证以领取"
+    },
+    "pollOfTheDay": {
+      "previousPolls": "往期投票",
+      "vote": "立即投票"
+    },
+    "stakeForm": {
+      "deposit": "存入",
+      "withdraw": "提取",
+      "balance": "余额：",
+      "depositPlaceholder": "存入金额",
+      "withdrawPlaceholder": "提取金额",
+      "max": "最大值",
+      "interest": "利息：",
+      "collect": "领取",
+      "depositButton": "存入德拉克马",
+      "withdrawButton": "提取德拉克马"
+    },
+    "toasts": {
+      "wallet": {
+        "connectInWorldApp": "请在World App中打开此应用程序以连接您的钱包。",
+        "stakingError": "质押代币时出错",
+        "withdrawError": "提取代币时出错",
+        "collectError": "领取奖励时出错"
+      },
+      "referral": {
+        "pendingReward": "正在处理{{username}}的待领取奖励...",
+        "rewardSuccess": "成功奖励{{username}}！",
+        "sendingReward": "正在向{{username}}发送50 WDD奖励..."
+      },
+      "basicIncome": {
+        "setupSuccess": "基本收入增强版已激活！正在为{{username}}准备奖励...",
+        "setupWithReferrer": "首先设置基本收入增强版，然后我们将奖励{{username}}...",
+        "error": "激活基本收入时出错",
+        "errorPlus": "激活基本收入增强版时出错"
+      },
+      "transaction": {
+        "error": "发生意外错误",
+        "errorClaim": "领取时发生意外错误"
+      }
+    },
+    "comingSoonDrawer": {
+      "title": "即将推出",
+      "description": "此功能正在开发中。敬请期待！"
+    },
+    "tabSwiper": {
+      "tabs": {
+        "polls": "投票",
+        "openLetters": "公开信",
+        "elections": "选举",
+        "referendums": "公投"
+      }
+    }
+  },
+  "pages": {
+    "earn": {
+      "title": "赚取",
+      "tabs": {
+        "basicIncome": {
+          "tabTitle": "基本收入",
+          "title": "基本收入",
+          "subtitle": "登录以领取您的基本收入",
+          "setupSubtitle": "设置您的基本收入",
+          "claimableSubtitle": "可领取的德拉克马",
+          "activateButton": "激活基本收入",
+          "claimButton": "领取",
+          "plus": {
+            "title": "基本收入增强版",
+            "newBadge": "新",
+            "drawerTrigger": "介绍基本收入增强版",
+            "subtitle": "已验证用户的额外收入",
+            "drawer": {
+              "title": "基本收入增强版",
+              "subtitle": "已验证用户的额外收入",
+              "features": {
+                "rate": {
+                  "title": "每天额外10 WDD"
+                },
+                "verification": {
+                  "title": "仅限Orb验证用户，确保公平分配"
+                },
+                "rewards": {
+                  "title": "奖励逐渐转向增强版，同时保持每天总计11 WDD"
+                }
+              },
+              "activateButton": "激活基本收入增强版",
+              "claimButton": "领取基本收入增强版",
+              "claimBasicButton": "领取基本收入"
+            }
+          }
+        },
+        "savings": {
+          "tabTitle": "储蓄",
+          "title": "储蓄账户",
+          "subtitle": "每秒赚取利息",
+          "tooltip": "69%年化基础利率。收集并再投资利息可实现接近100%的年度有效回报。随时可提取。"
+        },
+        "invite": {
+          "title": "邀请",
+          "subtitle": "每邀请一位朋友加入获得50 WDD",
+          "tooltip": "奖励需要朋友完成 Orb 验证。",
+          "learnMore": "了解更多",
+          "stats": {
+            "title": "您的推荐统计",
+            "invites": "已接受邀请",
+            "rewards": "总奖励"
+          },
+          "actions": {
+            "copyLink": "复制推荐链接",
+            "copied": "推荐链接已复制到剪贴板！",
+            "connectWallet": "请连接钱包以生成您的推荐链接",
+            "rewardReferrer": "奖励推荐人",
+            "share": "分享邀请链接"
+          },
+          "drawer": {
+            "title": "奖励推荐人",
+            "subtitle": "为您的推荐人触发50 WDD免费奖励",
+            "invitedBy": "您是由{{username}}邀请的",
+            "input": {
+              "placeholder": "输入用户名（例如：username.0000）",
+              "lookupButton": "查找用户",
+              "sendingTo": "发送奖励给：",
+              "editButton": "编辑",
+              "sendButton": "发送奖励"
+            },
+            "errors": {
+              "enterUsername": "请输入用户名",
+              "usernameNotFound": "未找到用户名",
+              "lookupFailed": "查找用户名失败。请重试。",
+              "installMiniKit": "请安装MiniKit以查找用户名",
+              "connectWallet": "请先连接您的钱包",
+              "transactionCanceled": "交易已取消"
+            },
+            "success": {
+              "rewardSent": "成功向{{username}}发送奖励！"
+            }
+          },
+          "share": {
+            "title": "加入世界共和国",
+            "text": "使用我的邀请链接加入世界共和国，一起赚取奖励！"
+          }
+        },
+        "contribute": {
+          "title": "贡献",
+          "subtitle": "参与并获得奖励",
+          "contests": {
+            "weekly": "每周",
+            "topPrize": "最高奖励",
+            "xPost": {
+              "title": "X帖子竞赛",
+              "description": "撰写有趣的帖子，赢取奖励"
+            },
+            "poll": {
+              "title": "投票竞赛",
+              "description": "收集社区反馈并赚取奖励"
+            },
+            "pollContest": {
+              "title": "投票竞赛",
+              "weeklyTitle": "每周投票竞赛",
+              "description": "收集社区反馈并赚取奖励",
+              "prizes": {
+                "title": "奖励",
+                "viewWinners": "查看往期获奖者",
+                "wdd": "WDD"
+              },
+              "howTo": {
+                "title": "参与方式",
+                "steps": {
+                  "step1": {
+                    "number": "1",
+                    "text": "创建与世界共和国或全球治理相关的投票"
+                  },
+                  "step2": {
+                    "number": "2",
+                    "text": "设置仅限已验证的人类可以投票"
+                  },
+                  "step3": {
+                    "number": "3",
+                    "text": "在我们的",
+                    "link": {
+                      "text": "投票竞赛Telegram频道",
+                      "url": "https://t.me/worldrepubliccommunity/32368"
+                    }
+                  }
+                }
+              },
+              "rules": {
+                "title": "竞赛规则",
+                "list": {
+                  "rule1": "仅当周开始的投票有资格参与",
+                  "rule2": "获奖者根据总投票数选出",
+                  "rule3": "竞赛每周日23:59 UTC结束"
+                }
+              },
+              "cta": {
+                "create": "创建您的投票",
+                "submit": "提交您的投票"
+              },
+              "winners": {
+                "title": "竞赛获奖者",
+                "weekOf": "第几周",
+                "votes": "票数"
+              }
+            }
+          },
+          "earlyAccess": {
+            "title": "早期访问计划",
+            "description": "通过测试我们即将推出的功能赚取WDD"
+          },
+          "xContest": {
+            "title": "X帖子竞赛",
+            "weeklyTitle": "每周X帖子竞赛",
+            "description": "撰写有趣的帖子，赢取奖励",
+            "prizes": {
+              "title": "奖励",
+              "viewWinners": "查看往期获奖者",
+              "wdd": "WDD"
+            },
+            "howTo": {
+              "title": "如何参与",
+              "step1": "撰写关于世界共和国的X帖子",
+              "step2": "标记 @WorldRepublicEN",
+              "step3": {
+                "prefix": "在我们的",
+                "link": "X帖子竞赛Telegram频道分享您的帖子链接"
+              }
+            },
+            "rules": {
+              "title": "竞赛规则",
+              "rule1": "仅当周发布的帖子有资格参与",
+              "rule2": "获奖者根据总互动量（点赞+转发+评论）选出",
+              "rule3": "竞赛每周日23:59 UTC结束"
+            },
+            "cta": {
+              "post": "立即开始发帖",
+              "submit": "提交您的帖子"
+            },
+            "winners": {
+              "title": "竞赛获奖者",
+              "weekOf": "第几周",
+              "engagements": "互动量"
+            }
+          }
+        }
+      }
+    },
+    "govern": {
+      "title": "治理",
+      "tabs": {
+        "polls": "投票",
+        "openLetters": "公开信",
+        "elections": "选举",
+        "referendums": "公投"
+      },
+      "sections": {
+        "polls": {
+          "title": "每日投票",
+          "description": "对当前话题进行快速投票",
+          "previous": {
+            "title": "往期投票",
+            "backToGovern": "返回治理",
+            "polls": {
+              "techTransparency": "全球科技公司是否应该被要求采用透明的决策政策以保护公众信任？",
+              "disasterRelief": "是否应该建立全球快速响应基金，为大地震等毁灭性自然灾害提供即时救援？",
+              "aiWatermarking": "全球法规是否应该要求对AI生成内容进行强制性水印标记，以打击选举和媒体中的虚假信息？",
+              "biotech": "是否应该建立新兴生物技术的全球监管框架，以确保其道德使用和安全性？",
+              "spaceMilitarization": "全球领导人是否应该就防止太空军事化并确保其和平用途的协议达成一致？",
+              "dataSovereignty": "是否应该实施国际准则，在统一的数字主权框架下保护全球产生的数据？",
+              "nuclearSecurity": "是否应该建立具有约束力的国际协议，以保护冲突地区核设施的安全？",
+              "fourDayWeek": "你是否支持将四天工作制作为标准就业模式的全球性趋势？",
+              "aviationResilience": "国际航空基础设施是否具有足够的弹性来应对意外的大规模中断？",
+              "waterResources": "各国是否应该建立合作框架，在全球水资源日益稀缺的情况下管理共享水资源？",
+              "maternalHealth": "是否应该建立专门的全球医疗援助储备，在国际援助冻结期间保护母婴健康？",
+              "marsMission": "你是否支持各国合作进行联合深空火星任务？",
+              "globalRecession": "你认为当前全球经济趋势是否预示着主要经济体同步衰退的风险？",
+              "aidCorridors": "所有存在平民人道主义危机的冲突地区是否应该自动触发国际协调的援助通道？",
+              "nationalSovereignty": "你是否支持在国家主权与协调应对共同挑战之间取得平衡的全球政策框架？",
+              "climateDisasters": "遭受极端天气灾害（如野火、洪水）的国家是否应该从全球气候基金获得优先财政援助？",
+              "aiSafety": "在建立国际安全协议之前，全球人工智能开发者是否应该暂停训练比当前系统更强大的模型？",
+              "corporateTax": "在多个国家运营的企业是否应该遵守统一的全球最低税率以减少不平等？",
+              "spaceDebris": "你是否同意应该要求航天国家和企业承担法律义务，移除废弃卫星以减少轨道碎片？",
+              "digitalPrivacy": "你认为创建通用数字隐私标准对于在日益互联的世界中保护个人权利是否至关重要？",
+              "nuclearProliferation": "你认为现有的全球措施是否有效降低了核扩散的风险？",
+              "cybersecurity": "当前的国际网络安全措施是否足以保护关键全球基础设施免受日益严重的网络威胁？",
+              "globalAlliances": "你认为全球联盟的快速重组是否会带来更安全的国际秩序？",
+              "climateResilience": "当前应对气候韧性的全球方法是否足以应对日益频繁的极端天气事件？",
+              "tradeTariffs": "你认为主要经济体之间不断增加的关税趋势是否会显著扰乱全球贸易稳定？",
+              "diseaseManagement": "你对世界预防和管理新发传染病的能力有信心吗？",
+              "aiRegulation": "是否应该建立具有约束力的国际法规来管理人工智能的伦理发展？",
+              "spaceRegulation": "是否应该制定强制性国际协议来限制卫星和火箭产生的太空碎片？",
+              "diplomaticDialogue": "你认为世界领导人之间持续的外交对话能否帮助减少全球紧张局势？",
+              "migration": "富裕国家是否应该接收更多逃离冲突或气候灾难的移民？",
+              "rareEarths": "是否应该优先考虑稀土矿物的国际合作以加强全球资源安全？",
+              "cryptocurrency": "全球当局是否应该建立统一标准来监管加密货币并遏制金融犯罪？",
+              "disinformation": "你认为是否应该实施全球措施来对抗网络虚假信息的传播？",
+              "diseaseOutbreaks": "各国是否应该在疾病爆发期间被要求共享实时数据以预防全球健康危机？",
+              "militaryIntervention": "拥有先进军事能力的国家是否应该介入以缓解突发战争地区的冲突？",
+              "aiDevelopment": "各国政府是否应该优先监管人工智能发展以防止滥用，即使这会减缓创新？",
+              "asteroidDefense": "你认为世界各国政府是否应该增加对太空监测和小行星偏转研究的资金投入？",
+              "peaceNegotiations": "谈判和平协议的主要大国是否应该被要求包括直接受冲突影响的国家？",
+              "taiwanPolicy": "美国是否应该维持其对台湾的'战略模糊'政策以避免加剧与中国的紧张关系？"
+            }
+          }
+        },
+        "openLetters": {
+          "title": "公开信",
+          "description": "致决策者的公开声明",
+          "addNew": "添加您的公开信",
+          "statements": {
+            "aiRisk": {
+              "title": "关于人工智能风险的声明",
+              "referenceTitle": "人工智能安全中心"
+            },
+            "nuclear": {
+              "title": "联合国禁止核武器公开信",
+              "referenceTitle": "生命未来研究所"
+            },
+            "autonomousWeapons": {
+              "title": "致命自主武器承诺",
+              "referenceTitle": "生命未来研究所"
+            },
+            "longView": {
+              "title": "呼吁世界领导人对存在性威胁展现长远领导力的公开信",
+              "referenceTitle": "生命未来研究所"
+            }
+          }
+        },
+        "elections": {
+          "title": "选举",
+          "description": "选择您的代表",
+          "worldConstituent": {
+            "title": "世界制宪大会选举"
+          }
+        },
+        "referendums": {
+          "title": "公投",
+          "description": "对重要议题直接投票",
+          "worldConstitutional": {
+            "title": "世界宪法公投"
+          }
+        }
+      }
+    },
+    "menu": {
+      "title": "菜单",
+      "sections": {
+        "experimental": {
+          "title": "实验性功能",
+          "links": {
+            "verification": "验证状态",
+            "language": "语言"
+          }
+        },
+        "connect": {
+          "title": "连接",
+          "links": {
+            "community": "社区",
+            "announcements": "公告",
+            "x": "X"
+          }
+        },
+        "help": {
+          "title": "帮助",
+          "links": {
+            "faq": "常见问题"
+          }
+        },
+        "code": {
+          "title": "代码",
+          "links": {
+            "app": "应用程序",
+            "contracts": "智能合约"
+          }
+        }
+      }
+    },
+    "faq": {
+      "title": "常见问题",
+      "items": {
+        "appPurpose": {
+          "question": "什么是世界共和国？",
+          "answer": "世界共和国是一个开放、民主的组织，致力于解决人类最紧迫的全球性挑战。它为集体决策提供框架，解决只能在全球范围内有效应对的问题，如人工智能风险、气候变化或生物安全。"
+        },
+        "basicIncome": {
+          "question": "什么是基本收入？",
+          "answer": "我们的基本收入是每天向所有世界共和国公民提供1 WDD（世界德拉克马）的补贴。它实时累积，可以随时通过应用程序领取。"
+        },
+        "basicIncomePlus": {
+          "question": "如何激活基本收入增强版？",
+          "answer": "基本收入增强版每天提供额外10 WDD，仅向Orb验证用户开放。激活基本收入后，您将在赚取页面看到激活基本收入增强版的选项。"
+        },
+        "savings": {
+          "question": "储蓄账户如何运作？",
+          "answer": "储蓄账户允许您存入WDD代币并获得69%的年化利息。通过持续再投资所得利息，用户可以实现接近100%的年度有效回报，随时间最大化WDD增长。利息持续累积，可以随时提取或再投资。"
+        },
+        "referralCodes": {
+          "question": "推荐码如何运作？",
+          "answer": "作为世界共和国公民，您可以通过我们的推荐计划赚取奖励。与朋友分享您的唯一推荐链接，每当有人加入并激活基本收入增强版时，您将获得50 WDD。还没收到奖励？您的朋友可能需要在其推荐部分手动选择'奖励推荐人'选项来触发。"
+        },
+        "drachmaValue": {
+          "question": "德拉克马从何处获得价值？",
+          "answer": "德拉克马作为世界共和国的官方货币获得其价值。随着我们的民主全球治理平台发展，WDD有潜力成为世界经济中重要的交换媒介，并最终可能在技术进步和全球资源的公平分配中发挥作用。"
+        },
+        "topWallets": {
+          "question": "谁控制着最大的账户？",
+          "answer": "三个最大的账户是<a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>世界共和国国库</a>、<a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>基本收入基金</a>和<a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>基本收入增强版基金</a>。目前这些由项目创始人控制，但在我们的宪法获得批准后将移交给社区。其他关键地址包括<a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>储蓄账户合约</a>、<a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>推荐奖励分发器</a>和流动性池：<a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>、<a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>和<a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>。"
+        },
+        "voteRequirements": {
+          "question": "提出投票有什么要求？",
+          "answer": "当前的投票和公开信仅是展示。我们的社区将通过2025年第二季度选举产生的制宪大会领导的宪法设计过程集体决定我们的治理系统。"
+        }
+      }
+    },
+    "language": {
+      "title": "语言",
+      "options": {
+        "english": "English",
+        "spanish": "Español"
+      }
+    },
+    "verification": {
+      "title": "验证状态",
+      "levels": {
+        "document": {
+          "title": "证件验证",
+          "description": "检查证件验证状态",
+          "buttonText": "检查状态"
+        },
+        "secureDocument": {
+          "title": "安全证件验证",
+          "description": "检查安全证件验证状态",
+          "buttonText": "检查状态"
+        },
+        "orb": {
+          "title": "Orb验证",
+          "description": "检查Orb验证状态",
+          "buttonText": "检查状态"
+        }
+      }
+    }
+  }
+}

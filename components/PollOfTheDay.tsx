@@ -2,56 +2,56 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/Button";
 import { Typography } from "./ui/Typography";
 import Link from "next/link";
+import { useTranslations } from "@/hooks/useTranslations";
 
 interface Poll {
-  description: string;
+  key: string;
   url: string;
 }
 
 const polls: Poll[] = [
   {
-    description:
-      "Should global tech companies be required to adopt transparent decision-making policies to safeguard public trust?",
+    key: "techTransparency",
     url: "https://vote.one/aOXsaVpq",
   },
   {
-    description:
-      "Should there be a global regulatory framework for emerging biotechnologies to ensure ethical use and safety?",
+    key: "biotech",
     url: "https://vote.one/pNqgoSmf",
   },
   {
-    description:
-      "Should global leaders agree on protocols to prevent the militarization of space and secure it for peaceful purposes?",
+    key: "spaceMilitarization",
     url: "https://vote.one/vBztzW2P",
   },
   {
-    description:
-      "Should global regulations require mandatory watermarking of AI-generated content to combat misinformation in elections and media?",
+    key: "aiWatermarking",
     url: "https://vote.one/Jbra7uUp",
   },
   {
-    description:
-      "Should a global rapid-response fund be established to provide immediate relief for devastating natural disasters like major earthquakes?",
+    key: "disasterRelief",
     url: "https://vote.one/kKlY77pD",
   },
 ];
 
-export function PollOfTheDay() {
+interface PollOfTheDayProps {
+  lang: string;
+}
+
+export function PollOfTheDay({ lang }: PollOfTheDayProps) {
+  const dictionary = useTranslations(lang);
+
   const getPollIndex = () => {
-    // Use local midnight for consistency
     const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     const referenceDate = new Date(2023, 0, 1); // Local midnight Jan 1, 2023
     const dayDiff = Math.floor(
       (today.getTime() - referenceDate.getTime()) / (24 * 60 * 60 * 1000)
     );
-    return Math.abs(dayDiff % polls.length); // Add Math.abs for safety
+    return Math.abs(dayDiff % polls.length);
   };
 
   const [pollIndex, setPollIndex] = useState(getPollIndex());
 
   useEffect(() => {
-    // Update at next midnight
     const now = new Date();
     const tomorrow = new Date(
       now.getFullYear(),
@@ -60,7 +60,6 @@ export function PollOfTheDay() {
     );
     const msUntilTomorrow = tomorrow.getTime() - now.getTime();
 
-    // Immediate check in case we're slightly past midnight
     setPollIndex(getPollIndex());
 
     const timer = setTimeout(() => {
@@ -68,28 +67,39 @@ export function PollOfTheDay() {
     }, msUntilTomorrow);
 
     return () => clearTimeout(timer);
-  }, []); // Remove pollIndex dependency
+  }, []);
+
+  if (!dictionary) {
+    return null;
+  }
 
   const currentPoll = polls[pollIndex];
 
   return (
-    <div className="flex flex-col justify-center">
+    <div className="flex w-full flex-col justify-center">
       <div className="w-full">
         <Typography
           as="h3"
           variant={{ variant: "heading", level: 2 }}
           className="mb-10 text-center"
         >
-          {currentPoll.description}
+          {
+            dictionary?.pages?.govern?.sections?.polls?.previous?.polls?.[
+              currentPoll.key
+            ]
+          }
         </Typography>
         <a href={currentPoll.url} target="_blank" rel="noopener noreferrer">
           <Button variant="primary" fullWidth>
-            Vote Now
+            {dictionary?.components?.pollOfTheDay?.vote}
           </Button>
         </a>
-        <Link href="/previous-polls" className="mt-2 block h-10">
+        <Link
+          href={`/${lang}/previous-polls`}
+          className="mt-2 block h-10 w-full"
+        >
           <Button variant="ghost" fullWidth>
-            Previous Polls
+            {dictionary?.components?.pollOfTheDay?.previousPolls}
           </Button>
         </Link>
       </div>

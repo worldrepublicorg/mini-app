@@ -2,28 +2,36 @@
 
 import { Pill } from "@/components/ui/Pill";
 
-interface TabSwiperProps {
-  tabs: string[];
-  activeTab: string;
-  onTabChange: (tab: string) => void;
-  tabIndicators?: Record<string, boolean>;
+interface Tab {
+  key: string;
+  label: string;
 }
 
-export function TabSwiper({
+interface TabSwiperProps<T extends string> {
+  tabs: Tab[];
+  activeTab: T;
+  onTabChange: (tab: T) => void;
+  tabIndicators?: Record<T, boolean>;
+}
+
+export function TabSwiper<T extends string>({
   tabs,
   activeTab,
   onTabChange,
-  tabIndicators = {},
-}: TabSwiperProps) {
+  tabIndicators = {} as Record<T, boolean>,
+}: TabSwiperProps<T>) {
   return (
     <div className="no-scrollbar -mx-6 overflow-x-auto bg-gray-0 py-2">
       <div className="flex gap-1 px-6">
         {tabs.map((tab) => (
-          <div className="relative" key={tab}>
-            <Pill checked={activeTab === tab} onClick={() => onTabChange(tab)}>
-              <span className="whitespace-nowrap">{tab}</span>
+          <div className="relative" key={tab.key}>
+            <Pill
+              checked={activeTab === tab.key}
+              onClick={() => onTabChange(tab.key as T)}
+            >
+              <span className="whitespace-nowrap">{tab.label}</span>
             </Pill>
-            {tabIndicators[tab] && (
+            {tabIndicators[tab.key as T] && (
               <div className="absolute right-[9px] top-[9px] h-1.5 w-1.5 rounded-full bg-error-800 opacity-65"></div>
             )}
           </div>

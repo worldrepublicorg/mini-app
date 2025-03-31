@@ -1,0 +1,448 @@
+{
+  "components": {
+    "walletAuth": {
+      "connect": "Sambung Dompet"
+    },
+    "verifyButton": {
+      "verify": "Sahkan untuk Tuntut"
+    },
+    "pollOfTheDay": {
+      "previousPolls": "Undian Sebelumnya",
+      "vote": "Undi Sekarang"
+    },
+    "stakeForm": {
+      "deposit": "Simpan",
+      "withdraw": "Tarik",
+      "balance": "Baki:",
+      "depositPlaceholder": "Jumlah untuk disimpan",
+      "withdrawPlaceholder": "Jumlah untuk ditarik",
+      "max": "Maksimum",
+      "interest": "Faedah:",
+      "collect": "Kutip",
+      "depositButton": "Simpan Drachma",
+      "withdrawButton": "Tarik Drachma"
+    },
+    "toasts": {
+      "wallet": {
+        "connectInWorldApp": "Sila buka aplikasi ini dalam World App untuk menyambung dompet anda.",
+        "stakingError": "Ralat menyimpan token",
+        "withdrawError": "Ralat menarik token",
+        "collectError": "Ralat mengutip ganjaran"
+      },
+      "referral": {
+        "pendingReward": "Memproses ganjaran tertunda untuk {{username}}...",
+        "rewardSuccess": "Berjaya memberi ganjaran kepada {{username}}!",
+        "sendingReward": "Menghantar ganjaran 50 WDD kepada {{username}}..."
+      },
+      "basicIncome": {
+        "setupSuccess": "Pendapatan Asas Plus diaktifkan! Sekarang menyediakan ganjaran untuk {{username}}...",
+        "setupWithReferrer": "Menyediakan Pendapatan Asas Plus terlebih dahulu, kemudian kami akan memberi ganjaran kepada {{username}}...",
+        "error": "Ralat mengaktifkan Pendapatan Asas",
+        "errorPlus": "Ralat mengaktifkan Pendapatan Asas Plus"
+      },
+      "transaction": {
+        "error": "Ralat tidak dijangka berlaku",
+        "errorClaim": "Ralat tidak dijangka berlaku semasa menuntut"
+      }
+    },
+    "comingSoonDrawer": {
+      "title": "Akan Datang",
+      "description": "Ciri ini sedang dalam pembangunan. Nantikan!"
+    },
+    "tabSwiper": {
+      "tabs": {
+        "polls": "Undian",
+        "openLetters": "Surat Terbuka",
+        "elections": "Pilihan Raya",
+        "referendums": "Referendum"
+      }
+    }
+  },
+  "pages": {
+    "earn": {
+      "title": "Perolehan",
+      "tabs": {
+        "basicIncome": {
+          "tabTitle": "Pendapatan Asas",
+          "title": "Pendapatan Asas",
+          "subtitle": "Log masuk untuk menuntut pendapatan asas anda",
+          "setupSubtitle": "Sediakan pendapatan asas anda",
+          "claimableSubtitle": "Drachma yang boleh dituntut",
+          "activateButton": "Aktifkan Pendapatan Asas",
+          "claimButton": "Tuntut",
+          "plus": {
+            "title": "Pendapatan Asas Plus",
+            "newBadge": "Baharu",
+            "drawerTrigger": "Memperkenalkan Pendapatan Asas Plus",
+            "subtitle": "Pendapatan tambahan untuk pengguna yang disahkan",
+            "drawer": {
+              "title": "Pendapatan Asas Plus",
+              "subtitle": "Pendapatan tambahan untuk pengguna yang disahkan",
+              "features": {
+                "rate": {
+                  "title": "Tambahan 10 WDD sehari"
+                },
+                "verification": {
+                  "title": "Eksklusif untuk pengguna yang disahkan Orb untuk memastikan pengagihan yang adil"
+                },
+                "rewards": {
+                  "title": "Ganjaran beralih ke Plus dari masa ke masa sambil mengekalkan jumlah pada 11 WDD/hari"
+                }
+              },
+              "activateButton": "Aktifkan Pendapatan Asas Plus",
+              "claimButton": "Tuntut Pendapatan Asas Plus",
+              "claimBasicButton": "Tuntut Pendapatan Asas"
+            }
+          }
+        },
+        "savings": {
+          "tabTitle": "Simpanan",
+          "title": "Akaun Simpanan",
+          "subtitle": "Perolehi faedah setiap saat",
+          "tooltip": "Kadar asas 69% APY. Kutip dan pelabur semula faedah untuk mencapai pulangan berkesan hampir 100% setahun. Tarik bila-bila masa."
+        },
+        "invite": {
+          "title": "Jemputan",
+          "subtitle": "Dapatkan 50 WDD untuk setiap rakan yang menyertai",
+          "tooltip": "Ganjaran memerlukan rakan-rakan disahkan oleh Orb.",
+          "learnMore": "Ketahui lebih lanjut",
+          "stats": {
+            "title": "Statistik Rujukan Anda",
+            "invites": "Jemputan diterima",
+            "rewards": "Jumlah ganjaran"
+          },
+          "actions": {
+            "copyLink": "Salin Pautan Rujukan",
+            "copied": "Pautan rujukan disalin ke clipboard!",
+            "connectWallet": "Sila sambungkan dompet anda untuk menjana pautan rujukan",
+            "rewardReferrer": "Hadiahkan Pemberi Rujukan",
+            "share": "Kongsi Pautan Jemputan"
+          },
+          "drawer": {
+            "title": "Ganjarkan Pemberi Rujukan",
+            "subtitle": "Cetuskan ganjaran 50 WDD percuma untuk pemberi rujukan anda",
+            "invitedBy": "Anda dijemput oleh: {{username}}",
+            "input": {
+              "placeholder": "Masukkan nama pengguna (cth. username.0000)",
+              "lookupButton": "Cari Pengguna",
+              "sendingTo": "Menghantar ganjaran kepada:",
+              "editButton": "Sunting",
+              "sendButton": "Hantar Ganjaran"
+            },
+            "errors": {
+              "enterUsername": "Sila masukkan nama pengguna",
+              "usernameNotFound": "Nama pengguna tidak dijumpai",
+              "lookupFailed": "Gagal mencari nama pengguna. Sila cuba lagi.",
+              "installMiniKit": "Sila pasang MiniKit untuk mencari nama pengguna",
+              "connectWallet": "Sila sambung dompet anda terlebih dahulu",
+              "transactionCanceled": "Transaksi dibatalkan"
+            },
+            "success": {
+              "rewardSent": "Berjaya menghantar ganjaran kepada {{username}}!"
+            }
+          },
+          "share": {
+            "title": "Sertai Republik Dunia",
+            "text": "Gunakan pautan jemputan saya untuk menyertai Republik Dunia dan dapatkan ganjaran bersama!"
+          }
+        },
+        "contribute": {
+          "title": "Sumbangan",
+          "subtitle": "Terlibat, dapatkan ganjaran",
+          "contests": {
+            "weekly": "Mingguan",
+            "topPrize": "Hadiah utama",
+            "xPost": {
+              "title": "Pertandingan Catatan X",
+              "description": "Tulis catatan menarik, menangi hadiah"
+            },
+            "poll": {
+              "title": "Pertandingan Undian",
+              "description": "Kumpul maklum balas komuniti dan perolehi"
+            },
+            "pollContest": {
+              "title": "Pertandingan Undian",
+              "weeklyTitle": "Pertandingan Undian Mingguan",
+              "description": "Kumpul maklum balas komuniti dan perolehi",
+              "prizes": {
+                "title": "Hadiah",
+                "viewWinners": "Lihat pemenang terdahulu",
+                "wdd": "WDD"
+              },
+              "howTo": {
+                "title": "Cara ia berfungsi",
+                "steps": {
+                  "step1": {
+                    "number": "1",
+                    "text": "Cipta undian berkaitan dengan Republik Dunia atau tadbir urus global secara amnya"
+                  },
+                  "step2": {
+                    "number": "2",
+                    "text": "Sediakan supaya hanya manusia yang disahkan boleh mengundi"
+                  },
+                  "step3": {
+                    "number": "3",
+                    "text": "Kongsi undian anda dalam",
+                    "link": {
+                      "text": "Saluran Telegram Pertandingan Undian",
+                      "url": "https://t.me/worldrepubliccommunity/32368"
+                    }
+                  }
+                }
+              },
+              "rules": {
+                "title": "Peraturan pertandingan",
+                "list": {
+                  "rule1": "Hanya undian yang dimulakan pada minggu semasa layak",
+                  "rule2": "Pemenang dipilih berdasarkan jumlah undian",
+                  "rule3": "Pertandingan berakhir setiap Ahad pada 11:59 PM UTC"
+                }
+              },
+              "cta": {
+                "create": "Cipta Undian Anda",
+                "submit": "Hantar Undian Anda"
+              },
+              "winners": {
+                "title": "Pemenang Pertandingan",
+                "weekOf": "Minggu",
+                "votes": "undian"
+              }
+            }
+          },
+          "earlyAccess": {
+            "title": "Program Akses Awal",
+            "description": "Perolehi WDD dengan menguji ciri-ciri kami yang akan datang"
+          },
+          "xContest": {
+            "title": "Pertandingan Catatan X",
+            "weeklyTitle": "Pertandingan Catatan X Mingguan",
+            "description": "Tulis catatan menarik, menangi hadiah",
+            "prizes": {
+              "title": "Hadiah",
+              "viewWinners": "Lihat pemenang terdahulu",
+              "wdd": "WDD"
+            },
+            "howTo": {
+              "title": "Cara menyertai",
+              "step1": "Tulis catatan X tentang Republik Dunia",
+              "step2": "Tag @WorldRepublicEN",
+              "step3": {
+                "prefix": "Kongsi pautan ke catatan anda dalam",
+                "link": "Saluran Telegram Pertandingan Catatan X"
+              }
+            },
+            "rules": {
+              "title": "Peraturan pertandingan",
+              "rule1": "Hanya catatan yang diterbitkan pada minggu semasa layak",
+              "rule2": "Pemenang dipilih berdasarkan jumlah penglibatan (suka + kongsi semula + komen)",
+              "rule3": "Pertandingan berakhir setiap Ahad pada 11:59 PM UTC"
+            },
+            "cta": {
+              "post": "Mula Menulis Sekarang",
+              "submit": "Hantar Catatan Anda"
+            },
+            "winners": {
+              "title": "Pemenang Pertandingan",
+              "weekOf": "Minggu",
+              "engagements": "penglibatan"
+            }
+          }
+        }
+      }
+    },
+    "govern": {
+      "title": "Tadbir Urus",
+      "tabs": {
+        "polls": "Undian",
+        "openLetters": "Surat Terbuka",
+        "elections": "Pilihan Raya",
+        "referendums": "Referendum"
+      },
+      "sections": {
+        "polls": {
+          "title": "Undian Hari Ini",
+          "description": "Undian pantas tentang topik semasa",
+          "previous": {
+            "title": "Undian Sebelumnya",
+            "backToGovern": "Kembali ke Tadbir Urus",
+            "polls": {
+              "fourDayWeek": "Adakah anda menyokong gerakan global yang semakin berkembang ke arah minggu kerja empat hari sebagai model pekerjaan standard?",
+              "nuclearSecurity": "Adakah perjanjian antarabangsa yang mengikat perlu ditubuhkan untuk mengamankan kemudahan nuklear di zon konflik?",
+              "aviationResilience": "Adakah infrastruktur penerbangan antarabangsa cukup tahan lasak untuk menangani gangguan besar-besaran yang tidak dijangka?",
+              "waterResources": "Adakah negara perlu mewujudkan rangka kerja kerjasama untuk menguruskan sumber air yang dikongsi di tengah kekurangan air global yang meningkat?",
+              "maternalHealth": "Adakah rizab bantuan kesihatan global khusus perlu ditubuhkan untuk melindungi kesihatan ibu dan kanak-kanak semasa pembekuan bantuan antarabangsa?",
+              "marsMission": "Adakah anda menyokong negara-negara bekerjasama dalam misi angkasa lepas bersama ke Marikh?",
+              "globalRecession": "Adakah anda fikir trend ekonomi global semasa menandakan risiko kemelesetan segerak di kalangan ekonomi utama?",
+              "aidCorridors": "Adakah semua zon konflik dengan krisis kemanusiaan awam perlu secara automatik mencetuskan koridor bantuan yang dikoordinasikan secara antarabangsa?",
+              "nationalSovereignty": "Adakah anda menyokong rangka kerja dasar global yang mengimbangi kedaulatan negara dengan tindak balas yang dikoordinasikan kepada cabaran yang dikongsi?",
+              "climateDisasters": "Adakah negara yang mengalami bencana cuaca melampau (cth. kebakaran hutan, banjir) perlu menerima bantuan kewangan keutamaan dari dana iklim global?",
+              "aiSafety": "Adakah pembangun AI global perlu diarahkan untuk menangguhkan latihan model yang lebih berkuasa daripada sistem semasa sehingga perjanjian keselamatan antarabangsa ditubuhkan?",
+              "corporateTax": "Adakah syarikat yang beroperasi di beberapa negara perlu dikenakan kadar cukai minimum global yang disatukan untuk mengurangkan ketidaksamaan?",
+              "spaceDebris": "Adakah anda bersetuju bahawa negara dan syarikat yang menjelajah angkasa perlu diwajibkan secara sah untuk membuang satelit yang tidak berfungsi untuk mengurangkan serpihan orbit?",
+              "digitalPrivacy": "Adakah anda fikir mewujudkan piawaian privasi digital universal adalah penting untuk melindungi hak individu dalam dunia yang semakin saling berkaitan?",
+              "nuclearProliferation": "Adakah anda percaya bahawa langkah global sedia ada berkesan mengurangkan risiko proliferasi nuklear?",
+              "cybersecurity": "Adakah langkah keselamatan siber antarabangsa semasa mencukupi untuk melindungi infrastruktur global kritikal daripada ancaman siber yang meningkat?",
+              "globalAlliances": "Adakah anda fikir penyusunan semula pantas dalam pakatan global akan membawa kepada susunan antarabangsa yang lebih selamat?",
+              "climateResilience": "Adakah pendekatan global semasa terhadap ketahanan iklim mencukupi untuk menghadapi kekerapan kejadian cuaca melampau yang meningkat?",
+              "tradeTariffs": "Adakah anda fikir trend yang semakin meningkat untuk mengenakan tarif di kalangan ekonomi utama akan mengganggu kestabilan perdagangan global dengan ketara?",
+              "diseaseManagement": "Adakah anda yakin dengan keupayaan dunia untuk mencegah dan menguruskan penyakit berjangkit baharu?",
+              "aiRegulation": "Adakah peraturan antarabangsa yang mengikat perlu ditubuhkan untuk mengawal perkembangan etika kecerdasan buatan?",
+              "spaceRegulation": "Adakah perlu ada perjanjian antarabangsa wajib untuk mengehadkan serpihan angkasa dari satelit dan roket?",
+              "diplomaticDialogue": "Adakah anda percaya dialog diplomatik yang berterusan di kalangan pemimpin dunia boleh membantu mengurangkan ketegangan global?",
+              "migration": "Adakah negara kaya perlu menerima lebih ramai migran yang melarikan diri dari konflik atau bencana iklim?",
+              "rareEarths": "Adakah kerjasama antarabangsa mengenai mineral nadir bumi perlu diutamakan untuk meningkatkan keselamatan sumber global?",
+              "cryptocurrency": "Adakah pihak berkuasa global perlu menubuhkan piawaian seragam untuk mengawal kripto dan membendung jenayah kewangan?",
+              "disinformation": "Adakah anda fikir langkah global perlu dilaksanakan untuk menentang penyebaran maklumat palsu dalam talian?",
+              "diseaseOutbreaks": "Adakah negara perlu diwajibkan untuk berkongsi data masa nyata semasa wabak penyakit untuk mencegah krisis kesihatan global?",
+              "militaryIntervention": "Adakah negara dengan keupayaan ketenteraan lanjutan perlu campur tangan untuk mengurangkan konflik di wilayah yang mengalami letusan perang secara tiba-tiba?",
+              "aiDevelopment": "Adakah kerajaan perlu mengutamakan mengawal perkembangan kecerdasan buatan (AI) untuk mencegah penyalahgunaan, walaupun ia memperlahankan inovasi?",
+              "asteroidDefense": "Adakah anda percaya bahawa kerajaan di seluruh dunia perlu meningkatkan pembiayaan untuk pemantauan angkasa dan penyelidikan pesongan asteroid?",
+              "peaceNegotiations": "Adakah kuasa besar yang berunding perjanjian damai perlu diwajibkan untuk memasukkan negara yang terjejas secara langsung oleh konflik?",
+              "taiwanPolicy": "Adakah Amerika Syarikat perlu mengekalkan dasar 'kekaburan strategik' mengenai Taiwan untuk mengelakkan ketegangan dengan China?",
+              "techTransparency": "Haruskah syarikat teknologi global diwajibkan untuk mengamalkan dasar membuat keputusan yang telus untuk melindungi kepercayaan awam?",
+              "disasterRelief": "Haruskah dana tindak balas segera global ditubuhkan untuk memberikan bantuan segera bagi bencana alam yang memusnahkan seperti gempa bumi besar?",
+              "aiWatermarking": "Haruskah peraturan global memerlukan tanda air wajib untuk kandungan yang dihasilkan AI untuk memerangi maklumat salah dalam pilihan raya dan media?",
+              "biotech": "Haruskah wujud rangka kerja pengawalseliaan global untuk bioteknologi yang sedang berkembang untuk memastikan penggunaan beretika dan keselamatannya?",
+              "spaceMilitarization": "Haruskah pemimpin global bersetuju dengan protokol untuk mencegah pemilitaran angkasa lepas dan memastikan penggunaannya secara aman?",
+              "dataSovereignty": "Haruskah garis panduan antarabangsa dilaksanakan untuk melindungi data yang dijana secara global di bawah rangka kerja kedaulatan digital yang bersepadu?"
+            }
+          }
+        },
+        "openLetters": {
+          "title": "Surat Terbuka",
+          "description": "Kenyataan awam kepada pembuat keputusan",
+          "addNew": "Tambah surat terbuka anda",
+          "statements": {
+            "aiRisk": {
+              "title": "Kenyataan mengenai Risiko AI",
+              "referenceTitle": "Pusat Keselamatan AI"
+            },
+            "nuclear": {
+              "title": "Surat Terbuka Larangan Senjata Nuklear PBB",
+              "referenceTitle": "Institut Masa Depan Kehidupan"
+            },
+            "autonomousWeapons": {
+              "title": "Ikrar Senjata Autonomi Maut",
+              "referenceTitle": "Institut Masa Depan Kehidupan"
+            },
+            "longView": {
+              "title": "Surat terbuka memanggil pemimpin dunia untuk menunjukkan kepimpinan pandangan panjang mengenai ancaman kewujudan",
+              "referenceTitle": "Institut Masa Depan Kehidupan"
+            }
+          }
+        },
+        "elections": {
+          "title": "Pilihan Raya",
+          "description": "Pilih wakil anda",
+          "worldConstituent": {
+            "title": "Pilihan Raya Perhimpunan Perlembagaan Dunia"
+          }
+        },
+        "referendums": {
+          "title": "Referendum",
+          "description": "Undian langsung mengenai isu penting",
+          "worldConstitutional": {
+            "title": "Referendum Perlembagaan Dunia"
+          }
+        }
+      }
+    },
+    "menu": {
+      "title": "Menu",
+      "sections": {
+        "experimental": {
+          "title": "EKSPERIMENTAL",
+          "links": {
+            "verification": "Status pengesahan",
+            "language": "Bahasa"
+          }
+        },
+        "connect": {
+          "title": "HUBUNGAN",
+          "links": {
+            "community": "Komuniti",
+            "announcements": "Pengumuman",
+            "x": "X"
+          }
+        },
+        "help": {
+          "title": "BANTUAN",
+          "links": {
+            "faq": "Soalan Lazim"
+          }
+        },
+        "code": {
+          "title": "KOD",
+          "links": {
+            "app": "Aplikasi",
+            "contracts": "Kontrak pintar"
+          }
+        }
+      }
+    },
+    "faq": {
+      "title": "Soalan Lazim",
+      "items": {
+        "appPurpose": {
+          "question": "Apakah Republik Dunia?",
+          "answer": "Republik Dunia ialah organisasi terbuka dan demokratik yang didedikasikan untuk menyelesaikan cabaran global manusia yang paling mendesak. Ia menyediakan rangka kerja untuk membuat keputusan kolektif mengenai isu yang hanya boleh ditangani secara berkesan pada skala global, seperti risiko AI, perubahan iklim, atau keselamatan bio."
+        },
+        "basicIncome": {
+          "question": "Apakah Pendapatan Asas?",
+          "answer": "Pendapatan Asas kami ialah subsidi harian 1 WDD (drachma dunia) yang disediakan kepada semua warganegara Republik Dunia. Ia terkumpul secara masa nyata dan boleh dituntut pada bila-bila masa melalui aplikasi."
+        },
+        "basicIncomePlus": {
+          "question": "Bagaimana saya mengaktifkan Pendapatan Asas Plus?",
+          "answer": "Pendapatan Asas Plus menyediakan tambahan 10 WDD sehari dan tersedia secara eksklusif untuk pengguna yang disahkan Orb. Selepas mengaktifkan Pendapatan Asas, anda akan melihat pilihan untuk mengaktifkan Pendapatan Asas Plus pada halaman Perolehan."
+        },
+        "savings": {
+          "question": "Bagaimana Akaun Simpanan berfungsi?",
+          "answer": "Akaun Simpanan membolehkan anda menyimpan token WDD dan memperoleh faedah tahunan 69%. Melalui pelaburan semula faedah yang diperoleh secara berterusan, pengguna boleh mencapai pulangan berkesan hampir 100% setahun, memaksimumkan pertumbuhan WDD mereka dari masa ke masa. Faedah terkumpul secara berterusan dan boleh ditarik atau dilaburkan semula pada bila-bila masa."
+        },
+        "referralCodes": {
+          "question": "Bagaimana kod rujukan berfungsi?",
+          "answer": "Sebagai warganegara Republik Dunia, anda boleh memperoleh ganjaran melalui program rujukan kami. Kongsi pautan rujukan unik anda dengan rakan, dan anda akan menerima 50 WDD untuk setiap orang yang menyertai dan mengaktifkan Pendapatan Asas Plus. Belum menerima ganjaran anda? Rakan anda mungkin perlu mencetuskan secara manual dengan memilih pilihan 'Ganjarkan Pemberi Rujukan' dalam bahagian rujukan mereka."
+        },
+        "drachmaValue": {
+          "question": "Dari mana drachma mendapat nilainya?",
+          "answer": "Drachma mendapat nilainya dari menjadi mata wang rasmi Republik Dunia. Apabila platform tadbir urus global demokratik kami berkembang, WDD berpotensi menjadi medium pertukaran yang penting dalam ekonomi dunia, dan akhirnya boleh memainkan peranan dalam pengagihan faedah yang saksama dari kemajuan teknologi dan sumber global."
+        },
+        "topWallets": {
+          "question": "Siapa yang mengawal akaun terbesar?",
+          "answer": "Tiga akaun terbesar ialah <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>Perbendaharaan Republik Dunia</a>, <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Dana Pendapatan Asas</a>, dan <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Dana Pendapatan Asas Plus</a>. Pada masa ini, ini dikawal oleh pengasas projek, tetapi kawalan akan dipindahkan kepada komuniti selepas perlembagaan kami disahkan. Alamat utama lain termasuk <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>kontrak Akaun Simpanan</a>, <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>pengedar Ganjaran Rujukan</a>, dan kolam kecairan: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, dan <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
+        },
+        "voteRequirements": {
+          "question": "Apakah keperluan untuk mencadangkan undian?",
+          "answer": "Undian dan surat terbuka semasa hanya untuk pameran. Komuniti kami akan secara kolektif memutuskan sistem tadbir urus kami melalui proses reka bentuk perlembagaan yang diketuai oleh Perhimpunan Perlembagaan yang dipilih pada Q2 2025."
+        }
+      }
+    },
+    "language": {
+      "title": "Bahasa",
+      "options": {
+        "english": "English",
+        "spanish": "Español"
+      }
+    },
+    "verification": {
+      "title": "Status Pengesahan",
+      "levels": {
+        "document": {
+          "title": "Pengesahan Dokumen",
+          "description": "Semak status pengesahan dokumen",
+          "buttonText": "Semak Status"
+        },
+        "secureDocument": {
+          "title": "Pengesahan Dokumen Selamat",
+          "description": "Semak status pengesahan dokumen selamat",
+          "buttonText": "Semak Status"
+        },
+        "orb": {
+          "title": "Pengesahan Orb",
+          "description": "Semak status pengesahan Orb",
+          "buttonText": "Semak Status"
+        }
+      }
+    }
+  }
+}

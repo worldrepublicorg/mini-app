@@ -7,8 +7,18 @@ import {
 import { useState } from "react";
 import { Button } from "./ui/Button";
 import { useToast } from "./ui/Toast";
+import { useTranslations } from "@/hooks/useTranslations";
 
-export const VerifyButton = () => {
+// Define the props interface with verification level
+interface VerifyButtonProps {
+  lang: string;
+  verificationLevel?: VerificationLevel;
+  buttonText?: string;
+  actionId?: string;
+}
+
+export function VerifyButton({ lang, ...props }: VerifyButtonProps) {
+  const dictionary = useTranslations(lang);
   const [isVerifying, setIsVerifying] = useState(false);
   const { showToast } = useToast();
 
@@ -21,9 +31,9 @@ export const VerifyButton = () => {
     try {
       setIsVerifying(true);
       const verifyPayload = {
-        action: process.env.NEXT_PUBLIC_WLD_ACTION_ID!,
+        action: props.actionId!,
         signal: "",
-        verification_level: VerificationLevel.Device,
+        verification_level: props.verificationLevel!,
       };
 
       const response = await MiniKit.commandsAsync.verify(verifyPayload);
@@ -48,56 +58,8 @@ export const VerifyButton = () => {
       const data = await verifyResponse.json();
 
       if (data.status === 200 && data.verifyRes.success) {
-        const address =
-          MiniKit.walletAddress || (window as any).MiniKit?.walletAddress;
-        if (!address) {
-          throw new Error("No wallet address found");
-        }
-
-        // Add more detailed logging for the mint request
-        console.log("Preparing mint request with address:", address);
-
-        try {
-          const mintResponse = await fetch("/api/mint", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              address: address,
-              // Add additional required fields if needed
-              // example: tokenAmount: 1,
-            }),
-          });
-
-          if (!mintResponse.ok) {
-            const errorData = await mintResponse.json();
-            console.error("Mint API error details:", {
-              status: mintResponse.status,
-              statusText: mintResponse.statusText,
-              error: errorData,
-              requestBody: {
-                address: address,
-              },
-            });
-            throw new Error(
-              `Minting failed: ${errorData.message || "Bad Request"}`
-            );
-          }
-
-          const mintData = await mintResponse.json();
-          console.log("Mint API success response:", mintData);
-          showToast("Verification and minting successful!", "success");
-        } catch (mintError: any) {
-          console.error("Mint API error:", {
-            message: mintError.message,
-            stack: mintError.stack,
-            requestDetails: {
-              address: address,
-            },
-          });
-          throw new Error(`Mint API error: ${mintError.message}`);
-        }
+        // Remove the minting logic and just show success message
+        console.log("Verification successful:", data.verifyRes);
       } else {
         throw new Error(data.verifyRes.message || "Verification failed");
       }
@@ -107,7 +69,6 @@ export const VerifyButton = () => {
         stack: error.stack,
         timestamp: new Date().toISOString(),
       });
-      showToast(`Error: ${error.message || "Verification failed"}`, "error");
     } finally {
       setIsVerifying(false);
     }
@@ -115,7 +76,7 @@ export const VerifyButton = () => {
 
   return (
     <Button onClick={handleVerify} isLoading={isVerifying} fullWidth>
-      Verify to Claim
+      {props.buttonText}
     </Button>
   );
-};
+}

@@ -1,0 +1,448 @@
+{
+  "components": {
+    "walletAuth": {
+      "connect": "Conectar Carteira"
+    },
+    "verifyButton": {
+      "verify": "Verificar para Receber"
+    },
+    "pollOfTheDay": {
+      "previousPolls": "Votações Anteriores",
+      "vote": "Votar Agora"
+    },
+    "stakeForm": {
+      "deposit": "Depositar",
+      "withdraw": "Retirar",
+      "balance": "Saldo:",
+      "depositPlaceholder": "Valor para depositar",
+      "withdrawPlaceholder": "Valor para retirar",
+      "max": "Máximo",
+      "interest": "Juros:",
+      "collect": "Coletar",
+      "depositButton": "Depositar Dracma",
+      "withdrawButton": "Retirar Dracma"
+    },
+    "toasts": {
+      "wallet": {
+        "connectInWorldApp": "Por favor, abra este aplicativo no World App para conectar sua carteira.",
+        "stakingError": "Erro ao fazer stake dos tokens",
+        "withdrawError": "Erro ao retirar tokens",
+        "collectError": "Erro ao coletar recompensas"
+      },
+      "referral": {
+        "pendingReward": "Processando recompensa pendente para {{username}}...",
+        "rewardSuccess": "{{username}} recompensado com sucesso!",
+        "sendingReward": "Enviando recompensa de 50 WDD para {{username}}..."
+      },
+      "basicIncome": {
+        "setupSuccess": "Renda Básica Plus ativada! Preparando recompensa para {{username}}...",
+        "setupWithReferrer": "Configurando Renda Básica Plus primeiro, depois recompensaremos {{username}}...",
+        "error": "Erro ao ativar Renda Básica",
+        "errorPlus": "Erro ao ativar Renda Básica Plus"
+      },
+      "transaction": {
+        "error": "Ocorreu um erro inesperado",
+        "errorClaim": "Ocorreu um erro inesperado ao reivindicar"
+      }
+    },
+    "comingSoonDrawer": {
+      "title": "Em breve",
+      "description": "Este recurso está atualmente em desenvolvimento. Fique ligado!"
+    },
+    "tabSwiper": {
+      "tabs": {
+        "polls": "Votações",
+        "openLetters": "Cartas abertas",
+        "elections": "Eleições",
+        "referendums": "Referendos"
+      }
+    }
+  },
+  "pages": {
+    "earn": {
+      "title": "Ganhar",
+      "tabs": {
+        "basicIncome": {
+          "tabTitle": "Renda básica",
+          "title": "Renda Básica",
+          "subtitle": "Faça login para receber sua renda básica",
+          "setupSubtitle": "Configure sua renda básica",
+          "claimableSubtitle": "Dracma disponível",
+          "activateButton": "Ativar Renda Básica",
+          "claimButton": "Receber",
+          "plus": {
+            "title": "Renda Básica Plus",
+            "newBadge": "Novo",
+            "drawerTrigger": "Apresentando a Renda Básica Plus",
+            "subtitle": "Renda extra para usuários verificados",
+            "drawer": {
+              "title": "Renda Básica Plus",
+              "subtitle": "Renda extra para usuários verificados",
+              "features": {
+                "rate": {
+                  "title": "Mais 10 WDD por dia"
+                },
+                "verification": {
+                  "title": "Exclusivo para usuários verificados pelo Orb para garantir distribuição justa"
+                },
+                "rewards": {
+                  "title": "As recompensas mudam para Plus ao longo do tempo mantendo o total em 11 WDD/dia"
+                }
+              },
+              "activateButton": "Ativar Renda Básica Plus",
+              "claimButton": "Receber Renda Básica Plus",
+              "claimBasicButton": "Receber Renda Básica"
+            }
+          }
+        },
+        "savings": {
+          "tabTitle": "Poupança",
+          "title": "Conta Poupança",
+          "subtitle": "Ganhe juros a cada segundo",
+          "tooltip": "Taxa base de 69% ao ano. Colete e reinvista os juros para alcançar retornos efetivos próximos a 100% anualmente. Retire a qualquer momento."
+        },
+        "invite": {
+          "title": "Convidar",
+          "subtitle": "Ganhe 50 WDD por amigo que se juntar",
+          "tooltip": "As recompensas exigem que os amigos sejam verificados pelo Orb.",
+          "learnMore": "Saiba mais",
+          "stats": {
+            "title": "Suas Estatísticas de Indicação",
+            "invites": "Convites aceitos",
+            "rewards": "Total de recompensas"
+          },
+          "actions": {
+            "copyLink": "Copiar Link de Indicação",
+            "copied": "Link de indicação copiado para a área de transferência!",
+            "connectWallet": "Por favor, conecte sua carteira para gerar seu link de indicação",
+            "rewardReferrer": "Recompensar Indicador",
+            "share": "Compartilhar Link de Convite"
+          },
+          "drawer": {
+            "title": "Recompensar um Indicador",
+            "subtitle": "Ative uma recompensa gratuita de 50 WDD para seu indicador",
+            "invitedBy": "Você foi convidado por: {{username}}",
+            "input": {
+              "placeholder": "Digite o nome de usuário (ex: usuario.0000)",
+              "lookupButton": "Buscar Usuário",
+              "sendingTo": "Enviando recompensa para:",
+              "editButton": "Editar",
+              "sendButton": "Enviar Recompensa"
+            },
+            "errors": {
+              "enterUsername": "Por favor, digite um nome de usuário",
+              "usernameNotFound": "Nome de usuário não encontrado",
+              "lookupFailed": "Falha ao buscar nome de usuário. Por favor, tente novamente.",
+              "installMiniKit": "Por favor, instale o MiniKit para buscar nomes de usuário",
+              "connectWallet": "Por favor, conecte sua carteira primeiro",
+              "transactionCanceled": "A transação foi cancelada"
+            },
+            "success": {
+              "rewardSent": "Recompensa enviada com sucesso para {{username}}!"
+            }
+          },
+          "share": {
+            "title": "Junte-se à República Mundial",
+            "text": "Use meu link de convite para se juntar à República Mundial e ganhe recompensas juntos!"
+          }
+        },
+        "contribute": {
+          "title": "Contribuir",
+          "subtitle": "Participe, seja recompensado",
+          "contests": {
+            "weekly": "Semanal",
+            "topPrize": "Prêmio principal",
+            "xPost": {
+              "title": "Concurso de Posts X",
+              "description": "Escreva posts envolventes, ganhe prêmios"
+            },
+            "poll": {
+              "title": "Concurso de Votação",
+              "description": "Colete feedback da comunidade e ganhe"
+            },
+            "pollContest": {
+              "title": "Concurso de Votação",
+              "weeklyTitle": "Concurso Semanal de Votação",
+              "description": "Colete feedback da comunidade e ganhe",
+              "prizes": {
+                "title": "Prêmios",
+                "viewWinners": "Ver vencedores anteriores",
+                "wdd": "WDD"
+              },
+              "howTo": {
+                "title": "Como funciona",
+                "steps": {
+                  "step1": {
+                    "number": "1",
+                    "text": "Crie uma votação relacionada à República Mundial ou governança global em geral"
+                  },
+                  "step2": {
+                    "number": "2",
+                    "text": "Configure para que apenas humanos verificados possam votar"
+                  },
+                  "step3": {
+                    "number": "3",
+                    "text": "Compartilhe sua votação em nosso",
+                    "link": {
+                      "text": "Canal Telegram do Concurso de Votação",
+                      "url": "https://t.me/worldrepubliccommunity/32368"
+                    }
+                  }
+                }
+              },
+              "rules": {
+                "title": "Regras do concurso",
+                "list": {
+                  "rule1": "Apenas votações iniciadas na semana atual são elegíveis",
+                  "rule2": "Os vencedores são selecionados com base no total de votos",
+                  "rule3": "O concurso termina todo domingo às 23:59 UTC"
+                }
+              },
+              "cta": {
+                "create": "Criar Sua Votação",
+                "submit": "Enviar Sua Votação"
+              },
+              "winners": {
+                "title": "Vencedores do Concurso",
+                "weekOf": "Semana de",
+                "votes": "votos"
+              }
+            }
+          },
+          "earlyAccess": {
+            "title": "Programa de Acesso Antecipado",
+            "description": "Ganhe WDD testando nossos recursos futuros"
+          },
+          "xContest": {
+            "title": "Concurso de Posts X",
+            "weeklyTitle": "Concurso Semanal de Posts X",
+            "description": "Escreva posts envolventes, ganhe prêmios",
+            "prizes": {
+              "title": "Prêmios",
+              "viewWinners": "Ver vencedores anteriores",
+              "wdd": "WDD"
+            },
+            "howTo": {
+              "title": "Como participar",
+              "step1": "Escreva um post X sobre a República Mundial",
+              "step2": "Marque @WorldRepublicEN",
+              "step3": {
+                "prefix": "Compartilhe o link do seu post em nosso",
+                "link": "Canal Telegram do Concurso X"
+              }
+            },
+            "rules": {
+              "title": "Regras do concurso",
+              "rule1": "Apenas posts publicados na semana atual são elegíveis",
+              "rule2": "Os vencedores são selecionados com base no engajamento total (curtidas + compartilhamentos + comentários)",
+              "rule3": "O concurso termina todo domingo às 23:59 UTC"
+            },
+            "cta": {
+              "post": "Comece a Postar Agora",
+              "submit": "Enviar Seu Post"
+            },
+            "winners": {
+              "title": "Vencedores do Concurso",
+              "weekOf": "Semana de",
+              "engagements": "engajamentos"
+            }
+          }
+        }
+      }
+    },
+    "govern": {
+      "title": "Governar",
+      "tabs": {
+        "polls": "Votações",
+        "openLetters": "Cartas abertas",
+        "elections": "Eleições",
+        "referendums": "Referendos"
+      },
+      "sections": {
+        "polls": {
+          "title": "Votação do Dia",
+          "description": "Votos rápidos sobre temas atuais",
+          "previous": {
+            "title": "Votações Anteriores",
+            "backToGovern": "Voltar para Governar",
+            "polls": {
+              "techTransparency": "As empresas globais de tecnologia devem ser obrigadas a adotar políticas transparentes de tomada de decisão para proteger a confiança pública?",
+              "disasterRelief": "Deve ser estabelecido um fundo global de resposta rápida para fornecer alívio imediato para desastres naturais devastadores como grandes terremotos?",
+              "aiWatermarking": "As regulamentações globais devem exigir marca d'água obrigatória de conteúdo gerado por IA para combater a desinformação em eleições e mídia?",
+              "biotech": "Deve existir uma estrutura regulatória global para biotecnologias emergentes para garantir seu uso ético e segurança?",
+              "spaceMilitarization": "Os líderes globais devem concordar com protocolos para prevenir a militarização do espaço e garantir seu uso pacífico?",
+              "dataSovereignty": "Diretrizes internacionais devem ser implementadas para proteger dados gerados em todo o mundo sob uma estrutura unificada de soberania digital?",
+              "nuclearSecurity": "Devem ser estabelecidos acordos internacionais vinculantes para proteger instalações nucleares em zonas de conflito?",
+              "fourDayWeek": "Você apoia o crescente movimento global em direção a semanas de trabalho de quatro dias como modelo padrão de emprego?",
+              "aviationResilience": "A infraestrutura da aviação internacional é resiliente o suficiente para lidar com interrupções inesperadas em larga escala?",
+              "waterResources": "As nações devem criar uma estrutura cooperativa para gerenciar recursos hídricos compartilhados em meio à crescente escassez global de água?",
+              "maternalHealth": "Deve ser estabelecida uma reserva global dedicada de ajuda à saúde para proteger a saúde materna e infantil durante o congelamento de ajuda internacional?",
+              "marsMission": "Você apoia a colaboração entre nações em uma missão conjunta de exploração espacial profunda a Marte?",
+              "globalRecession": "Você acha que as tendências econômicas globais atuais sinalizam um risco de recessão sincronizada entre as principais economias?",
+              "aidCorridors": "Todas as zonas de conflito com crises humanitárias civis devem automaticamente acionar corredores de ajuda coordenados internacionalmente?",
+              "nationalSovereignty": "Você apoia estruturas de políticas globais que equilibrem a soberania nacional com respostas coordenadas a desafios compartilhados?",
+              "climateDisasters": "Países que enfrentam desastres climáticos extremos (por exemplo, incêndios florestais, inundações) devem receber ajuda financeira prioritária de um fundo climático global?",
+              "aiSafety": "Os desenvolvedores globais de IA devem ser obrigados a pausar o treinamento de modelos mais poderosos que os sistemas atuais até que acordos internacionais de segurança sejam estabelecidos?",
+              "corporateTax": "Corporações que operam em vários países devem estar sujeitas a uma taxa mínima global unificada de impostos para reduzir a desigualdade?",
+              "spaceDebris": "Você concorda que nações e corporações espaciais devem ser legalmente obrigadas a remover satélites obsoletos para reduzir detritos orbitais?",
+              "digitalPrivacy": "Você acha que criar padrões universais de privacidade digital é crucial para proteger direitos individuais em um mundo cada vez mais interconectado?",
+              "nuclearProliferation": "Você acredita que as medidas globais existentes reduzem efetivamente o risco de proliferação nuclear?",
+              "cybersecurity": "As medidas internacionais atuais de cibersegurança são suficientes para proteger infraestruturas globais críticas de ameaças cibernéticas crescentes?",
+              "globalAlliances": "Você acha que realinhamentos rápidos em alianças globais levarão a uma ordem internacional mais segura?",
+              "climateResilience": "A abordagem global atual para resiliência climática é suficiente para lidar com a frequência crescente de eventos climáticos extremos?",
+              "tradeTariffs": "Você acha que a tendência crescente de imposição de tarifas entre as principais economias irá perturbar significativamente a estabilidade do comércio global?",
+              "diseaseManagement": "Você está confiante na capacidade do mundo de prevenir e gerenciar doenças infecciosas emergentes?",
+              "aiRegulation": "Devem ser estabelecidos regulamentos internacionais vinculantes para governar o desenvolvimento ético da inteligência artificial?",
+              "spaceRegulation": "Devem existir acordos internacionais obrigatórios para limitar detritos espaciais de satélites e foguetes?",
+              "diplomaticDialogue": "Você acredita que o diálogo diplomático sustentado entre líderes mundiais pode ajudar a reduzir tensões globais?",
+              "migration": "Os países ricos devem aceitar mais migrantes que fogem de conflitos ou desastres climáticos?",
+              "rareEarths": "A colaboração internacional em minerais terras raras deve ser priorizada para melhorar a segurança global de recursos?",
+              "cryptocurrency": "As autoridades globais devem estabelecer padrões uniformes para regular criptomoedas e conter crimes financeiros?",
+              "disinformation": "Você acha que medidas globais devem ser implementadas para combater a disseminação de desinformação online?",
+              "diseaseOutbreaks": "Os países devem ser obrigados a compartilhar dados em tempo real durante surtos de doenças para prevenir crises globais de saúde?",
+              "militaryIntervention": "Países com capacidades militares avançadas devem intervir para desescalar conflitos em regiões que experimentam surtos repentinos de guerra?",
+              "aiDevelopment": "Os governos devem priorizar a regulamentação do desenvolvimento da inteligência artificial (IA) para prevenir o uso indevido, mesmo que isso desacelere a inovação?",
+              "asteroidDefense": "Você acredita que os governos mundiais devem aumentar o financiamento para monitoramento espacial e pesquisa de desvio de asteroides?",
+              "peaceNegotiations": "As principais potências que negociam acordos de paz devem ser obrigadas a incluir países diretamente afetados pelo conflito?",
+              "taiwanPolicy": "Os Estados Unidos devem manter sua política de 'ambiguidade estratégica' em relação a Taiwan para evitar escalada de tensões com a China?"
+            }
+          }
+        },
+        "openLetters": {
+          "title": "Cartas Abertas",
+          "description": "Declarações públicas para tomadores de decisão",
+          "addNew": "Adicione sua carta aberta",
+          "statements": {
+            "aiRisk": {
+              "title": "Declaração sobre Risco de IA",
+              "referenceTitle": "Centro para Segurança da IA"
+            },
+            "nuclear": {
+              "title": "Carta Aberta sobre Proibição de Armas Nucleares da ONU",
+              "referenceTitle": "Instituto do Futuro da Vida"
+            },
+            "autonomousWeapons": {
+              "title": "Compromisso sobre Armas Autônomas Letais",
+              "referenceTitle": "Instituto do Futuro da Vida"
+            },
+            "longView": {
+              "title": "Carta aberta pedindo aos líderes mundiais que demonstrem liderança de longo prazo sobre ameaças existenciais",
+              "referenceTitle": "Instituto do Futuro da Vida"
+            }
+          }
+        },
+        "elections": {
+          "title": "Eleições",
+          "description": "Escolha seus representantes",
+          "worldConstituent": {
+            "title": "Eleição da Assembleia Constituinte Mundial"
+          }
+        },
+        "referendums": {
+          "title": "Referendos",
+          "description": "Votos diretos em questões importantes",
+          "worldConstitutional": {
+            "title": "Referendo Constitucional Mundial"
+          }
+        }
+      }
+    },
+    "menu": {
+      "title": "Menu",
+      "sections": {
+        "experimental": {
+          "title": "EXPERIMENTAL",
+          "links": {
+            "verification": "Estado de verificação",
+            "language": "Idioma"
+          }
+        },
+        "connect": {
+          "title": "CONECTAR",
+          "links": {
+            "community": "Comunidade",
+            "announcements": "Anúncios",
+            "x": "X"
+          }
+        },
+        "help": {
+          "title": "AJUDA",
+          "links": {
+            "faq": "FAQ"
+          }
+        },
+        "code": {
+          "title": "CÓDIGO",
+          "links": {
+            "app": "Aplicativo",
+            "contracts": "Contratos inteligentes"
+          }
+        }
+      }
+    },
+    "faq": {
+      "title": "FAQ",
+      "items": {
+        "appPurpose": {
+          "question": "O que é a República Mundial?",
+          "answer": "A República Mundial é uma organização democrática aberta dedicada a resolver os desafios globais mais urgentes da humanidade. Ela fornece uma estrutura para tomada de decisões coletivas em questões que só podem ser efetivamente abordadas em escala global, como riscos de IA, mudanças climáticas ou biossegurança."
+        },
+        "basicIncome": {
+          "question": "O que é a Renda Básica?",
+          "answer": "Nossa Renda Básica é um subsídio diário de 1 WDD (dracma mundial) que é fornecido a todos os cidadãos da República Mundial. Ela acumula em tempo real e pode ser reivindicada a qualquer momento através do aplicativo."
+        },
+        "basicIncomePlus": {
+          "question": "Como ativo a Renda Básica Plus?",
+          "answer": "A Renda Básica Plus fornece 10 WDD adicionais por dia e está disponível exclusivamente para usuários verificados pelo Orb. Após ativar a Renda Básica, você verá uma opção para ativar a Renda Básica Plus na página Ganhar."
+        },
+        "savings": {
+          "question": "Como funciona a Conta Poupança?",
+          "answer": "A Conta Poupança permite que você deposite tokens WDD e ganhe 69% de juros anuais. Através do reinvestimento constante dos juros ganhos, os usuários podem alcançar retornos efetivos próximos a 100% anualmente, maximizando seu crescimento em WDD ao longo do tempo. Os juros acumulam continuamente e podem ser retirados ou reinvestidos a qualquer momento."
+        },
+        "referralCodes": {
+          "question": "Como funcionam os códigos de indicação?",
+          "answer": "Como cidadão da República Mundial, você pode ganhar recompensas através do nosso programa de indicação. Compartilhe seu link único de indicação com amigos e você receberá 50 WDD para cada pessoa que se juntar e ativar a Renda Básica Plus. Não recebeu sua recompensa? Seu amigo pode precisar ativá-la manualmente selecionando a opção 'Recompensar Indicador' na seção de indicação."
+        },
+        "drachmaValue": {
+          "question": "De onde vem o valor do dracma?",
+          "answer": "O dracma deriva seu valor por ser a moeda oficial da República Mundial. À medida que nossa plataforma de governança global democrática cresce, o WDD tem o potencial de se tornar um meio de troca significativo na economia mundial e eventualmente poderá desempenhar um papel na distribuição equitativa dos benefícios dos avanços tecnológicos e recursos globais."
+        },
+        "topWallets": {
+          "question": "Quem controla as maiores contas?",
+          "answer": "As três maiores contas são o <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>Tesouro da República Mundial</a>, o <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Fundo de Renda Básica</a> e o <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Fundo de Renda Básica Plus</a>. Atualmente, estes são controlados pelo fundador do projeto, mas o controle será transferido para a comunidade após a ratificação de nossa constituição. Outros endereços importantes incluem o <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>contrato da Conta Poupança</a>, o <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>distribuidor de Recompensas de Indicação</a> e pools de liquidez: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a> e <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
+        },
+        "voteRequirements": {
+          "question": "Quais são os requisitos para propor votações?",
+          "answer": "As votações e cartas abertas atuais são apenas uma demonstração. Nossa comunidade decidirá coletivamente nosso sistema de governança através do processo de design constitucional liderado pela Assembleia Constituinte eleita no segundo trimestre de 2025."
+        }
+      }
+    },
+    "language": {
+      "title": "Idioma",
+      "options": {
+        "english": "English",
+        "spanish": "Español"
+      }
+    },
+    "verification": {
+      "title": "Estado de Verificação",
+      "levels": {
+        "document": {
+          "title": "Verificação de Documento",
+          "description": "Verificar estado de verificação do documento",
+          "buttonText": "Verificar Estado"
+        },
+        "secureDocument": {
+          "title": "Verificação Segura de Documento",
+          "description": "Verificar estado de verificação segura do documento",
+          "buttonText": "Verificar Estado"
+        },
+        "orb": {
+          "title": "Verificação Orb",
+          "description": "Verificar estado de verificação do Orb",
+          "buttonText": "Verificar Estado"
+        }
+      }
+    }
+  }
+}

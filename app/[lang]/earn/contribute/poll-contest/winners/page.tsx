@@ -5,6 +5,7 @@ import Link from "next/link";
 import { PiTrophy } from "react-icons/pi";
 import { BiChevronLeft } from "react-icons/bi";
 import { FaVoteYea } from "react-icons/fa";
+import { useTranslations } from "@/hooks/useTranslations";
 
 type Winner = {
   handle: string;
@@ -46,7 +47,13 @@ const WINNERS_DATA: WeeklyWinners[] = [
   // Add more weeks as needed
 ];
 
-export default function PollContestWinnersPage() {
+export default function PollContestWinnersPage({
+  params: { lang },
+}: {
+  params: { lang: string };
+}) {
+  const dictionary = useTranslations(lang);
+
   const getTrophyColor = (place: number) => {
     switch (place) {
       case 1:
@@ -66,13 +73,16 @@ export default function PollContestWinnersPage() {
       <div className="fixed left-0 right-0 top-0 z-10 bg-gray-0 px-6">
         <div className="relative flex items-center justify-center py-6">
           <Link
-            href="/earn/contribute/poll-contest"
+            href={`/${lang}/earn/contribute/poll-contest`}
             className="absolute left-0 flex size-10 items-center justify-center rounded-full bg-gray-100"
           >
             <BiChevronLeft className="size-6 text-gray-500" />
           </Link>
-          <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
-            Contest Winners
+          <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
+            {
+              dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
+                ?.winners?.title
+            }
           </Typography>
         </div>
       </div>
@@ -90,7 +100,11 @@ export default function PollContestWinnersPage() {
                 variant={{ variant: "subtitle", level: 2 }}
                 className="mb-4 text-gray-900"
               >
-                Week of {week.weekOf}
+                {
+                  dictionary?.pages?.earn?.tabs?.contribute?.contests
+                    ?.pollContest?.winners?.weekOf
+                }{" "}
+                {week.weekOf}
               </Typography>
               <div>
                 {week.winners.map((winner) => (
@@ -117,7 +131,11 @@ export default function PollContestWinnersPage() {
                         variant={{ variant: "body", level: 3 }}
                         className="text-gray-500"
                       >
-                        {winner.engagement.toLocaleString()} votes
+                        {winner.engagement.toLocaleString()}{" "}
+                        {
+                          dictionary?.pages?.earn?.tabs?.contribute?.contests
+                            ?.pollContest?.winners?.votes
+                        }
                       </Typography>
                     </div>
                     <FaVoteYea className="h-5 w-5 text-gray-400" />

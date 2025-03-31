@@ -5,8 +5,10 @@ import { useState } from "react";
 import { Button } from "./ui/Button";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { useToast } from "./ui/Toast";
+import { useTranslations } from "@/hooks/useTranslations";
 
 interface WalletAuthProps {
+  lang: string;
   onError?: (error: string) => void;
   onSuccess?: (walletAddress: string, username: string) => void;
 }
@@ -38,7 +40,8 @@ async function fetchWithRetry(
   }
 }
 
-export function WalletAuth({ onError, onSuccess }: WalletAuthProps) {
+export function WalletAuth({ lang, onError, onSuccess }: WalletAuthProps) {
+  const dictionary = useTranslations(lang);
   const [isLoading, setIsLoading] = useState(false);
   const { setWalletAddress, setUsername } = useWallet();
   const { showToast } = useToast();
@@ -199,7 +202,7 @@ export function WalletAuth({ onError, onSuccess }: WalletAuthProps) {
 
   return (
     <Button onClick={signInWithWallet} isLoading={isLoading} fullWidth>
-      Connect Wallet
+      {dictionary?.components?.walletAuth?.connect || "Connect Wallet"}
     </Button>
   );
 }
