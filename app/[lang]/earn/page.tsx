@@ -1023,21 +1023,6 @@ export default function EarnPage({
     message: string;
   } | null>(null);
 
-  // Add state for share capability
-  const [canShare, setCanShare] = useState(false);
-
-  // Check share capability on client side only
-  useEffect(() => {
-    setCanShare(
-      typeof navigator !== "undefined" && navigator.canShare() ? true : false
-    );
-  }, []);
-
-  // Update the buttonText to use the state instead of directly accessing navigator
-  const buttonText = canShare
-    ? dictionary?.pages?.earn?.tabs?.invite?.actions?.share
-    : dictionary?.pages?.earn?.tabs?.invite?.actions?.copyLink;
-
   // First, wrap loadCurrentUsername with useCallback to prevent infinite loop
   const loadCurrentUsernameCallback = useCallback(async () => {
     if (!MiniKit.isInstalled() || !walletAddress) return;
@@ -2041,7 +2026,7 @@ export default function EarnPage({
                 }}
                 fullWidth
               >
-                {buttonText}
+                {dictionary?.pages?.earn?.tabs?.invite?.actions?.share}
               </Button>
             </div>
 
