@@ -19,7 +19,7 @@
     "eruda": "^3.4.1",
     "framer-motion": "^12.6.2",
     "negotiator": "^1.0.0",
-    "next": "14.2.21",
+    "next": "14.2.25",
     "next-auth": "^4.24.11",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -27,7 +27,7 @@
     "swiper": "^11.2.6",
     "tailwind-merge": "^3.0.2",
     "vaul": "^1.1.2",
-    "viem": "^2.24.1"
+    "viem": "^2.24.2"
   },
   "devDependencies": {
     "@types/negotiator": "^0.6.3",
