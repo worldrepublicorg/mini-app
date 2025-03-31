@@ -1992,7 +1992,7 @@ export default function EarnPage({
                   const shareUrl = `https://worldcoin.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=%2F%3Fcode%3D${username}`;
 
                   // Check if Web Share API is supported
-                  if (navigator.canShare()) {
+                  if (navigator.share) {
                     try {
                       await navigator.share({
                         title:
