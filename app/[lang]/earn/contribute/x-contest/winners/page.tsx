@@ -22,6 +22,29 @@ type WeeklyWinners = {
 // Example data - replace with your actual data
 const WINNERS_DATA: WeeklyWinners[] = [
   {
+    weekOf: "March 24, 2025",
+    winners: [
+      {
+        handle: "@PierreBruynaud",
+        engagement: 81,
+        postLink: "https://x.com/PierreBruynaud/status/1906020284064284733",
+        place: 1,
+      },
+      {
+        handle: "@yngi1401",
+        engagement: 48,
+        postLink: "https://x.com/yngi1401/status/1905879528020529464",
+        place: 2,
+      },
+      {
+        handle: "@BennaJsjskdo",
+        engagement: 47,
+        postLink: "https://x.com/BennaJsjskdo/status/1905388130079015268",
+        place: 3,
+      },
+    ],
+  },
+  {
     weekOf: "March 17, 2025",
     winners: [
       {
@@ -44,7 +67,6 @@ const WINNERS_DATA: WeeklyWinners[] = [
       },
     ],
   },
-  // Add more weeks as needed
 ];
 
 export default function XContestWinnersPage({
