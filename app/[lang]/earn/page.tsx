@@ -16,14 +16,18 @@ import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/Drawer";
 import { WalletAuth } from "@/components/WalletAuth";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { viemClient } from "@/lib/viemClient";
-import { parseAbi } from "viem";
-import { MiniKit, getIsUserVerified } from "@worldcoin/minikit-js";
+import { parseAbi, decodeAbiParameters } from "viem";
+import {
+  MiniKit,
+  getIsUserVerified,
+  VerificationLevel,
+} from "@worldcoin/minikit-js";
 import { TabSwiper } from "@/components/TabSwiper";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { Button } from "@/components/ui/Button";
 import { StakeWithPermitForm } from "@/components/StakeWithPermitForm";
 import { useToast } from "@/components/ui/Toast";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { BiLinkExternal } from "react-icons/bi";
 import { IoIosArrowForward } from "react-icons/io";
 import Link from "next/link";
@@ -45,11 +49,15 @@ export default function EarnPage({
     claimableAmountPlus,
     canReward,
     rewardCount,
+    hasRewarded,
+    newContractCanReward,
     fetchBalance,
     fetchBasicIncomeInfo,
     fetchBasicIncomePlusInfo,
     fetchCanReward,
+    fetchNewContractCanReward,
     fetchRewardCount,
+    fetchHasRewarded,
     setBasicIncomeActivated,
     setBasicIncomePlusActivated,
     username,
@@ -401,6 +409,7 @@ export default function EarnPage({
 
           // After successful reward transaction, update the canReward status
           fetchCanReward();
+          fetchHasRewarded();
         }
       } catch (error: any) {
         console.error("[Reward] Error in reward transaction:", error);
@@ -416,7 +425,13 @@ export default function EarnPage({
         setIsSendingReward(false);
       }
     },
-    [walletAddress, recipientUsername, showToast, fetchCanReward]
+    [
+      walletAddress,
+      recipientUsername,
+      showToast,
+      fetchCanReward,
+      fetchHasRewarded,
+    ]
   ); // Add dependencies
 
   useEffect(() => {
@@ -1293,8 +1308,9 @@ export default function EarnPage({
     if (walletAddress) {
       fetchCanReward();
       fetchRewardCount();
+      fetchHasRewarded();
     }
-  }, [walletAddress, fetchCanReward, fetchRewardCount]);
+  }, [walletAddress, fetchCanReward, fetchRewardCount, fetchHasRewarded]);
 
   // Add the state that we're lifting from StakeWithPermitForm
   const [stakedBalance, setStakedBalance] = useState<string>("0");
@@ -1440,8 +1456,111 @@ export default function EarnPage({
     return () => clearInterval(fetchInterval);
   }, [walletAddress, fetchAvailableReward, fetchStakedBalance]);
 
-  const router = useRouter();
   const searchParams = useSearchParams();
+
+  const [isVerifying, setIsVerifying] = useState(false);
+  const [worldIdVerificationStatus, setWorldIdVerificationStatus] = useState<{
+    success: boolean;
+    message: string;
+  } | null>(null);
+
+  // Add this function to handle World ID verification success
+  const handleWorldIDSuccess = async (
+    response: {
+      merkle_root: string;
+      nullifier_hash: string;
+      proof: string;
+      verification_level: string;
+    },
+    recipientAddress: string
+  ) => {
+    if (!MiniKit.isInstalled() || !walletAddress) {
+      showToast("Please connect your wallet first", "error");
+      return;
+    }
+
+    setIsVerifying(true);
+    setRewardStatus(null);
+
+    try {
+      console.log("[WorldID] Verification successful:", response);
+
+      // Ensure proof is properly formatted as a hex string with 0x prefix
+      const proofHex = response.proof.startsWith("0x")
+        ? response.proof
+        : `0x${response.proof}`;
+
+      // Unpack the proof for the smart contract
+      const unpackedProof = decodeAbiParameters(
+        [{ type: "uint256[8]" }],
+        proofHex as `0x${string}`
+      )[0];
+
+      console.log(`[WorldID] Sending reward to ${recipientAddress}`);
+
+      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
+        transaction: [
+          {
+            // Use your SecureDocumentReferralReward contract address
+            address:
+              "0x374D5A06Ad10401C9bF72b61744bE0C0270aF062" as `0x${string}`, // Replace with your actual contract address
+            abi: parseAbi([
+              "function rewardUser(address recipient, uint256 root, uint256 nullifierHash, uint256[8] calldata proof) external",
+            ]),
+            functionName: "rewardUser",
+            args: [
+              recipientAddress,
+              BigInt(response.merkle_root),
+              BigInt(response.nullifier_hash),
+              unpackedProof,
+            ],
+          },
+        ],
+      });
+
+      console.log("[WorldID] Transaction response:", finalPayload);
+
+      if (finalPayload.status === "error") {
+        console.error("[WorldID] Error sending transaction", finalPayload);
+        // Only show error toast if it's not a user rejection
+        if (finalPayload.error_code !== "user_rejected") {
+          const errorMessage =
+            (finalPayload as any).description || "Error sending reward";
+          showToast(errorMessage, "error");
+          setRewardStatus({
+            success: false,
+            message: errorMessage,
+          });
+        } else {
+          // Still set reward status but without showing toast
+          setRewardStatus({
+            success: false,
+            message: "Transaction was canceled",
+          });
+        }
+      } else {
+        setRewardStatus({
+          success: true,
+          message: `Successfully sent reward to ${recipientUsername}!`,
+        });
+
+        // After successful reward transaction, update the canReward status
+        fetchNewContractCanReward();
+      }
+    } catch (error: any) {
+      console.error("[WorldID] Error in reward transaction:", error);
+      showToast(
+        error.message || "An unexpected error occurred with the reward",
+        "error"
+      );
+      setRewardStatus({
+        success: false,
+        message: error.message || "Failed to send reward. Please try again.",
+      });
+    } finally {
+      setIsVerifying(false);
+    }
+  };
 
   const renderContent = () => {
     switch (activeTab) {
@@ -2183,6 +2302,238 @@ export default function EarnPage({
                                 ?.input?.sendButton
                             }
                           </Button>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </DrawerContent>
+              </Drawer>
+            )}
+
+            {!canReward && !hasRewarded && newContractCanReward && (
+              <Drawer>
+                <DrawerTrigger asChild>
+                  <Button variant="secondary" fullWidth className="mt-4">
+                    {
+                      dictionary?.pages?.earn?.tabs?.invite?.actions
+                        ?.rewardReferrer
+                    }
+                  </Button>
+                </DrawerTrigger>
+                <DrawerContent>
+                  <div className="flex flex-col items-center p-6 pt-10">
+                    <div className="mb-10 mt-4 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+                      <PiUserPlusFill className="h-10 w-10 text-gray-400" />
+                    </div>
+                    <Typography
+                      as="h2"
+                      variant={{ variant: "heading", level: 1 }}
+                      className="text-center"
+                    >
+                      {dictionary?.pages?.earn?.tabs?.invite?.drawer?.title}
+                    </Typography>
+                    <Typography
+                      variant={{ variant: "subtitle", level: 1 }}
+                      className="mx-auto mt-4 text-center text-gray-500"
+                    >
+                      {dictionary?.pages?.earn?.tabs?.invite?.drawer?.subtitle}
+                    </Typography>
+
+                    {/* Referral Status - same as in first drawer */}
+                    {localStorage.getItem("referredBy") && (
+                      <div className="border-success-200 bg-success-50 mt-4 w-full rounded-xl border p-4">
+                        <Typography
+                          variant={{ variant: "subtitle", level: 3 }}
+                          className="text-center text-success-700"
+                        >
+                          {(() => {
+                            const referrer = localStorage.getItem("referredBy");
+                            console.log(
+                              `[Referral] Displaying referrer information: ${referrer}`
+                            );
+                            return dictionary?.pages?.earn?.tabs?.invite?.drawer?.invitedBy?.replace(
+                              "{{username}}",
+                              referrer || ""
+                            );
+                          })()}
+                        </Typography>
+                      </div>
+                    )}
+
+                    <div className="w-full">
+                      {!lookupResult ? (
+                        <>
+                          <input
+                            type="text"
+                            placeholder={
+                              dictionary?.pages?.earn?.tabs?.invite?.drawer
+                                ?.input?.placeholder
+                            }
+                            className="mt-4 w-full rounded-xl border border-gray-200 px-4 py-3 font-sans text-base"
+                            value={recipientUsername}
+                            onChange={(e) =>
+                              setRecipientUsername(e.target.value)
+                            }
+                            onKeyPress={(e) =>
+                              e.key === "Enter" && lookupUsername()
+                            }
+                            onFocus={(e) => {
+                              setTimeout(() => {
+                                e.target.scrollIntoView({
+                                  behavior: "smooth",
+                                  block: "center",
+                                });
+                              }, 300);
+                            }}
+                          />
+
+                          {lookupError && (
+                            <div className="mt-4 rounded-xl border border-error-300 bg-error-100 p-4 text-error-700">
+                              {lookupError}
+                            </div>
+                          )}
+
+                          <Button
+                            onClick={lookupUsername}
+                            isLoading={isLookingUp}
+                            variant="secondary"
+                            fullWidth
+                            className="mt-4"
+                          >
+                            {
+                              dictionary?.pages?.earn?.tabs?.invite?.drawer
+                                ?.input?.lookupButton
+                            }
+                          </Button>
+                        </>
+                      ) : (
+                        <div className="space-y-4">
+                          <div className="mt-4 rounded-xl border border-gray-200 bg-gray-50 p-4 text-center">
+                            <Typography
+                              variant={{ variant: "body", level: 3 }}
+                              className="mb-1 text-gray-500"
+                            >
+                              {
+                                dictionary?.pages?.earn?.tabs?.invite?.drawer
+                                  ?.input?.sendingTo
+                              }
+                            </Typography>
+                            <div className="flex items-center justify-center gap-1">
+                              <Typography
+                                variant={{ variant: "subtitle", level: 2 }}
+                                className="text-gray-700"
+                              >
+                                {lookupResult.username}
+                              </Typography>
+                              <button
+                                onClick={() => {
+                                  setLookupResult(null);
+                                  setRewardStatus(null);
+                                }}
+                                className="hover:text-gray-600 text-gray-400"
+                                aria-label={
+                                  dictionary?.pages?.earn?.tabs?.invite?.drawer
+                                    ?.input?.editButton
+                                }
+                              >
+                                <PiNotePencilFill className="h-4 w-4" />
+                              </button>
+                            </div>
+                          </div>
+
+                          {rewardStatus && (
+                            <div
+                              className={`mt-3 rounded-xl border p-3 ${
+                                rewardStatus.success
+                                  ? "border-success-300 bg-success-100 text-success-700"
+                                  : "border-error-300 bg-error-100 text-error-700"
+                              }`}
+                            >
+                              {rewardStatus.message}
+                            </div>
+                          )}
+
+                          {/* World ID Widget */}
+                          <div className="mt-4">
+                            <Button
+                              onClick={async () => {
+                                if (!MiniKit.isInstalled() || !walletAddress) {
+                                  showToast(
+                                    "Please connect your wallet first",
+                                    "error"
+                                  );
+                                  return;
+                                }
+
+                                setIsVerifying(true);
+                                try {
+                                  // Use MiniKit verify command instead of IDKitWidget
+                                  const verifyPayload = {
+                                    action: "reward_referrer",
+                                    signal: walletAddress || "",
+                                    verification_level:
+                                      VerificationLevel.SecureDocument,
+                                  };
+
+                                  const { finalPayload } =
+                                    await MiniKit.commandsAsync.verify(
+                                      verifyPayload
+                                    );
+
+                                  if (finalPayload.status === "error") {
+                                    console.error(
+                                      "[WorldID] Verification error:",
+                                      finalPayload
+                                    );
+
+                                    // Don't show error toast if user cancelled the action
+                                    if (
+                                      finalPayload.error_code &&
+                                      (finalPayload.error_code as string) ===
+                                        "user_rejected"
+                                    ) {
+                                      setIsVerifying(false);
+                                      return;
+                                    }
+
+                                    showToast(
+                                      (finalPayload as any).description ||
+                                        "Verification failed",
+                                      "error"
+                                    );
+                                    setIsVerifying(false);
+                                    return;
+                                  }
+
+                                  // Process the successful verification
+                                  await handleWorldIDSuccess(
+                                    finalPayload as any,
+                                    lookupResult.address
+                                  );
+                                } catch (error: any) {
+                                  console.error(
+                                    "[WorldID] Error during verification:",
+                                    error
+                                  );
+                                  showToast(
+                                    error.message ||
+                                      "An error occurred during verification",
+                                    "error"
+                                  );
+                                } finally {
+                                  setIsVerifying(false);
+                                }
+                              }}
+                              fullWidth
+                              disabled={isVerifying}
+                              isLoading={isVerifying}
+                            >
+                              {
+                                dictionary?.pages?.earn?.tabs?.invite?.drawer
+                                  ?.input?.sendButton
+                              }
+                            </Button>
+                          </div>
                         </div>
                       )}
                     </div>

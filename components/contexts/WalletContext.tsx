@@ -22,15 +22,20 @@ interface WalletContextProps {
   basicIncomePlusActivated: boolean;
   canReward: boolean;
   rewardCount: number;
+  hasRewarded: boolean;
+  newContractCanReward: boolean;
   setWalletAddress: (address: string) => void;
   setUsername: (username: string) => void;
   fetchBasicIncomeInfo: () => Promise<void>;
   fetchBasicIncomePlusInfo: () => Promise<void>;
   fetchBalance: () => Promise<void>;
   fetchCanReward: () => Promise<void>;
+  fetchNewContractCanReward: () => Promise<void>;
   fetchRewardCount: () => Promise<void>;
+  fetchHasRewarded: () => Promise<void>;
   setBasicIncomeActivated: (activated: boolean) => void;
   setBasicIncomePlusActivated: (activated: boolean) => void;
+  setNewContractCanReward: (activated: boolean) => void;
 }
 
 const WalletContext = createContext<WalletContextProps>({
@@ -43,15 +48,20 @@ const WalletContext = createContext<WalletContextProps>({
   basicIncomePlusActivated: false,
   canReward: false,
   rewardCount: 0,
+  hasRewarded: false,
+  newContractCanReward: false,
   setWalletAddress: () => {},
   setUsername: () => {},
   fetchBasicIncomeInfo: async () => {},
   fetchBasicIncomePlusInfo: async () => {},
   fetchBalance: async () => {},
   fetchCanReward: async () => {},
+  fetchNewContractCanReward: async () => {},
   fetchRewardCount: async () => {},
+  fetchHasRewarded: async () => {},
   setBasicIncomeActivated: () => {},
   setBasicIncomePlusActivated: () => {},
+  setNewContractCanReward: () => {},
 });
 
 interface WalletProviderProps {
@@ -74,6 +84,8 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     useState(false);
   const [canReward, setCanReward] = useState(false);
   const [rewardCount, setRewardCount] = useState(0);
+  const [hasRewarded, setHasRewarded] = useState(false);
+  const [newContractCanReward, setNewContractCanReward] = useState(false);
 
   const setBasicIncomeActivated = useCallback((activated: boolean) => {
     setBasicIncomeActivatedState(activated);
@@ -294,6 +306,63 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     }
   }, [walletAddress]);
 
+  const fetchNewContractCanReward = useCallback(async () => {
+    if (!walletAddress) return;
+
+    try {
+      console.log("[Referral] Checking if user can reward on new contract...");
+      try {
+        const referralABI = [
+          {
+            inputs: [
+              {
+                internalType: "address",
+                name: "user",
+                type: "address",
+              },
+            ],
+            name: "canReward",
+            outputs: [
+              {
+                internalType: "bool",
+                name: "",
+                type: "bool",
+              },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+        ] as const;
+
+        const canRewardStatus = await viemClient.readContract({
+          address:
+            "0x374D5A06Ad10401C9bF72b61744bE0C0270aF062" as `0x${string}`, // Update with real contract address
+          abi: referralABI,
+          functionName: "canReward",
+          args: [walletAddress as `0x${string}`],
+        });
+
+        console.log(
+          `[Referral] User ${walletAddress} new contract canReward status: ${canRewardStatus}`
+        );
+        setNewContractCanReward(!!canRewardStatus);
+      } catch (error) {
+        console.error(
+          "[Referral] Error calling new contract canReward function:",
+          error
+        );
+        setNewContractCanReward(false);
+      }
+    } catch (error) {
+      console.error(
+        "[Referral] Error checking new contract canReward status:",
+        error
+      );
+      setNewContractCanReward(false);
+      setTimeout(fetchNewContractCanReward, 1000);
+    }
+  }, [walletAddress]);
+
   const fetchRewardCount = useCallback(async () => {
     if (!walletAddress) return;
 
@@ -347,17 +416,78 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     }
   }, [walletAddress]);
 
-  useEffect(() => {
-    if (walletAddress) {
-      fetchCanReward();
+  const fetchHasRewarded = useCallback(async () => {
+    if (!walletAddress) return;
+
+    try {
+      console.log(
+        "[Referral] Checking if user has already rewarded someone..."
+      );
+      try {
+        const referralABI = [
+          {
+            inputs: [
+              {
+                internalType: "address",
+                name: "sender",
+                type: "address",
+              },
+            ],
+            name: "checkReward",
+            outputs: [
+              {
+                internalType: "bool",
+                name: "hasRewarded",
+                type: "bool",
+              },
+              {
+                internalType: "address",
+                name: "recipient",
+                type: "address",
+              },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+        ] as const;
+
+        const result = await viemClient.readContract({
+          address:
+            "0x372dCA057682994568be074E75a03Ced3dD9E60d" as `0x${string}`,
+          abi: referralABI,
+          functionName: "checkReward",
+          args: [walletAddress as `0x${string}`],
+        });
+
+        if (Array.isArray(result) && result.length === 2) {
+          const userHasRewarded = result[0];
+          console.log(
+            `[Referral] User ${walletAddress} hasRewarded status: ${userHasRewarded}`
+          );
+          setHasRewarded(!!userHasRewarded);
+        }
+      } catch (error) {
+        console.error("[Referral] Error calling checkReward function:", error);
+        setTimeout(fetchHasRewarded, 1000);
+      }
+    } catch (error) {
+      console.error("[Referral] Error checking hasRewarded status:", error);
+      setTimeout(fetchHasRewarded, 1000);
     }
-  }, [walletAddress, fetchCanReward]);
+  }, [walletAddress]);
 
   useEffect(() => {
     if (walletAddress) {
-      fetchRewardCount();
+      fetchCanReward();
+      fetchNewContractCanReward();
+      fetchHasRewarded();
     }
-  }, [walletAddress, fetchRewardCount]);
+  }, [
+    walletAddress,
+    fetchCanReward,
+    fetchHasRewarded,
+    fetchNewContractCanReward,
+  ]);
 
   useEffect(() => {
     if (!walletAddress) return;
@@ -515,15 +645,20 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         basicIncomePlusActivated,
         canReward,
         rewardCount,
+        hasRewarded,
+        newContractCanReward,
         setWalletAddress,
         setUsername,
         fetchBasicIncomeInfo,
         fetchBasicIncomePlusInfo,
         fetchBalance,
         fetchCanReward,
+        fetchNewContractCanReward,
         fetchRewardCount,
+        fetchHasRewarded,
         setBasicIncomeActivated,
         setBasicIncomePlusActivated,
+        setNewContractCanReward,
       }}
     >
       {children}
