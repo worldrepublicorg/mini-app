@@ -15,8 +15,8 @@ const polls: Poll[] = [
     url: "https://vote.one/soAE4aHn",
   },
   {
-    key: "spaceMilitarization",
-    url: "https://vote.one/vBztzW2P",
+    key: "foodSecurity",
+    url: "https://vote.one/GRi1NYOX",
   },
   {
     key: "aiWatermarking",
