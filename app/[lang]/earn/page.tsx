@@ -2306,16 +2306,18 @@ export default function EarnPage({
                             </div>
                           )}
 
-                          <Button
-                            onClick={() => sendReward(lookupResult.address)}
-                            isLoading={isSendingReward}
-                            fullWidth
-                          >
-                            {
-                              dictionary?.pages?.earn?.tabs?.invite?.drawer
-                                ?.input?.sendButton
-                            }
-                          </Button>
+                          <div className="my-4">
+                            <Button
+                              onClick={() => sendReward(lookupResult.address)}
+                              isLoading={isSendingReward}
+                              fullWidth
+                            >
+                              {
+                                dictionary?.pages?.earn?.tabs?.invite?.drawer
+                                  ?.input?.sendButton
+                              }
+                            </Button>
+                          </div>
                         </div>
                       )}
                     </div>
@@ -2468,7 +2470,7 @@ export default function EarnPage({
                           )}
 
                           {/* World ID Widget */}
-                          <div className="mt-4">
+                          <div className="my-4">
                             <Button
                               onClick={async () => {
                                 if (!MiniKit.isInstalled() || !walletAddress) {
