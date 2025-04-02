@@ -1743,7 +1743,7 @@ export default function EarnPage({
                           }
                         </Typography>
 
-                        <div className="mt-6 w-full px-3 py-4">
+                        <div className="mt-4 w-full px-3 py-4">
                           <ul className="space-y-3">
                             <li className="flex items-start">
                               <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
@@ -2672,7 +2672,7 @@ export default function EarnPage({
                     }
                   </Typography>
 
-                  <div className="mt-6 w-full px-3 py-4">
+                  <div className="mt-4 w-full px-3 py-4">
                     <ul className="space-y-3">
                       <li className="flex items-start">
                         <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
