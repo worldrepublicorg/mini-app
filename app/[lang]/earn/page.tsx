@@ -1517,7 +1517,7 @@ export default function EarnPage({
           {
             // Use your SecureDocumentReferralReward contract address
             address:
-              "0x9be1dCb1E2bEd2892f84Df5DeE8AFaAE14512e5B" as `0x${string}`, // Replace with your actual contract address
+              "0x012399Ce7108DD3B8C5583758816575f0c2FcD86" as `0x${string}`, // Replace with your actual contract address
             abi: parseAbi([
               "function rewardUser(address recipient, uint256 root, uint256 nullifierHash, uint256[8] calldata proof) external",
             ]),
@@ -2028,114 +2028,6 @@ export default function EarnPage({
       case "Invite":
         return (
           <div className="flex w-full flex-col items-center py-8">
-            <Drawer>
-              <DrawerTrigger className="w-full">
-                <div className="mt-4 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-transparent py-2 pr-4">
-                  <div className="flex w-full items-center overflow-hidden">
-                    <div className="ml-1.5 mr-3 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="text-blue-600 h-4 w-4"
-                      >
-                        <path d="M11 17h2v-6h-2v6Zm1-8q.425 0 .713-.288Q13 8.425 13 8t-.287-.713Q12.425 7 12 7t-.712.287Q11 7.575 11 8t.288.712Q11.575 9 12 9Zm0 13q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z" />
-                      </svg>
-                    </div>
-                    <Typography
-                      as="h3"
-                      variant={{ variant: "subtitle", level: 2 }}
-                      className="line-clamp-2 text-left font-display text-[15px] font-medium tracking-tight text-gray-900"
-                    >
-                      Now accepting passport verification!
-                    </Typography>
-                    <div className="ml-1 rounded-full bg-gray-200 px-1.5 py-0.5">
-                      <p className="font-sans text-[12px] font-medium leading-narrow tracking-normal text-gray-900">
-                        NEW
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </DrawerTrigger>
-
-              <DrawerContent>
-                <div className="flex flex-col items-center p-6 pt-10">
-                  <div className="bg-blue-50 mb-10 flex h-24 w-24 items-center justify-center rounded-full">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="text-blue-600 h-10 w-10"
-                    >
-                      <path d="M11 17h2v-6h-2v6Zm1-8q.425 0 .713-.288Q13 8.425 13 8t-.287-.713Q12.425 7 12 7t-.712.287Q11 7.575 11 8t.288.712Q11.575 9 12 9Zm0 13q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z" />
-                    </svg>
-                  </div>
-
-                  <Typography
-                    as="h2"
-                    variant={{ variant: "heading", level: 1 }}
-                    className="text-center"
-                  >
-                    Passport Verification Details
-                  </Typography>
-
-                  <Typography
-                    variant={{ variant: "subtitle", level: 1 }}
-                    className="mx-auto mt-4 text-center text-gray-500"
-                  >
-                    Verify with passport to earn additional rewards
-                  </Typography>
-
-                  <div className="mt-6 w-full px-3 py-4">
-                    <ul className="space-y-3">
-                      <li className="flex items-start">
-                        <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
-                          <PiGlobeFill className="h-3.5 w-3.5 text-gray-400" />
-                        </div>
-                        <Typography
-                          variant={{ variant: "body", level: 3 }}
-                          className="text-gray-600 mt-[3px]"
-                        >
-                          Available in Argentina, Australia, Chile, Colombia,
-                          Croatia, Japan, Philippines, Portugal, South Korea,
-                          and the United States
-                        </Typography>
-                      </li>
-
-                      <li className="flex items-start">
-                        <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
-                          <PiUsersFill className="h-3.5 w-3.5 text-gray-400" />
-                        </div>
-                        <Typography
-                          variant={{ variant: "body", level: 3 }}
-                          className="text-gray-600 mt-[3px]"
-                        >
-                          Friends also receive WLD rewards for verifying their
-                          Passport through World App
-                        </Typography>
-                      </li>
-
-                      <li className="flex items-start">
-                        <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
-                          <PiTrendUpFill className="h-3.5 w-3.5 text-gray-400" />
-                        </div>
-                        <Typography
-                          variant={{ variant: "body", level: 3 }}
-                          className="text-gray-600 mt-[3px]"
-                        >
-                          When your friends verify with either Orb or Passport,
-                          you'll earn 50 WDD for each verified friend
-                        </Typography>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <Button fullWidth className="mt-6" variant="primary">
-                    Get Started
-                  </Button>
-                </div>
-              </DrawerContent>
-            </Drawer>
             <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
               <PiUserPlusFill className="h-10 w-10 text-gray-400" />
             </div>
@@ -2670,6 +2562,169 @@ export default function EarnPage({
                 </DrawerContent>
               </Drawer>
             )}
+
+            <Drawer>
+              <DrawerTrigger className="w-full">
+                <div className="mt-4 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-transparent py-2 pr-4">
+                  <div className="flex w-full items-center overflow-hidden">
+                    <div className="mx-2 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        className="h-5 w-5 text-gray-900"
+                      >
+                        <path d="M11 17h2v-6h-2v6Zm1-8q.425 0 .713-.288Q13 8.425 13 8t-.287-.713Q12.425 7 12 7t-.712.287Q11 7.575 11 8t.288.712Q11.575 9 12 9Zm0 13q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z" />
+                      </svg>
+                    </div>
+                    <Typography
+                      as="h3"
+                      variant={{ variant: "subtitle", level: 2 }}
+                      className="line-clamp-2 text-left font-display text-[15px] font-medium tracking-tight text-gray-900"
+                    >
+                      Also available with friends verified by passport only!
+                    </Typography>
+                    <div className="ml-1 rounded-full bg-gray-200 px-1.5 py-0.5">
+                      <p className="font-sans text-[12px] font-medium leading-narrow tracking-normal text-gray-900">
+                        NEW
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </DrawerTrigger>
+
+              <DrawerContent>
+                <div className="flex flex-col items-center p-6 pt-10">
+                  <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="h-10 w-10 text-gray-400"
+                    >
+                      <path d="M11 17h2v-6h-2v6Zm1-8q.425 0 .713-.288Q13 8.425 13 8t-.287-.713Q12.425 7 12 7t-.712.287Q11 7.575 11 8t.288.712Q11.575 9 12 9Zm0 13q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z" />
+                    </svg>
+                  </div>
+
+                  <Typography
+                    as="h2"
+                    variant={{ variant: "heading", level: 1 }}
+                    className="text-center"
+                  >
+                    Passport-Verified Referral Program
+                  </Typography>
+
+                  <Typography
+                    variant={{ variant: "subtitle", level: 1 }}
+                    className="mx-auto mt-4 text-center text-gray-500"
+                  >
+                    Friends with no Orbs nearby? Invite anyone with a passport
+                    and earn 50 WDD
+                  </Typography>
+
+                  <div className="mt-6 w-full px-3 py-4">
+                    <ul className="space-y-3">
+                      <li className="flex items-start">
+                        <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                          <PiGlobeFill className="h-3.5 w-3.5 text-gray-400" />
+                        </div>
+                        <Typography
+                          variant={{ variant: "body", level: 3 }}
+                          className="text-gray-600 mt-[3px]"
+                        >
+                          Passport-verification is currently available in
+                          Argentina, Australia, Chile, Colombia, Croatia, Japan,
+                          Philippines, Portugal, South Korea, and the United
+                          States
+                        </Typography>
+                      </li>
+
+                      <li className="flex items-start">
+                        <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                          <PiUsersFill className="h-3.5 w-3.5 text-gray-400" />
+                        </div>
+                        <Typography
+                          variant={{ variant: "body", level: 3 }}
+                          className="text-gray-600 mt-[3px]"
+                        >
+                          Friends receive WLD for verifying their passport in
+                          World App
+                        </Typography>
+                      </li>
+                      <li className="flex items-start">
+                        <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                          <PiTrendUpFill className="h-3.5 w-3.5 text-gray-400" />
+                        </div>
+                        <Typography
+                          variant={{ variant: "body", level: 3 }}
+                          className="text-gray-600 mt-[3px]"
+                        >
+                          Extra basic income for passport-verified people is
+                          coming soon
+                        </Typography>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="relative w-full">
+                    <Button
+                      onClick={async () => {
+                        if (!username) {
+                          showToast(
+                            dictionary?.pages?.earn?.tabs?.invite?.actions
+                              ?.connectWallet,
+                            "error"
+                          );
+                          loadCurrentUsernameCallback();
+                          return;
+                        }
+
+                        const shareUrl = `https://worldcoin.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=%2F%3Fcode%3D${username}`;
+
+                        // Check if Web Share API is supported
+                        if (navigator.share) {
+                          try {
+                            await navigator.share({
+                              title:
+                                dictionary?.pages?.earn?.tabs?.invite?.share
+                                  ?.title,
+                              text: dictionary?.pages?.earn?.tabs?.invite?.share
+                                ?.text,
+                              url: shareUrl,
+                            });
+                          } catch (error) {
+                            // User cancelled or share failed - fallback to clipboard
+                            if (
+                              error instanceof Error &&
+                              error.name !== "AbortError"
+                            ) {
+                              await navigator.clipboard.writeText(shareUrl);
+                              showToast(
+                                dictionary?.pages?.earn?.tabs?.invite?.actions
+                                  ?.copied,
+                                "success"
+                              );
+                            }
+                          }
+                        } else {
+                          // Fallback for browsers that don't support Web Share API
+                          await navigator.clipboard.writeText(shareUrl);
+                          showToast(
+                            dictionary?.pages?.earn?.tabs?.invite?.actions
+                              ?.copied,
+                            "success"
+                          );
+                        }
+                      }}
+                      fullWidth
+                      className="mt-6"
+                    >
+                      {dictionary?.pages?.earn?.tabs?.invite?.actions?.share}
+                    </Button>
+                  </div>
+                </div>
+              </DrawerContent>
+            </Drawer>
           </div>
         );
       default:
