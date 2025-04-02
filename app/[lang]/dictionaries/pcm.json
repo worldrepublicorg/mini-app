@@ -104,7 +104,7 @@
         "invite": {
           "title": "Invite People",
           "subtitle": "Collect 50 WDD for each person wey you bring",
-          "tooltip": "Friends must get verification from Orb or passport.",
+          "tooltip": "Friends must get verification through Orb or passport. Passport verification dey available now for Argentina, Australia, Chile, Colombia, Croatia, Japan, Philippines, Portugal, South Korea, and United States.",
           "learnMore": "Learn more",
           "stats": {
             "title": "Your Referral Stats",
@@ -121,13 +121,15 @@
           "drawer": {
             "title": "Give Person Wey Invite You Money",
             "subtitle": "Give person wey invite you free 50 WDD",
+            "passportSubtitle": "Show proof say your passport don verify and give person wey invite you free 50 WDD",
             "invitedBy": "Na {{username}} invite you",
             "input": {
               "placeholder": "Put username (example: username.0000)",
               "lookupButton": "Find Person",
               "sendingTo": "We dey send money to:",
               "editButton": "Change am",
-              "sendButton": "Send Money"
+              "sendButton": "Send Money",
+              "proveReward": "Show Proof and Give Money"
             },
             "errors": {
               "enterUsername": "Abeg put username",

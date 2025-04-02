@@ -104,7 +104,7 @@
         "invite": {
           "title": "Davet Et",
           "subtitle": "Katılan her arkadaş için 50 WDD kazanın",
-          "tooltip": "Arkadaşların Orb veya pasaport ile doğrulanmış olması gerekir.",
+          "tooltip": "Arkadaşların Orb veya pasaport ile doğrulanmalıdır. Pasaport doğrulaması şu anda Arjantin, Avustralya, Şili, Kolombiya, Hırvatistan, Japonya, Filipinler, Portekiz, Güney Kore ve Amerika Birleşik Devletleri'nde mevcuttur.",
           "learnMore": "Daha fazla bilgi",
           "stats": {
             "title": "Davet İstatistikleriniz",
@@ -121,13 +121,15 @@
           "drawer": {
             "title": "Davet Edeni Ödüllendir",
             "subtitle": "Davet edeniniz için ücretsiz 50 WDD ödülü tetikleyin",
+            "passportSubtitle": "Pasaport doğrulamanızı kanıtlayın ve davet edeniniz için ücretsiz 50 WDD ödülü tetikleyin",
             "invitedBy": "Sizi davet eden: {{username}}",
             "input": {
               "placeholder": "Kullanıcı adı girin (örn. kullanici.0000)",
               "lookupButton": "Kullanıcı Ara",
               "sendingTo": "Ödül gönderiliyor:",
               "editButton": "Düzenle",
-              "sendButton": "Ödül Gönder"
+              "sendButton": "Ödül Gönder",
+              "proveReward": "Kanıtla ve Ödüllendir"
             },
             "errors": {
               "enterUsername": "Lütfen bir kullanıcı adı girin",

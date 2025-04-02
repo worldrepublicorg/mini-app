@@ -104,7 +104,7 @@
         "invite": {
           "title": "Einladen",
           "subtitle": "Holen Sie 50 WDD pro Freund, der sich anschließt",
-          "tooltip": "Freunde müssen über Orb oder Reisepass verifiziert sein.",
+          "tooltip": "Freunde müssen über Orb oder Reisepass verifiziert werden. Die Reisepassverifizierung ist derzeit in Argentinien, Australien, Chile, Kolumbien, Kroatien, Japan, Philippinen, Portugal, Südkorea und den Vereinigten Staaten verfügbar.",
           "learnMore": "Mehr erfahren",
           "stats": {
             "title": "Ihre Referral Stats",
@@ -121,13 +121,15 @@
           "drawer": {
             "title": "Belohnung einem Referrer gewähren",
             "subtitle": "Freien 50 WDD Belohnung für Ihren Referrer auslösen",
+            "passportSubtitle": "Überprüfen Sie Ihre Passverifizierung und lösen Sie eine kostenlose 50 WDD Belohnung für Ihren Referrer aus",
             "invitedBy": "Sie wurden von: {{username}} eingeladen",
             "input": {
               "placeholder": "Benutzername eingeben (z.B. username.0000)",
               "lookupButton": "Benutzername suchen",
               "sendingTo": "Belohnung senden an:",
               "editButton": "Bearbeiten",
-              "sendButton": "Belohnung senden"
+              "sendButton": "Belohnung senden",
+              "proveReward": "Verifizieren und Belohnen"
             },
             "errors": {
               "enterUsername": "Bitte geben Sie einen Benutzernamen ein",

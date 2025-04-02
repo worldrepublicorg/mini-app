@@ -99,7 +99,7 @@
           "tabTitle": "Oszczędności",
           "title": "Konto Oszczędnościowe",
           "subtitle": "Zarabiaj odsetki co sekundę",
-          "tooltip": "Podstawowa stopa 69% APY. Zbieraj i reinwestuj odsetki, aby osiągnąć blisko 100% efektywnego zwrotu rocznie. Wypłać w dowolnym momencie."
+          "tooltip": "Podstawowa stopa 69% APY. Zbieraj i reinwestuj odsetki, aby osiągnąć blisko 100% efektywnego zwrotu rocznie. Wypłać w dowolnym momencie. Znajomi muszą być zweryfikowani przez Orb lub paszport. Weryfikacja paszportem jest obecnie dostępna w Argentynie, Australii, Chile, Kolumbii, Chorwacji, Japonii, na Filipinach, w Portugalii, Korei Południowej i Stanach Zjednoczonych."
         },
         "invite": {
           "title": "Zaproś",
@@ -121,13 +121,15 @@
           "drawer": {
             "title": "Nagródź Polecającego",
             "subtitle": "Aktywuj darmową nagrodę 50 WDD dla swojego polecającego",
+            "passportSubtitle": "Udowodnij weryfikację swojego paszportu i aktywuj darmową nagrodę 50 WDD dla swojego polecającego",
             "invitedBy": "Zostałeś zaproszony przez: {{username}}",
             "input": {
               "placeholder": "Wprowadź nazwę użytkownika (np. username.0000)",
               "lookupButton": "Wyszukaj Użytkownika",
               "sendingTo": "Wysyłanie nagrody do:",
               "editButton": "Edytuj",
-              "sendButton": "Wyślij Nagrodę"
+              "sendButton": "Wyślij Nagrodę",
+              "proveReward": "Udowodnij i Nagródź"
             },
             "errors": {
               "enterUsername": "Wprowadź nazwę użytkownika",

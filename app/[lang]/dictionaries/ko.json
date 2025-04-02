@@ -104,7 +104,7 @@
         "invite": {
           "title": "초대",
           "subtitle": "친구 한 명당 50 WDD 획득",
-          "tooltip": "친구는 Orb 또는 여권을 통해 인증을 받아야 합니다.",
+          "tooltip": "친구는 Orb 또는 여권을 통해 인증되어야 합니다. 여권 인증은 현재 아르헨티나, 호주, 칠레, 콜롬비아, 크로아티아, 일본, 필리핀, 포르투갈, 한국 및 미국에서 이용 가능합니다.",
           "learnMore": "자세히 알아보기",
           "stats": {
             "title": "나의 추천 현황",
@@ -121,13 +121,15 @@
           "drawer": {
             "title": "추천인 보상",
             "subtitle": "추천인에게 50 WDD 무료 리워드 지급",
+            "passportSubtitle": "패스포트 인증을 증명하고 추천인에게 50 WDD 무료 리워드 지급",
             "invitedBy": "추천인: {{username}}",
             "input": {
               "placeholder": "사용자 이름 입력 (예: username.0000)",
               "lookupButton": "사용자 검색",
               "sendingTo": "리워드 전송 대상:",
               "editButton": "수정",
-              "sendButton": "리워드 전송"
+              "sendButton": "리워드 전송",
+              "proveReward": "증명하고 보상하기"
             },
             "errors": {
               "enterUsername": "사용자 이름을 입력해주세요",

@@ -2352,7 +2352,10 @@ export default function EarnPage({
                       variant={{ variant: "subtitle", level: 1 }}
                       className="mx-auto mt-4 text-center text-gray-500"
                     >
-                      {dictionary?.pages?.earn?.tabs?.invite?.drawer?.subtitle}
+                      {
+                        dictionary?.pages?.earn?.tabs?.invite?.drawer
+                          ?.passportSubtitle
+                      }
                     </Typography>
 
                     {/* Referral Status - same as in first drawer */}
@@ -2546,7 +2549,7 @@ export default function EarnPage({
                             >
                               {
                                 dictionary?.pages?.earn?.tabs?.invite?.drawer
-                                  ?.input?.sendButton
+                                  ?.input?.proveReward
                               }
                             </Button>
                           </div>

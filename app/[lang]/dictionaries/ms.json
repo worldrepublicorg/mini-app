@@ -104,7 +104,7 @@
         "invite": {
           "title": "Jemputan",
           "subtitle": "Dapatkan 50 WDD untuk setiap rakan yang menyertai",
-          "tooltip": "Rakan perlu disahkan melalui Orb atau pasport.",
+          "tooltip": "Rakan mesti disahkan melalui Orb atau pasport. Pengesahan pasport kini tersedia di Argentina, Australia, Chile, Colombia, Croatia, Japan, Filipina, Portugal, Korea Selatan, dan Amerika Syarikat.",
           "learnMore": "Ketahui lebih lanjut",
           "stats": {
             "title": "Statistik Rujukan Anda",
@@ -121,13 +121,15 @@
           "drawer": {
             "title": "Ganjarkan Pemberi Rujukan",
             "subtitle": "Cetuskan ganjaran 50 WDD percuma untuk pemberi rujukan anda",
+            "passportSubtitle": "Buktikan pengesahan pasport anda dan cetuskan ganjaran 50 WDD percuma untuk pemberi rujukan anda",
             "invitedBy": "Anda dijemput oleh: {{username}}",
             "input": {
               "placeholder": "Masukkan nama pengguna (cth. username.0000)",
               "lookupButton": "Cari Pengguna",
               "sendingTo": "Menghantar ganjaran kepada:",
               "editButton": "Sunting",
-              "sendButton": "Hantar Ganjaran"
+              "sendButton": "Hantar Ganjaran",
+              "proveReward": "Buktikan dan Ganjarkan"
             },
             "errors": {
               "enterUsername": "Sila masukkan nama pengguna",

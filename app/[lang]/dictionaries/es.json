@@ -116,7 +116,7 @@
         "invite": {
           "title": "Invitar",
           "subtitle": "Obtén 50 WDD por cada amigo que se una",
-          "tooltip": "Los amigos deben estar verificados a través de Orb o pasaporte.",
+          "tooltip": "Los amigos deben estar verificados a través de Orb o pasaporte. La verificación por pasaporte está disponible actualmente en Argentina, Australia, Chile, Colombia, Croacia, Japón, Filipinas, Portugal, Corea del Sur y Estados Unidos.",
           "learnMore": "Más información",
           "stats": {
             "title": "Tus Estadísticas de Referidos",
@@ -133,13 +133,15 @@
           "drawer": {
             "title": "Recompensar a un Referidor",
             "subtitle": "Activa una recompensa gratuita de 50 WDD para tu referidor",
+            "passportSubtitle": "Comprueba tu verificación de pasaporte y activa una recompensa gratuita de 50 WDD para tu referidor",
             "invitedBy": "Fuiste invitado por: {{username}}",
             "input": {
               "placeholder": "Ingresa usuario (ej. usuario.0000)",
               "lookupButton": "Buscar Usuario",
               "sendingTo": "Enviando recompensa a:",
               "editButton": "Editar",
-              "sendButton": "Enviar Recompensa"
+              "sendButton": "Enviar Recompensa",
+              "proveReward": "Comprobar y Recompensar"
             },
             "errors": {
               "enterUsername": "Por favor ingresa un nombre de usuario",

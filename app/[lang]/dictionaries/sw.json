@@ -104,7 +104,7 @@
         "invite": {
           "title": "Karibisha",
           "subtitle": "Pata WDD 50 kwa kila rafiki anayejiunga",
-          "tooltip": "Marafiki lazima wathibitishwe kupitia Orb au pasipoti.",
+          "tooltip": "Marafiki lazima wathibitishwe kupitia Orb au pasipoti. Uthibitishaji wa pasipoti kwa sasa unapatikana nchini Argentina, Australia, Chile, Colombia, Croatia, Japan, Philippines, Portugal, South Korea, na United States.",
           "learnMore": "Jifunze zaidi",
           "stats": {
             "title": "Takwimu zako za Urafiki",
@@ -121,13 +121,15 @@
           "drawer": {
             "title": "Mpa Malipo Mrafiki",
             "subtitle": "Toa malipo ya WDD 50 bila malipo kwa mrafiki wako",
+            "passportSubtitle": "Thibitisha uthibitisho wa pasipoti yako na toa malipo ya WDD 50 bila malipo kwa mrafiki wako",
             "invitedBy": "Uliakaribishwa na: {{username}}",
             "input": {
               "placeholder": "Ingiza jina la mtumiaji (mfano: username.0000)",
               "lookupButton": "Tafuta Mtumiaji",
               "sendingTo": "Inatuma malipo kwa:",
               "editButton": "Hariri",
-              "sendButton": "Tuma Malipo"
+              "sendButton": "Tuma Malipo",
+              "proveReward": "Thibitisha na Toa Malipo"
             },
             "errors": {
               "enterUsername": "Tafadhali ingiza jina la mtumiaji",

@@ -99,7 +99,7 @@
           "tabTitle": "Tabungan",
           "title": "Akun Tabungan",
           "subtitle": "Dapatkan bunga setiap detik",
-          "tooltip": "Suku bunga dasar 69% APY. Kumpulkan dan investasikan kembali bunga untuk mencapai pengembalian efektif hingga 100% per tahun. Tarik kapan saja."
+          "tooltip": "Suku bunga dasar 69% APY. Kumpulkan dan investasikan kembali bunga untuk mencapai pengembalian efektif hingga 100% per tahun. Tarik kapan saja. Teman harus diverifikasi melalui Orb atau paspor. Verifikasi paspor saat ini tersedia di Argentina, Australia, Chili, Kolombia, Kroasia, Jepang, Filipina, Portugal, Korea Selatan, dan Amerika Serikat."
         },
         "invite": {
           "title": "Undang",
@@ -121,13 +121,15 @@
           "drawer": {
             "title": "Beri Hadiah Pereferral",
             "subtitle": "Berikan hadiah 50 WDD gratis untuk pereferral Anda",
+            "passportSubtitle": "Buktikan verifikasi paspor Anda dan berikan hadiah 50 WDD gratis untuk pereferral Anda",
             "invitedBy": "Anda diundang oleh: {{username}}",
             "input": {
               "placeholder": "Masukkan username (contoh: username.0000)",
               "lookupButton": "Cari Pengguna",
               "sendingTo": "Mengirim hadiah ke:",
               "editButton": "Edit",
-              "sendButton": "Kirim Hadiah"
+              "sendButton": "Kirim Hadiah",
+              "proveReward": "Buktikan dan Beri Hadiah"
             },
             "errors": {
               "enterUsername": "Silakan masukkan username",

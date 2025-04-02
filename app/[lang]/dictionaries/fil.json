@@ -206,7 +206,7 @@
         "invite": {
           "title": "Mag-imbita",
           "subtitle": "Kumuha ng 50 WDD para sa bawat kaibigang sumali",
-          "tooltip": "Dapat na-verify ang mga kaibigan sa pamamagitan ng Orb o passport.",
+          "tooltip": "Ang mga kaibigan ay dapat na-verify sa pamamagitan ng Orb o passport. Ang passport verification ay kasalukuyang available sa Argentina, Australia, Chile, Colombia, Croatia, Japan, Philippines, Portugal, South Korea, at United States.",
           "learnMore": "Alamin pa",
           "stats": {
             "title": "Mga Stats ng Iyong Referral",
@@ -223,13 +223,15 @@
           "drawer": {
             "title": "Gantimpalaan ang Referrer",
             "subtitle": "I-trigger ang libreng 50 WDD na gantimpala para sa iyong referrer",
+            "passportSubtitle": "Patunayan ang iyong passport verification at i-trigger ang libreng 50 WDD na gantimpala para sa iyong referrer",
             "invitedBy": "Ikaw ay inimbita ni: {{username}}",
             "input": {
               "placeholder": "Ilagay ang username (hal. username.0000)",
               "lookupButton": "Hanapin ang User",
               "sendingTo": "Nagpapadala ng gantimpala kay:",
               "editButton": "I-edit",
-              "sendButton": "Ipadala ang Gantimpala"
+              "sendButton": "Ipadala ang Gantimpala",
+              "proveReward": "Patunayan at Gantimpalaan"
             },
             "errors": {
               "enterUsername": "Mangyaring maglagay ng username",

@@ -104,7 +104,7 @@
         "invite": {
           "title": "Convidar",
           "subtitle": "Ganhe 50 WDD por amigo que se juntar",
-          "tooltip": "Amigos devem ser verificados via Orb ou passaporte.",
+          "tooltip": "Amigos devem ser verificados via Orb ou passaporte. A verificação por passaporte está atualmente disponível na Argentina, Austrália, Chile, Colômbia, Croácia, Japão, Filipinas, Portugal, Coreia do Sul e Estados Unidos.",
           "learnMore": "Saiba mais",
           "stats": {
             "title": "Suas Estatísticas de Indicação",
@@ -121,13 +121,15 @@
           "drawer": {
             "title": "Recompensar um Indicador",
             "subtitle": "Ative uma recompensa gratuita de 50 WDD para seu indicador",
+            "passportSubtitle": "Comprove sua verificação de passaporte e ative uma recompensa gratuita de 50 WDD para seu indicador",
             "invitedBy": "Você foi convidado por: {{username}}",
             "input": {
               "placeholder": "Digite o nome de usuário (ex: usuario.0000)",
               "lookupButton": "Buscar Usuário",
               "sendingTo": "Enviando recompensa para:",
               "editButton": "Editar",
-              "sendButton": "Enviar Recompensa"
+              "sendButton": "Enviar Recompensa",
+              "proveReward": "Comprovar e Recompensar"
             },
             "errors": {
               "enterUsername": "Por favor, digite um nome de usuário",

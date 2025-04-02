@@ -104,7 +104,7 @@
         "invite": {
           "title": "招待",
           "subtitle": "友達が参加すると50 WDD獲得",
-          "tooltip": "友達はOrbまたはパスポートで認証を受ける必要があります。",
+          "tooltip": "友達はOrbまたはパスポートで認証される必要があります。パスポート認証は現在、アルゼンチン、オーストラリア、チリ、コロンビア、クロアチア、日本、フィリピン、ポルトガル、韓国、およびアメリカ合衆国で利用可能です。",
           "learnMore": "詳細を見る",
           "stats": {
             "title": "招待統計",
@@ -121,13 +121,15 @@
           "drawer": {
             "title": "紹介者に報酬を送る",
             "subtitle": "紹介者に無料で50 WDDの報酬を送信",
+            "passportSubtitle": "パスポート認証を証明し、紹介者に無料で50 WDDの報酬を送信",
             "invitedBy": "あなたは{{username}}に招待されました",
             "input": {
               "placeholder": "ユーザー名を入力（例：username.0000）",
               "lookupButton": "ユーザーを検索",
               "sendingTo": "報酬を送信先：",
               "editButton": "編集",
-              "sendButton": "報酬を送信"
+              "sendButton": "報酬を送信",
+              "proveReward": "証明して報酬を送る"
             },
             "errors": {
               "enterUsername": "ユーザー名を入力してください",

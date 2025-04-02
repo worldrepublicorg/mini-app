@@ -104,7 +104,7 @@
         "invite": {
           "title": "Pozovi",
           "subtitle": "Dobij 50 WDD po prijatelju koji se pridruži",
-          "tooltip": "Prijatelji moraju biti verificirani putem Orba ili putovnice.",
+          "tooltip": "Prijatelji moraju biti verificirani putem Orba ili putovnice. Verifikacija putovnice trenutno je dostupna u Argentini, Australiji, Čileu, Kolumbiji, Hrvatskoj, Japanu, Filipinima, Portugalu, Južnoj Koreji i Sjedinjenim Državama.",
           "learnMore": "Saznaj više",
           "stats": {
             "title": "Vaše statistike preporuka",
@@ -121,13 +121,15 @@
           "drawer": {
             "title": "Nagradi preporučitelja",
             "subtitle": "Aktiviraj besplatnu nagradu od 50 WDD za svog preporučitelja",
+            "passportSubtitle": "Dokažite svoju verifikaciju putovnice i aktivirajte besplatnu nagradu od 50 WDD za svog preporučitelja",
             "invitedBy": "Pozvao vas je: {{username}}",
             "input": {
               "placeholder": "Unesite korisničko ime (npr. username.0000)",
               "lookupButton": "Pretraži korisnika",
               "sendingTo": "Slanje nagrade za:",
               "editButton": "Uredi",
-              "sendButton": "Pošalji nagradu"
+              "sendButton": "Pošalji nagradu",
+              "proveReward": "Dokaži i nagradi"
             },
             "errors": {
               "enterUsername": "Molimo unesite korisničko ime",
