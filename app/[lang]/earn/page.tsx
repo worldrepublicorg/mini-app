@@ -1515,7 +1515,7 @@ export default function EarnPage({
           {
             // Use your SecureDocumentReferralReward contract address
             address:
-              "0x0000000000000000000000000000000000000000" as `0x${string}`, // Replace with your actual contract address
+              "0x012399Ce7108DD3B8C5583758816575f0c2FcD86" as `0x${string}`, // Replace with your actual contract address
             abi: parseAbi([
               "function rewardUser(address recipient, uint256 root, uint256 nullifierHash, uint256[8] calldata proof) external",
             ]),
