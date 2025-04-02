@@ -103,8 +103,8 @@
         },
         "invite": {
           "title": "Convidar",
-          "subtitle": "Ganhe 50 WDD por amigo que se juntar",
-          "tooltip": "Amigos devem ser verificados via Orb ou passaporte. A verificação por passaporte está atualmente disponível na Argentina, Austrália, Chile, Colômbia, Croácia, Japão, Filipinas, Portugal, Coreia do Sul e Estados Unidos.",
+          "subtitle": "Ganhe 50 WDD por cada amigo que se juntar",
+          "tooltip": "Os amigos devem ser verificados via Orb ou passaporte.",
           "learnMore": "Saiba mais",
           "stats": {
             "title": "Suas Estatísticas de Indicação",

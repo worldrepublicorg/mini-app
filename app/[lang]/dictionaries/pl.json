@@ -99,12 +99,12 @@
           "tabTitle": "Oszczędności",
           "title": "Konto Oszczędnościowe",
           "subtitle": "Zarabiaj odsetki co sekundę",
-          "tooltip": "Podstawowa stopa 69% APY. Zbieraj i reinwestuj odsetki, aby osiągnąć blisko 100% efektywnego zwrotu rocznie. Wypłać w dowolnym momencie. Znajomi muszą być zweryfikowani przez Orb lub paszport. Weryfikacja paszportem jest obecnie dostępna w Argentynie, Australii, Chile, Kolumbii, Chorwacji, Japonii, na Filipinach, w Portugalii, Korei Południowej i Stanach Zjednoczonych."
+          "tooltip": "Podstawowa stopa 69% APY. Zbieraj i reinwestuj odsetki, aby osiągnąć blisko 100% efektywnego zwrotu rocznie. Wypłać w dowolnym momencie."
         },
         "invite": {
           "title": "Zaproś",
-          "subtitle": "Otrzymaj 50 WDD za każdego zaproszonego znajomego",
-          "tooltip": "Przyjaciele muszą być zweryfikowani przez Orb lub paszport.",
+          "subtitle": "Zdobądź 50 WDD za każdego znajomego, który dołączy",
+          "tooltip": "Znajomi muszą zostać zweryfikowani przez Orb lub paszport.",
           "learnMore": "Dowiedz się więcej",
           "stats": {
             "title": "Twoje Statystyki Polecania",

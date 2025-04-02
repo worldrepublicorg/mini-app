@@ -103,8 +103,8 @@
         },
         "invite": {
           "title": "Pozovi",
-          "subtitle": "Dobij 50 WDD po prijatelju koji se pridruži",
-          "tooltip": "Prijatelji moraju biti verificirani putem Orba ili putovnice. Verifikacija putovnice trenutno je dostupna u Argentini, Australiji, Čileu, Kolumbiji, Hrvatskoj, Japanu, Filipinima, Portugalu, Južnoj Koreji i Sjedinjenim Državama.",
+          "subtitle": "Dobij 50 WDD za svakog prijatelja koji se pridruži",
+          "tooltip": "Prijatelji moraju biti verificirani putem Orba ili putovnice.",
           "learnMore": "Saznaj više",
           "stats": {
             "title": "Vaše statistike preporuka",

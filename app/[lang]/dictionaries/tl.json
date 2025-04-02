@@ -102,10 +102,10 @@
           "tooltip": "69% APY base rate. Kunin at i-reinvest ang interes para makamit ang halos 100% effective returns taun-taon. Mag-withdraw kahit kailan."
         },
         "invite": {
-          "title": "Mag-invite",
-          "subtitle": "Kumuha ng 50 WDD bawat kaibigang sumali",
-          "tooltip": "Ang mga kaibigan ay dapat na-verify sa pamamagitan ng Orb o passport. Ang passport verification ay kasalukuyang available sa Argentina, Australia, Chile, Colombia, Croatia, Japan, Philippines, Portugal, South Korea, at United States.",
-          "learnMore": "Matuto pa",
+          "title": "Mag-imbita",
+          "subtitle": "Makakuha ng 50 WDD para sa bawat kaibigan na sasali",
+          "tooltip": "Ang mga kaibigan ay dapat na-verify sa pamamagitan ng Orb o pasaporte.",
+          "learnMore": "Matuto nang higit pa",
           "stats": {
             "title": "Mga Referral Stats Mo",
             "invites": "Mga tinanggap na imbitasyon",

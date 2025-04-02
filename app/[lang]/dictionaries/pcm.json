@@ -102,9 +102,9 @@
           "tooltip": "69% APY base rate. Collect and reinvest interest make you fit get close to 100% returns for year. You fit withdraw anytime."
         },
         "invite": {
-          "title": "Invite People",
-          "subtitle": "Collect 50 WDD for each person wey you bring",
-          "tooltip": "Friends must get verification through Orb or passport. Passport verification dey available now for Argentina, Australia, Chile, Colombia, Croatia, Japan, Philippines, Portugal, South Korea, and United States.",
+          "title": "Invite",
+          "subtitle": "Get 50 WDD for each friend wey join",
+          "tooltip": "Friends must verify through Orb or passport.",
           "learnMore": "Learn more",
           "stats": {
             "title": "Your Referral Stats",

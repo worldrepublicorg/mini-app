@@ -205,9 +205,9 @@
         },
         "invite": {
           "title": "Mag-imbita",
-          "subtitle": "Kumuha ng 50 WDD para sa bawat kaibigang sumali",
-          "tooltip": "Ang mga kaibigan ay dapat na-verify sa pamamagitan ng Orb o passport. Ang passport verification ay kasalukuyang available sa Argentina, Australia, Chile, Colombia, Croatia, Japan, Philippines, Portugal, South Korea, at United States.",
-          "learnMore": "Alamin pa",
+          "subtitle": "Makakuha ng 50 WDD para sa bawat kaibigan na sasali",
+          "tooltip": "Ang mga kaibigan ay dapat na-verify sa pamamagitan ng Orb o pasaporte.",
+          "learnMore": "Matuto nang higit pa",
           "stats": {
             "title": "Mga Stats ng Iyong Referral",
             "invites": "Tinanggap na mga imbitasyon",

@@ -103,8 +103,8 @@
         },
         "invite": {
           "title": "Einladen",
-          "subtitle": "Holen Sie 50 WDD pro Freund, der sich anschließt",
-          "tooltip": "Freunde müssen über Orb oder Reisepass verifiziert werden. Die Reisepassverifizierung ist derzeit in Argentinien, Australien, Chile, Kolumbien, Kroatien, Japan, Philippinen, Portugal, Südkorea und den Vereinigten Staaten verfügbar.",
+          "subtitle": "Erhalte 50 WDD pro Freund, der beitritt",
+          "tooltip": "Freunde müssen über Orb oder Reisepass verifiziert sein.",
           "learnMore": "Mehr erfahren",
           "stats": {
             "title": "Ihre Referral Stats",

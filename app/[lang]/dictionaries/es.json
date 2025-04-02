@@ -116,7 +116,7 @@
         "invite": {
           "title": "Invitar",
           "subtitle": "Obtén 50 WDD por cada amigo que se una",
-          "tooltip": "Los amigos deben estar verificados a través de Orb o pasaporte. La verificación por pasaporte está disponible actualmente en Argentina, Australia, Chile, Colombia, Croacia, Japón, Filipinas, Portugal, Corea del Sur y Estados Unidos.",
+          "tooltip": "Los amigos deben estar verificados a través de Orb o pasaporte.",
           "learnMore": "Más información",
           "stats": {
             "title": "Tus Estadísticas de Referidos",

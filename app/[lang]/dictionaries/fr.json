@@ -104,7 +104,7 @@
         "invite": {
           "title": "Inviter",
           "subtitle": "Recevez 50 WDD par ami qui rejoint",
-          "tooltip": "Les amis doivent être vérifiés via Orb ou passeport. La vérification par passeport est actuellement disponible en Argentine, Australie, Chili, Colombie, Croatie, Japon, Philippines, Portugal, Corée du Sud et aux États-Unis.",
+          "tooltip": "Les amis doivent être vérifiés via Orb ou passeport.",
           "learnMore": "En savoir plus",
           "stats": {
             "title": "Vos Statistiques de Parrainage",

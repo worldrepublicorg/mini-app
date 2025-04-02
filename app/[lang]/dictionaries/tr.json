@@ -103,8 +103,8 @@
         },
         "invite": {
           "title": "Davet Et",
-          "subtitle": "Katılan her arkadaş için 50 WDD kazanın",
-          "tooltip": "Arkadaşların Orb veya pasaport ile doğrulanmalıdır. Pasaport doğrulaması şu anda Arjantin, Avustralya, Şili, Kolombiya, Hırvatistan, Japonya, Filipinler, Portekiz, Güney Kore ve Amerika Birleşik Devletleri'nde mevcuttur.",
+          "subtitle": "Katılan her arkadaşın için 50 WDD kazan",
+          "tooltip": "Arkadaşlar Orb veya pasaport ile doğrulanmalıdır.",
           "learnMore": "Daha fazla bilgi",
           "stats": {
             "title": "Davet İstatistikleriniz",
