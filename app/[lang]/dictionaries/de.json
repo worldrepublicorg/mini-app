@@ -162,8 +162,8 @@
               }
             },
             "trigger": {
-              "title": "Auch verfügbar mit Freunden, die nur per Pass verifiziert sind!",
-              "badge": "NEU"
+              "titleText": "Jetzt auch nach Pass-verifizierten Freunden verfügbar!",
+              "titleDetails": "Einzelheiten"
             }
           }
         },

@@ -162,8 +162,8 @@
               }
             },
             "trigger": {
-              "title": "Juga tersedia dengan rakan yang disahkan dengan pasport sahaja!",
-              "badge": "BARU"
+              "titleText": "Kini juga tersedia selepas rakan-rakan yang disahkan pasport!",
+              "titleDetails": "Butiran"
             }
           }
         },

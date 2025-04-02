@@ -162,8 +162,8 @@
               }
             },
             "trigger": {
-              "title": "Available din para sa mga kaibigan na nabe-verify sa pamamagitan ng pasaporte lamang!",
-              "badge": "BAGO"
+              "titleText": "Ngayon ay available din pagkatapos ng mga kaibigan na na-verify sa pasaporte!",
+              "titleDetails": "Mga Detalye"
             }
           }
         },

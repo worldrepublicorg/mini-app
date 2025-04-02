@@ -162,8 +162,8 @@
               }
             },
             "trigger": {
-              "title": "Também disponível com amigos verificados apenas por passaporte!",
-              "badge": "NOVO"
+              "titleText": "Agora também disponível após amigos verificados por passaporte!",
+              "titleDetails": "Detalhes"
             }
           }
         },

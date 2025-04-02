@@ -162,8 +162,8 @@
               }
             },
             "trigger": {
-              "title": "也适用于仅通过护照验证的朋友！",
-              "badge": "新"
+              "titleText": "现在护照验证的朋友也可使用！",
+              "titleDetails": "详情"
             }
           }
         },

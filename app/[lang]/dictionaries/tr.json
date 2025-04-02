@@ -162,8 +162,8 @@
               }
             },
             "trigger": {
-              "title": "Sadece pasaport ile doğrulanmış arkadaşlarla da kullanılabilir!",
-              "badge": "YENİ"
+              "titleText": "Şimdi pasaport doğrulamalı arkadaşlardan sonra da kullanılabilir!",
+              "titleDetails": "Detaylar"
             }
           }
         },

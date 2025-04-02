@@ -162,8 +162,8 @@
               }
             },
             "trigger": {
-              "title": "Également disponible avec des amis vérifiés uniquement par passeport !",
-              "badge": "NOUVEAU"
+              "titleText": "Maintenant également disponible après vérification du passeport de vos amis !",
+              "titleDetails": "Détails"
             }
           }
         },

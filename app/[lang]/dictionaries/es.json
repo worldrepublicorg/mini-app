@@ -174,8 +174,8 @@
               }
             },
             "trigger": {
-              "title": "¡También disponible para amigos verificados solo por pasaporte!",
-              "badge": "NUEVO"
+              "titleText": "¡Ahora también disponible después de amigos verificados por pasaporte!",
+              "titleDetails": "Detalles"
             }
           }
         },

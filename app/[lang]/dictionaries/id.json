@@ -162,8 +162,8 @@
               }
             },
             "trigger": {
-              "title": "Juga tersedia dengan teman yang diverifikasi hanya melalui paspor!",
-              "badge": "BARU"
+              "titleText": "Sekarang juga tersedia setelah teman-teman terverifikasi paspor!",
+              "titleDetails": "Detail"
             }
           }
         },

@@ -162,8 +162,8 @@
               }
             },
             "trigger": {
-              "title": "Dostępne również z przyjaciółmi zweryfikowanymi tylko paszportem!",
-              "badge": "NOWE"
+              "titleText": "Teraz również dostępne po znajomych zweryfikowanych paszportem!",
+              "titleDetails": "Szczegóły"
             }
           }
         },

@@ -162,8 +162,8 @@
               }
             },
             "trigger": {
-              "title": "Također dostupno s prijateljima koji su potvrđeni samo putovnicom!",
-              "badge": "NOVO"
+              "titleText": "Sada dostupno i nakon prijatelja verificiranih putovnicom!",
+              "titleDetails": "Detalji"
             }
           }
         },

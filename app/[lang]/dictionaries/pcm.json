@@ -162,8 +162,8 @@
               }
             },
             "trigger": {
-              "title": "E still work for friends wey verify with passport only!",
-              "badge": "NEW"
+              "titleText": "Now e don also dey available afta friends wey passport verify!",
+              "titleDetails": "Details"
             }
           }
         },

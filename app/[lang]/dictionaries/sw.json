@@ -162,8 +162,8 @@
               }
             },
             "trigger": {
-              "title": "Pia inapatikana kwa marafiki waliothibitishwa kwa pasipoti pekee!",
-              "badge": "MPYA"
+              "titleText": "Sasa pia inapatikana baada ya marafiki waliothibitishwa kwa pasipoti!",
+              "titleDetails": "Maelezo zaidi"
             }
           }
         },

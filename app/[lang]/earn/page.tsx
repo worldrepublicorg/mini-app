@@ -1576,6 +1576,23 @@ export default function EarnPage({
     }
   };
 
+  const [isPassportBadgeVisible, setIsPassportBadgeVisible] = useState(true);
+
+  // Add useEffect to load badge state from localStorage
+  useEffect(() => {
+    const badgeState = localStorage.getItem("passportBadgeClosed");
+    if (badgeState === "true") {
+      setIsPassportBadgeVisible(false);
+    }
+  }, []);
+
+  // Function to handle closing the badge
+  const handleCloseBadge = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent triggering the drawer
+    setIsPassportBadgeVisible(false);
+    localStorage.setItem("passportBadgeClosed", "true");
+  };
+
   const renderContent = () => {
     switch (activeTab) {
       case "Basic income":
@@ -2564,8 +2581,8 @@ export default function EarnPage({
             )}
 
             <Drawer>
-              <DrawerTrigger className="w-full">
-                <div className="mt-4 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-transparent py-2 pr-4">
+              <DrawerTrigger className="fixed left-0 right-0 top-28 z-50 mx-auto w-full max-w-md px-6">
+                <div className="mt-2 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-gray-0 py-2 pr-4">
                   <div className="flex w-full items-center overflow-hidden">
                     <div className="mx-2 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full">
                       <svg
@@ -2580,16 +2597,42 @@ export default function EarnPage({
                     <Typography
                       as="h3"
                       variant={{ variant: "subtitle", level: 2 }}
-                      className="line-clamp-2 text-left font-display text-[15px] font-medium tracking-tight text-gray-900"
+                      className="text-left font-display text-[15px] font-medium tracking-tight text-gray-900"
                     >
-                      {dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
-                        ?.trigger?.title}
+                      {
+                        dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
+                          ?.trigger?.titleText
+                      }{" "}
+                      <span className="underline">
+                        {
+                          dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
+                            ?.trigger?.titleDetails
+                        }
+                      </span>
                     </Typography>
-                    <div className="ml-1 rounded-full bg-gray-200 px-1.5 py-0.5">
-                      <p className="font-sans text-[12px] font-medium leading-narrow tracking-normal text-gray-900">
-                        {dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
-                          ?.trigger?.badge}
-                      </p>
+                    <div className="ml-1 flex items-center">
+                      {isPassportBadgeVisible && (
+                        <div className="flex items-center rounded-full">
+                          <button
+                            onClick={handleCloseBadge}
+                            className="text-gray-400 focus:outline-none"
+                            aria-label="Close badge"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              className="h-5 w-5"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -2613,16 +2656,20 @@ export default function EarnPage({
                     variant={{ variant: "heading", level: 1 }}
                     className="text-center"
                   >
-                    {dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
-                      ?.title}
+                    {
+                      dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
+                        ?.title
+                    }
                   </Typography>
 
                   <Typography
                     variant={{ variant: "subtitle", level: 1 }}
                     className="mx-auto mt-4 text-center text-gray-500"
                   >
-                    {dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
-                      ?.subtitle}
+                    {
+                      dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
+                        ?.subtitle
+                    }
                   </Typography>
 
                   <div className="mt-6 w-full px-3 py-4">
@@ -2635,8 +2682,10 @@ export default function EarnPage({
                           variant={{ variant: "body", level: 3 }}
                           className="text-gray-600 mt-[3px]"
                         >
-                          {dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
-                            ?.features?.countries?.title}
+                          {
+                            dictionary?.pages?.earn?.tabs?.invite
+                              ?.passportDrawer?.features?.countries?.title
+                          }
                         </Typography>
                       </li>
 
@@ -2648,8 +2697,10 @@ export default function EarnPage({
                           variant={{ variant: "body", level: 3 }}
                           className="text-gray-600 mt-[3px]"
                         >
-                          {dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
-                            ?.features?.rewards?.title}
+                          {
+                            dictionary?.pages?.earn?.tabs?.invite
+                              ?.passportDrawer?.features?.rewards?.title
+                          }
                         </Typography>
                       </li>
                       <li className="flex items-start">
@@ -2660,8 +2711,10 @@ export default function EarnPage({
                           variant={{ variant: "body", level: 3 }}
                           className="text-gray-600 mt-[3px]"
                         >
-                          {dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
-                            ?.features?.basicIncome?.title}
+                          {
+                            dictionary?.pages?.earn?.tabs?.invite
+                              ?.passportDrawer?.features?.basicIncome?.title
+                          }
                         </Typography>
                       </li>
                     </ul>

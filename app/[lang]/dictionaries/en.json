@@ -162,9 +162,9 @@
               }
             },
             "trigger": {
-              "title": "Also available with friends verified by passport only!",
-              "badge": "NEW"
-            } 
+              "titleText": "Now also available after passport-verified friends!",
+              "titleDetails": "Details"
+            }
           }
         },
         "contribute": {
