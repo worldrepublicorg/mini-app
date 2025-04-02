@@ -248,6 +248,25 @@
           "share": {
             "title": "Sumali sa World Republic",
             "text": "Gamitin ang aking link ng imbitasyon para sumali sa World Republic at magkasamang kumita ng mga gantimpala!"
+          },
+          "passportDrawer": {
+            "title": "Programang Referral na Nabe-verify sa Pasaporte",
+            "subtitle": "Mga kaibigan na walang Orbs sa malapit? Imbitahin ang sinuman na may pasaporte at kumita ng 50 WDD",
+            "features": {
+              "countries": {
+                "title": "Ang pag-verify ng pasaporte ay kasalukuyang available sa Argentina, Australia, Chile, Colombia, Croatia, Japan, Philippines, Portugal, South Korea, at United States"
+              },
+              "rewards": {
+                "title": "Ang mga kaibigan ay nakakakuha ng WLD sa pag-verify ng kanilang pasaporte sa World App"
+              },
+              "basicIncome": {
+                "title": "Ang karagdagang basic income para sa mga taong na-verify sa pamamagitan ng pasaporte ay malapit nang dumating"
+              }
+            },
+            "trigger": {
+              "title": "Available din para sa mga kaibigan na nabe-verify sa pamamagitan ng pasaporte lamang!",
+              "badge": "BAGO"
+            }
           }
         }
       }

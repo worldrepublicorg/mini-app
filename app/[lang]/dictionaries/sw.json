@@ -144,8 +144,27 @@
             }
           },
           "share": {
-            "title": "Jiunge nami katika Jamhuri ya Dunia",
-            "text": "Tumia kiungo changu cha urafiki ili kujiunga na Jamhuri ya Dunia na kupata malipo pamoja!"
+            "title": "Jiunge na Jamhuri ya Dunia",
+            "text": "Tumia kiungo changu cha mwaliko kujiunga na Jamhuri ya Dunia na kupata zawadi pamoja!"
+          },
+          "passportDrawer": {
+            "title": "Programu ya Rufaa Iliyothibitishwa na Pasipoti",
+            "subtitle": "Marafiki wasio na Orbs karibu? Alika yeyote mwenye pasipoti na upate WDD 50",
+            "features": {
+              "countries": {
+                "title": "Uthibitishaji wa pasipoti kwa sasa unapatikana nchini Argentina, Australia, Chile, Colombia, Croatia, Japan, Philippines, Portugal, South Korea, na United States"
+              },
+              "rewards": {
+                "title": "Marafiki wanapokea WLD kwa kuthibitisha pasipoti zao katika Programu ya World"
+              },
+              "basicIncome": {
+                "title": "Mapato ya msingi ya ziada kwa watu waliothibitishwa kwa pasipoti yanakuja hivi karibuni"
+              }
+            },
+            "trigger": {
+              "title": "Pia inapatikana kwa marafiki waliothibitishwa kwa pasipoti pekee!",
+              "badge": "MPYA"
+            }
           }
         },
         "contribute": {
@@ -272,7 +291,7 @@
               "disasterRelief": "Je, mfuko wa haraka wa kimataifa unapaswa kuanzishwa kutoa misaada ya haraka kwa majanga makubwa ya asili kama vile matetemeko makubwa ya ardhi?",
               "aiWatermarking": "Je, sheria za kimataifa zinapaswa kuhitaji alama ya maji ya lazima ya maudhui yanayozalishwa na AI kupambana na habari potofu katika uchaguzi na vyombo vya habari?",
               "biotech": "Je, kuna hitaji la mfumo wa udhibiti wa kimataifa kwa bioteknolojia zinazoibuka ili kuhakikisha matumizi ya kimaadili na usalama?",
-              "spaceMilitarization": "Je, viongozi wa kimataifa wanapaswa kukubaliana kuhusu itifaki za kuzuia kujitengeza kwa anga na kuhifadhi kwa madhumuni ya amani?",
+              "spaceMilitarization": "Je, viongozi wa kimataifa wanapaswa kukubaliana kuhusu itifaki za kuzuia kwa anga na kuhifadhi kwa madhumuni ya amani?",
               "dataSovereignty": "Je, miongozo ya kimataifa inapaswa kutekelezwa kulinda data inayozalishwa duniani kote chini ya mfumo wa umoja wa uhuru wa kidijitali?",
               "fourDayWeek": "Je, unasaidia harakati inayoongezeka ya kimataifa kuelekea wiki za kazi za siku nne kama mfano wa kawaida wa ajira?",
               "nuclearSecurity": "Je, makubaliano ya kimataifa yanayofunga yanapaswa kuanzishwa kulinda vifaa vya nyuklia katika maeneo ya migogoro?",

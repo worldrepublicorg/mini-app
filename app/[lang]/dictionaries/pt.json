@@ -145,7 +145,26 @@
           },
           "share": {
             "title": "Junte-se à República Mundial",
-            "text": "Use meu link de convite para se juntar à República Mundial e ganhe recompensas juntos!"
+            "text": "Use meu link de convite para se juntar à República Mundial e ganhar recompensas juntos!"
+          },
+          "passportDrawer": {
+            "title": "Programa de Indicação Verificado por Passaporte",
+            "subtitle": "Amigos sem Orbs por perto? Convide qualquer pessoa com passaporte e ganhe 50 WDD",
+            "features": {
+              "countries": {
+                "title": "A verificação por passaporte está atualmente disponível na Argentina, Austrália, Chile, Colômbia, Croácia, Japão, Filipinas, Portugal, Coreia do Sul e Estados Unidos"
+              },
+              "rewards": {
+                "title": "Amigos recebem WLD ao verificar seu passaporte no World App"
+              },
+              "basicIncome": {
+                "title": "Renda básica extra para pessoas verificadas por passaporte chegará em breve"
+              }
+            },
+            "trigger": {
+              "title": "Também disponível com amigos verificados apenas por passaporte!",
+              "badge": "NOVO"
+            }
           }
         },
         "contribute": {

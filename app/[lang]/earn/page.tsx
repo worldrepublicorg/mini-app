@@ -2582,11 +2582,13 @@ export default function EarnPage({
                       variant={{ variant: "subtitle", level: 2 }}
                       className="line-clamp-2 text-left font-display text-[15px] font-medium tracking-tight text-gray-900"
                     >
-                      Also available with friends verified by passport only!
+                      {dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
+                        ?.trigger?.title}
                     </Typography>
                     <div className="ml-1 rounded-full bg-gray-200 px-1.5 py-0.5">
                       <p className="font-sans text-[12px] font-medium leading-narrow tracking-normal text-gray-900">
-                        NEW
+                        {dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
+                          ?.trigger?.badge}
                       </p>
                     </div>
                   </div>
@@ -2611,15 +2613,16 @@ export default function EarnPage({
                     variant={{ variant: "heading", level: 1 }}
                     className="text-center"
                   >
-                    Passport-Verified Referral Program
+                    {dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
+                      ?.title}
                   </Typography>
 
                   <Typography
                     variant={{ variant: "subtitle", level: 1 }}
                     className="mx-auto mt-4 text-center text-gray-500"
                   >
-                    Friends with no Orbs nearby? Invite anyone with a passport
-                    and earn 50 WDD
+                    {dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
+                      ?.subtitle}
                   </Typography>
 
                   <div className="mt-6 w-full px-3 py-4">
@@ -2632,10 +2635,8 @@ export default function EarnPage({
                           variant={{ variant: "body", level: 3 }}
                           className="text-gray-600 mt-[3px]"
                         >
-                          Passport-verification is currently available in
-                          Argentina, Australia, Chile, Colombia, Croatia, Japan,
-                          Philippines, Portugal, South Korea, and the United
-                          States
+                          {dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
+                            ?.features?.countries?.title}
                         </Typography>
                       </li>
 
@@ -2647,8 +2648,8 @@ export default function EarnPage({
                           variant={{ variant: "body", level: 3 }}
                           className="text-gray-600 mt-[3px]"
                         >
-                          Friends receive WLD for verifying their passport in
-                          World App
+                          {dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
+                            ?.features?.rewards?.title}
                         </Typography>
                       </li>
                       <li className="flex items-start">
@@ -2659,8 +2660,8 @@ export default function EarnPage({
                           variant={{ variant: "body", level: 3 }}
                           className="text-gray-600 mt-[3px]"
                         >
-                          Extra basic income for passport-verified people is
-                          coming soon
+                          {dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
+                            ?.features?.basicIncome?.title}
                         </Typography>
                       </li>
                     </ul>

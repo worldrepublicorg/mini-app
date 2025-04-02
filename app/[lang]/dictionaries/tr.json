@@ -145,7 +145,26 @@
           },
           "share": {
             "title": "Dünya Cumhuriyeti'ne Katılın",
-            "text": "Dünya Cumhuriyeti'ne katılmak için davet bağlantımı kullanın ve birlikte ödüller kazanın!"
+            "text": "Dünya Cumhuriyeti'ne katılmak ve birlikte ödüller kazanmak için davet linkimi kullanın!"
+          },
+          "passportDrawer": {
+            "title": "Pasaport Doğrulamalı Referans Programı",
+            "subtitle": "Yakında Orbs bulunmayan arkadaşlarınız mı var? Pasaportu olan herkesi davet edin ve 50 WDD kazanın",
+            "features": {
+              "countries": {
+                "title": "Pasaport doğrulaması şu anda Arjantin, Avustralya, Şili, Kolombiya, Hırvatistan, Japonya, Filipinler, Portekiz, Güney Kore ve Amerika Birleşik Devletleri'nde mevcuttur"
+              },
+              "rewards": {
+                "title": "Arkadaşlarınız, World uygulamasında pasaportlarını doğrulayarak WLD kazanır"
+              },
+              "basicIncome": {
+                "title": "Pasaport doğrulaması yapılmış kişiler için ek temel gelir yakında geliyor"
+              }
+            },
+            "trigger": {
+              "title": "Sadece pasaport ile doğrulanmış arkadaşlarla da kullanılabilir!",
+              "badge": "YENİ"
+            }
           }
         },
         "contribute": {

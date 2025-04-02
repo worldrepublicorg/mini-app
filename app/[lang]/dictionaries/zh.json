@@ -146,6 +146,25 @@
           "share": {
             "title": "加入世界共和国",
             "text": "使用我的邀请链接加入世界共和国，一起赚取奖励！"
+          },
+          "passportDrawer": {
+            "title": "护照验证推荐计划",
+            "subtitle": "周围没有Orbs的朋友？邀请任何持有护照的人并赚取50 WDD",
+            "features": {
+              "countries": {
+                "title": "护照验证目前可在阿根廷、澳大利亚、智利、哥伦比亚、克罗地亚、日本、菲律宾、葡萄牙、韩国和美国使用"
+              },
+              "rewards": {
+                "title": "朋友在World App中验证护照后可获得WLD"
+              },
+              "basicIncome": {
+                "title": "护照验证用户的额外基本收入即将推出"
+              }
+            },
+            "trigger": {
+              "title": "也适用于仅通过护照验证的朋友！",
+              "badge": "新"
+            }
           }
         },
         "contribute": {

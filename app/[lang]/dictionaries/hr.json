@@ -145,7 +145,26 @@
           },
           "share": {
             "title": "Pridružite se Svjetskoj Republici",
-            "text": "Koristite moj link pozivnice da se pridružite Svjetskoj Republici i zajedno zaradite nagrade!"
+            "text": "Koristite moju pozivnicu da se pridružite Svjetskoj Republici i zajedno zaradite nagrade!"
+          },
+          "passportDrawer": {
+            "title": "Program preporuka s potvrdom putovnice",
+            "subtitle": "Prijatelji bez Orbs u blizini? Pozovite bilo koga s putovnicom i zaradite 50 WDD",
+            "features": {
+              "countries": {
+                "title": "Potvrda putovnice trenutno je dostupna u Argentini, Australiji, Čileu, Kolumbiji, Hrvatskoj, Japanu, Filipinima, Portugalu, Južnoj Koreji i Sjedinjenim Državama"
+              },
+              "rewards": {
+                "title": "Prijatelji primaju WLD za potvrdu svoje putovnice u World aplikaciji"
+              },
+              "basicIncome": {
+                "title": "Dodatni osnovni dohodak za osobe s potvrđenom putovnicom uskoro stiže"
+              }
+            },
+            "trigger": {
+              "title": "Također dostupno s prijateljima koji su potvrđeni samo putovnicom!",
+              "badge": "NOVO"
+            }
           }
         },
         "contribute": {

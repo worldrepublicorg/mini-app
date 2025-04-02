@@ -144,8 +144,27 @@
             }
           },
           "share": {
-            "title": "Dołącz do Republiki Światowej",
-            "text": "Użyj mojego linku zaproszenia, aby dołączyć do Republiki Światowej i razem zdobywaj nagrody!"
+            "title": "Dołącz do Światowej Republiki",
+            "text": "Użyj mojego linku zapraszającego, aby dołączyć do Światowej Republiki i razem zdobywać nagrody!"
+          },
+          "passportDrawer": {
+            "title": "Program Poleceń Zweryfikowany Paszportem",
+            "subtitle": "Przyjaciele bez Orbs w pobliżu? Zaproś dowolną osobę z paszportem i zdobądź 50 WDD",
+            "features": {
+              "countries": {
+                "title": "Weryfikacja paszportowa jest obecnie dostępna w Argentynie, Australii, Chile, Kolumbii, Chorwacji, Japonii, Filipinach, Portugalii, Korei Południowej i Stanach Zjednoczonych"
+              },
+              "rewards": {
+                "title": "Przyjaciele otrzymują WLD za weryfikację swojego paszportu w aplikacji World"
+              },
+              "basicIncome": {
+                "title": "Dodatkowy dochód podstawowy dla osób zweryfikowanych paszportem wkrótce będzie dostępny"
+              }
+            },
+            "trigger": {
+              "title": "Dostępne również z przyjaciółmi zweryfikowanymi tylko paszportem!",
+              "badge": "NOWE"
+            }
           }
         },
         "contribute": {

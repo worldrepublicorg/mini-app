@@ -146,6 +146,25 @@
           "share": {
             "title": "Join me in the World Republic",
             "text": "Use my invite link to join the World Republic and earn rewards together!"
+          },
+          "passportDrawer": {
+            "title": "Passport-Verified Referral Program",
+            "subtitle": "Friends with no Orbs nearby? Invite anyone with a passport and earn 50 WDD",
+            "features": {
+              "countries": {
+                "title": "Passport-verification is currently available in Argentina, Australia, Chile, Colombia, Croatia, Japan, Philippines, Portugal, South Korea, and the United States"
+              },
+              "rewards": {
+                "title": "Friends receive WLD for verifying their passport in World App"
+              },
+              "basicIncome": {
+                "title": "Extra basic income for passport-verified people is coming soon"
+              }
+            },
+            "trigger": {
+              "title": "Also available with friends verified by passport only!",
+              "badge": "NEW"
+            } 
           }
         },
         "contribute": {

@@ -144,8 +144,27 @@
             }
           },
           "share": {
-            "title": "Rejoignez la République Mondiale",
+            "title": "Rejoignez-moi dans la République Mondiale",
             "text": "Utilisez mon lien d'invitation pour rejoindre la République Mondiale et gagner des récompenses ensemble !"
+          },
+          "passportDrawer": {
+            "title": "Programme de Parrainage Vérifié par Passeport",
+            "subtitle": "Des amis sans Orbs à proximité ? Invitez n'importe qui avec un passeport et gagnez 50 WDD",
+            "features": {
+              "countries": {
+                "title": "La vérification par passeport est actuellement disponible en Argentine, Australie, Chili, Colombie, Croatie, Japon, Philippines, Portugal, Corée du Sud et États-Unis"
+              },
+              "rewards": {
+                "title": "Les amis reçoivent des WLD en vérifiant leur passeport dans l'application World"
+              },
+              "basicIncome": {
+                "title": "Un revenu de base supplémentaire pour les personnes vérifiées par passeport arrive bientôt"
+              }
+            },
+            "trigger": {
+              "title": "Également disponible avec des amis vérifiés uniquement par passeport !",
+              "badge": "NOUVEAU"
+            }
           }
         },
         "contribute": {
