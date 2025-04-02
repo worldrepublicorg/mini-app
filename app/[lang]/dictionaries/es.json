@@ -116,7 +116,7 @@
         "invite": {
           "title": "Invitar",
           "subtitle": "Obtén 50 WDD por cada amigo que se una",
-          "tooltip": "Las recompensas requieren que los amigos estén verificados con Orb.",
+          "tooltip": "Los amigos deben estar verificados a través de Orb o pasaporte.",
           "learnMore": "Más información",
           "stats": {
             "title": "Tus Estadísticas de Referidos",

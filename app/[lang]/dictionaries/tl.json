@@ -104,7 +104,7 @@
         "invite": {
           "title": "Mag-invite",
           "subtitle": "Kumuha ng 50 WDD bawat kaibigang sumali",
-          "tooltip": "Kailangan na Orb-verified ang mga kaibigan para sa rewards.",
+          "tooltip": "Kailangan na-verify ang mga kaibigan sa pamamagitan ng Orb o passport.",
           "learnMore": "Matuto pa",
           "stats": {
             "title": "Mga Referral Stats Mo",

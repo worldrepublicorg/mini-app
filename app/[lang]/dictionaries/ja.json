@@ -104,7 +104,7 @@
         "invite": {
           "title": "招待",
           "subtitle": "友達が参加すると50 WDD獲得",
-          "tooltip": "報酬には友達のOrb認証が必要です。",
+          "tooltip": "友達はOrbまたはパスポートで認証を受ける必要があります。",
           "learnMore": "詳細を見る",
           "stats": {
             "title": "招待統計",

@@ -104,7 +104,7 @@
         "invite": {
           "title": "Pozovi",
           "subtitle": "Dobij 50 WDD po prijatelju koji se pridruži",
-          "tooltip": "Nagrade zahtijevaju Orb provjeru prijatelja.",
+          "tooltip": "Prijatelji moraju biti verificirani putem Orba ili putovnice.",
           "learnMore": "Saznaj više",
           "stats": {
             "title": "Vaše statistike preporuka",

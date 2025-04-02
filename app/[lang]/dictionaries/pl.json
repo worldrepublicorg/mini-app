@@ -104,7 +104,7 @@
         "invite": {
           "title": "Zaproś",
           "subtitle": "Otrzymaj 50 WDD za każdego zaproszonego znajomego",
-          "tooltip": "Nagrody wymagają weryfikacji Orb od znajomych.",
+          "tooltip": "Przyjaciele muszą być zweryfikowani przez Orb lub paszport.",
           "learnMore": "Dowiedz się więcej",
           "stats": {
             "title": "Twoje Statystyki Polecania",

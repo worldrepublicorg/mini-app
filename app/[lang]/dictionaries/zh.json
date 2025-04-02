@@ -104,7 +104,7 @@
         "invite": {
           "title": "邀请",
           "subtitle": "每邀请一位朋友加入获得50 WDD",
-          "tooltip": "奖励需要朋友完成 Orb 验证。",
+          "tooltip": "朋友必须通过Orb或护照完成验证。",
           "learnMore": "了解更多",
           "stats": {
             "title": "您的推荐统计",

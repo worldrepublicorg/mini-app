@@ -104,7 +104,7 @@
         "invite": {
           "title": "Davet Et",
           "subtitle": "Katılan her arkadaş için 50 WDD kazanın",
-          "tooltip": "Ödüller için arkadaşlarınızın Orb-doğrulanmış olması gerekir.",
+          "tooltip": "Arkadaşların Orb veya pasaport ile doğrulanmış olması gerekir.",
           "learnMore": "Daha fazla bilgi",
           "stats": {
             "title": "Davet İstatistikleriniz",

@@ -104,7 +104,7 @@
         "invite": {
           "title": "Jemputan",
           "subtitle": "Dapatkan 50 WDD untuk setiap rakan yang menyertai",
-          "tooltip": "Ganjaran memerlukan rakan-rakan disahkan oleh Orb.",
+          "tooltip": "Rakan perlu disahkan melalui Orb atau pasport.",
           "learnMore": "Ketahui lebih lanjut",
           "stats": {
             "title": "Statistik Rujukan Anda",

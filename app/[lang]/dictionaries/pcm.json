@@ -104,7 +104,7 @@
         "invite": {
           "title": "Invite People",
           "subtitle": "Collect 50 WDD for each person wey you bring",
-          "tooltip": "Your friends need to get Orb verification before you go see reward.",
+          "tooltip": "Friends must get verification from Orb or passport.",
           "learnMore": "Learn more",
           "stats": {
             "title": "Your Referral Stats",

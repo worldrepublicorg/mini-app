@@ -104,7 +104,7 @@
         "invite": {
           "title": "Invite",
           "subtitle": "Get 50 WDD per friend who joins",
-          "tooltip": "Rewards require friends to be Orb-verified.",
+          "tooltip": "Friends must be verified via Orb or passport.",
           "learnMore": "Learn more",
           "stats": {
             "title": "Your Referral Stats",

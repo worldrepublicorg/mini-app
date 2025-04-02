@@ -104,7 +104,7 @@
         "invite": {
           "title": "Einladen",
           "subtitle": "Holen Sie 50 WDD pro Freund, der sich anschließt",
-          "tooltip": "Belohnungen erfordern Orb-Verifizierung der Freunde.",
+          "tooltip": "Freunde müssen über Orb oder Reisepass verifiziert sein.",
           "learnMore": "Mehr erfahren",
           "stats": {
             "title": "Ihre Referral Stats",

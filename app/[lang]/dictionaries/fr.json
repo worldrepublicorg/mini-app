@@ -104,7 +104,7 @@
         "invite": {
           "title": "Inviter",
           "subtitle": "Recevez 50 WDD par ami qui rejoint",
-          "tooltip": "Les récompenses nécessitent que les amis soient vérifiés par Orb.",
+          "tooltip": "Les amis doivent être vérifiés via Orb ou passeport.",
           "learnMore": "En savoir plus",
           "stats": {
             "title": "Vos Statistiques de Parrainage",

@@ -104,7 +104,7 @@
         "invite": {
           "title": "초대",
           "subtitle": "친구 한 명당 50 WDD 획득",
-          "tooltip": "보상은 친구들의 Orb 인증이 필요합니다.",
+          "tooltip": "친구는 Orb 또는 여권을 통해 인증을 받아야 합니다.",
           "learnMore": "자세히 알아보기",
           "stats": {
             "title": "나의 추천 현황",

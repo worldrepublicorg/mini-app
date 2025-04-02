@@ -104,7 +104,7 @@
         "invite": {
           "title": "Undang",
           "subtitle": "Dapatkan 50 WDD untuk setiap teman yang bergabung",
-          "tooltip": "Hadiah memerlukan teman diverifikasi oleh Orb.",
+          "tooltip": "Teman harus diverifikasi melalui Orb atau paspor.",
           "learnMore": "Pelajari lebih lanjut",
           "stats": {
             "title": "Statistik Referral Anda",
