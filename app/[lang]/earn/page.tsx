@@ -11,6 +11,8 @@ import {
   PiTrendUpFill,
   PiUserCheckFill,
   PiNotePencilFill,
+  PiGlobeFill,
+  PiUsersFill,
 } from "react-icons/pi";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/Drawer";
 import { WalletAuth } from "@/components/WalletAuth";
@@ -2026,6 +2028,114 @@ export default function EarnPage({
       case "Invite":
         return (
           <div className="flex w-full flex-col items-center py-8">
+            <Drawer>
+              <DrawerTrigger className="w-full">
+                <div className="mt-4 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-transparent py-2 pr-4">
+                  <div className="flex w-full items-center overflow-hidden">
+                    <div className="ml-1.5 mr-3 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        className="text-blue-600 h-4 w-4"
+                      >
+                        <path d="M11 17h2v-6h-2v6Zm1-8q.425 0 .713-.288Q13 8.425 13 8t-.287-.713Q12.425 7 12 7t-.712.287Q11 7.575 11 8t.288.712Q11.575 9 12 9Zm0 13q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z" />
+                      </svg>
+                    </div>
+                    <Typography
+                      as="h3"
+                      variant={{ variant: "subtitle", level: 2 }}
+                      className="line-clamp-2 text-left font-display text-[15px] font-medium tracking-tight text-gray-900"
+                    >
+                      Now accepting passport verification!
+                    </Typography>
+                    <div className="ml-1 rounded-full bg-gray-200 px-1.5 py-0.5">
+                      <p className="font-sans text-[12px] font-medium leading-narrow tracking-normal text-gray-900">
+                        NEW
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </DrawerTrigger>
+
+              <DrawerContent>
+                <div className="flex flex-col items-center p-6 pt-10">
+                  <div className="bg-blue-50 mb-10 flex h-24 w-24 items-center justify-center rounded-full">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="text-blue-600 h-10 w-10"
+                    >
+                      <path d="M11 17h2v-6h-2v6Zm1-8q.425 0 .713-.288Q13 8.425 13 8t-.287-.713Q12.425 7 12 7t-.712.287Q11 7.575 11 8t.288.712Q11.575 9 12 9Zm0 13q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z" />
+                    </svg>
+                  </div>
+
+                  <Typography
+                    as="h2"
+                    variant={{ variant: "heading", level: 1 }}
+                    className="text-center"
+                  >
+                    Passport Verification Details
+                  </Typography>
+
+                  <Typography
+                    variant={{ variant: "subtitle", level: 1 }}
+                    className="mx-auto mt-4 text-center text-gray-500"
+                  >
+                    Verify with passport to earn additional rewards
+                  </Typography>
+
+                  <div className="mt-6 w-full px-3 py-4">
+                    <ul className="space-y-3">
+                      <li className="flex items-start">
+                        <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                          <PiGlobeFill className="h-3.5 w-3.5 text-gray-400" />
+                        </div>
+                        <Typography
+                          variant={{ variant: "body", level: 3 }}
+                          className="text-gray-600 mt-[3px]"
+                        >
+                          Available in Argentina, Australia, Chile, Colombia,
+                          Croatia, Japan, Philippines, Portugal, South Korea,
+                          and the United States
+                        </Typography>
+                      </li>
+
+                      <li className="flex items-start">
+                        <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                          <PiUsersFill className="h-3.5 w-3.5 text-gray-400" />
+                        </div>
+                        <Typography
+                          variant={{ variant: "body", level: 3 }}
+                          className="text-gray-600 mt-[3px]"
+                        >
+                          Friends also receive WLD rewards for verifying their
+                          Passport through World App
+                        </Typography>
+                      </li>
+
+                      <li className="flex items-start">
+                        <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                          <PiTrendUpFill className="h-3.5 w-3.5 text-gray-400" />
+                        </div>
+                        <Typography
+                          variant={{ variant: "body", level: 3 }}
+                          className="text-gray-600 mt-[3px]"
+                        >
+                          When your friends verify with either Orb or Passport,
+                          you'll earn 50 WDD for each verified friend
+                        </Typography>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <Button fullWidth className="mt-6" variant="primary">
+                    Get Started
+                  </Button>
+                </div>
+              </DrawerContent>
+            </Drawer>
             <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
               <PiUserPlusFill className="h-10 w-10 text-gray-400" />
             </div>
