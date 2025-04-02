@@ -49,14 +49,16 @@ export default function EarnPage({
     claimableAmountPlus,
     canReward,
     rewardCount,
+    secureDocumentRewardCount,
     hasRewarded,
-    newContractCanReward,
+    secureDocumentCanReward,
     fetchBalance,
     fetchBasicIncomeInfo,
     fetchBasicIncomePlusInfo,
     fetchCanReward,
-    fetchNewContractCanReward,
+    fetchSecureDocumentCanReward,
     fetchRewardCount,
+    fetchSecureDocumentRewardCount,
     fetchHasRewarded,
     setBasicIncomeActivated,
     setBasicIncomePlusActivated,
@@ -66,6 +68,9 @@ export default function EarnPage({
 
   // Replace the dictionary state and effect with useTranslations hook
   const dictionary = useTranslations(lang);
+
+  // Calculate total reward count
+  const totalRewardCount = rewardCount + secureDocumentRewardCount;
 
   // Add a new loading state for claimable amount
   const [isClaimableLoading, setIsClaimableLoading] = useState<boolean>(true);
@@ -1308,9 +1313,16 @@ export default function EarnPage({
     if (walletAddress) {
       fetchCanReward();
       fetchRewardCount();
+      fetchSecureDocumentRewardCount();
       fetchHasRewarded();
     }
-  }, [walletAddress, fetchCanReward, fetchRewardCount, fetchHasRewarded]);
+  }, [
+    walletAddress,
+    fetchCanReward,
+    fetchRewardCount,
+    fetchSecureDocumentRewardCount,
+    fetchHasRewarded,
+  ]);
 
   // Add the state that we're lifting from StakeWithPermitForm
   const [stakedBalance, setStakedBalance] = useState<string>("0");
@@ -1503,7 +1515,7 @@ export default function EarnPage({
           {
             // Use your SecureDocumentReferralReward contract address
             address:
-              "0x374D5A06Ad10401C9bF72b61744bE0C0270aF062" as `0x${string}`, // Replace with your actual contract address
+              "0x0000000000000000000000000000000000000000" as `0x${string}`, // Replace with your actual contract address
             abi: parseAbi([
               "function rewardUser(address recipient, uint256 root, uint256 nullifierHash, uint256[8] calldata proof) external",
             ]),
@@ -1545,7 +1557,7 @@ export default function EarnPage({
         });
 
         // After successful reward transaction, update the canReward status
-        fetchNewContractCanReward();
+        fetchSecureDocumentCanReward();
       }
     } catch (error: any) {
       console.error("[WorldID] Error in reward transaction:", error);
@@ -2069,7 +2081,7 @@ export default function EarnPage({
                     variant={{ variant: "heading", level: 3 }}
                     className="text-gray-900"
                   >
-                    {rewardCount}
+                    {totalRewardCount}
                   </Typography>
                   <Typography
                     variant={{ variant: "body", level: 3 }}
@@ -2083,7 +2095,9 @@ export default function EarnPage({
                     variant={{ variant: "heading", level: 3 }}
                     className="text-gray-900"
                   >
-                    {rewardCount > 0 ? `${rewardCount * 50} WDD` : "0 WDD"}
+                    {totalRewardCount > 0
+                      ? `${totalRewardCount * 50} WDD`
+                      : "0 WDD"}
                   </Typography>
                   <Typography
                     variant={{ variant: "body", level: 3 }}
@@ -2310,7 +2324,7 @@ export default function EarnPage({
               </Drawer>
             )}
 
-            {!canReward && !hasRewarded && newContractCanReward && (
+            {!canReward && !hasRewarded && secureDocumentCanReward && (
               <Drawer>
                 <DrawerTrigger asChild>
                   <Button variant="secondary" fullWidth className="mt-4">
