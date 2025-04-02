@@ -405,7 +405,7 @@
         },
         "referralCodes": {
           "question": "Comment fonctionnent les codes de parrainage ?",
-          "answer": "En tant que citoyen de la République Mondiale, vous pouvez gagner des récompenses grâce à notre programme de parrainage. Partagez votre lien de parrainage unique avec vos amis, et vous recevrez 50 WDD pour chaque personne qui rejoint et active le Revenu de Base Plus. Vous n'avez pas reçu votre récompense ? Votre ami devra peut-être la déclencher manuellement en sélectionnant l'option 'Récompenser le Parrain' dans sa section de parrainage."
+          "answer": "En tant que citoyen de la République Mondiale, vous pouvez gagner des récompenses grâce à notre programme de parrainage. Partagez votre lien de parrainage unique avec vos amis et vous recevrez 50 WDD pour chaque personne qui rejoint et se vérifie via Orb ou passeport. Vous n'avez pas reçu votre récompense ? Votre ami devra peut-être la déclencher manuellement en sélectionnant l'option 'Récompenser le parrain' dans sa section de parrainage."
         },
         "drachmaValue": {
           "question": "D'où vient la valeur de la drachme ?",

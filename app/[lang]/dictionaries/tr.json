@@ -404,8 +404,8 @@
           "answer": "Tasarruf Hesabı, WDD tokenlerini yatırmanıza ve %69 yıllık faiz kazanmanıza olanak tanır. Kazanılan faizi sürekli yeniden yatırım yaparak, kullanıcılar yıllık yaklaşık %100 etkin getiri elde edebilir ve zaman içinde WDD büyümelerini maksimize edebilir. Faiz sürekli birikir ve her zaman çekilebilir veya yeniden yatırılabilir."
         },
         "referralCodes": {
-          "question": "Davet kodları nasıl çalışır?",
-          "answer": "Dünya Cumhuriyeti vatandaşı olarak, davet programımız aracılığıyla ödüller kazanabilirsiniz. Arkadaşlarınızla benzersiz davet bağlantınızı paylaşın ve katılan ve Temel Gelir Plus'ı aktifleştiren her kişi için 50 WDD kazanın. Ödülünüzü almadınız mı? Arkadaşınızın davet bölümündeki 'Davet Edeni Ödüllendir' seçeneğini seçerek manuel olarak tetiklemesi gerekebilir."
+          "question": "Referans kodları nasıl çalışır?",
+          "answer": "Dünya Cumhuriyeti vatandaşı olarak, referans programımız aracılığıyla ödüller kazanabilirsiniz. Benzersiz referans bağlantınızı arkadaşlarınızla paylaşın ve Orb veya pasaport yoluyla doğrulanan her kişi için 50 WDD alın. Ödülünüzü almadınız mı? Arkadaşınızın, referans bölümündeki 'Referans Vereni Ödüllendir' seçeneğini seçerek bunu manuel olarak tetiklemesi gerekebilir."
         },
         "drachmaValue": {
           "question": "Drahmi değerini nereden alıyor?",
