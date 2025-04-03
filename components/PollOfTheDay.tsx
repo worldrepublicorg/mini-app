@@ -19,12 +19,12 @@ const polls: Poll[] = [
     url: "https://vote.one/GRi1NYOX",
   },
   {
-    key: "aiWatermarking",
-    url: "https://vote.one/Jbra7uUp",
+    key: "eWasteRegulation",
+    url: "https://vote.one/Iud64Gpc",
   },
   {
-    key: "disasterRelief",
-    url: "https://vote.one/kKlY77pD",
+    key: "oceanHealth",
+    url: "https://vote.one/pCmbA7kH",
   },
   {
     key: "techTransparency",
