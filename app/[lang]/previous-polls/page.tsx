@@ -50,6 +50,7 @@ const pollKeys = [
 ];
 
 const pollUrls = {
+  foodSecurity: "https://vote.one/GRi1NYOX",
   quakeCodes: "https://vote.one/soAE4aHn",
   techTransparency: "https://vote.one/aOXsaVpq",
   disasterRelief: "https://vote.one/kKlY77pD",
