@@ -22,6 +22,7 @@ const dictionaries = {
   pcm: () => import("./pcm.json").then((module) => module.default),
   tl: () => import("./tl.json").then((module) => module.default),
   tr: () => import("./tr.json").then((module) => module.default),
+  pl: () => import("./pl.json").then((module) => module.default),
 };
 
 export const getDictionary = async (locale: string) => {
