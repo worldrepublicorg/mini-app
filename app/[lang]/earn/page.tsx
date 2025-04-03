@@ -1269,22 +1269,27 @@ export default function EarnPage({
     };
   }, [walletAddress]);
 
-  const [hasSeenIncreasedPrizes, setHasSeenIncreasedPrizes] = useState(false);
+  const [hasSeenTestingTask, setHasSeenTestingTask] = useState(false);
+  const [hasClickedTestingCard, setHasClickedTestingCard] = useState(false);
 
   // Update the localStorage key to be specific to the prize increase
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const hasSeenNewPrizes =
-        localStorage.getItem("hasSeenIncreasedPrizes") === "true";
-      setHasSeenIncreasedPrizes(hasSeenNewPrizes);
+      const hasSeenNewTask =
+        localStorage.getItem("hasSeenTestingTask") === "true";
+      setHasSeenTestingTask(hasSeenNewTask);
+
+      const hasClickedCard =
+        localStorage.getItem("hasClickedTestingCard") === "true";
+      setHasClickedTestingCard(hasClickedCard);
     }
   }, []);
 
   // Update localStorage when the Contribute tab is active
   useEffect(() => {
     if (activeTab === "Contribute" && typeof window !== "undefined") {
-      localStorage.setItem("hasSeenIncreasedPrizes", "true");
-      setHasSeenIncreasedPrizes(true);
+      localStorage.setItem("hasSeenTestingTask", "true");
+      setHasSeenTestingTask(true);
     }
   }, [activeTab]);
 
@@ -1722,9 +1727,87 @@ export default function EarnPage({
             </Typography>
 
             <div className="w-full">
+              <div className="w-full">
+                <a
+                  href="https://t.me/worldrepubliccommunity/59988"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group mb-4 flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 transition-all hover:border-gray-300 hover:bg-gray-50"
+                  onClick={() => {
+                    localStorage.setItem("hasClickedTestingCard", "true");
+                    setHasClickedTestingCard(true);
+                  }}
+                >
+                  <div className="mb-3 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Typography
+                        as="h3"
+                        variant={{ variant: "subtitle", level: 2 }}
+                        className="line-clamp-1"
+                      >
+                        {
+                          dictionary?.pages?.earn?.tabs?.contribute?.contests
+                            ?.testing?.title
+                        }
+                      </Typography>
+                      {!hasClickedTestingCard && (
+                        <div className="h-2 w-2 rounded-full bg-error-800 opacity-65"></div>
+                      )}
+                    </div>
+                    <div className="rounded-full bg-gray-100 px-2.5 py-1">
+                      <Typography
+                        variant={{ variant: "body", level: 3 }}
+                        className="text-gray-400"
+                      >
+                        {
+                          dictionary?.pages?.earn?.tabs?.contribute?.contests
+                            ?.oneOff
+                        }
+                      </Typography>
+                    </div>
+                  </div>
+
+                  <Typography
+                    as="p"
+                    variant={{ variant: "body", level: 3 }}
+                    className="mb-4 text-gray-500"
+                  >
+                    {
+                      dictionary?.pages?.earn?.tabs?.contribute?.contests
+                        ?.testing?.description
+                    }
+                  </Typography>
+
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className="rounded-full bg-gray-900 px-2.5 py-1">
+                        <Typography
+                          variant={{ variant: "body", level: 3 }}
+                          className="text-gray-0"
+                        >
+                          20 WDD
+                        </Typography>
+                      </div>
+                      <Typography
+                        variant={{ variant: "body", level: 3 }}
+                        className="text-gray-400"
+                      >
+                        {
+                          dictionary?.pages?.earn?.tabs?.contribute?.contests
+                            ?.limited
+                        }
+                      </Typography>
+                    </div>
+                    <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5 group-hover:bg-gray-200">
+                      <BiLinkExternal className="size-[14px] text-gray-400" />
+                    </div>
+                  </div>
+                </a>
+              </div>
+
               <Link
                 href={`/${lang}/earn/contribute/x-contest`}
-                className="group mb-4 flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 transition-all hover:border-gray-300 hover:bg-gray-50"
+                className="group mb-4 mt-8 flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 transition-all hover:border-gray-300 hover:bg-gray-50"
               >
                 <div className="mb-3 flex items-center justify-between">
                   <Typography
@@ -1852,43 +1935,6 @@ export default function EarnPage({
                   </div>
                 </div>
               </Link>
-            </div>
-
-            <div className="mt-8 w-full">
-              <a
-                href="https://t.me/worldrepubliccommunity"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border border-gray-200 p-4 transition-all hover:border-gray-300 hover:bg-gray-50"
-              >
-                <div className="flex items-center gap-3">
-                  <div>
-                    <Typography
-                      as="h3"
-                      variant={{ variant: "subtitle", level: 2 }}
-                      className="mb-1.5 line-clamp-1"
-                    >
-                      {
-                        dictionary?.pages?.earn?.tabs?.contribute?.earlyAccess
-                          ?.title
-                      }
-                    </Typography>
-                    <Typography
-                      as="p"
-                      variant={{ variant: "body", level: 3 }}
-                      className="text-gray-500"
-                    >
-                      {
-                        dictionary?.pages?.earn?.tabs?.contribute?.earlyAccess
-                          ?.description
-                      }
-                    </Typography>
-                  </div>
-                </div>
-                <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5 group-hover:bg-gray-200">
-                  <BiLinkExternal className="size-[14px] text-gray-400" />
-                </div>
-              </a>
             </div>
           </div>
         );
@@ -2248,7 +2294,7 @@ export default function EarnPage({
           tabIndicators={{
             "Basic income": false,
             Savings: false,
-            Contribute: !hasSeenIncreasedPrizes,
+            Contribute: !hasSeenTestingTask,
             Invite: false,
           }}
         />

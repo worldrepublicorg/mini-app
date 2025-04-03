@@ -207,7 +207,13 @@
                 "weekOf": "Week of",
                 "votes": "votes"
               }
-            }
+            },
+            "testing": {
+              "title": "New Feature Testing",
+              "description": "Open to members verified with passport but not by an Orb."
+            },
+            "oneOff": "One-off",
+            "limited": "50 spots"
           },
           "earlyAccess": {
             "title": "Early Access Program",
