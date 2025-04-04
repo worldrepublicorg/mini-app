@@ -2581,38 +2581,38 @@ export default function EarnPage({
               </Drawer>
             )}
 
-            <Drawer>
-              <DrawerTrigger className="fixed left-0 right-0 top-28 z-50 mx-auto w-full max-w-md px-6">
-                <div className="mt-2 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-gray-0 py-2 pr-4">
-                  <div className="flex w-full items-center overflow-hidden">
-                    <div className="mx-2 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="h-5 w-5 text-gray-900"
+            {isPassportBadgeVisible && (
+              <Drawer>
+                <DrawerTrigger className="fixed left-0 right-0 top-28 z-50 mx-auto w-full max-w-md px-6">
+                  <div className="mt-2 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-gray-0 py-2 pr-4">
+                    <div className="flex w-full items-center overflow-hidden">
+                      <div className="mx-2 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          className="h-5 w-5 text-gray-900"
+                        >
+                          <path d="M11 17h2v-6h-2v6Zm1-8q.425 0 .713-.288Q13 8.425 13 8t-.287-.713Q12.425 7 12 7t-.712.287Q11 7.575 11 8t.288.712Q11.575 9 12 9Zm0 13q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z" />
+                        </svg>
+                      </div>
+                      <Typography
+                        as="h3"
+                        variant={{ variant: "subtitle", level: 2 }}
+                        className="text-left font-display text-[15px] font-medium tracking-tight text-gray-900"
                       >
-                        <path d="M11 17h2v-6h-2v6Zm1-8q.425 0 .713-.288Q13 8.425 13 8t-.287-.713Q12.425 7 12 7t-.712.287Q11 7.575 11 8t.288.712Q11.575 9 12 9Zm0 13q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z" />
-                      </svg>
-                    </div>
-                    <Typography
-                      as="h3"
-                      variant={{ variant: "subtitle", level: 2 }}
-                      className="text-left font-display text-[15px] font-medium tracking-tight text-gray-900"
-                    >
-                      {
-                        dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
-                          ?.trigger?.titleText
-                      }{" "}
-                      <span className="underline">
                         {
                           dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
-                            ?.trigger?.titleDetails
-                        }
-                      </span>
-                    </Typography>
-                    <div className="ml-1 flex items-center">
-                      {isPassportBadgeVisible && (
+                            ?.trigger?.titleText
+                        }{" "}
+                        <span className="underline">
+                          {
+                            dictionary?.pages?.earn?.tabs?.invite
+                              ?.passportDrawer?.trigger?.titleDetails
+                          }
+                        </span>
+                      </Typography>
+                      <div className="ml-1 flex items-center">
                         <div className="flex items-center rounded-full">
                           <button
                             onClick={handleCloseBadge}
@@ -2633,146 +2633,146 @@ export default function EarnPage({
                             </svg>
                           </button>
                         </div>
-                      )}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </DrawerTrigger>
+                </DrawerTrigger>
 
-              <DrawerContent>
-                <div className="flex flex-col items-center p-6 pt-10">
-                  <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
-                    <PiIdentificationCardFill className="h-10 w-10 text-gray-400" />
-                  </div>
+                <DrawerContent>
+                  <div className="flex flex-col items-center p-6 pt-10">
+                    <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+                      <PiIdentificationCardFill className="h-10 w-10 text-gray-400" />
+                    </div>
 
-                  <Typography
-                    as="h2"
-                    variant={{ variant: "heading", level: 1 }}
-                    className="text-center"
-                  >
-                    {
-                      dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
-                        ?.title
-                    }
-                  </Typography>
-
-                  <Typography
-                    variant={{ variant: "subtitle", level: 1 }}
-                    className="mx-auto mt-4 text-center text-gray-500"
-                  >
-                    {
-                      dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
-                        ?.subtitle
-                    }
-                  </Typography>
-
-                  <div className="mt-4 w-full px-3 py-4">
-                    <ul className="space-y-3">
-                      <li className="flex items-start">
-                        <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
-                          <PiGlobeFill className="h-3.5 w-3.5 text-gray-400" />
-                        </div>
-                        <Typography
-                          variant={{ variant: "body", level: 3 }}
-                          className="text-gray-600 mt-[3px]"
-                        >
-                          {
-                            dictionary?.pages?.earn?.tabs?.invite
-                              ?.passportDrawer?.features?.countries?.title
-                          }
-                        </Typography>
-                      </li>
-
-                      <li className="flex items-start">
-                        <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
-                          <PiCoinFill className="h-3.5 w-3.5 text-gray-400" />
-                        </div>
-                        <Typography
-                          variant={{ variant: "body", level: 3 }}
-                          className="text-gray-600 mt-[3px]"
-                        >
-                          {
-                            dictionary?.pages?.earn?.tabs?.invite
-                              ?.passportDrawer?.features?.rewards?.title
-                          }
-                        </Typography>
-                      </li>
-                      <li className="flex items-start">
-                        <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
-                          <PiTrendUpFill className="h-3.5 w-3.5 text-gray-400" />
-                        </div>
-                        <Typography
-                          variant={{ variant: "body", level: 3 }}
-                          className="text-gray-600 mt-[3px]"
-                        >
-                          {
-                            dictionary?.pages?.earn?.tabs?.invite
-                              ?.passportDrawer?.features?.basicIncome?.title
-                          }
-                        </Typography>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className="relative w-full">
-                    <Button
-                      onClick={async () => {
-                        if (!username) {
-                          showToast(
-                            dictionary?.pages?.earn?.tabs?.invite?.actions
-                              ?.connectWallet,
-                            "error"
-                          );
-                          loadCurrentUsernameCallback();
-                          return;
-                        }
-
-                        const shareUrl = `https://worldcoin.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=%2F%3Fcode%3D${username}`;
-
-                        // Check if Web Share API is supported
-                        if (navigator.share) {
-                          try {
-                            await navigator.share({
-                              title:
-                                dictionary?.pages?.earn?.tabs?.invite?.share
-                                  ?.title,
-                              text: dictionary?.pages?.earn?.tabs?.invite?.share
-                                ?.text,
-                              url: shareUrl,
-                            });
-                          } catch (error) {
-                            // User cancelled or share failed - fallback to clipboard
-                            if (
-                              error instanceof Error &&
-                              error.name !== "AbortError"
-                            ) {
-                              await navigator.clipboard.writeText(shareUrl);
-                              showToast(
-                                dictionary?.pages?.earn?.tabs?.invite?.actions
-                                  ?.copied,
-                                "success"
-                              );
-                            }
-                          }
-                        } else {
-                          // Fallback for browsers that don't support Web Share API
-                          await navigator.clipboard.writeText(shareUrl);
-                          showToast(
-                            dictionary?.pages?.earn?.tabs?.invite?.actions
-                              ?.copied,
-                            "success"
-                          );
-                        }
-                      }}
-                      fullWidth
-                      className="mt-6"
+                    <Typography
+                      as="h2"
+                      variant={{ variant: "heading", level: 1 }}
+                      className="text-center"
                     >
-                      {dictionary?.pages?.earn?.tabs?.invite?.actions?.share}
-                    </Button>
+                      {
+                        dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
+                          ?.title
+                      }
+                    </Typography>
+
+                    <Typography
+                      variant={{ variant: "subtitle", level: 1 }}
+                      className="mx-auto mt-4 text-center text-gray-500"
+                    >
+                      {
+                        dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
+                          ?.subtitle
+                      }
+                    </Typography>
+
+                    <div className="mt-4 w-full px-3 py-4">
+                      <ul className="space-y-3">
+                        <li className="flex items-start">
+                          <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                            <PiGlobeFill className="h-3.5 w-3.5 text-gray-400" />
+                          </div>
+                          <Typography
+                            variant={{ variant: "body", level: 3 }}
+                            className="text-gray-600 mt-[3px]"
+                          >
+                            {
+                              dictionary?.pages?.earn?.tabs?.invite
+                                ?.passportDrawer?.features?.countries?.title
+                            }
+                          </Typography>
+                        </li>
+
+                        <li className="flex items-start">
+                          <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                            <PiCoinFill className="h-3.5 w-3.5 text-gray-400" />
+                          </div>
+                          <Typography
+                            variant={{ variant: "body", level: 3 }}
+                            className="text-gray-600 mt-[3px]"
+                          >
+                            {
+                              dictionary?.pages?.earn?.tabs?.invite
+                                ?.passportDrawer?.features?.rewards?.title
+                            }
+                          </Typography>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                            <PiTrendUpFill className="h-3.5 w-3.5 text-gray-400" />
+                          </div>
+                          <Typography
+                            variant={{ variant: "body", level: 3 }}
+                            className="text-gray-600 mt-[3px]"
+                          >
+                            {
+                              dictionary?.pages?.earn?.tabs?.invite
+                                ?.passportDrawer?.features?.basicIncome?.title
+                            }
+                          </Typography>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="relative w-full">
+                      <Button
+                        onClick={async () => {
+                          if (!username) {
+                            showToast(
+                              dictionary?.pages?.earn?.tabs?.invite?.actions
+                                ?.connectWallet,
+                              "error"
+                            );
+                            loadCurrentUsernameCallback();
+                            return;
+                          }
+
+                          const shareUrl = `https://worldcoin.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=%2F%3Fcode%3D${username}`;
+
+                          // Check if Web Share API is supported
+                          if (navigator.share) {
+                            try {
+                              await navigator.share({
+                                title:
+                                  dictionary?.pages?.earn?.tabs?.invite?.share
+                                    ?.title,
+                                text: dictionary?.pages?.earn?.tabs?.invite
+                                  ?.share?.text,
+                                url: shareUrl,
+                              });
+                            } catch (error) {
+                              // User cancelled or share failed - fallback to clipboard
+                              if (
+                                error instanceof Error &&
+                                error.name !== "AbortError"
+                              ) {
+                                await navigator.clipboard.writeText(shareUrl);
+                                showToast(
+                                  dictionary?.pages?.earn?.tabs?.invite?.actions
+                                    ?.copied,
+                                  "success"
+                                );
+                              }
+                            }
+                          } else {
+                            // Fallback for browsers that don't support Web Share API
+                            await navigator.clipboard.writeText(shareUrl);
+                            showToast(
+                              dictionary?.pages?.earn?.tabs?.invite?.actions
+                                ?.copied,
+                              "success"
+                            );
+                          }
+                        }}
+                        fullWidth
+                        className="mt-6"
+                      >
+                        {dictionary?.pages?.earn?.tabs?.invite?.actions?.share}
+                      </Button>
+                    </div>
                   </div>
-                </div>
-              </DrawerContent>
-            </Drawer>
+                </DrawerContent>
+              </Drawer>
+            )}
           </div>
         );
       default:
