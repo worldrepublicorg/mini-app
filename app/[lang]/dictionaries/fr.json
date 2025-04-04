@@ -162,11 +162,11 @@
             },
             "pollContest": {
               "title": "Concours de Sondages",
-              "weeklyTitle": "Concours de Sondages Hebdomadaire",
-              "description": "Recueillez l'avis de la communauté et gagnez",
+              "weeklyTitle": "Concours Hebdomadaire de Sondages",
+              "description": "Recueillez les avis de la communauté et gagnez",
               "prizes": {
                 "title": "Prix",
-                "viewWinners": "Voir les anciens gagnants",
+                "viewWinners": "Voir les gagnants précédents",
                 "wdd": "WDD"
               },
               "howTo": {
@@ -184,7 +184,7 @@
                     "number": "3",
                     "text": "Partagez votre sondage dans notre",
                     "link": {
-                      "text": "canal Telegram des Concours de Sondages",
+                      "text": "canal Telegram du Concours de Sondages",
                       "url": "https://t.me/worldrepubliccommunity/32368"
                     }
                   }
@@ -207,7 +207,13 @@
                 "weekOf": "Semaine du",
                 "votes": "votes"
               }
-            }
+            },
+            "testing": {
+              "title": "Test de Nouvelles Fonctionnalités",
+              "description": "Ouvert aux membres vérifiés par passeport mais pas par Orb."
+            },
+            "oneOff": "Unique",
+            "limited": "50 places"
           },
           "earlyAccess": {
             "title": "Programme d'Accès Anticipé",

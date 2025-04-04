@@ -163,10 +163,10 @@
             "pollContest": {
               "title": "투표 콘테스트",
               "weeklyTitle": "주간 투표 콘테스트",
-              "description": "커뮤니티 의견을 수집하고 보상받기",
+              "description": "커뮤니티 피드백을 수집하고 상금을 획득",
               "prizes": {
                 "title": "상금",
-                "viewWinners": "지난 우승자 보기",
+                "viewWinners": "이전 우승자 보기",
                 "wdd": "WDD"
               },
               "howTo": {
@@ -174,15 +174,15 @@
                 "steps": {
                   "step1": {
                     "number": "1",
-                    "text": "월드 리퍼블릭이나 글로벌 거버넌스와 관련된 투표 만들기"
+                    "text": "세계 공화국이나 글로벌 거버넌스와 관련된 투표 만들기"
                   },
                   "step2": {
                     "number": "2",
-                    "text": "인증된 사용자만 투표할 수 있도록 설정하기"
+                    "text": "인증된 사용자만 투표할 수 있도록 설정"
                   },
                   "step3": {
                     "number": "3",
-                    "text": "우리의",
+                    "text": "투표를",
                     "link": {
                       "text": "투표 콘테스트 텔레그램 채널",
                       "url": "https://t.me/worldrepubliccommunity/32368"
@@ -193,21 +193,27 @@
               "rules": {
                 "title": "콘테스트 규칙",
                 "list": {
-                  "rule1": "해당 주에 시작된 투표만 참여 가능",
-                  "rule2": "총 투표 수에 따라 우승자 선정",
-                  "rule3": "매주 일요일 오후 11시 59분(UTC) 종료"
+                  "rule1": "당주 시작된 투표만 참여 가능",
+                  "rule2": "총 투표수에 따라 우승자 선정",
+                  "rule3": "콘테스트는 매주 일요일 23:59 UTC까지"
                 }
               },
               "cta": {
                 "create": "투표 만들기",
-                "submit": "투표 제출하기"
+                "submit": "투표 제출"
               },
               "winners": {
                 "title": "콘테스트 우승자",
-                "weekOf": "해당 주",
-                "votes": "투표"
+                "weekOf": "주",
+                "votes": "표"
               }
-            }
+            },
+            "testing": {
+              "title": "새로운 기능 테스트",
+              "description": "여권으로 인증되었지만 Orb로 인증되지 않은 회원 대상."
+            },
+            "oneOff": "일회성",
+            "limited": "50자리 한정"
           },
           "earlyAccess": {
             "title": "얼리 액세스 프로그램",

@@ -163,14 +163,14 @@
             "pollContest": {
               "title": "Shindano la Kura",
               "weeklyTitle": "Shindano la Kura la Wiki",
-              "description": "Pata maoni ya jamii na pata malipo",
+              "description": "Kusanya maoni ya jamii na kushinda zawadi",
               "prizes": {
-                "title": "Tuzo",
-                "viewWinners": "Tazama washindi wa awali",
+                "title": "Zawadi",
+                "viewWinners": "Angalia washindi wa awali",
                 "wdd": "WDD"
               },
               "howTo": {
-                "title": "Inavyofanya kazi",
+                "title": "Jinsi ya Kushiriki",
                 "steps": {
                   "step1": {
                     "number": "1",
@@ -178,36 +178,42 @@
                   },
                   "step2": {
                     "number": "2",
-                    "text": "Iweke ili tu watu waliohakikiwa wapige kura"
+                    "text": "Iwekeze ili watumiaji waliohakikiwa tu wapate kupiga kura"
                   },
                   "step3": {
                     "number": "3",
-                    "text": "Shiriki kura yako katika",
+                    "text": "Shiriki kura yako kwenye",
                     "link": {
-                      "text": "Kituo cha Shindano la Kura cha Telegram",
+                      "text": "Kituo cha Telegram cha Shindano la Kura",
                       "url": "https://t.me/worldrepubliccommunity/32368"
                     }
                   }
                 }
               },
               "rules": {
-                "title": "Sheria za shindano",
+                "title": "Sheria za Shindano",
                 "list": {
-                  "rule1": "Tu kura zilizoanzishwa katika wiki ya sasa zinaweza kushiriki",
+                  "rule1": "Kura zilizoanza wiki hii tu ndizo zinazostahili",
                   "rule2": "Washindi huchaguliwa kulingana na jumla ya kura",
-                  "rule3": "Shindano linamalizika kila Jumapili saa 11:59 PM UTC"
+                  "rule3": "Shindano linamalizika kila Jumapili saa 23:59 UTC"
                 }
               },
               "cta": {
-                "create": "Unda Kura Yako",
-                "submit": "Wasilisha Kura Yako"
+                "create": "Unda Kura",
+                "submit": "Wasilisha Kura"
               },
               "winners": {
                 "title": "Washindi wa Shindano",
                 "weekOf": "Wiki ya",
                 "votes": "kura"
               }
-            }
+            },
+            "testing": {
+              "title": "Kujaribia Kipengele Kipya",
+              "description": "Wazi kwa wanachama waliohakikiwa na pasipoti lakini si kupitia Orb"
+            },
+            "oneOff": "Mara moja",
+            "limited": "Nafasi 50"
           },
           "earlyAccess": {
             "title": "Programu ya Ufikiaji wa Mapema",

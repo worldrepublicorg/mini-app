@@ -161,53 +161,59 @@
               "description": "Kumpulkan umpan balik komunitas dan dapatkan hadiah"
             },
             "pollContest": {
-              "title": "Kontes Polling",
-              "weeklyTitle": "Kontes Polling Mingguan",
-              "description": "Kumpulkan umpan balik komunitas dan dapatkan hadiah",
+              "title": "Kontes Jajak Pendapat",
+              "weeklyTitle": "Kontes Jajak Pendapat Mingguan",
+              "description": "Kumpulkan umpan balik komunitas dan menangkan hadiah",
               "prizes": {
                 "title": "Hadiah",
                 "viewWinners": "Lihat pemenang sebelumnya",
                 "wdd": "WDD"
               },
               "howTo": {
-                "title": "Cara kerjanya",
+                "title": "Cara Berpartisipasi",
                 "steps": {
                   "step1": {
                     "number": "1",
-                    "text": "Buat polling terkait Republik Dunia atau tata kelola global secara umum"
+                    "text": "Buat jajak pendapat terkait Republik Dunia atau tata kelola global secara umum"
                   },
                   "step2": {
                     "number": "2",
-                    "text": "Atur agar hanya manusia terverifikasi yang dapat memberikan suara"
+                    "text": "Atur agar hanya pengguna terverifikasi yang dapat memilih"
                   },
                   "step3": {
                     "number": "3",
-                    "text": "Bagikan polling Anda di",
+                    "text": "Bagikan jajak pendapat Anda di",
                     "link": {
-                      "text": "Saluran Telegram Kontes Polling",
+                      "text": "saluran Telegram Kontes Jajak Pendapat",
                       "url": "https://t.me/worldrepubliccommunity/32368"
                     }
                   }
                 }
               },
               "rules": {
-                "title": "Aturan kontes",
+                "title": "Aturan Kontes",
                 "list": {
-                  "rule1": "Hanya polling yang dimulai pada minggu ini yang memenuhi syarat",
+                  "rule1": "Hanya jajak pendapat yang dimulai minggu ini yang berhak berpartisipasi",
                   "rule2": "Pemenang dipilih berdasarkan total suara",
-                  "rule3": "Kontes berakhir setiap hari Minggu pukul 23:59 UTC"
+                  "rule3": "Kontes berakhir setiap Minggu pukul 23:59 UTC"
                 }
               },
               "cta": {
-                "create": "Buat Polling Anda",
-                "submit": "Kirim Polling Anda"
+                "create": "Buat Jajak Pendapat",
+                "submit": "Kirim Jajak Pendapat"
               },
               "winners": {
                 "title": "Pemenang Kontes",
                 "weekOf": "Minggu",
                 "votes": "suara"
               }
-            }
+            },
+            "testing": {
+              "title": "Pengujian Fitur Baru",
+              "description": "Terbuka untuk anggota yang terverifikasi dengan paspor tetapi tidak oleh Orb."
+            },
+            "oneOff": "Satu kali",
+            "limited": "50 tempat"
           },
           "earlyAccess": {
             "title": "Program Akses Awal",

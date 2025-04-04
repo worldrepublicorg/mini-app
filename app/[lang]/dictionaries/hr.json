@@ -161,16 +161,16 @@
               "description": "Prikupi povratne informacije zajednice i zaradi"
             },
             "pollContest": {
-              "title": "Natječaj anketa",
-              "weeklyTitle": "Tjedni natječaj anketa",
-              "description": "Prikupite povratne informacije zajednice i zaradite",
+              "title": "Natjecanje u Anketama",
+              "weeklyTitle": "Tjedno Natjecanje u Anketama",
+              "description": "Prikupljajte povratne informacije od zajednice i osvajajte nagrade",
               "prizes": {
                 "title": "Nagrade",
-                "viewWinners": "Pogledaj prethodne pobjednike",
+                "viewWinners": "Pogledajte prethodne pobjednike",
                 "wdd": "WDD"
               },
               "howTo": {
-                "title": "Kako funkcionira",
+                "title": "Kako Sudjelovati",
                 "steps": {
                   "step1": {
                     "number": "1",
@@ -178,36 +178,42 @@
                   },
                   "step2": {
                     "number": "2",
-                    "text": "Postavite je tako da samo verificirani ljudi mogu glasati"
+                    "text": "Postavite je tako da samo verificirani korisnici mogu glasovati"
                   },
                   "step3": {
                     "number": "3",
                     "text": "Podijelite svoju anketu u našem",
                     "link": {
-                      "text": "Telegram kanalu za natječaj anketa",
+                      "text": "Telegram kanalu za Natjecanje u Anketama",
                       "url": "https://t.me/worldrepubliccommunity/32368"
                     }
                   }
                 }
               },
               "rules": {
-                "title": "Pravila natječaja",
+                "title": "Pravila Natjecanja",
                 "list": {
-                  "rule1": "Samo ankete započete u trenutnom tjednu su prihvatljive",
-                  "rule2": "Pobjednici se biraju na temelju ukupnog broja glasova",
-                  "rule3": "Natječaj završava svake nedjelje u 23:59 UTC"
+                  "rule1": "Samo ankete pokrenute u trenutnom tjednu su prihvatljive",
+                  "rule2": "Pobjednici se biraju prema ukupnom broju glasova",
+                  "rule3": "Natjecanje završava svake nedjelje u 23:59 UTC"
                 }
               },
               "cta": {
-                "create": "Kreiraj svoju anketu",
-                "submit": "Predaj svoju anketu"
+                "create": "Kreiraj Anketu",
+                "submit": "Pošalji Anketu"
               },
               "winners": {
-                "title": "Pobjednici natječaja",
-                "weekOf": "Tjedan",
+                "title": "Pobjednici Natjecanja",
+                "weekOf": "Tjedan od",
                 "votes": "glasova"
               }
-            }
+            },
+            "testing": {
+              "title": "Testiranje Nove Značajke",
+              "description": "Otvoreno za članove verificirane putovnicom, ali ne kroz Orb"
+            },
+            "oneOff": "Jednokratno",
+            "limited": "50 mjesta"
           },
           "earlyAccess": {
             "title": "Program ranog pristupa",

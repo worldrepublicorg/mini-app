@@ -161,16 +161,16 @@
               "description": "Mangalap ng community feedback at kumita"
             },
             "pollContest": {
-              "title": "Poll Contest",
-              "weeklyTitle": "Weekly Poll Contest",
-              "description": "Mangalap ng community feedback at kumita",
+              "title": "Paligsahan sa Botohan",
+              "weeklyTitle": "Pang-araw-araw na Paligsahan sa Botohan",
+              "description": "Mangolekta ng feedback mula sa komunidad at manalo ng mga premyo",
               "prizes": {
                 "title": "Mga Premyo",
-                "viewWinners": "Tingnan ang mga nakaraang nanalo",
+                "viewWinners": "Tingnan ang mga nakaraang nagwagi",
                 "wdd": "WDD"
               },
               "howTo": {
-                "title": "Paano ito gumagana",
+                "title": "Paano Sumali",
                 "steps": {
                   "step1": {
                     "number": "1",
@@ -178,36 +178,42 @@
                   },
                   "step2": {
                     "number": "2",
-                    "text": "I-setup ito para sa mga verified na tao lang ang pwedeng bumoto"
+                    "text": "I-set up ito para sa mga verified na tao lamang ang makakaboto"
                   },
                   "step3": {
                     "number": "3",
-                    "text": "Ibahagi ang iyong poll sa aming",
+                    "text": "Ibahagi ang iyong botohan sa aming",
                     "link": {
-                      "text": "Poll Contest Telegram channel",
+                      "text": "Paligsahan sa Botohan Telegram Channel",
                       "url": "https://t.me/worldrepubliccommunity/32368"
                     }
                   }
                 }
               },
               "rules": {
-                "title": "Mga patakaran ng contest",
+                "title": "Mga Patakaran ng Paligsahan",
                 "list": {
-                  "rule1": "Ang mga poll lang na sinimulan sa kasalukuyang linggo ang eligible",
-                  "rule2": "Ang mga nanalo ay pinipili batay sa kabuuang boto",
-                  "rule3": "Nagtatapos ang contest tuwing Linggo ng 11:59 PM UTC"
+                  "rule1": "Ang mga botohan na sinimulan sa kasalukuyang linggo lamang ang maaaring sumali",
+                  "rule2": "Ang mga nagwagi ay pinipili batay sa kabuuang boto",
+                  "rule3": "Nagtatapos ang paligsahan tuwing Linggo sa 23:59 UTC"
                 }
               },
               "cta": {
-                "create": "Gumawa ng Iyong Poll",
-                "submit": "I-submit ang Iyong Poll"
+                "create": "Gumawa ng Botohan",
+                "submit": "Ipadala ang Botohan"
               },
               "winners": {
-                "title": "Mga Nanalo sa Contest",
+                "title": "Mga Nagwagi sa Paligsahan",
                 "weekOf": "Linggo ng",
-                "votes": "mga boto"
+                "votes": "boto"
               }
-            }
+            },
+            "testing": {
+              "title": "Pagsubok ng Bagong Feature",
+              "description": "Bukas sa mga miyembrong na-verify ng passport ngunit hindi sa pamamagitan ng Orb"
+            },
+            "oneOff": "Isang beses lang",
+            "limited": "50 slots"
           },
           "earlyAccess": {
             "title": "Early Access Program",

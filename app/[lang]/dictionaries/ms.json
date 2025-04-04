@@ -163,14 +163,14 @@
             "pollContest": {
               "title": "Pertandingan Undian",
               "weeklyTitle": "Pertandingan Undian Mingguan",
-              "description": "Kumpul maklum balas komuniti dan perolehi",
+              "description": "Kumpul maklum balas komuniti dan menangi hadiah",
               "prizes": {
                 "title": "Hadiah",
-                "viewWinners": "Lihat pemenang terdahulu",
+                "viewWinners": "Lihat pemenang sebelumnya",
                 "wdd": "WDD"
               },
               "howTo": {
-                "title": "Cara ia berfungsi",
+                "title": "Cara Menyertai",
                 "steps": {
                   "step1": {
                     "number": "1",
@@ -178,36 +178,42 @@
                   },
                   "step2": {
                     "number": "2",
-                    "text": "Sediakan supaya hanya manusia yang disahkan boleh mengundi"
+                    "text": "Tetapkan supaya hanya pengguna yang disahkan boleh mengundi"
                   },
                   "step3": {
                     "number": "3",
                     "text": "Kongsi undian anda dalam",
                     "link": {
-                      "text": "Saluran Telegram Pertandingan Undian",
+                      "text": "Saluran Telegram Pertandingan Undian kami",
                       "url": "https://t.me/worldrepubliccommunity/32368"
                     }
                   }
                 }
               },
               "rules": {
-                "title": "Peraturan pertandingan",
+                "title": "Peraturan Pertandingan",
                 "list": {
                   "rule1": "Hanya undian yang dimulakan pada minggu semasa layak",
-                  "rule2": "Pemenang dipilih berdasarkan jumlah undian",
-                  "rule3": "Pertandingan berakhir setiap Ahad pada 11:59 PM UTC"
+                  "rule2": "Pemenang dipilih berdasarkan jumlah undi",
+                  "rule3": "Pertandingan berakhir setiap Ahad pada 23:59 UTC"
                 }
               },
               "cta": {
-                "create": "Cipta Undian Anda",
-                "submit": "Hantar Undian Anda"
+                "create": "Buat Undian",
+                "submit": "Hantar Undian"
               },
               "winners": {
                 "title": "Pemenang Pertandingan",
                 "weekOf": "Minggu",
-                "votes": "undian"
+                "votes": "undi"
               }
-            }
+            },
+            "testing": {
+              "title": "Ujian Ciri Baharu",
+              "description": "Terbuka untuk ahli yang disahkan dengan pasport tetapi tidak melalui Orb"
+            },
+            "oneOff": "Sekali sahaja",
+            "limited": "50 tempat"
           },
           "earlyAccess": {
             "title": "Program Akses Awal",

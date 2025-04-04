@@ -163,51 +163,57 @@
             "pollContest": {
               "title": "Poll Competition",
               "weeklyTitle": "Weekly Poll Competition",
-              "description": "Ask people wetin dem think, earn money",
+              "description": "Gather community feedback and win prizes",
               "prizes": {
                 "title": "Prizes",
-                "viewWinners": "See people wey don win before",
+                "viewWinners": "See previous winners",
                 "wdd": "WDD"
               },
               "howTo": {
-                "title": "How e dey work",
+                "title": "How to Enter",
                 "steps": {
                   "step1": {
                     "number": "1",
-                    "text": "Create poll about World Republic or how to govern de world"
+                    "text": "Create poll about World Republic or global governance in general"
                   },
                   "step2": {
                     "number": "2",
-                    "text": "Make only verified humans fit vote"
+                    "text": "Set am make only verified people fit vote"
                   },
                   "step3": {
                     "number": "3",
                     "text": "Share your poll for our",
                     "link": {
-                      "text": "Poll Competition Telegram channel",
+                      "text": "Poll Competition Telegram Channel",
                       "url": "https://t.me/worldrepubliccommunity/32368"
                     }
                   }
                 }
               },
               "rules": {
-                "title": "Competition rules",
+                "title": "Competition Rules",
                 "list": {
-                  "rule1": "Na only polls wey start dis week fit enter",
-                  "rule2": "De person wey get most votes na im go win",
-                  "rule3": "Competition dey end every Sunday by 11:59 PM UTC"
+                  "rule1": "Only polls wey start for this week dey qualify",
+                  "rule2": "Winners dey choose based on total votes",
+                  "rule3": "Competition dey end every Sunday by 23:59 UTC"
                 }
               },
               "cta": {
-                "create": "Create Your Poll",
-                "submit": "Submit Your Poll"
+                "create": "Create Poll",
+                "submit": "Submit Poll"
               },
               "winners": {
-                "title": "People Wey Win",
-                "weekOf": "For week of",
+                "title": "Competition Winners",
+                "weekOf": "Week of",
                 "votes": "votes"
               }
-            }
+            },
+            "testing": {
+              "title": "New Feature Testing",
+              "description": "Open to members verified with passport but not through Orb"
+            },
+            "oneOff": "One time",
+            "limited": "50 slots"
           },
           "earlyAccess": {
             "title": "Early Access Program",

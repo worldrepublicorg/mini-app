@@ -219,7 +219,13 @@
                 "weekOf": "Semana del",
                 "votes": "votos"
               }
-            }
+            },
+            "testing": {
+              "title": "Prueba de Nuevas Funciones",
+              "description": "Abierto a miembros verificados con pasaporte pero no por Orb."
+            },
+            "oneOff": "Única vez",
+            "limited": "50 plazas"
           },
           "earlyAccess": {
             "title": "Programa de Acceso Anticipado",
