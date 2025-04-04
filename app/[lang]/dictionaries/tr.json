@@ -184,14 +184,14 @@
             "pollContest": {
               "title": "Anket Yarışması",
               "weeklyTitle": "Haftalık Anket Yarışması",
-              "description": "Topluluk geri bildirimi toplayın ve kazanın",
+              "description": "Topluluk geri bildirimlerini toplayın ve ödüller kazanın",
               "prizes": {
                 "title": "Ödüller",
-                "viewWinners": "Geçmiş kazananları görüntüle",
+                "viewWinners": "Önceki kazananları görüntüle",
                 "wdd": "WDD"
               },
               "howTo": {
-                "title": "Nasıl çalışır",
+                "title": "Nasıl Katılınır",
                 "steps": {
                   "step1": {
                     "number": "1",
@@ -199,36 +199,42 @@
                   },
                   "step2": {
                     "number": "2",
-                    "text": "Sadece doğrulanmış insanların oy kullanabilmesi için ayarlayın"
+                    "text": "Sadece doğrulanmış kişilerin oy kullanabilmesi için ayarlayın"
                   },
                   "step3": {
                     "number": "3",
-                    "text": "Anketinizi bizim",
+                    "text": "Anketinizi",
                     "link": {
-                      "text": "Anket Yarışması Telegram kanalımızda",
+                      "text": "Anket Yarışması Telegram Kanalımızda",
                       "url": "https://t.me/worldrepubliccommunity/32368"
                     }
                   }
                 }
               },
               "rules": {
-                "title": "Yarışma kuralları",
+                "title": "Yarışma Kuralları",
                 "list": {
-                  "rule1": "Sadece mevcut haftada başlatılan anketler uygun",
-                  "rule2": "Kazananlar toplam oya göre seçilir",
-                  "rule3": "Yarışma her Pazar UTC 23:59'da sona erer"
+                  "rule1": "Sadece mevcut haftada başlatılan anketler uygun olacaktır",
+                  "rule2": "Kazananlar toplam oy sayısına göre seçilir",
+                  "rule3": "Yarışma her Pazar 23:59 UTC'de sona erer"
                 }
               },
               "cta": {
-                "create": "Anketinizi Oluşturun",
-                "submit": "Anketinizi Gönderin"
+                "create": "Anket Oluştur",
+                "submit": "Anket Gönder"
               },
               "winners": {
                 "title": "Yarışma Kazananları",
-                "weekOf": "Hafta",
+                "weekOf": "Haftası",
                 "votes": "oy"
               }
-            }
+            },
+            "testing": {
+              "title": "Yeni Özellik Testi",
+              "description": "Orb üzerinden değil, pasaport ile doğrulanmış üyeler için açık"
+            },
+            "oneOff": "Tek seferlik",
+            "limited": "50 kişilik"
           },
           "earlyAccess": {
             "title": "Erken Erişim Programı",
@@ -287,6 +293,7 @@
             "title": "Önceki Anketler",
             "backToGovern": "Yönet'e Dön",
             "polls": {
+              "digitalInclusion": "Dijital uçurumun kapatılması ve dünya çapında dijital teknolojilere eşit erişimin sağlanması için küresel bir girişim olmalı mı?",
               "techTransparency": "Küresel teknoloji şirketlerinin kamu güvenini korumak için şeffaf karar verme politikalarını benimsemesi zorunlu olmalı mı?",
               "disasterRelief": "Büyük depremler gibi yıkıcı doğal afetler için acil yardım sağlamak üzere küresel bir hızlı müdahale fonu kurulmalı mı?",
               "aiWatermarking": "Seçimlerde ve medyada yanlış bilgilendirmeyle mücadele etmek için küresel düzenlemeler AI tarafından oluşturulan içeriğin zorunlu filigranlanmasını gerektirmeli mi?",

@@ -182,12 +182,12 @@
               "description": "Gemeinschaftsfeedback sammeln und verdienen"
             },
             "pollContest": {
-              "title": "Umfrage Contest",
-              "weeklyTitle": "Wöchentliche Umfrage Contest",
+              "title": "Umfrage-Wettbewerb",
+              "weeklyTitle": "Wöchentlicher Umfrage-Wettbewerb",
               "description": "Gemeinschaftsfeedback sammeln und verdienen",
               "prizes": {
                 "title": "Preise",
-                "viewWinners": "Vorherige Gewinner anzeigen",
+                "viewWinners": "Frühere Gewinner anzeigen",
                 "wdd": "WDD"
               },
               "howTo": {
@@ -199,13 +199,13 @@
                   },
                   "step2": {
                     "number": "2",
-                    "text": "Es so einrichten, dass nur verifizierte Menschen abstimmen können"
+                    "text": "Richten Sie sie so ein, dass nur verifizierte Menschen abstimmen können"
                   },
                   "step3": {
                     "number": "3",
-                    "text": "Ihre Umfrage in unserem",
+                    "text": "Teilen Sie Ihre Umfrage in unserem",
                     "link": {
-                      "text": "Umfrage Contest Telegram Channel",
+                      "text": "Umfrage-Wettbewerb Telegram-Kanal",
                       "url": "https://t.me/worldrepubliccommunity/32368"
                     }
                   }
@@ -214,21 +214,27 @@
               "rules": {
                 "title": "Wettbewerbsregeln",
                 "list": {
-                  "rule1": "Nur Umfragen, die in der aktuellen Woche gestartet wurden, sind eligibel",
-                  "rule2": "Gewinner werden basierend auf der Gesamtabstimmung ausgewählt",
-                  "rule3": "Wettbewerb endet jeden Sonntag um 11:59 PM UTC"
+                  "rule1": "Nur Umfragen, die in der aktuellen Woche gestartet wurden, sind teilnahmeberechtigt",
+                  "rule2": "Gewinner werden basierend auf der Gesamtzahl der Stimmen ausgewählt",
+                  "rule3": "Der Wettbewerb endet jeden Sonntag um 23:59 UTC"
                 }
               },
               "cta": {
-                "create": "Ihre Umfrage erstellen",
-                "submit": "Ihre Umfrage einreichen"
+                "create": "Umfrage erstellen",
+                "submit": "Umfrage einreichen"
               },
               "winners": {
                 "title": "Wettbewerbsgewinner",
-                "weekOf": "Woche von",
+                "weekOf": "Woche vom",
                 "votes": "Stimmen"
               }
-            }
+            },
+            "testing": {
+              "title": "Test Neuer Funktionen",
+              "description": "Offen für Mitglieder mit Passverifizierung, aber nicht durch Orb."
+            },
+            "oneOff": "Einmalig",
+            "limited": "50 Plätze"
           },
           "earlyAccess": {
             "title": "Early Access Program",
@@ -287,6 +293,7 @@
             "title": "Vorherige Umfragen",
             "backToGovern": "Zurück zu Regieren",
             "polls": {
+              "digitalInclusion": "Sollte es eine globale Initiative geben, um die digitale Kluft zu überbrücken und weltweit einen gleichberechtigten Zugang zu digitalen Technologien zu gewährleisten?",
               "eWasteRegulation": "Sollte es einen globalen regulatorischen Rahmen geben, um Elektroschrott zu verwalten und seine Umweltauswirkungen zu mindern?",
               "techTransparency": "Sollten globale Technologieunternehmen verpflichtet werden, transparente Entscheidungsfindungspolitiken einzuführen, um das öffentliche Vertrauen zu schützen?",
               "disasterRelief": "Sollte ein globaler Schnellreaktionsfonds eingerichtet werden, um sofortige Hilfe bei verheerenden Naturkatastrophen wie großen Erdbeben zu leisten?",

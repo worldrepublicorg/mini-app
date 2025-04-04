@@ -27,8 +27,8 @@ const polls: Poll[] = [
     url: "https://vote.one/pCmbA7kH",
   },
   {
-    key: "techTransparency",
-    url: "https://vote.one/aOXsaVpq",
+    key: "digitalInclusion",
+    url: "https://vote.one/YXOAzpOO",
   },
 ];
 

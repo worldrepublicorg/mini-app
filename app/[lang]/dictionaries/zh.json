@@ -179,27 +179,27 @@
             },
             "poll": {
               "title": "投票竞赛",
-              "description": "收集社区反馈并赚取奖励"
+              "description": "收集社区反馈并赢取奖励"
             },
             "pollContest": {
               "title": "投票竞赛",
               "weeklyTitle": "每周投票竞赛",
-              "description": "收集社区反馈并赚取奖励",
+              "description": "收集社区反馈并赢取奖励",
               "prizes": {
-                "title": "奖励",
+                "title": "奖品",
                 "viewWinners": "查看往期获奖者",
                 "wdd": "WDD"
               },
               "howTo": {
-                "title": "参与方式",
+                "title": "如何参与",
                 "steps": {
                   "step1": {
                     "number": "1",
-                    "text": "创建与世界共和国或全球治理相关的投票"
+                    "text": "创建一个与世界共和国或全球治理相关的投票"
                   },
                   "step2": {
                     "number": "2",
-                    "text": "设置仅限已验证的人类可以投票"
+                    "text": "设置仅允许已验证用户投票"
                   },
                   "step3": {
                     "number": "3",
@@ -214,21 +214,27 @@
               "rules": {
                 "title": "竞赛规则",
                 "list": {
-                  "rule1": "仅当周开始的投票有资格参与",
+                  "rule1": "仅当周发起的投票有资格参与",
                   "rule2": "获奖者根据总投票数选出",
                   "rule3": "竞赛每周日23:59 UTC结束"
                 }
               },
               "cta": {
-                "create": "创建您的投票",
-                "submit": "提交您的投票"
+                "create": "创建投票",
+                "submit": "提交投票"
               },
               "winners": {
                 "title": "竞赛获奖者",
-                "weekOf": "第几周",
-                "votes": "票数"
+                "weekOf": "第",
+                "votes": "票"
               }
-            }
+            },
+            "testing": {
+              "title": "新功能测试",
+              "description": "开放给已通过护照验证但未通过Orb验证的会员。"
+            },
+            "oneOff": "一次性",
+            "limited": "50个名额"
           },
           "earlyAccess": {
             "title": "早期访问计划",
@@ -287,6 +293,7 @@
             "title": "往期投票",
             "backToGovern": "返回治理",
             "polls": {
+              "digitalInclusion": "是否应该有一个全球性倡议来弥合数字鸿沟并确保全球范围内平等获取数字技术？",
               "techTransparency": "全球科技公司是否应该被要求采用透明的决策政策以保护公众信任？",
               "disasterRelief": "是否应该建立全球快速响应基金，为大地震等毁灭性自然灾害提供即时救援？",
               "aiWatermarking": "全球法规是否应该要求对AI生成内容进行强制性水印标记，以打击选举和媒体中的虚假信息？",

@@ -240,7 +240,13 @@
                 "weekOf": "Semana del",
                 "votes": "votos"
               }
-            }
+            },
+            "testing": {
+              "title": "Prueba de Nuevas Funciones",
+              "description": "Abierto a miembros verificados con pasaporte pero no por Orb."
+            },
+            "oneOff": "Única vez",
+            "limited": "50 plazas"
           },
           "earlyAccess": {
             "title": "Programa de Acceso Anticipado",
@@ -299,6 +305,7 @@
             "title": "Encuestas Anteriores",
             "backToGovern": "Volver a Gobernar",
             "polls": {
+              "digitalInclusion": "¿Debería haber una iniciativa global para cerrar la brecha digital y garantizar un acceso equitativo a las tecnologías digitales en todo el mundo?",
               "techTransparency": "¿Deberían las empresas tecnológicas globales estar obligadas a adoptar políticas de toma de decisiones transparentes para salvaguardar la confianza pública?",
               "disasterRelief": "¿Debería establecerse un fondo global de respuesta rápida para proporcionar ayuda inmediata en desastres naturales devastadores como terremotos mayores?",
               "aiWatermarking": "¿Deberían las regulaciones globales exigir el marcado de agua obligatorio del contenido generado por IA para combatir la desinformación en elecciones y medios?",

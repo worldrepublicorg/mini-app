@@ -184,14 +184,14 @@
             "pollContest": {
               "title": "Konkurs Ankiet",
               "weeklyTitle": "Tygodniowy Konkurs Ankiet",
-              "description": "Zbieraj opinie społeczności i zarabiaj",
+              "description": "Zbieraj opinie społeczności i wygrywaj nagrody",
               "prizes": {
                 "title": "Nagrody",
                 "viewWinners": "Zobacz poprzednich zwycięzców",
                 "wdd": "WDD"
               },
               "howTo": {
-                "title": "Jak to działa",
+                "title": "Jak Wziąć Udział",
                 "steps": {
                   "step1": {
                     "number": "1",
@@ -199,36 +199,42 @@
                   },
                   "step2": {
                     "number": "2",
-                    "text": "Ustaw tak, aby tylko zweryfikowani ludzie mogli głosować"
+                    "text": "Ustaw ją tak, aby tylko zweryfikowani użytkownicy mogli głosować"
                   },
                   "step3": {
                     "number": "3",
-                    "text": "Udostępnij swoją ankietę w naszym",
+                    "text": "Udostępnij swoją ankietę na naszym",
                     "link": {
-                      "text": "kanale Telegram Konkursu Ankiet",
+                      "text": "Kanale Telegram Konkursu Ankiet",
                       "url": "https://t.me/worldrepubliccommunity/32368"
                     }
                   }
                 }
               },
               "rules": {
-                "title": "Zasady konkursu",
+                "title": "Zasady Konkursu",
                 "list": {
-                  "rule1": "Kwalifikują się tylko ankiety rozpoczęte w bieżącym tygodniu",
-                  "rule2": "Zwycięzcy są wybierani na podstawie łącznej liczby głosów",
+                  "rule1": "Tylko ankiety rozpoczęte w bieżącym tygodniu są kwalifikowane",
+                  "rule2": "Zwycięzcy są wybierani na podstawie całkowitej liczby głosów",
                   "rule3": "Konkurs kończy się w każdą niedzielę o 23:59 UTC"
                 }
               },
               "cta": {
-                "create": "Stwórz Swoją Ankietę",
-                "submit": "Zgłoś Swoją Ankietę"
+                "create": "Utwórz Ankietę",
+                "submit": "Wyślij Ankietę"
               },
               "winners": {
                 "title": "Zwycięzcy Konkursu",
-                "weekOf": "Tydzień",
+                "weekOf": "Tydzień od",
                 "votes": "głosów"
               }
-            }
+            },
+            "testing": {
+              "title": "Testowanie Nowej Funkcji",
+              "description": "Otwarte dla członków zweryfikowanych paszportem, ale nie przez Orb"
+            },
+            "oneOff": "Jednorazowo",
+            "limited": "50 miejsc"
           },
           "earlyAccess": {
             "title": "Program Wczesnego Dostępu",
@@ -287,6 +293,7 @@
             "title": "Poprzednie Ankiety",
             "backToGovern": "Powrót do Zarządzania",
             "polls": {
+              "digitalInclusion": "Czy powinna istnieć globalna inicjatywa na rzecz zmniejszenia przepaści cyfrowej i zapewnienia równego dostępu do technologii cyfrowych na całym świecie?",
               "dataSovereignty": "Czy należy wdrożyć międzynarodowe wytyczne chroniące dane generowane na całym świecie w ramach jednolitych ram suwerenności cyfrowej?",
               "fourDayWeek": "Czy popierasz rosnący globalny ruch w kierunku czterodniowego tygodnia pracy jako standardowego modelu zatrudnienia?",
               "nuclearSecurity": "Czy należy ustanowić wiążące umowy międzynarodowe w celu zabezpieczenia obiektów jądrowych w strefach konfliktów?",
