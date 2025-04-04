@@ -1292,22 +1292,22 @@ export default function EarnPage({
     };
   }, [walletAddress]);
 
-  const [hasSeenIncreasedPrizes, setHasSeenIncreasedPrizes] = useState(false);
+  const [hasSeenInviteFeature, setHasSeenInviteFeature] = useState(false);
 
-  // Update the localStorage key to be specific to the prize increase
+  // Update the localStorage key for the Invite feature
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const hasSeenNewPrizes =
-        localStorage.getItem("hasSeenIncreasedPrizes") === "true";
-      setHasSeenIncreasedPrizes(hasSeenNewPrizes);
+      const hasSeenInvite =
+        localStorage.getItem("hasSeenInviteFeature") === "true";
+      setHasSeenInviteFeature(hasSeenInvite);
     }
   }, []);
 
-  // Update localStorage when the Contribute tab is active
+  // Update localStorage when the Invite tab is active
   useEffect(() => {
-    if (activeTab === "Contribute" && typeof window !== "undefined") {
-      localStorage.setItem("hasSeenIncreasedPrizes", "true");
-      setHasSeenIncreasedPrizes(true);
+    if (activeTab === "Invite" && typeof window !== "undefined") {
+      localStorage.setItem("hasSeenInviteFeature", "true");
+      setHasSeenInviteFeature(true);
     }
   }, [activeTab]);
 
@@ -2818,12 +2818,12 @@ export default function EarnPage({
               label: dictionary?.pages?.earn?.tabs?.savings?.tabTitle,
             },
             {
-              key: "Contribute",
-              label: dictionary?.pages?.earn?.tabs?.contribute?.title,
-            },
-            {
               key: "Invite",
               label: dictionary?.pages?.earn?.tabs?.invite?.title,
+            },
+            {
+              key: "Contribute",
+              label: dictionary?.pages?.earn?.tabs?.contribute?.title,
             },
           ]}
           activeTab={activeTab}
@@ -2831,8 +2831,8 @@ export default function EarnPage({
           tabIndicators={{
             "Basic income": false,
             Savings: false,
-            Contribute: !hasSeenIncreasedPrizes,
-            Invite: false,
+            Invite: !hasSeenInviteFeature,
+            Contribute: false,
           }}
         />
       </div>
