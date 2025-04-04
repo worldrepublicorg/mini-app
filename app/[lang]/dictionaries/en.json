@@ -266,6 +266,7 @@
             "title": "Previous Polls",
             "backToGovern": "Back to Govern",
             "polls": {
+              "digitalInclusion": "Should there be a global initiative to bridge the digital divide and ensure equal access to digital technologies worldwide?",
               "oceanHealth": "Should a global framework be implemented to protect and restore the world's oceans from pollution, overfishing, and climate change impacts?",
               "eWasteRegulation": "Should there be a global regulatory framework to manage electronic waste and mitigate its environmental impact?",
               "foodSecurity": "Should a global framework be implemented to enhance food security amid climate change and geopolitical instability?",
