@@ -1518,7 +1518,7 @@ export default function EarnPage({
           {
             // Use your SecureDocumentReferralReward contract address
             address:
-              "0x0AeE6e0806bEA251C69853Fc47CF257f2e5c5dd8" as `0x${string}`, // Replace with your actual contract address
+              "0x012399Ce7108DD3B8C5583758816575f0c2FcD86" as `0x${string}`, // Replace with your actual contract address
             abi: parseAbi([
               "function rewardUser(address recipient, uint256 root, uint256 nullifierHash, uint256[8] calldata proof) external",
             ]),
@@ -2129,72 +2129,6 @@ export default function EarnPage({
               </div>
             </div>
 
-            <Button
-              onClick={async () => {
-                if (!MiniKit.isInstalled() || !walletAddress) {
-                  showToast("Please connect your wallet first", "error");
-                  return;
-                }
-
-                setIsVerifying(true);
-                try {
-                  // Use MiniKit verify command instead of IDKitWidget
-                  const verifyPayload = {
-                    action: "verify-secure-document",
-                    signal: walletAddress || "",
-                    verification_level: VerificationLevel.SecureDocument,
-                  };
-
-                  const { finalPayload } =
-                    await MiniKit.commandsAsync.verify(verifyPayload);
-
-                  if (finalPayload.status === "error") {
-                    console.error(
-                      "[WorldID] Verification error:",
-                      finalPayload
-                    );
-
-                    // Don't show error toast if user cancelled the action
-                    if (
-                      finalPayload.error_code &&
-                      (finalPayload.error_code as string) === "user_rejected"
-                    ) {
-                      setIsVerifying(false);
-                      return;
-                    }
-
-                    showToast(
-                      (finalPayload as any).description ||
-                        "Verification failed",
-                      "error"
-                    );
-                    setIsVerifying(false);
-                    return;
-                  }
-
-                  // Process the successful verification
-                  await handleWorldIDSuccess(
-                    finalPayload as any,
-                    walletAddress
-                  );
-                } catch (error: any) {
-                  console.error("[WorldID] Error during verification:", error);
-                  showToast(
-                    error.message || "An error occurred during verification",
-                    "error"
-                  );
-                } finally {
-                  setIsVerifying(false);
-                }
-              }}
-              fullWidth
-              disabled={isVerifying}
-              isLoading={isVerifying}
-              className="mb-4"
-            >
-              Prove and Get Reward
-            </Button>
-
             <div className="relative w-full">
               <Button
                 onClick={async () => {
@@ -2574,7 +2508,7 @@ export default function EarnPage({
                                 try {
                                   // Use MiniKit verify command instead of IDKitWidget
                                   const verifyPayload = {
-                                    action: "reward_referrer",
+                                    action: "verify-secure-document",
                                     signal: walletAddress || "",
                                     verification_level:
                                       VerificationLevel.SecureDocument,
