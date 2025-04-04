@@ -341,7 +341,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
         const canRewardStatus = await viemClient.readContract({
           address:
-            "0x9be1dCb1E2bEd2892f84Df5DeE8AFaAE14512e5B" as `0x${string}`, // Update with real contract address
+            "0x8f7c512EC62a3C7b21C5C0528Dda488C591e3191" as `0x${string}`, // Update with real contract address
           abi: referralABI,
           functionName: "canReward",
           args: [walletAddress as `0x${string}`],
@@ -453,7 +453,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
         const count = await viemClient.readContract({
           address:
-            "0x9be1dCb1E2bEd2892f84Df5DeE8AFaAE14512e5B" as `0x${string}`, // Update with real contract address
+            "0x8f7c512EC62a3C7b21C5C0528Dda488C591e3191" as `0x${string}`, // Update with real contract address
           abi: referralABI,
           functionName: "getRewardCount",
           args: [walletAddress as `0x${string}`],
@@ -709,7 +709,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         "[WalletContext] Setting up event watcher for secure document RewardSent events"
       );
       const unwatch = viemClient.watchContractEvent({
-        address: "0x9be1dCb1E2bEd2892f84Df5DeE8AFaAE14512e5B" as `0x${string}`, // Update with real contract address
+        address: "0x8f7c512EC62a3C7b21C5C0528Dda488C591e3191" as `0x${string}`, // Update with real contract address
         abi: parseAbi([
           "event RewardSent(address indexed sender, address indexed recipient, uint256 amount)",
         ]),
