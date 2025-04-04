@@ -104,7 +104,7 @@
         "invite": {
           "title": "邀请",
           "subtitle": "每邀请一位朋友加入获得50 WDD",
-          "tooltip": "奖励需要朋友完成 Orb 验证。",
+          "tooltip": "朋友必须通过Orb或护照进行验证。",
           "learnMore": "了解更多",
           "stats": {
             "title": "您的推荐统计",
@@ -121,13 +121,15 @@
           "drawer": {
             "title": "奖励推荐人",
             "subtitle": "为您的推荐人触发50 WDD免费奖励",
+            "passportSubtitle": "验证您的护照并为您的推荐人触发50 WDD免费奖励",
             "invitedBy": "您是由{{username}}邀请的",
             "input": {
               "placeholder": "输入用户名（例如：username.0000）",
               "lookupButton": "查找用户",
               "sendingTo": "发送奖励给：",
               "editButton": "编辑",
-              "sendButton": "发送奖励"
+              "sendButton": "发送奖励",
+              "proveReward": "验证并奖励"
             },
             "errors": {
               "enterUsername": "请输入用户名",
@@ -144,6 +146,25 @@
           "share": {
             "title": "加入世界共和国",
             "text": "使用我的邀请链接加入世界共和国，一起赚取奖励！"
+          },
+          "passportDrawer": {
+            "title": "护照验证推荐计划",
+            "subtitle": "邀请护照持有者并赚取50 WDD",
+            "features": {
+              "countries": {
+                "title": "护照验证目前可在阿根廷、澳大利亚、智利、哥伦比亚、克罗地亚、日本、菲律宾、葡萄牙、韩国和美国使用"
+              },
+              "rewards": {
+                "title": "朋友在World App中验证护照后可获得WLD"
+              },
+              "basicIncome": {
+                "title": "护照验证用户的额外基本收入即将推出"
+              }
+            },
+            "trigger": {
+              "titleText": "现在护照验证的朋友也可使用！",
+              "titleDetails": "详情"
+            }
           }
         },
         "contribute": {
@@ -411,8 +432,8 @@
           "answer": "储蓄账户允许您存入WDD代币并获得69%的年化利息。通过持续再投资所得利息，用户可以实现接近100%的年度有效回报，随时间最大化WDD增长。利息持续累积，可以随时提取或再投资。"
         },
         "referralCodes": {
-          "question": "推荐码如何运作？",
-          "answer": "作为世界共和国公民，您可以通过我们的推荐计划赚取奖励。与朋友分享您的唯一推荐链接，每当有人加入并激活基本收入增强版时，您将获得50 WDD。还没收到奖励？您的朋友可能需要在其推荐部分手动选择'奖励推荐人'选项来触发。"
+          "question": "推荐码如何工作？",
+          "answer": "作为世界共和国公民，您可以通过我们的推荐计划获得奖励。分享您的专属推荐链接给朋友，每当有人加入并通过Orb或护照验证，您将获得50 WDD。没有收到奖励？您的朋友可能需要在其推荐部分选择'奖励推荐人'选项手动触发。"
         },
         "drachmaValue": {
           "question": "德拉克马从何处获得价值？",

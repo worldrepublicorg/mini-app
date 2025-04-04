@@ -116,7 +116,7 @@
         "invite": {
           "title": "Invitar",
           "subtitle": "Obtén 50 WDD por cada amigo que se una",
-          "tooltip": "Las recompensas requieren que los amigos estén verificados con Orb.",
+          "tooltip": "Los amigos deben estar verificados a través de Orb o pasaporte.",
           "learnMore": "Más información",
           "stats": {
             "title": "Tus Estadísticas de Referidos",
@@ -133,13 +133,15 @@
           "drawer": {
             "title": "Recompensar a un Referidor",
             "subtitle": "Activa una recompensa gratuita de 50 WDD para tu referidor",
+            "passportSubtitle": "Comprueba tu verificación de pasaporte y activa una recompensa gratuita de 50 WDD para tu referidor",
             "invitedBy": "Fuiste invitado por: {{username}}",
             "input": {
               "placeholder": "Ingresa usuario (ej. usuario.0000)",
               "lookupButton": "Buscar Usuario",
               "sendingTo": "Enviando recompensa a:",
               "editButton": "Editar",
-              "sendButton": "Enviar Recompensa"
+              "sendButton": "Enviar Recompensa",
+              "proveReward": "Comprobar y Recompensar"
             },
             "errors": {
               "enterUsername": "Por favor ingresa un nombre de usuario",
@@ -156,6 +158,25 @@
           "share": {
             "title": "Únete a la República Mundial",
             "text": "¡Usa mi enlace de invitación para unirte a la República Mundial y ganar recompensas juntos!"
+          },
+          "passportDrawer": {
+            "title": "Programa de Referidos Verificados por Pasaporte",
+            "subtitle": "Invita a titulares de pasaporte y gana 50 WDD",
+            "features": {
+              "countries": {
+                "title": "La verificación por pasaporte está actualmente disponible en Argentina, Australia, Chile, Colombia, Croacia, Japón, Filipinas, Portugal, Corea del Sur y Estados Unidos"
+              },
+              "rewards": {
+                "title": "Los amigos reciben WLD por verificar su pasaporte en World App"
+              },
+              "basicIncome": {
+                "title": "Pronto llegará ingreso básico adicional para personas verificadas por pasaporte"
+              }
+            },
+            "trigger": {
+              "titleText": "¡Ahora también disponible después de amigos verificados por pasaporte!",
+              "titleDetails": "Detalles"
+            }
           }
         },
         "contribute": {
@@ -424,7 +445,7 @@
         },
         "referralCodes": {
           "question": "¿Cómo funcionan los códigos de referido?",
-          "answer": "Como ciudadano de la República Mundial, puedes ganar recompensas a través de nuestro programa de referidos. Comparte tu enlace único de referido con amigos y recibirás 50 WDD por cada persona que se una y active la Renta Básica Plus. ¿No has recibido tu recompensa? Tu amigo puede necesitar activarla manualmente seleccionando la opción 'Recompensar Referidor' en su sección de referidos."
+          "answer": "Como ciudadano de la República Mundial, puedes ganar recompensas a través de nuestro programa de referidos. Comparte tu enlace único de referido con amigos y recibirás 50 WDD por cada persona que se una y se verifique mediante Orb o pasaporte. ¿No has recibido tu recompensa? Tu amigo puede necesitar activarla manualmente seleccionando la opción 'Recompensar Referidor' en su sección de referidos."
         },
         "drachmaValue": {
           "question": "¿De dónde obtiene su valor el dracma?",

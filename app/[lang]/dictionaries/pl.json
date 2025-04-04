@@ -103,8 +103,8 @@
         },
         "invite": {
           "title": "Zaproś",
-          "subtitle": "Otrzymaj 50 WDD za każdego zaproszonego znajomego",
-          "tooltip": "Nagrody wymagają weryfikacji Orb od znajomych.",
+          "subtitle": "Zdobądź 50 WDD za każdego znajomego, który dołączy",
+          "tooltip": "Znajomi muszą zostać zweryfikowani przez Orb lub paszport.",
           "learnMore": "Dowiedz się więcej",
           "stats": {
             "title": "Twoje Statystyki Polecania",
@@ -121,13 +121,15 @@
           "drawer": {
             "title": "Nagródź Polecającego",
             "subtitle": "Aktywuj darmową nagrodę 50 WDD dla swojego polecającego",
+            "passportSubtitle": "Udowodnij weryfikację swojego paszportu i aktywuj darmową nagrodę 50 WDD dla swojego polecającego",
             "invitedBy": "Zostałeś zaproszony przez: {{username}}",
             "input": {
               "placeholder": "Wprowadź nazwę użytkownika (np. username.0000)",
               "lookupButton": "Wyszukaj Użytkownika",
               "sendingTo": "Wysyłanie nagrody do:",
               "editButton": "Edytuj",
-              "sendButton": "Wyślij Nagrodę"
+              "sendButton": "Wyślij Nagrodę",
+              "proveReward": "Udowodnij i Nagródź"
             },
             "errors": {
               "enterUsername": "Wprowadź nazwę użytkownika",
@@ -142,8 +144,27 @@
             }
           },
           "share": {
-            "title": "Dołącz do Republiki Światowej",
-            "text": "Użyj mojego linku zaproszenia, aby dołączyć do Republiki Światowej i razem zdobywaj nagrody!"
+            "title": "Dołącz do Światowej Republiki",
+            "text": "Użyj mojego linku zapraszającego, aby dołączyć do Światowej Republiki i razem zdobywać nagrody!"
+          },
+          "passportDrawer": {
+            "title": "Program Poleceń Zweryfikowany Paszportem",
+            "subtitle": "Zaproś posiadaczy paszportów i zdobądź 50 WDD",
+            "features": {
+              "countries": {
+                "title": "Weryfikacja paszportowa jest obecnie dostępna w Argentynie, Australii, Chile, Kolumbii, Chorwacji, Japonii, Filipinach, Portugalii, Korei Południowej i Stanach Zjednoczonych"
+              },
+              "rewards": {
+                "title": "Przyjaciele otrzymują WLD za weryfikację swojego paszportu w aplikacji World"
+              },
+              "basicIncome": {
+                "title": "Dodatkowy dochód podstawowy dla osób zweryfikowanych paszportem wkrótce będzie dostępny"
+              }
+            },
+            "trigger": {
+              "titleText": "Teraz również dostępne po znajomych zweryfikowanych paszportem!",
+              "titleDetails": "Szczegóły"
+            }
           }
         },
         "contribute": {
@@ -411,7 +432,7 @@
         },
         "referralCodes": {
           "question": "Jak działają kody polecające?",
-          "answer": "Jako obywatel Republiki Świata możesz zarabiać nagrody poprzez nasz program poleceń. Udostępnij swój unikalny link polecający znajomym, a otrzymasz 50 WDD za każdą osobę, która dołączy i aktywuje Dochód Podstawowy Plus. Nie otrzymałeś swojej nagrody? Twój znajomy może musieć ręcznie ją uruchomić, wybierając opcję 'Nagródź Polecającego' w swojej sekcji poleceń."
+          "answer": "Jako obywatel Republiki Światowej możesz zdobywać nagrody poprzez nasz program poleceń. Podziel się swoim unikalnym linkiem polecającym z przyjaciółmi, a otrzymasz 50 WDD za każdą osobę, która dołączy i zostanie zweryfikowana przez Orb lub paszport. Nie otrzymałeś swojej nagrody? Twój znajomy być może będzie musiał uruchomić ją ręcznie, wybierając opcję 'Nagródź Polecającego' w swoim dziale poleceń."
         },
         "drachmaValue": {
           "question": "Skąd drachma czerpie swoją wartość?",

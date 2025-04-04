@@ -104,7 +104,7 @@
         "invite": {
           "title": "Inviter",
           "subtitle": "Recevez 50 WDD par ami qui rejoint",
-          "tooltip": "Les récompenses nécessitent que les amis soient vérifiés par Orb.",
+          "tooltip": "Les amis doivent être vérifiés via Orb ou passeport.",
           "learnMore": "En savoir plus",
           "stats": {
             "title": "Vos Statistiques de Parrainage",
@@ -121,13 +121,15 @@
           "drawer": {
             "title": "Récompenser un Parrain",
             "subtitle": "Déclencher une récompense gratuite de 50 WDD pour votre parrain",
+            "passportSubtitle": "Confirmez votre vérification de passeport et déclenchez une récompense gratuite de 50 WDD pour votre parrain",
             "invitedBy": "Vous avez été invité par : {{username}}",
             "input": {
               "placeholder": "Entrez le nom d'utilisateur (ex : username.0000)",
               "lookupButton": "Rechercher l'Utilisateur",
               "sendingTo": "Envoi de la récompense à :",
               "editButton": "Modifier",
-              "sendButton": "Envoyer la Récompense"
+              "sendButton": "Envoyer la Récompense",
+              "proveReward": "Confirmer et Récompenser"
             },
             "errors": {
               "enterUsername": "Veuillez entrer un nom d'utilisateur",
@@ -142,8 +144,27 @@
             }
           },
           "share": {
-            "title": "Rejoignez la République Mondiale",
+            "title": "Rejoignez-moi dans la République Mondiale",
             "text": "Utilisez mon lien d'invitation pour rejoindre la République Mondiale et gagner des récompenses ensemble !"
+          },
+          "passportDrawer": {
+            "title": "Programme de Parrainage Vérifié par Passeport",
+            "subtitle": "Invitez les détenteurs de passeport et gagnez 50 WDD",
+            "features": {
+              "countries": {
+                "title": "La vérification par passeport est actuellement disponible en Argentine, Australie, Chili, Colombie, Croatie, Japon, Philippines, Portugal, Corée du Sud et États-Unis"
+              },
+              "rewards": {
+                "title": "Les amis reçoivent des WLD en vérifiant leur passeport dans l'application World"
+              },
+              "basicIncome": {
+                "title": "Un revenu de base supplémentaire pour les personnes vérifiées par passeport arrive bientôt"
+              }
+            },
+            "trigger": {
+              "titleText": "Maintenant également disponible après vérification du passeport de vos amis !",
+              "titleDetails": "Détails"
+            }
           }
         },
         "contribute": {
@@ -412,7 +433,7 @@
         },
         "referralCodes": {
           "question": "Comment fonctionnent les codes de parrainage ?",
-          "answer": "En tant que citoyen de la République Mondiale, vous pouvez gagner des récompenses grâce à notre programme de parrainage. Partagez votre lien de parrainage unique avec vos amis, et vous recevrez 50 WDD pour chaque personne qui rejoint et active le Revenu de Base Plus. Vous n'avez pas reçu votre récompense ? Votre ami devra peut-être la déclencher manuellement en sélectionnant l'option 'Récompenser le Parrain' dans sa section de parrainage."
+          "answer": "En tant que citoyen de la République Mondiale, vous pouvez gagner des récompenses grâce à notre programme de parrainage. Partagez votre lien de parrainage unique avec vos amis et vous recevrez 50 WDD pour chaque personne qui rejoint et se vérifie via Orb ou passeport. Vous n'avez pas reçu votre récompense ? Votre ami devra peut-être la déclencher manuellement en sélectionnant l'option 'Récompenser le parrain' dans sa section de parrainage."
         },
         "drachmaValue": {
           "question": "D'où vient la valeur de la drachme ?",

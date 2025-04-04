@@ -104,7 +104,7 @@
         "invite": {
           "title": "Undang",
           "subtitle": "Dapatkan 50 WDD untuk setiap teman yang bergabung",
-          "tooltip": "Hadiah memerlukan teman diverifikasi oleh Orb.",
+          "tooltip": "Teman harus diverifikasi melalui Orb atau paspor.",
           "learnMore": "Pelajari lebih lanjut",
           "stats": {
             "title": "Statistik Referral Anda",
@@ -121,13 +121,15 @@
           "drawer": {
             "title": "Beri Hadiah Pereferral",
             "subtitle": "Berikan hadiah 50 WDD gratis untuk pereferral Anda",
+            "passportSubtitle": "Buktikan verifikasi paspor Anda dan berikan hadiah 50 WDD gratis untuk pereferral Anda",
             "invitedBy": "Anda diundang oleh: {{username}}",
             "input": {
               "placeholder": "Masukkan username (contoh: username.0000)",
               "lookupButton": "Cari Pengguna",
               "sendingTo": "Mengirim hadiah ke:",
               "editButton": "Edit",
-              "sendButton": "Kirim Hadiah"
+              "sendButton": "Kirim Hadiah",
+              "proveReward": "Buktikan dan Beri Hadiah"
             },
             "errors": {
               "enterUsername": "Silakan masukkan username",
@@ -142,8 +144,27 @@
             }
           },
           "share": {
-            "title": "Bergabung dengan Republik Dunia",
-            "text": "Gunakan tautan undangan saya untuk bergabung dengan Republik Dunia dan dapatkan hadiah bersama!"
+            "title": "Bergabunglah dengan Republik Dunia",
+            "text": "Gunakan tautan undangan saya untuk bergabung dengan Republik Dunia dan mendapatkan hadiah bersama!"
+          },
+          "passportDrawer": {
+            "title": "Program Referral Terverifikasi Paspor",
+            "subtitle": "Undang pemegang paspor dan dapatkan 50 WDD",
+            "features": {
+              "countries": {
+                "title": "Verifikasi paspor saat ini tersedia di Argentina, Australia, Chili, Kolombia, Kroasia, Jepang, Filipina, Portugal, Korea Selatan, dan Amerika Serikat"
+              },
+              "rewards": {
+                "title": "Teman menerima WLD untuk memverifikasi paspor mereka di Aplikasi World"
+              },
+              "basicIncome": {
+                "title": "Pendapatan dasar tambahan untuk orang-orang yang terverifikasi paspor akan segera hadir"
+              }
+            },
+            "trigger": {
+              "titleText": "Sekarang juga tersedia setelah teman-teman terverifikasi paspor!",
+              "titleDetails": "Detail"
+            }
           }
         },
         "contribute": {
@@ -411,8 +432,8 @@
           "answer": "Akun Tabungan memungkinkan Anda menyetor token WDD dan mendapatkan bunga tahunan 69%. Melalui reinvestasi bunga yang diperoleh secara konstan, pengguna dapat mencapai pengembalian efektif hingga 100% per tahun, memaksimalkan pertumbuhan WDD mereka seiring waktu. Bunga terakumulasi secara terus menerus dan dapat ditarik atau diinvestasikan kembali kapan saja."
         },
         "referralCodes": {
-          "question": "Bagaimana cara kerja kode referral?",
-          "answer": "Sebagai warga Republik Dunia, Anda dapat memperoleh hadiah melalui program referral kami. Bagikan tautan referral unik Anda dengan teman-teman, dan Anda akan menerima 50 WDD untuk setiap orang yang bergabung dan mengaktifkan Pendapatan Dasar Plus. Belum menerima hadiah Anda? Teman Anda mungkin perlu memicunya secara manual dengan memilih opsi 'Beri Hadiah Pereferral' di bagian referral mereka."
+          "question": "Bagaimana kode referral bekerja?",
+          "answer": "Sebagai warga Republik Dunia, Anda dapat memperoleh hadiah melalui program referral kami. Bagikan tautan referral unik Anda dengan teman, dan Anda akan menerima 50 WDD untuk setiap orang yang bergabung dan diverifikasi melalui Orb atau paspor. Belum menerima hadiah Anda? Teman Anda mungkin perlu memicunya secara manual dengan memilih opsi 'Beri Hadiah Perujuk' di bagian referral mereka."
         },
         "drachmaValue": {
           "question": "Dari mana drachma mendapatkan nilainya?",

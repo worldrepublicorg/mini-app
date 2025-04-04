@@ -102,9 +102,9 @@
           "tooltip": "69% APY kiwango cha msingi. Chukua na uweke tena riba ili kupata mapato ya karibu 100% kwa mwaka. Toa wakati wowote."
         },
         "invite": {
-          "title": "Karibisha",
+          "title": "Alika",
           "subtitle": "Pata WDD 50 kwa kila rafiki anayejiunga",
-          "tooltip": "Malipo yanahitaji rafiki awe na uthibitisho wa Orb.",
+          "tooltip": "Marafiki lazima wathibitishwe kupitia Orb au pasipoti.",
           "learnMore": "Jifunze zaidi",
           "stats": {
             "title": "Takwimu zako za Urafiki",
@@ -121,13 +121,15 @@
           "drawer": {
             "title": "Mpa Malipo Mrafiki",
             "subtitle": "Toa malipo ya WDD 50 bila malipo kwa mrafiki wako",
+            "passportSubtitle": "Thibitisha uthibitisho wa pasipoti yako na toa malipo ya WDD 50 bila malipo kwa mrafiki wako",
             "invitedBy": "Uliakaribishwa na: {{username}}",
             "input": {
               "placeholder": "Ingiza jina la mtumiaji (mfano: username.0000)",
               "lookupButton": "Tafuta Mtumiaji",
               "sendingTo": "Inatuma malipo kwa:",
               "editButton": "Hariri",
-              "sendButton": "Tuma Malipo"
+              "sendButton": "Tuma Malipo",
+              "proveReward": "Thibitisha na Toa Malipo"
             },
             "errors": {
               "enterUsername": "Tafadhali ingiza jina la mtumiaji",
@@ -142,8 +144,27 @@
             }
           },
           "share": {
-            "title": "Jiunge nami katika Jamhuri ya Dunia",
-            "text": "Tumia kiungo changu cha urafiki ili kujiunga na Jamhuri ya Dunia na kupata malipo pamoja!"
+            "title": "Jiunge na Jamhuri ya Dunia",
+            "text": "Tumia kiungo changu cha mwaliko kujiunga na Jamhuri ya Dunia na kupata zawadi pamoja!"
+          },
+          "passportDrawer": {
+            "title": "Programu ya Rufaa Iliyothibitishwa kwa Pasipoti",
+            "subtitle": "Alika wenye pasipoti na upate WDD 50",
+            "features": {
+              "countries": {
+                "title": "Uthibitishaji wa pasipoti kwa sasa unapatikana nchini Argentina, Australia, Chile, Colombia, Croatia, Japan, Philippines, Portugal, South Korea, na United States"
+              },
+              "rewards": {
+                "title": "Marafiki wanapokea WLD kwa kuthibitisha pasipoti zao katika Programu ya World"
+              },
+              "basicIncome": {
+                "title": "Mapato ya msingi ya ziada kwa watu waliothibitishwa kwa pasipoti yanakuja hivi karibuni"
+              }
+            },
+            "trigger": {
+              "titleText": "Sasa pia inapatikana baada ya marafiki waliothibitishwa kwa pasipoti!",
+              "titleDetails": "Maelezo zaidi"
+            }
           }
         },
         "contribute": {
@@ -277,7 +298,7 @@
               "disasterRelief": "Je, mfuko wa haraka wa kimataifa unapaswa kuanzishwa kutoa misaada ya haraka kwa majanga makubwa ya asili kama vile matetemeko makubwa ya ardhi?",
               "aiWatermarking": "Je, sheria za kimataifa zinapaswa kuhitaji alama ya maji ya lazima ya maudhui yanayozalishwa na AI kupambana na habari potofu katika uchaguzi na vyombo vya habari?",
               "biotech": "Je, kuna hitaji la mfumo wa udhibiti wa kimataifa kwa bioteknolojia zinazoibuka ili kuhakikisha matumizi ya kimaadili na usalama?",
-              "spaceMilitarization": "Je, viongozi wa kimataifa wanapaswa kukubaliana kuhusu itifaki za kuzuia kujitengeza kwa anga na kuhifadhi kwa madhumuni ya amani?",
+              "spaceMilitarization": "Je, viongozi wa kimataifa wanapaswa kukubaliana kuhusu itifaki za kuzuia kwa anga na kuhifadhi kwa madhumuni ya amani?",
               "dataSovereignty": "Je, miongozo ya kimataifa inapaswa kutekelezwa kulinda data inayozalishwa duniani kote chini ya mfumo wa umoja wa uhuru wa kidijitali?",
               "fourDayWeek": "Je, unasaidia harakati inayoongezeka ya kimataifa kuelekea wiki za kazi za siku nne kama mfano wa kawaida wa ajira?",
               "nuclearSecurity": "Je, makubaliano ya kimataifa yanayofunga yanapaswa kuanzishwa kulinda vifaa vya nyuklia katika maeneo ya migogoro?",
@@ -411,8 +432,8 @@
           "answer": "Akaunti ya Akiba inakuruhusu kuweka tokeni za WDD na kupata riba ya 69% kwa mwaka. Kupitia uwekezaji endelevu wa riba iliyopatikana, watumiaji wanaweza kupata mapato halisi karibu 100% kwa mwaka, kuongeza ukuaji wao wa WDD baada ya muda. Riba inaongezeka endelevu na inaweza kuchukuliwa au kuwekezwa tena wakati wowote."
         },
         "referralCodes": {
-          "question": "Je, nambari za urafiki zinafanya kazi vipi?",
-          "answer": "Kama raia wa Jamhuri ya Dunia, unaweza kupata malipo kupitia programu yetu ya urafiki. Shiriki kiungo chako cha kipekee cha urafiki na rafiki, na utapokea WDD 50 kwa kila mtu anayejiunga na kuanzisha Mapato ya Msingi Plus. Hujapokea malipo yako? Rafiki yako anaweza kuhitaji kuchochea moja kwa moja kwa kuchagua chaguo la 'Mpa Malipo Mrafiki' katika sehemu yake ya urafiki."
+          "question": "Msimbo wa rufaa unafanya kazi vipi?",
+          "answer": "Kama raia wa Jamhuri ya Dunia, unaweza kupata zawadi kupitia programu yetu ya rufaa. Shiriki kiungo chako cha kipekee cha rufaa na marafiki, na utapokea WDD 50 kwa kila mtu anayejiunga na kuthibitishwa kupitia Orb au pasipoti. Hujapokea zawadi yako? Rafiki yako anaweza kuhitaji kuitisha mwenyewe kwa kuchagua chaguo la 'Tuza Mwenye Kutuma Rufaa' katika sehemu yao ya rufaa."
         },
         "drachmaValue": {
           "question": "Je, drachma inapata thamani yake wapi?",

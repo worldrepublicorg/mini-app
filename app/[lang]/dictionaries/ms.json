@@ -102,9 +102,9 @@
           "tooltip": "Kadar asas 69% APY. Kutip dan pelabur semula faedah untuk mencapai pulangan berkesan hampir 100% setahun. Tarik bila-bila masa."
         },
         "invite": {
-          "title": "Jemputan",
-          "subtitle": "Dapatkan 50 WDD untuk setiap rakan yang menyertai",
-          "tooltip": "Ganjaran memerlukan rakan-rakan disahkan oleh Orb.",
+          "title": "Jemput",
+          "subtitle": "Dapatkan 50 WDD bagi setiap rakan yang menyertai",
+          "tooltip": "Rakan perlu disahkan melalui Orb atau pasport.",
           "learnMore": "Ketahui lebih lanjut",
           "stats": {
             "title": "Statistik Rujukan Anda",
@@ -121,13 +121,15 @@
           "drawer": {
             "title": "Ganjarkan Pemberi Rujukan",
             "subtitle": "Cetuskan ganjaran 50 WDD percuma untuk pemberi rujukan anda",
+            "passportSubtitle": "Buktikan pengesahan pasport anda dan cetuskan ganjaran 50 WDD percuma untuk pemberi rujukan anda",
             "invitedBy": "Anda dijemput oleh: {{username}}",
             "input": {
               "placeholder": "Masukkan nama pengguna (cth. username.0000)",
               "lookupButton": "Cari Pengguna",
               "sendingTo": "Menghantar ganjaran kepada:",
               "editButton": "Sunting",
-              "sendButton": "Hantar Ganjaran"
+              "sendButton": "Hantar Ganjaran",
+              "proveReward": "Buktikan dan Ganjarkan"
             },
             "errors": {
               "enterUsername": "Sila masukkan nama pengguna",
@@ -143,7 +145,26 @@
           },
           "share": {
             "title": "Sertai Republik Dunia",
-            "text": "Gunakan pautan jemputan saya untuk menyertai Republik Dunia dan dapatkan ganjaran bersama!"
+            "text": "Gunakan pautan jemputan saya untuk menyertai Republik Dunia dan memperoleh ganjaran bersama!"
+          },
+          "passportDrawer": {
+            "title": "Program Rujukan Disahkan-Pasport",
+            "subtitle": "Jemput pemegang pasport dan dapatkan 50 WDD",
+            "features": {
+              "countries": {
+                "title": "Pengesahan pasport kini tersedia di Argentina, Australia, Chile, Colombia, Croatia, Japan, Philippines, Portugal, South Korea, dan United States"
+              },
+              "rewards": {
+                "title": "Rakan menerima WLD untuk mengesahkan pasport mereka dalam Aplikasi World"
+              },
+              "basicIncome": {
+                "title": "Pendapatan asas tambahan untuk orang yang disahkan pasport akan datang tidak lama lagi"
+              }
+            },
+            "trigger": {
+              "titleText": "Kini juga tersedia selepas rakan-rakan yang disahkan pasport!",
+              "titleDetails": "Butiran"
+            }
           }
         },
         "contribute": {
@@ -412,7 +433,7 @@
         },
         "referralCodes": {
           "question": "Bagaimana kod rujukan berfungsi?",
-          "answer": "Sebagai warganegara Republik Dunia, anda boleh memperoleh ganjaran melalui program rujukan kami. Kongsi pautan rujukan unik anda dengan rakan, dan anda akan menerima 50 WDD untuk setiap orang yang menyertai dan mengaktifkan Pendapatan Asas Plus. Belum menerima ganjaran anda? Rakan anda mungkin perlu mencetuskan secara manual dengan memilih pilihan 'Ganjarkan Pemberi Rujukan' dalam bahagian rujukan mereka."
+          "answer": "Sebagai warga Republik Dunia, anda boleh mendapat ganjaran melalui program rujukan kami. Kongsi pautan rujukan unik anda dengan rakan-rakan, dan anda akan menerima 50 WDD untuk setiap orang yang menyertai dan disahkan melalui Orb atau pasport. Belum menerima ganjaran anda? Rakan anda mungkin perlu mengaktifkannya secara manual dengan memilih pilihan 'Beri Ganjaran kepada Perujuk' dalam bahagian rujukan mereka."
         },
         "drachmaValue": {
           "question": "Dari mana drachma mendapat nilainya?",

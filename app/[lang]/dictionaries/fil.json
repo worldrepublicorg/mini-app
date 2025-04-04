@@ -211,9 +211,9 @@
         },
         "invite": {
           "title": "Mag-imbita",
-          "subtitle": "Kumuha ng 50 WDD para sa bawat kaibigang sumali",
-          "tooltip": "Ang mga gantimpala ay nangangailangan ng Orb verification ng mga kaibigan.",
-          "learnMore": "Alamin pa",
+          "subtitle": "Makakuha ng 50 WDD para sa bawat kaibigan na sasali",
+          "tooltip": "Ang mga kaibigan ay dapat na-verify sa pamamagitan ng Orb o pasaporte.",
+          "learnMore": "Matuto nang higit pa",
           "stats": {
             "title": "Mga Stats ng Iyong Referral",
             "invites": "Tinanggap na mga imbitasyon",
@@ -229,13 +229,15 @@
           "drawer": {
             "title": "Gantimpalaan ang Referrer",
             "subtitle": "I-trigger ang libreng 50 WDD na gantimpala para sa iyong referrer",
+            "passportSubtitle": "Patunayan ang iyong passport verification at i-trigger ang libreng 50 WDD na gantimpala para sa iyong referrer",
             "invitedBy": "Ikaw ay inimbita ni: {{username}}",
             "input": {
               "placeholder": "Ilagay ang username (hal. username.0000)",
               "lookupButton": "Hanapin ang User",
               "sendingTo": "Nagpapadala ng gantimpala kay:",
               "editButton": "I-edit",
-              "sendButton": "Ipadala ang Gantimpala"
+              "sendButton": "Ipadala ang Gantimpala",
+              "proveReward": "Patunayan at Gantimpalaan"
             },
             "errors": {
               "enterUsername": "Mangyaring maglagay ng username",
@@ -252,6 +254,25 @@
           "share": {
             "title": "Sumali sa World Republic",
             "text": "Gamitin ang aking link ng imbitasyon para sumali sa World Republic at magkasamang kumita ng mga gantimpala!"
+          },
+          "passportDrawer": {
+            "title": "Programang Referral na Nabe-verify sa Pasaporte",
+            "subtitle": "Mag-imbita ng mga may hawak ng pasaporte at kumita ng 50 WDD",
+            "features": {
+              "countries": {
+                "title": "Ang pag-verify ng pasaporte ay kasalukuyang available sa Argentina, Australia, Chile, Colombia, Croatia, Japan, Philippines, Portugal, South Korea, at United States"
+              },
+              "rewards": {
+                "title": "Ang mga kaibigan ay nakakakuha ng WLD sa pag-verify ng kanilang pasaporte sa World App"
+              },
+              "basicIncome": {
+                "title": "Ang karagdagang basic income para sa mga taong na-verify sa pamamagitan ng pasaporte ay malapit nang dumating"
+              }
+            },
+            "trigger": {
+              "titleText": "Ngayon ay available din pagkatapos ng mga kaibigan na na-verify sa passport!",
+              "titleDetails": "Mga Detalye"
+            }
           }
         }
       }
@@ -412,7 +433,7 @@
         },
         "referralCodes": {
           "question": "Paano gumagana ang mga referral code?",
-          "answer": "Bilang isang mamamayan ng World Republic, maaari kang kumita ng mga gantimpala sa pamamagitan ng aming referral program. Ibahagi ang iyong unique referral link sa mga kaibigan, at makakatanggap ka ng 50 WDD para sa bawat taong sumali at nag-activate ng Basic Income Plus. Hindi pa natatanggap ang iyong gantimpala? Maaaring kailanganin ng iyong kaibigan na i-trigger ito nang manual sa pamamagitan ng pagpili ng opsyon na 'Reward Referrer' sa kanilang referral section."
+          "answer": "Bilang isang mamamayan ng World Republic, maaari kang kumita ng mga reward sa pamamagitan ng aming referral program. Ibahagi ang iyong natatanging referral link sa mga kaibigan, at makakatanggap ka ng 50 WDD para sa bawat taong sumali at na-verify sa pamamagitan ng Orb o pasaporte. Hindi mo pa natatanggap ang iyong reward? Maaaring kailanganin ng iyong kaibigan na manu-manong i-trigger ito sa pamamagitan ng pagpili ng opsyong 'Reward Referrer' sa kanilang referral section."
         },
         "drachmaValue": {
           "question": "Saan nagmumula ang halaga ng drachma?",

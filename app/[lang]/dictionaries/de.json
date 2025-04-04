@@ -103,8 +103,8 @@
         },
         "invite": {
           "title": "Einladen",
-          "subtitle": "Holen Sie 50 WDD pro Freund, der sich anschließt",
-          "tooltip": "Belohnungen erfordern Orb-Verifizierung der Freunde.",
+          "subtitle": "Erhalte 50 WDD pro Freund, der beitritt",
+          "tooltip": "Freunde müssen über Orb oder Reisepass verifiziert sein.",
           "learnMore": "Mehr erfahren",
           "stats": {
             "title": "Ihre Referral Stats",
@@ -121,13 +121,15 @@
           "drawer": {
             "title": "Belohnung einem Referrer gewähren",
             "subtitle": "Freien 50 WDD Belohnung für Ihren Referrer auslösen",
+            "passportSubtitle": "Überprüfen Sie Ihre Passverifizierung und lösen Sie eine kostenlose 50 WDD Belohnung für Ihren Referrer aus",
             "invitedBy": "Sie wurden von: {{username}} eingeladen",
             "input": {
               "placeholder": "Benutzername eingeben (z.B. username.0000)",
               "lookupButton": "Benutzername suchen",
               "sendingTo": "Belohnung senden an:",
               "editButton": "Bearbeiten",
-              "sendButton": "Belohnung senden"
+              "sendButton": "Belohnung senden",
+              "proveReward": "Verifizieren und Belohnen"
             },
             "errors": {
               "enterUsername": "Bitte geben Sie einen Benutzernamen ein",
@@ -142,8 +144,27 @@
             }
           },
           "share": {
-            "title": "Treten Sie der Weltrepublik bei",
-            "text": "Nutzen Sie meinen Einladungslink, um der Weltrepublik beizutreten und gemeinsam Belohnungen zu verdienen!"
+            "title": "Tritt der Weltrepublik bei",
+            "text": "Nutze meinen Einladungslink, um der Weltrepublik beizutreten und gemeinsam Belohnungen zu verdienen!"
+          },
+          "passportDrawer": {
+            "title": "Pass-verifiziertes Empfehlungsprogramm",
+            "subtitle": "Lade Passinhaber ein und verdiene 50 WDD",
+            "features": {
+              "countries": {
+                "title": "Pass-Verifizierung ist derzeit in Argentinien, Australien, Chile, Kolumbien, Kroatien, Japan, Philippinen, Portugal, Südkorea und den Vereinigten Staaten verfügbar"
+              },
+              "rewards": {
+                "title": "Freunde erhalten WLD für die Verifizierung ihres Passes in der World App"
+              },
+              "basicIncome": {
+                "title": "Zusätzliches Grundeinkommen für pass-verifizierte Personen kommt bald"
+              }
+            },
+            "trigger": {
+              "titleText": "Jetzt auch nach Pass-verifizierten Freunden verfügbar!",
+              "titleDetails": "Einzelheiten"
+            }
           }
         },
         "contribute": {
@@ -411,8 +432,8 @@
           "answer": "Der Sparen Account ermöglicht es Ihnen, WDD-Token einzuzahlen und einen 69% jährlichen Zins zu verdienen. Durch fortlaufende Wiederanlage von verdienten Zinsen können Benutzer effektive Rückgaben nahe 100% jährlich erreichen, indem sie ihre WDD-Wachstum über die Zeit maximieren. Zinsen kumulieren kontinuierlich und können jederzeit ausgezahlt oder erneut investiert werden."
         },
         "referralCodes": {
-          "question": "Wie funktionieren Referral-Codes?",
-          "answer": "Als Weltrepublikaner können Sie Belohnungen über unser Referral-Programm verdienen. Teilen Sie Ihren eindeutigen Referral-Link mit Freunden, und Sie erhalten 50 WDD für jeden, der sich anschließt und Grundeinkommen Plus aktiviert. Haben Sie Ihre Belohnung nicht erhalten? Ihr Freund könnte die Belohnung manuell auslösen, indem er die 'Belohnung Referrer' Option in ihrer Referral-Sektion auswählt."
+          "question": "Wie funktionieren Empfehlungscodes?",
+          "answer": "Als Bürger der Weltrepublik können Sie durch unser Empfehlungsprogramm Belohnungen verdienen. Teilen Sie Ihren einzigartigen Empfehlungslink mit Freunden und Sie erhalten 50 WDD für jede Person, die beitritt und über Orb oder Reisepass verifiziert wird. Haben Sie Ihre Belohnung nicht erhalten? Ihr Freund muss möglicherweise manuell auslösen, indem er die Option 'Empfehler belohnen' in seinem Empfehlungsbereich auswählt."
         },
         "drachmaValue": {
           "question": "Wo bekommt die Drachme ihren Wert?",

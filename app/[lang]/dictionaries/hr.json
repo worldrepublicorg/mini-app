@@ -103,8 +103,8 @@
         },
         "invite": {
           "title": "Pozovi",
-          "subtitle": "Dobij 50 WDD po prijatelju koji se pridruži",
-          "tooltip": "Nagrade zahtijevaju Orb provjeru prijatelja.",
+          "subtitle": "Dobij 50 WDD za svakog prijatelja koji se pridruži",
+          "tooltip": "Prijatelji moraju biti verificirani putem Orba ili putovnice.",
           "learnMore": "Saznaj više",
           "stats": {
             "title": "Vaše statistike preporuka",
@@ -121,13 +121,15 @@
           "drawer": {
             "title": "Nagradi preporučitelja",
             "subtitle": "Aktiviraj besplatnu nagradu od 50 WDD za svog preporučitelja",
+            "passportSubtitle": "Dokažite svoju verifikaciju putovnice i aktivirajte besplatnu nagradu od 50 WDD za svog preporučitelja",
             "invitedBy": "Pozvao vas je: {{username}}",
             "input": {
               "placeholder": "Unesite korisničko ime (npr. username.0000)",
               "lookupButton": "Pretraži korisnika",
               "sendingTo": "Slanje nagrade za:",
               "editButton": "Uredi",
-              "sendButton": "Pošalji nagradu"
+              "sendButton": "Pošalji nagradu",
+              "proveReward": "Dokaži i nagradi"
             },
             "errors": {
               "enterUsername": "Molimo unesite korisničko ime",
@@ -143,7 +145,26 @@
           },
           "share": {
             "title": "Pridružite se Svjetskoj Republici",
-            "text": "Koristite moj link pozivnice da se pridružite Svjetskoj Republici i zajedno zaradite nagrade!"
+            "text": "Koristite moju pozivnicu da se pridružite Svjetskoj Republici i zajedno zaradite nagrade!"
+          },
+          "passportDrawer": {
+            "title": "Program preporuka verificiran putovnicom",
+            "subtitle": "Pozovite vlasnike putovnica i zaradite 50 WDD",
+            "features": {
+              "countries": {
+                "title": "Potvrda putovnice trenutno je dostupna u Argentini, Australiji, Čileu, Kolumbiji, Hrvatskoj, Japanu, Filipinima, Portugalu, Južnoj Koreji i Sjedinjenim Državama"
+              },
+              "rewards": {
+                "title": "Prijatelji primaju WLD za potvrdu svoje putovnice u World aplikaciji"
+              },
+              "basicIncome": {
+                "title": "Dodatni osnovni dohodak za osobe s potvrđenom putovnicom uskoro stiže"
+              }
+            },
+            "trigger": {
+              "titleText": "Sada dostupno i nakon prijatelja verificiranih putovnicom!",
+              "titleDetails": "Detalji"
+            }
           }
         },
         "contribute": {
@@ -411,8 +432,8 @@
           "answer": "Štedni račun vam omogućuje polaganje WDD tokena i zaradu godišnje kamate od 69%. Kroz stalno reinvestiranje zarađene kamate, korisnici mogu postići efektivne prinose blizu 100% godišnje, maksimizirajući rast svojih WDD-a tijekom vremena. Kamata se akumulira kontinuirano i može se povući ili reinvestirati u bilo kojem trenutku."
         },
         "referralCodes": {
-          "question": "Kako funkcioniraju referalni kodovi?",
-          "answer": "Kao građanin Svjetske Republike, možete zaraditi nagrade kroz naš referalni program. Podijelite svoj jedinstveni referalni link s prijateljima i dobit ćete 50 WDD za svaku osobu koja se pridruži i aktivira Temeljni dohodak Plus. Niste primili nagradu? Vaš prijatelj možda treba ručno pokrenuti to odabirom opcije 'Nagradi preporučitelja' u svojem referalnom odjeljku."
+          "question": "Kako funkcioniraju preporučiteljski kodovi?",
+          "answer": "Kao građanin Svjetske Republike, možete zaraditi nagrade kroz naš preporučiteljski program. Podijelite svoju jedinstvenu preporučiteljsku poveznicu s prijateljima i dobit ćete 50 WDD za svaku osobu koja se pridruži i verificira putem Orba ili putovnice. Niste primili nagradu? Vaš prijatelj možda treba ručno pokrenuti nagrađivanje odabirom opcije 'Nagradi preporučitelja' u svom odjeljku za preporuke."
         },
         "drachmaValue": {
           "question": "Odakle drahma dobiva svoju vrijednost?",

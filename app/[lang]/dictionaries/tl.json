@@ -102,10 +102,10 @@
           "tooltip": "69% APY base rate. Kunin at i-reinvest ang interes para makamit ang halos 100% effective returns taun-taon. Mag-withdraw kahit kailan."
         },
         "invite": {
-          "title": "Mag-invite",
-          "subtitle": "Kumuha ng 50 WDD bawat kaibigang sumali",
-          "tooltip": "Kailangan na Orb-verified ang mga kaibigan para sa rewards.",
-          "learnMore": "Matuto pa",
+          "title": "Mag-imbita",
+          "subtitle": "Makakuha ng 50 WDD para sa bawat kaibigan na sasali",
+          "tooltip": "Ang mga kaibigan ay dapat na-verify sa pamamagitan ng Orb o pasaporte.",
+          "learnMore": "Matuto nang higit pa",
           "stats": {
             "title": "Mga Referral Stats Mo",
             "invites": "Mga tinanggap na imbitasyon",
@@ -121,13 +121,15 @@
           "drawer": {
             "title": "Reward ang Referrer",
             "subtitle": "Mag-trigger ng libreng 50 WDD reward para sa iyong referrer",
+            "passportSubtitle": "Patunayan ang iyong passport verification at mag-trigger ng libreng 50 WDD reward para sa iyong referrer",
             "invitedBy": "Inimbita ka ni: {{username}}",
             "input": {
               "placeholder": "Ilagay ang username (hal. username.0000)",
               "lookupButton": "Hanapin ang User",
               "sendingTo": "Nagpapadala ng reward kay:",
               "editButton": "I-edit",
-              "sendButton": "Ipadala ang Reward"
+              "sendButton": "Ipadala ang Reward",
+              "proveReward": "Patunayan at Gantimpalaan"
             },
             "errors": {
               "enterUsername": "Mangyaring maglagay ng username",
@@ -144,6 +146,25 @@
           "share": {
             "title": "Sumali ka sa World Republic",
             "text": "Gamitin ang aking invite link para sumali sa World Republic at magkasamang kumita ng rewards!"
+          },
+          "passportDrawer": {
+            "title": "Programa ng Referral na Beripikado sa Pasaporte",
+            "subtitle": "Mag-imbita ng mga may hawak ng pasaporte at kumita ng 50 WDD",
+            "features": {
+              "countries": {
+                "title": "Ang pag-verify ng pasaporte ay kasalukuyang available sa Argentina, Australia, Chile, Colombia, Croatia, Japan, Philippines, Portugal, South Korea, at United States"
+              },
+              "rewards": {
+                "title": "Ang mga kaibigan ay nakakakuha ng WLD sa pag-verify ng kanilang pasaporte sa World App"
+              },
+              "basicIncome": {
+                "title": "Ang karagdagang basic income para sa mga taong na-verify sa pamamagitan ng pasaporte ay malapit nang dumating"
+              }
+            },
+            "trigger": {
+              "titleText": "Ngayon ay available din pagkatapos ng mga kaibigan na na-verify sa pasaporte!",
+              "titleDetails": "Mga Detalye"
+            }
           }
         },
         "contribute": {
@@ -412,7 +433,7 @@
         },
         "referralCodes": {
           "question": "Paano gumagana ang mga referral code?",
-          "answer": "Bilang isang World Republic citizen, maaari kang kumita ng rewards sa pamamagitan ng aming referral program. Ibahagi ang iyong unique referral link sa mga kaibigan, at makakatanggap ka ng 50 WDD para sa bawat taong sumali at nag-activate ng Basic Income Plus. Hindi pa natatanggap ang iyong reward? Maaaring kailanganin ng iyong kaibigan na manually i-trigger ito sa pamamagitan ng pagpili ng 'Reward Referrer' option sa kanilang referral section."
+          "answer": "Bilang isang mamamayan ng World Republic, maaari kang kumita ng mga reward sa pamamagitan ng aming referral program. Ibahagi ang iyong natatanging referral link sa mga kaibigan, at makakatanggap ka ng 50 WDD para sa bawat taong sumali at na-verify sa pamamagitan ng Orb o pasaporte. Hindi mo pa natatanggap ang iyong reward? Maaaring kailanganin ng iyong kaibigan na manu-manong i-trigger ito sa pamamagitan ng pagpili ng opsyong 'Reward Referrer' sa kanilang referral section."
         },
         "drachmaValue": {
           "question": "Saan nagmumula ang halaga ng drachma?",

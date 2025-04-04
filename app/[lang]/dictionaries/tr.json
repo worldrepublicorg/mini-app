@@ -103,8 +103,8 @@
         },
         "invite": {
           "title": "Davet Et",
-          "subtitle": "Katılan her arkadaş için 50 WDD kazanın",
-          "tooltip": "Ödüller için arkadaşlarınızın Orb-doğrulanmış olması gerekir.",
+          "subtitle": "Katılan her arkadaşın için 50 WDD kazan",
+          "tooltip": "Arkadaşlar Orb veya pasaport ile doğrulanmalıdır.",
           "learnMore": "Daha fazla bilgi",
           "stats": {
             "title": "Davet İstatistikleriniz",
@@ -121,13 +121,15 @@
           "drawer": {
             "title": "Davet Edeni Ödüllendir",
             "subtitle": "Davet edeniniz için ücretsiz 50 WDD ödülü tetikleyin",
+            "passportSubtitle": "Pasaport doğrulamanızı kanıtlayın ve davet edeniniz için ücretsiz 50 WDD ödülü tetikleyin",
             "invitedBy": "Sizi davet eden: {{username}}",
             "input": {
               "placeholder": "Kullanıcı adı girin (örn. kullanici.0000)",
               "lookupButton": "Kullanıcı Ara",
               "sendingTo": "Ödül gönderiliyor:",
               "editButton": "Düzenle",
-              "sendButton": "Ödül Gönder"
+              "sendButton": "Ödül Gönder",
+              "proveReward": "Kanıtla ve Ödüllendir"
             },
             "errors": {
               "enterUsername": "Lütfen bir kullanıcı adı girin",
@@ -143,7 +145,26 @@
           },
           "share": {
             "title": "Dünya Cumhuriyeti'ne Katılın",
-            "text": "Dünya Cumhuriyeti'ne katılmak için davet bağlantımı kullanın ve birlikte ödüller kazanın!"
+            "text": "Dünya Cumhuriyeti'ne katılmak ve birlikte ödüller kazanmak için davet linkimi kullanın!"
+          },
+          "passportDrawer": {
+            "title": "Pasaport Doğrulamalı Referans Programı",
+            "subtitle": "Pasaport sahiplerini davet edin ve 50 WDD kazanın",
+            "features": {
+              "countries": {
+                "title": "Pasaport doğrulaması şu anda Arjantin, Avustralya, Şili, Kolombiya, Hırvatistan, Japonya, Filipinler, Portekiz, Güney Kore ve Amerika Birleşik Devletleri'nde mevcuttur"
+              },
+              "rewards": {
+                "title": "Arkadaşlarınız, World uygulamasında pasaportlarını doğrulayarak WLD kazanır"
+              },
+              "basicIncome": {
+                "title": "Pasaport doğrulaması yapılmış kişiler için ek temel gelir yakında geliyor"
+              }
+            },
+            "trigger": {
+              "titleText": "Şimdi pasaport doğrulamalı arkadaşlardan sonra da kullanılabilir!",
+              "titleDetails": "Detaylar"
+            }
           }
         },
         "contribute": {
@@ -411,8 +432,8 @@
           "answer": "Tasarruf Hesabı, WDD tokenlerini yatırmanıza ve %69 yıllık faiz kazanmanıza olanak tanır. Kazanılan faizi sürekli yeniden yatırım yaparak, kullanıcılar yıllık yaklaşık %100 etkin getiri elde edebilir ve zaman içinde WDD büyümelerini maksimize edebilir. Faiz sürekli birikir ve her zaman çekilebilir veya yeniden yatırılabilir."
         },
         "referralCodes": {
-          "question": "Davet kodları nasıl çalışır?",
-          "answer": "Dünya Cumhuriyeti vatandaşı olarak, davet programımız aracılığıyla ödüller kazanabilirsiniz. Arkadaşlarınızla benzersiz davet bağlantınızı paylaşın ve katılan ve Temel Gelir Plus'ı aktifleştiren her kişi için 50 WDD kazanın. Ödülünüzü almadınız mı? Arkadaşınızın davet bölümündeki 'Davet Edeni Ödüllendir' seçeneğini seçerek manuel olarak tetiklemesi gerekebilir."
+          "question": "Referans kodları nasıl çalışır?",
+          "answer": "Dünya Cumhuriyeti vatandaşı olarak, referans programımız aracılığıyla ödüller kazanabilirsiniz. Benzersiz referans bağlantınızı arkadaşlarınızla paylaşın ve Orb veya pasaport yoluyla doğrulanan her kişi için 50 WDD alın. Ödülünüzü almadınız mı? Arkadaşınızın, referans bölümündeki 'Referans Vereni Ödüllendir' seçeneğini seçerek bunu manuel olarak tetiklemesi gerekebilir."
         },
         "drachmaValue": {
           "question": "Drahmi değerini nereden alıyor?",

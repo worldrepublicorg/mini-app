@@ -103,8 +103,8 @@
         },
         "invite": {
           "title": "Convidar",
-          "subtitle": "Ganhe 50 WDD por amigo que se juntar",
-          "tooltip": "As recompensas exigem que os amigos sejam verificados pelo Orb.",
+          "subtitle": "Ganhe 50 WDD por cada amigo que se juntar",
+          "tooltip": "Os amigos devem ser verificados via Orb ou passaporte.",
           "learnMore": "Saiba mais",
           "stats": {
             "title": "Suas Estatísticas de Indicação",
@@ -121,13 +121,15 @@
           "drawer": {
             "title": "Recompensar um Indicador",
             "subtitle": "Ative uma recompensa gratuita de 50 WDD para seu indicador",
+            "passportSubtitle": "Comprove sua verificação de passaporte e ative uma recompensa gratuita de 50 WDD para seu indicador",
             "invitedBy": "Você foi convidado por: {{username}}",
             "input": {
               "placeholder": "Digite o nome de usuário (ex: usuario.0000)",
               "lookupButton": "Buscar Usuário",
               "sendingTo": "Enviando recompensa para:",
               "editButton": "Editar",
-              "sendButton": "Enviar Recompensa"
+              "sendButton": "Enviar Recompensa",
+              "proveReward": "Comprovar e Recompensar"
             },
             "errors": {
               "enterUsername": "Por favor, digite um nome de usuário",
@@ -143,7 +145,26 @@
           },
           "share": {
             "title": "Junte-se à República Mundial",
-            "text": "Use meu link de convite para se juntar à República Mundial e ganhe recompensas juntos!"
+            "text": "Use meu link de convite para se juntar à República Mundial e ganhar recompensas juntos!"
+          },
+          "passportDrawer": {
+            "title": "Programa de Indicação Verificado por Passaporte",
+            "subtitle": "Convide portadores de passaporte e ganhe 50 WDD",
+            "features": {
+              "countries": {
+                "title": "A verificação por passaporte está atualmente disponível na Argentina, Austrália, Chile, Colômbia, Croácia, Japão, Filipinas, Portugal, Coreia do Sul e Estados Unidos"
+              },
+              "rewards": {
+                "title": "Amigos recebem WLD ao verificar seu passaporte no World App"
+              },
+              "basicIncome": {
+                "title": "Renda básica extra para pessoas verificadas por passaporte chegará em breve"
+              }
+            },
+            "trigger": {
+              "titleText": "Agora também disponível após amigos verificados por passaporte!",
+              "titleDetails": "Detalhes"
+            }
           }
         },
         "contribute": {
@@ -412,7 +433,7 @@
         },
         "referralCodes": {
           "question": "Como funcionam os códigos de indicação?",
-          "answer": "Como cidadão da República Mundial, você pode ganhar recompensas através do nosso programa de indicação. Compartilhe seu link único de indicação com amigos e você receberá 50 WDD para cada pessoa que se juntar e ativar a Renda Básica Plus. Não recebeu sua recompensa? Seu amigo pode precisar ativá-la manualmente selecionando a opção 'Recompensar Indicador' na seção de indicação."
+          "answer": "Como cidadão da República Mundial, você pode ganhar recompensas através do nosso programa de indicação. Compartilhe seu link de indicação exclusivo com amigos e você receberá 50 WDD para cada pessoa que ingressar e for verificada via Orb ou passaporte. Não recebeu sua recompensa? Seu amigo pode precisar acioná-la manualmente selecionando a opção 'Recompensar Indicador' na seção de indicação dele."
         },
         "drachmaValue": {
           "question": "De onde vem o valor do dracma?",
