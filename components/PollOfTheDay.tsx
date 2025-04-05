@@ -11,8 +11,8 @@ interface Poll {
 
 const polls: Poll[] = [
   {
-    key: "quakeCodes",
-    url: "https://vote.one/soAE4aHn",
+    key: "biodiversityFinance",
+    url: "https://vote.one/dceSJPNm",
   },
   {
     key: "foodSecurity",

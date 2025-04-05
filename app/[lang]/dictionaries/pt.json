@@ -293,6 +293,7 @@
             "title": "Votações Anteriores",
             "backToGovern": "Voltar para Governar",
             "polls": {
+              "biodiversityFinance": "Deveria ser criado um fundo global dedicado para mobilizar investimentos para a conservação da natureza e cumprir metas ambiciosas de proteção da biodiversidade?",
               "digitalInclusion": "Deveria haver uma iniciativa global para diminuir a divisão digital e garantir acesso igualitário às tecnologias digitais em todo o mundo?",
               "techTransparency": "As empresas globais de tecnologia devem ser obrigadas a adotar políticas transparentes de tomada de decisão para proteger a confiança pública?",
               "disasterRelief": "Deve ser estabelecido um fundo global de resposta rápida para fornecer alívio imediato para desastres naturais devastadores como grandes terremotos?",

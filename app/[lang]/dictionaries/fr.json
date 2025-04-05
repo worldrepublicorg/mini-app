@@ -293,7 +293,8 @@
             "title": "Sondages précédents",
             "backToGovern": "Retour à Gouverner",
             "polls": {
-              "digitalInclusion": "Devrait-il y avoir une initiative mondiale pour combler la fracture numérique et garantir un accès équitable aux technologies numériques dans le monde entier ?",
+              "biodiversityFinance": "Faudrait-il créer un fonds mondial dédié pour mobiliser des investissements en faveur de la conservation de la nature afin d'atteindre des objectifs ambitieux de protection de la biodiversité ?",
+              "digitalInclusion": "Devrait-il y avoir une initiative mondiale pour combler la fracture numérique et assurer un accès équitable aux technologies numériques dans le monde entier ?",
               "fourDayWeek": "Soutenez-vous le mouvement mondial croissant en faveur de la semaine de travail de quatre jours comme modèle d'emploi standard ?",
               "nuclearSecurity": "Faut-il établir des accords internationaux contraignants pour sécuriser les installations nucléaires dans les zones de conflit ?",
               "aviationResilience": "L'infrastructure de l'aviation internationale est-elle suffisamment résiliente pour gérer des perturbations imprévues à grande échelle ?",

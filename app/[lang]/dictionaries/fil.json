@@ -293,7 +293,8 @@
             "title": "Mga Nakaraang Botohan",
             "backToGovern": "Bumalik sa Pamamahala",
             "polls": {
-              "digitalInclusion": "Dapat bang magkaroon ng pandaigdigang inisyatiba upang matugunan ang digital divide at matiyak ang pantay na access sa mga digital na teknolohiya sa buong mundo?",
+              "biodiversityFinance": "Dapat ba na gumawa ng dedikadong pandaigdigang pondo upang makakalap ng mga pamumuhunan para sa konserbasyon ng kalikasan upang matugunan ang mataas na hangarin para sa proteksyon ng biodiversity?",
+              "digitalInclusion": "Dapat ba na magkaroon ng isang pandaigdigang inisyatiba upang matugunan ang digital divide at matiyak ang pantay na access sa digital na teknolohiya sa buong mundo?",
               "techTransparency": "Dapat bang obligahin ang mga global na kumpanya ng teknolohiya na magpatupad ng mga transparent na patakaran sa pagdedesisyon upang protektahan ang tiwala ng publiko?",
               "disasterRelief": "Dapat bang magtatag ng global na quick response fund para magbigay ng agarang tulong sa mga mapaminsalang natural na sakuna tulad ng malalaking lindol?",
               "aiWatermarking": "Dapat bang iatas ng mga global na regulasyon ang mandatory watermarking ng AI-generated content upang labanan ang disinformation sa mga eleksyon at media?",

@@ -293,7 +293,8 @@
             "title": "Kura za Awali",
             "backToGovern": "Rudi kwa Tawala",
             "polls": {
-              "digitalInclusion": "Je, kunapaswa kuwa na mpango wa kimataifa wa kuziba pengo la kidijitali na kuhakikisha upatikanaji sawa wa teknolojia za kidijitali ulimwenguni kote?",
+              "biodiversityFinance": "Je, inafaa kutengenezwa hazina maalum ya kimataifa ili kukusanya uwekezaji kwa uhifadhi wa mazingira kukidhi malengo makubwa ya kulinda bioanuai?",
+              "digitalInclusion": "Je, inafaa kuwa na mpango wa kimataifa wa kuziba pengo la dijitali na kuhakikisha ufikiaji sawa wa teknolojia za dijitali ulimwenguni kote?",
               "techTransparency": "Je, kampuni za teknolojia za kimataifa zinapaswa kuchukuliwa kufuata sera za ufumbuzi wa maamuzi ili kulinda imani ya umma?",
               "disasterRelief": "Je, mfuko wa haraka wa kimataifa unapaswa kuanzishwa kutoa misaada ya haraka kwa majanga makubwa ya asili kama vile matetemeko makubwa ya ardhi?",
               "aiWatermarking": "Je, sheria za kimataifa zinapaswa kuhitaji alama ya maji ya lazima ya maudhui yanayozalishwa na AI kupambana na habari potofu katika uchaguzi na vyombo vya habari?",
