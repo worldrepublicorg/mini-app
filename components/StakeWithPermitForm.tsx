@@ -87,7 +87,7 @@ export function StakeWithPermitForm({
     const stakeAmountStr = stakeAmount.toString();
     const nonce = Date.now().toString();
     const currentTime = Math.floor(Date.now() / 1000);
-    const deadline = currentTime + 1200; // 20 minutes from now
+    const deadline = currentTime + 600; // 10 minutes from now
 
     const permitArg = [
       [MAIN_TOKEN_ADDRESS, stakeAmountStr],

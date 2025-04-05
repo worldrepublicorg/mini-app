@@ -215,8 +215,8 @@
                 "title": "Mga Patakaran ng Paligsahan",
                 "list": {
                   "rule1": "Ang mga botohan na sinimulan sa kasalukuyang linggo lamang ang maaaring sumali",
-                  "rule2": "Ang mga nagwagi ay pinipili batay sa kabuuang boto",
-                  "rule3": "Nagtatapos ang paligsahan tuwing Linggo sa 23:59 UTC"
+                  "rule2": "Nagtatapos ang paligsahan tuwing Linggo sa 11:59 PM UTC",
+                  "rule3": "Ang mga nagwagi ay pinipili batay sa kabuuang boto at kinokontact sa pamamagitan ng Telegram sa loob ng 24 na oras"
                 }
               },
               "cta": {
@@ -261,8 +261,8 @@
             "rules": {
               "title": "Mga patakaran ng contest",
               "rule1": "Ang mga post lang na na-publish sa kasalukuyang linggo ang eligible",
-              "rule2": "Ang mga nanalo ay pinipili batay sa kabuuang engagement (likes + reposts + comments)",
-              "rule3": "Nagtatapos ang contest tuwing Linggo ng 11:59 PM UTC"
+              "rule2": "Nagtatapos ang contest tuwing Linggo ng 11:59 PM UTC",
+              "rule3": "Ang mga nanalo ay pinipili batay sa kabuuang organic engagement (likes + reposts + comments) at kinokontact sa pamamagitan ng Telegram sa loob ng 24 na oras"
             },
             "cta": {
               "post": "Simulan ang Pagpo-post Ngayon",

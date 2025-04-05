@@ -215,8 +215,8 @@
                 "title": "Competition Rules",
                 "list": {
                   "rule1": "Only polls wey start for this week dey qualify",
-                  "rule2": "Winners dey choose based on total votes",
-                  "rule3": "Competition dey end every Sunday by 23:59 UTC"
+                  "rule2": "Competition dey end every Sunday by 11:59 PM UTC",
+                  "rule3": "Winners dey choose based on total votes and we go use Telegram contact dem within 24 hours"
                 }
               },
               "cta": {
@@ -261,8 +261,8 @@
             "rules": {
               "title": "Competition rules",
               "rule1": "Na only posts wey start dis week fit enter",
-              "rule2": "De person wey get most engagement (likes + reposts + comments) na im go win",
-              "rule3": "Competition dey end every Sunday by 11:59 PM UTC"
+              "rule2": "Competition dey end every Sunday by 11:59 PM UTC",
+              "rule3": "De person wey get most organic engagement (likes + reposts + comments) na im go win and we go use Telegram contact dem within 24 hours"
             },
             "cta": {
               "post": "Start To Post Now",
