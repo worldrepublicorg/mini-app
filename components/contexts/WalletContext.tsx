@@ -236,11 +236,26 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   ]);
 
   const fetchBalance = useCallback(async () => {
-    console.log(
-      "[WalletContext] fetchBalance called - this is now a stub. Please use useWalletBalance hook instead."
-    );
-    // No implementation needed as this is now handled by the useWalletBalance hook
-  }, []);
+    try {
+      const balanceResult = await viemClient.readContract({
+        address: "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B",
+        abi: parseAbi([
+          "function balanceOf(address) external view returns (uint256)",
+        ]),
+        functionName: "balanceOf",
+        args: [walletAddress as `0x${string}`],
+      });
+
+      if (typeof balanceResult === "bigint") {
+        const newTokenBalance = fromWei(balanceResult);
+        setTokenBalance(newTokenBalance);
+        localStorage.setItem("tokenBalance", newTokenBalance);
+      }
+    } catch (error) {
+      console.error("Error fetching balance:", error);
+      setTimeout(fetchBalance, 1000);
+    }
+  }, [walletAddress, setTokenBalance, fromWei]);
 
   const fetchCanReward = useCallback(async () => {
     if (!walletAddress) return;
@@ -624,6 +639,39 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
   useEffect(() => {
     if (!walletAddress) return;
+    console.log(
+      "[WalletContext] Wallet address changed, fetching balance:",
+      walletAddress
+    );
+
+    fetchBalance();
+
+    try {
+      console.log("[WalletContext] Setting up event watcher for Transfer");
+      const unwatch = viemClient.watchContractEvent({
+        address: "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B",
+        abi: parseAbi([
+          "event Transfer(address indexed from, address indexed to, uint256 value)",
+        ]),
+        eventName: "Transfer",
+        args: [walletAddress as `0x${string}`, walletAddress as `0x${string}`],
+        onLogs: (logs: unknown) => {
+          console.log("[WalletContext] Transfer event detected:", logs);
+          fetchBalance();
+        },
+      });
+
+      return () => {
+        console.log("[WalletContext] Cleaning up Transfer event watcher");
+        unwatch();
+      };
+    } catch (error) {
+      console.error("[WalletContext] Error watching Transfer events:", error);
+    }
+  }, [walletAddress, fetchBalance]);
+
+  useEffect(() => {
+    if (!walletAddress) return;
 
     try {
       console.log(
@@ -639,9 +687,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         onLogs: (logs: unknown) => {
           console.log("[WalletContext] RewardSent event detected:", logs);
           fetchRewardCount(); // Update reward count when a new reward is received
-          console.log(
-            "[WalletContext] Balance will be updated by useWalletBalance hook"
-          );
+          fetchBalance();
         },
       });
 
@@ -652,7 +698,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     } catch (error) {
       console.error("[WalletContext] Error watching RewardSent events:", error);
     }
-  }, [walletAddress, fetchRewardCount]);
+  }, [walletAddress, fetchRewardCount, fetchBalance]);
 
   // Watch for RewardSent events from the secure document contract
   useEffect(() => {
@@ -675,9 +721,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
             logs
           );
           fetchSecureDocumentRewardCount(); // Update reward count when a new reward is received
-          console.log(
-            "[WalletContext] Balance will be updated by useWalletBalance hook"
-          );
+          fetchBalance();
         },
       });
 
@@ -693,7 +737,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         error
       );
     }
-  }, [walletAddress, fetchSecureDocumentRewardCount]);
+  }, [walletAddress, fetchSecureDocumentRewardCount, fetchBalance]);
 
   return (
     <WalletContext.Provider
