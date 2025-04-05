@@ -293,7 +293,8 @@
             "title": "Mga Nakaraang Poll",
             "backToGovern": "Bumalik sa Govern",
             "polls": {
-              "digitalInclusion": "Dapat ba na magkaroon ng isang pandaigdigang inisyatiba upang mapagtagumpayan ang digital divide at matiyak ang pantay na access sa mga digital na teknolohiya sa buong mundo?",
+              "biodiversityFinance": "Dapat bang lumikha ng isang nakalaang pandaigdigang pondo upang magpalago ng mga pamumuhunan para sa konserbasyon ng kalikasan upang matugunan ang mataas na hangaring mga target sa pagprotekta ng biodiversity?",
+              "digitalInclusion": "Dapat bang magkaroon ng isang pandaigdigang inisyatiba upang mapunan ang digital divide at matiyak ang pantay na access sa mga digital na teknolohiya sa buong mundo?",
               "techTransparency": "Dapat bang i-require ang mga global tech companies na mag-adopt ng transparent na decision-making policies para maprotektahan ang public trust?",
               "disasterRelief": "Dapat bang magtatag ng global rapid-response fund para sa agarang tulong sa mga nakakapinsalang natural disasters tulad ng malalaking lindol?",
               "aiWatermarking": "Dapat bang i-require ng global regulations ang mandatory na watermarking ng AI-generated content para labanan ang misinformation sa mga eleksyon at media?",

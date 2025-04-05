@@ -7,6 +7,7 @@ import { PollCard } from "@/components/PollCard";
 import { useTranslations } from "@/hooks/useTranslations";
 
 const pollKeys = [
+  "oceanHealth",
   "eWasteRegulation",
   "foodSecurity",
   "quakeCodes",
@@ -52,6 +53,7 @@ const pollKeys = [
 ];
 
 const pollUrls = {
+  oceanHealth: "https://vote.one/pCmbA7kH",
   eWasteRegulation: "https://vote.one/Iud64Gpc",
   foodSecurity: "https://vote.one/GRi1NYOX",
   quakeCodes: "https://vote.one/soAE4aHn",

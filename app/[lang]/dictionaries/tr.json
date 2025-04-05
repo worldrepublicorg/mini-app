@@ -293,7 +293,8 @@
             "title": "Önceki Anketler",
             "backToGovern": "Yönet'e Dön",
             "polls": {
-              "digitalInclusion": "Dijital uçurumun kapatılması ve dünya çapında dijital teknolojilere eşit erişimin sağlanması için küresel bir girişim olmalı mı?",
+              "biodiversityFinance": "Biyolojik çeşitliliğin korunmasına yönelik iddialı hedefleri karşılamak için doğa koruma alanında yatırımları seferber edecek özel bir küresel fon oluşturulmalı mı?",
+              "digitalInclusion": "Dijital uçurumu kapatmak ve dünya çapında dijital teknolojilere eşit erişimi sağlamak için küresel bir girişim olmalı mı?",
               "techTransparency": "Küresel teknoloji şirketlerinin kamu güvenini korumak için şeffaf karar verme politikalarını benimsemesi zorunlu olmalı mı?",
               "disasterRelief": "Büyük depremler gibi yıkıcı doğal afetler için acil yardım sağlamak üzere küresel bir hızlı müdahale fonu kurulmalı mı?",
               "aiWatermarking": "Seçimlerde ve medyada yanlış bilgilendirmeyle mücadele etmek için küresel düzenlemeler AI tarafından oluşturulan içeriğin zorunlu filigranlanmasını gerektirmeli mi?",
