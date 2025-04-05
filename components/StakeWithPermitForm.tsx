@@ -6,6 +6,7 @@ import { Typography } from "@/components/ui/Typography";
 import { parseAbi } from "viem";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useWallet } from "@/components/contexts/WalletContext";
+import { useWalletBalance } from "@/hooks/useWalletBalance";
 import { viemClient } from "@/lib/viemClient";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { useToast } from "@/components/ui/Toast";
@@ -29,7 +30,8 @@ export function StakeWithPermitForm({
   fetchAvailableReward,
   lang,
 }: StakeWithPermitFormProps) {
-  const { walletAddress, tokenBalance, fetchBalance } = useWallet();
+  const { walletAddress } = useWallet();
+  const { tokenBalance, fetchBalance } = useWalletBalance(walletAddress);
   const { showToast } = useToast();
   const [amount, setAmount] = useState("");
   const [selectedAction, setSelectedAction] = useState<"deposit" | "withdraw">(

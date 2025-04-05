@@ -18,6 +18,7 @@ import {
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/Drawer";
 import { WalletAuth } from "@/components/WalletAuth";
 import { useWallet } from "@/components/contexts/WalletContext";
+import { useWalletBalance } from "@/hooks/useWalletBalance";
 import { viemClient } from "@/lib/viemClient";
 import { parseAbi, decodeAbiParameters } from "viem";
 import {
@@ -45,17 +46,16 @@ export default function EarnPage({
 }) {
   const {
     walletAddress,
-    tokenBalance,
-    basicIncomeActivated,
-    basicIncomePlusActivated,
+    username,
     claimableAmount,
     claimableAmountPlus,
+    basicIncomeActivated,
+    basicIncomePlusActivated,
     canReward,
     rewardCount,
     secureDocumentRewardCount,
     hasRewarded,
     secureDocumentCanReward,
-    fetchBalance,
     fetchBasicIncomeInfo,
     fetchBasicIncomePlusInfo,
     fetchCanReward,
@@ -65,9 +65,11 @@ export default function EarnPage({
     fetchHasRewarded,
     setBasicIncomeActivated,
     setBasicIncomePlusActivated,
-    username,
     setUsername,
   } = useWallet();
+
+  // Add this line to get tokenBalance from the new hook
+  const { tokenBalance, fetchBalance } = useWalletBalance(walletAddress);
 
   // Replace the dictionary state and effect with useTranslations hook
   const dictionary = useTranslations(lang);
