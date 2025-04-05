@@ -215,8 +215,8 @@
                 "title": "Wettbewerbsregeln",
                 "list": {
                   "rule1": "Nur Umfragen, die in der aktuellen Woche gestartet wurden, sind teilnahmeberechtigt",
-                  "rule2": "Gewinner werden basierend auf der Gesamtzahl der Stimmen ausgewählt",
-                  "rule3": "Der Wettbewerb endet jeden Sonntag um 23:59 UTC"
+                  "rule2": "Der Wettbewerb endet jeden Sonntag um 23:59 Uhr UTC",
+                  "rule3": "Die Gewinner werden anhand der Gesamtstimmen ausgewählt und innerhalb von 24 Stunden über Telegram kontaktiert"
                 }
               },
               "cta": {
@@ -260,9 +260,9 @@
             },
             "rules": {
               "title": "Wettbewerbsregeln",
-              "rule1": "Nur Posts, die in der aktuellen Woche veröffentlicht wurden, sind eligibel",
-              "rule2": "Gewinner werden basierend auf der Gesamteingabe (Likes + Reposts + Kommentare) ausgewählt",
-              "rule3": "Wettbewerb endet jeden Sonntag um 11:59 PM UTC"
+              "rule1": "Nur Beiträge, die in der aktuellen Woche veröffentlicht wurden, sind teilnahmeberechtigt",
+              "rule2": "Der Wettbewerb endet jeden Sonntag um 23:59 Uhr UTC",
+              "rule3": "Die Gewinner werden anhand des gesamten organischen Engagements (Likes + Reposts + Kommentare) ausgewählt und innerhalb von 24 Stunden über Telegram kontaktiert"
             },
             "cta": {
               "post": "Jetzt Posten",

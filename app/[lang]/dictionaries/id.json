@@ -215,8 +215,8 @@
                 "title": "Aturan Kontes",
                 "list": {
                   "rule1": "Hanya jajak pendapat yang dimulai minggu ini yang berhak berpartisipasi",
-                  "rule2": "Pemenang dipilih berdasarkan total suara",
-                  "rule3": "Kontes berakhir setiap Minggu pukul 23:59 UTC"
+                  "rule2": "Kontes berakhir setiap Minggu pukul 11:59 PM UTC",
+                  "rule3": "Pemenang dipilih berdasarkan total suara dan dihubungi melalui Telegram dalam waktu 24 jam"
                 }
               },
               "cta": {
@@ -261,8 +261,8 @@
             "rules": {
               "title": "Aturan kontes",
               "rule1": "Hanya posting yang diterbitkan pada minggu ini yang memenuhi syarat",
-              "rule2": "Pemenang dipilih berdasarkan total keterlibatan (suka + repost + komentar)",
-              "rule3": "Kontes berakhir setiap hari Minggu pukul 23:59 UTC"
+              "rule2": "Pemenang dipilih berdasarkan total keterlibatan organik (suka + repost + komentar)",
+              "rule3": "Kontes berakhir setiap hari Minggu pukul 11:59 PM UTC"
             },
             "cta": {
               "post": "Mulai Posting Sekarang",

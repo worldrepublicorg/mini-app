@@ -215,8 +215,8 @@
                 "title": "Pravila Natjecanja",
                 "list": {
                   "rule1": "Samo ankete pokrenute u trenutnom tjednu su prihvatljive",
-                  "rule2": "Pobjednici se biraju prema ukupnom broju glasova",
-                  "rule3": "Natjecanje završava svake nedjelje u 23:59 UTC"
+                  "rule2": "Natjecanje završava svake nedjelje u 11:59 PM UTC",
+                  "rule3": "Pobjednici se biraju prema ukupnom broju glasova i kontaktiraju se putem Telegrama unutar 24 sata"
                 }
               },
               "cta": {
@@ -261,8 +261,8 @@
             "rules": {
               "title": "Pravila natječaja",
               "rule1": "Samo objave objavljene u trenutnom tjednu su prihvatljive",
-              "rule2": "Pobjednici se biraju na temelju ukupnog uključivanja (lajkova + repostova + komentara)",
-              "rule3": "Natječaj završava svake nedjelje u 23:59 UTC"
+              "rule2": "Natječaj završava svake nedjelje u 11:59 PM UTC",
+              "rule3": "Pobjednici se biraju na temelju ukupnog organskog uključivanja (lajkova + repostova + komentara) i kontaktiraju se putem Telegrama unutar 24 sata"
             },
             "cta": {
               "post": "Započnite objavljivanje sada",

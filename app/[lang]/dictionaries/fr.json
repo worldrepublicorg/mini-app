@@ -215,8 +215,8 @@
                 "title": "Règles du concours",
                 "list": {
                   "rule1": "Seuls les sondages commencés dans la semaine en cours sont éligibles",
-                  "rule2": "Les gagnants sont sélectionnés selon le nombre total de votes",
-                  "rule3": "Le concours se termine chaque dimanche à 23h59 UTC"
+                  "rule2": "Le concours se termine chaque dimanche à 23h59 UTC",
+                  "rule3": "Les gagnants sont sélectionnés selon le nombre total de votes et contactés sur Telegram dans les 24 heures"
                 }
               },
               "cta": {
@@ -261,8 +261,8 @@
             "rules": {
               "title": "Règles du concours",
               "rule1": "Seules les publications de la semaine en cours sont éligibles",
-              "rule2": "Les gagnants sont sélectionnés selon l'engagement total (j'aime + partages + commentaires)",
-              "rule3": "Le concours se termine chaque dimanche à 23h59 UTC"
+              "rule2": "Le concours se termine chaque dimanche à 23h59 UTC",
+              "rule3": "Les gagnants sont sélectionnés selon l'engagement total organique (j'aime + partages + commentaires) et contactés sur Telegram dans les 24 heures"
             },
             "cta": {
               "post": "Commencer à Publier",

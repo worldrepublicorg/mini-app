@@ -215,8 +215,8 @@
                 "title": "Regras do concurso",
                 "list": {
                   "rule1": "Apenas enquetes iniciadas na semana atual são elegíveis",
-                  "rule2": "Os vencedores são selecionados com base no total de votos",
-                  "rule3": "O concurso termina todo domingo às 23:59 UTC"
+                  "rule2": "O concurso termina todo domingo às 23:59 UTC",
+                  "rule3": "Os vencedores são selecionados com base no total de votos e contatados via Telegram dentro de 24 horas"
                 }
               },
               "cta": {
@@ -261,8 +261,8 @@
             "rules": {
               "title": "Regras do concurso",
               "rule1": "Apenas posts publicados na semana atual são elegíveis",
-              "rule2": "Os vencedores são selecionados com base no engajamento total (curtidas + compartilhamentos + comentários)",
-              "rule3": "O concurso termina todo domingo às 23:59 UTC"
+              "rule2": "O concurso termina todo domingo às 23:59 UTC",
+              "rule3": "Os vencedores são selecionados com base no engajamento orgânico total (curtidas + compartilhamentos + comentários) e contatados via Telegram dentro de 24 horas"
             },
             "cta": {
               "post": "Comece a Postar Agora",

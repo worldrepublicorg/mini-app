@@ -215,8 +215,8 @@
                 "title": "Zasady Konkursu",
                 "list": {
                   "rule1": "Tylko ankiety rozpoczęte w bieżącym tygodniu są kwalifikowane",
-                  "rule2": "Zwycięzcy są wybierani na podstawie całkowitej liczby głosów",
-                  "rule3": "Konkurs kończy się w każdą niedzielę o 23:59 UTC"
+                  "rule2": "Konkurs kończy się w każdą niedzielę o 23:59 UTC",
+                  "rule3": "Zwycięzcy są wybierani na podstawie całkowitej liczby głosów i kontaktowani przez Telegram w ciągu 24 godzin"
                 }
               },
               "cta": {
@@ -261,8 +261,8 @@
             "rules": {
               "title": "Zasady konkursu",
               "rule1": "Kwalifikują się tylko posty opublikowane w bieżącym tygodniu",
-              "rule2": "Zwycięzcy są wybierani na podstawie łącznego zaangażowania (polubienia + udostępnienia + komentarze)",
-              "rule3": "Konkurs kończy się w każdą niedzielę o 23:59 UTC"
+              "rule2": "Konkurs kończy się w każdą niedzielę o 23:59 UTC",
+              "rule3": "Zwycięzcy są wybierani na podstawie łącznego organicznego zaangażowania (polubienia + udostępnienia + komentarze) i kontaktowani przez Telegram w ciągu 24 godzin"
             },
             "cta": {
               "post": "Zacznij Publikować Teraz",

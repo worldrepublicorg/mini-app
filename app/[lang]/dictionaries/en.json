@@ -215,8 +215,8 @@
                 "title": "Contest rules",
                 "list": {
                   "rule1": "Only polls started in the current week are eligible",
-                  "rule2": "Winners are selected based on total votes",
-                  "rule3": "Contest ends every Sunday at 11:59 PM UTC"
+                  "rule2": "Contest ends every Sunday at 11:59 PM UTC",
+                  "rule3": "Winners are selected based on total votes and contacted on Telegram within 24 hours"
                 }
               },
               "cta": {
@@ -255,8 +255,8 @@
             "rules": {
               "title": "Contest rules",
               "rule1": "Only posts published in the current week are eligible",
-              "rule2": "Winners are selected based on total engagement (likes + reposts + comments)",
-              "rule3": "Contest ends every Sunday at 11:59 PM UTC"
+              "rule2": "Contest ends every Sunday at 11:59 PM UTC",
+              "rule3": "Winners are selected based on total organic engagement (likes + reposts + comments) and contacted on Telegram within 24 hours"
             },
             "cta": {
               "post": "Start Posting Now",

@@ -215,8 +215,8 @@
                 "title": "Peraturan Pertandingan",
                 "list": {
                   "rule1": "Hanya undian yang dimulakan pada minggu semasa layak",
-                  "rule2": "Pemenang dipilih berdasarkan jumlah undi",
-                  "rule3": "Pertandingan berakhir setiap Ahad pada 23:59 UTC"
+                  "rule2": "Pertandingan berakhir setiap Ahad pada 11:59 PM UTC",
+                  "rule3": "Pemenang dipilih berdasarkan jumlah undi dan dihubungi melalui Telegram dalam masa 24 jam"
                 }
               },
               "cta": {
@@ -261,7 +261,7 @@
             "rules": {
               "title": "Peraturan pertandingan",
               "rule1": "Hanya catatan yang diterbitkan pada minggu semasa layak",
-              "rule2": "Pemenang dipilih berdasarkan jumlah penglibatan (suka + kongsi semula + komen)",
+              "rule2": "Pemenang dipilih berdasarkan jumlah penglibatan organik (suka + kongsi semula + komen)",
               "rule3": "Pertandingan berakhir setiap Ahad pada 11:59 PM UTC"
             },
             "cta": {

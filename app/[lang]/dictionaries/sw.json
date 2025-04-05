@@ -215,8 +215,8 @@
                 "title": "Sheria za Shindano",
                 "list": {
                   "rule1": "Kura zilizoanza wiki hii tu ndizo zinazostahili",
-                  "rule2": "Washindi huchaguliwa kulingana na jumla ya kura",
-                  "rule3": "Shindano linamalizika kila Jumapili saa 23:59 UTC"
+                  "rule2": "Shindano linamalizika kila Jumapili saa 11:59 PM UTC",
+                  "rule3": "Washindi huchaguliwa kulingana na jumla ya kura na kuwasiliana nao kupitia Telegram ndani ya masaa 24"
                 }
               },
               "cta": {
@@ -261,8 +261,8 @@
             "rules": {
               "title": "Sheria za shindano",
               "rule1": "Tu machapisho yaliyochapishwa katika wiki ya sasa yanaweza kushiriki",
-              "rule2": "Washindi huchaguliwa kulingana na jumla ya ushiriki (pendeleo + ushiriki tena + maoni)",
-              "rule3": "Shindano linamalizika kila Jumapili saa 11:59 PM UTC"
+              "rule2": "Shindano linamalizika kila Jumapili saa 11:59 PM UTC",
+              "rule3": "Washindi huchaguliwa kulingana na jumla ya ushiriki wa asili (pendeleo + ushiriki tena + maoni) na kuwasiliana nao kupitia Telegram ndani ya masaa 24"
             },
             "cta": {
               "post": "Anza Kuchapisha Sasa",

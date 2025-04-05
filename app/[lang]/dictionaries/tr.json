@@ -215,8 +215,8 @@
                 "title": "Yarışma Kuralları",
                 "list": {
                   "rule1": "Sadece mevcut haftada başlatılan anketler uygun olacaktır",
-                  "rule2": "Kazananlar toplam oy sayısına göre seçilir",
-                  "rule3": "Yarışma her Pazar 23:59 UTC'de sona erer"
+                  "rule2": "Yarışma her Pazar 23:59 UTC'de sona erer",
+                  "rule3": "Kazananlar toplam oy sayısına göre seçilir ve 24 saat içinde Telegram üzerinden iletişime geçilir"
                 }
               },
               "cta": {
@@ -261,8 +261,8 @@
             "rules": {
               "title": "Yarışma kuralları",
               "rule1": "Sadece mevcut haftada yayınlanan gönderiler uygun",
-              "rule2": "Kazananlar toplam etkileşime göre seçilir (beğeni + yeniden paylaşım + yorum)",
-              "rule3": "Yarışma her Pazar UTC 23:59'da sona erer"
+              "rule2": "Yarışma her Pazar UTC 23:59'da sona erer",
+              "rule3": "Kazananlar toplam organik etkileşime göre seçilir (beğeni + yeniden paylaşım + yorum) ve 24 saat içinde Telegram üzerinden iletişime geçilir"
             },
             "cta": {
               "post": "Şimdi Paylaşmaya Başlayın",
