@@ -171,6 +171,7 @@
           "title": "贡献",
           "subtitle": "参与并获得奖励",
           "contests": {
+            "ended": "已结束",
             "weekly": "每周",
             "topPrize": "最高奖励",
             "xPost": {

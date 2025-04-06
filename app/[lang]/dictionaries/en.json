@@ -171,6 +171,7 @@
           "title": "Contribute",
           "subtitle": "Get involved, get rewarded",
           "contests": {
+            "ended": "Ended",
             "weekly": "Weekly",
             "topPrize": "Top prize",
             "xPost": {

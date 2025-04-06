@@ -171,6 +171,7 @@
           "title": "Contribute",
           "subtitle": "Join hand, collect money",
           "contests": {
+            "ended": "Don End",
             "weekly": "Every Week",
             "topPrize": "Biggest Prize",
             "xPost": {

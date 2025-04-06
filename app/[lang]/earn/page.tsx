@@ -1872,140 +1872,7 @@ export default function EarnPage({
               {dictionary?.pages?.earn?.tabs?.contribute?.subtitle}
             </Typography>
 
-            <div className="w-full">
-              <Link
-                href={`/${lang}/earn/contribute/x-contest`}
-                className="group mb-4 flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 transition-all hover:border-gray-300 hover:bg-gray-50"
-              >
-                <div className="mb-3 flex items-center justify-between">
-                  <Typography
-                    as="h3"
-                    variant={{ variant: "subtitle", level: 2 }}
-                    className="line-clamp-1"
-                  >
-                    {
-                      dictionary?.pages?.earn?.tabs?.contribute?.contests?.xPost
-                        ?.title
-                    }
-                  </Typography>
-                  <div className="rounded-full bg-gray-100 px-2.5 py-1">
-                    <Typography
-                      variant={{ variant: "body", level: 3 }}
-                      className="text-gray-400"
-                    >
-                      {
-                        dictionary?.pages?.earn?.tabs?.contribute?.contests
-                          ?.weekly
-                      }
-                    </Typography>
-                  </div>
-                </div>
-
-                <Typography
-                  as="p"
-                  variant={{ variant: "body", level: 3 }}
-                  className="mb-4 text-gray-500"
-                >
-                  {
-                    dictionary?.pages?.earn?.tabs?.contribute?.contests?.xPost
-                      ?.description
-                  }
-                </Typography>
-
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <div className="rounded-full bg-gray-900 px-2.5 py-1">
-                      <Typography
-                        variant={{ variant: "body", level: 3 }}
-                        className="text-gray-0"
-                      >
-                        2000 WDD
-                      </Typography>
-                    </div>
-                    <Typography
-                      variant={{ variant: "body", level: 3 }}
-                      className="text-gray-400"
-                    >
-                      {
-                        dictionary?.pages?.earn?.tabs?.contribute?.contests
-                          ?.topPrize
-                      }
-                    </Typography>
-                  </div>
-                  <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5 group-hover:bg-gray-200">
-                    <IoIosArrowForward className="size-[14px] text-gray-400" />
-                  </div>
-                </div>
-              </Link>
-
-              {/* Poll Contest - similar structure with translations */}
-              <Link
-                href={`/${lang}/earn/contribute/poll-contest`}
-                className="group flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 transition-all hover:border-gray-300 hover:bg-gray-50"
-              >
-                <div className="mb-3 flex items-center justify-between">
-                  <Typography
-                    as="h3"
-                    variant={{ variant: "subtitle", level: 2 }}
-                    className="line-clamp-1"
-                  >
-                    {
-                      dictionary?.pages?.earn?.tabs?.contribute?.contests?.poll
-                        ?.title
-                    }
-                  </Typography>
-                  <div className="rounded-full bg-gray-100 px-2.5 py-1">
-                    <Typography
-                      variant={{ variant: "body", level: 3 }}
-                      className="text-gray-400"
-                    >
-                      {
-                        dictionary?.pages?.earn?.tabs?.contribute?.contests
-                          ?.weekly
-                      }
-                    </Typography>
-                  </div>
-                </div>
-
-                <Typography
-                  as="p"
-                  variant={{ variant: "body", level: 3 }}
-                  className="mb-4 text-gray-500"
-                >
-                  {
-                    dictionary?.pages?.earn?.tabs?.contribute?.contests?.poll
-                      ?.description
-                  }
-                </Typography>
-
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <div className="rounded-full bg-gray-900 px-2.5 py-1">
-                      <Typography
-                        variant={{ variant: "body", level: 3 }}
-                        className="text-gray-0"
-                      >
-                        2000 WDD
-                      </Typography>
-                    </div>
-                    <Typography
-                      variant={{ variant: "body", level: 3 }}
-                      className="text-gray-400"
-                    >
-                      {
-                        dictionary?.pages?.earn?.tabs?.contribute?.contests
-                          ?.topPrize
-                      }
-                    </Typography>
-                  </div>
-                  <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5 group-hover:bg-gray-200">
-                    <IoIosArrowForward className="size-[14px] text-gray-400" />
-                  </div>
-                </div>
-              </Link>
-            </div>
-
-            <div className="mt-8 w-full">
+            <div className="mb-8 w-full">
               <a
                 href="https://t.me/worldrepubliccommunity"
                 target="_blank"
@@ -2040,6 +1907,139 @@ export default function EarnPage({
                   <BiLinkExternal className="size-[14px] text-gray-400" />
                 </div>
               </a>
+            </div>
+
+            <div className="w-full">
+              <Link
+                href={`/${lang}/earn/contribute/x-contest`}
+                className="group mb-4 flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 opacity-80 transition-all"
+              >
+                <div className="mb-3 flex items-center justify-between">
+                  <Typography
+                    as="h3"
+                    variant={{ variant: "subtitle", level: 2 }}
+                    className="line-clamp-1"
+                  >
+                    {
+                      dictionary?.pages?.earn?.tabs?.contribute?.contests?.xPost
+                        ?.title
+                    }
+                  </Typography>
+                  <div className="rounded-full bg-gray-100 px-2.5 py-1">
+                    <Typography
+                      variant={{ variant: "body", level: 3 }}
+                      className="text-gray-500"
+                    >
+                      {
+                        dictionary?.pages?.earn?.tabs?.contribute?.contests
+                          ?.ended
+                      }
+                    </Typography>
+                  </div>
+                </div>
+
+                <Typography
+                  as="p"
+                  variant={{ variant: "body", level: 3 }}
+                  className="mb-4 text-gray-500"
+                >
+                  {
+                    dictionary?.pages?.earn?.tabs?.contribute?.contests?.xPost
+                      ?.description
+                  }
+                </Typography>
+
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="rounded-full bg-gray-700 px-2.5 py-1">
+                      <Typography
+                        variant={{ variant: "body", level: 3 }}
+                        className="text-gray-0"
+                      >
+                        2000 WDD
+                      </Typography>
+                    </div>
+                    <Typography
+                      variant={{ variant: "body", level: 3 }}
+                      className="text-gray-400"
+                    >
+                      {
+                        dictionary?.pages?.earn?.tabs?.contribute?.contests
+                          ?.topPrize
+                      }
+                    </Typography>
+                  </div>
+                  <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5 group-hover:bg-gray-200">
+                    <IoIosArrowForward className="size-[14px] text-gray-400" />
+                  </div>
+                </div>
+              </Link>
+
+              {/* Poll Contest - similar structure with translations */}
+              <Link
+                href={`/${lang}/earn/contribute/poll-contest`}
+                className="group flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 opacity-80 transition-all"
+              >
+                <div className="mb-3 flex items-center justify-between">
+                  <Typography
+                    as="h3"
+                    variant={{ variant: "subtitle", level: 2 }}
+                    className="line-clamp-1"
+                  >
+                    {
+                      dictionary?.pages?.earn?.tabs?.contribute?.contests?.poll
+                        ?.title
+                    }
+                  </Typography>
+                  <div className="rounded-full bg-gray-100 px-2.5 py-1">
+                    <Typography
+                      variant={{ variant: "body", level: 3 }}
+                      className="text-gray-500"
+                    >
+                      {
+                        dictionary?.pages?.earn?.tabs?.contribute?.contests
+                          ?.ended
+                      }
+                    </Typography>
+                  </div>
+                </div>
+
+                <Typography
+                  as="p"
+                  variant={{ variant: "body", level: 3 }}
+                  className="mb-4 text-gray-500"
+                >
+                  {
+                    dictionary?.pages?.earn?.tabs?.contribute?.contests?.poll
+                      ?.description
+                  }
+                </Typography>
+
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="rounded-full bg-gray-700 px-2.5 py-1">
+                      <Typography
+                        variant={{ variant: "body", level: 3 }}
+                        className="text-gray-0"
+                      >
+                        2000 WDD
+                      </Typography>
+                    </div>
+                    <Typography
+                      variant={{ variant: "body", level: 3 }}
+                      className="text-gray-400"
+                    >
+                      {
+                        dictionary?.pages?.earn?.tabs?.contribute?.contests
+                          ?.topPrize
+                      }
+                    </Typography>
+                  </div>
+                  <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5 group-hover:bg-gray-200">
+                    <IoIosArrowForward className="size-[14px] text-gray-400" />
+                  </div>
+                </div>
+              </Link>
             </div>
           </div>
         );

@@ -171,6 +171,7 @@
           "title": "Katkıda Bulun",
           "subtitle": "Katılın, ödül kazanın",
           "contests": {
+            "ended": "Sona erdi",
             "weekly": "Haftalık",
             "topPrize": "En yüksek ödül",
             "xPost": {

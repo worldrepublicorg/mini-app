@@ -171,6 +171,7 @@
           "title": "Współtwórz",
           "subtitle": "Zaangażuj się, otrzymuj nagrody",
           "contests": {
+            "ended": "Zakończony",
             "weekly": "Tygodniowy",
             "topPrize": "Główna nagroda",
             "xPost": {

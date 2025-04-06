@@ -183,6 +183,7 @@
           "title": "Contribuir",
           "subtitle": "Participa, obtén recompensas",
           "contests": {
+            "ended": "Finalizado",
             "weekly": "Semanal",
             "topPrize": "Premio principal",
             "xPost": {

@@ -171,6 +171,7 @@
           "title": "기여",
           "subtitle": "참여하고 보상받기",
           "contests": {
+            "ended": "종료됨",
             "weekly": "주간",
             "topPrize": "최고 상금",
             "xPost": {
