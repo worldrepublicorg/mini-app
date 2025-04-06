@@ -26,7 +26,9 @@ export default function GovernPage({
   params: { lang: string };
 }) {
   const dictionary = useTranslations(lang);
-  const [activeTab, setActiveTab] = useState<TabKey>(TAB_KEYS.POLITICAL_PARTIES);
+  const [activeTab, setActiveTab] = useState<TabKey>(
+    TAB_KEYS.POLITICAL_PARTIES
+  );
 
   if (!dictionary) {
     return null;
@@ -61,8 +63,8 @@ export default function GovernPage({
         return (
           <>
             <SectionHeader
-              title="Global Political Parties"
-              description="Global political parties and movements"
+              title="Political Parties"
+              description="Global political organizations and movements"
             />
             <PoliticalPartyList lang={lang} />
             <DrawerItem title="Create a new party" isAddNew lang={lang} />

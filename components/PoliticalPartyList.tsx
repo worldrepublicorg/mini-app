@@ -8,6 +8,21 @@ import { Typography } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/Button";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useToast } from "@/components/ui/Toast";
+import {
+  PiCalendar,
+  PiCalendarBlankFill,
+  PiLinkSimple,
+  PiCalendarDot,
+  PiLinkSimpleBold,
+  PiCalendarDotFill,
+  PiCalendarXBold,
+  PiCalendarSlashBold,
+  PiCalendarFill,
+  PiCalendarBold,
+  PiCalendarCheckFill,
+  PiCalendarBlank,
+  PiCalendarBlankBold,
+} from "react-icons/pi";
 
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
   "0x5Da7559B80873f8a2C84e846fE64dCE332F8C526";
@@ -242,15 +257,15 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           key={party.id}
           className="mb-4 rounded-xl border border-gray-200 p-4"
         >
-          <Typography
-            as="h3"
-            variant={{ variant: "subtitle", level: 1 }}
-            className="font-semibold"
-          >
-            {party.name}
-          </Typography>
+          <div className="flex items-center justify-between">
+            <Typography
+              as="h3"
+              variant={{ variant: "subtitle", level: 1 }}
+              className="font-semibold"
+            >
+              {party.name}
+            </Typography>
 
-          <div className="mt-2 flex flex-wrap gap-2">
             <div className="flex items-center gap-1">
               <Typography
                 as="span"
@@ -259,21 +274,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               >
                 Members:
               </Typography>
-              <Typography as="span" variant={{ variant: "caption", level: 1 }}>
-                {party.memberCount}
-              </Typography>
-            </div>
-
-            <div className="flex items-center gap-1">
               <Typography
                 as="span"
                 variant={{ variant: "caption", level: 1 }}
-                className="text-gray-500"
+                className="font-medium"
               >
-                Founded:
-              </Typography>
-              <Typography as="span" variant={{ variant: "caption", level: 1 }}>
-                {new Date(party.creationTime * 1000).toLocaleDateString()}
+                {party.memberCount}
               </Typography>
             </div>
           </div>
@@ -281,14 +287,24 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           <Typography
             as="p"
             variant={{ variant: "body", level: 2 }}
-            className="mt-2 line-clamp-3"
+            className="mt-3 line-clamp-3"
           >
             {party.description}
           </Typography>
 
+          <div className="mt-2 flex items-center gap-1">
+            <PiLinkSimpleBold className="text-gray-500" size={14} />
+            <Typography
+              variant={{ variant: "caption", level: 1 }}
+              className="text-[15px] text-[#0A66C2]"
+            >
+              {party.officialLink}
+            </Typography>
+          </div>
+
           {userPartyId === null && (
             <Button
-              className="mt-3 px-6"
+              className="mt-4 px-6"
               variant="primary"
               size="sm"
               fullWidth
