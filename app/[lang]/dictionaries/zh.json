@@ -293,6 +293,7 @@
             "title": "往期投票",
             "backToGovern": "返回治理",
             "polls": {
+              "supplyChainResilience": "各国是否应该合作建立一个全球框架，以加强持续中断情况下的供应链韧性？",
               "digitalInclusion": "是否应该有一个全球性倡议来弥合数字鸿沟并确保全球范围内平等获取数字技术？",
               "techTransparency": "全球科技公司是否应该被要求采用透明的决策政策以保护公众信任？",
               "disasterRelief": "是否应该建立全球快速响应基金，为大地震等毁灭性自然灾害提供即时救援？",

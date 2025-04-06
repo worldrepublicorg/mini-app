@@ -294,6 +294,7 @@
             "backToGovern": "Povratak na Upravljanje",
             "polls": {
               "biodiversityFinance": "Treba li stvoriti namjenski globalni fond za mobiliziranje ulaganja u očuvanje prirode kako bi se ispunili ambiciozni ciljevi zaštite biološke raznolikosti?",
+              "supplyChainResilience": "Trebaju li države surađivati kako bi uspostavile globalni okvir za jačanje otpornosti opskrbnih lanaca usred kontinuiranih poremećaja?",
               "digitalInclusion": "Treba li postojati globalna inicijativa za premošćivanje digitalnog jaza i osiguravanje jednakog pristupa digitalnim tehnologijama diljem svijeta?",
               "techTransparency": "Trebaju li globalne tehnološke tvrtke biti obvezne usvojiti transparentne politike odlučivanja kako bi zaštitile povjerenje javnosti?",
               "disasterRelief": "Treba li uspostaviti globalni fond za brzi odgovor kako bi se pružila trenutna pomoć za razorne prirodne katastrofe poput velikih potresa?",
@@ -312,7 +313,7 @@
               "nationalSovereignty": "Podržavate li globalne političke okvire koji uravnotežuju nacionalni suverenitet s koordiniranim odgovorima na zajedničke izazove?",
               "climateDisasters": "Trebaju li zemlje koje doživljavaju ekstremne vremenske katastrofe (npr. požari, poplave) dobiti prioritetnu financijsku pomoć iz globalnog klimatskog fonda?",
               "aiSafety": "Trebaju li globalni UI developeri biti obvezni pauzirati treniranje modela snažnijih od trenutnih sustava dok se ne uspostave međunarodni sigurnosni sporazumi?",
-              "corporateTax": "Trebaju li korporacije koje posluju u više zemalja biti podložne jedinstvenom globalnom minimalnom poreznom stopom radi smanjenja nejednakosti?",
+              "corporateTax": "Trebaju li korporacije koje posluju u više zemalja biti podložne jedinstvenom globalnom minimalnom poreznom stopom radi smanjenjenja nejednakosti?",
               "spaceDebris": "Slažete li se da bi svemirske nacije i korporacije trebale biti zakonski obvezne ukloniti neaktivne satelite kako bi se smanjio orbitalni otpad?",
               "digitalPrivacy": "Mislite li da je stvaranje univerzalnih standarda digitalne privatnosti ključno za zaštitu individualnih prava u sve povezanijem svijetu?",
               "nuclearProliferation": "Vjerujete li da postojeće globalne mjere učinkovito smanjuju rizik od nuklearne proliferacije?",
