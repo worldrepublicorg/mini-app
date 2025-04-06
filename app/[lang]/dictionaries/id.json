@@ -171,6 +171,7 @@
           "title": "Berkontribusi",
           "subtitle": "Ikut terlibat, dapatkan hadiah",
           "contests": {
+            "ended": "Selesai",
             "weekly": "Mingguan",
             "topPrize": "Hadiah utama",
             "xPost": {

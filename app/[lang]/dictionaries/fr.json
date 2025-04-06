@@ -171,6 +171,7 @@
           "title": "Contribuer",
           "subtitle": "Participez, soyez récompensé",
           "contests": {
+            "ended": "Terminé",
             "weekly": "Hebdomadaire",
             "topPrize": "Premier prix",
             "xPost": {

@@ -171,6 +171,7 @@
           "title": "ساهم",
           "subtitle": "شارك واحصل على مكافآت",
           "contests": {
+            "ended": "انتهى",
             "weekly": "أسبوعي",
             "topPrize": "الجائزة الأولى",
             "xPost": {

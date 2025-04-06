@@ -171,6 +171,7 @@
           "title": "貢献",
           "subtitle": "参加して報酬を獲得",
           "contests": {
+            "ended": "終了",
             "weekly": "週間",
             "topPrize": "最高賞",
             "xPost": {

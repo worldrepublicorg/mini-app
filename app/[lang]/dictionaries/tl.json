@@ -171,6 +171,7 @@
           "title": "Mag-ambag",
           "subtitle": "Makiisa, makatanggap ng reward",
           "contests": {
+            "ended": "Natapos na",
             "weekly": "Weekly",
             "topPrize": "Pinakamataas na premyo",
             "xPost": {

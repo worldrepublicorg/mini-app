@@ -171,6 +171,7 @@
           "title": "Doprinesi",
           "subtitle": "Uključi se, budi nagrađen",
           "contests": {
+            "ended": "Završeno",
             "weekly": "Tjedno",
             "topPrize": "Glavna nagrada",
             "xPost": {

@@ -171,6 +171,7 @@
           "title": "Mitwirken",
           "subtitle": "Mitwirken, Belohnungen verdienen",
           "contests": {
+            "ended": "Beendet",
             "weekly": "Wöchentlich",
             "topPrize": "Top Preis",
             "xPost": {

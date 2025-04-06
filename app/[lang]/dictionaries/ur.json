@@ -171,6 +171,7 @@
           "title": "تعاون",
           "subtitle": "شامل ہوں، انعام پائیں",
           "contests": {
+            "ended": "ختم ہو گیا",
             "weekly": "ہفتہ وار",
             "topPrize": "اعلیٰ انعام",
             "xPost": {
