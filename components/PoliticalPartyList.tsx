@@ -222,38 +222,53 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const PartySkeletonCard = () => (
     <div className="mb-4 animate-pulse rounded-xl border border-gray-200 p-4">
       {/* Party name skeleton */}
-      <div className="mb-4 h-6 w-48 rounded bg-gray-100"></div>
-
-      {/* Member count and foundation date skeletons */}
-      <div className="mt-2 flex flex-wrap gap-2">
-        <div className="flex items-center gap-1">
-          <div className="h-4 w-16 rounded bg-gray-100"></div>
-          <div className="h-4 w-8 rounded bg-gray-100"></div>
-        </div>
-
-        <div className="flex items-center gap-1">
-          <div className="h-4 w-16 rounded bg-gray-100"></div>
-          <div className="h-4 w-24 rounded bg-gray-100"></div>
-        </div>
-      </div>
+      <div className="h-[19px] w-48 rounded bg-gray-100"></div>
 
       {/* Description skeleton - 3 lines */}
-      <div className="mt-4 space-y-2">
-        <div className="h-4 w-full rounded bg-gray-100"></div>
-        <div className="h-4 w-11/12 rounded bg-gray-100"></div>
-        <div className="h-4 w-4/5 rounded bg-gray-100"></div>
+      <div className="mt-3 space-y-2">
+        <div className="h-[15px] w-full rounded bg-gray-100"></div>
+        <div className="h-[15px] w-11/12 rounded bg-gray-100"></div>
+        <div className="h-[15px] w-4/5 rounded bg-gray-100"></div>
       </div>
 
-      {/* Link skeleton */}
-      <div className="mt-4 h-4 w-3/5 rounded bg-gray-100"></div>
+      {/* Links and members count skeletons */}
+      <div className="mt-2 flex justify-between gap-1">
+        <div className="flex items-center gap-1">
+          <div className="h-[15px] w-[15px] rounded-full bg-gray-100"></div>
+          <div className="h-[15px] w-24 rounded bg-gray-100"></div>
+        </div>
+        <div className="flex items-center gap-1">
+          <div className="h-[15px] w-[15px] rounded-full bg-gray-100"></div>
+          <div className="h-[15px] w-8 rounded bg-gray-100"></div>
+          <div className="h-[15px] w-16 rounded bg-gray-100"></div>
+        </div>
+      </div>
 
       {/* Button skeleton */}
-      <div className="mt-4 h-12 w-28 rounded bg-gray-100"></div>
+      <div className="mt-4 h-9 w-full rounded bg-gray-100"></div>
     </div>
   );
 
   const LoadingSkeleton = () => (
     <div className="w-full">
+      <div className="mb-2 flex gap-1">
+        <button
+          className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
+            activeTab === "discover" ? "bg-gray-100" : ""
+          }`}
+          onClick={() => setActiveTab("discover")}
+        >
+          Discover
+        </button>
+        <button
+          className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
+            activeTab === "yourParties" ? "bg-gray-100" : ""
+          }`}
+          onClick={() => setActiveTab("yourParties")}
+        >
+          Your parties
+        </button>
+      </div>
       {/* Generate 5 skeleton party cards */}
       {Array.from({ length: 5 }).map((_, index) => (
         <PartySkeletonCard key={index} />
