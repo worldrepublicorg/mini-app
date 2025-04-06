@@ -37,6 +37,7 @@ interface Party {
   memberCount: number;
   creationTime: number;
   active: boolean;
+  isUserMember?: boolean;
 }
 
 interface PoliticalPartyListProps {
@@ -46,7 +47,7 @@ interface PoliticalPartyListProps {
 export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [parties, setParties] = useState<Party[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [userPartyId, setUserPartyId] = useState<number | null>(null);
+  const [userPartyIds, setUserPartyIds] = useState<number[]>([]);
   const { walletAddress } = useWallet();
   const { showToast } = useToast();
 
@@ -72,6 +73,24 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
       const partyIds = Array.from({ length: Number(partyCount) }, (_, i) => i);
 
+      // Get user's parties
+      let userParties: number[] = [];
+      if (walletAddress) {
+        const userPartiesResult = await viemClient.readContract({
+          address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
+          abi: parseAbi([
+            "function getUserParties(address _user) view returns (uint256[] memory)",
+          ]),
+          functionName: "getUserParties",
+          args: [walletAddress as `0x${string}`],
+        });
+
+        userParties = Array.isArray(userPartiesResult)
+          ? userPartiesResult.map(Number)
+          : [];
+        setUserPartyIds(userParties);
+      }
+
       // Fetch details for each party
       const partyPromises = partyIds.map(async (id) => {
         const partyDetails = await viemClient.readContract({
@@ -93,25 +112,24 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           creationTime: Number(partyDetails[5]),
           active: partyDetails[6],
           memberCount: Number(partyDetails[7]),
+          isUserMember: userParties.includes(id),
         };
       });
 
       const fetchedParties = await Promise.all(partyPromises);
-      setParties(fetchedParties.filter((party) => party.active));
 
-      // Check if user is a member of any party
-      if (walletAddress) {
-        const userParties = await viemClient.readContract({
-          address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
-          abi: parseAbi([
-            "function getUserParties(address _user) view returns (uint256[] memory)",
-          ]),
-          functionName: "getUserParties",
-          args: [walletAddress as `0x${string}`],
+      // Filter active parties and sort them - user's parties first
+      const activeParties = fetchedParties
+        .filter((party) => party.active)
+        .sort((a, b) => {
+          // Sort by membership status first
+          if (a.isUserMember && !b.isUserMember) return -1;
+          if (!a.isUserMember && b.isUserMember) return 1;
+          // Then by name for parties with the same membership status
+          return a.name.localeCompare(b.name);
         });
 
-        setUserPartyId(userParties.length > 0 ? Number(userParties[0]) : null);
-      }
+      setParties(activeParties);
     } catch (error) {
       console.error("Error fetching political parties:", error);
       showToast("Failed to load political parties", "error");
@@ -156,8 +174,8 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     }
   };
 
-  const leaveParty = async () => {
-    if (!MiniKit.isInstalled() || userPartyId === null) {
+  const leaveParty = async (partyId: number) => {
+    if (!MiniKit.isInstalled()) {
       showToast("Please connect your wallet first", "error");
       return;
     }
@@ -169,7 +187,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
             abi: parseAbi(["function leaveParty(uint256 _partyId) external"]),
             functionName: "leaveParty",
-            args: [BigInt(userPartyId)],
+            args: [BigInt(partyId)],
           },
         ],
       });
@@ -236,35 +254,31 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
   return (
     <div className="w-full">
-      {userPartyId !== null && (
-        <div className="border-green-100 bg-green-50 mb-4 rounded-xl border p-4">
-          <Typography
-            as="p"
-            variant={{ variant: "body", level: 2 }}
-            className="text-green-800"
-          >
-            You are a member of{" "}
-            {parties.find((p) => p.id === userPartyId)?.name || "a party"}
-          </Typography>
-          <Button variant="tertiary" className="mt-2" onClick={leaveParty}>
-            Leave current party
-          </Button>
-        </div>
-      )}
-
       {parties.map((party) => (
         <div
           key={party.id}
-          className="mb-4 rounded-xl border border-gray-200 p-4"
+          className={`mb-4 rounded-xl border p-4 ${
+            party.isUserMember
+              ? "border-green-200 bg-green-50"
+              : "border-gray-200"
+          }`}
         >
           <div className="flex items-center justify-between">
-            <Typography
-              as="h3"
-              variant={{ variant: "subtitle", level: 1 }}
-              className="font-semibold"
-            >
-              {party.name}
-            </Typography>
+            <div className="flex items-center">
+              <Typography
+                as="h3"
+                variant={{ variant: "subtitle", level: 1 }}
+                className="font-semibold"
+              >
+                {party.name}
+              </Typography>
+
+              {party.isUserMember && (
+                <span className="bg-green-100 text-green-800 ml-2 rounded-full px-2 py-0.5 text-xs font-medium">
+                  Member
+                </span>
+              )}
+            </div>
 
             <div className="flex items-center gap-1">
               <Typography
@@ -302,17 +316,29 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             </Typography>
           </div>
 
-          {userPartyId === null && (
-            <Button
-              className="mt-4 px-6"
-              variant="primary"
-              size="sm"
-              fullWidth
-              onClick={() => joinParty(party.id)}
-            >
-              Join Party
-            </Button>
-          )}
+          <div className="mt-4">
+            {party.isUserMember ? (
+              <Button
+                className="px-6"
+                variant="tertiary"
+                size="sm"
+                fullWidth
+                onClick={() => leaveParty(party.id)}
+              >
+                Leave Party
+              </Button>
+            ) : (
+              <Button
+                className="px-6"
+                variant="primary"
+                size="sm"
+                fullWidth
+                onClick={() => joinParty(party.id)}
+              >
+                Join Party
+              </Button>
+            )}
+          </div>
         </div>
       ))}
     </div>
