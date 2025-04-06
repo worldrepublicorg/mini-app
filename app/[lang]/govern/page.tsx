@@ -74,7 +74,6 @@ export default function GovernPage({
               </Typography>
             </div>
             <PoliticalPartyList lang={lang} />
-            <DrawerItem title="Create a new party" isAddNew lang={lang} />
           </>
         );
       case TAB_KEYS.POLLS:
@@ -212,7 +211,9 @@ export default function GovernPage({
         />
       </div>
 
-      <div className="mt-[112px] flex flex-1 flex-col items-center justify-center pb-8">
+      <div
+        className={`mt-[112px] flex flex-1 flex-col items-center ${activeTab !== TAB_KEYS.POLITICAL_PARTIES ? "justify-center" : ""} pb-8`}
+      >
         {renderContent()}
       </div>
     </div>

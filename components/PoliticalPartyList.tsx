@@ -303,7 +303,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       {filteredParties.map((party) => (
         <div
           key={party.id}
-          className="mb-4 rounded-xl border border-gray-200 p-4"
+          className={`${
+            filteredParties.indexOf(party) !== filteredParties.length - 1
+              ? "mb-4"
+              : ""
+          } rounded-xl border border-gray-200 p-4`}
         >
           <Typography
             as="h3"
@@ -323,13 +327,20 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           <div className="mt-2 flex justify-between gap-1">
             <div className="flex items-center gap-1">
               <PiLinkSimpleBold className="text-gray-500" size={15} />
-              <Typography
-                variant={{ variant: "caption", level: 1 }}
-                className="max-w-[calc(100dvw/2-56px)] truncate text-[15px] text-[#0A66C2]"
+              <a
+                href={party.officialLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="-m-1 flex rounded-md px-1 py-1 transition-colors hover:bg-gray-50"
                 title={party.officialLink}
               >
-                {shortenUrl(party.officialLink)}
-              </Typography>
+                <Typography
+                  variant={{ variant: "caption", level: 1 }}
+                  className="max-w-[calc(100dvw/2-56px)] truncate text-[15px] text-[#0A66C2]"
+                >
+                  {shortenUrl(party.officialLink)}
+                </Typography>
+              </a>
             </div>
             <div className="flex items-center gap-1">
               <PiUsersBold className="text-gray-500" size={15} />
