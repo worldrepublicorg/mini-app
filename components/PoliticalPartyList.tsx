@@ -9,9 +9,8 @@ import { Button } from "@/components/ui/Button";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useToast } from "@/components/ui/Toast";
 
-// Replace with actual contract address once deployed
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
-  "0x54FA87BE77d0fCB7c5b674D46F7056D05A4ce6Fc";
+  "0x5Da7559B80873f8a2C84e846fE64dCE332F8C526";
 
 interface Party {
   id: number;
@@ -243,7 +242,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           key={party.id}
           className="mb-4 rounded-xl border border-gray-200 p-4"
         >
-          <Typography as="h3" variant={{ variant: "subtitle", level: 1 }}>
+          <Typography
+            as="h3"
+            variant={{ variant: "subtitle", level: 1 }}
+            className="font-semibold"
+          >
             {party.name}
           </Typography>
 
@@ -283,14 +286,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             {party.description}
           </Typography>
 
-          <Typography as="p" variant={{ variant: "body", level: 2 }}>
-            {party.officialLink}
-          </Typography>
-
           {userPartyId === null && (
             <Button
               className="mt-3 px-6"
               variant="primary"
+              size="sm"
+              fullWidth
               onClick={() => joinParty(party.id)}
             >
               Join Party
