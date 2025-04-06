@@ -62,7 +62,7 @@ export default function GovernPage({
       case TAB_KEYS.POLITICAL_PARTIES:
         return (
           <>
-            <div className="mb-6 mt-8 text-center">
+            <div className="my-8 text-center">
               <Typography as="h1" variant={{ variant: "heading", level: 1 }}>
                 Political Parties
               </Typography>
