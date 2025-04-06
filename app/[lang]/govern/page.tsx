@@ -62,17 +62,10 @@ export default function GovernPage({
       case TAB_KEYS.POLITICAL_PARTIES:
         return (
           <>
-            <div className="my-8 text-center">
-              <Typography as="h1" variant={{ variant: "heading", level: 1 }}>
-                Political Parties
-              </Typography>
-              <Typography
-                variant={{ variant: "subtitle", level: 1 }}
-                className="mx-auto mt-4 max-w-2xl text-gray-500"
-              >
-                Global political organizations and movements
-              </Typography>
-            </div>
+            <SectionHeader
+              title="Political Parties"
+              description="Global political organizations and movements"
+            />
             <PoliticalPartyList lang={lang} />
           </>
         );
