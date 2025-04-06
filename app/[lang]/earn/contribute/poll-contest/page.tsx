@@ -24,7 +24,11 @@ export default function PollContestPage({
           >
             <BiChevronLeft className="size-6 text-gray-500" />
           </Link>
-          <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
+          <Typography
+            as="h2"
+            variant={{ variant: "heading", level: 3 }}
+            className="opacity-80"
+          >
             {
               dictionary?.pages?.earn?.tabs?.contribute?.contests?.pollContest
                 ?.title
@@ -33,7 +37,7 @@ export default function PollContestPage({
         </div>
       </div>
 
-      <div className="mt-24 flex flex-1 flex-col pb-6">
+      <div className="mt-24 flex flex-1 flex-col pb-6 opacity-80">
         {/* Hero section */}
         <div className="mb-10 flex flex-col items-center">
           <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
