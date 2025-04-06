@@ -48,6 +48,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [parties, setParties] = useState<Party[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [userPartyIds, setUserPartyIds] = useState<number[]>([]);
+  const [activeTab, setActiveTab] = useState<"discover" | "yourParties">(
+    "discover"
+  );
   const { walletAddress } = useWallet();
   const { showToast } = useToast();
 
@@ -118,16 +121,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
       const fetchedParties = await Promise.all(partyPromises);
 
-      // Filter active parties and sort them - user's parties first
+      // Filter active parties
       const activeParties = fetchedParties
         .filter((party) => party.active)
-        .sort((a, b) => {
-          // Sort by membership status first
-          if (a.isUserMember && !b.isUserMember) return -1;
-          if (!a.isUserMember && b.isUserMember) return 1;
-          // Then by name for parties with the same membership status
-          return a.name.localeCompare(b.name);
-        });
+        .sort((a, b) => a.name.localeCompare(b.name));
 
       setParties(activeParties);
     } catch (error) {
@@ -252,33 +249,54 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     return <LoadingSkeleton />;
   }
 
+  // Filter parties based on active tab
+  const filteredParties = parties.filter((party) =>
+    activeTab === "discover" ? !party.isUserMember : party.isUserMember
+  );
+
   return (
     <div className="w-full">
-      {parties.map((party) => (
+      {/* Tabs */}
+      <div className="mb-2 flex gap-1">
+        <button
+          className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
+            activeTab === "discover" ? "bg-gray-100" : ""
+          }`}
+          onClick={() => setActiveTab("discover")}
+        >
+          Discover
+        </button>
+        <button
+          className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
+            activeTab === "yourParties" ? "bg-gray-100" : ""
+          }`}
+          onClick={() => setActiveTab("yourParties")}
+        >
+          Your parties
+        </button>
+      </div>
+
+      {filteredParties.length === 0 && (
+        <div className="my-8 text-center text-gray-500">
+          {activeTab === "discover"
+            ? "No parties to discover. You've joined all available parties."
+            : "You haven't joined any political parties yet."}
+        </div>
+      )}
+
+      {filteredParties.map((party) => (
         <div
           key={party.id}
-          className={`mb-4 rounded-xl border p-4 ${
-            party.isUserMember
-              ? "border-green-200 bg-green-50"
-              : "border-gray-200"
-          }`}
+          className="mb-4 rounded-xl border border-gray-200 p-4"
         >
           <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <Typography
-                as="h3"
-                variant={{ variant: "subtitle", level: 1 }}
-                className="font-semibold"
-              >
-                {party.name}
-              </Typography>
-
-              {party.isUserMember && (
-                <span className="bg-green-100 text-green-800 ml-2 rounded-full px-2 py-0.5 text-xs font-medium">
-                  Member
-                </span>
-              )}
-            </div>
+            <Typography
+              as="h3"
+              variant={{ variant: "subtitle", level: 1 }}
+              className="font-semibold"
+            >
+              {party.name}
+            </Typography>
 
             <div className="flex items-center gap-1">
               <Typography
@@ -317,7 +335,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           </div>
 
           <div className="mt-4">
-            {party.isUserMember ? (
+            {activeTab === "yourParties" ? (
               <Button
                 className="px-6"
                 variant="tertiary"
