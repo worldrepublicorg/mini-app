@@ -15,8 +15,8 @@ const polls: Poll[] = [
     url: "https://vote.one/dceSJPNm",
   },
   {
-    key: "foodSecurity",
-    url: "https://vote.one/GRi1NYOX",
+    key: "supplyChainResilience",
+    url: "https://vote.one/zDEnnNbe",
   },
   {
     key: "eWasteRegulation",
