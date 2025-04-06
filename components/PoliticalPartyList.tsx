@@ -8,21 +8,7 @@ import { Typography } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/Button";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useToast } from "@/components/ui/Toast";
-import {
-  PiCalendar,
-  PiCalendarBlankFill,
-  PiLinkSimple,
-  PiCalendarDot,
-  PiLinkSimpleBold,
-  PiCalendarDotFill,
-  PiCalendarXBold,
-  PiCalendarSlashBold,
-  PiCalendarFill,
-  PiCalendarBold,
-  PiCalendarCheckFill,
-  PiCalendarBlank,
-  PiCalendarBlankBold,
-} from "react-icons/pi";
+import { PiLinkSimpleBold, PiUsersBold } from "react-icons/pi";
 
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
   "0x5Da7559B80873f8a2C84e846fE64dCE332F8C526";
@@ -53,6 +39,38 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   );
   const { walletAddress } = useWallet();
   const { showToast } = useToast();
+
+  const shortenUrl = (url: string, maxLength = 20) => {
+    if (!url) return "";
+
+    try {
+      // Remove protocol (http://, https://)
+      let cleanUrl = url.replace(/^https?:\/\//, "");
+      // Remove www. if present
+      cleanUrl = cleanUrl.replace(/^www\./, "");
+      // Remove trailing slash
+      cleanUrl = cleanUrl.replace(/\/$/, "");
+
+      if (cleanUrl.length <= maxLength) return cleanUrl;
+
+      // For longer URLs, truncate the middle
+      const start = Math.ceil(maxLength / 2);
+      const end = cleanUrl.length - start + 3; // +3 for the "..."
+
+      return cleanUrl.substring(0, start) + "..." + cleanUrl.substring(end);
+    } catch (e) {
+      return url;
+    }
+  };
+
+  const formatNumber = (num: number): string => {
+    if (num >= 1000000) {
+      return (Math.round(num / 10000) / 100).toFixed(2) + "M";
+    } else if (num >= 1000) {
+      return (Math.round(num / 10) / 100).toFixed(2) + "K";
+    }
+    return num.toString();
+  };
 
   const fetchParties = async () => {
     if (
@@ -122,9 +140,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       const fetchedParties = await Promise.all(partyPromises);
 
       // Filter active parties
-      const activeParties = fetchedParties
-        .filter((party) => party.active)
-        .sort((a, b) => a.name.localeCompare(b.name));
+      const activeParties = fetchedParties.filter((party) => party.active);
 
       setParties(activeParties);
     } catch (error) {
@@ -289,49 +305,50 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           key={party.id}
           className="mb-4 rounded-xl border border-gray-200 p-4"
         >
-          <div className="flex items-center justify-between">
-            <Typography
-              as="h3"
-              variant={{ variant: "subtitle", level: 1 }}
-              className="font-semibold"
-            >
-              {party.name}
-            </Typography>
-
-            <div className="flex items-center gap-1">
-              <Typography
-                as="span"
-                variant={{ variant: "caption", level: 1 }}
-                className="text-gray-500"
-              >
-                Members:
-              </Typography>
-              <Typography
-                as="span"
-                variant={{ variant: "caption", level: 1 }}
-                className="font-medium"
-              >
-                {party.memberCount}
-              </Typography>
-            </div>
-          </div>
+          <Typography
+            as="h3"
+            variant={{ variant: "subtitle", level: 1 }}
+            className="text-[19px] font-semibold"
+          >
+            {party.name}
+          </Typography>
 
           <Typography
             as="p"
             variant={{ variant: "body", level: 2 }}
-            className="mt-3 line-clamp-3"
+            className="mt-3 line-clamp-3 text-[15px]"
           >
             {party.description}
           </Typography>
-
-          <div className="mt-2 flex items-center gap-1">
-            <PiLinkSimpleBold className="text-gray-500" size={14} />
-            <Typography
-              variant={{ variant: "caption", level: 1 }}
-              className="text-[15px] text-[#0A66C2]"
-            >
-              {party.officialLink}
-            </Typography>
+          <div className="mt-2 flex justify-between gap-1">
+            <div className="flex items-center gap-1">
+              <PiLinkSimpleBold className="text-gray-500" size={15} />
+              <Typography
+                variant={{ variant: "caption", level: 1 }}
+                className="max-w-[calc(100dvw/2-56px)] truncate text-[15px] text-[#0A66C2]"
+                title={party.officialLink}
+              >
+                {shortenUrl(party.officialLink)}
+              </Typography>
+            </div>
+            <div className="flex items-center gap-1">
+              <PiUsersBold className="text-gray-500" size={15} />
+              <Typography
+                as="span"
+                variant={{ variant: "caption", level: 1 }}
+                className="text-[15px] font-semibold"
+                title={party.memberCount.toString()}
+              >
+                {formatNumber(party.memberCount)}
+              </Typography>
+              <Typography
+                as="span"
+                variant={{ variant: "caption", level: 1 }}
+                className="text-[15px] text-gray-500"
+              >
+                members
+              </Typography>
+            </div>
           </div>
 
           <div className="mt-4">
