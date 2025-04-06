@@ -8,12 +8,14 @@ import { TabSwiper } from "@/components/TabSwiper";
 import { OpenLetterCard } from "@/components/OpenLetterCard";
 import { PollOfTheDay } from "@/components/PollOfTheDay";
 import { useTranslations } from "@/hooks/useTranslations";
+import { PoliticalPartyList } from "@/components/PoliticalPartyList";
 
 const TAB_KEYS = {
   POLLS: "polls",
   OPEN_LETTERS: "openLetters",
   ELECTIONS: "elections",
   REFERENDUMS: "referendums",
+  POLITICAL_PARTIES: "politicalParties",
 } as const;
 
 type TabKey = (typeof TAB_KEYS)[keyof typeof TAB_KEYS];
@@ -24,13 +26,17 @@ export default function GovernPage({
   params: { lang: string };
 }) {
   const dictionary = useTranslations(lang);
-  const [activeTab, setActiveTab] = useState<TabKey>(TAB_KEYS.POLLS);
+  const [activeTab, setActiveTab] = useState<TabKey>(TAB_KEYS.POLITICAL_PARTIES);
 
   if (!dictionary) {
     return null;
   }
 
   const tabs = [
+    {
+      key: TAB_KEYS.POLITICAL_PARTIES,
+      label: "Parties",
+    },
     {
       key: TAB_KEYS.POLLS,
       label: dictionary?.components?.tabSwiper?.tabs?.polls,
@@ -51,6 +57,17 @@ export default function GovernPage({
 
   const renderContent = () => {
     switch (activeTab) {
+      case TAB_KEYS.POLITICAL_PARTIES:
+        return (
+          <>
+            <SectionHeader
+              title="Global Political Parties"
+              description="Global political parties and movements"
+            />
+            <PoliticalPartyList lang={lang} />
+            <DrawerItem title="Create a new party" isAddNew lang={lang} />
+          </>
+        );
       case TAB_KEYS.POLLS:
         return (
           <>
