@@ -200,6 +200,13 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       return;
     }
 
+    // Optimistic update
+    setParties((prevParties) =>
+      prevParties.map((party) =>
+        party.id === partyId ? { ...party, isUserMember: true } : party
+      )
+    );
+
     try {
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
@@ -213,6 +220,13 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       });
 
       if (finalPayload.status === "error") {
+        // Revert optimistic update on error
+        setParties((prevParties) =>
+          prevParties.map((party) =>
+            party.id === partyId ? { ...party, isUserMember: false } : party
+          )
+        );
+
         if (finalPayload.error_code !== "user_rejected") {
           showToast("Failed to join party", "error");
         }
@@ -221,6 +235,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         setTransactionId(finalPayload.transaction_id);
       }
     } catch (error) {
+      // Revert optimistic update on error
+      setParties((prevParties) =>
+        prevParties.map((party) =>
+          party.id === partyId ? { ...party, isUserMember: false } : party
+        )
+      );
       console.error("Error joining party:", error);
       showToast("Error joining party", "error");
     }
@@ -242,6 +262,13 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       return;
     }
 
+    // Optimistic update
+    setParties((prevParties) =>
+      prevParties.map((party) =>
+        party.id === partyId ? { ...party, isUserMember: false } : party
+      )
+    );
+
     try {
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
@@ -255,14 +282,26 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       });
 
       if (finalPayload.status === "error") {
+        // Revert optimistic update on error
+        setParties((prevParties) =>
+          prevParties.map((party) =>
+            party.id === partyId ? { ...party, isUserMember: true } : party
+          )
+        );
+
         if (finalPayload.error_code !== "user_rejected") {
           showToast("Failed to leave party", "error");
         }
       } else {
         showToast("Successfully left party", "success");
-        fetchParties();
       }
     } catch (error) {
+      // Revert optimistic update on error
+      setParties((prevParties) =>
+        prevParties.map((party) =>
+          party.id === partyId ? { ...party, isUserMember: true } : party
+        )
+      );
       console.error("Error leaving party:", error);
       showToast("Error leaving party", "error");
     }
@@ -273,6 +312,28 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       showToast("Please connect your wallet first", "error");
       return;
     }
+
+    // Create optimistic party object
+    const optimisticParty: Party = {
+      id: parties.length, // Temporary ID
+      name: createPartyForm.name,
+      shortName: createPartyForm.shortName,
+      description: createPartyForm.description,
+      officialLink: createPartyForm.officialLink,
+      founder: walletAddress || "",
+      leader: walletAddress || "",
+      memberCount: 1,
+      documentVerifiedMemberCount: 0,
+      verifiedMemberCount: 0,
+      creationTime: Math.floor(Date.now() / 1000),
+      active: true,
+      status: 0, // Pending status
+      isUserMember: true,
+    };
+
+    // Optimistic update
+    setParties((prevParties) => [...prevParties, optimisticParty]);
+    setIsCreateDrawerOpen(false);
 
     try {
       setIsCreating(true);
@@ -295,21 +356,29 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       });
 
       if (finalPayload.status === "error") {
+        // Remove optimistic party on error
+        setParties((prevParties) =>
+          prevParties.filter((party) => party.id !== optimisticParty.id)
+        );
+
         if (finalPayload.error_code !== "user_rejected") {
           showToast("Failed to create party", "error");
         }
       } else {
         showToast("Successfully created party", "success");
-        setIsCreateDrawerOpen(false);
         setCreatePartyForm({
           name: "",
           shortName: "",
           description: "",
           officialLink: "",
         });
-        fetchParties();
+        // Real data will be fetched when transaction is confirmed
       }
     } catch (error) {
+      // Remove optimistic party on error
+      setParties((prevParties) =>
+        prevParties.filter((party) => party.id !== optimisticParty.id)
+      );
       console.error("Error creating party:", error);
       showToast("Error creating party", "error");
     } finally {
