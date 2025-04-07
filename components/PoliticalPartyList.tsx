@@ -9,6 +9,9 @@ import { Button } from "@/components/ui/Button";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useToast } from "@/components/ui/Toast";
 import { PiLinkSimpleBold, PiUsersBold } from "react-icons/pi";
+import { Drawer, DrawerContent } from "@/components/ui/Drawer";
+import { Input } from "@/components/ui/Input";
+import { Textarea } from "@/components/ui/Textarea";
 
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
   "0x960f5F39442C215C1F29CC7dd309b8b705f36bC1";
@@ -16,14 +19,24 @@ const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
 interface Party {
   id: number;
   name: string;
+  shortName: string;
   description: string;
   officialLink: string;
   founder: string;
   leader: string;
   memberCount: number;
+  documentVerifiedMemberCount: number;
+  verifiedMemberCount: number;
   creationTime: number;
   active: boolean;
   isUserMember?: boolean;
+}
+
+interface CreatePartyForm {
+  name: string;
+  shortName: string;
+  description: string;
+  officialLink: string;
 }
 
 interface PoliticalPartyListProps {
@@ -39,6 +52,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   );
   const { walletAddress } = useWallet();
   const { showToast } = useToast();
+  const [isCreateDrawerOpen, setIsCreateDrawerOpen] = useState(false);
+  const [createPartyForm, setCreatePartyForm] = useState<CreatePartyForm>({
+    name: "",
+    shortName: "",
+    description: "",
+    officialLink: "",
+  });
+  const [isCreating, setIsCreating] = useState(false);
 
   const shortenUrl = (url: string, maxLength = 20) => {
     if (!url) return "";
@@ -117,7 +138,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         const partyDetails = await viemClient.readContract({
           address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
           abi: parseAbi([
-            "function getPartyDetails(uint256 _partyId) view returns (string memory name, string memory description, string memory officialLink, address founder, address currentLeader, uint256 creationTime, bool active, uint256 memberCount)",
+            "function getPartyDetails(uint256 _partyId) view returns (string memory name, string memory shortName, string memory description, string memory officialLink, address founder, address currentLeader, uint256 creationTime, uint8 status, uint256 memberCount, uint256 documentVerifiedMemberCount, uint256 verifiedMemberCount)",
           ]),
           functionName: "getPartyDetails",
           args: [BigInt(id)],
@@ -126,13 +147,16 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         return {
           id,
           name: partyDetails[0],
-          description: partyDetails[1],
-          officialLink: partyDetails[2],
-          founder: partyDetails[3],
-          leader: partyDetails[4],
-          creationTime: Number(partyDetails[5]),
-          active: partyDetails[6],
-          memberCount: Number(partyDetails[7]),
+          shortName: partyDetails[1],
+          description: partyDetails[2],
+          officialLink: partyDetails[3],
+          founder: partyDetails[4],
+          leader: partyDetails[5],
+          creationTime: Number(partyDetails[6]),
+          active: partyDetails[7] === 1,
+          memberCount: Number(partyDetails[8]),
+          documentVerifiedMemberCount: Number(partyDetails[9]),
+          verifiedMemberCount: Number(partyDetails[10]),
           isUserMember: userParties.includes(id),
         };
       });
@@ -216,6 +240,55 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     } catch (error) {
       console.error("Error leaving party:", error);
       showToast("Error leaving party", "error");
+    }
+  };
+
+  const createParty = async () => {
+    if (!MiniKit.isInstalled()) {
+      showToast("Please connect your wallet first", "error");
+      return;
+    }
+
+    try {
+      setIsCreating(true);
+      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
+        transaction: [
+          {
+            address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
+            abi: parseAbi([
+              "function createParty(string memory _name, string memory _shortName, string memory _description, string memory _officialLink) external returns (uint256)",
+            ]),
+            functionName: "createParty",
+            args: [
+              createPartyForm.name,
+              createPartyForm.shortName,
+              createPartyForm.description,
+              createPartyForm.officialLink,
+            ],
+          },
+        ],
+      });
+
+      if (finalPayload.status === "error") {
+        if (finalPayload.error_code !== "user_rejected") {
+          showToast("Failed to create party", "error");
+        }
+      } else {
+        showToast("Successfully created party", "success");
+        setIsCreateDrawerOpen(false);
+        setCreatePartyForm({
+          name: "",
+          shortName: "",
+          description: "",
+          officialLink: "",
+        });
+        fetchParties();
+      }
+    } catch (error) {
+      console.error("Error creating party:", error);
+      showToast("Error creating party", "error");
+    } finally {
+      setIsCreating(false);
     }
   };
 
@@ -306,6 +379,18 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           Your parties
         </button>
       </div>
+
+      {activeTab === "yourParties" && (
+        <div className="my-4">
+          <Button
+            variant="primary"
+            fullWidth
+            onClick={() => setIsCreateDrawerOpen(true)}
+          >
+            Create New Party
+          </Button>
+        </div>
+      )}
 
       {filteredParties.length === 0 && (
         <div className="my-8 text-center text-gray-500">
@@ -402,6 +487,115 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           </div>
         </div>
       ))}
+
+      <Drawer open={isCreateDrawerOpen} onOpenChange={setIsCreateDrawerOpen}>
+        <DrawerContent>
+          <div className="flex flex-col gap-4 p-6">
+            <Typography
+              as="h2"
+              variant={{ variant: "subtitle", level: 1 }}
+              className="text-[19px] font-semibold"
+            >
+              Create New Party
+            </Typography>
+            <div>
+              <Typography
+                as="label"
+                variant={{ variant: "caption", level: 1 }}
+                className="mb-1.5 block text-[15px]"
+              >
+                Party Name
+              </Typography>
+              <Input
+                placeholder="Enter party name"
+                value={createPartyForm.name}
+                onChange={(e) =>
+                  setCreatePartyForm((prev) => ({
+                    ...prev,
+                    name: e.target.value,
+                  }))
+                }
+              />
+            </div>
+
+            <div>
+              <Typography
+                as="label"
+                variant={{ variant: "caption", level: 1 }}
+                className="mb-1.5 block text-[15px]"
+              >
+                Short Name
+              </Typography>
+              <Input
+                placeholder="Enter short name or abbreviation"
+                value={createPartyForm.shortName}
+                onChange={(e) =>
+                  setCreatePartyForm((prev) => ({
+                    ...prev,
+                    shortName: e.target.value,
+                  }))
+                }
+                maxLength={16}
+              />
+            </div>
+
+            <div>
+              <Typography
+                as="label"
+                variant={{ variant: "caption", level: 1 }}
+                className="mb-1.5 block text-[15px]"
+              >
+                Description
+              </Typography>
+              <Textarea
+                placeholder="Enter party description"
+                value={createPartyForm.description}
+                onChange={(e) =>
+                  setCreatePartyForm((prev) => ({
+                    ...prev,
+                    description: e.target.value,
+                  }))
+                }
+                rows={4}
+              />
+            </div>
+
+            <div>
+              <Typography
+                as="label"
+                variant={{ variant: "caption", level: 1 }}
+                className="mb-1.5 block text-[15px]"
+              >
+                Official Link
+              </Typography>
+              <Input
+                placeholder="Enter official website or community link"
+                value={createPartyForm.officialLink}
+                onChange={(e) =>
+                  setCreatePartyForm((prev) => ({
+                    ...prev,
+                    officialLink: e.target.value,
+                  }))
+                }
+              />
+            </div>
+
+            <Button
+              variant="primary"
+              fullWidth
+              onClick={createParty}
+              disabled={
+                isCreating ||
+                !createPartyForm.name ||
+                !createPartyForm.shortName ||
+                !createPartyForm.description
+              }
+            >
+              {isCreating ? "Creating..." : "Create Party"}
+            </Button>
+          </div>
+        </DrawerContent>
+      </Drawer>
     </div>
   );
 }
