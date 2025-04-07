@@ -11,7 +11,7 @@ import { useToast } from "@/components/ui/Toast";
 import { PiLinkSimpleBold, PiUsersBold } from "react-icons/pi";
 
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
-  "0x5Da7559B80873f8a2C84e846fE64dCE332F8C526";
+  "0x960f5F39442C215C1F29CC7dd309b8b705f36bC1";
 
 interface Party {
   id: number;
