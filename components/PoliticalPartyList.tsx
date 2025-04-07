@@ -12,6 +12,7 @@ import { PiLinkSimpleBold, PiUsersBold } from "react-icons/pi";
 import { Drawer, DrawerContent } from "@/components/ui/Drawer";
 import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";
+import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
   "0x960f5F39442C215C1F29CC7dd309b8b705f36bC1";
@@ -60,6 +61,16 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     officialLink: "",
   });
   const [isCreating, setIsCreating] = useState(false);
+  const [transactionId, setTransactionId] = useState<string>("");
+
+  const { isLoading: isConfirming, isSuccess: isConfirmed } =
+    useWaitForTransactionReceipt({
+      client: viemClient,
+      appConfig: {
+        app_id: process.env.NEXT_PUBLIC_WORLD_APP_ID as string,
+      },
+      transactionId: transactionId,
+    });
 
   const shortenUrl = (url: string, maxLength = 20) => {
     if (!url) return "";
@@ -72,13 +83,19 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       // Remove trailing slash
       cleanUrl = cleanUrl.replace(/\/$/, "");
 
+      // If the URL is already shorter than maxLength, return it as is
       if (cleanUrl.length <= maxLength) return cleanUrl;
 
-      // For longer URLs, truncate the middle
-      const start = Math.ceil(maxLength / 2);
-      const end = cleanUrl.length - start + 3; // +3 for the "..."
+      // For very long URLs, truncate at domain level or use ellipsis
+      const parts = cleanUrl.split("/");
+      const domain = parts[0];
 
-      return cleanUrl.substring(0, start) + "..." + cleanUrl.substring(end);
+      if (domain.length <= maxLength) {
+        return domain;
+      }
+
+      // If domain itself is too long, truncate with ellipsis
+      return domain.substring(0, maxLength - 3) + "...";
     } catch (e) {
       return url;
     }
@@ -202,14 +219,24 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           showToast("Failed to join party", "error");
         }
       } else {
-        showToast("Successfully joined party", "success");
-        fetchParties();
+        showToast("Transaction sent", "success");
+        setTransactionId(finalPayload.transaction_id);
       }
     } catch (error) {
       console.error("Error joining party:", error);
       showToast("Error joining party", "error");
     }
   };
+
+  useEffect(() => {
+    if (isConfirmed) {
+      showToast("Successfully joined party", "success");
+      fetchParties();
+      setTransactionId(""); // Reset the transaction ID
+    }
+  }, [isConfirmed]);
+
+  const isJoiningParty = isConfirming && transactionId !== "";
 
   const leaveParty = async (partyId: number) => {
     if (!MiniKit.isInstalled()) {
@@ -480,8 +507,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 size="sm"
                 fullWidth
                 onClick={() => joinParty(party.id)}
+                disabled={isJoiningParty}
               >
-                Join Party
+                {isJoiningParty ? "Joining..." : "Join Party"}
               </Button>
             )}
           </div>
