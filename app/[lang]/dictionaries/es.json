@@ -306,6 +306,7 @@
             "title": "Encuestas Anteriores",
             "backToGovern": "Volver a Gobernar",
             "polls": {
+              "agiExistentialRisk": "¿Deberían los líderes mundiales negociar un tratado internacional vinculante para mitigar los posibles riesgos existenciales planteados por la inteligencia artificial general?",
               "supplyChainResilience": "¿Deberían los países colaborar para establecer un marco global para fortalecer la resiliencia de la cadena de suministro en medio de las interrupciones actuales?",
               "biodiversityFinance": "¿Debería crearse un fondo global dedicado para movilizar inversiones para la conservación de la naturaleza y cumplir con ambiciosos objetivos de protección de la biodiversidad?",
               "digitalInclusion": "¿Debería haber una iniciativa global para cerrar la brecha digital y garantizar un acceso equitativo a las tecnologías digitales en todo el mundo?",
