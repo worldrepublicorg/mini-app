@@ -8,7 +8,18 @@ import { Typography } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/Button";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useToast } from "@/components/ui/Toast";
-import { PiLinkSimpleBold, PiUsersBold } from "react-icons/pi";
+import {
+  PiUsers,
+  PiLinkSimpleBold,
+  PiPlus,
+  PiPlusBold,
+  PiUsersBold,
+  PiUsersFourFill,
+  PiUsersFour,
+  PiUsersFourBold,
+  PiPlusCircleFill,
+  PiPlusCircleBold,
+} from "react-icons/pi";
 import { Drawer, DrawerContent } from "@/components/ui/Drawer";
 import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";
@@ -223,7 +234,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             party.id === partyId ? { ...party, isUserMember: true } : party
           )
         );
-        showToast("Transaction sent", "success");
         setTransactionId(finalPayload.transaction_id);
       }
     } catch (error) {
@@ -415,36 +425,33 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   return (
     <div className="w-full">
       {/* Tabs */}
-      <div className="mb-2 flex gap-1">
+      <div className="mb-2 flex items-center justify-between">
+        <div className="flex gap-1">
+          <button
+            className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
+              activeTab === "discover" ? "bg-gray-100" : ""
+            }`}
+            onClick={() => setActiveTab("discover")}
+          >
+            Discover
+          </button>
+          <button
+            className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
+              activeTab === "yourParties" ? "bg-gray-100" : ""
+            }`}
+            onClick={() => setActiveTab("yourParties")}
+          >
+            Your parties
+          </button>
+        </div>
         <button
-          className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
-            activeTab === "discover" ? "bg-gray-100" : ""
-          }`}
-          onClick={() => setActiveTab("discover")}
+          className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-900"
+          onClick={() => setIsCreateDrawerOpen(true)}
+          title="Create New Party"
         >
-          Discover
-        </button>
-        <button
-          className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
-            activeTab === "yourParties" ? "bg-gray-100" : ""
-          }`}
-          onClick={() => setActiveTab("yourParties")}
-        >
-          Your parties
+          <PiPlusBold className="text-gray-500" size={16} />
         </button>
       </div>
-
-      {activeTab === "yourParties" && (
-        <div className="my-4">
-          <Button
-            variant="primary"
-            fullWidth
-            onClick={() => setIsCreateDrawerOpen(true)}
-          >
-            Create New Party
-          </Button>
-        </div>
-      )}
 
       {filteredParties.length === 0 && (
         <div className="my-8 text-center text-gray-500">
