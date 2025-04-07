@@ -30,6 +30,7 @@ interface Party {
   verifiedMemberCount: number;
   creationTime: number;
   active: boolean;
+  status: number;
   isUserMember?: boolean;
 }
 
@@ -170,6 +171,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           founder: partyDetails[4],
           leader: partyDetails[5],
           creationTime: Number(partyDetails[6]),
+          status: partyDetails[7],
           active: partyDetails[7] === 1,
           memberCount: Number(partyDetails[8]),
           documentVerifiedMemberCount: Number(partyDetails[9]),
@@ -179,11 +181,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       });
 
       const fetchedParties = await Promise.all(partyPromises);
-
-      // Filter active parties
-      const activeParties = fetchedParties.filter((party) => party.active);
-
-      setParties(activeParties);
+      setParties(fetchedParties);
     } catch (error) {
       console.error("Error fetching political parties:", error);
       showToast("Failed to load political parties", "error");
@@ -436,13 +434,20 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               : ""
           } rounded-xl border border-gray-200 p-4`}
         >
-          <Typography
-            as="h3"
-            variant={{ variant: "subtitle", level: 1 }}
-            className="text-[19px] font-semibold"
-          >
-            {party.name}
-          </Typography>
+          <div className="flex items-start justify-between">
+            <Typography
+              as="h3"
+              variant={{ variant: "subtitle", level: 1 }}
+              className="text-[19px] font-semibold"
+            >
+              {party.name}
+            </Typography>
+            {party.status === 0 && (
+              <span className="text-gray-800 rounded-full bg-gray-100 px-2 py-1 text-xs font-medium">
+                Pending
+              </span>
+            )}
+          </div>
 
           <Typography
             as="p"
@@ -497,19 +502,26 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 size="sm"
                 fullWidth
                 onClick={() => leaveParty(party.id)}
+                disabled={isJoiningParty}
               >
-                Leave Party
+                {isJoiningParty ? "Processing..." : "Leave Party"}
               </Button>
             ) : (
               <Button
                 className="px-6"
-                variant="primary"
+                variant={party.status === 1 ? "primary" : "secondary"}
                 size="sm"
                 fullWidth
                 onClick={() => joinParty(party.id)}
                 disabled={isJoiningParty}
               >
-                {isJoiningParty ? "Joining..." : "Join Party"}
+                {isJoiningParty
+                  ? "Joining..."
+                  : party.status === 0
+                    ? "Join Pending Party"
+                    : party.status === 2
+                      ? "Join Inactive Party"
+                      : "Join Party"}
               </Button>
             )}
           </div>
