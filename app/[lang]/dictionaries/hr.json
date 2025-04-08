@@ -294,6 +294,8 @@
             "title": "Prethodne Ankete",
             "backToGovern": "Povratak na Upravljanje",
             "polls": {
+              "oilTariffImpact": "Treba li težiti globalnim sporazumima za ograničavanje ekstremnih carinskih mjera na izvoz nafte i plina kako bi se stabiliziralo međunarodno energetsko tržište?",
+              "agiExistentialRisk": "Trebaju li svjetski čelnici pregovarati o obvezujućem međunarodnom sporazumu za ublažavanje potencijalnih egzistencijalnih rizika koje predstavlja umjetna opća inteligencija?",
               "biodiversityFinance": "Treba li stvoriti namjenski globalni fond za mobiliziranje ulaganja u očuvanje prirode kako bi se ispunili ambiciozni ciljevi zaštite biološke raznolikosti?",
               "supplyChainResilience": "Trebaju li države surađivati kako bi uspostavile globalni okvir za jačanje otpornosti opskrbnih lanaca usred kontinuiranih poremećaja?",
               "digitalInclusion": "Treba li postojati globalna inicijativa za premošćivanje digitalnog jaza i osiguravanje jednakog pristupa digitalnim tehnologijama diljem svijeta?",

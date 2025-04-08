@@ -294,8 +294,10 @@
             "title": "Önceki Anketler",
             "backToGovern": "Yönet'e Dön",
             "polls": {
-              "biodiversityFinance": "Biyolojik çeşitliliğin korunmasına yönelik iddialı hedefleri karşılamak için doğa koruma alanında yatırımları seferber edecek özel bir küresel fon oluşturulmalı mı?",
+              "oilTariffImpact": "Uluslararası enerji piyasasını istikrara kavuşturmak için petrol ve gaz ihracatına yönelik aşırı tarife önlemlerini sınırlamak amacıyla küresel anlaşmalar aranmalı mıdır?",
+              "agiExistentialRisk": "Küresel liderler, yapay genel zekanın oluşturduğu potansiyel varoluşsal riskleri azaltmak için bağlayıcı bir uluslararası anlaşma için müzakere etmeli midir?",
               "supplyChainResilience": "Ülkeler, süregelen kesintiler karşısında tedarik zinciri dayanıklılığını güçlendirmek için küresel bir çerçeve oluşturmak üzere iş birliği yapmalı mı?",
+              "biodiversityFinance": "Biyolojik çeşitliliğin korunmasına yönelik iddialı hedefleri karşılamak için doğa koruma alanında yatırımları seferber edecek özel bir küresel fon oluşturulmalı mı?",
               "digitalInclusion": "Dijital uçurumu kapatmak ve dünya çapında dijital teknolojilere eşit erişimi sağlamak için küresel bir girişim olmalı mı?",
               "techTransparency": "Küresel teknoloji şirketlerinin kamu güvenini korumak için şeffaf karar verme politikalarını benimsemesi zorunlu olmalı mı?",
               "disasterRelief": "Büyük depremler gibi yıkıcı doğal afetler için acil yardım sağlamak üzere küresel bir hızlı müdahale fonu kurulmalı mı?",

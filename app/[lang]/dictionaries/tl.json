@@ -294,8 +294,10 @@
             "title": "Mga Nakaraang Poll",
             "backToGovern": "Bumalik sa Govern",
             "polls": {
-              "biodiversityFinance": "Dapat bang lumikha ng isang nakalaang pandaigdigang pondo upang magpalago ng mga pamumuhunan para sa konserbasyon ng kalikasan upang matugunan ang mataas na hangaring mga target sa pagprotekta ng biodiversity?",
+              "oilTariffImpact": "Dapat bang hangarin ang mga pandaigdigang kasunduan upang limitahan ang matinding mga hakbang sa taripa sa pag-export ng langis at gas upang maibalik sa kalakalan ang pamilihan ng enerhiya sa daigdig?",
+              "agiExistentialRisk": "Dapat bang makipag-ayos ang mga pinuno ng mundo para sa isang may bisa na pandaigdigang kasunduan upang mabawasan ang mga potensyal na panganib sa pag-iral na dulot ng artificial general intelligence?",
               "supplyChainResilience": "Dapat bang magtulungan ang mga bansa para makapagtatag ng pandaigdigang balangkas para sa pagpapalakas ng katatagan ng supply chain sa gitna ng patuloy na mga pagkagambala?",
+              "biodiversityFinance": "Dapat bang lumikha ng isang nakalaang pandaigdigang pondo upang magpalago ng mga pamumuhunan para sa konserbasyon ng kalikasan upang matugunan ang mataas na hangaring mga target sa pagprotekta ng biodiversity?",
               "digitalInclusion": "Dapat bang magkaroon ng isang pandaigdigang inisyatiba upang mapunan ang digital divide at matiyak ang pantay na access sa mga digital na teknolohiya sa buong mundo?",
               "techTransparency": "Dapat bang i-require ang mga global tech companies na mag-adopt ng transparent na decision-making policies para maprotektahan ang public trust?",
               "disasterRelief": "Dapat bang magtatag ng global rapid-response fund para sa agarang tulong sa mga nakakapinsalang natural disasters tulad ng malalaking lindol?",
