@@ -9,24 +9,16 @@ import { Button } from "@/components/ui/Button";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useToast } from "@/components/ui/Toast";
 import {
-  PiUsers,
   PiLinkSimpleBold,
-  PiPlus,
   PiPlusBold,
   PiUsersBold,
-  PiUsersFourFill,
-  PiUsersFour,
-  PiUsersFourBold,
-  PiPlusCircleFill,
-  PiPlusCircleBold,
   PiPencilSimpleBold,
-  PiUserMinusBold,
-  PiCrownBold,
 } from "react-icons/pi";
 import { Drawer, DrawerContent } from "@/components/ui/Drawer";
 import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
+import { FaPlus } from "react-icons/fa";
 
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
   "0x960f5F39442C215C1F29CC7dd309b8b705f36bC1";
@@ -661,22 +653,31 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
   const LoadingSkeleton = () => (
     <div className="w-full">
-      <div className="mb-2 flex gap-1">
+      <div className="mb-2 flex items-center justify-between">
+        <div className="flex gap-1">
+          <button
+            className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
+              activeTab === "discover" ? "bg-gray-100" : ""
+            }`}
+            onClick={() => setActiveTab("discover")}
+          >
+            Discover
+          </button>
+          <button
+            className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
+              activeTab === "yourParties" ? "bg-gray-100" : ""
+            }`}
+            onClick={() => setActiveTab("yourParties")}
+          >
+            Your parties
+          </button>
+        </div>
         <button
-          className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
-            activeTab === "discover" ? "bg-gray-100" : ""
-          }`}
-          onClick={() => setActiveTab("discover")}
+          className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-900"
+          onClick={() => setIsCreateDrawerOpen(true)}
+          title="Create New Party"
         >
-          Discover
-        </button>
-        <button
-          className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
-            activeTab === "yourParties" ? "bg-gray-100" : ""
-          }`}
-          onClick={() => setActiveTab("yourParties")}
-        >
-          Your parties
+          <FaPlus className="text-gray-500" size={12} />
         </button>
       </div>
       {/* Generate 5 skeleton party cards */}
@@ -700,16 +701,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       return party.isUserMember;
     }
   });
-
-  // Check if user is a leader of any party
-  const isLeaderOfAnyParty = () => {
-    return parties.some((party) => party.isUserLeader);
-  };
-
-  // Get parties where user is the leader
-  const getPartiesWhereUserIsLeader = () => {
-    return parties.filter((party) => party.isUserLeader);
-  };
 
   // Modify the party card rendering to include leader actions
   const renderPartyCard = (party: Party) => (
@@ -880,7 +871,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           onClick={() => setIsCreateDrawerOpen(true)}
           title="Create New Party"
         >
-          <PiPlusBold className="text-gray-500" size={16} />
+          <FaPlus className="text-gray-500" size={12} />
         </button>
       </div>
 
