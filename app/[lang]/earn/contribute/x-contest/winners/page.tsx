@@ -22,6 +22,28 @@ type WeeklyWinners = {
 // Example data - replace with your actual data
 const WINNERS_DATA: WeeklyWinners[] = [
   {
+    weekOf: "March 31, 2025",
+    winners: [
+      {
+        handle: "@KINGkazu0924",
+        engagement: 124,
+        postLink: "https://x.com/KINGkazu0924/status/1908080811372671017",
+        place: 1,
+      },
+      {
+        handle: "@SofiaParad69554",
+        engagement: 82,
+        postLink: "https://x.com/SofiaParad69554/status/1907465790070067626",
+        place: 2,
+      },
+      {
+        handle: "@GahzZhz12258",
+        engagement: 71,
+        postLink: "https://x.com/GahzZhz12258/status/1907188931487055974",
+        place: 3,
+      },
+    ],
+  },{
     weekOf: "March 24, 2025",
     winners: [
       {
