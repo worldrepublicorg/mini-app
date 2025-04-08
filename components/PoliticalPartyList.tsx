@@ -729,11 +729,22 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         >
           {party.name}
         </Typography>
-        {party.status === 0 && (
-          <span className="text-gray-800 rounded-full bg-gray-100 px-2 py-1 text-xs font-medium">
-            Pending
-          </span>
-        )}
+        <div className="flex items-center gap-2">
+          {party.status === 0 && (
+            <span className="text-gray-800 rounded-full bg-gray-100 px-2 py-1 text-xs font-medium">
+              Pending
+            </span>
+          )}
+          {party.isUserLeader && (
+            <button
+              onClick={() => openUpdatePartyDrawer(party)}
+              className="text-gray-500 transition-colors hover:text-gray-700"
+              title="Edit Party Details"
+            >
+              <PiPencilSimpleBold size={16} />
+            </button>
+          )}
+        </div>
       </div>
 
       <Typography
@@ -781,41 +792,32 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         </div>
       </div>
 
-      <div className="mt-4 flex justify-between gap-2">
+      <div className="mt-4 flex flex-col gap-2">
         {party.isUserLeader ? (
           <>
             <Button
-              className="flex-1 px-4"
+              className="px-4"
               variant="tertiary"
               size="sm"
-              onClick={() => openUpdatePartyDrawer(party)}
-            >
-              <PiPencilSimpleBold size={15} className="mr-1.5" />
-              Edit
-            </Button>
-            <Button
-              className="flex-1 px-4"
-              variant="tertiary"
-              size="sm"
+              fullWidth
               onClick={() => {
                 setSelectedParty(party);
                 setIsRemoveMemberDrawerOpen(true);
               }}
             >
-              <PiUserMinusBold size={15} className="mr-1.5" />
-              Remove
+              Remove Member
             </Button>
             <Button
-              className="flex-1 px-4"
+              className="px-4"
               variant="tertiary"
               size="sm"
+              fullWidth
               onClick={() => {
                 setSelectedParty(party);
                 setIsTransferLeadershipDrawerOpen(true);
               }}
             >
-              <PiCrownBold size={15} className="mr-1.5" />
-              Transfer
+              Transfer Leadership
             </Button>
           </>
         ) : activeTab === "yourParties" ? (
