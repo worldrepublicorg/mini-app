@@ -239,7 +239,46 @@
           },
           "earlyAccess": {
             "title": "Programu ya Ufikiaji wa Mapema",
-            "description": "Pata WDD kwa kujaribia vipengele vyetu vipya"
+            "description": "Pata WDD kwa kupima vipengele vyetu vinavyokuja"
+          },
+          "buybackProgram": {
+            "topnav": "Programu ya Ununuzi",
+            "title": "Programu ya Ununuzi wa WDD",
+            "subtitle": "Tumia programu na karibisha marafiki ili kuongeza thamani ya WDD",
+            "sections": {
+              "stats": {
+                "rewardPercentage": "50%+",
+                "rewardDescription": "Tuzo za maendeleo zinazotumiwa kwa ununuzi",
+                "valueBoost": "Ongezeko la Thamani",
+                "valueDescription": "Ongezeko la mahitaji ya WDD"
+              },
+              "source": {
+                "prefix": "Programu ya World",
+                "link": "imeanza kutoa tuzo kwa programu ndogo",
+                "suffix": "kulingana na matumizi ya wanadamu waliothibitishwa."
+              },
+              "commitment": {
+                "title": "Ahadi yetu",
+                "body": "Tutatumia angalau 50% ya tuzo zetu kununua tokeni za WDD kutoka kwenye soko."
+              },
+              "role": {
+                "title": "Jukumu lako",
+                "intro": "Matumizi zaidi ya programu = tuzo zaidi kwa Jamhuri ya Dunia. Unaweza kusaidia kwa:",
+                "steps": {
+                  "appUsage": "Kufungua programu kila siku",
+                  "inviting": "Kukaribisha watumiaji wapya kujiunga"
+                }
+              },
+              "impact": {
+                "title": "Athari",
+                "body": "Ununuzi hupunguza ugavi wa WDD, huku ukiongeza uwezekano wa thamani ya tokeni. Matumizi yako ya kila siku na rufaa husaidia kukuza tuzo zako za moja kwa moja na thamani ya WDD unazoshikilia."
+              }
+            },
+            "cta": "Angalia Takwimu za Programu Ndogo"
+          },
+          "buybackLink": {
+            "title": "Programu ya Ununuzi",
+            "description": "Tumia programu na karibisha marafiki ili kuongeza thamani ya WDD"
           },
           "xContest": {
             "title": "Shindano la Chapisho X",

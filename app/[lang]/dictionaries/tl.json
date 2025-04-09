@@ -238,8 +238,47 @@
             "limited": "50 slots"
           },
           "earlyAccess": {
-            "title": "Early Access Program",
-            "description": "Kumita ng WDD sa pamamagitan ng pagte-test ng aming mga darating na features"
+            "title": "Programa ng Maagang Pag-access",
+            "description": "Kumita ng WDD sa pamamagitan ng pagsubok ng aming mga paparating na feature"
+          },
+          "buybackProgram": {
+            "topnav": "Programa ng Buyback",
+            "title": "Programa ng Buyback ng WDD",
+            "subtitle": "Gamitin ang app at mag-imbita ng mga kaibigan para mapataas ang halaga ng WDD",
+            "sections": {
+              "stats": {
+                "rewardPercentage": "50%+",
+                "rewardDescription": "Mga reward ng dev na ginagamit para sa mga buyback",
+                "valueBoost": "Pagpapataas ng Halaga",
+                "valueDescription": "Nadagdagang demand sa WDD"
+              },
+              "source": {
+                "prefix": "Ang World App ay",
+                "link": "nagsisimula nang magbigay ng reward sa mga mini app",
+                "suffix": "batay sa na-verify na paggamit ng tao."
+              },
+              "commitment": {
+                "title": "Ang aming pangako",
+                "body": "Gagamitin namin ang hindi bababa sa 50% ng aming mga reward para bumili ng mga WDD token mula sa market."
+              },
+              "role": {
+                "title": "Ang iyong tungkulin",
+                "intro": "Mas maraming paggamit ng app = mas maraming reward para sa World Republic. Maaari kang tumulong sa pamamagitan ng:",
+                "steps": {
+                  "appUsage": "Pagbubukas ng app araw-araw",
+                  "inviting": "Pag-imbita sa mga bagong user na sumali"
+                }
+              },
+              "impact": {
+                "title": "Epekto",
+                "body": "Ang mga buyback ay nagbabawas ng supply ng WDD, potensyal na nagtataas ng halaga ng token. Ang iyong pang-araw-araw na paggamit at mga referral ay tumutulong na mapataas ang iyong direktang mga reward at ang halaga ng WDD na hawak mo."
+              }
+            },
+            "cta": "Tingnan ang Mga Istatistika ng Mini App"
+          },
+          "buybackLink": {
+            "title": "Programa ng Buyback",
+            "description": "Gamitin ang app at mag-imbita ng mga kaibigan para mapataas ang halaga ng WDD"
           },
           "xContest": {
             "title": "X Post Contest",

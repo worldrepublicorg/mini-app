@@ -239,7 +239,46 @@
           },
           "earlyAccess": {
             "title": "Program Akses Awal",
-            "description": "Dapatkan WDD dengan menguji fitur-fitur mendatang kami"
+            "description": "Dapatkan WDD dengan menguji fitur-fitur kami yang akan datang"
+          },
+          "buybackProgram": {
+            "topnav": "Program Buyback",
+            "title": "Program Buyback WDD",
+            "subtitle": "Gunakan aplikasi dan undang teman untuk meningkatkan nilai WDD",
+            "sections": {
+              "stats": {
+                "rewardPercentage": "50%+",
+                "rewardDescription": "Reward pengembangan digunakan untuk buyback",
+                "valueBoost": "Peningkatan Nilai",
+                "valueDescription": "Permintaan WDD meningkat"
+              },
+              "source": {
+                "prefix": "Aplikasi World",
+                "link": "mulai memberi reward pada mini app",
+                "suffix": "berdasarkan penggunaan manusia terverifikasi."
+              },
+              "commitment": {
+                "title": "Komitmen kami",
+                "body": "Kami akan menggunakan minimal 50% dari reward kami untuk membeli token WDD dari pasar."
+              },
+              "role": {
+                "title": "Peran Anda",
+                "intro": "Lebih banyak penggunaan aplikasi = lebih banyak reward untuk Republik Dunia. Anda dapat membantu dengan:",
+                "steps": {
+                  "appUsage": "Membuka aplikasi setiap hari",
+                  "inviting": "Mengundang pengguna baru untuk bergabung"
+                }
+              },
+              "impact": {
+                "title": "Dampak",
+                "body": "Buyback mengurangi pasokan WDD, berpotensi meningkatkan nilai token. Penggunaan harian dan referral Anda membantu meningkatkan baik reward langsung Anda maupun nilai WDD yang Anda miliki."
+              }
+            },
+            "cta": "Lihat Statistik Mini App"
+          },
+          "buybackLink": {
+            "title": "Program Buyback",
+            "description": "Gunakan aplikasi dan undang teman untuk meningkatkan nilai WDD"
           },
           "xContest": {
             "title": "Kontes Posting X",

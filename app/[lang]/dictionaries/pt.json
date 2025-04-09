@@ -241,6 +241,45 @@
             "title": "Programa de Acesso Antecipado",
             "description": "Ganhe WDD testando nossos recursos futuros"
           },
+          "buybackProgram": {
+            "topnav": "Programa de Recompra",
+            "title": "Programa de Recompra de WDD",
+            "subtitle": "Use o aplicativo e convide amigos para aumentar o valor do WDD",
+            "sections": {
+              "stats": {
+                "rewardPercentage": "50%+",
+                "rewardDescription": "Recompensas de desenvolvimento usadas para recompras",
+                "valueBoost": "Aumento de Valor",
+                "valueDescription": "Aumento da demanda por WDD"
+              },
+              "source": {
+                "prefix": "O App World está",
+                "link": "começando a recompensar mini apps",
+                "suffix": "com base no uso humano verificado."
+              },
+              "commitment": {
+                "title": "Nosso compromisso",
+                "body": "Usaremos pelo menos 50% das nossas recompensas para comprar tokens WDD do mercado."
+              },
+              "role": {
+                "title": "Seu papel",
+                "intro": "Mais uso do aplicativo = mais recompensas para a República Mundial. Você pode ajudar:",
+                "steps": {
+                  "appUsage": "Abrindo o aplicativo diariamente",
+                  "inviting": "Convidando novos usuários para se juntarem"
+                }
+              },
+              "impact": {
+                "title": "Impacto",
+                "body": "Recompras reduzem a oferta de WDD, potencialmente aumentando o valor do token. Seu uso diário e indicações ajudam a aumentar tanto suas recompensas diretas quanto o valor do WDD que você possui."
+              }
+            },
+            "cta": "Ver Estatísticas do Mini App"
+          },
+          "buybackLink": {
+            "title": "Programa de Recompra",
+            "description": "Use o aplicativo e convide amigos para aumentar o valor do WDD"
+          },
           "xContest": {
             "title": "Concurso de Posts X",
             "weeklyTitle": "Concurso Semanal de Posts X",

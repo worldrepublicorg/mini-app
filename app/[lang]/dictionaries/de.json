@@ -238,8 +238,47 @@
             "limited": "50 Plätze"
           },
           "earlyAccess": {
-            "title": "Early Access Program",
-            "description": "WDD verdienen, indem Sie unsere zukünftigen Funktionen testen"
+            "title": "Früher Zugang Programm",
+            "description": "Verdiene WDD durch das Testen unserer kommenden Funktionen"
+          },
+          "buybackProgram": {
+            "topnav": "Rückkaufprogramm",
+            "title": "WDD Rückkaufprogramm",
+            "subtitle": "Nutze die App und lade Freunde ein, um den WDD-Wert zu steigern",
+            "sections": {
+              "stats": {
+                "rewardPercentage": "50%+",
+                "rewardDescription": "Entwicklerbelohnungen für Rückkäufe verwendet",
+                "valueBoost": "Wertsteigerung",
+                "valueDescription": "Erhöhte WDD-Nachfrage"
+              },
+              "source": {
+                "prefix": "Die World App",
+                "link": "beginnt, Mini-Apps zu belohnen",
+                "suffix": "basierend auf verifizierter menschlicher Nutzung."
+              },
+              "commitment": {
+                "title": "Unser Versprechen",
+                "body": "Wir werden mindestens 50% unserer Belohnungen verwenden, um WDD-Token vom Markt zu kaufen."
+              },
+              "role": {
+                "title": "Deine Rolle",
+                "intro": "Mehr App-Nutzung = mehr Belohnungen für die Weltrepublik. Du kannst helfen durch:",
+                "steps": {
+                  "appUsage": "Tägliches Öffnen der App",
+                  "inviting": "Einladen neuer Nutzer zum Beitreten"
+                }
+              },
+              "impact": {
+                "title": "Auswirkung",
+                "body": "Rückkäufe reduzieren das WDD-Angebot und erhöhen potenziell den Token-Wert. Deine tägliche Nutzung und Empfehlungen helfen, sowohl deine direkten Belohnungen als auch den Wert deiner WDD-Bestände zu steigern."
+              }
+            },
+            "cta": "Mini-App-Statistiken anzeigen"
+          },
+          "buybackLink": {
+            "title": "Rückkaufprogramm",
+            "description": "Nutze die App und lade Freunde ein, um den WDD-Wert zu steigern"
           },
           "xContest": {
             "title": "X Post Contest",

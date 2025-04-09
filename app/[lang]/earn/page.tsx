@@ -1292,22 +1292,22 @@ export default function EarnPage({
     };
   }, [walletAddress]);
 
-  const [hasSeenInviteFeature, setHasSeenInviteFeature] = useState(false);
+  const [hasSeenBuybackProgram, setHasSeenBuybackProgram] = useState(false);
 
   // Update the localStorage key for the Invite feature
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const hasSeenInvite =
-        localStorage.getItem("hasSeenInviteFeature") === "true";
-      setHasSeenInviteFeature(hasSeenInvite);
+      const hasSeenBuyback =
+        localStorage.getItem("hasSeenBuybackProgram") === "true";
+      setHasSeenBuybackProgram(hasSeenBuyback);
     }
   }, []);
 
   // Update localStorage when the Invite tab is active
   useEffect(() => {
-    if (activeTab === "Invite" && typeof window !== "undefined") {
-      localStorage.setItem("hasSeenInviteFeature", "true");
-      setHasSeenInviteFeature(true);
+    if (activeTab === "Contribute" && typeof window !== "undefined") {
+      localStorage.setItem("hasSeenBuybackProgram", "true");
+      setHasSeenBuybackProgram(true);
     }
   }, [activeTab]);
 
@@ -1831,7 +1831,7 @@ export default function EarnPage({
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="hover:text-gray-600 ml-1 h-4 w-4 translate-y-[2px] cursor-help text-gray-400"
+                  className="ml-1 h-4 w-4 translate-y-[2px] cursor-help text-gray-400"
                 >
                   <path
                     fillRule="evenodd"
@@ -1839,7 +1839,7 @@ export default function EarnPage({
                     clipRule="evenodd"
                   />
                 </svg>
-                <div className="absolute -right-4 bottom-full mb-2 hidden w-[calc(100dvw/2+24px)] max-w-sm transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
+                <div className="absolute -right-4 bottom-full mb-2 hidden w-[calc(100dvw/2+24px)] max-w-sm transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg">
                   <p className="text-left text-gray-700">
                     {dictionary?.pages?.earn?.tabs?.savings?.tooltip}
                   </p>
@@ -1872,12 +1872,46 @@ export default function EarnPage({
               {dictionary?.pages?.earn?.tabs?.contribute?.subtitle}
             </Typography>
 
-            <div className="mb-8 w-full">
+            {/* Buyback Program Card */}
+            <Link
+              href={`/${lang}/earn/contribute/buyback-program`}
+              className="group mb-6 flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border border-gray-200 p-4"
+            >
+              <div className="flex items-center gap-3">
+                <div>
+                  <Typography
+                    as="h3"
+                    variant={{ variant: "subtitle", level: 2 }}
+                    className="mb-1.5 line-clamp-1"
+                  >
+                    {
+                      dictionary?.pages?.earn?.tabs?.contribute?.buybackLink
+                        ?.title
+                    }
+                  </Typography>
+                  <Typography
+                    as="p"
+                    variant={{ variant: "body", level: 3 }}
+                    className="text-gray-500"
+                  >
+                    {
+                      dictionary?.pages?.earn?.tabs?.contribute?.buybackLink
+                        ?.description
+                    }
+                  </Typography>
+                </div>
+              </div>
+              <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5">
+                <IoIosArrowForward className="size-[14px] text-gray-400" />
+              </div>
+            </Link>
+
+            <div className="mb-6 w-full">
               <a
                 href="https://t.me/worldrepubliccommunity"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border border-gray-200 p-4 transition-all hover:border-gray-300 hover:bg-gray-50"
+                className="group flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border border-gray-200 p-4"
               >
                 <div className="flex items-center gap-3">
                   <div>
@@ -1903,7 +1937,7 @@ export default function EarnPage({
                     </Typography>
                   </div>
                 </div>
-                <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5 group-hover:bg-gray-200">
+                <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5">
                   <BiLinkExternal className="size-[14px] text-gray-400" />
                 </div>
               </a>
@@ -1969,7 +2003,7 @@ export default function EarnPage({
                       }
                     </Typography>
                   </div>
-                  <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5 group-hover:bg-gray-200">
+                  <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5">
                     <IoIosArrowForward className="size-[14px] text-gray-400" />
                   </div>
                 </div>
@@ -2035,7 +2069,7 @@ export default function EarnPage({
                       }
                     </Typography>
                   </div>
-                  <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5 group-hover:bg-gray-200">
+                  <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5">
                     <IoIosArrowForward className="size-[14px] text-gray-400" />
                   </div>
                 </div>
@@ -2066,7 +2100,7 @@ export default function EarnPage({
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="hover:text-gray-600 ml-1 h-4 w-4 translate-y-[2px] cursor-help text-gray-400"
+                  className="ml-1 h-4 w-4 translate-y-[2px] cursor-help text-gray-400"
                 >
                   <path
                     fillRule="evenodd"
@@ -2074,12 +2108,12 @@ export default function EarnPage({
                     clipRule="evenodd"
                   />
                 </svg>
-                <div className="absolute -right-4 bottom-full mb-2 hidden w-[calc(100dvw/2+24px)] max-w-sm transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
+                <div className="absolute -right-4 bottom-full mb-2 hidden w-[calc(100dvw/2+24px)] max-w-sm transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg">
                   <p className="text-left text-gray-700">
                     {dictionary?.pages?.earn?.tabs?.invite?.tooltip}{" "}
                     <Link
                       href={`/${lang}/faq?q=referral-codes`}
-                      className="hover:text-gray-600 text-gray-900 underline"
+                      className="text-gray-900 underline"
                     >
                       {dictionary?.pages?.earn?.tabs?.invite?.learnMore}
                     </Link>
@@ -2303,7 +2337,7 @@ export default function EarnPage({
                                   setLookupResult(null);
                                   setRewardStatus(null);
                                 }}
-                                className="hover:text-gray-600 text-gray-400"
+                                className="text-gray-400"
                                 aria-label={
                                   dictionary?.pages?.earn?.tabs?.invite?.drawer
                                     ?.input?.editButton
@@ -2469,7 +2503,7 @@ export default function EarnPage({
                                   setLookupResult(null);
                                   setRewardStatus(null);
                                 }}
-                                className="hover:text-gray-600 text-gray-400"
+                                className="text-gray-400"
                                 aria-label={
                                   dictionary?.pages?.earn?.tabs?.invite?.drawer
                                     ?.input?.editButton
@@ -2818,12 +2852,12 @@ export default function EarnPage({
               label: dictionary?.pages?.earn?.tabs?.savings?.tabTitle,
             },
             {
-              key: "Invite",
-              label: dictionary?.pages?.earn?.tabs?.invite?.title,
-            },
-            {
               key: "Contribute",
               label: dictionary?.pages?.earn?.tabs?.contribute?.title,
+            },
+            {
+              key: "Invite",
+              label: dictionary?.pages?.earn?.tabs?.invite?.title,
             },
           ]}
           activeTab={activeTab}
@@ -2831,8 +2865,8 @@ export default function EarnPage({
           tabIndicators={{
             "Basic income": false,
             Savings: false,
-            Invite: !hasSeenInviteFeature,
-            Contribute: false,
+            Contribute: !hasSeenBuybackProgram,
+            Invite: false,
           }}
         />
       </div>

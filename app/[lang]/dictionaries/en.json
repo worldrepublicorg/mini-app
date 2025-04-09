@@ -231,6 +231,45 @@
               }
             }
           },
+          "buybackProgram": {
+            "topnav": "Buyback Program",
+            "title": "WDD Buyback Program",
+            "subtitle": "Use the app and invite friends to boost WDD value",
+            "sections": {
+              "stats": {
+                "rewardPercentage": "50%+",
+                "rewardDescription": "Dev rewards used for buybacks",
+                "valueBoost": "Value Boost",
+                "valueDescription": "Increased WDD demand"
+              },
+              "source": {
+                "prefix": "The World App is",
+                "link": "starting to reward mini apps",
+                "suffix": "based on verified human usage."
+              },
+              "commitment": {
+                "title": "Our commitment",
+                "body": "We'll use at least 50% of our rewards to buy WDD tokens from the market."
+              },
+              "role": {
+                "title": "Your role",
+                "intro": "More app usage = more rewards for the World Republic. You can help by:",
+                "steps": {
+                  "appUsage": "Opening the app daily",
+                  "inviting": "Inviting new users to join"
+                }
+              },
+              "impact": {
+                "title": "Impact",
+                "body": "Buybacks reduce WDD supply, potentially increasing token value. Your daily use and referrals help grow both your direct rewards and the value of WDD you hold."
+              }
+            },
+            "cta": "Check out Mini App Stats"
+          },
+          "buybackLink": {
+            "title": "Buyback Program",
+            "description": "Use the app and invite friends to boost WDD value"
+          },
           "earlyAccess": {
             "title": "Early Access Program",
             "description": "Earn WDD by testing our upcoming features"

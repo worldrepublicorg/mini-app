@@ -241,6 +241,45 @@
             "title": "Program ranog pristupa",
             "description": "Zaradite WDD testiranjem naših nadolazećih značajki"
           },
+          "buybackProgram": {
+            "topnav": "Program otkupa",
+            "title": "WDD Program otkupa",
+            "subtitle": "Koristite aplikaciju i pozovite prijatelje za povećanje vrijednosti WDD-a",
+            "sections": {
+              "stats": {
+                "rewardPercentage": "50%+",
+                "rewardDescription": "Nagrade za razvoj korištene za otkupe",
+                "valueBoost": "Povećanje vrijednosti",
+                "valueDescription": "Povećana potražnja za WDD"
+              },
+              "source": {
+                "prefix": "World App",
+                "link": "počinje nagrađivati mini aplikacije",
+                "suffix": "na temelju potvrđenog korištenja od strane ljudi."
+              },
+              "commitment": {
+                "title": "Naša obveza",
+                "body": "Koristit ćemo najmanje 50% naših nagrada za kupnju WDD tokena s tržišta."
+              },
+              "role": {
+                "title": "Vaša uloga",
+                "intro": "Više korištenja aplikacije = više nagrada za Svjetsku Republiku. Možete pomoći:",
+                "steps": {
+                  "appUsage": "Svakodnevnim otvaranjem aplikacije",
+                  "inviting": "Pozivanjem novih korisnika da se pridruže"
+                }
+              },
+              "impact": {
+                "title": "Utjecaj",
+                "body": "Otkupi smanjuju ponudu WDD-a, potencijalno povećavajući vrijednost tokena. Vaše svakodnevno korištenje i preporuke pomažu u rastu vaših izravnih nagrada i vrijednosti WDD-a koji posjedujete."
+              }
+            },
+            "cta": "Pogledajte statistike mini aplikacija"
+          },
+          "buybackLink": {
+            "title": "Program otkupa",
+            "description": "Koristite aplikaciju i pozovite prijatelje za povećanje vrijednosti WDD-a"
+          },
           "xContest": {
             "title": "X Post natječaj",
             "weeklyTitle": "Tjedni X Post natječaj",

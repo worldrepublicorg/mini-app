@@ -238,8 +238,47 @@
             "limited": "50个名额"
           },
           "earlyAccess": {
-            "title": "早期访问计划",
+            "title": "早期体验计划",
             "description": "通过测试我们即将推出的功能赚取WDD"
+          },
+          "buybackProgram": {
+            "topnav": "回购计划",
+            "title": "WDD回购计划",
+            "subtitle": "使用应用并邀请朋友提升WDD价值",
+            "sections": {
+              "stats": {
+                "rewardPercentage": "50%+",
+                "rewardDescription": "用于回购的开发奖励",
+                "valueBoost": "价值提升",
+                "valueDescription": "WDD需求增加"
+              },
+              "source": {
+                "prefix": "World应用",
+                "link": "开始根据已验证的人类使用情况奖励迷你应用",
+                "suffix": "。"
+              },
+              "commitment": {
+                "title": "我们的承诺",
+                "body": "我们将使用至少50%的奖励从市场购买WDD代币。"
+              },
+              "role": {
+                "title": "您的角色",
+                "intro": "更多应用使用 = 世界共和国获得更多奖励。您可以通过以下方式提供帮助：",
+                "steps": {
+                  "appUsage": "每天打开应用",
+                  "inviting": "邀请新用户加入"
+                }
+              },
+              "impact": {
+                "title": "影响",
+                "body": "回购减少WDD供应，潜在地增加代币价值。您的日常使用和推荐帮助增加您的直接奖励和您持有的WDD价值。"
+              }
+            },
+            "cta": "查看迷你应用统计"
+          },
+          "buybackLink": {
+            "title": "回购计划",
+            "description": "使用应用并邀请朋友提升WDD价值"
           },
           "xContest": {
             "title": "X帖子竞赛",

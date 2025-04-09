@@ -238,8 +238,47 @@
             "limited": "50枠限定"
           },
           "earlyAccess": {
-            "title": "早期アクセスプログラム",
+            "title": "アーリーアクセスプログラム",
             "description": "今後の機能をテストしてWDDを獲得"
+          },
+          "buybackProgram": {
+            "topnav": "バイバックプログラム",
+            "title": "WDDバイバックプログラム",
+            "subtitle": "アプリを使用し友達を招待してWDDの価値を高めましょう",
+            "sections": {
+              "stats": {
+                "rewardPercentage": "50%+",
+                "rewardDescription": "バイバックに使用される開発報酬",
+                "valueBoost": "価値の向上",
+                "valueDescription": "WDDの需要増加"
+              },
+              "source": {
+                "prefix": "Worldアプリは",
+                "link": "検証済みの人間による使用に基づいてミニアプリに報酬を与え始めています",
+                "suffix": "。"
+              },
+              "commitment": {
+                "title": "私たちのコミットメント",
+                "body": "私たちは報酬の少なくとも50%を市場からWDDトークンを購入するために使用します。"
+              },
+              "role": {
+                "title": "あなたの役割",
+                "intro": "アプリの使用が増えるほど、世界共和国への報酬も増えます。あなたは以下の方法で協力できます：",
+                "steps": {
+                  "appUsage": "毎日アプリを開く",
+                  "inviting": "新しいユーザーを招待して参加してもらう"
+                }
+              },
+              "impact": {
+                "title": "影響",
+                "body": "バイバックはWDDの供給を減らし、トークンの価値を潜在的に高めます。あなたの毎日の使用と紹介は、直接的な報酬とあなたが保有するWDDの価値の両方を増やすのに役立ちます。"
+              }
+            },
+            "cta": "ミニアプリの統計を確認"
+          },
+          "buybackLink": {
+            "title": "バイバックプログラム",
+            "description": "アプリを使用し友達を招待してWDDの価値を高めましょう"
           },
           "xContest": {
             "title": "X投稿コンテスト",

@@ -173,7 +173,46 @@
           },
           "earlyAccess": {
             "title": "Early Access Program",
-            "description": "Kumita ng WDD sa pamamagitan ng pagte-test ng aming mga darating na feature"
+            "description": "Kumita ng WDD sa pamamagitan ng pagsusuri ng aming mga darating na feature"
+          },
+          "buybackProgram": {
+            "topnav": "Programang Buyback",
+            "title": "Programang Buyback ng WDD",
+            "subtitle": "Gamitin ang app at imbitahan ang mga kaibigan upang mapataas ang halaga ng WDD",
+            "sections": {
+              "stats": {
+                "rewardPercentage": "50%+",
+                "rewardDescription": "Mga reward sa development na ginagamit para sa mga buyback",
+                "valueBoost": "Pagpapataas ng Halaga",
+                "valueDescription": "Mas mataas na demand para sa WDD"
+              },
+              "source": {
+                "prefix": "Ang World App ay",
+                "link": "nagsisimula nang magbigay ng reward sa mga mini app",
+                "suffix": "batay sa verified na paggamit ng tao."
+              },
+              "commitment": {
+                "title": "Aming pangako",
+                "body": "Gagamitin namin ang hindi bababa sa 50% ng aming mga reward upang bumili ng mga WDD token mula sa market."
+              },
+              "role": {
+                "title": "Iyong tungkulin",
+                "intro": "Mas maraming paggamit ng app = mas maraming reward para sa World Republic. Maaari kang tumulong sa pamamagitan ng:",
+                "steps": {
+                  "appUsage": "Pagbubukas ng app araw-araw",
+                  "inviting": "Pag-imbita sa mga bagong user na sumali"
+                }
+              },
+              "impact": {
+                "title": "Epekto",
+                "body": "Ang mga buyback ay nagbabawas ng supply ng WDD, na posibleng nagpapataas ng halaga ng token. Ang iyong pang-araw-araw na paggamit at mga referral ay tumutulong na mapataas ang iyong direktang mga reward at ang halaga ng WDD na hawak mo."
+              }
+            },
+            "cta": "Tingnan ang Mga Istatistika ng Mini App"
+          },
+          "buybackLink": {
+            "title": "Programang Buyback",
+            "description": "Gamitin ang app at imbitahan ang mga kaibigan upang mapataas ang halaga ng WDD"
           },
           "xContest": {
             "title": "X Post Contest",

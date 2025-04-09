@@ -239,7 +239,46 @@
           },
           "earlyAccess": {
             "title": "Erken Erişim Programı",
-            "description": "Yaklaşan özelliklerimizi test ederek WDD kazanın"
+            "description": "Gelecek özelliklerimizi test ederek WDD kazanın"
+          },
+          "buybackProgram": {
+            "topnav": "Geri Alım Programı",
+            "title": "WDD Geri Alım Programı",
+            "subtitle": "Uygulamayı kullanın ve WDD değerini artırmak için arkadaşlarınızı davet edin",
+            "sections": {
+              "stats": {
+                "rewardPercentage": "%50+",
+                "rewardDescription": "Geri alımlar için kullanılan geliştirici ödülleri",
+                "valueBoost": "Değer Artışı",
+                "valueDescription": "Artan WDD talebi"
+              },
+              "source": {
+                "prefix": "World Uygulaması",
+                "link": "doğrulanmış insan kullanımına dayalı olarak mini uygulamaları ödüllendirmeye başlıyor",
+                "suffix": "."
+              },
+              "commitment": {
+                "title": "Taahhüdümüz",
+                "body": "Ödüllerimizin en az %50'sini piyasadan WDD token satın almak için kullanacağız."
+              },
+              "role": {
+                "title": "Sizin rolünüz",
+                "intro": "Daha fazla uygulama kullanımı = Dünya Cumhuriyeti için daha fazla ödül. Şunları yaparak yardımcı olabilirsiniz:",
+                "steps": {
+                  "appUsage": "Uygulamayı her gün açmak",
+                  "inviting": "Yeni kullanıcıları katılmaya davet etmek"
+                }
+              },
+              "impact": {
+                "title": "Etki",
+                "body": "Geri alımlar WDD arzını azaltarak token değerini potansiyel olarak artırır. Günlük kullanımınız ve referanslarınız hem doğrudan ödüllerinizi hem de sahip olduğunuz WDD'nin değerini artırmaya yardımcı olur."
+              }
+            },
+            "cta": "Mini Uygulama İstatistiklerini Görüntüle"
+          },
+          "buybackLink": {
+            "title": "Geri Alım Programı",
+            "description": "Uygulamayı kullanın ve WDD değerini artırmak için arkadaşlarınızı davet edin"
           },
           "xContest": {
             "title": "X Gönderi Yarışması",
