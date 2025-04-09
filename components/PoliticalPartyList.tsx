@@ -10,7 +10,6 @@ import { MiniKit } from "@worldcoin/minikit-js";
 import { useToast } from "@/components/ui/Toast";
 import {
   PiLinkSimpleBold,
-  PiPlusBold,
   PiUsersBold,
   PiPencilSimpleBold,
 } from "react-icons/pi";
@@ -19,9 +18,10 @@ import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { FaPlus } from "react-icons/fa";
+import * as Form from "@/components/ui/Form/Form";
 
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
-  "0x960f5F39442C215C1F29CC7dd309b8b705f36bC1";
+  "0x9Dc52F24d9552bA4591ec6e3CdB4045F19B7fB26";
 
 interface Party {
   id: number;
@@ -896,101 +896,120 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             >
               Create New Party
             </Typography>
-            <div>
-              <Typography
-                as="label"
-                variant={{ variant: "caption", level: 1 }}
-                className="mb-1.5 block text-[15px]"
-              >
-                Party Name
-              </Typography>
-              <Input
-                placeholder="Enter party name"
-                value={createPartyForm.name}
-                onChange={(e) =>
-                  setCreatePartyForm((prev) => ({
-                    ...prev,
-                    name: e.target.value,
-                  }))
-                }
-              />
-            </div>
-
-            <div>
-              <Typography
-                as="label"
-                variant={{ variant: "caption", level: 1 }}
-                className="mb-1.5 block text-[15px]"
-              >
-                Short Name
-              </Typography>
-              <Input
-                placeholder="Enter short name or abbreviation"
-                value={createPartyForm.shortName}
-                onChange={(e) =>
-                  setCreatePartyForm((prev) => ({
-                    ...prev,
-                    shortName: e.target.value,
-                  }))
-                }
-                maxLength={16}
-              />
-            </div>
-
-            <div>
-              <Typography
-                as="label"
-                variant={{ variant: "caption", level: 1 }}
-                className="mb-1.5 block text-[15px]"
-              >
-                Description
-              </Typography>
-              <Textarea
-                placeholder="Enter party description"
-                value={createPartyForm.description}
-                onChange={(e) =>
-                  setCreatePartyForm((prev) => ({
-                    ...prev,
-                    description: e.target.value,
-                  }))
-                }
-                rows={4}
-              />
-            </div>
-
-            <div>
-              <Typography
-                as="label"
-                variant={{ variant: "caption", level: 1 }}
-                className="mb-1.5 block text-[15px]"
-              >
-                Official Link
-              </Typography>
-              <Input
-                placeholder="Enter official website or community link"
-                value={createPartyForm.officialLink}
-                onChange={(e) =>
-                  setCreatePartyForm((prev) => ({
-                    ...prev,
-                    officialLink: e.target.value,
-                  }))
-                }
-              />
-            </div>
-
-            <Button
-              variant="primary"
-              fullWidth
-              onClick={createParty}
-              disabled={
-                isCreating ||
-                !createPartyForm.name ||
-                !createPartyForm.shortName ||
-                !createPartyForm.description
-              }
+            <Form.Root
+              onSubmit={(e) => {
+                e.preventDefault();
+                createParty();
+              }}
             >
-              {isCreating ? "Creating..." : "Create Party"}
-            </Button>
+              <Form.Field name="name">
+                <Typography
+                  as="label"
+                  variant={{ variant: "caption", level: 1 }}
+                  className="mb-1.5 block text-[15px]"
+                >
+                  Party Name
+                </Typography>
+                <Form.Control asChild>
+                  <Input
+                    placeholder="Enter party name"
+                    value={createPartyForm.name}
+                    onChange={(e) =>
+                      setCreatePartyForm((prev) => ({
+                        ...prev,
+                        name: e.target.value,
+                      }))
+                    }
+                    required
+                  />
+                </Form.Control>
+                <Form.Message match="valueMissing" error>
+                  Please enter a party name
+                </Form.Message>
+              </Form.Field>
+
+              <Form.Field name="shortName" className="mt-4">
+                <Typography
+                  as="label"
+                  variant={{ variant: "caption", level: 1 }}
+                  className="mb-1.5 block text-[15px]"
+                >
+                  Short Name
+                </Typography>
+                <Form.Control asChild>
+                  <Input
+                    placeholder="Enter short name or abbreviation"
+                    value={createPartyForm.shortName}
+                    onChange={(e) =>
+                      setCreatePartyForm((prev) => ({
+                        ...prev,
+                        shortName: e.target.value,
+                      }))
+                    }
+                    maxLength={16}
+                    required
+                  />
+                </Form.Control>
+                <Form.Message match="valueMissing" error>
+                  Please enter a short name
+                </Form.Message>
+              </Form.Field>
+
+              <Form.Field name="description" className="mt-4">
+                <Typography
+                  as="label"
+                  variant={{ variant: "caption", level: 1 }}
+                  className="mb-1.5 block text-[15px]"
+                >
+                  Description
+                </Typography>
+                <Form.Control asChild>
+                  <Textarea
+                    placeholder="Enter party description"
+                    value={createPartyForm.description}
+                    onChange={(e) =>
+                      setCreatePartyForm((prev) => ({
+                        ...prev,
+                        description: e.target.value,
+                      }))
+                    }
+                    rows={4}
+                    required
+                  />
+                </Form.Control>
+                <Form.Message match="valueMissing" error>
+                  Please enter a description
+                </Form.Message>
+              </Form.Field>
+
+              <Form.Field name="officialLink" className="mt-4">
+                <Typography
+                  as="label"
+                  variant={{ variant: "caption", level: 1 }}
+                  className="mb-1.5 block text-[15px]"
+                >
+                  Official Link
+                </Typography>
+                <Form.Control asChild>
+                  <Input
+                    placeholder="Enter official website or community link"
+                    value={createPartyForm.officialLink}
+                    onChange={(e) =>
+                      setCreatePartyForm((prev) => ({
+                        ...prev,
+                        officialLink: e.target.value,
+                      }))
+                    }
+                  />
+                </Form.Control>
+              </Form.Field>
+
+              <Form.Submit asChild className="mt-4">
+                <Button variant="primary" fullWidth disabled={isCreating}>
+                  {isCreating ? "Creating..." : "Create Party"}
+                </Button>
+              </Form.Submit>
+            </Form.Root>
           </div>
         </DrawerContent>
       </Drawer>
@@ -1009,101 +1028,120 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             >
               Update Party Details
             </Typography>
-            <div>
-              <Typography
-                as="label"
-                variant={{ variant: "caption", level: 1 }}
-                className="mb-1.5 block text-[15px]"
-              >
-                Party Name
-              </Typography>
-              <Input
-                placeholder="Enter party name"
-                value={updatePartyForm.name}
-                onChange={(e) =>
-                  setUpdatePartyForm((prev) => ({
-                    ...prev,
-                    name: e.target.value,
-                  }))
-                }
-              />
-            </div>
-
-            <div>
-              <Typography
-                as="label"
-                variant={{ variant: "caption", level: 1 }}
-                className="mb-1.5 block text-[15px]"
-              >
-                Short Name
-              </Typography>
-              <Input
-                placeholder="Enter short name or abbreviation"
-                value={updatePartyForm.shortName}
-                onChange={(e) =>
-                  setUpdatePartyForm((prev) => ({
-                    ...prev,
-                    shortName: e.target.value,
-                  }))
-                }
-                maxLength={16}
-              />
-            </div>
-
-            <div>
-              <Typography
-                as="label"
-                variant={{ variant: "caption", level: 1 }}
-                className="mb-1.5 block text-[15px]"
-              >
-                Description
-              </Typography>
-              <Textarea
-                placeholder="Enter party description"
-                value={updatePartyForm.description}
-                onChange={(e) =>
-                  setUpdatePartyForm((prev) => ({
-                    ...prev,
-                    description: e.target.value,
-                  }))
-                }
-                rows={4}
-              />
-            </div>
-
-            <div>
-              <Typography
-                as="label"
-                variant={{ variant: "caption", level: 1 }}
-                className="mb-1.5 block text-[15px]"
-              >
-                Official Link
-              </Typography>
-              <Input
-                placeholder="Enter official website or community link"
-                value={updatePartyForm.officialLink}
-                onChange={(e) =>
-                  setUpdatePartyForm((prev) => ({
-                    ...prev,
-                    officialLink: e.target.value,
-                  }))
-                }
-              />
-            </div>
-
-            <Button
-              variant="primary"
-              fullWidth
-              onClick={updateParty}
-              disabled={
-                isProcessing ||
-                !updatePartyForm.name ||
-                !updatePartyForm.shortName ||
-                !updatePartyForm.description
-              }
+            <Form.Root
+              onSubmit={(e) => {
+                e.preventDefault();
+                updateParty();
+              }}
             >
-              {isProcessing ? "Updating..." : "Update Party"}
-            </Button>
+              <Form.Field name="name">
+                <Typography
+                  as="label"
+                  variant={{ variant: "caption", level: 1 }}
+                  className="mb-1.5 block text-[15px]"
+                >
+                  Party Name
+                </Typography>
+                <Form.Control asChild>
+                  <Input
+                    placeholder="Enter party name"
+                    value={updatePartyForm.name}
+                    onChange={(e) =>
+                      setUpdatePartyForm((prev) => ({
+                        ...prev,
+                        name: e.target.value,
+                      }))
+                    }
+                    required
+                  />
+                </Form.Control>
+                <Form.Message match="valueMissing" error>
+                  Please enter a party name
+                </Form.Message>
+              </Form.Field>
+
+              <Form.Field name="shortName" className="mt-4">
+                <Typography
+                  as="label"
+                  variant={{ variant: "caption", level: 1 }}
+                  className="mb-1.5 block text-[15px]"
+                >
+                  Short Name
+                </Typography>
+                <Form.Control asChild>
+                  <Input
+                    placeholder="Enter short name or abbreviation"
+                    value={updatePartyForm.shortName}
+                    onChange={(e) =>
+                      setUpdatePartyForm((prev) => ({
+                        ...prev,
+                        shortName: e.target.value,
+                      }))
+                    }
+                    maxLength={16}
+                    required
+                  />
+                </Form.Control>
+                <Form.Message match="valueMissing" error>
+                  Please enter a short name
+                </Form.Message>
+              </Form.Field>
+
+              <Form.Field name="description" className="mt-4">
+                <Typography
+                  as="label"
+                  variant={{ variant: "caption", level: 1 }}
+                  className="mb-1.5 block text-[15px]"
+                >
+                  Description
+                </Typography>
+                <Form.Control asChild>
+                  <Textarea
+                    placeholder="Enter party description"
+                    value={updatePartyForm.description}
+                    onChange={(e) =>
+                      setUpdatePartyForm((prev) => ({
+                        ...prev,
+                        description: e.target.value,
+                      }))
+                    }
+                    rows={4}
+                    required
+                  />
+                </Form.Control>
+                <Form.Message match="valueMissing" error>
+                  Please enter a description
+                </Form.Message>
+              </Form.Field>
+
+              <Form.Field name="officialLink" className="mt-4">
+                <Typography
+                  as="label"
+                  variant={{ variant: "caption", level: 1 }}
+                  className="mb-1.5 block text-[15px]"
+                >
+                  Official Link
+                </Typography>
+                <Form.Control asChild>
+                  <Input
+                    placeholder="Enter official website or community link"
+                    value={updatePartyForm.officialLink}
+                    onChange={(e) =>
+                      setUpdatePartyForm((prev) => ({
+                        ...prev,
+                        officialLink: e.target.value,
+                      }))
+                    }
+                  />
+                </Form.Control>
+              </Form.Field>
+
+              <Form.Submit asChild className="mt-4">
+                <Button variant="primary" fullWidth disabled={isProcessing}>
+                  {isProcessing ? "Updating..." : "Update Party"}
+                </Button>
+              </Form.Submit>
+            </Form.Root>
           </div>
         </DrawerContent>
       </Drawer>
@@ -1130,28 +1168,42 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               Enter the wallet address of the new leader. The address must
               belong to an existing party member.
             </Typography>
-            <div>
-              <Typography
-                as="label"
-                variant={{ variant: "caption", level: 1 }}
-                className="mb-1.5 block text-[15px]"
-              >
-                New Leader Address
-              </Typography>
-              <Input
-                placeholder="Enter wallet address (0x...)"
-                value={newLeaderAddress}
-                onChange={(e) => setNewLeaderAddress(e.target.value)}
-              />
-            </div>
-            <Button
-              variant="primary"
-              fullWidth
-              onClick={transferLeadership}
-              disabled={isProcessing || !newLeaderAddress}
+            <Form.Root
+              onSubmit={(e) => {
+                e.preventDefault();
+                transferLeadership();
+              }}
             >
-              {isProcessing ? "Processing..." : "Transfer Leadership"}
-            </Button>
+              <Form.Field name="leaderAddress">
+                <Typography
+                  as="label"
+                  variant={{ variant: "caption", level: 1 }}
+                  className="mb-1.5 block text-[15px]"
+                >
+                  New Leader Address
+                </Typography>
+                <Form.Control asChild>
+                  <Input
+                    placeholder="Enter wallet address (0x...)"
+                    value={newLeaderAddress}
+                    onChange={(e) => setNewLeaderAddress(e.target.value)}
+                    required
+                    pattern="^0x[a-fA-F0-9]{40}$"
+                  />
+                </Form.Control>
+                <Form.Message match="valueMissing" error>
+                  Please enter an address
+                </Form.Message>
+                <Form.Message match="patternMismatch" error>
+                  Please enter a valid Ethereum address (0x...)
+                </Form.Message>
+              </Form.Field>
+              <Form.Submit asChild className="mt-4">
+                <Button variant="primary" fullWidth disabled={isProcessing}>
+                  {isProcessing ? "Processing..." : "Transfer Leadership"}
+                </Button>
+              </Form.Submit>
+            </Form.Root>
           </div>
         </DrawerContent>
       </Drawer>
@@ -1178,28 +1230,42 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               Enter the wallet address of the member you want to remove from the
               party.
             </Typography>
-            <div>
-              <Typography
-                as="label"
-                variant={{ variant: "caption", level: 1 }}
-                className="mb-1.5 block text-[15px]"
-              >
-                Member Address
-              </Typography>
-              <Input
-                placeholder="Enter wallet address (0x...)"
-                value={memberToRemove}
-                onChange={(e) => setMemberToRemove(e.target.value)}
-              />
-            </div>
-            <Button
-              variant="primary"
-              fullWidth
-              onClick={removeMember}
-              disabled={isProcessing || !memberToRemove}
+            <Form.Root
+              onSubmit={(e) => {
+                e.preventDefault();
+                removeMember();
+              }}
             >
-              {isProcessing ? "Processing..." : "Remove Member"}
-            </Button>
+              <Form.Field name="memberAddress">
+                <Typography
+                  as="label"
+                  variant={{ variant: "caption", level: 1 }}
+                  className="mb-1.5 block text-[15px]"
+                >
+                  Member Address
+                </Typography>
+                <Form.Control asChild>
+                  <Input
+                    placeholder="Enter wallet address (0x...)"
+                    value={memberToRemove}
+                    onChange={(e) => setMemberToRemove(e.target.value)}
+                    required
+                    pattern="^0x[a-fA-F0-9]{40}$"
+                  />
+                </Form.Control>
+                <Form.Message match="valueMissing" error>
+                  Please enter an address
+                </Form.Message>
+                <Form.Message match="patternMismatch" error>
+                  Please enter a valid Ethereum address (0x...)
+                </Form.Message>
+              </Form.Field>
+              <Form.Submit asChild className="mt-4">
+                <Button variant="primary" fullWidth disabled={isProcessing}>
+                  {isProcessing ? "Processing..." : "Remove Member"}
+                </Button>
+              </Form.Submit>
+            </Form.Root>
           </div>
         </DrawerContent>
       </Drawer>
