@@ -13,6 +13,7 @@ import {
   PiHandshakeFill,
 } from "react-icons/pi";
 import { Button } from "@/components/ui/Button";
+import { useEffect } from "react";
 
 export default function BuybackProgramPage({
   params: { lang },
@@ -20,6 +21,13 @@ export default function BuybackProgramPage({
   params: { lang: string };
 }) {
   const dictionary = useTranslations(lang);
+
+  // Mark buyback program as visited when the page loads
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("buybackProgramVisited", "true");
+    }
+  }, []);
 
   return (
     <div className="pb-safe flex min-h-dvh flex-col px-6">

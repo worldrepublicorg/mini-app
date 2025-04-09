@@ -1594,6 +1594,18 @@ export default function EarnPage({
     localStorage.setItem("passportBadgeClosed", "true");
   };
 
+  // Add state to track whether buyback program has been visited
+  const [hasBuybackBeenVisited, setHasBuybackBeenVisited] = useState(true); // Default to true to prevent flash
+
+  // Check if buyback program has been visited
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const hasVisited =
+        localStorage.getItem("buybackProgramVisited") === "true";
+      setHasBuybackBeenVisited(hasVisited);
+    }
+  }, []);
+
   const renderContent = () => {
     switch (activeTab) {
       case "Basic income":
@@ -1879,16 +1891,21 @@ export default function EarnPage({
             >
               <div className="flex items-center gap-3">
                 <div>
-                  <Typography
-                    as="h3"
-                    variant={{ variant: "subtitle", level: 2 }}
-                    className="mb-1.5 line-clamp-1"
-                  >
-                    {
-                      dictionary?.pages?.earn?.tabs?.contribute?.buybackLink
-                        ?.title
-                    }
-                  </Typography>
+                  <div className="flex items-center">
+                    <Typography
+                      as="h3"
+                      variant={{ variant: "subtitle", level: 2 }}
+                      className="mb-1.5 line-clamp-1"
+                    >
+                      {
+                        dictionary?.pages?.earn?.tabs?.contribute?.buybackLink
+                          ?.title
+                      }
+                    </Typography>
+                    {!hasBuybackBeenVisited && (
+                      <span className="mb-[5px] ml-1.5 h-2 w-2 rounded-full bg-error-800 opacity-65" />
+                    )}
+                  </div>
                   <Typography
                     as="p"
                     variant={{ variant: "body", level: 3 }}
