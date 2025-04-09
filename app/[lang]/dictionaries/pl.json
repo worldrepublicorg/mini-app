@@ -243,27 +243,20 @@
           },
           "buybackProgram": {
             "topnav": "Program Odkupu",
-            "title": "Program Odkupu WDD",
-            "subtitle": "Korzystaj z aplikacji i zapraszaj znajomych, aby zwiększyć wartość WDD",
+            "title": "Program Odkupu",
+            "subtitle": "Wzrost wartości WDD napędzany przez społeczność",
             "sections": {
-              "stats": {
-                "rewardPercentage": "50%+",
-                "rewardDescription": "Nagrody deweloperskie wykorzystywane na odkup",
-                "valueBoost": "Wzrost Wartości",
-                "valueDescription": "Zwiększony popyt na WDD"
-              },
               "source": {
                 "prefix": "Aplikacja World",
-                "link": "zaczyna nagradzać mini aplikacje",
-                "suffix": "w oparciu o zweryfikowane użytkowanie przez ludzi."
+                "link": "nagradza mini aplikacje",
+                "suffix": "w oparciu o zweryfikowane użytkowanie przez ludzi. Zobowiązujemy się wykorzystać co najmniej 50% tych przychodów na odkup tokenów WDD z rynku."
               },
               "commitment": {
-                "title": "Nasze zobowiązanie",
-                "body": "Wykorzystamy co najmniej 50% naszych nagród na zakup tokenów WDD z rynku."
+                "title": "Nasze zobowiązanie"
               },
               "role": {
                 "title": "Twoja rola",
-                "intro": "Więcej korzystania z aplikacji = więcej nagród dla Światowej Republiki. Możesz pomóc poprzez:",
+                "intro": "Więcej korzystania z aplikacji = więcej nagród = więcej środków na odkup. Możesz pomóc poprzez:",
                 "steps": {
                   "appUsage": "Codzienne otwieranie aplikacji",
                   "inviting": "Zapraszanie nowych użytkowników do dołączenia"
@@ -271,14 +264,14 @@
               },
               "impact": {
                 "title": "Wpływ",
-                "body": "Odkupy zmniejszają podaż WDD, potencjalnie zwiększając wartość tokena. Twoje codzienne użytkowanie i polecenia pomagają zwiększyć zarówno bezpośrednie nagrody, jak i wartość posiadanych przez Ciebie WDD."
+                "body": "Odkupy zmniejszają podaż, potencjalnie zwiększając wartość tokena. Twoje codzienne użytkowanie i polecenia pomagają zwiększyć zarówno bezpośrednie nagrody, jak i wartość posiadanych przez Ciebie WDD."
               }
             },
             "cta": "Sprawdź Statystyki Mini Aplikacji"
           },
           "buybackLink": {
             "title": "Program Odkupu",
-            "description": "Korzystaj z aplikacji i zapraszaj znajomych, aby zwiększyć wartość WDD"
+            "description": "Wzrost wartości WDD napędzany przez społeczność"
           },
           "xContest": {
             "title": "Konkurs Postów X",

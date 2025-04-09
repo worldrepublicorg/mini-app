@@ -243,27 +243,20 @@
           },
           "buybackProgram": {
             "topnav": "Buyback Program",
-            "title": "WDD Buyback Program",
-            "subtitle": "Use di app and invite friends to boost WDD value",
+            "title": "Buyback Program",
+            "subtitle": "Community-powered WDD value growth",
             "sections": {
-              "stats": {
-                "rewardPercentage": "50%+",
-                "rewardDescription": "Dev rewards wey dem dey use for buybacks",
-                "valueBoost": "Value Boost",
-                "valueDescription": "Increased WDD demand"
-              },
               "source": {
-                "prefix": "Di World App don",
-                "link": "begin to reward mini apps",
-                "suffix": "based on verified human usage."
+                "prefix": "Di World App dey",
+                "link": "reward mini apps",
+                "suffix": "based on verified human usage. We promise say we go use at least 50% of dis money take buy back WDD tokens from market."
               },
               "commitment": {
-                "title": "Our commitment",
-                "body": "We go use at least 50% of our rewards to buy WDD tokens from market."
+                "title": "Our commitment"
               },
               "role": {
                 "title": "Your role",
-                "intro": "More app usage = more rewards for di World Republic. You fit help by:",
+                "intro": "More app usage = more rewards = more money for buybacks. You fit help by:",
                 "steps": {
                   "appUsage": "Opening di app every day",
                   "inviting": "Inviting new users to join"
@@ -271,14 +264,14 @@
               },
               "impact": {
                 "title": "Impact",
-                "body": "Buybacks dey reduce WDD supply, wey fit increase token value. Your daily use and referrals dey help grow both your direct rewards and di value of WDD wey you hold."
+                "body": "Buybacks dey reduce supply, wey fit increase token value. Your daily use and referrals dey help grow both your direct rewards and di value of WDD wey you hold."
               }
             },
             "cta": "Check Mini App Stats"
           },
           "buybackLink": {
             "title": "Buyback Program",
-            "description": "Use di app and invite friends to boost WDD value"
+            "description": "Community-powered WDD value growth"
           },
           "xContest": {
             "title": "X Post Competition",

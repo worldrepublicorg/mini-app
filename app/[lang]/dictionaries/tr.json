@@ -243,27 +243,20 @@
           },
           "buybackProgram": {
             "topnav": "Geri Alım Programı",
-            "title": "WDD Geri Alım Programı",
-            "subtitle": "Uygulamayı kullanın ve WDD değerini artırmak için arkadaşlarınızı davet edin",
+            "title": "Geri Alım Programı",
+            "subtitle": "Topluluk destekli WDD değer artışı",
             "sections": {
-              "stats": {
-                "rewardPercentage": "%50+",
-                "rewardDescription": "Geri alımlar için kullanılan geliştirici ödülleri",
-                "valueBoost": "Değer Artışı",
-                "valueDescription": "Artan WDD talebi"
-              },
               "source": {
                 "prefix": "World Uygulaması",
-                "link": "doğrulanmış insan kullanımına dayalı olarak mini uygulamaları ödüllendirmeye başlıyor",
-                "suffix": "."
+                "link": "mini uygulamaları ödüllendiriyor",
+                "suffix": "doğrulanmış insan kullanımına dayalı olarak. Bu kazançların en az %50'sini piyasadan WDD token geri almak için kullanmayı taahhüt ediyoruz."
               },
               "commitment": {
-                "title": "Taahhüdümüz",
-                "body": "Ödüllerimizin en az %50'sini piyasadan WDD token satın almak için kullanacağız."
+                "title": "Taahhüdümüz"
               },
               "role": {
                 "title": "Sizin rolünüz",
-                "intro": "Daha fazla uygulama kullanımı = Dünya Cumhuriyeti için daha fazla ödül. Şunları yaparak yardımcı olabilirsiniz:",
+                "intro": "Daha fazla uygulama kullanımı = daha fazla ödül = geri alımlar için daha fazla para. Şunları yaparak yardımcı olabilirsiniz:",
                 "steps": {
                   "appUsage": "Uygulamayı her gün açmak",
                   "inviting": "Yeni kullanıcıları katılmaya davet etmek"
@@ -271,14 +264,14 @@
               },
               "impact": {
                 "title": "Etki",
-                "body": "Geri alımlar WDD arzını azaltarak token değerini potansiyel olarak artırır. Günlük kullanımınız ve referanslarınız hem doğrudan ödüllerinizi hem de sahip olduğunuz WDD'nin değerini artırmaya yardımcı olur."
+                "body": "Geri alımlar arzı azaltarak token değerini potansiyel olarak artırır. Günlük kullanımınız ve referanslarınız hem doğrudan ödüllerinizi hem de sahip olduğunuz WDD'nin değerini artırmaya yardımcı olur."
               }
             },
             "cta": "Mini Uygulama İstatistiklerini Görüntüle"
           },
           "buybackLink": {
             "title": "Geri Alım Programı",
-            "description": "Uygulamayı kullanın ve WDD değerini artırmak için arkadaşlarınızı davet edin"
+            "description": "Topluluk destekli WDD değer artışı"
           },
           "xContest": {
             "title": "X Gönderi Yarışması",

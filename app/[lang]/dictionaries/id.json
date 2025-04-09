@@ -243,27 +243,20 @@
           },
           "buybackProgram": {
             "topnav": "Program Buyback",
-            "title": "Program Buyback WDD",
-            "subtitle": "Gunakan aplikasi dan undang teman untuk meningkatkan nilai WDD",
+            "title": "Program Buyback",
+            "subtitle": "Pertumbuhan nilai WDD yang didukung komunitas",
             "sections": {
-              "stats": {
-                "rewardPercentage": "50%+",
-                "rewardDescription": "Reward pengembangan digunakan untuk buyback",
-                "valueBoost": "Peningkatan Nilai",
-                "valueDescription": "Permintaan WDD meningkat"
-              },
               "source": {
                 "prefix": "Aplikasi World",
-                "link": "mulai memberi reward pada mini app",
-                "suffix": "berdasarkan penggunaan manusia terverifikasi."
+                "link": "memberi reward pada mini app",
+                "suffix": "berdasarkan penggunaan manusia terverifikasi. Kami berkomitmen untuk menggunakan minimal 50% dari pendapatan ini untuk membeli kembali token WDD dari pasar."
               },
               "commitment": {
-                "title": "Komitmen kami",
-                "body": "Kami akan menggunakan minimal 50% dari reward kami untuk membeli token WDD dari pasar."
+                "title": "Komitmen kami"
               },
               "role": {
                 "title": "Peran Anda",
-                "intro": "Lebih banyak penggunaan aplikasi = lebih banyak reward untuk Republik Dunia. Anda dapat membantu dengan:",
+                "intro": "Lebih banyak penggunaan aplikasi = lebih banyak reward = lebih banyak dana untuk buyback. Anda dapat membantu dengan:",
                 "steps": {
                   "appUsage": "Membuka aplikasi setiap hari",
                   "inviting": "Mengundang pengguna baru untuk bergabung"
@@ -271,14 +264,14 @@
               },
               "impact": {
                 "title": "Dampak",
-                "body": "Buyback mengurangi pasokan WDD, berpotensi meningkatkan nilai token. Penggunaan harian dan referral Anda membantu meningkatkan baik reward langsung Anda maupun nilai WDD yang Anda miliki."
+                "body": "Buyback mengurangi pasokan, berpotensi meningkatkan nilai token. Penggunaan harian dan referral Anda membantu meningkatkan baik reward langsung Anda maupun nilai WDD yang Anda miliki."
               }
             },
             "cta": "Lihat Statistik Mini App"
           },
           "buybackLink": {
             "title": "Program Buyback",
-            "description": "Gunakan aplikasi dan undang teman untuk meningkatkan nilai WDD"
+            "description": "Pertumbuhan nilai WDD yang didukung komunitas"
           },
           "xContest": {
             "title": "Kontes Posting X",

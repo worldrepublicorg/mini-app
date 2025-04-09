@@ -243,27 +243,20 @@
           },
           "buybackProgram": {
             "topnav": "Program Pembelian Semula",
-            "title": "Program Pembelian Semula WDD",
-            "subtitle": "Gunakan aplikasi dan jemput rakan untuk meningkatkan nilai WDD",
+            "title": "Program Pembelian Semula",
+            "subtitle": "Pertumbuhan nilai WDD digerakkan oleh komuniti",
             "sections": {
-              "stats": {
-                "rewardPercentage": "50%+",
-                "rewardDescription": "Ganjaran pembangunan digunakan untuk pembelian semula",
-                "valueBoost": "Peningkatan Nilai",
-                "valueDescription": "Permintaan WDD meningkat"
-              },
               "source": {
                 "prefix": "Aplikasi World",
-                "link": "mula memberi ganjaran kepada aplikasi mini",
-                "suffix": "berdasarkan penggunaan manusia yang disahkan."
+                "link": "memberikan ganjaran kepada aplikasi mini",
+                "suffix": "berdasarkan penggunaan manusia yang disahkan. Kami berjanji untuk menggunakan sekurang-kurangnya 50% daripada pendapatan ini untuk membeli semula token WDD dari pasaran."
               },
               "commitment": {
-                "title": "Komitmen kami",
-                "body": "Kami akan menggunakan sekurang-kurangnya 50% daripada ganjaran kami untuk membeli token WDD dari pasaran."
+                "title": "Komitmen kami"
               },
               "role": {
                 "title": "Peranan anda",
-                "intro": "Lebih banyak penggunaan aplikasi = lebih banyak ganjaran untuk Republik Dunia. Anda boleh membantu dengan:",
+                "intro": "Lebih banyak penggunaan aplikasi = lebih banyak ganjaran = lebih banyak wang untuk pembelian semula. Anda boleh membantu dengan:",
                 "steps": {
                   "appUsage": "Membuka aplikasi setiap hari",
                   "inviting": "Menjemput pengguna baru untuk menyertai"
@@ -271,14 +264,14 @@
               },
               "impact": {
                 "title": "Kesan",
-                "body": "Pembelian semula mengurangkan bekalan WDD, berpotensi meningkatkan nilai token. Penggunaan harian dan rujukan anda membantu meningkatkan kedua-dua ganjaran langsung anda dan nilai WDD yang anda miliki."
+                "body": "Pembelian semula mengurangkan bekalan, berpotensi meningkatkan nilai token. Penggunaan harian dan rujukan anda membantu meningkatkan kedua-dua ganjaran langsung anda dan nilai WDD yang anda miliki."
               }
             },
             "cta": "Lihat Statistik Aplikasi Mini"
           },
           "buybackLink": {
             "title": "Program Pembelian Semula",
-            "description": "Gunakan aplikasi dan jemput rakan untuk meningkatkan nilai WDD"
+            "description": "Pertumbuhan nilai WDD digerakkan oleh komuniti"
           },
           "xContest": {
             "title": "Pertandingan Catatan X",

@@ -1292,22 +1292,23 @@ export default function EarnPage({
     };
   }, [walletAddress]);
 
-  const [hasSeenBuybackProgram, setHasSeenBuybackProgram] = useState(false);
+  const [hasSeenNewBuybackProgram, setHasSeenNewBuybackProgram] =
+    useState(false);
 
   // Update the localStorage key for the Invite feature
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const hasSeenBuyback =
-        localStorage.getItem("hasSeenBuybackProgram") === "true";
-      setHasSeenBuybackProgram(hasSeenBuyback);
+      const hasSeenNewBuyback =
+        localStorage.getItem("hasSeenNewBuybackProgram") === "true";
+      setHasSeenNewBuybackProgram(hasSeenNewBuyback);
     }
   }, []);
 
   // Update localStorage when the Invite tab is active
   useEffect(() => {
     if (activeTab === "Contribute" && typeof window !== "undefined") {
-      localStorage.setItem("hasSeenBuybackProgram", "true");
-      setHasSeenBuybackProgram(true);
+      localStorage.setItem("hasSeenNewBuybackProgram", "true");
+      setHasSeenNewBuybackProgram(true);
     }
   }, [activeTab]);
 
@@ -1595,14 +1596,15 @@ export default function EarnPage({
   };
 
   // Add state to track whether buyback program has been visited
-  const [hasBuybackBeenVisited, setHasBuybackBeenVisited] = useState(true); // Default to true to prevent flash
+  const [hasNewBuybackBeenVisited, setHasNewBuybackBeenVisited] =
+    useState(true); // Default to true to prevent flash
 
   // Check if buyback program has been visited
   useEffect(() => {
     if (typeof window !== "undefined") {
       const hasVisited =
-        localStorage.getItem("buybackProgramVisited") === "true";
-      setHasBuybackBeenVisited(hasVisited);
+        localStorage.getItem("newBuybackProgramVisited") === "true";
+      setHasNewBuybackBeenVisited(hasVisited);
     }
   }, []);
 
@@ -1902,7 +1904,7 @@ export default function EarnPage({
                           ?.title
                       }
                     </Typography>
-                    {!hasBuybackBeenVisited && (
+                    {!hasNewBuybackBeenVisited && (
                       <span className="mb-[5px] ml-1.5 h-2 w-2 rounded-full bg-error-800 opacity-65" />
                     )}
                   </div>
@@ -2882,7 +2884,7 @@ export default function EarnPage({
           tabIndicators={{
             "Basic income": false,
             Savings: false,
-            Contribute: !hasSeenBuybackProgram,
+            Contribute: !hasSeenNewBuybackProgram,
             Invite: false,
           }}
         />

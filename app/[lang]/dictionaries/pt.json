@@ -243,27 +243,20 @@
           },
           "buybackProgram": {
             "topnav": "Programa de Recompra",
-            "title": "Programa de Recompra de WDD",
-            "subtitle": "Use o aplicativo e convide amigos para aumentar o valor do WDD",
+            "title": "Programa de Recompra",
+            "subtitle": "Crescimento do valor do WDD impulsionado pela comunidade",
             "sections": {
-              "stats": {
-                "rewardPercentage": "50%+",
-                "rewardDescription": "Recompensas de desenvolvimento usadas para recompras",
-                "valueBoost": "Aumento de Valor",
-                "valueDescription": "Aumento da demanda por WDD"
-              },
               "source": {
-                "prefix": "O App World está",
-                "link": "começando a recompensar mini apps",
-                "suffix": "com base no uso humano verificado."
+                "prefix": "O App World",
+                "link": "recompensa mini apps",
+                "suffix": "com base no uso humano verificado. Nos comprometemos a usar pelo menos 50% desses ganhos para recomprar tokens WDD do mercado."
               },
               "commitment": {
-                "title": "Nosso compromisso",
-                "body": "Usaremos pelo menos 50% das nossas recompensas para comprar tokens WDD do mercado."
+                "title": "Nosso compromisso"
               },
               "role": {
                 "title": "Seu papel",
-                "intro": "Mais uso do aplicativo = mais recompensas para a República Mundial. Você pode ajudar:",
+                "intro": "Mais uso do aplicativo = mais recompensas = mais dinheiro para recompras. Você pode ajudar:",
                 "steps": {
                   "appUsage": "Abrindo o aplicativo diariamente",
                   "inviting": "Convidando novos usuários para se juntarem"
@@ -271,14 +264,14 @@
               },
               "impact": {
                 "title": "Impacto",
-                "body": "Recompras reduzem a oferta de WDD, potencialmente aumentando o valor do token. Seu uso diário e indicações ajudam a aumentar tanto suas recompensas diretas quanto o valor do WDD que você possui."
+                "body": "Recompras reduzem a oferta, potencialmente aumentando o valor do token. Seu uso diário e indicações ajudam a aumentar tanto suas recompensas diretas quanto o valor do WDD que você possui."
               }
             },
             "cta": "Ver Estatísticas do Mini App"
           },
           "buybackLink": {
             "title": "Programa de Recompra",
-            "description": "Use o aplicativo e convide amigos para aumentar o valor do WDD"
+            "description": "Crescimento do valor do WDD impulsionado pela comunidade"
           },
           "xContest": {
             "title": "Concurso de Posts X",
