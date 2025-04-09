@@ -294,6 +294,7 @@
             "title": "Sondages précédents",
             "backToGovern": "Retour à Gouverner",
             "polls": {
+              "globalEduEquity": "Devrait-il y avoir un effort mondial coordonné pour combler la fracture numérique en assurant un accès égal aux outils d'apprentissage numériques et à Internet abordable pour les étudiants du monde entier?",
               "oilTariffImpact": "Faut-il rechercher des accords mondiaux pour limiter les mesures tarifaires extrêmes sur les exportations de pétrole et de gaz afin de stabiliser le marché international de l'énergie?",
               "agiExistentialRisk": "Les dirigeants mondiaux devraient-ils négocier un traité international contraignant pour atténuer les risques existentiels potentiels posés par l'intelligence artificielle générale?",
               "supplyChainResilience": "Les pays devraient-ils collaborer pour établir un cadre mondial visant à renforcer la résilience de la chaîne d'approvisionnement face aux perturbations actuelles ?",

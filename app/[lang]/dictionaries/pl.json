@@ -294,6 +294,7 @@
             "title": "Poprzednie Ankiety",
             "backToGovern": "Powrót do Zarządzania",
             "polls": {
+              "globalEduEquity": "Czy powinien istnieć skoordynowany globalny wysiłek na rzecz likwidacji przepaści cyfrowej poprzez zapewnienie równego dostępu do cyfrowych narzędzi edukacyjnych i przystępnego cenowo internetu dla uczniów na całym świecie?",
               "oilTariffImpact": "Czy należy dążyć do globalnych porozumień ograniczających ekstremalne środki taryfowe dotyczące eksportu ropy naftowej i gazu w celu stabilizacji międzynarodowego rynku energii?",
               "agiExistentialRisk": "Czy światowi przywódcy powinni negocjować wiążący traktat międzynarodowy w celu złagodzenia potencjalnych egzystencjalnych zagrożeń stwarzanych przez sztuczną inteligencję ogólną?",
               "supplyChainResilience": "Czy kraje powinny współpracować w celu ustanowienia globalnych ram wzmacniających odporność łańcuchów dostaw w obliczu trwających zakłóceń?",

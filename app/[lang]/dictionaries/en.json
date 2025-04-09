@@ -288,6 +288,7 @@
             "title": "Previous Polls",
             "backToGovern": "Back to Govern",
             "polls": {
+              "globalEduEquity": "Should there be a coordinated global effort to bridge the digital divide by ensuring equal access to digital learning tools and affordable internet for students worldwide?",
               "oilTariffImpact": "Should global agreements be pursued to limit extreme tariff measures on oil and gas exports to stabilize the international energy market?",
               "agiExistentialRisk": "Should global leaders negotiate a binding international treaty to mitigate potential existential risks posed by artificial general intelligence?",
               "supplyChainResilience": "Should countries collaborate to establish a global framework to strengthen supply chain resilience amid ongoing disruptions?",
