@@ -7,6 +7,7 @@ import { PollCard } from "@/components/PollCard";
 import { useTranslations } from "@/hooks/useTranslations";
 
 const pollKeys = [
+  "oilTariffImpact",
   "agiExistentialRisk",
   "supplyChainResilience",
   "biodiversityFinance",
@@ -57,6 +58,7 @@ const pollKeys = [
 ];
 
 const pollUrls = {
+  oilTariffImpact: "https://vote.one/ba09FAZu",
   agiExistentialRisk: "https://vote.one/Nz1CbUYe",
   supplyChainResilience: "https://vote.one/zDEnnNbe",
   biodiversityFinance: "https://vote.one/dceSJPNm",
