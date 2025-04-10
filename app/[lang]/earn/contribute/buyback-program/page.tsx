@@ -8,11 +8,11 @@ import { FiExternalLink } from "react-icons/fi";
 import {
   PiCode,
   PiCoins,
+  PiHandHeart,
   PiHandshake,
-  PiHandshakeFill,
   PiMoneyFill,
+  PiUser,
   PiUsersThree,
-  PiUsersThreeBold,
 } from "react-icons/pi";
 import { Button } from "@/components/ui/Button";
 import { useCallback, useEffect } from "react";
@@ -177,7 +177,7 @@ export default function BuybackProgramPage({
           <div className="rounded-xl bg-gray-100 p-4 shadow-sm">
             <div className="mb-2 flex items-center">
               <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-gray-200 shadow-sm">
-                <PiHandshakeFill className="h-4 w-4 text-gray-500" />
+                <PiHandshake className="h-4 w-4 text-gray-500" />
               </div>
               <Typography
                 as="h3"
@@ -237,7 +237,7 @@ export default function BuybackProgramPage({
                       ?.sections?.valueCycle?.steps?.step2
                   }
                 </Typography>
-                <PiHandshake className="h-5 w-5 text-gray-500" />
+                <PiHandHeart className="h-5 w-5 text-gray-500" />
               </div>
 
               {/* Step 3 */}
@@ -260,7 +260,7 @@ export default function BuybackProgramPage({
           <div className="relative overflow-hidden rounded-xl border border-gray-200 bg-gray-0 p-4 shadow-sm">
             <div className="mb-4 flex items-center">
               <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100">
-                <PiUsersThreeBold className="h-4 w-4 text-gray-500" />
+                <PiUser className="h-4 w-4 text-gray-500" />
               </div>
               <Typography
                 as="h3"
