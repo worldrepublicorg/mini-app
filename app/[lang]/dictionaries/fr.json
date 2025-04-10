@@ -243,31 +243,46 @@
           },
           "buybackProgram": {
             "topnav": "Programme de Rachat",
-            "title": "Programme de Rachat",
-            "subtitle": "Croissance de la valeur de WDD pilotée par la communauté",
+            "title": "Programme de Rachat de Tokens",
+            "subtitle": "Renforcer ensemble la valeur de WDD",
             "sections": {
-              "source": {
-                "prefix": "L'App World",
-                "link": "récompense les mini apps",
-                "suffix": "basées sur l'utilisation par des humains vérifiés. Nous nous engageons à utiliser au moins 50% de ces revenus pour racheter des jetons WDD sur le marché."
+              "devRewards": {
+                "title": "Programme de Récompenses pour Développeurs",
+                "startDate": "Commencé le 1er avril 2025",
+                "description": "World expérimente des récompenses pour développeurs basées sur l'utilisation de l'application par des humains vérifiés.",
+                "learnMore": "En savoir plus sur le programme"
               },
               "commitment": {
-                "title": "Notre engagement"
+                "title": "Notre engagement de 50%",
+                "body": "Nous nous engageons à utiliser au moins 50% de nos récompenses du programme pour le rachat de tokens."
               },
-              "role": {
-                "title": "Votre rôle",
-                "intro": "Plus d'utilisation de l'application = plus de récompenses = plus d'argent pour les rachats. Vous pouvez aider en :",
+              "helpSection": {
+                "title": "Comment vous pouvez aider",
+                "intro": "Vous pouvez contribuer directement à augmenter la valeur de vos tokens WDD:",
                 "steps": {
-                  "appUsage": "Ouvrant l'application quotidiennement",
-                  "inviting": "Invitant de nouveaux utilisateurs à rejoindre"
+                  "invite": {
+                    "title": "Inviter d'autres personnes à rejoindre",
+                    "description": "Développer notre communauté de membres vérifiés"
+                  },
+                  "useApp": {
+                    "title": "Utiliser l'application régulièrement",
+                    "description": "Alimenter le cercle économique vertueux"
+                  }
                 }
               },
-              "impact": {
-                "title": "Impact",
-                "body": "Les rachats réduisent l'offre, augmentant potentiellement la valeur du jeton. Votre utilisation quotidienne et vos parrainages aident à augmenter à la fois vos récompenses directes et la valeur du WDD que vous détenez."
+              "valueCycle": {
+                "title": "Le Cycle Positif de Valeur",
+                "steps": {
+                  "step1": "Plus d'utilisateurs et d'utilisation",
+                  "step2": "Plus de récompenses pour développeurs",
+                  "step3": "Plus de rachats de tokens"
+                }
               }
             },
-            "cta": "Consulter les Statistiques des Mini Apps"
+            "actions": {
+              "share": "Partager l'Invitation"
+            },
+            "cta": "Voir les Statistiques de Mini App"
           },
           "buybackLink": {
             "title": "Programme de Rachat",

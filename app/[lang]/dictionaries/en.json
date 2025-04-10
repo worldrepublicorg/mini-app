@@ -233,35 +233,46 @@
           },
           "buybackProgram": {
             "topnav": "Buyback Program",
-            "title": "Buyback Program",
-            "subtitle": "Community-powered WDD value growth",
+            "title": "Token Buyback Program",
+            "subtitle": "Strengthen WDD value together",
             "sections": {
-              "source": {
-                "prefix": "The World App",
-                "link": "rewards mini apps",
-                "suffix": "based on verified human usage. We pledge to use at least 50% of these earnings to buy back WDD tokens from the market."
+              "devRewards": {
+                "title": "Developer Rewards Program",
+                "startDate": "Started April 1, 2025",
+                "description": "World is piloting developer rewards based on app usage by verified humans.",
+                "learnMore": "Learn more about the program"
               },
               "commitment": {
-                "title": "Our commitment"
+                "title": "Our 50% pledge",
+                "body": "We pledge to use at least 50% of our rewards from the program for token buyback."
               },
-              "role": {
-                "title": "Your role",
-                "intro": "More app usage = more rewards = more money for buybacks. You can help by:",
+              "helpSection": {
+                "title": "How you can help",
+                "intro": "You can directly contribute to increasing the value of your WDD tokens:",
                 "steps": {
-                  "appUsage": "Opening the app daily",
-                  "inviting": "Inviting new users to join"
+                  "invite": {
+                    "title": "Invite others to join",
+                    "description": "Grow our community of verified members"
+                  },
+                  "useApp": {
+                    "title": "Use the app regularly",
+                    "description": "Drive the virtuous economic cycle"
+                  }
                 }
               },
-              "impact": {
-                "title": "Impact",
-                "body": "Buybacks reduce supply, potentially increasing token value. Your daily use and referrals help grow both your direct rewards and the value of WDD you hold."
+              "valueCycle": {
+                "title": "The Positive Value Cycle",
+                "steps": {
+                  "step1": "More app users & usage",
+                  "step2": "Higher developer rewards",
+                  "step3": "More token buybacks"
+                }
               }
             },
+            "actions": {
+              "share": "Share Invite"
+            },
             "cta": "View Mini App Stats"
-          },
-          "buybackLink": {
-            "title": "Buyback Program",
-            "description": "Community-powered WDD value growth"
           },
           "earlyAccess": {
             "title": "Early Access Program",

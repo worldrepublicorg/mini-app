@@ -242,32 +242,47 @@
             "description": "Dapatkan WDD dengan menguji ciri-ciri kami yang akan datang"
           },
           "buybackProgram": {
-            "topnav": "Program Pembelian Semula",
-            "title": "Program Pembelian Semula",
-            "subtitle": "Pertumbuhan nilai WDD digerakkan oleh komuniti",
+            "topnav": "Program Belian Balik",
+            "title": "Program Belian Balik Token",
+            "subtitle": "Perkukuhkan nilai WDD bersama",
             "sections": {
-              "source": {
-                "prefix": "Aplikasi World",
-                "link": "memberikan ganjaran kepada aplikasi mini",
-                "suffix": "berdasarkan penggunaan manusia yang disahkan. Kami berjanji untuk menggunakan sekurang-kurangnya 50% daripada pendapatan ini untuk membeli semula token WDD dari pasaran."
+              "devRewards": {
+                "title": "Program Ganjaran Pembangun",
+                "startDate": "Bermula 1 April 2025",
+                "description": "World sedang menguji ganjaran pembangun berdasarkan penggunaan aplikasi oleh manusia yang disahkan.",
+                "learnMore": "Ketahui lebih lanjut tentang program"
               },
               "commitment": {
-                "title": "Komitmen kami"
+                "title": "Janji kami sebanyak 50%",
+                "body": "Kami berjanji untuk menggunakan sekurang-kurangnya 50% daripada ganjaran program kami untuk belian balik token."
               },
-              "role": {
-                "title": "Peranan anda",
-                "intro": "Lebih banyak penggunaan aplikasi = lebih banyak ganjaran = lebih banyak wang untuk pembelian semula. Anda boleh membantu dengan:",
+              "helpSection": {
+                "title": "Bagaimana anda boleh membantu",
+                "intro": "Anda boleh menyumbang secara langsung untuk meningkatkan nilai token WDD anda:",
                 "steps": {
-                  "appUsage": "Membuka aplikasi setiap hari",
-                  "inviting": "Menjemput pengguna baru untuk menyertai"
+                  "invite": {
+                    "title": "Jemput orang lain untuk menyertai",
+                    "description": "Kembangkan komuniti ahli yang disahkan"
+                  },
+                  "useApp": {
+                    "title": "Gunakan aplikasi secara kerap",
+                    "description": "Dorong kitaran ekonomi yang baik"
+                  }
                 }
               },
-              "impact": {
-                "title": "Kesan",
-                "body": "Pembelian semula mengurangkan bekalan, berpotensi meningkatkan nilai token. Penggunaan harian dan rujukan anda membantu meningkatkan kedua-dua ganjaran langsung anda dan nilai WDD yang anda miliki."
+              "valueCycle": {
+                "title": "Kitaran Nilai Positif",
+                "steps": {
+                  "step1": "Lebih banyak pengguna & penggunaan aplikasi",
+                  "step2": "Ganjaran pembangun yang lebih tinggi",
+                  "step3": "Lebih banyak belian balik token"
+                }
               }
             },
-            "cta": "Lihat Statistik Aplikasi Mini"
+            "actions": {
+              "share": "Kongsi Jemputan"
+            },
+            "cta": "Lihat Statistik Mini App"
           },
           "buybackLink": {
             "title": "Program Pembelian Semula",

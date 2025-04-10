@@ -1900,8 +1900,8 @@ export default function EarnPage({
                       className="mb-1.5 line-clamp-1"
                     >
                       {
-                        dictionary?.pages?.earn?.tabs?.contribute?.buybackLink
-                          ?.title
+                        dictionary?.pages?.earn?.tabs?.contribute
+                          ?.buybackProgram?.title
                       }
                     </Typography>
                     {!hasNewBuybackBeenVisited && (
@@ -1914,8 +1914,8 @@ export default function EarnPage({
                     className="text-gray-500"
                   >
                     {
-                      dictionary?.pages?.earn?.tabs?.contribute?.buybackLink
-                        ?.description
+                      dictionary?.pages?.earn?.tabs?.contribute?.buybackProgram
+                        ?.subtitle
                     }
                   </Typography>
                 </div>

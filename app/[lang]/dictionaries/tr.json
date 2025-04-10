@@ -243,29 +243,44 @@
           },
           "buybackProgram": {
             "topnav": "Geri Alım Programı",
-            "title": "Geri Alım Programı",
-            "subtitle": "Topluluk destekli WDD değer artışı",
+            "title": "Token Geri Alım Programı",
+            "subtitle": "WDD değerini birlikte güçlendirelim",
             "sections": {
-              "source": {
-                "prefix": "World Uygulaması",
-                "link": "mini uygulamaları ödüllendiriyor",
-                "suffix": "doğrulanmış insan kullanımına dayalı olarak. Bu kazançların en az %50'sini piyasadan WDD token geri almak için kullanmayı taahhüt ediyoruz."
+              "devRewards": {
+                "title": "Geliştirici Ödül Programı",
+                "startDate": "1 Nisan 2025'te başladı",
+                "description": "World, doğrulanmış insanların uygulama kullanımına dayalı geliştirici ödüllerini test ediyor.",
+                "learnMore": "Program hakkında daha fazla bilgi edinin"
               },
               "commitment": {
-                "title": "Taahhüdümüz"
+                "title": "%50 taahhüdümüz",
+                "body": "Programdan elde ettiğimiz ödüllerin en az %50'sini token geri alımı için kullanmayı taahhüt ediyoruz."
               },
-              "role": {
-                "title": "Sizin rolünüz",
-                "intro": "Daha fazla uygulama kullanımı = daha fazla ödül = geri alımlar için daha fazla para. Şunları yaparak yardımcı olabilirsiniz:",
+              "helpSection": {
+                "title": "Nasıl yardımcı olabilirsiniz",
+                "intro": "WDD tokenlerinizin değerini artırmaya doğrudan katkıda bulunabilirsiniz:",
                 "steps": {
-                  "appUsage": "Uygulamayı her gün açmak",
-                  "inviting": "Yeni kullanıcıları katılmaya davet etmek"
+                  "invite": {
+                    "title": "Başkalarını katılmaya davet edin",
+                    "description": "Doğrulanmış üye topluluğumuzu büyütelim"
+                  },
+                  "useApp": {
+                    "title": "Uygulamayı düzenli olarak kullanın",
+                    "description": "Olumlu ekonomik döngüyü destekleyin"
+                  }
                 }
               },
-              "impact": {
-                "title": "Etki",
-                "body": "Geri alımlar arzı azaltarak token değerini potansiyel olarak artırır. Günlük kullanımınız ve referanslarınız hem doğrudan ödüllerinizi hem de sahip olduğunuz WDD'nin değerini artırmaya yardımcı olur."
+              "valueCycle": {
+                "title": "Olumlu Değer Döngüsü",
+                "steps": {
+                  "step1": "Daha fazla uygulama kullanıcısı ve kullanımı",
+                  "step2": "Daha yüksek geliştirici ödülleri",
+                  "step3": "Daha fazla token geri alımı"
+                }
               }
+            },
+            "actions": {
+              "share": "Davetiyeyi Paylaş"
             },
             "cta": "Mini Uygulama İstatistiklerini Görüntüle"
           },

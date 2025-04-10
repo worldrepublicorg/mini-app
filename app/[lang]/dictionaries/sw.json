@@ -243,29 +243,44 @@
           },
           "buybackProgram": {
             "topnav": "Programu ya Ununuzi",
-            "title": "Programu ya Ununuzi",
-            "subtitle": "Ukuaji wa thamani ya WDD unaosukumwa na jamii",
+            "title": "Programu ya Ununuzi wa Tokeni",
+            "subtitle": "Kuimarisha thamani ya WDD pamoja",
             "sections": {
-              "source": {
-                "prefix": "Programu ya World",
-                "link": "hutoa tuzo kwa programu ndogo",
-                "suffix": "kulingana na matumizi ya wanadamu waliothibitishwa. Tunaahidi kutumia angalau 50% ya mapato haya kununua tokeni za WDD kutoka kwenye soko."
+              "devRewards": {
+                "title": "Programu ya Tuzo za Waendelezaji",
+                "startDate": "Ilianza Aprili 1, 2025",
+                "description": "World inapima tuzo za waendelezaji kulingana na matumizi ya programu na watumiaji waliothibitishwa.",
+                "learnMore": "Jifunze zaidi kuhusu programu"
               },
               "commitment": {
-                "title": "Ahadi yetu"
+                "title": "Ahadi yetu ya 50%",
+                "body": "Tunaahidi kutumia angalau 50% ya tuzo zetu kutoka kwenye programu kwa ununuzi wa tokeni."
               },
-              "role": {
-                "title": "Jukumu lako",
-                "intro": "Matumizi zaidi ya programu = tuzo zaidi = pesa zaidi za ununuzi. Unaweza kusaidia kwa:",
+              "helpSection": {
+                "title": "Jinsi unaweza kusaidia",
+                "intro": "Unaweza kuchangia moja kwa moja katika kuongeza thamani ya tokeni zako za WDD:",
                 "steps": {
-                  "appUsage": "Kufungua programu kila siku",
-                  "inviting": "Kukaribisha watumiaji wapya kujiunga"
+                  "invite": {
+                    "title": "Alika wengine kujiunga",
+                    "description": "Kukuza jumuiya yetu ya wanachama waliothibitishwa"
+                  },
+                  "useApp": {
+                    "title": "Tumia programu mara kwa mara",
+                    "description": "Endesha mzunguko mzuri wa kiuchumi"
+                  }
                 }
               },
-              "impact": {
-                "title": "Athari",
-                "body": "Ununuzi hupunguza ugavi, huku ukiongeza uwezekano wa thamani ya tokeni. Matumizi yako ya kila siku na rufaa husaidia kukuza tuzo zako za moja kwa moja na thamani ya WDD unazoshikilia."
+              "valueCycle": {
+                "title": "Mzunguko Chanya wa Thamani",
+                "steps": {
+                  "step1": "Watumiaji zaidi na matumizi ya programu",
+                  "step2": "Tuzo zaidi kwa waendelezaji",
+                  "step3": "Ununuzi zaidi wa tokeni"
+                }
               }
+            },
+            "actions": {
+              "share": "Shiriki Mwaliko"
             },
             "cta": "Angalia Takwimu za Programu Ndogo"
           },

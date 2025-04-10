@@ -242,32 +242,47 @@
             "description": "Zaradite WDD testiranjem naših nadolazećih značajki"
           },
           "buybackProgram": {
-            "topnav": "Program otkupa",
-            "title": "Program otkupa",
-            "subtitle": "Rast vrijednosti WDD-a pokretan zajednicom",
+            "topnav": "Program Otkupa",
+            "title": "Program Otkupa Tokena",
+            "subtitle": "Zajedno ojačajmo vrijednost WDD-a",
             "sections": {
-              "source": {
-                "prefix": "World App",
-                "link": "nagrađuje mini aplikacije",
-                "suffix": "na temelju potvrđenog korištenja od strane ljudi. Obvezujemo se koristiti najmanje 50% ovih zarada za otkup WDD tokena s tržišta."
+              "devRewards": {
+                "title": "Program Nagrada za Programere",
+                "startDate": "Započeo 1. travnja 2025.",
+                "description": "World testira nagrade za programere na temelju korištenja aplikacije od strane provjerenih ljudi.",
+                "learnMore": "Saznajte više o programu"
               },
               "commitment": {
-                "title": "Naša obveza"
+                "title": "Naša obveza od 50%",
+                "body": "Obvezujemo se koristiti najmanje 50% naših nagrada iz programa za otkup tokena."
               },
-              "role": {
-                "title": "Vaša uloga",
-                "intro": "Više korištenja aplikacije = više nagrada = više novca za otkupe. Možete pomoći:",
+              "helpSection": {
+                "title": "Kako možete pomoći",
+                "intro": "Možete izravno doprinijeti povećanju vrijednosti vaših WDD tokena:",
                 "steps": {
-                  "appUsage": "Svakodnevnim otvaranjem aplikacije",
-                  "inviting": "Pozivanjem novih korisnika da se pridruže"
+                  "invite": {
+                    "title": "Pozovite druge da se pridruže",
+                    "description": "Proširite našu zajednicu provjerenih članova"
+                  },
+                  "useApp": {
+                    "title": "Redovito koristite aplikaciju",
+                    "description": "Potaknite pozitivan ekonomski ciklus"
+                  }
                 }
               },
-              "impact": {
-                "title": "Utjecaj",
-                "body": "Otkupi smanjuju ponudu, potencijalno povećavajući vrijednost tokena. Vaše svakodnevno korištenje i preporuke pomažu u rastu vaših izravnih nagrada i vrijednosti WDD-a koji posjedujete."
+              "valueCycle": {
+                "title": "Pozitivan Ciklus Vrijednosti",
+                "steps": {
+                  "step1": "Više korisnika i korištenja aplikacije",
+                  "step2": "Veće nagrade za programere",
+                  "step3": "Više otkupa tokena"
+                }
               }
             },
-            "cta": "Pogledajte statistike mini aplikacija"
+            "actions": {
+              "share": "Podijelite Pozivnicu"
+            },
+            "cta": "Pogledajte Statistiku Mini Aplikacije"
           },
           "buybackLink": {
             "title": "Program otkupa",

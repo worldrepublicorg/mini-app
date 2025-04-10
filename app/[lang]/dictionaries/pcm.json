@@ -242,32 +242,47 @@
             "description": "Earn WDD as you dey test our upcoming features"
           },
           "buybackProgram": {
-            "topnav": "Buyback Program",
-            "title": "Buyback Program",
-            "subtitle": "Community-powered WDD value growth",
+            "topnav": "Token Buy-back Program",
+            "title": "Token Buy-back Program",
+            "subtitle": "Make we strengthen WDD value together",
             "sections": {
-              "source": {
-                "prefix": "Di World App dey",
-                "link": "reward mini apps",
-                "suffix": "based on verified human usage. We promise say we go use at least 50% of dis money take buy back WDD tokens from market."
+              "devRewards": {
+                "title": "Developer Reward Program",
+                "startDate": "E start for April 1, 2025",
+                "description": "World dey test developer rewards based on how verified humans dey use di app.",
+                "learnMore": "Learn more about di program"
               },
               "commitment": {
-                "title": "Our commitment"
+                "title": "Our 50% promise",
+                "body": "We promise say we go use at least 50% of our rewards from di program for token buy-back."
               },
-              "role": {
-                "title": "Your role",
-                "intro": "More app usage = more rewards = more money for buybacks. You fit help by:",
+              "helpSection": {
+                "title": "How you fit help",
+                "intro": "You fit directly contribute to increase di value of your WDD tokens:",
                 "steps": {
-                  "appUsage": "Opening di app every day",
-                  "inviting": "Inviting new users to join"
+                  "invite": {
+                    "title": "Invite others to join",
+                    "description": "Grow our community of verified members"
+                  },
+                  "useApp": {
+                    "title": "Use di app regularly",
+                    "description": "Drive di good economic cycle"
+                  }
                 }
               },
-              "impact": {
-                "title": "Impact",
-                "body": "Buybacks dey reduce supply, wey fit increase token value. Your daily use and referrals dey help grow both your direct rewards and di value of WDD wey you hold."
+              "valueCycle": {
+                "title": "Di Positive Value Cycle",
+                "steps": {
+                  "step1": "More app users & usage",
+                  "step2": "Higher developer rewards",
+                  "step3": "More token buy-backs"
+                }
               }
             },
-            "cta": "Check Mini App Stats"
+            "actions": {
+              "share": "Share Invitation"
+            },
+            "cta": "View Mini App Stats"
           },
           "buybackLink": {
             "title": "Buyback Program",

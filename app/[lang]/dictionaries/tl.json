@@ -242,30 +242,45 @@
             "description": "Kumita ng WDD sa pamamagitan ng pagsubok ng aming mga paparating na feature"
           },
           "buybackProgram": {
-            "topnav": "Programa ng Buyback",
-            "title": "Programa ng Buyback",
-            "subtitle": "Community-powered na pagtaas ng halaga ng WDD",
+            "topnav": "Programa ng Muling Pagbili",
+            "title": "Programa ng Muling Pagbili ng Token",
+            "subtitle": "Sama-samang pagpapalakas ng halaga ng WDD",
             "sections": {
-              "source": {
-                "prefix": "Ang World App ay",
-                "link": "nagbibigay ng reward sa mga mini app",
-                "suffix": "batay sa na-verify na paggamit ng tao. Nangangako kaming gagamitin ang hindi bababa sa 50% ng mga kinita para bumili ng mga WDD token mula sa market."
+              "devRewards": {
+                "title": "Programa ng Gantimpala para sa mga Developer",
+                "startDate": "Nagsimula noong Abril 1, 2025",
+                "description": "Sinusubukan ng World ang gantimpala para sa mga developer batay sa paggamit ng app ng mga beripikadong tao.",
+                "learnMore": "Alamin pa ang tungkol sa programa"
               },
               "commitment": {
-                "title": "Ang aming pangako"
+                "title": "Ang aming 50% na pangako",
+                "body": "Nangangako kaming gamitin ang hindi bababa sa 50% ng aming mga gantimpala mula sa programa para sa muling pagbili ng token."
               },
-              "role": {
-                "title": "Ang iyong tungkulin",
-                "intro": "Mas maraming paggamit ng app = mas maraming reward = mas maraming pera para sa buybacks. Maaari kang tumulong sa pamamagitan ng:",
+              "helpSection": {
+                "title": "Paano ka makakatulong",
+                "intro": "Maaari kang direktang tumulong sa pagpapataas ng halaga ng iyong mga WDD token:",
                 "steps": {
-                  "appUsage": "Pagbubukas ng app araw-araw",
-                  "inviting": "Pag-imbita sa mga bagong user na sumali"
+                  "invite": {
+                    "title": "Mag-imbita ng iba na sumali",
+                    "description": "Palawakin ang aming komunidad ng beripikadong miyembro"
+                  },
+                  "useApp": {
+                    "title": "Regular na gamitin ang app",
+                    "description": "Isulong ang mabuting siklo ng ekonomiya"
+                  }
                 }
               },
-              "impact": {
-                "title": "Epekto",
-                "body": "Ang mga buyback ay nagbabawas ng supply, potensyal na nagtataas ng halaga ng token. Ang iyong pang-araw-araw na paggamit at mga referral ay tumutulong na mapataas ang iyong direktang mga reward at ang halaga ng WDD na hawak mo."
+              "valueCycle": {
+                "title": "Ang Positibong Siklo ng Halaga",
+                "steps": {
+                  "step1": "Mas maraming gumagamit at paggamit ng app",
+                  "step2": "Mas mataas na gantimpala para sa mga developer",
+                  "step3": "Mas maraming muling pagbili ng token"
+                }
               }
+            },
+            "actions": {
+              "share": "Ibahagi ang Imbitasyon"
             },
             "cta": "Tingnan ang Mga Istatistika ng Mini App"
           },
