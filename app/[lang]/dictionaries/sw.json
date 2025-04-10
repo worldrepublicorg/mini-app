@@ -239,7 +239,54 @@
           },
           "earlyAccess": {
             "title": "Programu ya Ufikiaji wa Mapema",
-            "description": "Pata WDD kwa kujaribia vipengele vyetu vipya"
+            "description": "Pata WDD kwa kupima vipengele vyetu vinavyokuja"
+          },
+          "buybackProgram": {
+            "topnav": "Programu ya Ununuzi",
+            "title": "Programu ya Ununuzi wa Tokeni",
+            "subtitle": "Kuimarisha thamani ya WDD pamoja",
+            "sections": {
+              "devRewards": {
+                "title": "Programu ya Tuzo za Waendelezaji",
+                "startDate": "Ilianza Aprili 1, 2025",
+                "description": "World inapima tuzo za waendelezaji kulingana na matumizi ya programu na watumiaji waliothibitishwa.",
+                "learnMore": "Jifunze zaidi kuhusu programu"
+              },
+              "commitment": {
+                "title": "Ahadi yetu ya 50%",
+                "body": "Tunaahidi kutumia angalau 50% ya tuzo zetu kutoka kwenye programu kwa ununuzi wa WDD."
+              },
+              "helpSection": {
+                "title": "Jinsi unaweza kusaidia",
+                "intro": "Unaweza kuchangia moja kwa moja katika kuongeza thamani ya tokeni zako za WDD:",
+                "steps": {
+                  "invite": {
+                    "title": "Alika wengine kujiunga",
+                    "description": "Kukuza jumuiya yetu ya wanachama waliothibitishwa"
+                  },
+                  "useApp": {
+                    "title": "Tumia programu mara kwa mara",
+                    "description": "Endesha mzunguko mzuri wa kiuchumi"
+                  }
+                }
+              },
+              "valueCycle": {
+                "title": "Mzunguko Chanya wa Thamani",
+                "steps": {
+                  "step1": "Watumiaji zaidi na matumizi ya programu",
+                  "step2": "Tuzo zaidi kwa waendelezaji",
+                  "step3": "Ununuzi zaidi wa tokeni"
+                }
+              }
+            },
+            "actions": {
+              "share": "Shiriki Mwaliko"
+            },
+            "cta": "Angalia Takwimu za Programu Ndogo"
+          },
+          "buybackLink": {
+            "title": "Programu ya Ununuzi",
+            "description": "Ukuaji wa thamani ya WDD unaosukumwa na jamii"
           },
           "xContest": {
             "title": "Shindano la Chapisho X",
@@ -294,6 +341,7 @@
             "title": "Kura za Awali",
             "backToGovern": "Rudi kwa Tawala",
             "polls": {
+              "globalEduEquity": "Je, kunapaswa kuwa na jitihada ya pamoja duniani kuziba pengo la dijitali kwa kuhakikisha upatikanaji sawa wa zana za kujifunza kidijitali na mtandao wa bei nafuu kwa wanafunzi duniani kote?",
               "oilTariffImpact": "Je, makubaliano ya kimataifa yanapaswa kufuatiliwa ili kupunguza hatua kali za ushuru kwenye mauzo ya mafuta na gesi ili kuimarisha soko la kawi la kimataifa?",
               "agiExistentialRisk": "Je, viongozi wa ulimwengu wanapaswa kujadiliana kuhusu mkataba wa kimataifa unaofunga ili kupunguza hatari zinazoweza kusababisha uwepo wa akili bandia ya jumla?",
               "supplyChainResilience": "Je, nchi zinapaswa kushirikiana kuunda mfumo wa kimataifa ili kuimarisha ustahimilivu wa mnyororo wa usambazaji wakati wa misukosuko inayoendelea?",

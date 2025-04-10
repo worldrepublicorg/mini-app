@@ -239,7 +239,54 @@
           },
           "earlyAccess": {
             "title": "Program Akses Awal",
-            "description": "Perolehi WDD dengan menguji ciri-ciri kami yang akan datang"
+            "description": "Dapatkan WDD dengan menguji ciri-ciri kami yang akan datang"
+          },
+          "buybackProgram": {
+            "topnav": "Program Belian Balik",
+            "title": "Program Belian Balik Token",
+            "subtitle": "Perkukuhkan nilai WDD bersama",
+            "sections": {
+              "devRewards": {
+                "title": "Program Ganjaran Pembangun",
+                "startDate": "Bermula 1 April 2025",
+                "description": "World sedang menguji ganjaran pembangun berdasarkan penggunaan aplikasi oleh manusia yang disahkan.",
+                "learnMore": "Ketahui lebih lanjut tentang program"
+              },
+              "commitment": {
+                "title": "Janji kami sebanyak 50%",
+                "body": "Kami berjanji untuk menggunakan sekurang-kurangnya 50% daripada ganjaran program kami untuk belian balik WDD."
+              },
+              "helpSection": {
+                "title": "Bagaimana anda boleh membantu",
+                "intro": "Anda boleh menyumbang secara langsung untuk meningkatkan nilai token WDD anda:",
+                "steps": {
+                  "invite": {
+                    "title": "Jemput orang lain untuk menyertai",
+                    "description": "Kembangkan komuniti ahli yang disahkan"
+                  },
+                  "useApp": {
+                    "title": "Gunakan aplikasi secara kerap",
+                    "description": "Dorong kitaran ekonomi yang baik"
+                  }
+                }
+              },
+              "valueCycle": {
+                "title": "Kitaran Nilai Positif",
+                "steps": {
+                  "step1": "Lebih banyak pengguna & penggunaan aplikasi",
+                  "step2": "Ganjaran pembangun yang lebih tinggi",
+                  "step3": "Lebih banyak belian balik token"
+                }
+              }
+            },
+            "actions": {
+              "share": "Kongsi Jemputan"
+            },
+            "cta": "Lihat Statistik Mini App"
+          },
+          "buybackLink": {
+            "title": "Program Pembelian Semula",
+            "description": "Pertumbuhan nilai WDD digerakkan oleh komuniti"
           },
           "xContest": {
             "title": "Pertandingan Catatan X",
@@ -294,6 +341,7 @@
             "title": "Undian Sebelumnya",
             "backToGovern": "Kembali ke Tadbir Urus",
             "polls": {
+              "globalEduEquity": "Perlukah wujud usaha global yang terkoordinasi untuk merapatkan jurang digital dengan memastikan akses sama rata kepada alat pembelajaran digital dan internet yang berpatutan untuk pelajar di seluruh dunia?",
               "oilTariffImpact": "Haruskah perjanjian global diusahakan untuk mengehadkan langkah-langkah tarif melampau terhadap eksport minyak dan gas bagi menstabilkan pasaran tenaga antarabangsa?",
               "agiExistentialRisk": "Haruskah pemimpin global berunding untuk perjanjian antarabangsa yang mengikat bagi mengurangkan risiko kewujudan yang berpotensi ditimbulkan oleh kecerdasan buatan umum?",
               "biodiversityFinance": "Haruskah sebuah dana global khusus diwujudkan untuk menggerakkan pelaburan bagi pemuliharaan alam semula jadi untuk mencapai sasaran perlindungan kepelbagaian biologi yang bercita-cita tinggi?",

@@ -238,8 +238,55 @@
             "limited": "50个名额"
           },
           "earlyAccess": {
-            "title": "早期访问计划",
+            "title": "早期体验计划",
             "description": "通过测试我们即将推出的功能赚取WDD"
+          },
+          "buybackProgram": {
+            "topnav": "回购计划",
+            "title": "代币回购计划",
+            "subtitle": "共同增强WDD价值",
+            "sections": {
+              "devRewards": {
+                "title": "开发者奖励计划",
+                "startDate": "2025年4月1日开始",
+                "description": "World正在试行基于经验证的人类使用应用的开发者奖励。",
+                "learnMore": "了解更多关于该计划"
+              },
+              "commitment": {
+                "title": "我们的50%承诺",
+                "body": "我们承诺至少将计划奖励的50%用于WDD回购。"
+              },
+              "helpSection": {
+                "title": "您如何帮助",
+                "intro": "您可以直接参与提高WDD代币的价值：",
+                "steps": {
+                  "invite": {
+                    "title": "邀请他人加入",
+                    "description": "壮大我们已验证成员的社区"
+                  },
+                  "useApp": {
+                    "title": "定期使用应用",
+                    "description": "推动良性经济循环"
+                  }
+                }
+              },
+              "valueCycle": {
+                "title": "正向价值循环",
+                "steps": {
+                  "step1": "更多应用用户和使用率",
+                  "step2": "更高的开发者奖励",
+                  "step3": "更多代币回购"
+                }
+              }
+            },
+            "actions": {
+              "share": "分享邀请"
+            },
+            "cta": "查看小程序统计"
+          },
+          "buybackLink": {
+            "title": "回购计划",
+            "description": "社区驱动的WDD价值增长"
           },
           "xContest": {
             "title": "X帖子竞赛",
@@ -294,6 +341,7 @@
             "title": "往期投票",
             "backToGovern": "返回治理",
             "polls": {
+              "globalEduEquity": "是否应该有一项协调一致的全球努力，通过确保全球学生平等获得数字学习工具和价格合理的互联网来弥合数字鸿沟？",
               "oilTariffImpact": "是否应该寻求全球协议，限制对石油和天然气出口的极端关税措施，以稳定国际能源市场？",
               "agiExistentialRisk": "全球领导人是否应该协商具有约束力的国际条约，以减轻通用人工智能可能带来的存在性风险？",
               "supplyChainResilience": "各国是否应该合作建立一个全球框架，以加强持续中断情况下的供应链韧性？",

@@ -238,8 +238,55 @@
             "limited": "50 slots"
           },
           "earlyAccess": {
-            "title": "Early Access Program",
-            "description": "Kumita ng WDD sa pamamagitan ng pagte-test ng aming mga darating na features"
+            "title": "Programa ng Maagang Pag-access",
+            "description": "Kumita ng WDD sa pamamagitan ng pagsubok ng aming mga paparating na feature"
+          },
+          "buybackProgram": {
+            "topnav": "Programa ng Muling Pagbili",
+            "title": "Programa ng Muling Pagbili ng Token",
+            "subtitle": "Sama-samang pagpapalakas ng halaga ng WDD",
+            "sections": {
+              "devRewards": {
+                "title": "Programa ng Gantimpala para sa mga Developer",
+                "startDate": "Nagsimula noong Abril 1, 2025",
+                "description": "Sinusubukan ng World ang gantimpala para sa mga developer batay sa paggamit ng app ng mga beripikadong tao.",
+                "learnMore": "Alamin pa ang tungkol sa programa"
+              },
+              "commitment": {
+                "title": "Ang aming 50% na pangako",
+                "body": "Nangangako kaming gamitin ang hindi bababa sa 50% ng aming mga gantimpala mula sa programa para sa mga WDD buyback."
+              },
+              "helpSection": {
+                "title": "Paano ka makakatulong",
+                "intro": "Maaari kang direktang tumulong sa pagpapataas ng halaga ng iyong mga WDD token:",
+                "steps": {
+                  "invite": {
+                    "title": "Mag-imbita ng iba na sumali",
+                    "description": "Palawakin ang aming komunidad ng beripikadong miyembro"
+                  },
+                  "useApp": {
+                    "title": "Regular na gamitin ang app",
+                    "description": "Isulong ang mabuting siklo ng ekonomiya"
+                  }
+                }
+              },
+              "valueCycle": {
+                "title": "Ang Positibong Siklo ng Halaga",
+                "steps": {
+                  "step1": "Mas maraming gumagamit at paggamit ng app",
+                  "step2": "Mas mataas na gantimpala para sa mga developer",
+                  "step3": "Mas maraming muling pagbili ng token"
+                }
+              }
+            },
+            "actions": {
+              "share": "Ibahagi ang Imbitasyon"
+            },
+            "cta": "Tingnan ang Mga Istatistika ng Mini App"
+          },
+          "buybackLink": {
+            "title": "Programa ng Buyback",
+            "description": "Community-powered na pagtaas ng halaga ng WDD"
           },
           "xContest": {
             "title": "X Post Contest",
@@ -294,6 +341,7 @@
             "title": "Mga Nakaraang Poll",
             "backToGovern": "Bumalik sa Govern",
             "polls": {
+              "globalEduEquity": "Dapat ba magkaroon ng koordinadong pandaigdigang pagsisikap upang mapagtagumpayan ang digital divide sa pamamagitan ng pagtiyak ng pantay na access sa mga digital na kagamitan sa pag-aaral at abot-kayang internet para sa mga mag-aaral sa buong mundo?",
               "oilTariffImpact": "Dapat bang hangarin ang mga pandaigdigang kasunduan upang limitahan ang matinding mga hakbang sa taripa sa pag-export ng langis at gas upang maibalik sa kalakalan ang pamilihan ng enerhiya sa daigdig?",
               "agiExistentialRisk": "Dapat bang makipag-ayos ang mga pinuno ng mundo para sa isang may bisa na pandaigdigang kasunduan upang mabawasan ang mga potensyal na panganib sa pag-iral na dulot ng artificial general intelligence?",
               "supplyChainResilience": "Dapat bang magtulungan ang mga bansa para makapagtatag ng pandaigdigang balangkas para sa pagpapalakas ng katatagan ng supply chain sa gitna ng patuloy na mga pagkagambala?",

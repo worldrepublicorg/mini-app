@@ -239,7 +239,54 @@
           },
           "earlyAccess": {
             "title": "Early Access Program",
-            "description": "Collect WDD as you dey test our new features"
+            "description": "Earn WDD as you dey test our upcoming features"
+          },
+          "buybackProgram": {
+            "topnav": "Token Buy-back Program",
+            "title": "Token Buy-back Program",
+            "subtitle": "Make we strengthen WDD value together",
+            "sections": {
+              "devRewards": {
+                "title": "Developer Reward Program",
+                "startDate": "E start for April 1, 2025",
+                "description": "World dey test developer rewards based on how verified humans dey use di app.",
+                "learnMore": "Learn more about di program"
+              },
+              "commitment": {
+                "title": "Our 50% promise",
+                "body": "We promise say we go use at least 50% of our rewards from di program for WDD buybacks."
+              },
+              "helpSection": {
+                "title": "How you fit help",
+                "intro": "You fit directly contribute to increase di value of your WDD tokens:",
+                "steps": {
+                  "invite": {
+                    "title": "Invite others to join",
+                    "description": "Grow our community of verified members"
+                  },
+                  "useApp": {
+                    "title": "Use di app regularly",
+                    "description": "Drive di good economic cycle"
+                  }
+                }
+              },
+              "valueCycle": {
+                "title": "Di Positive Value Cycle",
+                "steps": {
+                  "step1": "More app users & usage",
+                  "step2": "Higher developer rewards",
+                  "step3": "More token buy-backs"
+                }
+              }
+            },
+            "actions": {
+              "share": "Share Invitation"
+            },
+            "cta": "View Mini App Stats"
+          },
+          "buybackLink": {
+            "title": "Buyback Program",
+            "description": "Community-powered WDD value growth"
           },
           "xContest": {
             "title": "X Post Competition",
@@ -294,6 +341,7 @@
             "title": "Old Polls",
             "backToGovern": "Go Back",
             "polls": {
+              "globalEduEquity": "E suppose get one coordinated global effort to bridge di digital divide by making sure say students for di whole world get equal access to digital learning tools and internet wey dem fit afford?",
               "oilTariffImpact": "Shey dem suppose dey find global agreements wey go limit extreme tariff measures on top oil and gas exports to make international energy market stable?",
               "agiExistentialRisk": "Shey global leaders suppose negotiate binding international treaty wey go reduce potential existential risks wey artificial general intelligence dey cause?",
               "supplyChainResilience": "Make countries join hand create global system wey go make supply chain strong as wahala dey happen everywhere?",

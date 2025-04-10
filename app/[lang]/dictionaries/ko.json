@@ -239,7 +239,54 @@
           },
           "earlyAccess": {
             "title": "얼리 액세스 프로그램",
-            "description": "출시 예정 기능을 테스트하고 WDD 획득하기"
+            "description": "향후 기능을 테스트하여 WDD 획득"
+          },
+          "buybackProgram": {
+            "topnav": "토큰 재구매 프로그램",
+            "title": "토큰 재구매 프로그램",
+            "subtitle": "함께 WDD 가치 강화하기",
+            "sections": {
+              "devRewards": {
+                "title": "개발자 보상 프로그램",
+                "startDate": "2025년 4월 1일 시작",
+                "description": "월드는 인증된 사용자의 앱 사용량을 기반으로 개발자 보상을 시험 중입니다.",
+                "learnMore": "프로그램에 대해 더 알아보기"
+              },
+              "commitment": {
+                "title": "우리의 50% 약속",
+                "body": "프로그램에서 받는 보상의 최소 50%를 WDD 재구매에 사용할 것을 약속합니다."
+              },
+              "helpSection": {
+                "title": "어떻게 도울 수 있나요",
+                "intro": "귀하의 WDD 토큰 가치 증가에 직접 기여할 수 있습니다:",
+                "steps": {
+                  "invite": {
+                    "title": "다른 사람들을 초대하세요",
+                    "description": "인증된 회원 커뮤니티를 확장하세요"
+                  },
+                  "useApp": {
+                    "title": "앱을 정기적으로 사용하세요",
+                    "description": "선순환 경제 사이클을 촉진하세요"
+                  }
+                }
+              },
+              "valueCycle": {
+                "title": "긍정적인 가치 사이클",
+                "steps": {
+                  "step1": "더 많은 앱 사용자 및 사용량",
+                  "step2": "더 높은 개발자 보상",
+                  "step3": "더 많은 토큰 재구매"
+                }
+              }
+            },
+            "actions": {
+              "share": "초대 공유하기"
+            },
+            "cta": "미니앱 통계 보기"
+          },
+          "buybackLink": {
+            "title": "바이백 프로그램",
+            "description": "커뮤니티 주도의 WDD 가치 성장"
           },
           "xContest": {
             "title": "X 포스트 콘테스트",
@@ -294,6 +341,7 @@
             "title": "이전 투표",
             "backToGovern": "거버넌스로 돌아가기",
             "polls": {
+              "globalEduEquity": "전 세계 학생들에게 디지털 학습 도구와 저렴한 인터넷에 대한 동등한 접근을 보장하여 디지털 격차를 해소하기 위한 조정된 글로벌 노력이 있어야 할까요?",
               "oilTariffImpact": "국제 에너지 시장을 안정화하기 위해 석유 및 가스 수출에 대한 극단적인 관세 조치를 제한하는 글로벌 협약을 추구해야 할까요?",
               "agiExistentialRisk": "세계 지도자들이 인공 일반 지능이 제기하는 잠재적인 실존적 위험을 완화하기 위해 구속력 있는 국제 조약을 협상해야 할까요?",
               "supplyChainResilience": "지속적인 혼란 속에서 공급망 회복력을 강화하기 위한 글로벌 프레임워크를 수립하기 위해 국가들이 협력해야 할까요?",

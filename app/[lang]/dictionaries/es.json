@@ -249,6 +249,53 @@
             "oneOff": "Única vez",
             "limited": "50 plazas"
           },
+          "buybackProgram": {
+            "topnav": "Programa de Recompra",
+            "title": "Programa de Recompra de Tokens",
+            "subtitle": "Fortalecer el valor de WDD juntos",
+            "sections": {
+              "devRewards": {
+                "title": "Programa de Recompensas para Desarrolladores",
+                "startDate": "Iniciado el 1 de abril de 2025",
+                "description": "World está pilotando recompensas para desarrolladores basadas en el uso de la aplicación por humanos verificados.",
+                "learnMore": "Conocer más sobre el programa"
+              },
+              "commitment": {
+                "title": "Nuestro compromiso del 50%",
+                "body": "Nos comprometemos a utilizar al menos el 50% de nuestras recompensas del programa para recompras de WDD."
+              },
+              "helpSection": {
+                "title": "Cómo puedes ayudar",
+                "intro": "Puedes contribuir directamente a aumentar el valor de tus tokens WDD:",
+                "steps": {
+                  "invite": {
+                    "title": "Invita a otros a unirse",
+                    "description": "Hacer crecer nuestra comunidad de miembros verificados"
+                  },
+                  "useApp": {
+                    "title": "Usa la aplicación regularmente",
+                    "description": "Impulsa el ciclo económico virtuoso"
+                  }
+                }
+              },
+              "valueCycle": {
+                "title": "El Ciclo Positivo de Valor",
+                "steps": {
+                  "step1": "Más usuarios y uso de la aplicación",
+                  "step2": "Mayores recompensas para desarrolladores",
+                  "step3": "Más recompras de tokens"
+                }
+              }
+            },
+            "actions": {
+              "share": "Compartir Invitación"
+            },
+            "cta": "Ver Estadísticas de Mini App"
+          },
+          "buybackLink": {
+            "title": "Programa de Recompra",
+            "description": "Crecimiento del valor de WDD impulsado por la comunidad"
+          },
           "earlyAccess": {
             "title": "Programa de Acceso Anticipado",
             "description": "Gana WDD probando nuestras próximas funciones"
@@ -306,6 +353,7 @@
             "title": "Encuestas Anteriores",
             "backToGovern": "Volver a Gobernar",
             "polls": {
+              "globalEduEquity": "¿Debería haber un esfuerzo global coordinado para cerrar la brecha digital garantizando el acceso equitativo a herramientas de aprendizaje digital e internet asequible para estudiantes en todo el mundo?",
               "oilTariffImpact": "¿Deberían buscarse acuerdos globales para limitar las medidas arancelarias extremas sobre las exportaciones de petróleo y gas para estabilizar el mercado energético internacional?",
               "agiExistentialRisk": "¿Deberían los líderes mundiales negociar un tratado internacional vinculante para mitigar los posibles riesgos existenciales planteados por la inteligencia artificial general?",
               "supplyChainResilience": "¿Deberían los países colaborar para establecer un marco global para fortalecer la resiliencia de la cadena de suministro en medio de las interrupciones actuales?",
@@ -458,7 +506,7 @@
         },
         "topWallets": {
           "question": "¿Quién controla las cuentas más grandes?",
-          "answer": "Las tres cuentas más grandes son el <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>Tesoro de la República Mundial</a>, el <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Fondo de Renta Básica</a>, y el <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Fondo de Renta Básica Plus</a>. Actualmente, estos están controlados por el fundador del proyecto, pero el control será transferido a la comunidad después de que nuestra constitución sea ratificada. Otras direcciones clave incluyen el <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>contrato de Cuenta de Ahorro</a>, el <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>distribuidor de Recompensas de Referidos</a>, y los pools de liquidez: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, y <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
+          "answer": "Las tres cuentas más grandes son el <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>Tesoro de la República Mundial</a>, el <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Fondo de Renta Básica</a>, y el <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Fondo de Renta Básica Plus</a>. Actualmente, están controlados por el fundador del proyecto, pero el control será transferido a la comunidad después de que nuestra constitución sea ratificada. Otras direcciones clave incluyen el <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>contrato de Cuenta de Ahorro</a>, el <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>distribuidor de Recompensas de Referidos</a>, y los pools de liquidez: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, y <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
         },
         "voteRequirements": {
           "question": "¿Cuáles son los requisitos para proponer votaciones?",

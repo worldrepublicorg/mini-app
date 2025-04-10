@@ -241,6 +241,53 @@
             "title": "Program Wczesnego Dostępu",
             "description": "Zarabiaj WDD testując nasze nadchodzące funkcje"
           },
+          "buybackProgram": {
+            "topnav": "Program Odkupu",
+            "title": "Program Odkupu Tokenów",
+            "subtitle": "Wzmacniajmy razem wartość WDD",
+            "sections": {
+              "devRewards": {
+                "title": "Program Nagród dla Deweloperów",
+                "startDate": "Rozpoczęty 1 kwietnia 2025",
+                "description": "World testuje nagrody dla deweloperów oparte na użytkowaniu aplikacji przez zweryfikowanych ludzi.",
+                "learnMore": "Dowiedz się więcej o programie"
+              },
+              "commitment": {
+                "title": "Nasze zobowiązanie 50%",
+                "body": "Zobowiązujemy się wykorzystać co najmniej 50% naszych nagród z programu na odkup WDD."
+              },
+              "helpSection": {
+                "title": "Jak możesz pomóc",
+                "intro": "Możesz bezpośrednio przyczynić się do zwiększenia wartości Twoich tokenów WDD:",
+                "steps": {
+                  "invite": {
+                    "title": "Zaproś innych do dołączenia",
+                    "description": "Rozwijaj naszą społeczność zweryfikowanych członków"
+                  },
+                  "useApp": {
+                    "title": "Korzystaj z aplikacji regularnie",
+                    "description": "Napędzaj pozytywny cykl ekonomiczny"
+                  }
+                }
+              },
+              "valueCycle": {
+                "title": "Pozytywny Cykl Wartości",
+                "steps": {
+                  "step1": "Więcej użytkowników i korzystania z aplikacji",
+                  "step2": "Wyższe nagrody dla deweloperów",
+                  "step3": "Więcej odkupów tokenów"
+                }
+              }
+            },
+            "actions": {
+              "share": "Udostępnij Zaproszenie"
+            },
+            "cta": "Zobacz Statystyki Mini Aplikacji"
+          },
+          "buybackLink": {
+            "title": "Program Odkupu",
+            "description": "Wzrost wartości WDD napędzany przez społeczność"
+          },
           "xContest": {
             "title": "Konkurs Postów X",
             "weeklyTitle": "Tygodniowy Konkurs Postów X",
@@ -294,6 +341,7 @@
             "title": "Poprzednie Ankiety",
             "backToGovern": "Powrót do Zarządzania",
             "polls": {
+              "globalEduEquity": "Czy powinien istnieć skoordynowany globalny wysiłek na rzecz likwidacji przepaści cyfrowej poprzez zapewnienie równego dostępu do cyfrowych narzędzi edukacyjnych i przystępnego cenowo internetu dla uczniów na całym świecie?",
               "oilTariffImpact": "Czy należy dążyć do globalnych porozumień ograniczających ekstremalne środki taryfowe dotyczące eksportu ropy naftowej i gazu w celu stabilizacji międzynarodowego rynku energii?",
               "agiExistentialRisk": "Czy światowi przywódcy powinni negocjować wiążący traktat międzynarodowy w celu złagodzenia potencjalnych egzystencjalnych zagrożeń stwarzanych przez sztuczną inteligencję ogólną?",
               "supplyChainResilience": "Czy kraje powinny współpracować w celu ustanowienia globalnych ram wzmacniających odporność łańcuchów dostaw w obliczu trwających zakłóceń?",

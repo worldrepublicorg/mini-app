@@ -231,6 +231,49 @@
               }
             }
           },
+          "buybackProgram": {
+            "topnav": "Buyback Program",
+            "title": "Token Buyback Program",
+            "subtitle": "Strengthen WDD value together",
+            "sections": {
+              "devRewards": {
+                "title": "Developer Rewards Program",
+                "startDate": "Started April 1, 2025",
+                "description": "World is piloting developer rewards based on app usage by verified humans.",
+                "learnMore": "Learn more about the program"
+              },
+              "commitment": {
+                "title": "Our 50% pledge",
+                "body": "We pledge to use at least 50% of our rewards from the program for WDD buybacks."
+              },
+              "helpSection": {
+                "title": "How you can help",
+                "intro": "You can directly contribute to increasing the value of your WDD tokens:",
+                "steps": {
+                  "invite": {
+                    "title": "Invite others to join",
+                    "description": "Grow our community of verified members"
+                  },
+                  "useApp": {
+                    "title": "Use the app regularly",
+                    "description": "Drive the virtuous economic cycle"
+                  }
+                }
+              },
+              "valueCycle": {
+                "title": "The Positive Value Cycle",
+                "steps": {
+                  "step1": "More app users & usage",
+                  "step2": "Higher developer rewards",
+                  "step3": "More token buybacks"
+                }
+              }
+            },
+            "actions": {
+              "share": "Share Invite"
+            },
+            "cta": "View Mini App Stats"
+          },
           "earlyAccess": {
             "title": "Early Access Program",
             "description": "Earn WDD by testing our upcoming features"
@@ -288,6 +331,7 @@
             "title": "Previous Polls",
             "backToGovern": "Back to Govern",
             "polls": {
+              "globalEduEquity": "Should there be a coordinated global effort to bridge the digital divide by ensuring equal access to digital learning tools and affordable internet for students worldwide?",
               "oilTariffImpact": "Should global agreements be pursued to limit extreme tariff measures on oil and gas exports to stabilize the international energy market?",
               "agiExistentialRisk": "Should global leaders negotiate a binding international treaty to mitigate potential existential risks posed by artificial general intelligence?",
               "supplyChainResilience": "Should countries collaborate to establish a global framework to strengthen supply chain resilience amid ongoing disruptions?",

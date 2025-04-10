@@ -241,6 +241,53 @@
             "title": "Program ranog pristupa",
             "description": "Zaradite WDD testiranjem naših nadolazećih značajki"
           },
+          "buybackProgram": {
+            "topnav": "Program Otkupa",
+            "title": "Program Otkupa Tokena",
+            "subtitle": "Zajedno ojačajmo vrijednost WDD-a",
+            "sections": {
+              "devRewards": {
+                "title": "Program Nagrada za Programere",
+                "startDate": "Započeo 1. travnja 2025.",
+                "description": "World testira nagrade za programere na temelju korištenja aplikacije od strane provjerenih ljudi.",
+                "learnMore": "Saznajte više o programu"
+              },
+              "commitment": {
+                "title": "Naša obveza od 50%",
+                "body": "Obvezujemo se koristiti najmanje 50% naših nagrada iz programa za otkup WDD-a."
+              },
+              "helpSection": {
+                "title": "Kako možete pomoći",
+                "intro": "Možete izravno doprinijeti povećanju vrijednosti vaših WDD tokena:",
+                "steps": {
+                  "invite": {
+                    "title": "Pozovite druge da se pridruže",
+                    "description": "Proširite našu zajednicu provjerenih članova"
+                  },
+                  "useApp": {
+                    "title": "Redovito koristite aplikaciju",
+                    "description": "Potaknite pozitivan ekonomski ciklus"
+                  }
+                }
+              },
+              "valueCycle": {
+                "title": "Pozitivan Ciklus Vrijednosti",
+                "steps": {
+                  "step1": "Više korisnika i korištenja aplikacije",
+                  "step2": "Veće nagrade za programere",
+                  "step3": "Više otkupa tokena"
+                }
+              }
+            },
+            "actions": {
+              "share": "Podijelite Pozivnicu"
+            },
+            "cta": "Pogledajte Statistiku Mini Aplikacije"
+          },
+          "buybackLink": {
+            "title": "Program otkupa",
+            "description": "Rast vrijednosti WDD-a pokretan zajednicom"
+          },
           "xContest": {
             "title": "X Post natječaj",
             "weeklyTitle": "Tjedni X Post natječaj",
@@ -294,6 +341,7 @@
             "title": "Prethodne Ankete",
             "backToGovern": "Povratak na Upravljanje",
             "polls": {
+              "globalEduEquity": "Treba li postojati koordinirani globalni napor za premošćivanje digitalnog jaza osiguravanjem jednakog pristupa digitalnim alatima za učenje i pristupačnom internetu za učenike diljem svijeta?",
               "oilTariffImpact": "Treba li težiti globalnim sporazumima za ograničavanje ekstremnih carinskih mjera na izvoz nafte i plina kako bi se stabiliziralo međunarodno energetsko tržište?",
               "agiExistentialRisk": "Trebaju li svjetski čelnici pregovarati o obvezujućem međunarodnom sporazumu za ublažavanje potencijalnih egzistencijalnih rizika koje predstavlja umjetna opća inteligencija?",
               "biodiversityFinance": "Treba li stvoriti namjenski globalni fond za mobiliziranje ulaganja u očuvanje prirode kako bi se ispunili ambiciozni ciljevi zaštite biološke raznolikosti?",

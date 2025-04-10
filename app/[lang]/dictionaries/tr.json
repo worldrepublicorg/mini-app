@@ -239,7 +239,54 @@
           },
           "earlyAccess": {
             "title": "Erken Erişim Programı",
-            "description": "Yaklaşan özelliklerimizi test ederek WDD kazanın"
+            "description": "Gelecek özelliklerimizi test ederek WDD kazanın"
+          },
+          "buybackProgram": {
+            "topnav": "Geri Alım Programı",
+            "title": "Token Geri Alım Programı",
+            "subtitle": "WDD değerini birlikte güçlendirelim",
+            "sections": {
+              "devRewards": {
+                "title": "Geliştirici Ödül Programı",
+                "startDate": "1 Nisan 2025'te başladı",
+                "description": "World, doğrulanmış insanların uygulama kullanımına dayalı geliştirici ödüllerini test ediyor.",
+                "learnMore": "Program hakkında daha fazla bilgi edinin"
+              },
+              "commitment": {
+                "title": "%50 taahhüdümüz",
+                "body": "Programdan elde ettiğimiz ödüllerin en az %50'sini WDD geri alımları için kullanmayı taahhüt ediyoruz."
+              },
+              "helpSection": {
+                "title": "Nasıl yardımcı olabilirsiniz",
+                "intro": "WDD tokenlerinizin değerini artırmaya doğrudan katkıda bulunabilirsiniz:",
+                "steps": {
+                  "invite": {
+                    "title": "Başkalarını katılmaya davet edin",
+                    "description": "Doğrulanmış üye topluluğumuzu büyütelim"
+                  },
+                  "useApp": {
+                    "title": "Uygulamayı düzenli olarak kullanın",
+                    "description": "Olumlu ekonomik döngüyü destekleyin"
+                  }
+                }
+              },
+              "valueCycle": {
+                "title": "Olumlu Değer Döngüsü",
+                "steps": {
+                  "step1": "Daha fazla uygulama kullanıcısı ve kullanımı",
+                  "step2": "Daha yüksek geliştirici ödülleri",
+                  "step3": "Daha fazla token geri alımı"
+                }
+              }
+            },
+            "actions": {
+              "share": "Davetiyeyi Paylaş"
+            },
+            "cta": "Mini Uygulama İstatistiklerini Görüntüle"
+          },
+          "buybackLink": {
+            "title": "Geri Alım Programı",
+            "description": "Topluluk destekli WDD değer artışı"
           },
           "xContest": {
             "title": "X Gönderi Yarışması",
@@ -294,6 +341,7 @@
             "title": "Önceki Anketler",
             "backToGovern": "Yönet'e Dön",
             "polls": {
+              "globalEduEquity": "Dünya çapında öğrencilere dijital öğrenme araçlarına ve uygun fiyatlı internete eşit erişim sağlayarak dijital uçurumu kapatmak için koordineli bir küresel çaba olmalı mı?",
               "oilTariffImpact": "Uluslararası enerji piyasasını istikrara kavuşturmak için petrol ve gaz ihracatına yönelik aşırı tarife önlemlerini sınırlamak amacıyla küresel anlaşmalar aranmalı mıdır?",
               "agiExistentialRisk": "Küresel liderler, yapay genel zekanın oluşturduğu potansiyel varoluşsal riskleri azaltmak için bağlayıcı bir uluslararası anlaşma için müzakere etmeli midir?",
               "supplyChainResilience": "Ülkeler, süregelen kesintiler karşısında tedarik zinciri dayanıklılığını güçlendirmek için küresel bir çerçeve oluşturmak üzere iş birliği yapmalı mı?",

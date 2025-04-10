@@ -239,7 +239,54 @@
           },
           "earlyAccess": {
             "title": "Programme d'Accès Anticipé",
-            "description": "Gagnez des WDD en testant nos fonctionnalités à venir"
+            "description": "Gagnez des WDD en testant nos futures fonctionnalités"
+          },
+          "buybackProgram": {
+            "topnav": "Programme de Rachat",
+            "title": "Programme de Rachat de Tokens",
+            "subtitle": "Renforcer ensemble la valeur de WDD",
+            "sections": {
+              "devRewards": {
+                "title": "Programme de Récompenses pour Développeurs",
+                "startDate": "Commencé le 1er avril 2025",
+                "description": "World expérimente des récompenses pour développeurs basées sur l'utilisation de l'application par des humains vérifiés.",
+                "learnMore": "En savoir plus sur le programme"
+              },
+              "commitment": {
+                "title": "Notre engagement de 50%",
+                "body": "Nous nous engageons à utiliser au moins 50% de nos récompenses du programme pour les rachats de WDD."
+              },
+              "helpSection": {
+                "title": "Comment vous pouvez aider",
+                "intro": "Vous pouvez contribuer directement à augmenter la valeur de vos tokens WDD:",
+                "steps": {
+                  "invite": {
+                    "title": "Inviter d'autres personnes à rejoindre",
+                    "description": "Développer notre communauté de membres vérifiés"
+                  },
+                  "useApp": {
+                    "title": "Utiliser l'application régulièrement",
+                    "description": "Alimenter le cercle économique vertueux"
+                  }
+                }
+              },
+              "valueCycle": {
+                "title": "Le Cycle Positif de Valeur",
+                "steps": {
+                  "step1": "Plus d'utilisateurs et d'utilisation",
+                  "step2": "Plus de récompenses pour développeurs",
+                  "step3": "Plus de rachats de tokens"
+                }
+              }
+            },
+            "actions": {
+              "share": "Partager l'Invitation"
+            },
+            "cta": "Voir les Statistiques de Mini App"
+          },
+          "buybackLink": {
+            "title": "Programme de Rachat",
+            "description": "Croissance de la valeur de WDD pilotée par la communauté"
           },
           "xContest": {
             "title": "Concours de Publications X",
@@ -294,6 +341,7 @@
             "title": "Sondages précédents",
             "backToGovern": "Retour à Gouverner",
             "polls": {
+              "globalEduEquity": "Devrait-il y avoir un effort mondial coordonné pour combler la fracture numérique en assurant un accès égal aux outils d'apprentissage numériques et à Internet abordable pour les étudiants du monde entier?",
               "oilTariffImpact": "Faut-il rechercher des accords mondiaux pour limiter les mesures tarifaires extrêmes sur les exportations de pétrole et de gaz afin de stabiliser le marché international de l'énergie?",
               "agiExistentialRisk": "Les dirigeants mondiaux devraient-ils négocier un traité international contraignant pour atténuer les risques existentiels potentiels posés par l'intelligence artificielle générale?",
               "supplyChainResilience": "Les pays devraient-ils collaborer pour établir un cadre mondial visant à renforcer la résilience de la chaîne d'approvisionnement face aux perturbations actuelles ?",
