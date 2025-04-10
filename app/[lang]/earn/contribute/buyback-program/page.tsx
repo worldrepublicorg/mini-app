@@ -202,7 +202,7 @@ export default function BuybackProgramPage({
           <div className="bg-white mb-6 overflow-hidden rounded-xl border border-gray-200 p-4 shadow-sm">
             <Typography
               as="h3"
-              variant={{ variant: "subtitle", level: 2 }}
+              variant={{ variant: "subtitle", level: 1 }}
               className="mb-4 text-center text-gray-900"
             >
               {
