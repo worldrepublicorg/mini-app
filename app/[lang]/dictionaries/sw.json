@@ -341,7 +341,7 @@
             "title": "Kura za Awali",
             "backToGovern": "Rudi kwa Tawala",
             "polls": {
-              "globalEduEquity": "Je, kunapaswa kuwa na jitihada ya pamoja duniani kuziba pengo la dijitali kwa kuhakikisha upatikanaji sawa wa zana za kujifunza kidijitali na mtandao wa bei nafuu kwa wanafunzi duniani kote?",
+              "globalEduEquity": "Je, kunapaswa kuwa na juhudi za pamoja duniani kuziba pengo la kidijitali kwa kuhakikisha wanafunzi wote duniani wanapata fursa sawa za zana za elimu za kidijitali na mtandao wa bei nafuu?",
               "oilTariffImpact": "Je, makubaliano ya kimataifa yanapaswa kufuatiliwa ili kupunguza hatua kali za ushuru kwenye mauzo ya mafuta na gesi ili kuimarisha soko la kawi la kimataifa?",
               "agiExistentialRisk": "Je, viongozi wa ulimwengu wanapaswa kujadiliana kuhusu mkataba wa kimataifa unaofunga ili kupunguza hatari zinazoweza kusababisha uwepo wa akili bandia ya jumla?",
               "supplyChainResilience": "Je, nchi zinapaswa kushirikiana kuunda mfumo wa kimataifa ili kuimarisha ustahimilivu wa mnyororo wa usambazaji wakati wa misukosuko inayoendelea?",
@@ -390,7 +390,9 @@
               "foodSecurity": "Je, mfumo wa kimataifa unapaswa kutekelezwa ili kuimarisha usalama wa chakula kati ya mabadiliko ya hali ya hewa na kutokuwa na utulivu kwa siasa za dunia?",
               "eWasteRegulation": "Je, kunapaswa kuwa na mfumo wa kimataifa wa kudhibiti taka za kielektroniki na kupunguza athari zake kwa mazingira?",
               "oceanHealth": "Je, mfumo wa kimataifa unapaswa kutekelezwa kulinda na kurejesha bahari za dunia kutokana na uchafuzi, uvuvio wa kupita kiasi, na athari za mabadiliko ya tabia nchi?",
-              "geoengineeringRegulation": "Je, nchi zinapaswa kuunda mfuko wa kimataifa maalum wa kuharakisha urejeshaji wa misitu kwa kiwango kikubwa kama mkakati muhimu wa kukabiliana na mabadiliko ya hali ya hewa?",
+              "geoengineeringRegulation": "Je, nchi zinapaswa kuunda hazina maalum ya kimataifa ili kuharakisha juhudi za upandaji miti kwa kiwango kikubwa kama kipengele muhimu cha mkakati wa kukabiliana na mabadiliko ya tabianchi?",
+              "globalFoodWaste": "Je, juhudi ya kimataifa iliyoratibiwa inapaswa kuanzishwa kupunguza upotevu wa chakula katika kila hatua ya uzalishaji na matumizi?",
+              "globalClimateFinance": "Je, jukumu la kimataifa linapaswa kuundwa kwa ajili ya mfumo wa pamoja wa fedha za kukabiliana na mabadiliko ya hali ya hewa ili kusaidia miradi ya kukabiliana na kupunguza athari katika kila nchi?",
               "fairTechCompetition": "Je, kampuni za teknolojia za kimataifa zinapaswa kuhitajika kufuata sheria zilizowekwa viwango ili kuhakikisha ushindani wa haki katika akili bandia na sekta pana za teknolojia na kuzuia dhuluma za soko?"
             }
           }

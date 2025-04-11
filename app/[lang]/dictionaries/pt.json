@@ -341,7 +341,9 @@
             "title": "Votações Anteriores",
             "backToGovern": "Voltar para Governar",
             "polls": {
-              "fairTechCompetition": "As empresas globais de tecnologia deveriam ser obrigadas a seguir regras padronizadas para garantir concorrência justa e prevenir abusos de mercado na IA e nas indústrias tecnológicas mais amplas?",
+              "globalFoodWaste": "Os governos deveriam implementar medidas rigorosas para reduzir o desperdício de alimentos, como incentivos fiscais para doações de alimentos e penalidades para o descarte excessivo de alimentos comestíveis?",
+              "globalClimateFinance": "Os países desenvolvidos deveriam aumentar significativamente o financiamento climático para ajudar os países em desenvolvimento a enfrentar os impactos das mudanças climáticas e apoiar a transição para tecnologias de baixo carbono?",
+              "fairTechCompetition": "As empresas globais de tecnologia deveriam ser obrigadas a seguir regras padronizadas para garantir uma concorrência justa e prevenir abusos de mercado na IA e nos setores tecnológicos mais amplos?",
               "globalEduEquity": "Deveria haver um esforço global coordenado para reduzir a divisão digital, garantindo acesso igual a ferramentas de aprendizagem digital e internet acessível para estudantes em todo o mundo?",
               "oilTariffImpact": "Devem ser buscados acordos globais para limitar medidas tarifárias extremas sobre exportações de petróleo e gás para estabilizar o mercado internacional de energia?",
               "agiExistentialRisk": "Os líderes globais deveriam negociar um tratado internacional vinculativo para mitigar os potenciais riscos existenciais colocados pela inteligência artificial geral?",

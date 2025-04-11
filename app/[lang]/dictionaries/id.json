@@ -341,8 +341,10 @@
             "title": "Polling Sebelumnya",
             "backToGovern": "Kembali ke Kelola",
             "polls": {
-              "geoengineeringRegulation": "Haruskah negara-negara menciptakan dana global khusus untuk mempercepat restorasi hutan skala besar sebagai strategi utama mitigasi perubahan iklim?",
-              "globalEduEquity": "Haruskah ada upaya global terkoordinasi untuk menjembatani kesenjangan digital dengan memastikan akses yang sama ke alat pembelajaran digital dan internet yang terjangkau bagi pelajar di seluruh dunia?",
+              "geoengineeringRegulation": "Haruskah negara-negara menciptakan dana global khusus untuk mempercepat upaya reboisasi skala besar sebagai elemen kunci dalam strategi mitigasi perubahan iklim?",
+              "globalFoodWaste": "Haruskah pemerintah menerapkan langkah-langkah ketat untuk mengurangi pemborosan makanan, seperti insentif pajak untuk sumbangan makanan dan penalti untuk pembuangan makanan massal?",
+              "globalClimateFinance": "Haruskah negara-negara maju secara signifikan meningkatkan pembiayaan iklim untuk membantu negara-negara berkembang mengatasi dampak perubahan iklim dan mendukung transisi ke teknologi rendah karbon?",
+              "globalEduEquity": "Haruskah ada upaya global untuk mengurangi kesenjangan digital dengan memastikan semua pelajar di seluruh dunia memiliki akses yang setara ke alat pendidikan digital dan internet yang terjangkau?",
               "oilTariffImpact": "Haruskah kesepakatan global diupayakan untuk membatasi langkah-langkah tarif ekstrem pada ekspor minyak dan gas untuk menstabilkan pasar energi internasional?",
               "agiExistentialRisk": "Haruskah para pemimpin global menegosiasikan perjanjian internasional yang mengikat untuk mengurangi potensi risiko eksistensial yang ditimbulkan oleh kecerdasan buatan umum?",
               "supplyChainResilience": "Haruskah negara-negara berkolaborasi untuk membangun kerangka global untuk memperkuat ketahanan rantai pasokan di tengah gangguan yang berkelanjutan?",

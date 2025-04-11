@@ -341,8 +341,10 @@
             "title": "Önceki Anketler",
             "backToGovern": "Yönet'e Dön",
             "polls": {
-              "globalEduEquity": "Dünya çapında öğrencilere dijital öğrenme araçlarına ve uygun fiyatlı internete eşit erişim sağlayarak dijital uçurumu kapatmak için koordineli bir küresel çaba olmalı mı?",
+              "globalEduEquity": "Tüm dünya öğrencilerine dijital öğrenme araçlarına ve uygun fiyatlı internet erişimine eşit erişim sağlayarak dijital uçurumu kapatmak için küresel bir çaba olmalı mı?",
               "oilTariffImpact": "Uluslararası enerji piyasasını istikrara kavuşturmak için petrol ve gaz ihracatına yönelik aşırı tarife önlemlerini sınırlamak amacıyla küresel anlaşmalar aranmalı mıdır?",
+              "globalFoodWaste": "Üretim ve tüketimin her aşamasında gıda israfını azaltmak için uluslararası koordineli bir girişim başlatılmalı mı?",
+              "globalClimateFinance": "Her ülkede adaptasyon ve azaltma projelerini desteklemek için kolektif bir iklim finansmanı mekanizması için uluslararası bir görev oluşturulmalı mı?",
               "agiExistentialRisk": "Küresel liderler, yapay genel zekanın oluşturduğu potansiyel varoluşsal riskleri azaltmak için bağlayıcı bir uluslararası anlaşma için müzakere etmeli midir?",
               "supplyChainResilience": "Ülkeler, süregelen kesintiler karşısında tedarik zinciri dayanıklılığını güçlendirmek için küresel bir çerçeve oluşturmak üzere iş birliği yapmalı mı?",
               "biodiversityFinance": "Biyolojik çeşitliliğin korunmasına yönelik iddialı hedefleri karşılamak için doğa koruma alanında yatırımları seferber edecek özel bir küresel fon oluşturulmalı mı?",
@@ -390,7 +392,7 @@
               "foodSecurity": "İklim değişikliği ve jeopolitik istikrarsızlık ortamında gıda güvenliğini artırmak için küresel bir çerçeve uygulanmalı mı?",
               "eWasteRegulation": "Elektronik atıkları yönetmek ve çevresel etkilerini azaltmak için küresel bir düzenleyici çerçeve olmalı mı?",
               "oceanHealth": "Dünya okyanuslarını kirlilik, aşırı avlanma ve iklim değişikliğinin etkilerinden korumak ve eski haline getirmek için küresel bir çerçeve uygulanmalı mı?",
-              "geoengineeringRegulation": "Ülkeler, temel bir iklim değişikliğini azaltma stratejisi olarak büyük ölçekli orman restorasyonunu hızlandırmak için özel bir küresel fon oluşturmalı mı?",
+              "geoengineeringRegulation": "Ülkeler, iklim değişikliğiyle mücadele stratejisinin önemli bir bileşeni olarak büyük ölçekli ağaçlandırma çabalarını hızlandırmak için özel bir uluslararası fon oluşturmalı mı?",
               "fairTechCompetition": "Küresel teknoloji şirketlerinin, yapay zeka ve daha geniş teknoloji sektörlerinde adil rekabeti sağlamak ve piyasa istismarını önlemek için standartlaştırılmış kurallara uymaya zorunlu tutulması gerekli mi?"
             }
           }
