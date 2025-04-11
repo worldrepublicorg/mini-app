@@ -15,16 +15,16 @@ const polls: Poll[] = [
     url: "https://vote.one/kgjdFdFB",
   },
   {
-    key: "supplyChainResilience",
-    url: "https://vote.one/zDEnnNbe",
+    key: "fairTechCompetition",
+    url: "https://vote.one/W7goTrLH",
   },
   {
-    key: "agiExistentialRisk",
-    url: "https://vote.one/Nz1CbUYe",
+    key: "globalFoodWaste",
+    url: "https://vote.one/kD3dywCV",
   },
   {
-    key: "oilTariffImpact",
-    url: "https://vote.one/ba09FAZu",
+    key: "globalClimateFinance",
+    url: "https://vote.one/JtJPmBRZ",
   },
   {
     key: "globalEduEquity",

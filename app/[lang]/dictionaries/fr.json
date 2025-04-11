@@ -341,6 +341,7 @@
             "title": "Sondages précédents",
             "backToGovern": "Retour à Gouverner",
             "polls": {
+              "fairTechCompetition": "Les entreprises technologiques mondiales devraient-elles être tenues de suivre des règles standardisées pour garantir une concurrence équitable et prévenir les abus de marché dans l'IA et les industries technologiques plus larges?",
               "geoengineeringRegulation": "Les pays devraient-ils créer un fonds mondial dédié pour accélérer la restauration forestière à grande échelle comme stratégie clé d'atténuation du changement climatique?",
               "globalEduEquity": "Devrait-il y avoir un effort mondial coordonné pour combler la fracture numérique en assurant un accès égal aux outils d'apprentissage numériques et à Internet abordable pour les étudiants du monde entier?",
               "oilTariffImpact": "Faut-il rechercher des accords mondiaux pour limiter les mesures tarifaires extrêmes sur les exportations de pétrole et de gaz afin de stabiliser le marché international de l'énergie?",
