@@ -331,6 +331,7 @@
             "title": "Previous Polls",
             "backToGovern": "Back to Govern",
             "polls": {
+              "globalVaccineEquity": "Should an internationally coordinated framework be established to ensure equitable access to vaccines and essential medicines during global health crises?",
               "globalTradeArbitration": "Should a binding international arbitration panel be established to resolve trade disputes and ensure transparent, predictable tariff policies?",
               "globalFoodWaste": "Should an internationally coordinated initiative be launched to reduce food waste at every stage of production and consumption?",
               "globalClimateFinance": "Should an international mandate be established for a collective climate finance mechanism to support adaptation and mitigation projects in every nation?",
