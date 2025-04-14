@@ -27,8 +27,8 @@ const polls: Poll[] = [
     url: "https://vote.one/JtJPmBRZ",
   },
   {
-    key: "globalEduEquity",
-    url: "https://vote.one/ygOQkFbG",
+    key: "globalTradeArbitration",
+    url: "https://vote.one/hRXbudC6",
   },
 ];
 

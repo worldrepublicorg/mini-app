@@ -341,6 +341,7 @@
             "title": "Votações Anteriores",
             "backToGovern": "Voltar para Governar",
             "polls": {
+              "globalTradeArbitration": "Deveria ser estabelecido um painel internacional de arbitragem vinculativa para resolver disputas comerciais e garantir políticas tarifárias transparentes e previsíveis?",
               "globalFoodWaste": "Os governos deveriam implementar medidas rigorosas para reduzir o desperdício de alimentos, como incentivos fiscais para doações de alimentos e penalidades para o descarte excessivo de alimentos comestíveis?",
               "globalClimateFinance": "Os países desenvolvidos deveriam aumentar significativamente o financiamento climático para ajudar os países em desenvolvimento a enfrentar os impactos das mudanças climáticas e apoiar a transição para tecnologias de baixo carbono?",
               "fairTechCompetition": "As empresas globais de tecnologia deveriam ser obrigadas a seguir regras padronizadas para garantir uma concorrência justa e prevenir abusos de mercado na IA e nos setores tecnológicos mais amplos?",
