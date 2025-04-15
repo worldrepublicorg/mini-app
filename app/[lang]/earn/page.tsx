@@ -1416,7 +1416,19 @@ export default function EarnPage({
       const interestEarned = stakedBalanceNum * interestRate * elapsedSeconds;
       const totalReward = baseValue + interestEarned;
 
-      setDisplayAvailableReward(totalReward.toFixed(9));
+      // Determine decimal places based on staked balance tiers
+      let decimalPlaces = 9; // Default high precision
+      if (stakedBalanceNum >= 1000) {
+        decimalPlaces = 2; // Large balances need less precision
+      } else if (stakedBalanceNum >= 100) {
+        decimalPlaces = 4;
+      } else if (stakedBalanceNum >= 10) {
+        decimalPlaces = 6;
+      } else if (stakedBalanceNum >= 1) {
+        decimalPlaces = 7;
+      }
+
+      setDisplayAvailableReward(totalReward.toFixed(decimalPlaces));
     };
 
     updateDisplay();
