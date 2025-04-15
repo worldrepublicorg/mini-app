@@ -38,6 +38,7 @@ export const Message = forwardRef<
     />
   </div>
 ));
+Message.displayName = "FormMessage";
 export const ValidityState: typeof RadixForm.ValidityState =
   RadixForm.ValidityState;
 export const Submit: typeof RadixForm.Submit = RadixForm.Submit;

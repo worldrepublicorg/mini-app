@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { parseAbi } from "viem";
 import { viemClient } from "@/lib/viemClient";
 import { useWallet } from "@/components/contexts/WalletContext";
@@ -138,7 +138,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     return num.toString();
   };
 
-  const fetchParties = async () => {
+  const fetchParties = useCallback(async () => {
     if (
       !POLITICAL_PARTY_REGISTRY_ADDRESS ||
       POLITICAL_PARTY_REGISTRY_ADDRESS ===
@@ -217,11 +217,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [walletAddress, showToast]);
 
   useEffect(() => {
     fetchParties();
-  }, [walletAddress]);
+  }, [fetchParties]);
 
   const joinParty = async (partyId: number) => {
     if (!MiniKit.isInstalled()) {
@@ -266,7 +266,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       fetchParties();
       setTransactionId(""); // Reset the transaction ID
     }
-  }, [isConfirmed]);
+  }, [isConfirmed, fetchParties, showToast]);
 
   const isJoiningParty = isConfirming && transactionId !== "";
 
