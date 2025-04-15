@@ -1417,7 +1417,7 @@ export default function EarnPage({
       const totalReward = baseValue + interestEarned;
 
       // Determine decimal places based on staked balance tiers
-      let decimalPlaces = 10; // Default high precision
+      let decimalPlaces = 11; // Default high precision
       if (stakedBalanceNum >= 1000000) {
         decimalPlaces = 3;
       } else if (stakedBalanceNum >= 100000) {
