@@ -1417,15 +1417,23 @@ export default function EarnPage({
       const totalReward = baseValue + interestEarned;
 
       // Determine decimal places based on staked balance tiers
-      let decimalPlaces = 9; // Default high precision
-      if (stakedBalanceNum >= 1000) {
-        decimalPlaces = 5; // Large balances need less precision
+      let decimalPlaces = 10; // Default high precision
+      if (stakedBalanceNum >= 1000000) {
+        decimalPlaces = 2;
+      } else if (stakedBalanceNum >= 100000) {
+        decimalPlaces = 3;
+      } else if (stakedBalanceNum >= 10000) {
+        decimalPlaces = 4;
+      } else if (stakedBalanceNum >= 1000) {
+        decimalPlaces = 5;
       } else if (stakedBalanceNum >= 100) {
         decimalPlaces = 6;
       } else if (stakedBalanceNum >= 10) {
         decimalPlaces = 7;
       } else if (stakedBalanceNum >= 1) {
         decimalPlaces = 8;
+      } else if (stakedBalanceNum >= 0.1) {
+        decimalPlaces = 9;
       }
 
       setDisplayAvailableReward(totalReward.toFixed(decimalPlaces));
