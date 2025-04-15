@@ -341,6 +341,10 @@
             "title": "Old Polls",
             "backToGovern": "Go Back",
             "polls": {
+              "globalTradeArbitration": "Make we create one strong international panel wey go dey settle trade quarrel and make sure say tariff policy dey clear and predictable?",
+              "geoengineeringRegulation": "Make countries create special global money wey go help make forest grow back quick quick as main way to fight climate change?",
+              "globalFoodWaste": "Make dem start international plan wey go reduce food wey people dey waste for every level of production and eating?",
+              "globalClimateFinance": "Make dem create international agreement wey go establish money system to support projects wey go help countries handle climate change and reduce am?",
               "globalEduEquity": "E suppose get one coordinated global effort to bridge di digital divide by making sure say students for di whole world get equal access to digital learning tools and internet wey dem fit afford?",
               "oilTariffImpact": "Shey dem suppose dey find global agreements wey go limit extreme tariff measures on top oil and gas exports to make international energy market stable?",
               "agiExistentialRisk": "Shey global leaders suppose negotiate binding international treaty wey go reduce potential existential risks wey artificial general intelligence dey cause?",
@@ -389,7 +393,9 @@
               "quakeCodes": "Make dem standardize di global building codes make city infrastructure fit handle earthquake better?",
               "foodSecurity": "Make we implement global framework to improve food security for climate change and geopolitical instability?",
               "eWasteRegulation": "E suppose get global framework wey go regulate electronic waste and reduce how e dey affect our environment?",
-              "oceanHealth": "Make we implement global framework to protect and restore world oceans from pollution, overfishing, and climate change effects?"
+              "oceanHealth": "Make we implement global framework to protect and restore world oceans from pollution, overfishing, and climate change effects?",
+              "fairTechCompetition": "Make dem force big tech companies to follow standard rules wey go make sure say competition fair for AI and other tech business, and nobody go fit use market power anyhow?",
+              "globalVaccineEquity": "Make dem create international plan wey go make sure say everybody fit get vaccine and important medicine when global health wahala happen?"
             }
           }
         },

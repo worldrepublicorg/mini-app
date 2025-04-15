@@ -341,7 +341,11 @@
             "title": "Poprzednie Ankiety",
             "backToGovern": "Powrót do Zarządzania",
             "polls": {
-              "globalEduEquity": "Czy powinien istnieć skoordynowany globalny wysiłek na rzecz likwidacji przepaści cyfrowej poprzez zapewnienie równego dostępu do cyfrowych narzędzi edukacyjnych i przystępnego cenowo internetu dla uczniów na całym świecie?",
+              "globalTradeArbitration": "Czy powinien zostać ustanowiony wiążący międzynarodowy panel arbitrażowy w celu rozstrzygania sporów handlowych i zapewnienia przejrzystej, przewidywalnej polityki taryfowej?",
+              "globalFoodWaste": "Czy rządy powinny wprowadzać surowe środki w celu ograniczenia marnowania żywności, takie jak zachęty podatkowe dla darowizn żywnościowych i kary za nadmierne usuwanie jadalnej żywności?",
+              "geoengineeringRegulation": "Czy kraje powinny utworzyć specjalny międzynarodowy fundusz w celu przyspieszenia zakrojonych na szeroką skalę wysiłków na rzecz zalesiania jako kluczowego elementu strategii walki ze zmianami klimatu?",
+              "globalClimateFinance": "Czy kraje rozwinięte powinny znacznie zwiększyć finansowanie działań klimatycznych, aby pomóc krajom rozwijającym się w radzeniu sobie ze skutkami zmian klimatu i wspieraniu przejścia na technologie niskoemisyjne?",
+              "globalEduEquity": "Czy powinien istnieć globalny wysiłek, aby zmniejszyć przepaść cyfrową poprzez zapewnienie wszystkim uczniom na świecie równego dostępu do cyfrowych narzędzi edukacyjnych i przystępnego internetu?",
               "oilTariffImpact": "Czy należy dążyć do globalnych porozumień ograniczających ekstremalne środki taryfowe dotyczące eksportu ropy naftowej i gazu w celu stabilizacji międzynarodowego rynku energii?",
               "agiExistentialRisk": "Czy światowi przywódcy powinni negocjować wiążący traktat międzynarodowy w celu złagodzenia potencjalnych egzystencjalnych zagrożeń stwarzanych przez sztuczną inteligencję ogólną?",
               "supplyChainResilience": "Czy kraje powinny współpracować w celu ustanowienia globalnych ram wzmacniających odporność łańcuchów dostaw w obliczu trwających zakłóceń?",
@@ -388,7 +392,9 @@
               "spaceMilitarization": "Czy światowi przywódcy powinni uzgodnić protokoły zapobiegające militaryzacji przestrzeni kosmicznej i zapewniające jej pokojowe wykorzystanie?",
               "foodSecurity": "Czy powinien zostać wdrożony globalny system wzmacniający bezpieczeństwo żywnościowe w obliczu zmian klimatycznych i niestabilności geopolitycznej?",
               "eWasteRegulation": "Czy powinny istnieć globalne ramy regulacyjne w celu zarządzania odpadami elektronicznymi i łagodzenia ich wpływu na środowisko?",
-              "oceanHealth": "Czy należy wdrożyć globalne ramy dla ochrony i odbudowy oceanów świata przed zanieczyszczeniem, przełowieniem i skutkami zmian klimatu?"
+              "oceanHealth": "Czy należy wdrożyć globalne ramy dla ochrony i odbudowy oceanów świata przed zanieczyszczeniem, przełowieniem i skutkami zmian klimatu?",
+              "fairTechCompetition": "Czy globalne firmy technologiczne powinny być zobowiązane do przestrzegania ustandaryzowanych zasad w celu zapewnienia uczciwej konkurencji w sektorze sztucznej inteligencji i szerszych branżach technologicznych oraz zapobiegania nadużyciom rynkowym?",
+              "globalVaccineEquity": "Czy powinny zostać ustanowione międzynarodowo skoordynowane ramy zapewniające sprawiedliwy dostęp do szczepionek i niezbędnych leków podczas globalnych kryzysów zdrowotnych?"
             }
           }
         },

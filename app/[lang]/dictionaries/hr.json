@@ -341,6 +341,10 @@
             "title": "Prethodne Ankete",
             "backToGovern": "Povratak na Upravljanje",
             "polls": {
+              "globalTradeArbitration": "Treba li uspostaviti obvezujući međunarodni arbitražni panel za rješavanje trgovinskih sporova i osiguravanje transparentnih i predvidljivih tarifnih politika?",
+              "geoengineeringRegulation": "Trebaju li države stvoriti namjenski globalni fond za ubrzanje obnove šuma velikih razmjera kao ključnu strategiju za ublažavanje klimatskih promjena?",
+              "globalFoodWaste": "Trebaju li vlade provoditi stroge mjere za smanjenje bacanja hrane, poput poreznih olakšica za donacije hrane i kazni za pretjerano odbacivanje jestive hrane?",
+              "globalClimateFinance": "Trebaju li razvijene zemlje značajno povećati klimatsko financiranje kako bi pomogle zemljama u razvoju suočiti se s utjecajima klimatskih promjena i podržale prijelaz na tehnologije s niskim emisijama ugljika?",
               "globalEduEquity": "Treba li postojati koordinirani globalni napor za premošćivanje digitalnog jaza osiguravanjem jednakog pristupa digitalnim alatima za učenje i pristupačnom internetu za učenike diljem svijeta?",
               "oilTariffImpact": "Treba li težiti globalnim sporazumima za ograničavanje ekstremnih carinskih mjera na izvoz nafte i plina kako bi se stabiliziralo međunarodno energetsko tržište?",
               "agiExistentialRisk": "Trebaju li svjetski čelnici pregovarati o obvezujućem međunarodnom sporazumu za ublažavanje potencijalnih egzistencijalnih rizika koje predstavlja umjetna opća inteligencija?",
@@ -389,7 +393,9 @@
               "quakeCodes": "Treba li globalni građevinski propisi biti standardizirani kako bi se poboljšala otpornost na potrese u gradskoj infrastrukturi?",
               "foodSecurity": "Treba li implementirati globalni okvir za jačanje sigurnosti hrane u svjetlu klimatskih promjena i geopolitičke nestabilnosti?",
               "eWasteRegulation": "Treba li postojati globalni regulatorni okvir za upravljanje elektroničkim otpadom i ublažavanje njegovog utjecaja na okoliš?",
-              "oceanHealth": "Treba li implementirati globalni okvir za zaštitu i obnovu svjetskih oceana od onečišćenja, prekomjernog ribolova i utjecaja klimatskih promjena?"
+              "oceanHealth": "Treba li implementirati globalni okvir za zaštitu i obnovu svjetskih oceana od onečišćenja, prekomjernog ribolova i utjecaja klimatskih promjena?",
+              "fairTechCompetition": "Trebaju li globalne tehnološke tvrtke biti obvezne pridržavati se standardiziranih pravila kako bi se osiguralo pošteno tržišno natjecanje u sektoru umjetne inteligencije i širim tehnološkim industrijama te spriječila zlouporaba tržišta?",
+              "globalVaccineEquity": "Treba li uspostaviti međunarodno koordinirani okvir kako bi se osigurao ravnopravan pristup cjepivima i osnovnim lijekovima tijekom globalnih zdravstvenih kriza?"
             }
           }
         },

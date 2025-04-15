@@ -353,6 +353,10 @@
             "title": "Encuestas Anteriores",
             "backToGovern": "Volver a Gobernar",
             "polls": {
+              "globalTradeArbitration": "¿Debería establecerse un panel de arbitraje internacional vinculante para resolver disputas comerciales y garantizar políticas arancelarias transparentes y predecibles?",
+              "globalFoodWaste": "¿Deberían los gobiernos implementar medidas estrictas para reducir el desperdicio de alimentos, como incentivos fiscales para donaciones de alimentos y sanciones por la eliminación excesiva de alimentos comestibles?",
+              "globalClimateFinance": "¿Deberían los países desarrollados aumentar significativamente el financiamiento climático para ayudar a los países en desarrollo a enfrentar los impactos del cambio climático y apoyar la transición hacia tecnologías bajas en carbono?",
+              "fairTechCompetition": "¿Deberían las empresas tecnológicas globales estar obligadas a seguir reglas estandarizadas para garantizar una competencia justa y prevenir el abuso del mercado en la IA y sectores tecnológicos más amplios?",
               "globalEduEquity": "¿Debería haber un esfuerzo global coordinado para cerrar la brecha digital garantizando el acceso equitativo a herramientas de aprendizaje digital e internet asequible para estudiantes en todo el mundo?",
               "oilTariffImpact": "¿Deberían buscarse acuerdos globales para limitar las medidas arancelarias extremas sobre las exportaciones de petróleo y gas para estabilizar el mercado energético internacional?",
               "agiExistentialRisk": "¿Deberían los líderes mundiales negociar un tratado internacional vinculante para mitigar los posibles riesgos existenciales planteados por la inteligencia artificial general?",
@@ -401,7 +405,9 @@
               "quakeCodes": "¿Deberían estandarizarse los códigos de construcción globales para mejorar la resistencia a terremotos en la infraestructura urbana?",
               "foodSecurity": "¿Debería implementarse un marco global para mejorar la seguridad alimentaria en medio del cambio climático y la inestabilidad geopolítica?",
               "eWasteRegulation": "¿Debería existir un marco regulatorio global para gestionar los residuos electrónicos y mitigar su impacto ambiental?",
-              "oceanHealth": "¿Debería implementarse un marco global para proteger y restaurar los océanos del mundo de la contaminación, la sobrepesca y los impactos del cambio climático?"
+              "oceanHealth": "¿Debería implementarse un marco global para proteger y restaurar los océanos del mundo de la contaminación, la sobrepesca y los impactos del cambio climático?",
+              "geoengineeringRegulation": "¿Deberían los países crear un fondo global dedicado para acelerar la restauración forestal a gran escala como una estrategia clave de mitigación del clima?",
+              "globalVaccineEquity": "¿Debería establecerse un marco coordinado internacionalmente para garantizar el acceso equitativo a vacunas y medicamentos esenciales durante crisis sanitarias globales?"
             }
           }
         },

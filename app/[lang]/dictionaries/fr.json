@@ -341,6 +341,11 @@
             "title": "Sondages précédents",
             "backToGovern": "Retour à Gouverner",
             "polls": {
+              "globalTradeArbitration": "Faudrait-il établir un panel d'arbitrage international contraignant pour résoudre les différends commerciaux et assurer des politiques tarifaires transparentes et prévisibles?",
+              "globalFoodWaste": "Les gouvernements devraient-ils mettre en œuvre des mesures strictes pour réduire le gaspillage alimentaire, comme des incitations fiscales pour les dons alimentaires et des sanctions pour l'élimination excessive de nourriture comestible ?",
+              "globalClimateFinance": "Les pays développés devraient-ils augmenter significativement le financement climatique pour aider les pays en développement à faire face aux impacts du changement climatique et soutenir la transition vers des technologies à faible émission de carbone ?",
+              "fairTechCompetition": "Les entreprises technologiques mondiales devraient-elles être tenues de suivre des règles standardisées pour assurer une concurrence équitable et prévenir les abus de marché dans l'IA et les secteurs technologiques plus larges ?",
+              "geoengineeringRegulation": "Les pays devraient-ils créer un fonds mondial dédié pour accélérer la restauration forestière à grande échelle comme stratégie clé d'atténuation du changement climatique?",
               "globalEduEquity": "Devrait-il y avoir un effort mondial coordonné pour combler la fracture numérique en assurant un accès égal aux outils d'apprentissage numériques et à Internet abordable pour les étudiants du monde entier?",
               "oilTariffImpact": "Faut-il rechercher des accords mondiaux pour limiter les mesures tarifaires extrêmes sur les exportations de pétrole et de gaz afin de stabiliser le marché international de l'énergie?",
               "agiExistentialRisk": "Les dirigeants mondiaux devraient-ils négocier un traité international contraignant pour atténuer les risques existentiels potentiels posés par l'intelligence artificielle générale?",
@@ -389,7 +394,8 @@
               "quakeCodes": "Les codes de construction mondiaux devraient-ils être standardisés pour améliorer la résistance aux séismes dans les infrastructures urbaines ?",
               "foodSecurity": "Devrait-on mettre en place un cadre mondial pour renforcer la sécurité alimentaire face au changement climatique et à l'instabilité géopolitique ?",
               "eWasteRegulation": "Devrait-il exister un cadre réglementaire mondial pour gérer les déchets électroniques et atténuer leur impact environnemental?",
-              "oceanHealth": "Devrait-on mettre en place un cadre mondial pour protéger et restaurer les océans de la pollution, de la surpêche et des impacts du changement climatique ?"
+              "oceanHealth": "Devrait-on mettre en place un cadre mondial pour protéger et restaurer les océans de la pollution, de la surpêche et des impacts du changement climatique ?",
+              "globalVaccineEquity": "Faudrait-il établir un cadre coordonné au niveau international pour garantir un accès équitable aux vaccins et aux médicaments essentiels lors des crises sanitaires mondiales ?"
             }
           }
         },

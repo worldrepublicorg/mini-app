@@ -11,24 +11,24 @@ interface Poll {
 
 const polls: Poll[] = [
   {
-    key: "biodiversityFinance",
-    url: "https://vote.one/dceSJPNm",
+    key: "globalVaccineEquity",
+    url: "https://vote.one/QKYOUdPT",
   },
   {
-    key: "supplyChainResilience",
-    url: "https://vote.one/zDEnnNbe",
+    key: "fairTechCompetition",
+    url: "https://vote.one/W7goTrLH",
   },
   {
-    key: "agiExistentialRisk",
-    url: "https://vote.one/Nz1CbUYe",
+    key: "globalFoodWaste",
+    url: "https://vote.one/kD3dywCV",
   },
   {
-    key: "oilTariffImpact",
-    url: "https://vote.one/ba09FAZu",
+    key: "globalClimateFinance",
+    url: "https://vote.one/JtJPmBRZ",
   },
   {
-    key: "globalEduEquity",
-    url: "https://vote.one/ygOQkFbG",
+    key: "globalTradeArbitration",
+    url: "https://vote.one/hRXbudC6",
   },
 ];
 

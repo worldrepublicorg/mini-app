@@ -341,7 +341,11 @@
             "title": "Mga Nakaraang Botohan",
             "backToGovern": "Bumalik sa Pamamahala",
             "polls": {
+              "globalTradeArbitration": "Dapat bang itatag ang isang binding na pandaigdigang panel ng arbitrasyon para resolbahin ang mga alitan sa kalakalan at tiyakin ang mga transparent at predictable na patakaran sa taripa?",
+              "geoengineeringRegulation": "Dapat bang gumawa ang mga bansa ng isang dedikadong pandaigdigang pondo para mapabilis ang malalakihang pagpapanumbalik ng mga kagubatan bilang isang susing estratehiya sa pagpapagaan ng pagbabago ng klima?",
               "globalEduEquity": "Dapat ba na magkaroon ng isang koordinadong pandaigdigang pagsisikap upang matulay ang digital divide sa pamamagitan ng pagtiyak ng pantay na access sa mga digital na kasangkapan sa pag-aaral at abot-kayang internet para sa mga mag-aaral sa buong mundo?",
+              "globalFoodWaste": "Dapat bang magpatupad ang mga pamahalaan ng mahigpit na mga hakbang para mabawasan ang food waste, tulad ng mga tax incentive para sa donasyon ng pagkain at mga parusa para sa labis na pagtatapon ng pagkaing maaari pang kainin?",
+              "globalClimateFinance": "Dapat bang dagdagan nang malaki ng mga maunlad na bansa ang climate finance para tulungan ang mga umuunlad na bansa na maharap ang mga epekto ng pagbabago ng klima at suportahan ang transisyon patungo sa low-carbon na teknolohiya?",
               "oilTariffImpact": "Dapat bang ituloy ang mga pandaigdigang kasunduan upang limitahan ang matinding mga hakbang ng taripa sa pag-export ng langis at gas upang matatag ang pandaigdigang merkado ng enerhiya?",
               "agiExistentialRisk": "Dapat bang makipag-negosasyon ang mga pandaigdigang lider para sa isang binding na internasyonal na kasunduan upang mapagaan ang potensyal na mga peligro sa pag-iral na dulot ng artificial general intelligence?",
               "supplyChainResilience": "Dapat bang magtulungan ang mga bansa para makapagtatag ng pandaigdigang balangkas para sa pagpapalakas ng katatagan ng supply chain sa gitna ng patuloy na mga pagkagambala?",
@@ -389,7 +393,9 @@
               "quakeCodes": "Dapat bang i-standardize ang mga global na building code para mapabuti ang paglaban sa lindol sa urban infrastructure?",
               "foodSecurity": "Dapat bang magpatupad ng pandaigdigang balangkas para palakasin ang seguridad sa pagkain sa gitna ng pagbabago ng klima at kawalan ng katatagan sa geopolitika?",
               "eWasteRegulation": "Dapat bang magkaroon ng pandaigdigang balangkas ng regulasyon para pangasiwaan ang electronic waste at bawasan ang epekto nito sa kapaligiran?",
-              "oceanHealth": "Dapat bang magpatupad ng pandaigdigang balangkas upang protektahan at ibalik ang mga karagatan ng mundo mula sa polusyon, sobrang pangingisda, at mga epekto ng pagbabago ng klima?"
+              "oceanHealth": "Dapat bang magpatupad ng pandaigdigang balangkas upang protektahan at ibalik ang mga karagatan ng mundo mula sa polusyon, sobrang pangingisda, at mga epekto ng pagbabago ng klima?",
+              "fairTechCompetition": "Dapat bang obligahin ang mga pandaigdigang kumpanya ng teknolohiya na sumunod sa mga pinamamagatang patakaran upang masiguro ang patas na kumpetisyon sa artificial intelligence at mas malawak na industriya ng teknolohiya at maiwasan ang pang-aabuso sa merkado?",
+              "globalVaccineEquity": "Dapat ba na magtatag ng internasyunal na koordinadong balangkas upang matiyak ang pantay na access sa mga bakuna at mahahalagang gamot sa panahon ng pandaigdigang krisis sa kalusugan?"
             }
           }
         },

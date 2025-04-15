@@ -11,9 +11,10 @@ import { Typography } from "./Typography";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   PiCheckCircleFill,
-  PiXCircleFill,
   PiInfoFill,
   PiX,
+  PiWarningFill,
+  PiWarningCircleFill,
 } from "react-icons/pi";
 
 type ToastType = "success" | "error" | "info";
@@ -77,7 +78,7 @@ export const ToastProvider: React.FC<{ children: ReactNode }> = ({
                 {toast.type === "success" ? (
                   <PiCheckCircleFill className="text-gray-600 mr-3 h-5 w-5" />
                 ) : toast.type === "error" ? (
-                  <PiXCircleFill className="text-error-600 mr-3 h-5 w-5" />
+                  <PiWarningCircleFill className="text-error-700 mr-3 h-5 w-5" />
                 ) : (
                   <PiInfoFill className="text-gray-600 mr-3 h-5 w-5" />
                 )}

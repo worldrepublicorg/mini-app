@@ -14,6 +14,7 @@ import {
   PiIdentificationCardFill,
   PiCurrencyCircleDollarFill,
   PiCoinFill,
+  PiInfoFill,
 } from "react-icons/pi";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/Drawer";
 import { WalletAuth } from "@/components/WalletAuth";
@@ -1841,19 +1842,8 @@ export default function EarnPage({
             >
               {dictionary?.pages?.earn?.tabs?.savings?.subtitle}
               <span className="group relative inline-flex items-center align-baseline">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="ml-1 h-4 w-4 translate-y-[2px] cursor-help text-gray-400"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm11.378-3.917c-.89-.777-2.366-.777-3.255 0a.75.75 0 01-.988-1.129c1.454-1.272 3.776-1.272 5.23 0 1.513 1.324 1.513 3.518 0 4.842a3.75 3.75 0 01-.837.552c-.676.328-1.028.774-1.028 1.152v.75a.75.75 0 01-1.5 0v-.75c0-1.279 1.06-2.107 1.875-2.502.182-.088.351-.199.503-.331.83-.727.83-1.857 0-2.584zM12 18a.75.75 0 100-1.5.75.75 0 000 1.5z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <div className="absolute -right-4 bottom-full mb-2 hidden w-[calc(100dvw/2+24px)] max-w-sm transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg">
+                <PiInfoFill className="ml-1 h-4 w-4 translate-y-[2px] cursor-help text-gray-400" />
+                <div className="absolute -right-4 bottom-full mb-2 hidden w-[calc(100dvw/2+24px)] max-w-sm transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
                   <p className="text-left text-gray-700">
                     {dictionary?.pages?.earn?.tabs?.savings?.tooltip}
                   </p>
@@ -2115,19 +2105,8 @@ export default function EarnPage({
             >
               {dictionary?.pages?.earn?.tabs?.invite?.subtitle}
               <span className="group relative inline-flex items-center align-baseline">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="ml-1 h-4 w-4 translate-y-[2px] cursor-help text-gray-400"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm11.378-3.917c-.89-.777-2.366-.777-3.255 0a.75.75 0 01-.988-1.129c1.454-1.272 3.776-1.272 5.23 0 1.513 1.324 1.513 3.518 0 4.842a3.75 3.75 0 01-.837.552c-.676.328-1.028.774-1.028 1.152v.75a.75.75 0 01-1.5 0v-.75c0-1.279 1.06-2.107 1.875-2.502.182-.088.351-.199.503-.331.83-.727.83-1.857 0-2.584zM12 18a.75.75 0 100-1.5.75.75 0 000 1.5z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <div className="absolute -right-4 bottom-full mb-2 hidden w-[calc(100dvw/2+24px)] max-w-sm transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg">
+                <PiInfoFill className="ml-1 h-4 w-4 translate-y-[2px] cursor-help text-gray-400" />
+                <div className="absolute -right-4 bottom-full mb-2 hidden w-[calc(100dvw/2+24px)] max-w-sm transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
                   <p className="text-left text-gray-700">
                     {dictionary?.pages?.earn?.tabs?.invite?.tooltip}{" "}
                     <Link
@@ -2640,14 +2619,7 @@ export default function EarnPage({
                   <div className="mt-2 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-gray-0 py-2 pr-4">
                     <div className="flex w-full items-center overflow-hidden">
                       <div className="mx-2 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                          className="h-5 w-5 text-gray-900"
-                        >
-                          <path d="M11 17h2v-6h-2v6Zm1-8q.425 0 .713-.288Q13 8.425 13 8t-.287-.713Q12.425 7 12 7t-.712.287Q11 7.575 11 8t.288.712Q11.575 9 12 9Zm0 13q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z" />
-                        </svg>
+                        <PiInfoFill className="h-5 w-5 text-gray-900" />
                       </div>
                       <Typography
                         as="h3"

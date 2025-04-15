@@ -341,6 +341,10 @@
             "title": "Votações Anteriores",
             "backToGovern": "Voltar para Governar",
             "polls": {
+              "globalTradeArbitration": "Deveria ser estabelecido um painel internacional de arbitragem vinculativa para resolver disputas comerciais e garantir políticas tarifárias transparentes e previsíveis?",
+              "globalFoodWaste": "Os governos deveriam implementar medidas rigorosas para reduzir o desperdício de alimentos, como incentivos fiscais para doações de alimentos e penalidades para o descarte excessivo de alimentos comestíveis?",
+              "globalClimateFinance": "Os países desenvolvidos deveriam aumentar significativamente o financiamento climático para ajudar os países em desenvolvimento a enfrentar os impactos das mudanças climáticas e apoiar a transição para tecnologias de baixo carbono?",
+              "fairTechCompetition": "As empresas globais de tecnologia deveriam ser obrigadas a seguir regras padronizadas para garantir uma concorrência justa e prevenir abusos de mercado na IA e nos setores tecnológicos mais amplos?",
               "globalEduEquity": "Deveria haver um esforço global coordenado para reduzir a divisão digital, garantindo acesso igual a ferramentas de aprendizagem digital e internet acessível para estudantes em todo o mundo?",
               "oilTariffImpact": "Devem ser buscados acordos globais para limitar medidas tarifárias extremas sobre exportações de petróleo e gás para estabilizar o mercado internacional de energia?",
               "agiExistentialRisk": "Os líderes globais deveriam negociar um tratado internacional vinculativo para mitigar os potenciais riscos existenciais colocados pela inteligência artificial geral?",
@@ -389,7 +393,9 @@
               "quakeCodes": "Os códigos de construção globais devem ser padronizados para melhorar a resiliência a terremotos na infraestrutura urbana?",
               "foodSecurity": "Deve ser implementada uma estrutura global para melhorar a segurança alimentar em meio às mudanças climáticas e instabilidade geopolítica?",
               "eWasteRegulation": "Deveria existir um quadro regulatório global para gerenciar resíduos eletrônicos e mitigar seu impacto ambiental?",
-              "oceanHealth": "Deve ser implementada uma estrutura global para proteger e restaurar os oceanos do mundo da poluição, sobrepesca e impactos das mudanças climáticas?"
+              "oceanHealth": "Deve ser implementada uma estrutura global para proteger e restaurar os oceanos do mundo da poluição, sobrepesca e impactos das mudanças climáticas?",
+              "geoengineeringRegulation": "Os países deveriam criar um fundo global dedicado para acelerar a restauração florestal em larga escala como uma estratégia chave de mitigação climática?",
+              "globalVaccineEquity": "Deve ser estabelecido um marco coordenado internacionalmente para garantir o acesso equitativo a vacinas e medicamentos essenciais durante crises de saúde globais?"
             }
           }
         },
