@@ -19,8 +19,8 @@ const polls: Poll[] = [
     url: "https://vote.one/BTrzBwRq",
   },
   {
-    key: "globalFoodWaste",
-    url: "https://vote.one/kD3dywCV",
+    key: "globalIMFQuotaReform",
+    url: "https://vote.one/ZI2ILiHT",
   },
   {
     key: "globalClimateFinance",
