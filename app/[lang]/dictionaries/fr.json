@@ -341,7 +341,8 @@
             "title": "Sondages précédents",
             "backToGovern": "Retour à Gouverner",
             "polls": {
-              "globalTradeArbitration": "Faudrait-il établir un panel d'arbitrage international contraignant pour résoudre les différends commerciaux et assurer des politiques tarifaires transparentes et prévisibles?",
+              "globalEnergyTransition": "Les pays devraient-ils adopter un cadre mondial juridiquement contraignant pour accélérer la transition des combustibles fossiles vers les sources d'énergie renouvelable ?",
+              "globalTradeArbitration": "Faudrait-il établir un panel d'arbitrage international contraignant pour résoudre les différends commerciaux et assurer des politiques tarifaires transparentes et prévisibles ?",
               "globalFoodWaste": "Les gouvernements devraient-ils mettre en œuvre des mesures strictes pour réduire le gaspillage alimentaire, comme des incitations fiscales pour les dons alimentaires et des sanctions pour l'élimination excessive de nourriture comestible ?",
               "globalClimateFinance": "Les pays développés devraient-ils augmenter significativement le financement climatique pour aider les pays en développement à faire face aux impacts du changement climatique et soutenir la transition vers des technologies à faible émission de carbone ?",
               "fairTechCompetition": "Les entreprises technologiques mondiales devraient-elles être tenues de suivre des règles standardisées pour assurer une concurrence équitable et prévenir les abus de marché dans l'IA et les secteurs technologiques plus larges ?",
