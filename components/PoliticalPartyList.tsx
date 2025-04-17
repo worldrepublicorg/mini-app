@@ -55,10 +55,8 @@ interface PoliticalPartyListProps {
 export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [parties, setParties] = useState<Party[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [userPartyIds, setUserPartyIds] = useState<number[]>([]);
-  const [activeTab, setActiveTab] = useState<"discover" | "yourParties">(
-    "discover"
-  );
+  const [userPartyId, setUserPartyId] = useState<number>(0);
+  const [activeTab, setActiveTab] = useState<"top" | "new" | "pending">("top");
   const { walletAddress } = useWallet();
   const { showToast } = useToast();
   const [isCreateDrawerOpen, setIsCreateDrawerOpen] = useState(false);
@@ -175,7 +173,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         });
 
         userParty = Number(userPartyResult);
-        setUserPartyIds(userParty > 0 ? [userParty] : []);
+        setUserPartyId(userParty > 0 ? userParty : 0);
       }
 
       // Fetch details for each party
@@ -653,35 +651,53 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
   const LoadingSkeleton = () => (
     <div className="w-full">
-      <div className="mb-2 flex items-center justify-between">
-        <div className="flex gap-1">
-          <button
-            className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
-              activeTab === "discover" ? "bg-gray-100" : ""
-            }`}
-            onClick={() => setActiveTab("discover")}
+      {/* My Party Section Skeleton with Create Button */}
+      <div className="mb-6">
+        <div className="mb-3 flex items-center justify-between">
+          <Typography
+            as="h2"
+            variant={{ variant: "subtitle", level: 1 }}
+            className="text-[19px] font-semibold"
           >
-            Discover
-          </button>
+            My party
+          </Typography>
           <button
-            className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
-              activeTab === "yourParties" ? "bg-gray-100" : ""
-            }`}
-            onClick={() => setActiveTab("yourParties")}
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-900"
+            onClick={() => setIsCreateDrawerOpen(true)}
+            title="Create New Party"
           >
-            Your parties
+            <FaPlus className="text-gray-500" size={12} />
           </button>
         </div>
-        <button
-          className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-900"
-          onClick={() => setIsCreateDrawerOpen(true)}
-          title="Create New Party"
-        >
-          <FaPlus className="text-gray-500" size={12} />
-        </button>
+        <PartySkeletonCard />
       </div>
-      {/* Generate 5 skeleton party cards */}
-      {Array.from({ length: 5 }).map((_, index) => (
+
+      {/* Discover Section Title */}
+      <Typography
+        as="h2"
+        variant={{ variant: "subtitle", level: 1 }}
+        className="mb-3 text-[19px] font-semibold"
+      >
+        Discover
+      </Typography>
+
+      {/* Tabs Skeleton */}
+      <div className="mb-2 flex items-center gap-1">
+        <div className="flex gap-1">
+          <button className="h-9 items-center rounded-full bg-gray-100 px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200">
+            Top
+          </button>
+          <button className="h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200">
+            New
+          </button>
+          <button className="h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200">
+            Pending
+          </button>
+        </div>
+      </div>
+
+      {/* Generate skeleton party cards */}
+      {Array.from({ length: 3 }).map((_, index) => (
         <PartySkeletonCard key={index} />
       ))}
     </div>
@@ -691,16 +707,28 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     return <LoadingSkeleton />;
   }
 
-  // Filter parties based on active tab
-  const filteredParties = parties.filter((party) => {
-    if (activeTab === "discover") {
-      // For discover tab: show non-member parties that are not pending (status !== 0)
-      return !party.isUserMember && party.status !== 0;
-    } else {
-      // For your parties tab: show all member parties
-      return party.isUserMember;
-    }
-  });
+  // Filter parties based on tab selection
+  const filteredParties = parties
+    .filter((party) => {
+      // First filter for parties the user is not a member of
+      if (party.isUserMember) return false;
+
+      // Then filter based on tab
+      if (activeTab === "pending") {
+        return party.status === 0; // Show only pending parties
+      } else {
+        return party.status !== 0; // Hide pending parties for other tabs
+      }
+    })
+    .sort((a, b) => {
+      if (activeTab === "top") {
+        // Sort by member count (highest first) for Top tab
+        return b.memberCount - a.memberCount;
+      } else {
+        // Default to reverse chronological order (newest first) for New tab
+        return b.creationTime - a.creationTime;
+      }
+    });
 
   // Modify the party card rendering to include leader actions
   const renderPartyCard = (party: Party) => (
@@ -811,17 +839,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               Transfer Leadership
             </Button>
           </>
-        ) : activeTab === "yourParties" ? (
-          <Button
-            className="px-6"
-            variant="tertiary"
-            size="sm"
-            fullWidth
-            onClick={() => leaveParty(party.id)}
-            disabled={isJoiningParty}
-          >
-            {isJoiningParty ? "Processing..." : "Leave Party"}
-          </Button>
         ) : (
           <Button
             className="px-6"
@@ -846,40 +863,80 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
   return (
     <div className="w-full">
-      {/* Tabs */}
-      <div className="mb-2 flex items-center justify-between">
-        <div className="flex gap-1">
-          <button
-            className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
-              activeTab === "discover" ? "bg-gray-100" : ""
-            }`}
-            onClick={() => setActiveTab("discover")}
+      {/* My Party Section */}
+      <div className="mb-6">
+        <div className="mb-3 flex items-center justify-between">
+          <Typography
+            as="h2"
+            variant={{ variant: "subtitle", level: 1 }}
+            className="text-[19px] font-semibold"
           >
-            Discover
-          </button>
+            My party
+          </Typography>
           <button
-            className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
-              activeTab === "yourParties" ? "bg-gray-100" : ""
-            }`}
-            onClick={() => setActiveTab("yourParties")}
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-900"
+            onClick={() => setIsCreateDrawerOpen(true)}
+            title="Create New Party"
           >
-            Your parties
+            <FaPlus className="text-gray-500" size={12} />
           </button>
         </div>
+
+        {parties.some((party) => party.isUserMember) ? (
+          // Display the user's party
+          <>
+            {parties
+              .filter((party) => party.isUserMember)
+              .map((party) => renderPartyCard(party))}
+          </>
+        ) : (
+          // Message when user hasn't joined any party
+          <div className="p-4 text-center text-gray-500">
+            You haven&apos;t joined or created a political party yet.
+          </div>
+        )}
+      </div>
+
+      <Typography
+        as="h2"
+        variant={{ variant: "subtitle", level: 1 }}
+        className="mb-3 text-[19px] font-semibold"
+      >
+        Discover
+      </Typography>
+      {/* Tabs */}
+      <div className="mb-2 flex items-center gap-1">
         <button
-          className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-900"
-          onClick={() => setIsCreateDrawerOpen(true)}
-          title="Create New Party"
+          className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
+            activeTab === "top" && "bg-gray-100"
+          }`}
+          onClick={() => setActiveTab("top")}
         >
-          <FaPlus className="text-gray-500" size={12} />
+          Top
+        </button>
+        <button
+          className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
+            activeTab === "new" && "bg-gray-100"
+          }`}
+          onClick={() => setActiveTab("new")}
+        >
+          New
+        </button>
+        <button
+          className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
+            activeTab === "pending" && "bg-gray-100"
+          }`}
+          onClick={() => setActiveTab("pending")}
+        >
+          Pending
         </button>
       </div>
 
       {filteredParties.length === 0 && (
         <div className="my-8 text-center text-gray-500">
-          {activeTab === "discover"
-            ? "No parties to discover. You've joined all available parties."
-            : "You haven't joined any political parties yet."}
+          {activeTab === "pending"
+            ? "No pending parties available."
+            : "No parties available to join."}
         </div>
       )}
 

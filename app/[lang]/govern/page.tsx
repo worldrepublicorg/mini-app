@@ -64,7 +64,7 @@ export default function GovernPage({
           <>
             <SectionHeader
               title="Political Parties"
-              description="Global political organizations and movements"
+              description="Form communities around shared values"
             />
             <PoliticalPartyList lang={lang} />
           </>
