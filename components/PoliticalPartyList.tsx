@@ -151,31 +151,31 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     try {
       setIsLoading(true);
 
-      // Get party count
+      // Get party count using totalPartyCount instead of partyCount
       const partyCount = await viemClient.readContract({
         address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
-        abi: parseAbi(["function partyCount() view returns (uint256)"]),
-        functionName: "partyCount",
+        abi: parseAbi(["function totalPartyCount() view returns (uint256)"]),
+        functionName: "totalPartyCount",
       });
 
-      const partyIds = Array.from({ length: Number(partyCount) }, (_, i) => i);
+      // Party IDs start from 1 in the new contract, not 0
+      const partyIds = Array.from(
+        { length: Number(partyCount) },
+        (_, i) => i + 1
+      );
 
-      // Get user's parties
-      let userParties: number[] = [];
+      // Check user's party instead of getting an array of parties
+      let userParty = 0;
       if (walletAddress) {
-        const userPartiesResult = await viemClient.readContract({
+        const userPartyResult = await viemClient.readContract({
           address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
-          abi: parseAbi([
-            "function getUserParties(address _user) view returns (uint256[] memory)",
-          ]),
-          functionName: "getUserParties",
+          abi: parseAbi(["function userParty(address) view returns (uint256)"]),
+          functionName: "userParty",
           args: [walletAddress as `0x${string}`],
         });
 
-        userParties = Array.isArray(userPartiesResult)
-          ? userPartiesResult.map(Number)
-          : [];
-        setUserPartyIds(userParties);
+        userParty = Number(userPartyResult);
+        setUserPartyIds(userParty > 0 ? [userParty] : []);
       }
 
       // Fetch details for each party
@@ -196,14 +196,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           description: partyDetails[2],
           officialLink: partyDetails[3],
           founder: partyDetails[4],
-          leader: partyDetails[5],
+          leader: partyDetails[5], // currentLeader from contract
           creationTime: Number(partyDetails[6]),
           status: partyDetails[7],
-          active: partyDetails[7] === 1,
+          active: partyDetails[7] === 1, // 1 = ACTIVE in the enum
           memberCount: Number(partyDetails[8]),
           documentVerifiedMemberCount: Number(partyDetails[9]),
           verifiedMemberCount: Number(partyDetails[10]),
-          isUserMember: userParties.includes(id),
+          isUserMember: userParty === id,
           isUserLeader:
             walletAddress?.toLowerCase() === partyDetails[5].toLowerCase(),
         };
