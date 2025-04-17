@@ -341,7 +341,8 @@
             "title": "Votações Anteriores",
             "backToGovern": "Voltar para Governar",
             "polls": {
-              "globalTradeArbitration": "Deveria ser estabelecido um painel internacional de arbitragem vinculativa para resolver disputas comerciais e garantir políticas tarifárias transparentes e previsíveis?",
+              "globalEnergyTransition": "Os países devem adotar uma estrutura global juridicamente vinculativa para acelerar a transição dos combustíveis fósseis para fontes de energia renovável?",
+              "globalTradeArbitration": "Deve ser estabelecido um painel de arbitragem internacional vinculativo para resolver disputas comerciais e garantir políticas tarifárias transparentes e previsíveis?",
               "globalFoodWaste": "Os governos deveriam implementar medidas rigorosas para reduzir o desperdício de alimentos, como incentivos fiscais para doações de alimentos e penalidades para o descarte excessivo de alimentos comestíveis?",
               "globalClimateFinance": "Os países desenvolvidos deveriam aumentar significativamente o financiamento climático para ajudar os países em desenvolvimento a enfrentar os impactos das mudanças climáticas e apoiar a transição para tecnologias de baixo carbono?",
               "fairTechCompetition": "As empresas globais de tecnologia deveriam ser obrigadas a seguir regras padronizadas para garantir uma concorrência justa e prevenir abusos de mercado na IA e nos setores tecnológicos mais amplos?",
@@ -395,7 +396,8 @@
               "eWasteRegulation": "Deveria existir um quadro regulatório global para gerenciar resíduos eletrônicos e mitigar seu impacto ambiental?",
               "oceanHealth": "Deve ser implementada uma estrutura global para proteger e restaurar os oceanos do mundo da poluição, sobrepesca e impactos das mudanças climáticas?",
               "geoengineeringRegulation": "Os países deveriam criar um fundo global dedicado para acelerar a restauração florestal em larga escala como uma estratégia chave de mitigação climática?",
-              "globalVaccineEquity": "Deve ser estabelecido um marco coordenado internacionalmente para garantir o acesso equitativo a vacinas e medicamentos essenciais durante crises de saúde globais?"
+              "globalVaccineEquity": "Deve ser estabelecido um marco coordenado internacionalmente para garantir o acesso equitativo a vacinas e medicamentos essenciais durante crises de saúde globais?",
+              "globalIMFQuotaReform": "A fórmula de revisão de cotas do FMI deve ser revisada para aumentar o poder de voto das economias emergentes e em desenvolvimento e garantir uma tomada de decisão mais equitativa?"
             }
           }
         },

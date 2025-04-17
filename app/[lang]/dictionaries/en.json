@@ -331,6 +331,8 @@
             "title": "Previous Polls",
             "backToGovern": "Back to Govern",
             "polls": {
+              "globalIMFQuotaReform": "Should the IMF’s quota review formula be revised to enhance voting power for emerging and developing economies and ensure more equitable decision-making?",
+              "globalEnergyTransition": "Should countries adopt a legally binding global framework to accelerate the shift from fossil fuels to renewable energy sources?",
               "globalVaccineEquity": "Should an internationally coordinated framework be established to ensure equitable access to vaccines and essential medicines during global health crises?",
               "globalTradeArbitration": "Should a binding international arbitration panel be established to resolve trade disputes and ensure transparent, predictable tariff policies?",
               "globalFoodWaste": "Should an internationally coordinated initiative be launched to reduce food waste at every stage of production and consumption?",

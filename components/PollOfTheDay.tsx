@@ -15,12 +15,12 @@ const polls: Poll[] = [
     url: "https://vote.one/QKYOUdPT",
   },
   {
-    key: "fairTechCompetition",
-    url: "https://vote.one/W7goTrLH",
+    key: "globalEnergyTransition",
+    url: "https://vote.one/BTrzBwRq",
   },
   {
-    key: "globalFoodWaste",
-    url: "https://vote.one/kD3dywCV",
+    key: "globalIMFQuotaReform",
+    url: "https://vote.one/ZI2ILiHT",
   },
   {
     key: "globalClimateFinance",

@@ -353,6 +353,8 @@
             "title": "Encuestas Anteriores",
             "backToGovern": "Volver a Gobernar",
             "polls": {
+              "globalIMFQuotaReform": "¿Debería revisarse la fórmula de revisión de cuotas del FMI para aumentar el poder de voto de las economías emergentes y en desarrollo y garantizar una toma de decisiones más equitativa?",
+              "globalEnergyTransition": "¿Deberían los países adoptar un marco global legalmente vinculante para acelerar la transición de combustibles fósiles a fuentes de energía renovable?",
               "globalTradeArbitration": "¿Debería establecerse un panel de arbitraje internacional vinculante para resolver disputas comerciales y garantizar políticas arancelarias transparentes y predecibles?",
               "globalFoodWaste": "¿Deberían los gobiernos implementar medidas estrictas para reducir el desperdicio de alimentos, como incentivos fiscales para donaciones de alimentos y sanciones por la eliminación excesiva de alimentos comestibles?",
               "globalClimateFinance": "¿Deberían los países desarrollados aumentar significativamente el financiamiento climático para ayudar a los países en desarrollo a enfrentar los impactos del cambio climático y apoyar la transición hacia tecnologías bajas en carbono?",
