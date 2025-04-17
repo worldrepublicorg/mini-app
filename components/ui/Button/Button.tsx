@@ -8,7 +8,7 @@ import Spinner from "./Spinner";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "flex items-center justify-center gap-1 font-display font-semibold leading-[1.2] tracking-normal transition-all",
+  "flex items-center justify-center gap-1 font-display font-semibold leading-[1.2] tracking-normal transition-all rounded-full",
   {
     variants: {
       variant: {
@@ -25,13 +25,6 @@ const buttonVariants = cva(
         md: "h-12 min-w-12 px-3 text-base",
         lg: "h-14 min-w-14 px-4 text-base",
       },
-      radius: {
-        none: "rounded-none",
-        sm: "rounded",
-        md: "rounded-xl",
-        lg: "rounded-2xl",
-        full: "rounded-full",
-      },
       isLoading: {
         true: "",
         false: "",
@@ -44,7 +37,6 @@ const buttonVariants = cva(
     defaultVariants: {
       variant: "primary",
       size: "lg",
-      radius: "md",
       fullWidth: false,
     },
   }
@@ -78,11 +70,6 @@ export interface ButtonProps
    */
   size?: "sm" | "md" | "lg";
   /**
-   * The border radius of the button
-   * @default "md"
-   */
-  radius?: "none" | "sm" | "md" | "lg" | "full";
-  /**
    * Whether the button is in a loading state
    * @default false
    */
@@ -110,7 +97,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     {
       variant,
       size = "lg",
-      radius,
       className,
       isLoading,
       children,
@@ -129,7 +115,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           buttonVariants({
             variant,
             size,
-            radius,
             isLoading,
             fullWidth,
           }),
