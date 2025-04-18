@@ -929,7 +929,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   },
                 },
                 {
-                  label: party.active ? "Deactivate Party" : "Activate Party",
+                  label:
+                    party.status === 0
+                      ? "Deactivate Pending Party"
+                      : party.active
+                        ? "Deactivate Party"
+                        : "Activate Party",
                   onClick: () => {
                     setSelectedParty(party);
                     setIsDeactivateDrawerOpen(true);
@@ -1635,7 +1640,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           <div className="flex flex-col gap-4 p-6">
             <DrawerHeader>
               <DrawerTitle>
-                {selectedParty?.active ? "Deactivate" : "Activate"} Party
+                {selectedParty?.status === 0
+                  ? "Deactivate Pending Party"
+                  : selectedParty?.active
+                    ? "Deactivate Party"
+                    : "Activate Party"}
               </DrawerTitle>
             </DrawerHeader>
             <Typography
@@ -1656,9 +1665,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               >
                 {isProcessing
                   ? "Processing..."
-                  : selectedParty?.active
-                    ? "Deactivate Party"
-                    : "Activate Party"}
+                  : selectedParty?.status === 0
+                    ? "Deactivate Pending Party"
+                    : selectedParty?.active
+                      ? "Deactivate Party"
+                      : "Activate Party"}
               </Button>
               <Button
                 variant="tertiary"
