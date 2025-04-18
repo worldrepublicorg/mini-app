@@ -115,6 +115,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [activeMemberTab, setActiveMemberTab] = useState<
     "remove" | "ban" | "unban"
   >("remove");
+  const [leaderUsername, setLeaderUsername] = useState("");
+  const [memberUsername, setMemberUsername] = useState("");
+  const [leaderLookupError, setLeaderLookupError] = useState("");
+  const [leaderLookupResult, setLeaderLookupResult] = useState<any>(null);
+  const [memberLookupError, setMemberLookupError] = useState("");
+  const [memberLookupResult, setMemberLookupResult] = useState<any>(null);
+  const [isLeaderLookingUp, setIsLeaderLookingUp] = useState(false);
+  const [isMemberLookingUp, setIsMemberLookingUp] = useState(false);
 
   const { isLoading: isConfirming, isSuccess: isConfirmed } =
     useWaitForTransactionReceipt({
@@ -124,6 +132,64 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       },
       transactionId: transactionId,
     });
+
+  // Reusable function for username lookups
+  const performUsernameLookup = async (
+    username: string,
+    setAddress: (address: string) => void,
+    setError: (error: string) => void,
+    setIsLoading: (loading: boolean) => void,
+    setResult: (result: any) => void
+  ) => {
+    if (!username || !username.trim()) {
+      setError("Please enter a username");
+      return;
+    }
+
+    setIsLoading(true);
+    setError("");
+    setResult(null);
+
+    try {
+      // Use MiniKit API to look up username (if available)
+      if (MiniKit.isInstalled()) {
+        try {
+          // Try to get address by username first
+          const response = await fetch(
+            `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(username.trim())}`
+          );
+
+          if (!response.ok) {
+            if (response.status === 404) {
+              setError("Username not found");
+            } else {
+              setError(`Error: ${response.status} ${response.statusText}`);
+            }
+            setIsLoading(false);
+            return;
+          }
+
+          const data = await response.json();
+          setResult(data);
+
+          // Set the address for the transaction if we found a result
+          if (data.address) {
+            setAddress(data.address);
+          }
+        } catch (error) {
+          console.error("[Username] Error looking up username via API:", error);
+          setError("Failed to look up username. Please try again.");
+        }
+      } else {
+        setError("Please install MiniKit to look up usernames");
+      }
+    } catch (error) {
+      setError("Failed to look up username. Please try again.");
+      console.error("[Username] Username lookup error:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const shortenUrl = (url: string, maxLength = 20) => {
     if (!url) return "";
@@ -247,6 +313,28 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   useEffect(() => {
     fetchParties();
   }, [fetchParties]);
+
+  // Leader username lookup
+  const lookupLeaderUsername = async () => {
+    await performUsernameLookup(
+      leaderUsername,
+      setNewLeaderAddress,
+      setLeaderLookupError,
+      setIsLeaderLookingUp,
+      setLeaderLookupResult
+    );
+  };
+
+  // Member username lookup
+  const lookupMemberUsername = async () => {
+    await performUsernameLookup(
+      memberUsername,
+      setMemberToRemove,
+      setMemberLookupError,
+      setIsMemberLookingUp,
+      setMemberLookupResult
+    );
+  };
 
   const joinParty = async (partyId: number) => {
     if (!MiniKit.isInstalled()) {
@@ -1583,9 +1671,63 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               variant={{ variant: "body", level: 2 }}
               className="text-[15px]"
             >
-              Enter the wallet address of the new leader. The address must
-              belong to an existing party member.
+              Enter the wallet address of the new leader or look up by username.
+              The address must belong to an existing party member.
             </Typography>
+
+            {/* Username lookup section */}
+            <div className="mb-4">
+              <Typography
+                as="label"
+                variant={{ variant: "caption", level: 1 }}
+                className="mb-1.5 block text-[15px]"
+              >
+                Look up by username
+              </Typography>
+              <div className="flex gap-2">
+                <Input
+                  label="Enter World App username"
+                  value={leaderUsername}
+                  onChange={(e) => setLeaderUsername(e.target.value)}
+                  className="flex-1"
+                />
+                <Button
+                  variant="secondary"
+                  onClick={lookupLeaderUsername}
+                  disabled={isLeaderLookingUp || !leaderUsername.trim()}
+                >
+                  {isLeaderLookingUp ? "Looking up..." : "Lookup"}
+                </Button>
+              </div>
+
+              {leaderLookupError && (
+                <Typography as="p" className="text-red-500 mt-2 text-sm">
+                  {leaderLookupError}
+                </Typography>
+              )}
+
+              {/* Show lookup result if available */}
+              {leaderLookupResult && (
+                <div className="mt-2 rounded-lg bg-gray-50 p-3">
+                  <Typography
+                    as="p"
+                    variant={{ variant: "caption", level: 1 }}
+                    className="text-gray-700"
+                  >
+                    Found user:{" "}
+                    <span className="font-semibold">{leaderUsername}</span>
+                  </Typography>
+                  <Typography
+                    as="p"
+                    variant={{ variant: "caption", level: 1 }}
+                    className="truncate text-gray-500"
+                  >
+                    Address: {leaderLookupResult.address}
+                  </Typography>
+                </div>
+              )}
+            </div>
+
             <Form.Root
               onSubmit={(e) => {
                 e.preventDefault();
@@ -1641,9 +1783,63 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               variant={{ variant: "body", level: 2 }}
               className="text-[15px]"
             >
-              Enter the wallet address of the member you want to remove from the
-              party.
+              Enter the wallet address of the member you want to remove or look
+              up by username.
             </Typography>
+
+            {/* Username lookup section */}
+            <div className="mb-4">
+              <Typography
+                as="label"
+                variant={{ variant: "caption", level: 1 }}
+                className="mb-1.5 block text-[15px]"
+              >
+                Look up by username
+              </Typography>
+              <div className="flex gap-2">
+                <Input
+                  label="Enter World App username"
+                  value={memberUsername}
+                  onChange={(e) => setMemberUsername(e.target.value)}
+                  className="flex-1"
+                />
+                <Button
+                  variant="secondary"
+                  onClick={lookupMemberUsername}
+                  disabled={isMemberLookingUp || !memberUsername.trim()}
+                >
+                  {isMemberLookingUp ? "Looking up..." : "Lookup"}
+                </Button>
+              </div>
+
+              {memberLookupError && (
+                <Typography as="p" className="text-red-500 mt-2 text-sm">
+                  {memberLookupError}
+                </Typography>
+              )}
+
+              {/* Show lookup result if available */}
+              {memberLookupResult && (
+                <div className="mt-2 rounded-lg bg-gray-50 p-3">
+                  <Typography
+                    as="p"
+                    variant={{ variant: "caption", level: 1 }}
+                    className="text-gray-700"
+                  >
+                    Found user:{" "}
+                    <span className="font-semibold">{memberUsername}</span>
+                  </Typography>
+                  <Typography
+                    as="p"
+                    variant={{ variant: "caption", level: 1 }}
+                    className="truncate text-gray-500"
+                  >
+                    Address: {memberLookupResult.address}
+                  </Typography>
+                </div>
+              )}
+            </div>
+
             <Form.Root
               onSubmit={(e) => {
                 e.preventDefault();
@@ -2136,7 +2332,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 }`}
                 onClick={() => setActiveMemberTab("remove")}
               >
-                Remove Member
+                Remove
               </button>
               <button
                 className={`h-9 items-center px-4 font-sans text-sm font-medium ${
@@ -2144,7 +2340,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 }`}
                 onClick={() => setActiveMemberTab("ban")}
               >
-                Ban Member
+                Ban
               </button>
               <button
                 className={`h-9 items-center px-4 font-sans text-sm font-medium ${
@@ -2152,7 +2348,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 }`}
                 onClick={() => setActiveMemberTab("unban")}
               >
-                Unban Member
+                Unban
               </button>
             </div>
 
@@ -2164,9 +2360,63 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   variant={{ variant: "body", level: 2 }}
                   className="text-[15px]"
                 >
-                  Enter the wallet address of the member you want to remove from
-                  the party.
+                  Enter the wallet address of the member you want to remove or
+                  look up by username.
                 </Typography>
+
+                {/* Username lookup section for member removal in the tab */}
+                <div className="mb-4">
+                  <Typography
+                    as="label"
+                    variant={{ variant: "caption", level: 1 }}
+                    className="mb-1.5 block text-[15px]"
+                  >
+                    Look up by username
+                  </Typography>
+                  <div className="flex gap-2">
+                    <Input
+                      label="Enter World App username"
+                      value={memberUsername}
+                      onChange={(e) => setMemberUsername(e.target.value)}
+                      className="flex-1"
+                    />
+                    <Button
+                      variant="secondary"
+                      onClick={lookupMemberUsername}
+                      disabled={isMemberLookingUp || !memberUsername.trim()}
+                    >
+                      {isMemberLookingUp ? "Looking up..." : "Lookup"}
+                    </Button>
+                  </div>
+
+                  {memberLookupError && (
+                    <Typography as="p" className="text-red-500 mt-2 text-sm">
+                      {memberLookupError}
+                    </Typography>
+                  )}
+
+                  {/* Show lookup result if available */}
+                  {memberLookupResult && (
+                    <div className="mt-2 rounded-lg bg-gray-50 p-3">
+                      <Typography
+                        as="p"
+                        variant={{ variant: "caption", level: 1 }}
+                        className="text-gray-700"
+                      >
+                        Found user:{" "}
+                        <span className="font-semibold">{memberUsername}</span>
+                      </Typography>
+                      <Typography
+                        as="p"
+                        variant={{ variant: "caption", level: 1 }}
+                        className="truncate text-gray-500"
+                      >
+                        Address: {memberLookupResult.address}
+                      </Typography>
+                    </div>
+                  )}
+                </div>
+
                 <Form.Root
                   onSubmit={(e) => {
                     e.preventDefault();
