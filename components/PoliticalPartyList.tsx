@@ -1429,7 +1429,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   variant={{ variant: "caption", level: 1 }}
                   className="mb-1.5 block text-[15px]"
                 >
-                  Party Name
+                  Party name
                 </Typography>
                 <Form.Control asChild>
                   <Input
@@ -1455,7 +1455,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   variant={{ variant: "caption", level: 1 }}
                   className="mb-1.5 block text-[15px]"
                 >
-                  Short Name
+                  Short name
                 </Typography>
                 <Form.Control asChild>
                   <Input
@@ -1509,7 +1509,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   variant={{ variant: "caption", level: 1 }}
                   className="mb-1.5 block text-[15px]"
                 >
-                  Official Link
+                  Official link
                 </Typography>
                 <Form.Control asChild>
                   <Input
