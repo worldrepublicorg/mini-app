@@ -1576,7 +1576,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         <DrawerContent>
           <div className="flex flex-col gap-4 p-6">
             <DrawerHeader>
-              <DrawerTitle>Transfer Party Leadership</DrawerTitle>
+              <DrawerTitle>Transfer Leadership</DrawerTitle>
             </DrawerHeader>
             <Typography
               as="p"
