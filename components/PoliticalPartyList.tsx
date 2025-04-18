@@ -18,12 +18,12 @@ import {
   DrawerContent,
   DrawerHeader,
   DrawerTitle,
+  Form,
+  Input,
+  TextArea,
 } from "@worldcoin/mini-apps-ui-kit-react";
-import { Input } from "@/components/ui/Input";
-import { Textarea } from "@/components/ui/Textarea";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { FaPlus } from "react-icons/fa";
-import * as Form from "@/components/ui/Form/Form";
 
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
   "0x9Dc52F24d9552bA4591ec6e3CdB4045F19B7fB26";
@@ -1011,7 +1011,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 </Typography>
                 <Form.Control asChild>
                   <Input
-                    placeholder="Enter party name"
+                    label="Enter party name"
                     value={createPartyForm.name}
                     onChange={(e) =>
                       setCreatePartyForm((prev) => ({
@@ -1037,7 +1037,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 </Typography>
                 <Form.Control asChild>
                   <Input
-                    placeholder="Enter short name or abbreviation"
+                    label="Enter short name or abbreviation"
                     value={createPartyForm.shortName}
                     onChange={(e) =>
                       setCreatePartyForm((prev) => ({
@@ -1063,8 +1063,8 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   Description
                 </Typography>
                 <Form.Control asChild>
-                  <Textarea
-                    placeholder="Enter party description"
+                  <TextArea
+                    label="Enter party description"
                     value={createPartyForm.description}
                     onChange={(e) =>
                       setCreatePartyForm((prev) => ({
@@ -1091,7 +1091,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 </Typography>
                 <Form.Control asChild>
                   <Input
-                    placeholder="Enter official website or community link"
+                    label="Enter official website or community link"
                     value={createPartyForm.officialLink}
                     onChange={(e) =>
                       setCreatePartyForm((prev) => ({
@@ -1143,7 +1143,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 </Typography>
                 <Form.Control asChild>
                   <Input
-                    placeholder="Enter party name"
+                    label="Enter party name"
                     value={updatePartyForm.name}
                     onChange={(e) =>
                       setUpdatePartyForm((prev) => ({
@@ -1169,7 +1169,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 </Typography>
                 <Form.Control asChild>
                   <Input
-                    placeholder="Enter short name or abbreviation"
+                    label="Enter short name or abbreviation"
                     value={updatePartyForm.shortName}
                     onChange={(e) =>
                       setUpdatePartyForm((prev) => ({
@@ -1195,8 +1195,8 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   Description
                 </Typography>
                 <Form.Control asChild>
-                  <Textarea
-                    placeholder="Enter party description"
+                  <TextArea
+                    label="Enter party description"
                     value={updatePartyForm.description}
                     onChange={(e) =>
                       setUpdatePartyForm((prev) => ({
@@ -1223,7 +1223,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 </Typography>
                 <Form.Control asChild>
                   <Input
-                    placeholder="Enter official website or community link"
+                    label="Enter official website or community link"
                     value={updatePartyForm.officialLink}
                     onChange={(e) =>
                       setUpdatePartyForm((prev) => ({
@@ -1283,7 +1283,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 </Typography>
                 <Form.Control asChild>
                   <Input
-                    placeholder="Enter wallet address (0x...)"
+                    label="Enter wallet address (0x...)"
                     value={newLeaderAddress}
                     onChange={(e) => setNewLeaderAddress(e.target.value)}
                     required
@@ -1345,7 +1345,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 </Typography>
                 <Form.Control asChild>
                   <Input
-                    placeholder="Enter wallet address (0x...)"
+                    label="Enter wallet address (0x...)"
                     value={memberToRemove}
                     onChange={(e) => setMemberToRemove(e.target.value)}
                     required
