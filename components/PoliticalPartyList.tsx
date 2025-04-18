@@ -38,7 +38,7 @@ interface Party {
   verifiedMemberCount: number;
   creationTime: number;
   active: boolean;
-  status: number;
+  status: number; // 0: PENDING, 1: ACTIVE, 2: INACTIVE
   isUserMember?: boolean;
   isUserLeader?: boolean;
 }
@@ -897,9 +897,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       setIsProcessing(true);
 
       // Choose function based on current party status
-      const functionName = selectedParty.active
-        ? "deactivateParty"
-        : "reactivateParty";
+      const functionName =
+        selectedParty.status === 1 || selectedParty.status === 0
+          ? "deactivateParty"
+          : "reactivateParty";
       const functionAbi = `function ${functionName}(uint256 _partyId) external`;
 
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
@@ -916,7 +917,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       if (finalPayload.status === "error") {
         if (finalPayload.error_code !== "user_rejected") {
           showToast(
-            `Failed to ${selectedParty.active ? "deactivate" : "reactivate"} party`,
+            `Failed to ${selectedParty.status !== 2 ? "deactivate" : "reactivate"} party`,
             "error"
           );
         }
@@ -927,10 +928,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             party.id === selectedParty.id
               ? {
                   ...party,
-                  active: !party.active,
+                  active: party.status === 2, // If currently INACTIVE, set active to true
                   // When deactivating: status becomes 2 (INACTIVE)
                   // When reactivating: status becomes 0 (PENDING), not 1 (ACTIVE)
-                  status: party.active ? 2 : 0,
+                  status: party.status !== 2 ? 2 : 0,
                 }
               : party
           )
@@ -938,17 +939,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
         setIsDeactivateDrawerOpen(false);
         showToast(
-          `Party ${selectedParty.active ? "deactivated" : "reactivated"} successfully`,
+          `Party ${selectedParty.status !== 2 ? "deactivated" : "reactivated"} successfully`,
           "success"
         );
       }
     } catch (error) {
       console.error(
-        `Error ${selectedParty.active ? "deactivating" : "reactivating"} party:`,
+        `Error ${selectedParty.status !== 2 ? "deactivating" : "reactivating"} party:`,
         error
       );
       showToast(
-        `Error ${selectedParty.active ? "deactivating" : "reactivating"} party`,
+        `Error ${selectedParty.status !== 2 ? "deactivating" : "reactivating"} party`,
         "error"
       );
     } finally {
@@ -1208,18 +1209,18 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               }
               menuItems={[
                 {
-                  label: "Manage Members",
+                  label: "Manage members",
                   onClick: () => {
                     setSelectedParty(party);
                     setIsMemberManagementDrawerOpen(true);
                   },
                 },
                 {
-                  label: "Update Party Info",
+                  label: "Update party info",
                   onClick: () => openUpdatePartyDrawer(party),
                 },
                 {
-                  label: "Transfer Leadership",
+                  label: "Transfer leadership",
                   onClick: () => {
                     setSelectedParty(party);
                     setIsTransferLeadershipDrawerOpen(true);
@@ -1227,11 +1228,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 },
                 {
                   label:
-                    party.status === 0
-                      ? "Deactivate Party"
-                      : party.active
-                        ? "Deactivate Party"
-                        : "Activate Party",
+                    party.status === 2
+                      ? "Reactivate party"
+                      : "Deactivate party",
                   onClick: () => {
                     setSelectedParty(party);
                     setIsDeactivateDrawerOpen(true);
@@ -2045,11 +2044,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           <div className="flex flex-col gap-4 p-6">
             <DrawerHeader>
               <DrawerTitle>
-                {selectedParty?.status === 0
-                  ? "Deactivate Pending Party"
-                  : selectedParty?.active
-                    ? "Deactivate Party"
-                    : "Activate Party"}
+                {selectedParty?.status === 2
+                  ? "Reactivate Party"
+                  : "Deactivate Party"}
               </DrawerTitle>
             </DrawerHeader>
             <Typography
@@ -2059,7 +2056,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             >
               {selectedParty?.status === 0
                 ? "Are you sure you want to deactivate this pending party? Inactive parties won't appear in the main listings."
-                : selectedParty?.active
+                : selectedParty?.status === 1
                   ? "Are you sure you want to deactivate this party? Inactive parties won't appear in the main listings."
                   : "Do you want to reactivate this party?"}
             </Typography>
@@ -2074,9 +2071,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   ? "Processing..."
                   : selectedParty?.status === 0
                     ? "Deactivate Pending Party"
-                    : selectedParty?.active
+                    : selectedParty?.status === 1
                       ? "Deactivate Party"
-                      : "Activate Party"}
+                      : "Reactivate Party"}
               </Button>
               <Button
                 variant="tertiary"
