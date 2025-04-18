@@ -227,6 +227,37 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       return;
     }
 
+    // Check if user is already in a party
+    const userCurrentParty = parties.find((party) => party.isUserMember);
+    if (userCurrentParty) {
+      // Create a confirmation dialog with the option to leave current party
+      if (
+        confirm(
+          `You are already a member of ${userCurrentParty.name}. You must leave your current party before joining a new one. Would you like to leave ${userCurrentParty.name} now?`
+        )
+      ) {
+        try {
+          // Leave the current party first
+          await leaveParty(userCurrentParty.id);
+
+          // Small delay to ensure blockchain state updates
+          setTimeout(() => {
+            // Now try to join the new party
+            joinNewParty(partyId);
+          }, 500);
+        } catch (error) {
+          console.error("Error in leave-and-join flow:", error);
+        }
+      }
+      return;
+    }
+
+    // If not in a party, directly join the new party
+    joinNewParty(partyId);
+  };
+
+  // Helper function to handle the actual joining logic
+  const joinNewParty = async (partyId: number) => {
     try {
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
@@ -839,6 +870,16 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               Transfer Leadership
             </Button>
           </>
+        ) : party.isUserMember ? (
+          <Button
+            className="px-6"
+            variant="secondary"
+            size="sm"
+            fullWidth
+            onClick={() => leaveParty(party.id)}
+          >
+            Leave Party
+          </Button>
         ) : (
           <Button
             className="px-6"
