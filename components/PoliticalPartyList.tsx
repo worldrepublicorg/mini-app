@@ -57,7 +57,6 @@ interface PoliticalPartyListProps {
 export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [parties, setParties] = useState<Party[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [userPartyId, setUserPartyId] = useState<number>(0);
   const [activeTab, setActiveTab] = useState<"top" | "new" | "pending">("top");
   const { walletAddress } = useWallet();
   const { showToast } = useToast();
@@ -123,6 +122,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [memberLookupResult, setMemberLookupResult] = useState<any>(null);
   const [isLeaderLookingUp, setIsLeaderLookingUp] = useState(false);
   const [isMemberLookingUp, setIsMemberLookingUp] = useState(false);
+  const [userPartyId, setUserPartyId] = useState<number>(0);
 
   const { isLoading: isConfirming, isSuccess: isConfirmed } =
     useWaitForTransactionReceipt({
@@ -255,7 +255,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         (_, i) => i + 1
       );
 
-      // Check user's party instead of getting an array of parties
+      // Check user's party
       let userParty = 0;
       if (walletAddress) {
         const userPartyResult = await viemClient.readContract({
@@ -342,14 +342,18 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       return;
     }
 
-    // Check if user is already in a party
-    const userCurrentParty = parties.find((party) => party.isUserMember);
-    if (userCurrentParty) {
-      // Open confirmation drawer instead of using confirm()
-      setPartyToLeaveFrom(userCurrentParty);
-      setPartyToJoin(partyId);
-      setIsLeaveConfirmDrawerOpen(true);
-      return;
+    // Use userPartyId directly instead of finding in the array
+    if (userPartyId > 0) {
+      // Get party details from parties array for the drawer
+      const userCurrentParty = parties.find(
+        (party) => party.id === userPartyId
+      );
+      if (userCurrentParty) {
+        setPartyToLeaveFrom(userCurrentParty);
+        setPartyToJoin(partyId);
+        setIsLeaveConfirmDrawerOpen(true);
+        return;
+      }
     }
 
     // If not in a party, directly join the new party
@@ -790,13 +794,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   };
 
   const handleCreatePartyClick = () => {
-    // Check if user is already in a party
-    const userCurrentParty = parties.find((party) => party.isUserMember);
-    if (userCurrentParty) {
-      // Open confirmation drawer instead of proceeding directly
-      setPartyToLeaveFrom(userCurrentParty);
-      setIsCreateConfirmDrawerOpen(true);
-      return;
+    // Check if user is already in a party using userPartyId
+    if (userPartyId > 0) {
+      // Get party details from parties array for the drawer
+      const userCurrentParty = parties.find(
+        (party) => party.id === userPartyId
+      );
+      if (userCurrentParty) {
+        setPartyToLeaveFrom(userCurrentParty);
+        setIsCreateConfirmDrawerOpen(true);
+        return;
+      }
     }
 
     // If not in a party, directly open the create drawer
@@ -1148,8 +1156,8 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   // Filter parties based on tab selection
   const filteredParties = parties
     .filter((party) => {
-      // First filter for parties the user is not a member of
-      if (party.isUserMember) return false;
+      // First filter for parties the user is not a member of - use userPartyId
+      if (party.id === userPartyId) return false;
 
       // Then filter based on tab
       if (activeTab === "pending") {
@@ -1342,11 +1350,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           </button>
         </div>
 
-        {parties.some((party) => party.isUserMember) ? (
+        {userPartyId > 0 ? (
           // Display the user's party
           <>
             {parties
-              .filter((party) => party.isUserMember)
+              .filter((party) => party.id === userPartyId)
               .map((party) => renderPartyCard(party))}
           </>
         ) : (
