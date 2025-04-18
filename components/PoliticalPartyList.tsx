@@ -97,6 +97,19 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [isCreateConfirmDrawerOpen, setIsCreateConfirmDrawerOpen] =
     useState(false);
   const [isDeactivateDrawerOpen, setIsDeactivateDrawerOpen] = useState(false);
+  const [isBannedMembersDrawerOpen, setIsBannedMembersDrawerOpen] =
+    useState(false);
+  const [bannedMemberToUnban, setBannedMemberToUnban] = useState("");
+  const [bannedMemberUsername, setBannedMemberUsername] = useState("");
+  const [isLookingUp, setIsLookingUp] = useState(false);
+  const [lookupError, setLookupError] = useState("");
+  const [lookupResult, setLookupResult] = useState<any>(null);
+  const [memberToBan, setMemberToBan] = useState("");
+  const [isBanMemberDrawerOpen, setIsBanMemberDrawerOpen] = useState(false);
+  const [memberToBanUsername, setMemberToBanUsername] = useState("");
+  const [banLookupError, setBanLookupError] = useState("");
+  const [banLookupResult, setBanLookupResult] = useState<any>(null);
+  const [isBanLookingUp, setIsBanLookingUp] = useState(false);
 
   const { isLoading: isConfirming, isSuccess: isConfirmed } =
     useWaitForTransactionReceipt({
@@ -850,6 +863,190 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     }
   };
 
+  const unbanMember = async () => {
+    if (!selectedParty || !MiniKit.isInstalled() || !bannedMemberToUnban) {
+      showToast("Please provide a valid address", "error");
+      return;
+    }
+
+    try {
+      setIsProcessing(true);
+      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
+        transaction: [
+          {
+            address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
+            abi: parseAbi([
+              "function unbanMember(uint256 _partyId, address _member) external",
+            ]),
+            functionName: "unbanMember",
+            args: [
+              BigInt(selectedParty.id),
+              bannedMemberToUnban as `0x${string}`,
+            ],
+          },
+        ],
+      });
+
+      if (finalPayload.status === "error") {
+        if (finalPayload.error_code !== "user_rejected") {
+          showToast("Failed to unban member", "error");
+        }
+      } else {
+        setIsBannedMembersDrawerOpen(false);
+        showToast("Member unbanned successfully", "success");
+      }
+    } catch (error) {
+      console.error("Error unbanning member:", error);
+      showToast("Error unbanning member", "error");
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
+  // For looking up username to unban
+  const lookupUsername = async () => {
+    if (!bannedMemberUsername || !bannedMemberUsername.trim()) {
+      setLookupError("Please enter a username");
+      return;
+    }
+
+    setIsLookingUp(true);
+    setLookupError("");
+    setLookupResult(null);
+
+    try {
+      // Use MiniKit API to look up username (if available)
+      if (MiniKit.isInstalled()) {
+        try {
+          // Try to get address by username first
+          const response = await fetch(
+            `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(bannedMemberUsername.trim())}`
+          );
+
+          if (!response.ok) {
+            if (response.status === 404) {
+              setLookupError("Username not found");
+            } else {
+              setLookupError(
+                `Error: ${response.status} ${response.statusText}`
+              );
+            }
+            return;
+          }
+
+          const data = await response.json();
+          setLookupResult(data);
+
+          // Set the address for the transaction if we found a result
+          if (data.address) {
+            setBannedMemberToUnban(data.address);
+          }
+        } catch (error) {
+          console.error("[Username] Error looking up username via API:", error);
+          setLookupError("Failed to look up username. Please try again.");
+        }
+      } else {
+        setLookupError("Please install MiniKit to look up usernames");
+      }
+    } catch (error) {
+      setLookupError("Failed to look up username. Please try again.");
+      console.error("[Username] Username lookup error:", error);
+    } finally {
+      setIsLookingUp(false);
+    }
+  };
+
+  // For looking up username to ban
+  const lookupBanUsername = async () => {
+    if (!memberToBanUsername || !memberToBanUsername.trim()) {
+      setBanLookupError("Please enter a username");
+      return;
+    }
+
+    setIsBanLookingUp(true);
+    setBanLookupError("");
+    setBanLookupResult(null);
+
+    try {
+      // Use MiniKit API to look up username (if available)
+      if (MiniKit.isInstalled()) {
+        try {
+          // Try to get address by username first
+          const response = await fetch(
+            `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(memberToBanUsername.trim())}`
+          );
+
+          if (!response.ok) {
+            if (response.status === 404) {
+              setBanLookupError("Username not found");
+            } else {
+              setBanLookupError(
+                `Error: ${response.status} ${response.statusText}`
+              );
+            }
+            return;
+          }
+
+          const data = await response.json();
+          setBanLookupResult(data);
+
+          // Set the address for the transaction if we found a result
+          if (data.address) {
+            setMemberToBan(data.address);
+          }
+        } catch (error) {
+          console.error("[Username] Error looking up username via API:", error);
+          setBanLookupError("Failed to look up username. Please try again.");
+        }
+      } else {
+        setBanLookupError("Please install MiniKit to look up usernames");
+      }
+    } catch (error) {
+      setBanLookupError("Failed to look up username. Please try again.");
+      console.error("[Username] Username lookup error:", error);
+    } finally {
+      setIsBanLookingUp(false);
+    }
+  };
+
+  // Ban member function
+  const banMember = async () => {
+    if (!selectedParty || !MiniKit.isInstalled() || !memberToBan) {
+      showToast("Please provide a valid address", "error");
+      return;
+    }
+
+    try {
+      setIsProcessing(true);
+      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
+        transaction: [
+          {
+            address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
+            abi: parseAbi([
+              "function banMember(uint256 _partyId, address _member) external",
+            ]),
+            functionName: "banMember",
+            args: [BigInt(selectedParty.id), memberToBan as `0x${string}`],
+          },
+        ],
+      });
+
+      if (finalPayload.status === "error") {
+        if (finalPayload.error_code !== "user_rejected") {
+          showToast("Failed to ban member", "error");
+        }
+      } else {
+        setIsBanMemberDrawerOpen(false);
+        showToast("Member banned successfully", "success");
+      }
+    } catch (error) {
+      console.error("Error banning member:", error);
+      showToast("Error banning member", "error");
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
   if (isLoading) {
     return <LoadingSkeleton />;
   }
@@ -945,6 +1142,20 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   onClick: () => {
                     setSelectedParty(party);
                     setIsDeactivateDrawerOpen(true);
+                  },
+                },
+                {
+                  label: "Manage Banned Members",
+                  onClick: () => {
+                    setSelectedParty(party);
+                    setIsBannedMembersDrawerOpen(true);
+                  },
+                },
+                {
+                  label: "Ban Member",
+                  onClick: () => {
+                    setSelectedParty(party);
+                    setIsBanMemberDrawerOpen(true);
                   },
                 },
               ]}
@@ -1686,6 +1897,232 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 Cancel
               </Button>
             </div>
+          </div>
+        </DrawerContent>
+      </Drawer>
+
+      {/* Banned Members Drawer */}
+      <Drawer
+        open={isBannedMembersDrawerOpen}
+        onOpenChange={setIsBannedMembersDrawerOpen}
+      >
+        <DrawerContent>
+          <div className="flex flex-col gap-4 p-6">
+            <DrawerHeader>
+              <DrawerTitle>Manage Banned Members</DrawerTitle>
+            </DrawerHeader>
+            <Typography
+              as="p"
+              variant={{ variant: "body", level: 2 }}
+              className="text-[15px]"
+            >
+              Enter the username or wallet address of the banned member you want
+              to allow back to the party.
+            </Typography>
+
+            {/* Username lookup section */}
+            <div className="mb-4">
+              <Typography
+                as="label"
+                variant={{ variant: "caption", level: 1 }}
+                className="mb-1.5 block text-[15px]"
+              >
+                Look up by username
+              </Typography>
+              <div className="flex gap-2">
+                <Input
+                  label="Enter World App username"
+                  value={bannedMemberUsername}
+                  onChange={(e) => setBannedMemberUsername(e.target.value)}
+                  className="flex-1"
+                />
+                <Button
+                  variant="secondary"
+                  onClick={lookupUsername}
+                  disabled={isLookingUp || !bannedMemberUsername.trim()}
+                >
+                  {isLookingUp ? "Looking up..." : "Lookup"}
+                </Button>
+              </div>
+
+              {lookupError && (
+                <Typography as="p" className="text-red-500 mt-2 text-sm">
+                  {lookupError}
+                </Typography>
+              )}
+
+              {/* Show lookup result if available */}
+              {lookupResult && (
+                <div className="mt-2 rounded-lg bg-gray-50 p-3">
+                  <Typography
+                    as="p"
+                    variant={{ variant: "caption", level: 1 }}
+                    className="text-gray-700"
+                  >
+                    Found user:{" "}
+                    <span className="font-semibold">
+                      {bannedMemberUsername}
+                    </span>
+                  </Typography>
+                  <Typography
+                    as="p"
+                    variant={{ variant: "caption", level: 1 }}
+                    className="truncate text-gray-500"
+                  >
+                    Address: {lookupResult.address}
+                  </Typography>
+                </div>
+              )}
+            </div>
+
+            <Form.Root
+              onSubmit={(e) => {
+                e.preventDefault();
+                unbanMember();
+              }}
+            >
+              <Form.Field name="bannedMemberAddress">
+                <Typography
+                  as="label"
+                  variant={{ variant: "caption", level: 1 }}
+                  className="mb-1.5 block text-[15px]"
+                >
+                  Member Address
+                </Typography>
+                <Form.Control asChild>
+                  <Input
+                    label="Enter wallet address (0x...)"
+                    value={bannedMemberToUnban}
+                    onChange={(e) => setBannedMemberToUnban(e.target.value)}
+                    required
+                    pattern="^0x[a-fA-F0-9]{40}$"
+                  />
+                </Form.Control>
+                <Form.Message match="valueMissing" error>
+                  Please enter an address
+                </Form.Message>
+                <Form.Message match="patternMismatch" error>
+                  Please enter a valid Ethereum address (0x...)
+                </Form.Message>
+              </Form.Field>
+              <Form.Submit asChild className="mt-4">
+                <Button variant="primary" fullWidth disabled={isProcessing}>
+                  {isProcessing ? "Processing..." : "Unban Member"}
+                </Button>
+              </Form.Submit>
+            </Form.Root>
+          </div>
+        </DrawerContent>
+      </Drawer>
+
+      {/* Ban Member Drawer */}
+      <Drawer
+        open={isBanMemberDrawerOpen}
+        onOpenChange={setIsBanMemberDrawerOpen}
+      >
+        <DrawerContent>
+          <div className="flex flex-col gap-4 p-6">
+            <DrawerHeader>
+              <DrawerTitle>Ban Member</DrawerTitle>
+            </DrawerHeader>
+            <Typography
+              as="p"
+              variant={{ variant: "body", level: 2 }}
+              className="text-[15px]"
+            >
+              Enter the username or wallet address of the member you want to ban
+              from the party.
+            </Typography>
+
+            {/* Username lookup section */}
+            <div className="mb-4">
+              <Typography
+                as="label"
+                variant={{ variant: "caption", level: 1 }}
+                className="mb-1.5 block text-[15px]"
+              >
+                Look up by username
+              </Typography>
+              <div className="flex gap-2">
+                <Input
+                  label="Enter World App username"
+                  value={memberToBanUsername}
+                  onChange={(e) => setMemberToBanUsername(e.target.value)}
+                  className="flex-1"
+                />
+                <Button
+                  variant="secondary"
+                  onClick={lookupBanUsername}
+                  disabled={isBanLookingUp || !memberToBanUsername.trim()}
+                >
+                  {isBanLookingUp ? "Looking up..." : "Lookup"}
+                </Button>
+              </div>
+
+              {banLookupError && (
+                <Typography as="p" className="text-red-500 mt-2 text-sm">
+                  {banLookupError}
+                </Typography>
+              )}
+
+              {/* Show lookup result if available */}
+              {banLookupResult && (
+                <div className="mt-2 rounded-lg bg-gray-50 p-3">
+                  <Typography
+                    as="p"
+                    variant={{ variant: "caption", level: 1 }}
+                    className="text-gray-700"
+                  >
+                    Found user:{" "}
+                    <span className="font-semibold">{memberToBanUsername}</span>
+                  </Typography>
+                  <Typography
+                    as="p"
+                    variant={{ variant: "caption", level: 1 }}
+                    className="truncate text-gray-500"
+                  >
+                    Address: {banLookupResult.address}
+                  </Typography>
+                </div>
+              )}
+            </div>
+
+            <Form.Root
+              onSubmit={(e) => {
+                e.preventDefault();
+                banMember();
+              }}
+            >
+              <Form.Field name="memberAddress">
+                <Typography
+                  as="label"
+                  variant={{ variant: "caption", level: 1 }}
+                  className="mb-1.5 block text-[15px]"
+                >
+                  Member Address
+                </Typography>
+                <Form.Control asChild>
+                  <Input
+                    label="Enter wallet address (0x...)"
+                    value={memberToBan}
+                    onChange={(e) => setMemberToBan(e.target.value)}
+                    required
+                    pattern="^0x[a-fA-F0-9]{40}$"
+                  />
+                </Form.Control>
+                <Form.Message match="valueMissing" error>
+                  Please enter an address
+                </Form.Message>
+                <Form.Message match="patternMismatch" error>
+                  Please enter a valid Ethereum address (0x...)
+                </Form.Message>
+              </Form.Field>
+              <Form.Submit asChild className="mt-4">
+                <Button variant="primary" fullWidth disabled={isProcessing}>
+                  {isProcessing ? "Processing..." : "Ban Member"}
+                </Button>
+              </Form.Submit>
+            </Form.Root>
           </div>
         </DrawerContent>
       </Drawer>
