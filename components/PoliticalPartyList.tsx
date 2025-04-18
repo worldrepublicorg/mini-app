@@ -1411,32 +1411,69 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             <DrawerHeader>
               <DrawerTitle>Confirmation Required</DrawerTitle>
             </DrawerHeader>
-            <Typography
-              as="p"
-              variant={{ variant: "body", level: 2 }}
-              className="text-[15px]"
-            >
-              You are already a member of {partyToLeaveFrom?.name}. You must
-              leave your current party before joining a new one.
-            </Typography>
+            {partyToLeaveFrom?.isUserLeader ? (
+              <Typography
+                as="p"
+                variant={{ variant: "body", level: 2 }}
+                className="text-[15px]"
+              >
+                You are currently the leader of {partyToLeaveFrom?.name}. You
+                must transfer leadership to another member before you can leave
+                the party.
+              </Typography>
+            ) : (
+              <Typography
+                as="p"
+                variant={{ variant: "body", level: 2 }}
+                className="text-[15px]"
+              >
+                You are already a member of {partyToLeaveFrom?.name}. You must
+                leave your current party before joining a new one.
+              </Typography>
+            )}
             <div className="mt-4 flex flex-col gap-2">
-              <Button
-                variant="primary"
-                fullWidth
-                onClick={handleLeaveAndJoin}
-                disabled={isProcessing}
-              >
-                {isProcessing
-                  ? "Processing..."
-                  : `Leave ${partyToLeaveFrom?.name} and join new party`}
-              </Button>
-              <Button
-                variant="tertiary"
-                fullWidth
-                onClick={() => setIsLeaveConfirmDrawerOpen(false)}
-              >
-                Cancel
-              </Button>
+              {partyToLeaveFrom?.isUserLeader ? (
+                <>
+                  <Button
+                    variant="primary"
+                    fullWidth
+                    onClick={() => {
+                      setSelectedParty(partyToLeaveFrom);
+                      setIsTransferLeadershipDrawerOpen(true);
+                      setIsLeaveConfirmDrawerOpen(false);
+                    }}
+                  >
+                    Transfer Leadership
+                  </Button>
+                  <Button
+                    variant="tertiary"
+                    fullWidth
+                    onClick={() => setIsLeaveConfirmDrawerOpen(false)}
+                  >
+                    Cancel
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button
+                    variant="primary"
+                    fullWidth
+                    onClick={handleLeaveAndJoin}
+                    disabled={isProcessing}
+                  >
+                    {isProcessing
+                      ? "Processing..."
+                      : `Leave ${partyToLeaveFrom?.name} and join new party`}
+                  </Button>
+                  <Button
+                    variant="tertiary"
+                    fullWidth
+                    onClick={() => setIsLeaveConfirmDrawerOpen(false)}
+                  >
+                    Cancel
+                  </Button>
+                </>
+              )}
             </div>
           </div>
         </DrawerContent>
@@ -1452,32 +1489,69 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             <DrawerHeader>
               <DrawerTitle>Confirmation Required</DrawerTitle>
             </DrawerHeader>
-            <Typography
-              as="p"
-              variant={{ variant: "body", level: 2 }}
-              className="text-[15px]"
-            >
-              You are already a member of {partyToLeaveFrom?.name}. You must
-              leave your current party before creating a new one.
-            </Typography>
+            {partyToLeaveFrom?.isUserLeader ? (
+              <Typography
+                as="p"
+                variant={{ variant: "body", level: 2 }}
+                className="text-[15px]"
+              >
+                You are currently the leader of {partyToLeaveFrom?.name}. You
+                must transfer leadership to another member before you can leave
+                the party and create a new one.
+              </Typography>
+            ) : (
+              <Typography
+                as="p"
+                variant={{ variant: "body", level: 2 }}
+                className="text-[15px]"
+              >
+                You are already a member of {partyToLeaveFrom?.name}. You must
+                leave your current party before creating a new one.
+              </Typography>
+            )}
             <div className="mt-4 flex flex-col gap-2">
-              <Button
-                variant="primary"
-                fullWidth
-                onClick={handleLeaveAndCreate}
-                disabled={isProcessing}
-              >
-                {isProcessing
-                  ? "Processing..."
-                  : `Leave ${partyToLeaveFrom?.name} and create new party`}
-              </Button>
-              <Button
-                variant="tertiary"
-                fullWidth
-                onClick={() => setIsCreateConfirmDrawerOpen(false)}
-              >
-                Cancel
-              </Button>
+              {partyToLeaveFrom?.isUserLeader ? (
+                <>
+                  <Button
+                    variant="primary"
+                    fullWidth
+                    onClick={() => {
+                      setSelectedParty(partyToLeaveFrom);
+                      setIsTransferLeadershipDrawerOpen(true);
+                      setIsCreateConfirmDrawerOpen(false);
+                    }}
+                  >
+                    Transfer Leadership
+                  </Button>
+                  <Button
+                    variant="tertiary"
+                    fullWidth
+                    onClick={() => setIsCreateConfirmDrawerOpen(false)}
+                  >
+                    Cancel
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button
+                    variant="primary"
+                    fullWidth
+                    onClick={handleLeaveAndCreate}
+                    disabled={isProcessing}
+                  >
+                    {isProcessing
+                      ? "Processing..."
+                      : `Leave ${partyToLeaveFrom?.name} and create new party`}
+                  </Button>
+                  <Button
+                    variant="tertiary"
+                    fullWidth
+                    onClick={() => setIsCreateConfirmDrawerOpen(false)}
+                  >
+                    Cancel
+                  </Button>
+                </>
+              )}
             </div>
           </div>
         </DrawerContent>
