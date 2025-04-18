@@ -13,7 +13,12 @@ import {
   PiUsersBold,
   PiPencilSimpleBold,
 } from "react-icons/pi";
-import { Drawer, DrawerContent } from "@/components/ui/Drawer";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+} from "@worldcoin/mini-apps-ui-kit-react";
 import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
@@ -986,14 +991,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       {/* Create Party Drawer */}
       <Drawer open={isCreateDrawerOpen} onOpenChange={setIsCreateDrawerOpen}>
         <DrawerContent>
-          <div className="flex flex-col gap-4 p-6">
-            <Typography
-              as="h2"
-              variant={{ variant: "subtitle", level: 1 }}
-              className="text-[19px] font-semibold"
-            >
-              Create New Party
-            </Typography>
+          <div className="p-6">
+            <DrawerHeader>
+              <DrawerTitle>Create New Party</DrawerTitle>
+            </DrawerHeader>
             <Form.Root
               onSubmit={(e) => {
                 e.preventDefault();
