@@ -1164,13 +1164,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       >
         <DrawerContent>
           <div className="flex flex-col gap-4 p-6">
-            <Typography
-              as="h2"
-              variant={{ variant: "subtitle", level: 1 }}
-              className="text-[19px] font-semibold"
-            >
-              Update Party Details
-            </Typography>
+            <DrawerHeader>
+              <DrawerTitle>Update Party Details</DrawerTitle>
+            </DrawerHeader>
             <Form.Root
               onSubmit={(e) => {
                 e.preventDefault();
@@ -1296,13 +1292,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       >
         <DrawerContent>
           <div className="flex flex-col gap-4 p-6">
-            <Typography
-              as="h2"
-              variant={{ variant: "subtitle", level: 1 }}
-              className="text-[19px] font-semibold"
-            >
-              Transfer Party Leadership
-            </Typography>
+            <DrawerHeader>
+              <DrawerTitle>Transfer Party Leadership</DrawerTitle>
+            </DrawerHeader>
             <Typography
               as="p"
               variant={{ variant: "body", level: 2 }}
@@ -1358,13 +1350,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       >
         <DrawerContent>
           <div className="flex flex-col gap-4 p-6">
-            <Typography
-              as="h2"
-              variant={{ variant: "subtitle", level: 1 }}
-              className="text-[19px] font-semibold"
-            >
-              Remove Member
-            </Typography>
+            <DrawerHeader>
+              <DrawerTitle>Remove Member</DrawerTitle>
+            </DrawerHeader>
             <Typography
               as="p"
               variant={{ variant: "body", level: 2 }}
@@ -1420,13 +1408,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       >
         <DrawerContent>
           <div className="flex flex-col gap-4 p-6">
-            <Typography
-              as="h2"
-              variant={{ variant: "subtitle", level: 1 }}
-              className="text-[19px] font-semibold"
-            >
-              Confirmation Required
-            </Typography>
+            <DrawerHeader>
+              <DrawerTitle>Confirmation Required</DrawerTitle>
+            </DrawerHeader>
             <Typography
               as="p"
               variant={{ variant: "body", level: 2 }}
@@ -1465,13 +1449,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       >
         <DrawerContent>
           <div className="flex flex-col gap-4 p-6">
-            <Typography
-              as="h2"
-              variant={{ variant: "subtitle", level: 1 }}
-              className="text-[19px] font-semibold"
-            >
-              Confirmation Required
-            </Typography>
+            <DrawerHeader>
+              <DrawerTitle>Confirmation Required</DrawerTitle>
+            </DrawerHeader>
             <Typography
               as="p"
               variant={{ variant: "body", level: 2 }}
