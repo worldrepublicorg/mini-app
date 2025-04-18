@@ -1329,6 +1329,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     </div>
   );
 
+  // Add handleInputFocus function
+  const handleInputFocus = (e: React.FocusEvent) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="w-full">
       {/* My Party Section */}
@@ -1441,6 +1446,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         name: e.target.value,
                       }))
                     }
+                    onFocus={handleInputFocus}
                     required
                   />
                 </Form.Control>
@@ -1467,6 +1473,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         shortName: e.target.value,
                       }))
                     }
+                    onFocus={handleInputFocus}
                     maxLength={16}
                     required
                   />
@@ -1494,6 +1501,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         description: e.target.value,
                       }))
                     }
+                    onFocus={handleInputFocus}
                     rows={4}
                     required
                   />
@@ -1521,6 +1529,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         officialLink: e.target.value,
                       }))
                     }
+                    onFocus={handleInputFocus}
                   />
                 </Form.Control>
               </Form.Field>
@@ -1569,6 +1578,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         name: e.target.value,
                       }))
                     }
+                    onFocus={handleInputFocus}
                     required
                   />
                 </Form.Control>
@@ -1595,6 +1605,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         shortName: e.target.value,
                       }))
                     }
+                    onFocus={handleInputFocus}
                     maxLength={16}
                     required
                   />
@@ -1622,6 +1633,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         description: e.target.value,
                       }))
                     }
+                    onFocus={handleInputFocus}
                     rows={4}
                     required
                   />
@@ -1649,6 +1661,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         officialLink: e.target.value,
                       }))
                     }
+                    onFocus={handleInputFocus}
                   />
                 </Form.Control>
               </Form.Field>
@@ -1696,6 +1709,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   label="Enter World App username"
                   value={leaderUsername}
                   onChange={(e) => setLeaderUsername(e.target.value)}
+                  onFocus={handleInputFocus}
                   className="flex-1"
                 />
                 <Button
@@ -1754,6 +1768,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     label="Enter wallet address (0x...)"
                     value={newLeaderAddress}
                     onChange={(e) => setNewLeaderAddress(e.target.value)}
+                    onFocus={handleInputFocus}
                     required
                     pattern="^0x[a-fA-F0-9]{40}$"
                   />
@@ -2047,6 +2062,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       label="Enter World App username"
                       value={memberUsername}
                       onChange={(e) => setMemberUsername(e.target.value)}
+                      onFocus={handleInputFocus}
                       className="flex-1"
                     />
                     <Button
@@ -2105,6 +2121,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         label="Enter wallet address (0x...)"
                         value={memberToRemove}
                         onChange={(e) => setMemberToRemove(e.target.value)}
+                        onFocus={handleInputFocus}
                         required
                         pattern="^0x[a-fA-F0-9]{40}$"
                       />
@@ -2151,6 +2168,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       label="Enter World App username"
                       value={memberToBanUsername}
                       onChange={(e) => setMemberToBanUsername(e.target.value)}
+                      onFocus={handleInputFocus}
                       className="flex-1"
                     />
                     <Button
@@ -2211,6 +2229,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         label="Enter wallet address (0x...)"
                         value={memberToBan}
                         onChange={(e) => setMemberToBan(e.target.value)}
+                        onFocus={handleInputFocus}
                         required
                         pattern="^0x[a-fA-F0-9]{40}$"
                       />
@@ -2257,6 +2276,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       label="Enter World App username"
                       value={bannedMemberUsername}
                       onChange={(e) => setBannedMemberUsername(e.target.value)}
+                      onFocus={handleInputFocus}
                       className="flex-1"
                     />
                     <Button
@@ -2317,6 +2337,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         label="Enter wallet address (0x...)"
                         value={bannedMemberToUnban}
                         onChange={(e) => setBannedMemberToUnban(e.target.value)}
+                        onFocus={handleInputFocus}
                         required
                         pattern="^0x[a-fA-F0-9]{40}$"
                       />
