@@ -1427,7 +1427,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
-                  className="mb-1.5 block"
+                  className="mb-1.5 block font-medium"
                 >
                   Party name
                 </Typography>
@@ -1453,7 +1453,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
-                  className="mb-1.5 block"
+                  className="mb-1.5 block font-medium"
                 >
                   Short name
                 </Typography>
@@ -1480,7 +1480,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
-                  className="mb-1.5 block"
+                  className="mb-1.5 block font-medium"
                 >
                   Description
                 </Typography>
@@ -1507,7 +1507,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
-                  className="mb-1.5 block"
+                  className="mb-1.5 block font-medium"
                 >
                   Official link
                 </Typography>
@@ -1555,7 +1555,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
-                  className="mb-1.5 block"
+                  className="mb-1.5 block font-medium"
                 >
                   Party name
                 </Typography>
@@ -1581,7 +1581,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
-                  className="mb-1.5 block"
+                  className="mb-1.5 block font-medium"
                 >
                   Short name
                 </Typography>
@@ -1608,7 +1608,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
-                  className="mb-1.5 block"
+                  className="mb-1.5 block font-medium"
                 >
                   Description
                 </Typography>
@@ -1635,7 +1635,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
-                  className="mb-1.5 block"
+                  className="mb-1.5 block font-medium"
                 >
                   Official link
                 </Typography>
@@ -1745,7 +1745,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
-                  className="mb-1.5 block"
+                  className="mb-1.5 block font-medium"
                 >
                   New leader address
                 </Typography>
@@ -1857,7 +1857,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
-                  className="mb-1.5 block"
+                  className="mb-1.5 block font-medium"
                 >
                   Member address
                 </Typography>
@@ -2179,7 +2179,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
-                  className="mb-1.5 block"
+                  className="mb-1.5 block font-medium"
                 >
                   Member address
                 </Typography>
@@ -2291,7 +2291,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
-                  className="mb-1.5 block"
+                  className="mb-1.5 block font-medium"
                 >
                   Member address
                 </Typography>
@@ -2434,7 +2434,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     <Typography
                       as="label"
                       variant={{ variant: "caption", level: 1 }}
-                      className="mb-1.5 block"
+                      className="mb-1.5 block font-medium"
                     >
                       Member address
                     </Typography>
@@ -2540,7 +2540,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     <Typography
                       as="label"
                       variant={{ variant: "caption", level: 1 }}
-                      className="mb-1.5 block"
+                      className="mb-1.5 block font-medium"
                     >
                       Member address
                     </Typography>
@@ -2646,7 +2646,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     <Typography
                       as="label"
                       variant={{ variant: "caption", level: 1 }}
-                      className="mb-1.5 block"
+                      className="mb-1.5 block font-medium"
                     >
                       Member address
                     </Typography>
