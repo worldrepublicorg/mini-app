@@ -23,7 +23,7 @@ import { FaPlus } from "react-icons/fa";
 import { Dropdown } from "@/components/ui/Dropdown";
 
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
-  "0x9Dc52F24d9552bA4591ec6e3CdB4045F19B7fB26";
+  "0x66e50b996f4359A0bFe27e0020666cf1a67EC2FC";
 
 interface Party {
   id: number;
