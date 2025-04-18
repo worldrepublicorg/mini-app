@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import type { FocusEvent as ReactFocusEvent } from "react";
 import { parseAbi } from "viem";
 import { viemClient } from "@/lib/viemClient";
 import { useWallet } from "@/components/contexts/WalletContext";
@@ -9,18 +10,41 @@ import { Button } from "@/components/ui/Button";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useToast } from "@/components/ui/Toast";
 import { PiLinkSimpleBold, PiUsersBold, PiGearBold } from "react-icons/pi";
-import {
-  Drawer,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-  Form,
-  Input,
-} from "@worldcoin/mini-apps-ui-kit-react";
+import { Drawer, DrawerContent } from "@/components/ui/Drawer";
+import { Form, Input } from "@worldcoin/mini-apps-ui-kit-react";
 import { Textarea } from "@/components/ui/Textarea";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { FaPlus } from "react-icons/fa";
 import { Dropdown } from "@/components/ui/Dropdown";
+
+// Custom DrawerHeader and DrawerTitle components
+const DrawerHeader = ({ children }: { children: React.ReactNode }) => (
+  <div className="mb-4">{children}</div>
+);
+
+const DrawerTitle = ({ children }: { children: React.ReactNode }) => {
+  // Using useEffect to set the document title for accessibility
+  useEffect(() => {
+    if (typeof children === "string") {
+      const title = children;
+      // Set the drawer title in page for accessibility
+      const drawerTitleElement = document.querySelector(".vaul-drawer-title");
+      if (drawerTitleElement) {
+        drawerTitleElement.textContent = title;
+      }
+    }
+  }, [children]);
+
+  return (
+    <Typography
+      as="h2"
+      variant={{ variant: "heading", level: 1 }}
+      className="text-center font-semibold"
+    >
+      {children}
+    </Typography>
+  );
+};
 
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
   "0x66e50b996f4359A0bFe27e0020666cf1a67EC2FC";
@@ -1330,8 +1354,26 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   );
 
   // Add handleInputFocus function
-  const handleInputFocus = (e: React.FocusEvent) => {
+  const handleInputFocus = (e: ReactFocusEvent) => {
+    // Prevent default behaviors
     e.preventDefault();
+
+    // Also scroll the input into view for better UX especially on mobile
+    if (
+      e.target &&
+      (e.target instanceof HTMLInputElement ||
+        e.target instanceof HTMLTextAreaElement ||
+        e.target instanceof HTMLSelectElement)
+    ) {
+      // Wait a short moment for the keyboard to appear
+      setTimeout(() => {
+        // Scroll the input into view
+        (e.target as HTMLElement).scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }, 300);
+    }
   };
 
   return (
