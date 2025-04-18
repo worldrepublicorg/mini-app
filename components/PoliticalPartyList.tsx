@@ -110,6 +110,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [banLookupError, setBanLookupError] = useState("");
   const [banLookupResult, setBanLookupResult] = useState<any>(null);
   const [isBanLookingUp, setIsBanLookingUp] = useState(false);
+  const [isMemberManagementDrawerOpen, setIsMemberManagementDrawerOpen] =
+    useState(false);
+  const [activeMemberTab, setActiveMemberTab] = useState<
+    "remove" | "ban" | "unban"
+  >("remove");
 
   const { isLoading: isConfirming, isSuccess: isConfirmed } =
     useWaitForTransactionReceipt({
@@ -1115,15 +1120,15 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               }
               menuItems={[
                 {
-                  label: "Update Party Info",
-                  onClick: () => openUpdatePartyDrawer(party),
-                },
-                {
-                  label: "Remove Member",
+                  label: "Manage Members",
                   onClick: () => {
                     setSelectedParty(party);
-                    setIsRemoveMemberDrawerOpen(true);
+                    setIsMemberManagementDrawerOpen(true);
                   },
+                },
+                {
+                  label: "Update Party Info",
+                  onClick: () => openUpdatePartyDrawer(party),
                 },
                 {
                   label: "Transfer Leadership",
@@ -1133,29 +1138,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   },
                 },
                 {
-                  label:
-                    party.status === 0
-                      ? "Deactivate Pending Party"
-                      : party.active
-                        ? "Deactivate Party"
-                        : "Activate Party",
+                  label: party.active ? "Deactivate Party" : "Activate Party",
                   onClick: () => {
                     setSelectedParty(party);
                     setIsDeactivateDrawerOpen(true);
-                  },
-                },
-                {
-                  label: "Manage Banned Members",
-                  onClick: () => {
-                    setSelectedParty(party);
-                    setIsBannedMembersDrawerOpen(true);
-                  },
-                },
-                {
-                  label: "Ban Member",
-                  onClick: () => {
-                    setSelectedParty(party);
-                    setIsBanMemberDrawerOpen(true);
                   },
                 },
               ]}
@@ -2123,6 +2109,309 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 </Button>
               </Form.Submit>
             </Form.Root>
+          </div>
+        </DrawerContent>
+      </Drawer>
+
+      {/* Member Management Drawer with Tabs */}
+      <Drawer
+        open={isMemberManagementDrawerOpen}
+        onOpenChange={setIsMemberManagementDrawerOpen}
+      >
+        <DrawerContent>
+          <div className="flex flex-col gap-4 p-6">
+            <DrawerHeader>
+              <DrawerTitle>Member Management</DrawerTitle>
+            </DrawerHeader>
+
+            <div className="mb-4 flex items-center gap-1 border-b">
+              <button
+                className={`h-9 items-center px-4 font-sans text-sm font-medium ${
+                  activeMemberTab === "remove" ? "border-black border-b-2" : ""
+                }`}
+                onClick={() => setActiveMemberTab("remove")}
+              >
+                Remove Member
+              </button>
+              <button
+                className={`h-9 items-center px-4 font-sans text-sm font-medium ${
+                  activeMemberTab === "ban" ? "border-black border-b-2" : ""
+                }`}
+                onClick={() => setActiveMemberTab("ban")}
+              >
+                Ban Member
+              </button>
+              <button
+                className={`h-9 items-center px-4 font-sans text-sm font-medium ${
+                  activeMemberTab === "unban" ? "border-black border-b-2" : ""
+                }`}
+                onClick={() => setActiveMemberTab("unban")}
+              >
+                Unban Member
+              </button>
+            </div>
+
+            {/* Remove Member Panel */}
+            {activeMemberTab === "remove" && (
+              <>
+                <Typography
+                  as="p"
+                  variant={{ variant: "body", level: 2 }}
+                  className="text-[15px]"
+                >
+                  Enter the wallet address of the member you want to remove from
+                  the party.
+                </Typography>
+                <Form.Root
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    removeMember();
+                  }}
+                >
+                  <Form.Field name="memberAddress">
+                    <Typography
+                      as="label"
+                      variant={{ variant: "caption", level: 1 }}
+                      className="mb-1.5 block text-[15px]"
+                    >
+                      Member Address
+                    </Typography>
+                    <Form.Control asChild>
+                      <Input
+                        label="Enter wallet address (0x...)"
+                        value={memberToRemove}
+                        onChange={(e) => setMemberToRemove(e.target.value)}
+                        required
+                        pattern="^0x[a-fA-F0-9]{40}$"
+                      />
+                    </Form.Control>
+                    <Form.Message match="valueMissing" error>
+                      Please enter an address
+                    </Form.Message>
+                    <Form.Message match="patternMismatch" error>
+                      Please enter a valid Ethereum address (0x...)
+                    </Form.Message>
+                  </Form.Field>
+                  <Form.Submit asChild className="mt-4">
+                    <Button variant="primary" fullWidth disabled={isProcessing}>
+                      {isProcessing ? "Processing..." : "Remove Member"}
+                    </Button>
+                  </Form.Submit>
+                </Form.Root>
+              </>
+            )}
+
+            {/* Ban Member Panel */}
+            {activeMemberTab === "ban" && (
+              <>
+                <Typography
+                  as="p"
+                  variant={{ variant: "body", level: 2 }}
+                  className="text-[15px]"
+                >
+                  Enter the username or wallet address of the member you want to
+                  ban from the party.
+                </Typography>
+
+                {/* Username lookup section */}
+                <div className="mb-4">
+                  <Typography
+                    as="label"
+                    variant={{ variant: "caption", level: 1 }}
+                    className="mb-1.5 block text-[15px]"
+                  >
+                    Look up by username
+                  </Typography>
+                  <div className="flex gap-2">
+                    <Input
+                      label="Enter World App username"
+                      value={memberToBanUsername}
+                      onChange={(e) => setMemberToBanUsername(e.target.value)}
+                      className="flex-1"
+                    />
+                    <Button
+                      variant="secondary"
+                      onClick={lookupBanUsername}
+                      disabled={isBanLookingUp || !memberToBanUsername.trim()}
+                    >
+                      {isBanLookingUp ? "Looking up..." : "Lookup"}
+                    </Button>
+                  </div>
+
+                  {banLookupError && (
+                    <Typography as="p" className="text-red-500 mt-2 text-sm">
+                      {banLookupError}
+                    </Typography>
+                  )}
+
+                  {/* Show lookup result if available */}
+                  {banLookupResult && (
+                    <div className="mt-2 rounded-lg bg-gray-50 p-3">
+                      <Typography
+                        as="p"
+                        variant={{ variant: "caption", level: 1 }}
+                        className="text-gray-700"
+                      >
+                        Found user:{" "}
+                        <span className="font-semibold">
+                          {memberToBanUsername}
+                        </span>
+                      </Typography>
+                      <Typography
+                        as="p"
+                        variant={{ variant: "caption", level: 1 }}
+                        className="truncate text-gray-500"
+                      >
+                        Address: {banLookupResult.address}
+                      </Typography>
+                    </div>
+                  )}
+                </div>
+
+                <Form.Root
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    banMember();
+                  }}
+                >
+                  <Form.Field name="memberAddress">
+                    <Typography
+                      as="label"
+                      variant={{ variant: "caption", level: 1 }}
+                      className="mb-1.5 block text-[15px]"
+                    >
+                      Member Address
+                    </Typography>
+                    <Form.Control asChild>
+                      <Input
+                        label="Enter wallet address (0x...)"
+                        value={memberToBan}
+                        onChange={(e) => setMemberToBan(e.target.value)}
+                        required
+                        pattern="^0x[a-fA-F0-9]{40}$"
+                      />
+                    </Form.Control>
+                    <Form.Message match="valueMissing" error>
+                      Please enter an address
+                    </Form.Message>
+                    <Form.Message match="patternMismatch" error>
+                      Please enter a valid Ethereum address (0x...)
+                    </Form.Message>
+                  </Form.Field>
+                  <Form.Submit asChild className="mt-4">
+                    <Button variant="primary" fullWidth disabled={isProcessing}>
+                      {isProcessing ? "Processing..." : "Ban Member"}
+                    </Button>
+                  </Form.Submit>
+                </Form.Root>
+              </>
+            )}
+
+            {/* Unban Member Panel */}
+            {activeMemberTab === "unban" && (
+              <>
+                <Typography
+                  as="p"
+                  variant={{ variant: "body", level: 2 }}
+                  className="text-[15px]"
+                >
+                  Enter the username or wallet address of the banned member you
+                  want to allow back to the party.
+                </Typography>
+
+                {/* Username lookup section */}
+                <div className="mb-4">
+                  <Typography
+                    as="label"
+                    variant={{ variant: "caption", level: 1 }}
+                    className="mb-1.5 block text-[15px]"
+                  >
+                    Look up by username
+                  </Typography>
+                  <div className="flex gap-2">
+                    <Input
+                      label="Enter World App username"
+                      value={bannedMemberUsername}
+                      onChange={(e) => setBannedMemberUsername(e.target.value)}
+                      className="flex-1"
+                    />
+                    <Button
+                      variant="secondary"
+                      onClick={lookupUsername}
+                      disabled={isLookingUp || !bannedMemberUsername.trim()}
+                    >
+                      {isLookingUp ? "Looking up..." : "Lookup"}
+                    </Button>
+                  </div>
+
+                  {lookupError && (
+                    <Typography as="p" className="text-red-500 mt-2 text-sm">
+                      {lookupError}
+                    </Typography>
+                  )}
+
+                  {/* Show lookup result if available */}
+                  {lookupResult && (
+                    <div className="mt-2 rounded-lg bg-gray-50 p-3">
+                      <Typography
+                        as="p"
+                        variant={{ variant: "caption", level: 1 }}
+                        className="text-gray-700"
+                      >
+                        Found user:{" "}
+                        <span className="font-semibold">
+                          {bannedMemberUsername}
+                        </span>
+                      </Typography>
+                      <Typography
+                        as="p"
+                        variant={{ variant: "caption", level: 1 }}
+                        className="truncate text-gray-500"
+                      >
+                        Address: {lookupResult.address}
+                      </Typography>
+                    </div>
+                  )}
+                </div>
+
+                <Form.Root
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    unbanMember();
+                  }}
+                >
+                  <Form.Field name="bannedMemberAddress">
+                    <Typography
+                      as="label"
+                      variant={{ variant: "caption", level: 1 }}
+                      className="mb-1.5 block text-[15px]"
+                    >
+                      Member Address
+                    </Typography>
+                    <Form.Control asChild>
+                      <Input
+                        label="Enter wallet address (0x...)"
+                        value={bannedMemberToUnban}
+                        onChange={(e) => setBannedMemberToUnban(e.target.value)}
+                        required
+                        pattern="^0x[a-fA-F0-9]{40}$"
+                      />
+                    </Form.Control>
+                    <Form.Message match="valueMissing" error>
+                      Please enter an address
+                    </Form.Message>
+                    <Form.Message match="patternMismatch" error>
+                      Please enter a valid Ethereum address (0x...)
+                    </Form.Message>
+                  </Form.Field>
+                  <Form.Submit asChild className="mt-4">
+                    <Button variant="primary" fullWidth disabled={isProcessing}>
+                      {isProcessing ? "Processing..." : "Unban Member"}
+                    </Button>
+                  </Form.Submit>
+                </Form.Root>
+              </>
+            )}
           </div>
         </DrawerContent>
       </Drawer>
