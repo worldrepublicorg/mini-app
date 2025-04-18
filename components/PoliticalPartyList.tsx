@@ -1411,7 +1411,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       {filteredParties.map((party) => renderPartyCard(party))}
 
       {/* Create Party Drawer */}
-      <Drawer open={isCreateDrawerOpen} onOpenChange={setIsCreateDrawerOpen}>
+      <Drawer
+        open={isCreateDrawerOpen}
+        onOpenChange={setIsCreateDrawerOpen}
+        disablePreventScroll
+      >
         <DrawerContent>
           <div className="p-6">
             <DrawerHeader>
