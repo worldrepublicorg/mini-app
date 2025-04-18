@@ -85,7 +85,9 @@ interface PoliticalPartyListProps {
 export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [parties, setParties] = useState<Party[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState<"top" | "new" | "pending">("top");
+  const [activeTab, setActiveTab] = useState<
+    "top" | "trending" | "new" | "pending"
+  >("top");
   const { walletAddress } = useWallet();
   const { showToast } = useToast();
   const [isCreateDrawerOpen, setIsCreateDrawerOpen] = useState(false);
@@ -1257,6 +1259,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       if (activeTab === "top") {
         // Sort by member count (highest first) for Top tab
         return b.memberCount - a.memberCount;
+      } else if (activeTab === "trending") {
+        // For trending tab: mix of recency and member count
+        // This simple formula weights both factors
+        const trendingScoreA =
+          a.memberCount * (1 + (Date.now() / 1000 - a.creationTime) / 86400);
+        const trendingScoreB =
+          b.memberCount * (1 + (Date.now() / 1000 - b.creationTime) / 86400);
+        return trendingScoreB - trendingScoreA;
       } else {
         // Default to reverse chronological order (newest first) for New tab
         return b.creationTime - a.creationTime;
@@ -1491,6 +1501,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           onClick={() => setActiveTab("top")}
         >
           Top
+        </button>
+        <button
+          className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
+            activeTab === "trending" && "bg-gray-100"
+          }`}
+          onClick={() => setActiveTab("trending")}
+        >
+          Trending
         </button>
         <button
           className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
