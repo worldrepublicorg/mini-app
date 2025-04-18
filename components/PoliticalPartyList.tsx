@@ -2057,9 +2057,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               variant={{ variant: "body", level: 2 }}
               className="text-[15px]"
             >
-              {selectedParty?.active
-                ? "Are you sure you want to deactivate this party? Inactive parties won't appear in the main listings."
-                : "Do you want to reactivate this party?"}
+              {selectedParty?.status === 0
+                ? "Are you sure you want to deactivate this pending party? Inactive parties won't appear in the main listings."
+                : selectedParty?.active
+                  ? "Are you sure you want to deactivate this party? Inactive parties won't appear in the main listings."
+                  : "Do you want to reactivate this party?"}
             </Typography>
             <div className="mt-4 flex flex-col gap-2">
               <Button
