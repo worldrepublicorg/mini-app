@@ -789,14 +789,19 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
     try {
       setIsProcessing(true);
+
+      // Choose function based on current party status
+      const functionName = selectedParty.active
+        ? "deactivateParty"
+        : "reactivateParty";
+      const functionAbi = `function ${functionName}(uint256 _partyId) external`;
+
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
             address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
-            abi: parseAbi([
-              "function togglePartyStatus(uint256 _partyId) external",
-            ]),
-            functionName: "togglePartyStatus",
+            abi: parseAbi([functionAbi]),
+            functionName: functionName,
             args: [BigInt(selectedParty.id)],
           },
         ],
@@ -805,19 +810,21 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       if (finalPayload.status === "error") {
         if (finalPayload.error_code !== "user_rejected") {
           showToast(
-            `Failed to ${selectedParty.active ? "deactivate" : "activate"} party`,
+            `Failed to ${selectedParty.active ? "deactivate" : "reactivate"} party`,
             "error"
           );
         }
       } else {
-        // Update party in the UI optimistically
+        // Update party in the UI optimistically - based on the contract behavior
         setParties((prevParties) =>
           prevParties.map((party) =>
             party.id === selectedParty.id
               ? {
                   ...party,
                   active: !party.active,
-                  status: party.active ? 2 : 1, // Toggle between ACTIVE (1) and INACTIVE (2)
+                  // When deactivating: status becomes 2 (INACTIVE)
+                  // When reactivating: status becomes 0 (PENDING), not 1 (ACTIVE)
+                  status: party.active ? 2 : 0,
                 }
               : party
           )
@@ -825,17 +832,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
         setIsDeactivateDrawerOpen(false);
         showToast(
-          `Party ${selectedParty.active ? "deactivated" : "activated"} successfully`,
+          `Party ${selectedParty.active ? "deactivated" : "reactivated"} successfully`,
           "success"
         );
       }
     } catch (error) {
       console.error(
-        `Error ${selectedParty.active ? "deactivating" : "activating"} party:`,
+        `Error ${selectedParty.active ? "deactivating" : "reactivating"} party:`,
         error
       );
       showToast(
-        `Error ${selectedParty.active ? "deactivating" : "activating"} party`,
+        `Error ${selectedParty.active ? "deactivating" : "reactivating"} party`,
         "error"
       );
     } finally {
