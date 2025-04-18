@@ -93,6 +93,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     description: "",
     officialLink: "",
   });
+  const [isLeaveConfirmDrawerOpen, setIsLeaveConfirmDrawerOpen] =
+    useState(false);
+  const [partyToLeaveFrom, setPartyToLeaveFrom] = useState<Party | null>(null);
+  const [partyToJoin, setPartyToJoin] = useState<number>(0);
+  const [isCreateConfirmDrawerOpen, setIsCreateConfirmDrawerOpen] =
+    useState(false);
 
   const { isLoading: isConfirming, isSuccess: isConfirmed } =
     useWaitForTransactionReceipt({
@@ -235,25 +241,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     // Check if user is already in a party
     const userCurrentParty = parties.find((party) => party.isUserMember);
     if (userCurrentParty) {
-      // Create a confirmation dialog with the option to leave current party
-      if (
-        confirm(
-          `You are already a member of ${userCurrentParty.name}. You must leave your current party before joining a new one. Would you like to leave ${userCurrentParty.name} now?`
-        )
-      ) {
-        try {
-          // Leave the current party first
-          await leaveParty(userCurrentParty.id);
-
-          // Small delay to ensure blockchain state updates
-          setTimeout(() => {
-            // Now try to join the new party
-            joinNewParty(partyId);
-          }, 500);
-        } catch (error) {
-          console.error("Error in leave-and-join flow:", error);
-        }
-      }
+      // Open confirmation drawer instead of using confirm()
+      setPartyToLeaveFrom(userCurrentParty);
+      setPartyToJoin(partyId);
+      setIsLeaveConfirmDrawerOpen(true);
       return;
     }
 
@@ -655,6 +646,59 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     }
   };
 
+  const handleLeaveAndJoin = async () => {
+    if (partyToLeaveFrom) {
+      try {
+        setIsProcessing(true);
+        await leaveParty(partyToLeaveFrom.id);
+
+        // Small delay to ensure blockchain state updates
+        setTimeout(() => {
+          // Now try to join the new party
+          joinNewParty(partyToJoin);
+          setIsLeaveConfirmDrawerOpen(false);
+        }, 500);
+      } catch (error) {
+        console.error("Error in leave-and-join flow:", error);
+      } finally {
+        setIsProcessing(false);
+      }
+    }
+  };
+
+  const handleLeaveAndCreate = async () => {
+    if (partyToLeaveFrom) {
+      try {
+        setIsProcessing(true);
+        await leaveParty(partyToLeaveFrom.id);
+
+        // Close the confirmation drawer and open create drawer
+        setIsCreateConfirmDrawerOpen(false);
+        setTimeout(() => {
+          setIsCreateDrawerOpen(true);
+        }, 300);
+      } catch (error) {
+        console.error("Error in leave-and-create flow:", error);
+      } finally {
+        setIsProcessing(false);
+      }
+    }
+  };
+
+  const handleCreatePartyClick = () => {
+    // Check if user is already in a party
+    const userCurrentParty = parties.find((party) => party.isUserMember);
+    if (userCurrentParty) {
+      // Open confirmation drawer instead of proceeding directly
+      setPartyToLeaveFrom(userCurrentParty);
+      setIsCreateConfirmDrawerOpen(true);
+      return;
+    }
+
+    // If not in a party, directly open the create drawer
+    setIsCreateDrawerOpen(true);
+  };
+
   const PartySkeletonCard = () => (
     <div className="mb-4 animate-pulse rounded-xl border border-gray-200 p-4">
       {/* Party name skeleton */}
@@ -699,7 +743,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           </Typography>
           <button
             className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-900"
-            onClick={() => setIsCreateDrawerOpen(true)}
+            onClick={handleCreatePartyClick}
             title="Create New Party"
           >
             <FaPlus className="text-gray-500" size={12} />
@@ -921,7 +965,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           </Typography>
           <button
             className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-900"
-            onClick={() => setIsCreateDrawerOpen(true)}
+            onClick={handleCreatePartyClick}
             title="Create New Party"
           >
             <FaPlus className="text-gray-500" size={12} />
@@ -936,7 +980,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               .map((party) => renderPartyCard(party))}
           </>
         ) : (
-          // Message when user hasn't joined any party
+          // Message when user hasn't joined or created a political party yet.
           <div className="p-4 text-center text-gray-500">
             You haven&apos;t joined or created a political party yet.
           </div>
@@ -1365,6 +1409,96 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 </Button>
               </Form.Submit>
             </Form.Root>
+          </div>
+        </DrawerContent>
+      </Drawer>
+
+      {/* Leave Confirmation Drawer */}
+      <Drawer
+        open={isLeaveConfirmDrawerOpen}
+        onOpenChange={setIsLeaveConfirmDrawerOpen}
+      >
+        <DrawerContent>
+          <div className="flex flex-col gap-4 p-6">
+            <Typography
+              as="h2"
+              variant={{ variant: "subtitle", level: 1 }}
+              className="text-[19px] font-semibold"
+            >
+              Confirmation Required
+            </Typography>
+            <Typography
+              as="p"
+              variant={{ variant: "body", level: 2 }}
+              className="text-[15px]"
+            >
+              You are already a member of {partyToLeaveFrom?.name}. You must
+              leave your current party before joining a new one.
+            </Typography>
+            <div className="mt-4 flex flex-col gap-2">
+              <Button
+                variant="primary"
+                fullWidth
+                onClick={handleLeaveAndJoin}
+                disabled={isProcessing}
+              >
+                {isProcessing
+                  ? "Processing..."
+                  : `Leave ${partyToLeaveFrom?.name} and join new party`}
+              </Button>
+              <Button
+                variant="tertiary"
+                fullWidth
+                onClick={() => setIsLeaveConfirmDrawerOpen(false)}
+              >
+                Cancel
+              </Button>
+            </div>
+          </div>
+        </DrawerContent>
+      </Drawer>
+
+      {/* Create Confirmation Drawer */}
+      <Drawer
+        open={isCreateConfirmDrawerOpen}
+        onOpenChange={setIsCreateConfirmDrawerOpen}
+      >
+        <DrawerContent>
+          <div className="flex flex-col gap-4 p-6">
+            <Typography
+              as="h2"
+              variant={{ variant: "subtitle", level: 1 }}
+              className="text-[19px] font-semibold"
+            >
+              Confirmation Required
+            </Typography>
+            <Typography
+              as="p"
+              variant={{ variant: "body", level: 2 }}
+              className="text-[15px]"
+            >
+              You are already a member of {partyToLeaveFrom?.name}. You must
+              leave your current party before creating a new one.
+            </Typography>
+            <div className="mt-4 flex flex-col gap-2">
+              <Button
+                variant="primary"
+                fullWidth
+                onClick={handleLeaveAndCreate}
+                disabled={isProcessing}
+              >
+                {isProcessing
+                  ? "Processing..."
+                  : `Leave ${partyToLeaveFrom?.name} and create new party`}
+              </Button>
+              <Button
+                variant="tertiary"
+                fullWidth
+                onClick={() => setIsCreateConfirmDrawerOpen(false)}
+              >
+                Cancel
+              </Button>
+            </div>
           </div>
         </DrawerContent>
       </Drawer>
