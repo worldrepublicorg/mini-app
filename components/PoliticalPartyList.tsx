@@ -16,8 +16,8 @@ import {
   DrawerTitle,
   Form,
   Input,
-  TextArea,
 } from "@worldcoin/mini-apps-ui-kit-react";
+import { Textarea } from "@/components/ui/Textarea";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { FaPlus } from "react-icons/fa";
 import { Dropdown } from "@/components/ui/Dropdown";
@@ -1360,7 +1360,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         ) : (
           // Message when user hasn't joined or created a political party yet.
           <div className="p-4 text-center text-gray-500">
-            You haven&apos;t joined or created a political party yet.
+            You haven&apos;t created or joined a party yet.
           </div>
         )}
       </div>
@@ -1423,11 +1423,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 createParty();
               }}
             >
-              <Form.Field name="name">
+              <Form.Field name="name" className="mt-4">
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
-                  className="mb-1.5 block text-[15px]"
+                  className="mb-1.5 block"
                 >
                   Party name
                 </Typography>
@@ -1453,7 +1453,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
-                  className="mb-1.5 block text-[15px]"
+                  className="mb-1.5 block"
                 >
                   Short name
                 </Typography>
@@ -1480,13 +1480,13 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
-                  className="mb-1.5 block text-[15px]"
+                  className="mb-1.5 block"
                 >
                   Description
                 </Typography>
                 <Form.Control asChild>
-                  <TextArea
-                    label="Enter party description"
+                  <Textarea
+                    placeholder="Enter party description"
                     value={createPartyForm.description}
                     onChange={(e) =>
                       setCreatePartyForm((prev) => ({
@@ -1507,7 +1507,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
-                  className="mb-1.5 block text-[15px]"
+                  className="mb-1.5 block"
                 >
                   Official link
                 </Typography>
@@ -1551,13 +1551,13 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 updateParty();
               }}
             >
-              <Form.Field name="name">
+              <Form.Field name="name" className="mt-4">
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
-                  className="mb-1.5 block text-[15px]"
+                  className="mb-1.5 block"
                 >
-                  Party Name
+                  Party name
                 </Typography>
                 <Form.Control asChild>
                   <Input
@@ -1581,9 +1581,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
-                  className="mb-1.5 block text-[15px]"
+                  className="mb-1.5 block"
                 >
-                  Short Name
+                  Short name
                 </Typography>
                 <Form.Control asChild>
                   <Input
@@ -1608,13 +1608,13 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
-                  className="mb-1.5 block text-[15px]"
+                  className="mb-1.5 block"
                 >
                   Description
                 </Typography>
                 <Form.Control asChild>
-                  <TextArea
-                    label="Enter party description"
+                  <Textarea
+                    placeholder="Enter party description"
                     value={updatePartyForm.description}
                     onChange={(e) =>
                       setUpdatePartyForm((prev) => ({
@@ -1635,9 +1635,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
-                  className="mb-1.5 block text-[15px]"
+                  className="mb-1.5 block"
                 >
-                  Official Link
+                  Official link
                 </Typography>
                 <Form.Control asChild>
                   <Input
@@ -1687,7 +1687,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               <Typography
                 as="label"
                 variant={{ variant: "caption", level: 1 }}
-                className="mb-1.5 block text-[15px]"
+                className="mb-1.5 block"
               >
                 Look up by username
               </Typography>
@@ -1745,9 +1745,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
-                  className="mb-1.5 block text-[15px]"
+                  className="mb-1.5 block"
                 >
-                  New Leader Address
+                  New leader address
                 </Typography>
                 <Form.Control asChild>
                   <Input
@@ -1799,7 +1799,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               <Typography
                 as="label"
                 variant={{ variant: "caption", level: 1 }}
-                className="mb-1.5 block text-[15px]"
+                className="mb-1.5 block"
               >
                 Look up by username
               </Typography>
@@ -1857,9 +1857,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
-                  className="mb-1.5 block text-[15px]"
+                  className="mb-1.5 block"
                 >
-                  Member Address
+                  Member address
                 </Typography>
                 <Form.Control asChild>
                   <Input
@@ -2119,7 +2119,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               <Typography
                 as="label"
                 variant={{ variant: "caption", level: 1 }}
-                className="mb-1.5 block text-[15px]"
+                className="mb-1.5 block"
               >
                 Look up by username
               </Typography>
@@ -2179,9 +2179,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
-                  className="mb-1.5 block text-[15px]"
+                  className="mb-1.5 block"
                 >
-                  Member Address
+                  Member address
                 </Typography>
                 <Form.Control asChild>
                   <Input
@@ -2233,7 +2233,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               <Typography
                 as="label"
                 variant={{ variant: "caption", level: 1 }}
-                className="mb-1.5 block text-[15px]"
+                className="mb-1.5 block"
               >
                 Look up by username
               </Typography>
@@ -2291,9 +2291,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
-                  className="mb-1.5 block text-[15px]"
+                  className="mb-1.5 block"
                 >
-                  Member Address
+                  Member address
                 </Typography>
                 <Form.Control asChild>
                   <Input
@@ -2376,7 +2376,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   <Typography
                     as="label"
                     variant={{ variant: "caption", level: 1 }}
-                    className="mb-1.5 block text-[15px]"
+                    className="mb-1.5 block"
                   >
                     Look up by username
                   </Typography>
@@ -2434,9 +2434,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     <Typography
                       as="label"
                       variant={{ variant: "caption", level: 1 }}
-                      className="mb-1.5 block text-[15px]"
+                      className="mb-1.5 block"
                     >
-                      Member Address
+                      Member address
                     </Typography>
                     <Form.Control asChild>
                       <Input
@@ -2480,7 +2480,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   <Typography
                     as="label"
                     variant={{ variant: "caption", level: 1 }}
-                    className="mb-1.5 block text-[15px]"
+                    className="mb-1.5 block"
                   >
                     Look up by username
                   </Typography>
@@ -2540,9 +2540,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     <Typography
                       as="label"
                       variant={{ variant: "caption", level: 1 }}
-                      className="mb-1.5 block text-[15px]"
+                      className="mb-1.5 block"
                     >
-                      Member Address
+                      Member address
                     </Typography>
                     <Form.Control asChild>
                       <Input
@@ -2586,7 +2586,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   <Typography
                     as="label"
                     variant={{ variant: "caption", level: 1 }}
-                    className="mb-1.5 block text-[15px]"
+                    className="mb-1.5 block"
                   >
                     Look up by username
                   </Typography>
@@ -2646,9 +2646,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     <Typography
                       as="label"
                       variant={{ variant: "caption", level: 1 }}
-                      className="mb-1.5 block text-[15px]"
+                      className="mb-1.5 block"
                     >
-                      Member Address
+                      Member address
                     </Typography>
                     <Form.Control asChild>
                       <Input

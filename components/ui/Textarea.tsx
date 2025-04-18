@@ -7,7 +7,7 @@ import { Tick } from "@/components/ui/Icons/Tick";
 const DEFAULT_ADORNMENT_WIDTH = 1.5;
 
 export const textareaVariants = cva(
-  "peer font-sans w-full rounded-xl border-2 border-gray-100 bg-gray-100 px-2.5 py-4 text-base leading-none text-gray-900 outline-none transition duration-300 file:hidden placeholder:focus:border-gray-200 focus:bg-gray-0 focus:shadow-card focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+  "peer font-sans w-full rounded-xl border-2 border-gray-100 bg-gray-100 px-2.5 py-4 text-[15px] leading-none placeholder:text-gray-500 text-gray-900 outline-none transition duration-300 file:hidden placeholder:focus:border-gray-200 focus:bg-gray-0 focus:shadow-card focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
   {
     variants: {
       error: {
