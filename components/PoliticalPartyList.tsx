@@ -67,6 +67,10 @@ interface Party {
   isUserLeader?: boolean;
 }
 
+// After the interfaces, add these constants to match the smart contract
+const MAX_STRING_LENGTH = 256;
+const MAX_SHORT_NAME_LENGTH = 16;
+
 interface CreatePartyForm {
   name: string;
   shortName: string;
@@ -469,6 +473,31 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       return;
     }
 
+    // Additional validation before submitting to the contract
+    if (!createPartyForm.name.trim()) {
+      showToast("Party name cannot be empty", "error");
+      return;
+    }
+
+    if (!createPartyForm.shortName.trim()) {
+      showToast("Short name cannot be empty", "error");
+      return;
+    }
+
+    if (!createPartyForm.description.trim()) {
+      showToast("Description cannot be empty", "error");
+      return;
+    }
+
+    // Official link is optional, but if provided, it cannot be empty
+    if (
+      createPartyForm.officialLink.trim() === "" &&
+      createPartyForm.officialLink !== ""
+    ) {
+      showToast("Official link cannot contain only whitespace", "error");
+      return;
+    }
+
     try {
       setIsCreating(true);
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
@@ -480,10 +509,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             ]),
             functionName: "createParty",
             args: [
-              createPartyForm.name,
-              createPartyForm.shortName,
-              createPartyForm.description,
-              createPartyForm.officialLink,
+              createPartyForm.name.trim(),
+              createPartyForm.shortName.trim(),
+              createPartyForm.description.trim(),
+              createPartyForm.officialLink.trim(),
             ],
           },
         ],
@@ -550,11 +579,36 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       return;
     }
 
+    // Validate fields according to smart contract requirements
+    if (!updatePartyForm.name.trim()) {
+      showToast("Party name cannot be empty", "error");
+      return;
+    }
+
+    if (!updatePartyForm.shortName.trim()) {
+      showToast("Short name cannot be empty", "error");
+      return;
+    }
+
+    if (!updatePartyForm.description.trim()) {
+      showToast("Description cannot be empty", "error");
+      return;
+    }
+
+    // Official link is optional, but if provided, it cannot be empty
+    if (
+      updatePartyForm.officialLink.trim() === "" &&
+      updatePartyForm.officialLink !== ""
+    ) {
+      showToast("Official link cannot contain only whitespace", "error");
+      return;
+    }
+
     try {
       setIsProcessing(true);
 
       // Update name if changed
-      if (updatePartyForm.name !== selectedParty.name) {
+      if (updatePartyForm.name.trim() !== selectedParty.name) {
         const { finalPayload: namePayload } =
           await MiniKit.commandsAsync.sendTransaction({
             transaction: [
@@ -564,7 +618,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   "function updatePartyName(uint256 _partyId, string memory _name) external",
                 ]),
                 functionName: "updatePartyName",
-                args: [BigInt(selectedParty.id), updatePartyForm.name],
+                args: [BigInt(selectedParty.id), updatePartyForm.name.trim()],
               },
             ],
           });
@@ -579,7 +633,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       }
 
       // Update short name if changed
-      if (updatePartyForm.shortName !== selectedParty.shortName) {
+      if (updatePartyForm.shortName.trim() !== selectedParty.shortName) {
         const { finalPayload: shortNamePayload } =
           await MiniKit.commandsAsync.sendTransaction({
             transaction: [
@@ -589,7 +643,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   "function updatePartyShortName(uint256 _partyId, string memory _shortName) external",
                 ]),
                 functionName: "updatePartyShortName",
-                args: [BigInt(selectedParty.id), updatePartyForm.shortName],
+                args: [
+                  BigInt(selectedParty.id),
+                  updatePartyForm.shortName.trim(),
+                ],
               },
             ],
           });
@@ -604,7 +661,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       }
 
       // Update description if changed
-      if (updatePartyForm.description !== selectedParty.description) {
+      if (updatePartyForm.description.trim() !== selectedParty.description) {
         const { finalPayload: descPayload } =
           await MiniKit.commandsAsync.sendTransaction({
             transaction: [
@@ -614,7 +671,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   "function updatePartyDescription(uint256 _partyId, string memory _description) external",
                 ]),
                 functionName: "updatePartyDescription",
-                args: [BigInt(selectedParty.id), updatePartyForm.description],
+                args: [
+                  BigInt(selectedParty.id),
+                  updatePartyForm.description.trim(),
+                ],
               },
             ],
           });
@@ -629,7 +689,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       }
 
       // Update official link if changed
-      if (updatePartyForm.officialLink !== selectedParty.officialLink) {
+      if (updatePartyForm.officialLink.trim() !== selectedParty.officialLink) {
         const { finalPayload: linkPayload } =
           await MiniKit.commandsAsync.sendTransaction({
             transaction: [
@@ -639,7 +699,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   "function updateOfficialLink(uint256 _partyId, string memory _officialLink) external",
                 ]),
                 functionName: "updateOfficialLink",
-                args: [BigInt(selectedParty.id), updatePartyForm.officialLink],
+                args: [
+                  BigInt(selectedParty.id),
+                  updatePartyForm.officialLink.trim(),
+                ],
               },
             ],
           });
@@ -1490,11 +1553,22 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     }
                     onFocus={handleInputFocus}
                     required
+                    maxLength={MAX_STRING_LENGTH}
                   />
                 </Form.Control>
                 <Form.Message match="valueMissing" error>
                   Please enter a party name
                 </Form.Message>
+                {createPartyForm.name.length >= MAX_STRING_LENGTH * 0.9 && (
+                  <Typography
+                    variant={{ variant: "caption", level: 2 }}
+                    className={`mt-[7px] px-2 text-xs ${createPartyForm.name.length >= MAX_STRING_LENGTH ? "text-error-600" : "text-gray-500"}`}
+                  >
+                    {createPartyForm.name.length >= MAX_STRING_LENGTH
+                      ? "Maximum character limit reached"
+                      : `Approaching character limit: ${createPartyForm.name.length}/${MAX_STRING_LENGTH}`}
+                  </Typography>
+                )}
               </Form.Field>
 
               <Form.Field name="shortName" className="mt-4">
@@ -1516,13 +1590,24 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       }))
                     }
                     onFocus={handleInputFocus}
-                    maxLength={16}
+                    maxLength={MAX_SHORT_NAME_LENGTH}
                     required
                   />
                 </Form.Control>
                 <Form.Message match="valueMissing" error>
                   Please enter a short name
                 </Form.Message>
+                {createPartyForm.shortName.length >=
+                  MAX_SHORT_NAME_LENGTH * 0.8 && (
+                  <Typography
+                    variant={{ variant: "caption", level: 2 }}
+                    className={`mt-[7px] px-2 text-xs ${createPartyForm.shortName.length >= MAX_SHORT_NAME_LENGTH ? "text-error-600" : "text-gray-500"}`}
+                  >
+                    {createPartyForm.shortName.length >= MAX_SHORT_NAME_LENGTH
+                      ? "Maximum character limit reached"
+                      : `Approaching character limit: ${createPartyForm.shortName.length}/${MAX_SHORT_NAME_LENGTH}`}
+                  </Typography>
+                )}
               </Form.Field>
 
               <Form.Field name="description" className="mt-4">
@@ -1546,11 +1631,23 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     onFocus={handleInputFocus}
                     rows={4}
                     required
+                    maxLength={MAX_STRING_LENGTH}
                   />
                 </Form.Control>
                 <Form.Message match="valueMissing" error>
                   Please enter a description
                 </Form.Message>
+                {createPartyForm.description.length >=
+                  MAX_STRING_LENGTH * 0.9 && (
+                  <Typography
+                    variant={{ variant: "caption", level: 2 }}
+                    className={`mt-[7px] px-2 text-xs ${createPartyForm.description.length >= MAX_STRING_LENGTH ? "text-error-600" : "text-gray-500"}`}
+                  >
+                    {createPartyForm.description.length >= MAX_STRING_LENGTH
+                      ? "Maximum character limit reached"
+                      : `Approaching character limit: ${createPartyForm.description.length}/${MAX_STRING_LENGTH}`}
+                  </Typography>
+                )}
               </Form.Field>
 
               <Form.Field name="officialLink" className="mt-4">
@@ -1563,7 +1660,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 </Typography>
                 <Form.Control asChild>
                   <Input
-                    label="Enter official website or community link"
+                    label="Enter official website or community link (optional)"
                     value={createPartyForm.officialLink}
                     onChange={(e) =>
                       setCreatePartyForm((prev) => ({
@@ -1572,8 +1669,20 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       }))
                     }
                     onFocus={handleInputFocus}
+                    maxLength={MAX_STRING_LENGTH}
                   />
                 </Form.Control>
+                {createPartyForm.officialLink.length >=
+                  MAX_STRING_LENGTH * 0.9 && (
+                  <Typography
+                    variant={{ variant: "caption", level: 2 }}
+                    className={`mt-[7px] px-2 text-xs ${createPartyForm.officialLink.length >= MAX_STRING_LENGTH ? "text-error-600" : "text-gray-500"}`}
+                  >
+                    {createPartyForm.officialLink.length >= MAX_STRING_LENGTH
+                      ? "Maximum character limit reached"
+                      : `Approaching character limit: ${createPartyForm.officialLink.length}/${MAX_STRING_LENGTH}`}
+                  </Typography>
+                )}
               </Form.Field>
 
               <Form.Submit asChild className="mt-4">
@@ -1622,11 +1731,22 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     }
                     onFocus={handleInputFocus}
                     required
+                    maxLength={MAX_STRING_LENGTH}
                   />
                 </Form.Control>
                 <Form.Message match="valueMissing" error>
                   Please enter a party name
                 </Form.Message>
+                {updatePartyForm.name.length >= MAX_STRING_LENGTH * 0.9 && (
+                  <Typography
+                    variant={{ variant: "caption", level: 2 }}
+                    className={`mt-[7px] px-2 text-xs ${updatePartyForm.name.length >= MAX_STRING_LENGTH ? "text-error-600" : "text-gray-500"}`}
+                  >
+                    {updatePartyForm.name.length >= MAX_STRING_LENGTH
+                      ? "Maximum character limit reached"
+                      : `Approaching character limit: ${updatePartyForm.name.length}/${MAX_STRING_LENGTH}`}
+                  </Typography>
+                )}
               </Form.Field>
 
               <Form.Field name="shortName" className="mt-4">
@@ -1648,13 +1768,24 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       }))
                     }
                     onFocus={handleInputFocus}
-                    maxLength={16}
+                    maxLength={MAX_SHORT_NAME_LENGTH}
                     required
                   />
                 </Form.Control>
                 <Form.Message match="valueMissing" error>
                   Please enter a short name
                 </Form.Message>
+                {updatePartyForm.shortName.length >=
+                  MAX_SHORT_NAME_LENGTH * 0.8 && (
+                  <Typography
+                    variant={{ variant: "caption", level: 2 }}
+                    className={`mt-[7px] px-2 text-xs ${updatePartyForm.shortName.length >= MAX_SHORT_NAME_LENGTH ? "text-error-600" : "text-gray-500"}`}
+                  >
+                    {updatePartyForm.shortName.length >= MAX_SHORT_NAME_LENGTH
+                      ? "Maximum character limit reached"
+                      : `Approaching character limit: ${updatePartyForm.shortName.length}/${MAX_SHORT_NAME_LENGTH}`}
+                  </Typography>
+                )}
               </Form.Field>
 
               <Form.Field name="description" className="mt-4">
@@ -1678,11 +1809,23 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     onFocus={handleInputFocus}
                     rows={4}
                     required
+                    maxLength={MAX_STRING_LENGTH}
                   />
                 </Form.Control>
                 <Form.Message match="valueMissing" error>
                   Please enter a description
                 </Form.Message>
+                {updatePartyForm.description.length >=
+                  MAX_STRING_LENGTH * 0.9 && (
+                  <Typography
+                    variant={{ variant: "caption", level: 2 }}
+                    className={`mt-[7px] px-2 text-xs ${updatePartyForm.description.length >= MAX_STRING_LENGTH ? "text-error-600" : "text-gray-500"}`}
+                  >
+                    {updatePartyForm.description.length >= MAX_STRING_LENGTH
+                      ? "Maximum character limit reached"
+                      : `Approaching character limit: ${updatePartyForm.description.length}/${MAX_STRING_LENGTH}`}
+                  </Typography>
+                )}
               </Form.Field>
 
               <Form.Field name="officialLink" className="mt-4">
@@ -1695,7 +1838,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 </Typography>
                 <Form.Control asChild>
                   <Input
-                    label="Enter official website or community link"
+                    label="Enter official website or community link (optional)"
                     value={updatePartyForm.officialLink}
                     onChange={(e) =>
                       setUpdatePartyForm((prev) => ({
@@ -1704,8 +1847,20 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       }))
                     }
                     onFocus={handleInputFocus}
+                    maxLength={MAX_STRING_LENGTH}
                   />
                 </Form.Control>
+                {updatePartyForm.officialLink.length >=
+                  MAX_STRING_LENGTH * 0.9 && (
+                  <Typography
+                    variant={{ variant: "caption", level: 2 }}
+                    className={`mt-[7px] px-2 text-xs ${updatePartyForm.officialLink.length >= MAX_STRING_LENGTH ? "text-error-600" : "text-gray-500"}`}
+                  >
+                    {updatePartyForm.officialLink.length >= MAX_STRING_LENGTH
+                      ? "Maximum character limit reached"
+                      : `Approaching character limit: ${updatePartyForm.officialLink.length}/${MAX_STRING_LENGTH}`}
+                  </Typography>
+                )}
               </Form.Field>
 
               <Form.Submit asChild className="mt-4">
