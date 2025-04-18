@@ -1430,11 +1430,19 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     ) {
       // Wait a short moment for the keyboard to appear
       setTimeout(() => {
-        // Scroll the input into view
+        // Scroll the input into view with more space at the top
         (e.target as HTMLElement).scrollIntoView({
           behavior: "smooth",
           block: "center",
         });
+
+        // Add additional scroll to ensure the input is not hidden behind the keyboard
+        const drawerContent = (e.target as HTMLElement).closest(
+          ".max-h-\\[85vh\\]"
+        );
+        if (drawerContent) {
+          drawerContent.scrollTop += 100; // Add extra scroll to accommodate keyboard
+        }
       }, 300);
     }
   };
@@ -1522,7 +1530,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
       {/* Create Party Drawer */}
       <Drawer open={isCreateDrawerOpen} onOpenChange={setIsCreateDrawerOpen}>
-        <DrawerContent>
+        <DrawerContent className="max-h-[85vh] overflow-y-auto">
           <div className="p-6">
             <DrawerHeader>
               <DrawerTitle>Create New Party</DrawerTitle>
@@ -1700,7 +1708,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         open={isUpdatePartyDrawerOpen}
         onOpenChange={setIsUpdatePartyDrawerOpen}
       >
-        <DrawerContent>
+        <DrawerContent className="max-h-[85vh] overflow-y-auto">
           <div className="flex flex-col gap-4 p-6">
             <DrawerHeader>
               <DrawerTitle>Update Party Details</DrawerTitle>
@@ -1878,7 +1886,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         open={isTransferLeadershipDrawerOpen}
         onOpenChange={setIsTransferLeadershipDrawerOpen}
       >
-        <DrawerContent>
+        <DrawerContent className="max-h-[85vh] overflow-y-auto">
           <div className="flex flex-col gap-4 p-6">
             <DrawerHeader>
               <DrawerTitle>Transfer Leadership</DrawerTitle>
@@ -1992,7 +2000,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         open={isLeaveConfirmDrawerOpen}
         onOpenChange={setIsLeaveConfirmDrawerOpen}
       >
-        <DrawerContent>
+        <DrawerContent className="max-h-[85vh] overflow-y-auto">
           <div className="flex flex-col gap-4 p-6">
             <DrawerHeader>
               <DrawerTitle>Confirmation Required</DrawerTitle>
@@ -2070,7 +2078,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         open={isCreateConfirmDrawerOpen}
         onOpenChange={setIsCreateConfirmDrawerOpen}
       >
-        <DrawerContent>
+        <DrawerContent className="max-h-[85vh] overflow-y-auto">
           <div className="flex flex-col gap-4 p-6">
             <DrawerHeader>
               <DrawerTitle>Confirmation Required</DrawerTitle>
@@ -2148,7 +2156,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         open={isDeactivateDrawerOpen}
         onOpenChange={setIsDeactivateDrawerOpen}
       >
-        <DrawerContent>
+        <DrawerContent className="max-h-[85vh] overflow-y-auto">
           <div className="flex flex-col gap-4 p-6">
             <DrawerHeader>
               <DrawerTitle>
@@ -2200,7 +2208,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         open={isMemberManagementDrawerOpen}
         onOpenChange={setIsMemberManagementDrawerOpen}
       >
-        <DrawerContent>
+        <DrawerContent className="max-h-[85vh] overflow-y-auto">
           <div className="flex flex-col gap-4 p-6">
             <DrawerHeader>
               <DrawerTitle>Member Management</DrawerTitle>
