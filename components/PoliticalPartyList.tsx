@@ -1138,7 +1138,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   },
                 },
                 {
-                  label: party.active ? "Deactivate Party" : "Activate Party",
+                  label:
+                    party.status === 0
+                      ? "Deactivate Party"
+                      : party.active
+                        ? "Deactivate Party"
+                        : "Activate Party",
                   onClick: () => {
                     setSelectedParty(party);
                     setIsDeactivateDrawerOpen(true);
