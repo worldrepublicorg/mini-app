@@ -24,6 +24,7 @@ import {
 } from "@worldcoin/mini-apps-ui-kit-react";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { FaPlus } from "react-icons/fa";
+import { Dropdown } from "@/components/ui/Dropdown";
 
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
   "0x9Dc52F24d9552bA4591ec6e3CdB4045F19B7fB26";
@@ -99,6 +100,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [partyToJoin, setPartyToJoin] = useState<number>(0);
   const [isCreateConfirmDrawerOpen, setIsCreateConfirmDrawerOpen] =
     useState(false);
+  const [isDeactivateDrawerOpen, setIsDeactivateDrawerOpen] = useState(false);
 
   const { isLoading: isConfirming, isSuccess: isConfirmed } =
     useWaitForTransactionReceipt({
@@ -783,6 +785,68 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     </div>
   );
 
+  const deactivateParty = async () => {
+    if (!selectedParty || !MiniKit.isInstalled()) {
+      showToast("Please connect your wallet first", "error");
+      return;
+    }
+
+    try {
+      setIsProcessing(true);
+      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
+        transaction: [
+          {
+            address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
+            abi: parseAbi([
+              "function togglePartyStatus(uint256 _partyId) external",
+            ]),
+            functionName: "togglePartyStatus",
+            args: [BigInt(selectedParty.id)],
+          },
+        ],
+      });
+
+      if (finalPayload.status === "error") {
+        if (finalPayload.error_code !== "user_rejected") {
+          showToast(
+            `Failed to ${selectedParty.active ? "deactivate" : "activate"} party`,
+            "error"
+          );
+        }
+      } else {
+        // Update party in the UI optimistically
+        setParties((prevParties) =>
+          prevParties.map((party) =>
+            party.id === selectedParty.id
+              ? {
+                  ...party,
+                  active: !party.active,
+                  status: party.active ? 2 : 1, // Toggle between ACTIVE (1) and INACTIVE (2)
+                }
+              : party
+          )
+        );
+
+        setIsDeactivateDrawerOpen(false);
+        showToast(
+          `Party ${selectedParty.active ? "deactivated" : "activated"} successfully`,
+          "success"
+        );
+      }
+    } catch (error) {
+      console.error(
+        `Error ${selectedParty.active ? "deactivating" : "activating"} party:`,
+        error
+      );
+      showToast(
+        `Error ${selectedParty.active ? "deactivating" : "activating"} party`,
+        "error"
+      );
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
   if (isLoading) {
     return <LoadingSkeleton />;
   }
@@ -834,14 +898,50 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               Pending
             </span>
           )}
+          {party.status === 2 && (
+            <span className="text-gray-800 rounded-full bg-gray-100 px-2 py-1 text-xs font-medium">
+              Inactive
+            </span>
+          )}
           {party.isUserLeader && (
-            <button
-              onClick={() => openUpdatePartyDrawer(party)}
-              className="text-gray-500 transition-colors hover:text-gray-700"
-              title="Edit Party Details"
-            >
-              <PiPencilSimpleBold size={16} />
-            </button>
+            <Dropdown
+              trigger={
+                <button
+                  className="rounded-md p-1 text-gray-500 transition-colors hover:bg-gray-50 hover:text-gray-700"
+                  title="Party Management"
+                >
+                  <PiPencilSimpleBold size={16} />
+                </button>
+              }
+              menuItems={[
+                {
+                  label: "Update Party Info",
+                  onClick: () => openUpdatePartyDrawer(party),
+                },
+                {
+                  label: "Remove Member",
+                  onClick: () => {
+                    setSelectedParty(party);
+                    setIsRemoveMemberDrawerOpen(true);
+                  },
+                },
+                {
+                  label: "Transfer Leadership",
+                  onClick: () => {
+                    setSelectedParty(party);
+                    setIsTransferLeadershipDrawerOpen(true);
+                  },
+                },
+                {
+                  label: party.active ? "Deactivate Party" : "Activate Party",
+                  onClick: () => {
+                    setSelectedParty(party);
+                    setIsDeactivateDrawerOpen(true);
+                  },
+                },
+              ]}
+              align="right"
+            />
           )}
         </div>
       </div>
@@ -892,34 +992,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       </div>
 
       <div className="mt-4 flex flex-col gap-2">
-        {party.isUserLeader ? (
-          <>
-            <Button
-              className="px-4"
-              variant="tertiary"
-              size="sm"
-              fullWidth
-              onClick={() => {
-                setSelectedParty(party);
-                setIsRemoveMemberDrawerOpen(true);
-              }}
-            >
-              Remove Member
-            </Button>
-            <Button
-              className="px-4"
-              variant="tertiary"
-              size="sm"
-              fullWidth
-              onClick={() => {
-                setSelectedParty(party);
-                setIsTransferLeadershipDrawerOpen(true);
-              }}
-            >
-              Transfer Leadership
-            </Button>
-          </>
-        ) : party.isUserMember ? (
+        {party.isUserMember ? (
           <Button
             className="px-6"
             variant="secondary"
@@ -1552,6 +1625,52 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   </Button>
                 </>
               )}
+            </div>
+          </div>
+        </DrawerContent>
+      </Drawer>
+
+      {/* Deactivate Party Drawer */}
+      <Drawer
+        open={isDeactivateDrawerOpen}
+        onOpenChange={setIsDeactivateDrawerOpen}
+      >
+        <DrawerContent>
+          <div className="flex flex-col gap-4 p-6">
+            <DrawerHeader>
+              <DrawerTitle>
+                {selectedParty?.active ? "Deactivate" : "Activate"} Party
+              </DrawerTitle>
+            </DrawerHeader>
+            <Typography
+              as="p"
+              variant={{ variant: "body", level: 2 }}
+              className="text-[15px]"
+            >
+              {selectedParty?.active
+                ? "Are you sure you want to deactivate this party? Inactive parties won't appear in the main listings."
+                : "Do you want to reactivate this party?"}
+            </Typography>
+            <div className="mt-4 flex flex-col gap-2">
+              <Button
+                variant="primary"
+                fullWidth
+                onClick={deactivateParty}
+                disabled={isProcessing}
+              >
+                {isProcessing
+                  ? "Processing..."
+                  : selectedParty?.active
+                    ? "Deactivate Party"
+                    : "Activate Party"}
+              </Button>
+              <Button
+                variant="tertiary"
+                fullWidth
+                onClick={() => setIsDeactivateDrawerOpen(false)}
+              >
+                Cancel
+              </Button>
             </div>
           </div>
         </DrawerContent>
