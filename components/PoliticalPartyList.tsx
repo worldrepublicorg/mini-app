@@ -8,11 +8,7 @@ import { Typography } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/Button";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useToast } from "@/components/ui/Toast";
-import {
-  PiLinkSimpleBold,
-  PiUsersBold,
-  PiPencilSimpleBold,
-} from "react-icons/pi";
+import { PiLinkSimpleBold, PiUsersBold, PiGearBold } from "react-icons/pi";
 import {
   Drawer,
   DrawerContent,
@@ -907,10 +903,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             <Dropdown
               trigger={
                 <button
-                  className="rounded-md p-1 text-gray-500 transition-colors hover:bg-gray-50 hover:text-gray-700"
+                  className="text-gray-600 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 transition-colors hover:bg-gray-200"
                   title="Party Management"
                 >
-                  <PiPencilSimpleBold size={16} />
+                  <PiGearBold size={16} />
                 </button>
               }
               menuItems={[

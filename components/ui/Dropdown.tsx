@@ -42,13 +42,13 @@ export function Dropdown({
         <div
           className={`absolute z-10 mt-1 ${
             align === "right" ? "right-0" : "left-0"
-          } bg-white ring-black min-w-[160px] rounded-md shadow-lg ring-1 ring-opacity-5 focus:outline-none`}
+          } min-w-[180px] overflow-hidden rounded-[0.875rem] border border-gray-200 bg-gray-0 shadow-lg focus:outline-none`}
         >
           <div className="py-1">
             {menuItems.map((item, index) => (
               <button
                 key={index}
-                className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50"
+                className="block w-full px-4 py-2.5 text-left text-sm text-gray-700 transition-colors hover:bg-gray-50"
                 onClick={() => {
                   item.onClick();
                   closeDropdown();
