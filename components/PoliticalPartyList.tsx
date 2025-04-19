@@ -821,9 +821,26 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     if (partyToLeaveFrom) {
       try {
         setIsProcessing(true);
+
+        // Call leaveParty function
         await leaveParty(partyToLeaveFrom.id);
+
+        // Update UI optimistically
+        setParties((prevParties) =>
+          prevParties.map((party) =>
+            party.id === partyToLeaveFrom.id
+              ? { ...party, isUserMember: false }
+              : party
+          )
+        );
+
+        // Reset user party ID
+        setUserPartyId(0);
+
+        // Close drawer
         setIsLeaveConfirmDrawerOpen(false);
-        // After leaving, refresh the parties to ensure the UI is updated
+
+        // Refresh parties to ensure data consistency
         fetchParties();
       } catch (error) {
         console.error("Error leaving party:", error);
