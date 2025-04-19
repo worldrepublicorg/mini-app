@@ -125,6 +125,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [isLeaderLookingUp, setIsLeaderLookingUp] = useState(false);
   const [isMemberLookingUp, setIsMemberLookingUp] = useState(false);
   const [userPartyId, setUserPartyId] = useState<number>(0);
+  const [pendingAction, setPendingAction] = useState<"join" | "create" | null>(
+    null
+  );
 
   const { isLoading: isConfirming, isSuccess: isConfirmed } =
     useWaitForTransactionReceipt({
@@ -398,11 +401,27 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
   useEffect(() => {
     if (isConfirmed) {
-      showToast("Successfully joined party", "success");
-      fetchParties();
+      // Handle different actions based on what was pending
+      if (pendingAction === "join") {
+        // The leave transaction was confirmed, now join the new party
+        setIsLeaveConfirmDrawerOpen(false);
+        joinNewParty(partyToJoin);
+        setPendingAction(null);
+      } else if (pendingAction === "create") {
+        // The leave transaction was confirmed, now open the create drawer
+        setIsCreateConfirmDrawerOpen(false);
+        setIsCreateDrawerOpen(true);
+        setPendingAction(null);
+      } else {
+        // Regular confirmation (for single transactions)
+        showToast("Transaction confirmed", "success");
+        fetchParties();
+      }
+
+      setIsProcessing(false);
       setTransactionId(""); // Reset the transaction ID
     }
-  }, [isConfirmed, fetchParties, showToast]);
+  }, [isConfirmed, pendingAction, partyToJoin, fetchParties, showToast]);
 
   const isJoiningParty = isConfirming && transactionId !== "";
 
@@ -828,7 +847,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           ],
         });
 
-        // Check if the leave transaction was successful
+        // Check if the leave transaction was rejected by the user
         if (finalPayload.status === "error") {
           if (finalPayload.error_code !== "user_rejected") {
             showToast("Failed to leave current party", "error");
@@ -837,30 +856,22 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           return;
         }
 
-        // Set transaction ID to wait for confirmation
+        // Set the transaction ID and wait for the hook to detect confirmation
         setTransactionId(finalPayload.transaction_id);
 
-        // Wait for the leave transaction to be confirmed before joining new party
-        const receipt = await viemClient.waitForTransactionReceipt({
-          hash: finalPayload.transaction_id as `0x${string}`,
-        });
+        // Let the useWaitForTransactionReceipt hook handle the confirmation
+        // The useEffect with isConfirmed dependency will handle the next steps
 
-        if (receipt.status === "success") {
-          // Only join the new party after successfully leaving the current one
-          setUserPartyId(0); // Update state to reflect we've left the party
+        // Update our UI optimistically (but actual chain state change is tracked by the hook)
+        setUserPartyId(0);
+        setPartyToJoin(partyToJoin);
 
-          // Now join the new party
-          await joinNewParty(partyToJoin);
-          setIsLeaveConfirmDrawerOpen(false);
-        } else {
-          showToast("Failed to leave current party", "error");
-        }
+        // We'll close the drawer once the hook confirms the transaction
+        setPendingAction("join");
       } catch (error) {
         console.error("Error in leave-and-join flow:", error);
         showToast("Error processing party change", "error");
-      } finally {
         setIsProcessing(false);
-        setTransactionId(""); // Reset transaction ID
       }
     }
   };
@@ -882,7 +893,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           ],
         });
 
-        // Check if the leave transaction was successful
+        // Check if the leave transaction was rejected by the user
         if (finalPayload.status === "error") {
           if (finalPayload.error_code !== "user_rejected") {
             showToast("Failed to leave current party", "error");
@@ -891,32 +902,18 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           return;
         }
 
-        // Set transaction ID to wait for confirmation
+        // Set the transaction ID and wait for the hook to detect confirmation
         setTransactionId(finalPayload.transaction_id);
 
-        // Wait for the leave transaction to be confirmed before proceeding
-        const receipt = await viemClient.waitForTransactionReceipt({
-          hash: finalPayload.transaction_id as `0x${string}`,
-        });
+        // Update our UI optimistically (but actual chain state change is tracked by the hook)
+        setUserPartyId(0);
 
-        if (receipt.status === "success") {
-          // Only proceed to create after successfully leaving the current party
-          setUserPartyId(0); // Update state to reflect we've left the party
-          setIsCreateConfirmDrawerOpen(false);
-
-          // Close confirmation drawer and open create drawer
-          setTimeout(() => {
-            setIsCreateDrawerOpen(true);
-          }, 300);
-        } else {
-          showToast("Failed to leave current party", "error");
-        }
+        // We'll close the confirmation drawer once the hook confirms the transaction
+        setPendingAction("create");
       } catch (error) {
         console.error("Error in leave-and-create flow:", error);
         showToast("Error processing party change", "error");
-      } finally {
         setIsProcessing(false);
-        setTransactionId(""); // Reset transaction ID
       }
     }
   };
