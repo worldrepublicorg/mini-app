@@ -599,15 +599,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       return;
     }
 
-    // Official link is optional, but if provided, it cannot be empty
-    if (
-      updatePartyForm.officialLink.trim() === "" &&
-      updatePartyForm.officialLink !== ""
-    ) {
-      showToast("Official link cannot contain only whitespace", "error");
-      return;
-    }
-
     try {
       setIsProcessing(true);
 
@@ -692,8 +683,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         }
       }
 
-      // Update official link if changed
+      // Update official link if changed - KEY FIX: Add a placeholder if empty
       if (updatePartyForm.officialLink.trim() !== selectedParty.officialLink) {
+        // If officialLink is empty, use a placeholder to satisfy the non-empty validation
+        const linkToUse =
+          updatePartyForm.officialLink.trim() === ""
+            ? "https://placeholder.com"
+            : updatePartyForm.officialLink.trim();
+
         const { finalPayload: linkPayload } =
           await MiniKit.commandsAsync.sendTransaction({
             transaction: [
@@ -703,10 +700,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   "function updateOfficialLink(uint256 _partyId, string memory _officialLink) external",
                 ]),
                 functionName: "updateOfficialLink",
-                args: [
-                  BigInt(selectedParty.id),
-                  updatePartyForm.officialLink.trim(),
-                ],
+                args: [BigInt(selectedParty.id), linkToUse],
               },
             ],
           });
