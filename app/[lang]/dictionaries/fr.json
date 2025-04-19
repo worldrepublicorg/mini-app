@@ -341,6 +341,7 @@
             "title": "Sondages précédents",
             "backToGovern": "Retour à Gouverner",
             "polls": {
+              "globalMiningStandards": "Faudrait-il établir un protocole international pour garantir une exploitation minière écologiquement et socialement responsable des minéraux critiques nécessaires aux technologies d'énergie propre ?",
               "globalIMFQuotaReform": "La formule de révision des quotes-parts du FMI devrait-elle être révisée pour renforcer le pouvoir de vote des économies émergentes et en développement et garantir une prise de décision plus équitable ?",
               "globalEnergyTransition": "Les pays devraient-ils adopter un cadre mondial juridiquement contraignant pour accélérer la transition des combustibles fossiles vers les sources d'énergie renouvelable ?",
               "globalTradeArbitration": "Faudrait-il établir un panel d'arbitrage international contraignant pour résoudre les différends commerciaux et assurer des politiques tarifaires transparentes et prévisibles ?",
