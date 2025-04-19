@@ -23,8 +23,8 @@ const polls: Poll[] = [
     url: "https://vote.one/ZI2ILiHT",
   },
   {
-    key: "globalClimateFinance",
-    url: "https://vote.one/JtJPmBRZ",
+    key: "globalDigitalServicesTax",
+    url: "https://vote.one/qcY0cooZ",
   },
   {
     key: "globalTradeArbitration",
