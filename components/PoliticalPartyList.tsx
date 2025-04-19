@@ -822,9 +822,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       try {
         setIsProcessing(true);
 
-        // Call leaveParty function
-        await leaveParty(partyToLeaveFrom.id);
-
         // Update UI optimistically
         setParties((prevParties) =>
           prevParties.map((party) =>
@@ -836,6 +833,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
         // Reset user party ID
         setUserPartyId(0);
+
+        // Call leaveParty function
+        await leaveParty(partyToLeaveFrom.id);
 
         // Close drawer
         setIsLeaveConfirmDrawerOpen(false);
