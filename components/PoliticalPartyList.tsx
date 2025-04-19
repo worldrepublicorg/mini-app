@@ -816,20 +816,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     }
   };
 
-  const handleLeaveAndJoin = async () => {
+  // Replace the handleLeaveAndJoin function with:
+  const handleLeave = async () => {
     if (partyToLeaveFrom) {
       try {
         setIsProcessing(true);
         await leaveParty(partyToLeaveFrom.id);
-
-        // Small delay to ensure blockchain state updates
-        setTimeout(() => {
-          // Now try to join the new party
-          joinNewParty(partyToJoin);
-          setIsLeaveConfirmDrawerOpen(false);
-        }, 500);
+        setIsLeaveConfirmDrawerOpen(false);
+        // After leaving, refresh the parties to ensure the UI is updated
+        fetchParties();
       } catch (error) {
-        console.error("Error in leave-and-join flow:", error);
+        console.error("Error leaving party:", error);
       } finally {
         setIsProcessing(false);
       }
@@ -2005,12 +2002,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               <Button
                 variant="primary"
                 fullWidth
-                onClick={handleLeaveAndJoin}
+                onClick={handleLeave}
                 disabled={isProcessing}
               >
                 {isProcessing
-                  ? "Processing..."
-                  : `Leave ${partyToLeaveFrom?.shortName} and join`}
+                  ? "Leaving..."
+                  : `Leave ${partyToLeaveFrom?.shortName}`}
               </Button>
               <Button
                 variant="tertiary"
