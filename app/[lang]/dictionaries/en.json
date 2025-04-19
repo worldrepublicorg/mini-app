@@ -331,6 +331,7 @@
             "title": "Previous Polls",
             "backToGovern": "Back to Govern",
             "polls": {
+              "globalMiningStandards": "Should an international protocol be established to ensure environmentally and socially responsible mining of critical minerals needed for clean energy technologies?",
               "globalDigitalServicesTax": "Should nations adopt a coordinated digital services tax targeting large tech platforms’ revenues to ensure fair and predictable global taxation?",
               "globalIMFQuotaReform": "Should the IMF’s quota review formula be revised to enhance voting power for emerging and developing economies and ensure more equitable decision-making?",
               "globalEnergyTransition": "Should countries adopt a legally binding global framework to accelerate the shift from fossil fuels to renewable energy sources?",
