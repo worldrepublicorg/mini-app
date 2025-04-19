@@ -16,35 +16,12 @@ import { Textarea } from "@/components/ui/Textarea";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { FaPlus } from "react-icons/fa";
 import { Dropdown } from "@/components/ui/Dropdown";
+import { DrawerTitle } from "@/components/ui/Drawer";
 
 // Custom DrawerHeader and DrawerTitle components
 const DrawerHeader = ({ children }: { children: React.ReactNode }) => (
   <div className="mb-4">{children}</div>
 );
-
-const DrawerTitle = ({ children }: { children: React.ReactNode }) => {
-  // Using useEffect to set the document title for accessibility
-  useEffect(() => {
-    if (typeof children === "string") {
-      const title = children;
-      // Set the drawer title in page for accessibility
-      const drawerTitleElement = document.querySelector(".vaul-drawer-title");
-      if (drawerTitleElement) {
-        drawerTitleElement.textContent = title;
-      }
-    }
-  }, [children]);
-
-  return (
-    <Typography
-      as="h2"
-      variant={{ variant: "heading", level: 1 }}
-      className="text-center font-semibold"
-    >
-      {children}
-    </Typography>
-  );
-};
 
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
   "0x66e50b996f4359A0bFe27e0020666cf1a67EC2FC";
