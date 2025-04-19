@@ -2015,6 +2015,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 variant="tertiary"
                 fullWidth
                 onClick={() => setIsLeaveConfirmDrawerOpen(false)}
+                className="border-none"
               >
                 Cancel
               </Button>
@@ -2058,6 +2059,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 variant="tertiary"
                 fullWidth
                 onClick={() => setIsCreateConfirmDrawerOpen(false)}
+                className="border-none"
               >
                 Cancel
               </Button>
@@ -2110,6 +2112,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 variant="tertiary"
                 fullWidth
                 onClick={() => setIsDeactivateDrawerOpen(false)}
+                className="border-none"
               >
                 Cancel
               </Button>
