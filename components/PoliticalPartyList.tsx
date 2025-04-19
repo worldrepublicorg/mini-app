@@ -16,35 +16,7 @@ import { Textarea } from "@/components/ui/Textarea";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { FaPlus } from "react-icons/fa";
 import { Dropdown } from "@/components/ui/Dropdown";
-
-// Custom DrawerHeader and DrawerTitle components
-const DrawerHeader = ({ children }: { children: React.ReactNode }) => (
-  <div className="mb-4">{children}</div>
-);
-
-const DrawerTitle = ({ children }: { children: React.ReactNode }) => {
-  // Using useEffect to set the document title for accessibility
-  useEffect(() => {
-    if (typeof children === "string") {
-      const title = children;
-      // Set the drawer title in page for accessibility
-      const drawerTitleElement = document.querySelector(".vaul-drawer-title");
-      if (drawerTitleElement) {
-        drawerTitleElement.textContent = title;
-      }
-    }
-  }, [children]);
-
-  return (
-    <Typography
-      as="h2"
-      variant={{ variant: "heading", level: 1 }}
-      className="text-center font-semibold"
-    >
-      {children}
-    </Typography>
-  );
-};
+import { DrawerTitle } from "@/components/ui/Drawer";
 
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
   "0x66e50b996f4359A0bFe27e0020666cf1a67EC2FC";
@@ -57,12 +29,12 @@ interface Party {
   officialLink: string;
   founder: string;
   leader: string;
+  creationTime: number;
+  status: number; // 0: PENDING, 1: ACTIVE, 2: INACTIVE
   memberCount: number;
   documentVerifiedMemberCount: number;
   verifiedMemberCount: number;
-  creationTime: number;
   active: boolean;
-  status: number; // 0: PENDING, 1: ACTIVE, 2: INACTIVE
   isUserMember?: boolean;
   isUserLeader?: boolean;
 }
@@ -843,18 +815,52 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     if (partyToLeaveFrom) {
       try {
         setIsProcessing(true);
-        await leaveParty(partyToLeaveFrom.id);
 
-        // Small delay to ensure blockchain state updates
-        setTimeout(() => {
-          // Now try to join the new party
-          joinNewParty(partyToJoin);
+        // First, send the transaction to leave the current party
+        const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
+          transaction: [
+            {
+              address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
+              abi: parseAbi(["function leaveParty(uint256 _partyId) external"]),
+              functionName: "leaveParty",
+              args: [BigInt(partyToLeaveFrom.id)],
+            },
+          ],
+        });
+
+        // Check if the leave transaction was successful
+        if (finalPayload.status === "error") {
+          if (finalPayload.error_code !== "user_rejected") {
+            showToast("Failed to leave current party", "error");
+          }
+          setIsProcessing(false);
+          return;
+        }
+
+        // Set transaction ID to wait for confirmation
+        setTransactionId(finalPayload.transaction_id);
+
+        // Wait for the leave transaction to be confirmed before joining new party
+        const receipt = await viemClient.waitForTransactionReceipt({
+          hash: finalPayload.transaction_id as `0x${string}`,
+        });
+
+        if (receipt.status === "success") {
+          // Only join the new party after successfully leaving the current one
+          setUserPartyId(0); // Update state to reflect we've left the party
+
+          // Now join the new party
+          await joinNewParty(partyToJoin);
           setIsLeaveConfirmDrawerOpen(false);
-        }, 500);
+        } else {
+          showToast("Failed to leave current party", "error");
+        }
       } catch (error) {
         console.error("Error in leave-and-join flow:", error);
+        showToast("Error processing party change", "error");
       } finally {
         setIsProcessing(false);
+        setTransactionId(""); // Reset transaction ID
       }
     }
   };
@@ -863,17 +869,54 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     if (partyToLeaveFrom) {
       try {
         setIsProcessing(true);
-        await leaveParty(partyToLeaveFrom.id);
 
-        // Close the confirmation drawer and open create drawer
-        setIsCreateConfirmDrawerOpen(false);
-        setTimeout(() => {
-          setIsCreateDrawerOpen(true);
-        }, 300);
+        // First, send the transaction to leave the current party
+        const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
+          transaction: [
+            {
+              address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
+              abi: parseAbi(["function leaveParty(uint256 _partyId) external"]),
+              functionName: "leaveParty",
+              args: [BigInt(partyToLeaveFrom.id)],
+            },
+          ],
+        });
+
+        // Check if the leave transaction was successful
+        if (finalPayload.status === "error") {
+          if (finalPayload.error_code !== "user_rejected") {
+            showToast("Failed to leave current party", "error");
+          }
+          setIsProcessing(false);
+          return;
+        }
+
+        // Set transaction ID to wait for confirmation
+        setTransactionId(finalPayload.transaction_id);
+
+        // Wait for the leave transaction to be confirmed before proceeding
+        const receipt = await viemClient.waitForTransactionReceipt({
+          hash: finalPayload.transaction_id as `0x${string}`,
+        });
+
+        if (receipt.status === "success") {
+          // Only proceed to create after successfully leaving the current party
+          setUserPartyId(0); // Update state to reflect we've left the party
+          setIsCreateConfirmDrawerOpen(false);
+
+          // Close confirmation drawer and open create drawer
+          setTimeout(() => {
+            setIsCreateDrawerOpen(true);
+          }, 300);
+        } else {
+          showToast("Failed to leave current party", "error");
+        }
       } catch (error) {
         console.error("Error in leave-and-create flow:", error);
+        showToast("Error processing party change", "error");
       } finally {
         setIsProcessing(false);
+        setTransactionId(""); // Reset transaction ID
       }
     }
   };
@@ -1541,9 +1584,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       <Drawer open={isCreateDrawerOpen} onOpenChange={setIsCreateDrawerOpen}>
         <DrawerContent>
           <div className="p-6">
-            <DrawerHeader>
+            <div className="mb-4">
               <DrawerTitle>Create New Party</DrawerTitle>
-            </DrawerHeader>
+            </div>
             <Form.Root
               onSubmit={(e) => {
                 e.preventDefault();
@@ -1719,9 +1762,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       >
         <DrawerContent>
           <div className="flex flex-col gap-4 p-6">
-            <DrawerHeader>
+            <div className="mb-4">
               <DrawerTitle>Update Party Details</DrawerTitle>
-            </DrawerHeader>
+            </div>
             <Form.Root
               onSubmit={(e) => {
                 e.preventDefault();
@@ -1897,9 +1940,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       >
         <DrawerContent>
           <div className="flex flex-col gap-4 p-6">
-            <DrawerHeader>
+            <div className="mb-4">
               <DrawerTitle>Transfer Leadership</DrawerTitle>
-            </DrawerHeader>
+            </div>
             <Typography
               as="p"
               variant={{ variant: "body", level: 2 }}
@@ -2011,9 +2054,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       >
         <DrawerContent>
           <div className="flex flex-col gap-4 p-6">
-            <DrawerHeader>
+            <div className="mb-4">
               <DrawerTitle>Confirmation Required</DrawerTitle>
-            </DrawerHeader>
+            </div>
             <Typography
               as="p"
               variant={{ variant: "body", level: 2 }}
@@ -2054,9 +2097,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       >
         <DrawerContent>
           <div className="flex flex-col gap-4 p-6">
-            <DrawerHeader>
+            <div className="mb-4">
               <DrawerTitle>Confirmation Required</DrawerTitle>
-            </DrawerHeader>
+            </div>
             <Typography
               as="p"
               variant={{ variant: "body", level: 2 }}
@@ -2097,13 +2140,13 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       >
         <DrawerContent>
           <div className="flex flex-col gap-4 p-6">
-            <DrawerHeader>
+            <div className="mb-4">
               <DrawerTitle>
                 {selectedParty?.status === 2
                   ? "Reactivate Party"
                   : "Deactivate Party"}
               </DrawerTitle>
-            </DrawerHeader>
+            </div>
             <Typography
               as="p"
               variant={{ variant: "body", level: 2 }}
@@ -2149,9 +2192,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       >
         <DrawerContent>
           <div className="flex flex-col gap-4 p-6">
-            <DrawerHeader>
+            <div className="mb-4">
               <DrawerTitle>Member Management</DrawerTitle>
-            </DrawerHeader>
+            </div>
 
             <div className="mb-4 flex items-center gap-1 border-b">
               <button
