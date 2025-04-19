@@ -965,6 +965,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             Top
           </button>
           <button className="h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200">
+            Trending
+          </button>
+          <button className="h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200">
             New
           </button>
           <button className="h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200">
@@ -1279,7 +1282,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           : ""
       } rounded-xl border border-gray-200 p-4`}
     >
-      <div className="flex items-start justify-between">
+      <div className="flex items-center justify-between">
         <Typography
           as="h3"
           variant={{ variant: "subtitle", level: 1 }}
