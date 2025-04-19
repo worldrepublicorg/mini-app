@@ -415,6 +415,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             party.id === partyId ? { ...party, isUserMember: true } : party
           )
         );
+        setUserPartyId(partyId);
         setTransactionId(finalPayload.transaction_id);
       }
     } catch (error) {
@@ -462,6 +463,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             party.id === partyId ? { ...party, isUserMember: false } : party
           )
         );
+        setUserPartyId(0);
       }
     } catch (error) {
       console.error("Error leaving party:", error);
@@ -2067,7 +2069,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   >
                     {isProcessing
                       ? "Processing..."
-                      : `Leave ${partyToLeaveFrom?.name} and join new party`}
+                      : `Leave ${partyToLeaveFrom?.shortName} and join`}
                   </Button>
                   <Button
                     variant="tertiary"
@@ -2145,7 +2147,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   >
                     {isProcessing
                       ? "Processing..."
-                      : `Leave ${partyToLeaveFrom?.name} and create new party`}
+                      : `Leave ${partyToLeaveFrom?.shortName} and create`}
                   </Button>
                   <Button
                     variant="tertiary"
