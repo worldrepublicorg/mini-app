@@ -1988,7 +1988,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         <DrawerContent>
           <div className="flex flex-col p-6">
             <DrawerHeader>
-              <DrawerTitle>Confirmation Required</DrawerTitle>
+              <DrawerTitle>Leave Current Party</DrawerTitle>
             </DrawerHeader>
             <Typography
               as="p"
@@ -2023,7 +2023,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         <DrawerContent>
           <div className="flex flex-col p-6">
             <DrawerHeader>
-              <DrawerTitle>Confirmation Required</DrawerTitle>
+              <DrawerTitle>Leave Current Party</DrawerTitle>
             </DrawerHeader>
             <Typography
               as="p"
