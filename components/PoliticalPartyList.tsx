@@ -1992,8 +1992,8 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             </DrawerHeader>
             <Typography
               as="p"
-              variant={{ variant: "body", level: 2 }}
-              className="text-[15px]"
+              variant={{ variant: "subtitle", level: 1 }}
+              className="mx-auto text-center text-gray-500"
             >
               You are already a member of {partyToLeaveFrom?.name}. You must
               leave your current party before joining a new one.
@@ -2036,8 +2036,8 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             </DrawerHeader>
             <Typography
               as="p"
-              variant={{ variant: "body", level: 2 }}
-              className="text-[15px]"
+              variant={{ variant: "subtitle", level: 1 }}
+              className="mx-auto text-center text-gray-500"
             >
               You are already a member of {partyToLeaveFrom?.name}. You must
               leave your current party before creating a new one.
@@ -2084,8 +2084,8 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             </DrawerHeader>
             <Typography
               as="p"
-              variant={{ variant: "body", level: 2 }}
-              className="text-[15px]"
+              variant={{ variant: "subtitle", level: 1 }}
+              className="mx-auto text-center text-gray-500"
             >
               {selectedParty?.status === 0
                 ? "Are you sure you want to deactivate this pending party? Inactive parties won't appear in the main listings."
