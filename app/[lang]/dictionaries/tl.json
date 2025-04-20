@@ -341,6 +341,7 @@
             "title": "Mga Nakaraang Poll",
             "backToGovern": "Bumalik sa Govern",
             "polls": {
+              "globalNuclearDialogue": "Dapat bang obligahin ang malalaking kapangyarihan sa ilalim ng isang internasyonal na kasunduan na makisali sa tuluy-tuloy na negosasyon sa antas ng eksperto tungkol sa nukleyar kasama ang mga kalabanang estado upang maiwasan ang eskalasyon at matiyak ang diplomatikong pangangasiwa?",
               "globalEnergyTransition": "Dapat bang magpatibay ang mga bansa ng isang legally binding na global framework upang pabilisin ang paglipat mula sa fossil fuels patungo sa mga renewable energy sources?",
               "globalTradeArbitration": "Dapat bang itatag ang isang binding international arbitration panel upang malutas ang mga trade dispute at matiyak ang transparent, predictable na tariff policies?",
               "globalEduEquity": "Dapat ba magkaroon ng koordinadong pandaigdigang pagsisikap upang mapagtagumpayan ang digital divide sa pamamagitan ng pagtiyak ng pantay na access sa mga digital na kagamitan sa pag-aaral at abot-kayang internet para sa mga mag-aaral sa buong mundo?",
@@ -399,7 +400,7 @@
               "globalVaccineEquity": "Dapat bang itatag ang isang internasyonal na koordinadong balangkas para matiyak ang pantay na access sa mga bakuna at mahahalagang gamot sa panahon ng mga pandaigdigang krisis sa kalusugan?",
               "globalIMFQuotaReform": "Dapat bang baguhin ang formula sa pagsusuri ng quota ng IMF upang mapalakas ang boto para sa mga umuusbong at umuunlad na ekonomiya at masiguro ang mas patas na pagdedesisyon?",
               "globalDigitalServicesTax": "Dapat bang magpatupad ang mga bansa ng koordinadong buwis sa mga serbisyong digital na nakatutok sa kita ng malalaking platform ng teknolohiya upang matiyak ang makatarungan at mahuhulaan na global na pagbubuwis?",
-              "globalMiningStandards": "Dapat bang itatag ang isang internasyonal na protokol upang matiyak ang responsableng pagmimina sa kapaligiran at lipunan ng mga kritikal na mineral na kinakailangan para sa mga teknolohiya ng malinis na enerhiya?"
+              "globalMiningStandards": "Dapat bang magtatag ng isang internasyonal na protokol upang matiyak ang responsableng pagmimina ng mga kritikal na mineral na kailangan para sa mga teknolohiya ng malinis na enerhiya?"
             }
           }
         },

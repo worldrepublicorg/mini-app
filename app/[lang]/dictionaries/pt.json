@@ -341,6 +341,7 @@
             "title": "Votações Anteriores",
             "backToGovern": "Voltar para Governar",
             "polls": {
+              "globalNuclearDialogue": "As grandes potências deveriam ser obrigadas, sob um acordo internacional, a participar de negociações nucleares contínuas a nível de especialistas com estados adversários para prevenir escaladas e garantir supervisão diplomática?",
               "globalEnergyTransition": "Os países devem adotar uma estrutura global juridicamente vinculativa para acelerar a transição dos combustíveis fósseis para fontes de energia renovável?",
               "globalTradeArbitration": "Deve ser estabelecido um painel de arbitragem internacional vinculativo para resolver disputas comerciais e garantir políticas tarifárias transparentes e previsíveis?",
               "globalFoodWaste": "Os governos deveriam implementar medidas rigorosas para reduzir o desperdício de alimentos, como incentivos fiscais para doações de alimentos e penalidades para o descarte excessivo de alimentos comestíveis?",
@@ -399,7 +400,7 @@
               "globalVaccineEquity": "Deve ser estabelecido um marco coordenado internacionalmente para garantir o acesso equitativo a vacinas e medicamentos essenciais durante crises de saúde globais?",
               "globalIMFQuotaReform": "A fórmula de revisão de cotas do FMI deve ser revisada para aumentar o poder de voto das economias emergentes e em desenvolvimento e garantir uma tomada de decisão mais equitativa?",
               "globalDigitalServicesTax": "As nações devem adotar um imposto coordenado sobre serviços digitais direcionado às receitas das grandes plataformas tecnológicas para garantir uma tributação global justa e previsível?",
-              "globalMiningStandards": "Deve ser estabelecido um protocolo internacional para garantir a mineração ambientalmente e socialmente responsável de minerais críticos necessários para tecnologias de energia limpa?"
+              "globalMiningStandards": "Deveria ser estabelecido um protocolo internacional para garantir a mineração ambientalmente e socialmente responsável de minerais críticos necessários para tecnologias de energia limpa?"
             }
           }
         },
