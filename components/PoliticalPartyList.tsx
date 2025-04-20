@@ -2000,26 +2000,16 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               {partyToLeaveFrom?.isUserLeader &&
                 " Note: You are currently the leader of this party. If you leave, leadership will be lost or reassigned by the system."}
             </Typography>
-            <div className="mt-4 flex flex-col gap-2">
-              <Button
-                variant="primary"
-                fullWidth
-                onClick={handleLeave}
-                disabled={isProcessing}
-              >
-                {isProcessing
-                  ? "Leaving..."
-                  : `Leave ${partyToLeaveFrom?.shortName}`}
-              </Button>
-              <Button
-                variant="tertiary"
-                fullWidth
-                onClick={() => setIsLeaveConfirmDrawerOpen(false)}
-                className="border-none"
-              >
-                Cancel
-              </Button>
-            </div>
+            <Button
+              variant="primary"
+              fullWidth
+              onClick={handleLeave}
+              disabled={isProcessing}
+            >
+              {isProcessing
+                ? "Leaving..."
+                : `Leave ${partyToLeaveFrom?.shortName}`}
+            </Button>
           </div>
         </DrawerContent>
       </Drawer>
@@ -2044,26 +2034,16 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               {partyToLeaveFrom?.isUserLeader &&
                 " Note: You are currently the leader of this party. If you leave, leadership will be lost or reassigned by the system."}
             </Typography>
-            <div className="mt-4 flex flex-col gap-2">
-              <Button
-                variant="primary"
-                fullWidth
-                onClick={handleLeaveAndCreate}
-                disabled={isProcessing}
-              >
-                {isProcessing
-                  ? "Processing..."
-                  : `Leave ${partyToLeaveFrom?.shortName} and create`}
-              </Button>
-              <Button
-                variant="tertiary"
-                fullWidth
-                onClick={() => setIsCreateConfirmDrawerOpen(false)}
-                className="border-none"
-              >
-                Cancel
-              </Button>
-            </div>
+            <Button
+              variant="primary"
+              fullWidth
+              onClick={handleLeaveAndCreate}
+              disabled={isProcessing}
+            >
+              {isProcessing
+                ? "Processing..."
+                : `Leave ${partyToLeaveFrom?.shortName} and create`}
+            </Button>
           </div>
         </DrawerContent>
       </Drawer>
@@ -2093,30 +2073,20 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   ? "Are you sure you want to deactivate this party? Inactive parties won't appear in the main listings."
                   : "Do you want to reactivate this party?"}
             </Typography>
-            <div className="mt-4 flex flex-col gap-2">
-              <Button
-                variant="primary"
-                fullWidth
-                onClick={deactivateParty}
-                disabled={isProcessing}
-              >
-                {isProcessing
-                  ? "Processing..."
-                  : selectedParty?.status === 0
-                    ? "Deactivate Pending Party"
-                    : selectedParty?.status === 1
-                      ? "Deactivate Party"
-                      : "Reactivate Party"}
-              </Button>
-              <Button
-                variant="tertiary"
-                fullWidth
-                onClick={() => setIsDeactivateDrawerOpen(false)}
-                className="border-none"
-              >
-                Cancel
-              </Button>
-            </div>
+            <Button
+              variant="primary"
+              fullWidth
+              onClick={deactivateParty}
+              disabled={isProcessing}
+            >
+              {isProcessing
+                ? "Processing..."
+                : selectedParty?.status === 0
+                  ? "Deactivate Pending Party"
+                  : selectedParty?.status === 1
+                    ? "Deactivate Party"
+                    : "Reactivate Party"}
+            </Button>
           </div>
         </DrawerContent>
       </Drawer>
