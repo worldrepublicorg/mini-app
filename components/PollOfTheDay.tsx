@@ -11,8 +11,8 @@ interface Poll {
 
 const polls: Poll[] = [
   {
-    key: "globalVaccineEquity",
-    url: "https://vote.one/QKYOUdPT",
+    key: "globalNuclearDialogue",
+    url: "https://vote.one/VwgWUVBl",
   },
   {
     key: "globalEnergyTransition",
