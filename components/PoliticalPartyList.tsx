@@ -13,18 +13,17 @@ import { PiLinkSimpleBold, PiUsersBold, PiGearBold } from "react-icons/pi";
 import { Drawer, DrawerContent } from "@/components/ui/Drawer";
 import { Form, Input } from "@worldcoin/mini-apps-ui-kit-react";
 import { Textarea } from "@/components/ui/Textarea";
-import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { FaPlus } from "react-icons/fa";
 import { Dropdown } from "@/components/ui/Dropdown";
 import { DrawerTitle } from "@/components/ui/Drawer";
-
-// Custom DrawerHeader and DrawerTitle components
-const DrawerHeader = ({ children }: { children: React.ReactNode }) => (
-  <div className="mb-4">{children}</div>
-);
+import { LoadingSkeleton } from "./PartySkeletons";
 
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
   "0x66e50b996f4359A0bFe27e0020666cf1a67EC2FC";
+
+// After the interfaces, add these constants to match the smart contract
+const MAX_STRING_LENGTH = 256;
+const MAX_SHORT_NAME_LENGTH = 16;
 
 interface Party {
   id: number;
@@ -43,10 +42,6 @@ interface Party {
   isUserMember?: boolean;
   isUserLeader?: boolean;
 }
-
-// After the interfaces, add these constants to match the smart contract
-const MAX_STRING_LENGTH = 256;
-const MAX_SHORT_NAME_LENGTH = 16;
 
 interface CreatePartyForm {
   name: string;
@@ -75,11 +70,8 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     officialLink: "",
   });
   const [isCreating, setIsCreating] = useState(false);
-  const [transactionId, setTransactionId] = useState<string>("");
   const [isUpdatePartyDrawerOpen, setIsUpdatePartyDrawerOpen] = useState(false);
   const [isTransferLeadershipDrawerOpen, setIsTransferLeadershipDrawerOpen] =
-    useState(false);
-  const [isRemoveMemberDrawerOpen, setIsRemoveMemberDrawerOpen] =
     useState(false);
   const [selectedParty, setSelectedParty] = useState<Party | null>(null);
   const [newLeaderAddress, setNewLeaderAddress] = useState("");
@@ -99,19 +91,15 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [isLeaveConfirmDrawerOpen, setIsLeaveConfirmDrawerOpen] =
     useState(false);
   const [partyToLeaveFrom, setPartyToLeaveFrom] = useState<Party | null>(null);
-  const [partyToJoin, setPartyToJoin] = useState<number>(0);
   const [isCreateConfirmDrawerOpen, setIsCreateConfirmDrawerOpen] =
     useState(false);
   const [isDeactivateDrawerOpen, setIsDeactivateDrawerOpen] = useState(false);
-  const [isBannedMembersDrawerOpen, setIsBannedMembersDrawerOpen] =
-    useState(false);
   const [bannedMemberToUnban, setBannedMemberToUnban] = useState("");
   const [bannedMemberUsername, setBannedMemberUsername] = useState("");
   const [isLookingUp, setIsLookingUp] = useState(false);
   const [lookupError, setLookupError] = useState("");
   const [lookupResult, setLookupResult] = useState<any>(null);
   const [memberToBan, setMemberToBan] = useState("");
-  const [isBanMemberDrawerOpen, setIsBanMemberDrawerOpen] = useState(false);
   const [memberToBanUsername, setMemberToBanUsername] = useState("");
   const [banLookupError, setBanLookupError] = useState("");
   const [banLookupResult, setBanLookupResult] = useState<any>(null);
@@ -130,73 +118,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [isLeaderLookingUp, setIsLeaderLookingUp] = useState(false);
   const [isMemberLookingUp, setIsMemberLookingUp] = useState(false);
   const [userPartyId, setUserPartyId] = useState<number>(0);
-
-  const { isLoading: isConfirming, isSuccess: isConfirmed } =
-    useWaitForTransactionReceipt({
-      client: viemClient,
-      appConfig: {
-        app_id: process.env.NEXT_PUBLIC_WORLD_APP_ID as string,
-      },
-      transactionId: transactionId,
-    });
-
-  // Reusable function for username lookups
-  const performUsernameLookup = async (
-    username: string,
-    setAddress: (address: string) => void,
-    setError: (error: string) => void,
-    setIsLoading: (loading: boolean) => void,
-    setResult: (result: any) => void
-  ) => {
-    if (!username || !username.trim()) {
-      setError("Please enter a username");
-      return;
-    }
-
-    setIsLoading(true);
-    setError("");
-    setResult(null);
-
-    try {
-      // Use MiniKit API to look up username (if available)
-      if (MiniKit.isInstalled()) {
-        try {
-          // Try to get address by username first
-          const response = await fetch(
-            `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(username.trim())}`
-          );
-
-          if (!response.ok) {
-            if (response.status === 404) {
-              setError("Username not found");
-            } else {
-              setError(`Error: ${response.status} ${response.statusText}`);
-            }
-            setIsLoading(false);
-            return;
-          }
-
-          const data = await response.json();
-          setResult(data);
-
-          // Set the address for the transaction if we found a result
-          if (data.address) {
-            setAddress(data.address);
-          }
-        } catch (error) {
-          console.error("[Username] Error looking up username via API:", error);
-          setError("Failed to look up username. Please try again.");
-        }
-      } else {
-        setError("Please install MiniKit to look up usernames");
-      }
-    } catch (error) {
-      setError("Failed to look up username. Please try again.");
-      console.error("[Username] Username lookup error:", error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   const shortenUrl = (url: string, maxLength = 20) => {
     if (!url) return "";
@@ -321,7 +242,94 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     fetchParties();
   }, [fetchParties]);
 
-  // Leader username lookup
+  // Filter parties based on tab selection
+  const filteredParties = parties
+    .filter((party) => {
+      // First filter for parties the user is not a member of - use userPartyId
+      if (party.id === userPartyId) return false;
+
+      // Then filter based on tab
+      if (activeTab === "pending") {
+        return party.status === 0; // Show only pending parties
+      } else {
+        return party.status !== 0; // Hide pending parties for other tabs
+      }
+    })
+    .sort((a, b) => {
+      if (activeTab === "top") {
+        // Sort by member count (highest first) for Top tab
+        return b.memberCount - a.memberCount;
+      } else if (activeTab === "trending") {
+        // For trending tab: mix of recency and member count
+        // This simple formula weights both factors
+        const trendingScoreA =
+          a.memberCount * (1 + (Date.now() / 1000 - a.creationTime) / 86400);
+        const trendingScoreB =
+          b.memberCount * (1 + (Date.now() / 1000 - b.creationTime) / 86400);
+        return trendingScoreB - trendingScoreA;
+      } else {
+        // Default to reverse chronological order (newest first) for New tab
+        return b.creationTime - a.creationTime;
+      }
+    });
+
+  const performUsernameLookup = async (
+    username: string,
+    setAddress: (address: string) => void,
+    setError: (error: string) => void,
+    setIsLoading: (loading: boolean) => void,
+    setResult: (result: any) => void
+  ) => {
+    if (!username || !username.trim()) {
+      setError("Please enter a username");
+      return;
+    }
+
+    setIsLoading(true);
+    setError("");
+    setResult(null);
+
+    try {
+      // Use MiniKit API to look up username (if available)
+      if (MiniKit.isInstalled()) {
+        try {
+          // Try to get address by username first
+          const response = await fetch(
+            `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(username.trim())}`
+          );
+
+          if (!response.ok) {
+            if (response.status === 404) {
+              setError("Username not found");
+            } else {
+              setError(`Error: ${response.status} ${response.statusText}`);
+            }
+            setIsLoading(false);
+            return;
+          }
+
+          const data = await response.json();
+          setResult(data);
+
+          // Set the address for the transaction if we found a result
+          if (data.address) {
+            setAddress(data.address);
+          }
+        } catch (error) {
+          console.error("[Username] Error looking up username via API:", error);
+          setError("Failed to look up username. Please try again.");
+        }
+      } else {
+        setError("Please install MiniKit to look up usernames");
+      }
+    } catch (error) {
+      setError("Failed to look up username. Please try again.");
+      console.error("[Username] Username lookup error:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const lookupLeaderUsername = async () => {
     await performUsernameLookup(
       leaderUsername,
@@ -332,7 +340,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     );
   };
 
-  // Member username lookup
   const lookupMemberUsername = async () => {
     await performUsernameLookup(
       memberUsername,
@@ -340,6 +347,26 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       setMemberLookupError,
       setIsMemberLookingUp,
       setMemberLookupResult
+    );
+  };
+
+  const lookupUsername = async () => {
+    await performUsernameLookup(
+      bannedMemberUsername,
+      setBannedMemberToUnban,
+      setLookupError,
+      setIsLookingUp,
+      setLookupResult
+    );
+  };
+
+  const lookupBanUsername = async () => {
+    await performUsernameLookup(
+      memberToBanUsername,
+      setMemberToBan,
+      setBanLookupError,
+      setIsBanLookingUp,
+      setBanLookupResult
     );
   };
 
@@ -357,7 +384,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       );
       if (userCurrentParty) {
         setPartyToLeaveFrom(userCurrentParty);
-        setPartyToJoin(partyId);
         setIsLeaveConfirmDrawerOpen(true);
         return;
       }
@@ -393,23 +419,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           )
         );
         setUserPartyId(partyId);
-        setTransactionId(finalPayload.transaction_id);
       }
     } catch (error) {
       console.error("Error joining party:", error);
       showToast("Error joining party", "error");
     }
   };
-
-  useEffect(() => {
-    if (isConfirmed) {
-      showToast("Successfully joined party", "success");
-      fetchParties();
-      setTransactionId(""); // Reset the transaction ID
-    }
-  }, [isConfirmed, fetchParties, showToast]);
-
-  const isJoiningParty = isConfirming && transactionId !== "";
 
   const leaveParty = async (partyId: number) => {
     if (!MiniKit.isInstalled()) {
@@ -542,7 +557,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     }
   };
 
-  // Functions for party leaders
   const openUpdatePartyDrawer = (party: Party) => {
     setSelectedParty(party);
     setUpdatePartyForm({
@@ -557,22 +571,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const updateParty = async () => {
     if (!selectedParty || !MiniKit.isInstalled()) {
       showToast("Please connect your wallet first", "error");
-      return;
-    }
-
-    // Validate fields according to smart contract requirements
-    if (!updatePartyForm.name.trim()) {
-      showToast("Party name cannot be empty", "error");
-      return;
-    }
-
-    if (!updatePartyForm.shortName.trim()) {
-      showToast("Short name cannot be empty", "error");
-      return;
-    }
-
-    if (!updatePartyForm.description.trim()) {
-      showToast("Description cannot be empty", "error");
       return;
     }
 
@@ -660,7 +658,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         }
       }
 
-      // Update official link if changed - KEY FIX: Add a placeholder if empty
+      // Update official link if changed
       if (updatePartyForm.officialLink.trim() !== selectedParty.officialLink) {
         // If officialLink is empty, use a placeholder to satisfy the non-empty validation
         const linkToUse =
@@ -805,7 +803,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           )
         );
 
-        setIsRemoveMemberDrawerOpen(false);
         showToast("Member removed successfully", "success");
       }
     } catch (error) {
@@ -816,7 +813,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     }
   };
 
-  // Replace the handleLeaveAndJoin function with:
   const handleLeave = async () => {
     if (partyToLeaveFrom) {
       try {
@@ -871,93 +867,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     // If not in a party, directly open the create drawer
     setIsCreateDrawerOpen(true);
   };
-
-  const PartySkeletonCard = () => (
-    <div className="mb-4 animate-pulse rounded-xl border border-gray-200 p-4">
-      {/* Party name skeleton */}
-      <div className="h-[19px] w-48 rounded bg-gray-100"></div>
-
-      {/* Description skeleton - 3 lines */}
-      <div className="mt-3 space-y-2">
-        <div className="h-[15px] w-full rounded bg-gray-100"></div>
-        <div className="h-[15px] w-11/12 rounded bg-gray-100"></div>
-        <div className="h-[15px] w-4/5 rounded bg-gray-100"></div>
-      </div>
-
-      {/* Links and members count skeletons */}
-      <div className="mt-2 flex justify-between gap-1">
-        <div className="flex items-center gap-1">
-          <div className="h-[15px] w-[15px] rounded-full bg-gray-100"></div>
-          <div className="h-[15px] w-24 rounded bg-gray-100"></div>
-        </div>
-        <div className="flex items-center gap-1">
-          <div className="h-[15px] w-[15px] rounded-full bg-gray-100"></div>
-          <div className="h-[15px] w-8 rounded bg-gray-100"></div>
-          <div className="h-[15px] w-16 rounded bg-gray-100"></div>
-        </div>
-      </div>
-
-      {/* Button skeleton */}
-      <div className="mt-4 h-9 w-full rounded bg-gray-100"></div>
-    </div>
-  );
-
-  const LoadingSkeleton = () => (
-    <div className="w-full">
-      {/* My Party Section Skeleton with Create Button */}
-      <div className="mb-6">
-        <div className="mb-3 flex items-center justify-between">
-          <Typography
-            as="h2"
-            variant={{ variant: "subtitle", level: 1 }}
-            className="text-[19px] font-semibold"
-          >
-            My party
-          </Typography>
-          <button
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-900"
-            onClick={handleCreatePartyClick}
-            title="Create New Party"
-          >
-            <FaPlus className="text-gray-500" size={12} />
-          </button>
-        </div>
-        <PartySkeletonCard />
-      </div>
-
-      {/* Discover Section Title */}
-      <Typography
-        as="h2"
-        variant={{ variant: "subtitle", level: 1 }}
-        className="mb-3 text-[19px] font-semibold"
-      >
-        Discover
-      </Typography>
-
-      {/* Tabs Skeleton */}
-      <div className="mb-2 flex items-center gap-1">
-        <div className="flex gap-1">
-          <button className="h-9 items-center rounded-full bg-gray-100 px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200">
-            Top
-          </button>
-          <button className="h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200">
-            Trending
-          </button>
-          <button className="h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200">
-            New
-          </button>
-          <button className="h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200">
-            Pending
-          </button>
-        </div>
-      </div>
-
-      {/* Generate skeleton party cards */}
-      {Array.from({ length: 3 }).map((_, index) => (
-        <PartySkeletonCard key={index} />
-      ))}
-    </div>
-  );
 
   const deactivateParty = async () => {
     if (!selectedParty || !MiniKit.isInstalled()) {
@@ -1058,7 +967,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           showToast("Failed to unban member", "error");
         }
       } else {
-        setIsBannedMembersDrawerOpen(false);
         showToast("Member unbanned successfully", "success");
       }
     } catch (error) {
@@ -1069,113 +977,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     }
   };
 
-  // For looking up username to unban
-  const lookupUsername = async () => {
-    if (!bannedMemberUsername || !bannedMemberUsername.trim()) {
-      setLookupError("Please enter a username");
-      return;
-    }
-
-    setIsLookingUp(true);
-    setLookupError("");
-    setLookupResult(null);
-
-    try {
-      // Use MiniKit API to look up username (if available)
-      if (MiniKit.isInstalled()) {
-        try {
-          // Try to get address by username first
-          const response = await fetch(
-            `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(bannedMemberUsername.trim())}`
-          );
-
-          if (!response.ok) {
-            if (response.status === 404) {
-              setLookupError("Username not found");
-            } else {
-              setLookupError(
-                `Error: ${response.status} ${response.statusText}`
-              );
-            }
-            return;
-          }
-
-          const data = await response.json();
-          setLookupResult(data);
-
-          // Set the address for the transaction if we found a result
-          if (data.address) {
-            setBannedMemberToUnban(data.address);
-          }
-        } catch (error) {
-          console.error("[Username] Error looking up username via API:", error);
-          setLookupError("Failed to look up username. Please try again.");
-        }
-      } else {
-        setLookupError("Please install MiniKit to look up usernames");
-      }
-    } catch (error) {
-      setLookupError("Failed to look up username. Please try again.");
-      console.error("[Username] Username lookup error:", error);
-    } finally {
-      setIsLookingUp(false);
-    }
-  };
-
-  // For looking up username to ban
-  const lookupBanUsername = async () => {
-    if (!memberToBanUsername || !memberToBanUsername.trim()) {
-      setBanLookupError("Please enter a username");
-      return;
-    }
-
-    setIsBanLookingUp(true);
-    setBanLookupError("");
-    setBanLookupResult(null);
-
-    try {
-      // Use MiniKit API to look up username (if available)
-      if (MiniKit.isInstalled()) {
-        try {
-          // Try to get address by username first
-          const response = await fetch(
-            `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(memberToBanUsername.trim())}`
-          );
-
-          if (!response.ok) {
-            if (response.status === 404) {
-              setBanLookupError("Username not found");
-            } else {
-              setBanLookupError(
-                `Error: ${response.status} ${response.statusText}`
-              );
-            }
-            return;
-          }
-
-          const data = await response.json();
-          setBanLookupResult(data);
-
-          // Set the address for the transaction if we found a result
-          if (data.address) {
-            setMemberToBan(data.address);
-          }
-        } catch (error) {
-          console.error("[Username] Error looking up username via API:", error);
-          setBanLookupError("Failed to look up username. Please try again.");
-        }
-      } else {
-        setBanLookupError("Please install MiniKit to look up usernames");
-      }
-    } catch (error) {
-      setBanLookupError("Failed to look up username. Please try again.");
-      console.error("[Username] Username lookup error:", error);
-    } finally {
-      setIsBanLookingUp(false);
-    }
-  };
-
-  // Ban member function
   const banMember = async () => {
     if (!selectedParty || !MiniKit.isInstalled() || !memberToBan) {
       showToast("Please provide a valid address", "error");
@@ -1202,7 +1003,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           showToast("Failed to ban member", "error");
         }
       } else {
-        setIsBanMemberDrawerOpen(false);
         showToast("Member banned successfully", "success");
       }
     } catch (error) {
@@ -1213,42 +1013,28 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     }
   };
 
-  if (isLoading) {
-    return <LoadingSkeleton />;
-  }
+  const handleInputFocus = (e: ReactFocusEvent) => {
+    e.preventDefault();
 
-  // Filter parties based on tab selection
-  const filteredParties = parties
-    .filter((party) => {
-      // First filter for parties the user is not a member of - use userPartyId
-      if (party.id === userPartyId) return false;
+    if (
+      e.target &&
+      (e.target instanceof HTMLInputElement ||
+        e.target instanceof HTMLTextAreaElement ||
+        e.target instanceof HTMLSelectElement)
+    ) {
+      setTimeout(() => {
+        (e.target as HTMLElement).scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }, 300);
+    }
+  };
 
-      // Then filter based on tab
-      if (activeTab === "pending") {
-        return party.status === 0; // Show only pending parties
-      } else {
-        return party.status !== 0; // Hide pending parties for other tabs
-      }
-    })
-    .sort((a, b) => {
-      if (activeTab === "top") {
-        // Sort by member count (highest first) for Top tab
-        return b.memberCount - a.memberCount;
-      } else if (activeTab === "trending") {
-        // For trending tab: mix of recency and member count
-        // This simple formula weights both factors
-        const trendingScoreA =
-          a.memberCount * (1 + (Date.now() / 1000 - a.creationTime) / 86400);
-        const trendingScoreB =
-          b.memberCount * (1 + (Date.now() / 1000 - b.creationTime) / 86400);
-        return trendingScoreB - trendingScoreA;
-      } else {
-        // Default to reverse chronological order (newest first) for New tab
-        return b.creationTime - a.creationTime;
-      }
-    });
+  const DrawerHeader = ({ children }: { children: React.ReactNode }) => (
+    <div className="mb-4">{children}</div>
+  );
 
-  // Modify the party card rendering to include leader actions
   const renderPartyCard = (party: Party) => (
     <div
       key={party.id}
@@ -1386,43 +1172,21 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             size="sm"
             fullWidth
             onClick={() => joinParty(party.id)}
-            disabled={isJoiningParty}
           >
-            {isJoiningParty
-              ? "Joining..."
-              : party.status === 0
-                ? "Join Pending Party"
-                : party.status === 2
-                  ? "Join Inactive Party"
-                  : "Join Party"}
+            {party.status === 0
+              ? "Join Pending Party"
+              : party.status === 2
+                ? "Join Inactive Party"
+                : "Join Party"}
           </Button>
         )}
       </div>
     </div>
   );
 
-  // Add handleInputFocus function
-  const handleInputFocus = (e: ReactFocusEvent) => {
-    // Prevent default behaviors
-    e.preventDefault();
-
-    // Also scroll the input into view for better UX especially on mobile
-    if (
-      e.target &&
-      (e.target instanceof HTMLInputElement ||
-        e.target instanceof HTMLTextAreaElement ||
-        e.target instanceof HTMLSelectElement)
-    ) {
-      // Wait a short moment for the keyboard to appear
-      setTimeout(() => {
-        // Scroll the input into view
-        (e.target as HTMLElement).scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-        });
-      }, 300);
-    }
-  };
+  if (isLoading) {
+    return <LoadingSkeleton />;
+  }
 
   return (
     <div className="w-full">
@@ -2094,7 +1858,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         </DrawerContent>
       </Drawer>
 
-      {/* Member Management Drawer with Tabs */}
+      {/* Member Management Drawer */}
       <Drawer
         open={isMemberManagementDrawerOpen}
         onOpenChange={setIsMemberManagementDrawerOpen}
