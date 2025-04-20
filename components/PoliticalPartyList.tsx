@@ -1986,14 +1986,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         onOpenChange={setIsLeaveConfirmDrawerOpen}
       >
         <DrawerContent>
-          <div className="flex flex-col gap-4 p-6">
+          <div className="flex flex-col p-6">
             <DrawerHeader>
               <DrawerTitle>Confirmation Required</DrawerTitle>
             </DrawerHeader>
             <Typography
               as="p"
               variant={{ variant: "subtitle", level: 1 }}
-              className="mx-auto text-center text-gray-500"
+              className="mx-auto mt-4 text-center text-gray-500"
             >
               You are already a member of {partyToLeaveFrom?.name}. You must
               leave your current party before joining a new one.
@@ -2005,6 +2005,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               fullWidth
               onClick={handleLeave}
               disabled={isProcessing}
+              className="mt-10"
             >
               {isProcessing
                 ? "Leaving..."
@@ -2020,14 +2021,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         onOpenChange={setIsCreateConfirmDrawerOpen}
       >
         <DrawerContent>
-          <div className="flex flex-col gap-4 p-6">
+          <div className="flex flex-col p-6">
             <DrawerHeader>
               <DrawerTitle>Confirmation Required</DrawerTitle>
             </DrawerHeader>
             <Typography
               as="p"
               variant={{ variant: "subtitle", level: 1 }}
-              className="mx-auto text-center text-gray-500"
+              className="mx-auto mt-4 text-center text-gray-500"
             >
               You are already a member of {partyToLeaveFrom?.name}. You must
               leave your current party before creating a new one.
@@ -2039,6 +2040,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               fullWidth
               onClick={handleLeaveAndCreate}
               disabled={isProcessing}
+              className="mt-10"
             >
               {isProcessing
                 ? "Processing..."
@@ -2054,7 +2056,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         onOpenChange={setIsDeactivateDrawerOpen}
       >
         <DrawerContent>
-          <div className="flex flex-col gap-4 p-6">
+          <div className="flex flex-col p-6">
             <DrawerHeader>
               <DrawerTitle>
                 {selectedParty?.status === 2
@@ -2065,7 +2067,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             <Typography
               as="p"
               variant={{ variant: "subtitle", level: 1 }}
-              className="mx-auto text-center text-gray-500"
+              className="mx-auto mt-4 text-center text-gray-500"
             >
               {selectedParty?.status === 0
                 ? "Are you sure you want to deactivate this pending party? Inactive parties won't appear in the main listings."
@@ -2078,6 +2080,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               fullWidth
               onClick={deactivateParty}
               disabled={isProcessing}
+              className="mt-10"
             >
               {isProcessing
                 ? "Processing..."
