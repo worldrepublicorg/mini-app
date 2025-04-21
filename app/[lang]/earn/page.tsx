@@ -1896,7 +1896,7 @@ export default function EarnPage({
             </Typography>
 
             {/* Party Subsidy Program Card */}
-            <Link
+            {/* <Link
               href={`/${lang}/earn/contribute/party-subsidy`}
               className="group mb-4 flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 transition-all"
             >
@@ -1953,7 +1953,7 @@ export default function EarnPage({
                   <IoIosArrowForward className="size-[14px] text-gray-400" />
                 </div>
               </div>
-            </Link>
+            </Link> */}
 
             {/* Buyback Program Card */}
             <Link
