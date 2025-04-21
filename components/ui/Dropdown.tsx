@@ -49,7 +49,9 @@ export function Dropdown({
             {menuItems.map((item, index) => (
               <button
                 key={index}
-                className={`block w-full px-4 py-2.5 text-left text-sm text-gray-700 transition-colors hover:bg-gray-50 ${item.className || ""}`}
+                className={`block w-full px-4 py-2.5 text-left text-sm transition-colors hover:bg-gray-50 ${item.className || ""} ${
+                  item.className?.includes("text-") ? "" : "text-gray-700"
+                }`}
                 onClick={() => {
                   item.onClick();
                   closeDropdown();
