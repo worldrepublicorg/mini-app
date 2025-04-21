@@ -72,7 +72,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     officialLink: "",
   });
   const [isCreating, setIsCreating] = useState(false);
-  const [isUpdatePartyDrawerOpen, setIsUpdatePartyDrawerOpen] = useState(true);
+  const [isUpdatePartyDrawerOpen, setIsUpdatePartyDrawerOpen] = useState(false);
   const [isTransferLeadershipDrawerOpen, setIsTransferLeadershipDrawerOpen] =
     useState(false);
   const [selectedParty, setSelectedParty] = useState<Party | null>(null);
@@ -2070,15 +2070,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 )}
               </div>
             </div>
-
-            <Button
-              variant="secondary"
-              fullWidth
-              className="mt-2"
-              onClick={() => setIsUpdatePartyDrawerOpen(false)}
-            >
-              Close
-            </Button>
           </div>
         </DrawerContent>
       </Drawer>
