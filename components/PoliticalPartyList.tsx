@@ -1939,6 +1939,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               {partyToLeaveFrom?.isUserLeader && (
                 <>
                   <br />
+                  <br />
                   Note: You are currently the leader of this party. If you
                   leave, leadership will be lost or reassigned by the system.
                 </>
@@ -1978,6 +1979,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               leave your current party before creating a new one.
               {partyToLeaveFrom?.isUserLeader && (
                 <>
+                  <br />
                   <br />
                   Note: You are currently the leader of this party. If you
                   leave, leadership will be lost or reassigned by the system.
