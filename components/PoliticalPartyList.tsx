@@ -19,11 +19,13 @@ import { DrawerTitle } from "@/components/ui/Drawer";
 import { LoadingSkeleton } from "./PartySkeletons";
 
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
-  "0x66e50b996f4359A0bFe27e0020666cf1a67EC2FC";
+  "0xCDf53d307bf828350944d21A54B6318Ed5a5d34f";
 
-// After the interfaces, add these constants to match the smart contract
 const MAX_STRING_LENGTH = 256;
 const MAX_SHORT_NAME_LENGTH = 16;
+
+const GOLDSKY_SUBGRAPH_URL =
+  "https://api.goldsky.com/api/public/project_cm9oeq0bhalzw01y0hwth80bk/subgraphs/political-party-registry/0.1.0/gn";
 
 interface Party {
   id: number;
@@ -158,6 +160,125 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   };
 
   const fetchParties = useCallback(async () => {
+    if (!GOLDSKY_SUBGRAPH_URL) {
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      setIsLoading(true);
+
+      // Query to get all parties from subgraph
+      const query = `
+        query {
+          parties {
+            id
+            name
+            shortName
+            description
+            officialLink
+            founder
+            currentLeader
+            creationTime
+            status
+            memberCount
+            documentVerifiedMemberCount
+            verifiedMemberCount
+            active
+          }
+        }
+      `;
+
+      // Fetch data from the Goldsky subgraph
+      const response = await fetch(GOLDSKY_SUBGRAPH_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ query }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Subgraph request failed: ${response.statusText}`);
+      }
+
+      const result = await response.json();
+
+      if (result.errors) {
+        throw new Error(
+          `GraphQL errors: ${result.errors.map((e: any) => e.message).join(", ")}`
+        );
+      }
+
+      // Get user's party if wallet is connected
+      let userParty = 0;
+      let userPartyMapping = null;
+
+      if (walletAddress) {
+        const userQuery = `
+          query {
+            userPartyMapping(id: "${walletAddress.toLowerCase()}") {
+              party {
+                id
+              }
+            }
+          }
+        `;
+
+        const userResponse = await fetch(GOLDSKY_SUBGRAPH_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ query: userQuery }),
+        });
+
+        if (userResponse.ok) {
+          const userData = await userResponse.json();
+          userPartyMapping = userData.data?.userPartyMapping;
+
+          if (userPartyMapping && userPartyMapping.party) {
+            userParty = Number(userPartyMapping.party.id);
+          }
+        }
+      }
+
+      setUserPartyId(userParty > 0 ? userParty : 0);
+
+      // Transform the data to match your Party interface
+      const fetchedParties = result.data.parties.map((party: any) => ({
+        id: Number(party.id),
+        name: party.name,
+        shortName: party.shortName,
+        description: party.description,
+        officialLink: party.officialLink,
+        founder: party.founder,
+        leader: party.currentLeader, // Map currentLeader to leader in your interface
+        creationTime: Number(party.creationTime),
+        status: Number(party.status),
+        active: party.active,
+        memberCount: Number(party.memberCount),
+        documentVerifiedMemberCount: Number(party.documentVerifiedMemberCount),
+        verifiedMemberCount: Number(party.verifiedMemberCount),
+        isUserMember: userParty === Number(party.id),
+        isUserLeader:
+          walletAddress?.toLowerCase() === party.currentLeader?.toLowerCase(),
+      }));
+
+      setParties(fetchedParties);
+    } catch (error) {
+      console.error("Error fetching political parties from subgraph:", error);
+      showToast("Failed to load political parties", "error");
+
+      // Fallback to direct blockchain polling
+      fallbackFetchParties();
+    } finally {
+      setIsLoading(false);
+    }
+  }, [walletAddress, showToast]);
+
+  // Keep the original function as a fallback
+  const fallbackFetchParties = useCallback(async () => {
     if (
       !POLITICAL_PARTY_REGISTRY_ADDRESS ||
       POLITICAL_PARTY_REGISTRY_ADDRESS ===
@@ -170,7 +291,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     try {
       setIsLoading(true);
 
-      // Get party count using totalPartyCount instead of partyCount
+      // Original implementation for fetching from blockchain
       const partyCount = await viemClient.readContract({
         address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
         abi: parseAbi(["function totalPartyCount() view returns (uint256)"]),
@@ -231,7 +352,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       const fetchedParties = await Promise.all(partyPromises);
       setParties(fetchedParties);
     } catch (error) {
-      console.error("Error fetching political parties:", error);
+      console.error("Error fetching political parties from blockchain:", error);
       showToast("Failed to load political parties", "error");
     } finally {
       setIsLoading(false);
@@ -1054,12 +1175,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         </Typography>
         <div className="flex items-center gap-2">
           {party.status === 0 && (
-            <span className="text-gray-800 rounded-full bg-gray-100 px-2 py-1 text-xs font-medium">
+            <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
               Pending
             </span>
           )}
           {party.status === 2 && (
-            <span className="text-gray-800 rounded-full bg-gray-100 px-2 py-1 text-xs font-medium">
+            <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
               Inactive
             </span>
           )}
