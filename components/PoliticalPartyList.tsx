@@ -121,6 +121,13 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [isMemberLookingUp, setIsMemberLookingUp] = useState(false);
   const [userPartyId, setUserPartyId] = useState<number>(0);
 
+  useEffect(() => {
+    // Mark govern section as visited when this component loads
+    if (typeof window !== "undefined") {
+      localStorage.setItem("governVisited", "true");
+    }
+  }, []);
+
   const shortenUrl = (url: string, maxLength = 20) => {
     if (!url) return "";
 
