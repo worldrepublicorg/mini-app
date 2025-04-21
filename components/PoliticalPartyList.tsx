@@ -711,8 +711,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     }
 
     try {
-      setIsProcessing(true);
-
       // Update name if changed
       if (updatePartyForm.name.trim() !== selectedParty.name) {
         const { finalPayload: namePayload } =
@@ -729,12 +727,22 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             ],
           });
 
-        if (
-          namePayload.status === "error" &&
-          namePayload.error_code !== "user_rejected"
-        ) {
+        if (namePayload.status === "success") {
+          // Update optimistically right after this specific transaction succeeds
+          setParties((prevParties) =>
+            prevParties.map((party) =>
+              party.id === selectedParty.id
+                ? { ...party, name: updatePartyForm.name.trim() }
+                : party
+            )
+          );
+          // Also update selectedParty to reflect changes
+          setSelectedParty((prev) =>
+            prev ? { ...prev, name: updatePartyForm.name.trim() } : null
+          );
+          showToast("Party name updated successfully", "success");
+        } else if (namePayload.error_code !== "user_rejected") {
           showToast("Failed to update party name", "error");
-          return;
         }
       }
 
@@ -757,12 +765,24 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             ],
           });
 
-        if (
-          shortNamePayload.status === "error" &&
-          shortNamePayload.error_code !== "user_rejected"
-        ) {
+        if (shortNamePayload.status === "success") {
+          // Update optimistically right after this specific transaction succeeds
+          setParties((prevParties) =>
+            prevParties.map((party) =>
+              party.id === selectedParty.id
+                ? { ...party, shortName: updatePartyForm.shortName.trim() }
+                : party
+            )
+          );
+          // Also update selectedParty to reflect changes
+          setSelectedParty((prev) =>
+            prev
+              ? { ...prev, shortName: updatePartyForm.shortName.trim() }
+              : null
+          );
+          showToast("Party short name updated successfully", "success");
+        } else if (shortNamePayload.error_code !== "user_rejected") {
           showToast("Failed to update party short name", "error");
-          return;
         }
       }
 
@@ -785,12 +805,24 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             ],
           });
 
-        if (
-          descPayload.status === "error" &&
-          descPayload.error_code !== "user_rejected"
-        ) {
+        if (descPayload.status === "success") {
+          // Update optimistically right after this specific transaction succeeds
+          setParties((prevParties) =>
+            prevParties.map((party) =>
+              party.id === selectedParty.id
+                ? { ...party, description: updatePartyForm.description.trim() }
+                : party
+            )
+          );
+          // Also update selectedParty to reflect changes
+          setSelectedParty((prev) =>
+            prev
+              ? { ...prev, description: updatePartyForm.description.trim() }
+              : null
+          );
+          showToast("Party description updated successfully", "success");
+        } else if (descPayload.error_code !== "user_rejected") {
           showToast("Failed to update party description", "error");
-          return;
         }
       }
 
@@ -816,37 +848,27 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             ],
           });
 
-        if (
-          linkPayload.status === "error" &&
-          linkPayload.error_code !== "user_rejected"
-        ) {
+        if (linkPayload.status === "success") {
+          // Update optimistically right after this specific transaction succeeds
+          setParties((prevParties) =>
+            prevParties.map((party) =>
+              party.id === selectedParty.id
+                ? { ...party, officialLink: linkToUse }
+                : party
+            )
+          );
+          // Also update selectedParty to reflect changes
+          setSelectedParty((prev) =>
+            prev ? { ...prev, officialLink: linkToUse } : null
+          );
+          showToast("Party official link updated successfully", "success");
+        } else if (linkPayload.error_code !== "user_rejected") {
           showToast("Failed to update official link", "error");
-          return;
         }
       }
-
-      // Update party in the UI optimistically
-      setParties((prevParties) =>
-        prevParties.map((party) =>
-          party.id === selectedParty.id
-            ? {
-                ...party,
-                name: updatePartyForm.name,
-                shortName: updatePartyForm.shortName,
-                description: updatePartyForm.description,
-                officialLink: updatePartyForm.officialLink,
-              }
-            : party
-        )
-      );
-
-      setIsUpdatePartyDrawerOpen(false);
-      showToast("Party details updated successfully", "success");
     } catch (error) {
       console.error("Error updating party:", error);
       showToast("Error updating party", "error");
-    } finally {
-      setIsProcessing(false);
     }
   };
 
