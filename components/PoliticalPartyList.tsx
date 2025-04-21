@@ -1638,13 +1638,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             <DrawerHeader>
               <DrawerTitle>Update Party Details</DrawerTitle>
             </DrawerHeader>
-            <Form.Root
-              onSubmit={(e) => {
-                e.preventDefault();
-                updateParty();
-              }}
+            <Typography
+              as="p"
+              variant={{ variant: "body", level: 2 }}
+              className="mb-2 text-[15px]"
             >
-              <Form.Field name="name" className="mt-4">
+              Select a field to update. Only one field can be updated at a time.
+            </Typography>
+
+            <div className="grid grid-cols-1 gap-4">
+              {/* Name update section */}
+              <div className="rounded-lg border p-4">
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
@@ -1652,7 +1656,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 >
                   Party name
                 </Typography>
-                <Form.Control asChild>
+                <div className="flex gap-2">
                   <Input
                     label="Enter party name"
                     value={updatePartyForm.name}
@@ -1663,13 +1667,74 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       }))
                     }
                     onFocus={handleInputFocus}
-                    required
+                    className="flex-1"
                     maxLength={MAX_STRING_LENGTH}
                   />
-                </Form.Control>
-                <Form.Message match="valueMissing" error>
-                  Please enter a party name
-                </Form.Message>
+                  <Button
+                    variant="secondary"
+                    onClick={async () => {
+                      if (!selectedParty || !MiniKit.isInstalled()) {
+                        showToast("Please connect your wallet first", "error");
+                        return;
+                      }
+
+                      if (updatePartyForm.name.trim() === selectedParty.name) {
+                        showToast("No changes to update", "info");
+                        return;
+                      }
+
+                      try {
+                        setIsProcessing(true);
+                        const { finalPayload } =
+                          await MiniKit.commandsAsync.sendTransaction({
+                            transaction: [
+                              {
+                                address:
+                                  POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
+                                abi: parseAbi([
+                                  "function updatePartyName(uint256 _partyId, string memory _name) external",
+                                ]),
+                                functionName: "updatePartyName",
+                                args: [
+                                  BigInt(selectedParty.id),
+                                  updatePartyForm.name.trim(),
+                                ],
+                              },
+                            ],
+                          });
+
+                        if (finalPayload.status === "success") {
+                          setParties((prevParties) =>
+                            prevParties.map((party) =>
+                              party.id === selectedParty.id
+                                ? {
+                                    ...party,
+                                    name: updatePartyForm.name.trim(),
+                                  }
+                                : party
+                            )
+                          );
+                          showToast(
+                            "Party name updated successfully",
+                            "success"
+                          );
+                        } else if (
+                          finalPayload.error_code !== "user_rejected"
+                        ) {
+                          showToast("Failed to update party name", "error");
+                        }
+                      } catch (error) {
+                        console.error("Error updating party name:", error);
+                        showToast("Error updating party name", "error");
+                      } finally {
+                        setIsProcessing(false);
+                      }
+                    }}
+                    disabled={isProcessing}
+                  >
+                    Update
+                  </Button>
+                </div>
                 {updatePartyForm.name.length >= MAX_STRING_LENGTH * 0.9 && (
                   <Typography
                     variant={{ variant: "caption", level: 2 }}
@@ -1680,9 +1745,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       : `Approaching character limit: ${updatePartyForm.name.length}/${MAX_STRING_LENGTH}`}
                   </Typography>
                 )}
-              </Form.Field>
+              </div>
 
-              <Form.Field name="shortName" className="mt-4">
+              {/* Short name update section */}
+              <div className="rounded-lg border p-4">
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
@@ -1690,7 +1756,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 >
                   Short name
                 </Typography>
-                <Form.Control asChild>
+                <div className="flex gap-2">
                   <Input
                     label="Enter short name or abbreviation"
                     value={updatePartyForm.shortName}
@@ -1701,13 +1767,83 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       }))
                     }
                     onFocus={handleInputFocus}
+                    className="flex-1"
                     maxLength={MAX_SHORT_NAME_LENGTH}
-                    required
                   />
-                </Form.Control>
-                <Form.Message match="valueMissing" error>
-                  Please enter a short name
-                </Form.Message>
+                  <Button
+                    variant="secondary"
+                    onClick={async () => {
+                      if (!selectedParty || !MiniKit.isInstalled()) {
+                        showToast("Please connect your wallet first", "error");
+                        return;
+                      }
+
+                      if (
+                        updatePartyForm.shortName.trim() ===
+                        selectedParty.shortName
+                      ) {
+                        showToast("No changes to update", "info");
+                        return;
+                      }
+
+                      try {
+                        setIsProcessing(true);
+                        const { finalPayload } =
+                          await MiniKit.commandsAsync.sendTransaction({
+                            transaction: [
+                              {
+                                address:
+                                  POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
+                                abi: parseAbi([
+                                  "function updatePartyShortName(uint256 _partyId, string memory _shortName) external",
+                                ]),
+                                functionName: "updatePartyShortName",
+                                args: [
+                                  BigInt(selectedParty.id),
+                                  updatePartyForm.shortName.trim(),
+                                ],
+                              },
+                            ],
+                          });
+
+                        if (finalPayload.status === "success") {
+                          setParties((prevParties) =>
+                            prevParties.map((party) =>
+                              party.id === selectedParty.id
+                                ? {
+                                    ...party,
+                                    shortName: updatePartyForm.shortName.trim(),
+                                  }
+                                : party
+                            )
+                          );
+                          showToast(
+                            "Party short name updated successfully",
+                            "success"
+                          );
+                        } else if (
+                          finalPayload.error_code !== "user_rejected"
+                        ) {
+                          showToast(
+                            "Failed to update party short name",
+                            "error"
+                          );
+                        }
+                      } catch (error) {
+                        console.error(
+                          "Error updating party short name:",
+                          error
+                        );
+                        showToast("Error updating party short name", "error");
+                      } finally {
+                        setIsProcessing(false);
+                      }
+                    }}
+                    disabled={isProcessing}
+                  >
+                    Update
+                  </Button>
+                </div>
                 {updatePartyForm.shortName.length >=
                   MAX_SHORT_NAME_LENGTH * 0.8 && (
                   <Typography
@@ -1719,9 +1855,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       : `Approaching character limit: ${updatePartyForm.shortName.length}/${MAX_SHORT_NAME_LENGTH}`}
                   </Typography>
                 )}
-              </Form.Field>
+              </div>
 
-              <Form.Field name="description" className="mt-4">
+              {/* Description update section */}
+              <div className="rounded-lg border p-4">
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
@@ -1729,7 +1866,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 >
                   Description
                 </Typography>
-                <Form.Control asChild>
+                <div className="flex flex-col gap-2">
                   <Textarea
                     placeholder="Enter party description"
                     value={updatePartyForm.description}
@@ -1741,13 +1878,83 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     }
                     onFocus={handleInputFocus}
                     rows={4}
-                    required
                     maxLength={MAX_STRING_LENGTH}
                   />
-                </Form.Control>
-                <Form.Message match="valueMissing" error>
-                  Please enter a description
-                </Form.Message>
+                  <Button
+                    variant="secondary"
+                    onClick={async () => {
+                      if (!selectedParty || !MiniKit.isInstalled()) {
+                        showToast("Please connect your wallet first", "error");
+                        return;
+                      }
+
+                      if (
+                        updatePartyForm.description.trim() ===
+                        selectedParty.description
+                      ) {
+                        showToast("No changes to update", "info");
+                        return;
+                      }
+
+                      try {
+                        setIsProcessing(true);
+                        const { finalPayload } =
+                          await MiniKit.commandsAsync.sendTransaction({
+                            transaction: [
+                              {
+                                address:
+                                  POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
+                                abi: parseAbi([
+                                  "function updatePartyDescription(uint256 _partyId, string memory _description) external",
+                                ]),
+                                functionName: "updatePartyDescription",
+                                args: [
+                                  BigInt(selectedParty.id),
+                                  updatePartyForm.description.trim(),
+                                ],
+                              },
+                            ],
+                          });
+
+                        if (finalPayload.status === "success") {
+                          setParties((prevParties) =>
+                            prevParties.map((party) =>
+                              party.id === selectedParty.id
+                                ? {
+                                    ...party,
+                                    description:
+                                      updatePartyForm.description.trim(),
+                                  }
+                                : party
+                            )
+                          );
+                          showToast(
+                            "Party description updated successfully",
+                            "success"
+                          );
+                        } else if (
+                          finalPayload.error_code !== "user_rejected"
+                        ) {
+                          showToast(
+                            "Failed to update party description",
+                            "error"
+                          );
+                        }
+                      } catch (error) {
+                        console.error(
+                          "Error updating party description:",
+                          error
+                        );
+                        showToast("Error updating party description", "error");
+                      } finally {
+                        setIsProcessing(false);
+                      }
+                    }}
+                    disabled={isProcessing}
+                  >
+                    Update Description
+                  </Button>
+                </div>
                 {updatePartyForm.description.length >=
                   MAX_STRING_LENGTH * 0.9 && (
                   <Typography
@@ -1759,9 +1966,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       : `Approaching character limit: ${updatePartyForm.description.length}/${MAX_STRING_LENGTH}`}
                   </Typography>
                 )}
-              </Form.Field>
+              </div>
 
-              <Form.Field name="officialLink" className="mt-4">
+              {/* Official link update section */}
+              <div className="rounded-lg border p-4">
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
@@ -1769,7 +1977,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 >
                   Official link
                 </Typography>
-                <Form.Control asChild>
+                <div className="flex gap-2">
                   <Input
                     label="Enter official website or community link (optional)"
                     value={updatePartyForm.officialLink}
@@ -1780,9 +1988,82 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       }))
                     }
                     onFocus={handleInputFocus}
+                    className="flex-1"
                     maxLength={MAX_STRING_LENGTH}
                   />
-                </Form.Control>
+                  <Button
+                    variant="secondary"
+                    onClick={async () => {
+                      if (!selectedParty || !MiniKit.isInstalled()) {
+                        showToast("Please connect your wallet first", "error");
+                        return;
+                      }
+
+                      if (
+                        updatePartyForm.officialLink.trim() ===
+                        selectedParty.officialLink
+                      ) {
+                        showToast("No changes to update", "info");
+                        return;
+                      }
+
+                      try {
+                        setIsProcessing(true);
+                        const linkToUse =
+                          updatePartyForm.officialLink.trim() === ""
+                            ? "https://placeholder.com"
+                            : updatePartyForm.officialLink.trim();
+
+                        const { finalPayload } =
+                          await MiniKit.commandsAsync.sendTransaction({
+                            transaction: [
+                              {
+                                address:
+                                  POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
+                                abi: parseAbi([
+                                  "function updateOfficialLink(uint256 _partyId, string memory _officialLink) external",
+                                ]),
+                                functionName: "updateOfficialLink",
+                                args: [BigInt(selectedParty.id), linkToUse],
+                              },
+                            ],
+                          });
+
+                        if (finalPayload.status === "success") {
+                          setParties((prevParties) =>
+                            prevParties.map((party) =>
+                              party.id === selectedParty.id
+                                ? { ...party, officialLink: linkToUse }
+                                : party
+                            )
+                          );
+                          showToast(
+                            "Party official link updated successfully",
+                            "success"
+                          );
+                        } else if (
+                          finalPayload.error_code !== "user_rejected"
+                        ) {
+                          showToast("Failed to update official link", "error");
+                        }
+                      } catch (error) {
+                        console.error(
+                          "Error updating party official link:",
+                          error
+                        );
+                        showToast(
+                          "Error updating party official link",
+                          "error"
+                        );
+                      } finally {
+                        setIsProcessing(false);
+                      }
+                    }}
+                    disabled={isProcessing}
+                  >
+                    Update
+                  </Button>
+                </div>
                 {updatePartyForm.officialLink.length >=
                   MAX_STRING_LENGTH * 0.9 && (
                   <Typography
@@ -1794,14 +2075,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       : `Approaching character limit: ${updatePartyForm.officialLink.length}/${MAX_STRING_LENGTH}`}
                   </Typography>
                 )}
-              </Form.Field>
+              </div>
+            </div>
 
-              <Form.Submit asChild className="mt-4">
-                <Button variant="primary" fullWidth disabled={isProcessing}>
-                  {isProcessing ? "Updating..." : "Update Party"}
-                </Button>
-              </Form.Submit>
-            </Form.Root>
+            <Button
+              variant="secondary"
+              fullWidth
+              className="mt-2"
+              onClick={() => setIsUpdatePartyDrawerOpen(false)}
+            >
+              Close
+            </Button>
           </div>
         </DrawerContent>
       </Drawer>
