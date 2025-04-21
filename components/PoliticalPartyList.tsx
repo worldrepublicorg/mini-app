@@ -1936,8 +1936,13 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             >
               You are already a member of {partyToLeaveFrom?.name}. You must
               leave your current party before joining a new one.
-              {partyToLeaveFrom?.isUserLeader &&
-                " Note: You are currently the leader of this party. If you leave, leadership will be lost or reassigned by the system."}
+              {partyToLeaveFrom?.isUserLeader && (
+                <>
+                  <br />
+                  Note: You are currently the leader of this party. If you
+                  leave, leadership will be lost or reassigned by the system.
+                </>
+              )}
             </Typography>
             <Button
               variant="primary"
@@ -1971,8 +1976,13 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             >
               You are already a member of {partyToLeaveFrom?.name}. You must
               leave your current party before creating a new one.
-              {partyToLeaveFrom?.isUserLeader &&
-                " Note: You are currently the leader of this party. If you leave, leadership will be lost or reassigned by the system."}
+              {partyToLeaveFrom?.isUserLeader && (
+                <>
+                  <br />
+                  Note: You are currently the leader of this party. If you
+                  leave, leadership will be lost or reassigned by the system.
+                </>
+              )}
             </Typography>
             <Button
               variant="primary"
