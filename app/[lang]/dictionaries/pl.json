@@ -341,7 +341,8 @@
             "title": "Poprzednie Ankiety",
             "backToGovern": "Powrót do Zarządzania",
             "polls": {
-              "globalNuclearDialogue": "Czy mocarstwa powinny być zobowiązane na mocy międzynarodowego porozumienia do prowadzenia ciągłych negocjacji nuklearnych na poziomie eksperckim z przeciwnymi państwami, aby zapobiec eskalacji i zapewnić nadzór dyplomatyczny?",
+              "globalMaritimeSecurity": "Czy należy ustanowić międzynarodową grupę zadaniową ds. bezpieczeństwa morskiego w celu ochrony żeglugi handlowej na wodach międzynarodowych przed atakami zbrojnymi?",
+              "globalNuclearDialogue": "Czy mocarstwa powinny być zobowiązane na mocy międzynarodowego porozumienia do prowadzenia ciągłych negocjacji nuklearnych na poziomie eksperckim z państwami przeciwnymi, aby zapobiec eskalacji i zapewnić nadzór dyplomatyczny?",
               "globalMiningStandards": "Czy należy ustanowić międzynarodowy protokół zapewniający odpowiedzialne środowiskowo i społecznie wydobycie minerałów krytycznych potrzebnych do technologii czystej energii?",
               "globalEnergyTransition": "Czy kraje powinny przyjąć prawnie wiążące globalne ramy, aby przyspieszyć przejście z paliw kopalnych na odnawialne źródła energii?",
               "globalTradeArbitration": "Czy należy ustanowić wiążący międzynarodowy panel arbitrażowy do rozstrzygania sporów handlowych i zapewnienia przejrzystej, przewidywalnej polityki taryfowej?",

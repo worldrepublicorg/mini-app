@@ -331,6 +331,7 @@
             "title": "Previous Polls",
             "backToGovern": "Back to Govern",
             "polls": {
+              "globalMaritimeSecurity": "Should an international maritime security task force be established to protect commercial shipping in international waters from armed attacks?",
               "globalNuclearDialogue": "Should major powers be required under an international agreement to engage in continuous expert‑level nuclear negotiations with adversary states to prevent escalation and ensure diplomatic oversight?",
               "globalMiningStandards": "Should an international protocol be established to ensure environmentally and socially responsible mining of critical minerals needed for clean energy technologies?",
               "globalDigitalServicesTax": "Should nations adopt a coordinated digital services tax targeting large tech platforms’ revenues to ensure fair and predictable global taxation?",

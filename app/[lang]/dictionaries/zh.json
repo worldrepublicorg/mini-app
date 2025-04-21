@@ -341,7 +341,8 @@
             "title": "往期投票",
             "backToGovern": "返回治理",
             "polls": {
-              "globalNuclearDialogue": "主要大国是否应该根据国际协议，与敌对国家进行持续的专家级核谈判，以防止局势升级并确保外交监督？",
+              "globalMaritimeSecurity": "是否应该建立国际海事安全特别工作组，以保护国际水域中的商业航运免受武装袭击？",
+              "globalNuclearDialogue": "根据国际协议，主要大国是否应被要求与敌对国家进行持续的专家级核谈判，以防止局势升级并确保外交监督？",
               "globalMiningStandards": "是否应建立国际协议，确保对清洁能源技术所需的关键矿物进行环境和社会责任开采？",
               "globalEnergyTransition": "各国是否应该采用一个具有法律约束力的全球框架，以加速从化石燃料向可再生能源的转变？",
               "globalTradeArbitration": "是否应该建立具有约束力的国际仲裁小组来解决贸易争端并确保透明、可预测的关税政策？",
