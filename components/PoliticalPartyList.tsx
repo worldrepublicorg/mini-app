@@ -373,7 +373,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       if (activeTab === "pending") {
         return party.status === 0; // Show only pending parties
       } else {
-        return party.status !== 0; // Hide pending parties for other tabs
+        return party.status === 1; // Only show active parties for other tabs
       }
     })
     .sort((a, b) => {
