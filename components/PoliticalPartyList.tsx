@@ -654,8 +654,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         }
       } else {
         // Only update optimistically after user confirms transaction
+        const optimisticPartyId = parties.length + 1; // Temporary ID that's different from existing ones
+
         const optimisticParty: Party = {
-          id: parties.length, // Temporary ID
+          id: optimisticPartyId, // Use the optimistic ID
           name: createPartyForm.name,
           shortName: createPartyForm.shortName,
           description: createPartyForm.description,
@@ -669,12 +671,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           active: true,
           status: 0, // Pending status
           isUserMember: true,
-          isUserLeader:
-            walletAddress?.toLowerCase() ===
-            (walletAddress || "").toLowerCase(),
+          isUserLeader: true,
         };
 
         setParties((prevParties) => [...prevParties, optimisticParty]);
+        // Also update userPartyId so it shows in "My party" section
+        setUserPartyId(optimisticPartyId);
         setIsCreateDrawerOpen(false);
         setCreatePartyForm({
           name: "",
