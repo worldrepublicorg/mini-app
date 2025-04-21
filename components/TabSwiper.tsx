@@ -32,7 +32,7 @@ export function TabSwiper<T extends string>({
               <span className="whitespace-nowrap">{tab.label}</span>
             </Pill>
             {tabIndicators[tab.key as T] && (
-              <div className="absolute right-[9px] top-[9px] h-1.5 w-1.5 rounded-full bg-error-800 opacity-65"></div>
+              <div className="absolute right-[9px] top-[9px] h-1.5 w-1.5 rounded-full bg-error-600"></div>
             )}
           </div>
         ))}

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { PiUsersThree, PiTrophy, PiBuildingsFill } from "react-icons/pi";
 import { BiChevronLeft } from "react-icons/bi";
 import { useTranslations } from "@/hooks/useTranslations";
+import { useEffect } from "react";
 
 export default function PartySubsidyPage({
   params: { lang },
@@ -13,6 +14,12 @@ export default function PartySubsidyPage({
   params: { lang: string };
 }) {
   const dictionary = useTranslations(lang);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("partySubsidyVisited", "true");
+    }
+  }, []);
 
   return (
     <div className="pb-safe flex min-h-dvh flex-col px-6">
