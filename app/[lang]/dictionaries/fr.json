@@ -341,7 +341,8 @@
             "title": "Sondages précédents",
             "backToGovern": "Retour à Gouverner",
             "polls": {
-              "globalNuclearDialogue": "Les grandes puissances devraient-elles être tenues, dans le cadre d'un accord international, de participer à des négociations nucléaires continues au niveau des experts avec les États adverses pour prévenir l'escalade et assurer une supervision diplomatique ?",
+              "globalMaritimeSecurity": "Faudrait-il établir une force d'intervention internationale de sécurité maritime pour protéger les navires commerciaux dans les eaux internationales contre les attaques armées ?",
+              "globalNuclearDialogue": "Les grandes puissances devraient-elles être tenues, en vertu d'un accord international, de s'engager dans des négociations nucléaires continues au niveau des experts avec les États adverses pour prévenir l'escalade et assurer une surveillance diplomatique ?",
               "globalMiningStandards": "Faudrait-il établir un protocole international pour garantir une exploitation minière écologiquement et socialement responsable des minéraux critiques nécessaires aux technologies d'énergie propre ?",
               "globalIMFQuotaReform": "La formule de révision des quotes-parts du FMI devrait-elle être révisée pour renforcer le pouvoir de vote des économies émergentes et en développement et garantir une prise de décision plus équitable ?",
               "globalEnergyTransition": "Les pays devraient-ils adopter un cadre mondial juridiquement contraignant pour accélérer la transition des combustibles fossiles vers les sources d'énergie renouvelable ?",

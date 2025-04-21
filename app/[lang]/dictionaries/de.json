@@ -341,6 +341,7 @@
             "title": "Vorherige Umfragen",
             "backToGovern": "Zurück zu Regieren",
             "polls": {
+              "globalMaritimeSecurity": "Sollte eine internationale maritime Sicherheitseinsatztruppe eingerichtet werden, um die kommerzielle Schifffahrt in internationalen Gewässern vor bewaffneten Angriffen zu schützen?",
               "globalNuclearDialogue": "Sollten Großmächte durch ein internationales Abkommen verpflichtet werden, sich an kontinuierlichen Nuklearverhandlungen auf Expertenebene mit gegnerischen Staaten zu beteiligen, um Eskalationen zu verhindern und diplomatische Aufsicht zu gewährleisten?",
               "globalIMFQuotaReform": "Sollte die Quotenüberprüfungsformel des IWF überarbeitet werden, um die Stimmrechte für Schwellen- und Entwicklungsländer zu stärken und eine gerechtere Entscheidungsfindung zu gewährleisten?",
               "globalEnergyTransition": "Sollten Länder einen rechtlich bindenden globalen Rahmen verabschieden, um den Übergang von fossilen Brennstoffen zu erneuerbaren Energiequellen zu beschleunigen?",

@@ -341,7 +341,8 @@
             "title": "Prethodne Ankete",
             "backToGovern": "Povratak na Upravljanje",
             "polls": {
-              "globalNuclearDialogue": "Bi li velike sile, prema međunarodnom sporazumu, trebale biti obvezne sudjelovati u kontinuiranim nuklearnim pregovorima na razini stručnjaka s protivničkim državama kako bi se spriječila eskalacija i osigurao diplomatski nadzor?",
+              "globalMaritimeSecurity": "Bi li trebala biti uspostavljena međunarodna radna skupina za pomorsku sigurnost kako bi se zaštitili trgovački brodovi u međunarodnim vodama od oružanih napada?",
+              "globalNuclearDialogue": "Bi li velike sile trebale biti obvezane međunarodnim sporazumom na kontinuirane nuklearne pregovore na razini stručnjaka s protivničkim državama kako bi se spriječila eskalacija i osigurao diplomatski nadzor?",
               "globalMiningStandards": "Bi li trebalo uspostaviti međunarodni protokol kako bi se osiguralo ekološki i društveno odgovorno rudarenje kritičnih minerala potrebnih za tehnologije čiste energije?",
               "globalIMFQuotaReform": "Treba li revidirati formulu za pregled kvota MMF-a kako bi se povećala glasačka moć ekonomija u razvoju i osiguralo pravednije donošenje odluka?",
               "globalEnergyTransition": "Trebaju li zemlje usvojiti pravno obvezujući globalni okvir za ubrzanje prijelaza s fosilnih goriva na obnovljive izvore energije?",

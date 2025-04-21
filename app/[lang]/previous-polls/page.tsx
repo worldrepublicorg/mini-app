@@ -7,6 +7,7 @@ import { PollCard } from "@/components/PollCard";
 import { useTranslations } from "@/hooks/useTranslations";
 
 const pollKeys = [
+  "globalMiningStandards",
   "globalDigitalServicesTax",
   "globalIMFQuotaReform",
   "globalEnergyTransition",
@@ -68,6 +69,7 @@ const pollKeys = [
 ];
 
 const pollUrls = {
+  globalMiningStandards: "https://vote.one/ntxWgSCA",
   globalDigitalServicesTax: "https://vote.one/qcY0cooZ",
   globalIMFQuotaReform: "https://vote.one/ZI2ILiHT",
   globalEnergyTransition: "https://vote.one/BTrzBwRq",

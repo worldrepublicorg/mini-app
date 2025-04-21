@@ -341,7 +341,8 @@
             "title": "Önceki Anketler",
             "backToGovern": "Yönet'e Dön",
             "polls": {
-              "globalNuclearDialogue": "Büyük güçler, tırmanmayı önlemek ve diplomatik gözetimi sağlamak için uluslararası bir anlaşma kapsamında hasım devletlerle sürekli uzman düzeyinde nükleer müzakerelere girmeye zorunlu tutulmalı mı?",
+              "globalMaritimeSecurity": "Uluslararası sularda ticari gemileri silahlı saldırılardan korumak için uluslararası bir deniz güvenliği görev gücü kurulmalı mı?",
+              "globalNuclearDialogue": "Büyük güçler, tırmanmayı önlemek ve diplomatik gözetimi sağlamak için bir uluslararası anlaşma kapsamında düşman devletlerle sürekli uzman düzeyinde nükleer müzakerelere girmekle yükümlü olmalı mı?",
               "globalMiningStandards": "Temiz enerji teknolojileri için gerekli kritik minerallerin çevresel ve sosyal açıdan sorumlu madenciliğini sağlamak için uluslararası bir protokol kurulmalı mı?",
               "globalEnergyTransition": "Ülkeler, fosil yakıtlardan yenilenebilir enerji kaynaklarına geçişi hızlandırmak için yasal olarak bağlayıcı küresel bir çerçeve benimsemeli mi?",
               "globalTradeArbitration": "Ticari anlaşmazlıkları çözmek ve şeffaf, öngörülebilir tarife politikalarını sağlamak için bağlayıcı bir uluslararası tahkim paneli kurulmalı mı?",
