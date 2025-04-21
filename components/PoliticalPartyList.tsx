@@ -536,7 +536,13 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         // Only update optimistically after user confirms transaction
         setParties((prevParties) =>
           prevParties.map((party) =>
-            party.id === partyId ? { ...party, isUserMember: true } : party
+            party.id === partyId
+              ? {
+                  ...party,
+                  isUserMember: true,
+                  memberCount: party.memberCount + 1,
+                }
+              : party
           )
         );
         setUserPartyId(partyId);
@@ -573,7 +579,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         // Only update optimistically after user confirms transaction
         setParties((prevParties) =>
           prevParties.map((party) =>
-            party.id === partyId ? { ...party, isUserMember: false } : party
+            party.id === partyId
+              ? {
+                  ...party,
+                  isUserMember: false,
+                  memberCount:
+                    party.memberCount > 0 ? party.memberCount - 1 : 0,
+                }
+              : party
           )
         );
         setUserPartyId(0);
