@@ -72,7 +72,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     officialLink: "",
   });
   const [isCreating, setIsCreating] = useState(false);
-  const [isUpdatePartyDrawerOpen, setIsUpdatePartyDrawerOpen] = useState(false);
+  const [isUpdatePartyDrawerOpen, setIsUpdatePartyDrawerOpen] = useState(true);
   const [isTransferLeadershipDrawerOpen, setIsTransferLeadershipDrawerOpen] =
     useState(false);
   const [selectedParty, setSelectedParty] = useState<Party | null>(null);
@@ -1638,17 +1638,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             <DrawerHeader>
               <DrawerTitle>Update Party Details</DrawerTitle>
             </DrawerHeader>
-            <Typography
-              as="p"
-              variant={{ variant: "body", level: 2 }}
-              className="mb-2 text-[15px]"
-            >
-              Select a field to update. Only one field can be updated at a time.
-            </Typography>
 
             <div className="grid grid-cols-1 gap-4">
               {/* Name update section */}
-              <div className="rounded-lg border p-4">
+              <div>
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
@@ -1748,7 +1741,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               </div>
 
               {/* Short name update section */}
-              <div className="rounded-lg border p-4">
+              <div>
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
@@ -1858,7 +1851,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               </div>
 
               {/* Description update section */}
-              <div className="rounded-lg border p-4">
+              <div>
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
@@ -1969,7 +1962,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               </div>
 
               {/* Official link update section */}
-              <div className="rounded-lg border p-4">
+              <div>
                 <Typography
                   as="label"
                   variant={{ variant: "caption", level: 1 }}
