@@ -711,8 +711,38 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     }
 
     try {
-      // Update name if changed
+      // Create an array to track which fields need updating
+      const fieldsToUpdate = [];
+
       if (updatePartyForm.name.trim() !== selectedParty.name) {
+        fieldsToUpdate.push("name");
+      }
+      if (updatePartyForm.shortName.trim() !== selectedParty.shortName) {
+        fieldsToUpdate.push("shortName");
+      }
+      if (updatePartyForm.description.trim() !== selectedParty.description) {
+        fieldsToUpdate.push("description");
+      }
+      if (updatePartyForm.officialLink.trim() !== selectedParty.officialLink) {
+        fieldsToUpdate.push("officialLink");
+      }
+
+      // If no fields need updating, return early
+      if (fieldsToUpdate.length === 0) {
+        showToast("No changes to update", "info");
+        return;
+      }
+
+      // Show which fields will be updated
+      showToast(
+        `Updates will require ${fieldsToUpdate.length} approval(s)`,
+        "info"
+      );
+
+      let allSuccessful = true;
+
+      // Update name if changed
+      if (fieldsToUpdate.includes("name")) {
         const { finalPayload: namePayload } =
           await MiniKit.commandsAsync.sendTransaction({
             transaction: [
@@ -728,7 +758,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           });
 
         if (namePayload.status === "success") {
-          // Update optimistically right after this specific transaction succeeds
           setParties((prevParties) =>
             prevParties.map((party) =>
               party.id === selectedParty.id
@@ -736,18 +765,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 : party
             )
           );
-          // Also update selectedParty to reflect changes
-          setSelectedParty((prev) =>
-            prev ? { ...prev, name: updatePartyForm.name.trim() } : null
-          );
           showToast("Party name updated successfully", "success");
         } else if (namePayload.error_code !== "user_rejected") {
           showToast("Failed to update party name", "error");
+          allSuccessful = false;
+        } else {
+          allSuccessful = false;
         }
       }
 
-      // Update short name if changed
-      if (updatePartyForm.shortName.trim() !== selectedParty.shortName) {
+      // Only continue if previous update was successful or not rejected
+      if (allSuccessful && fieldsToUpdate.includes("shortName")) {
         const { finalPayload: shortNamePayload } =
           await MiniKit.commandsAsync.sendTransaction({
             transaction: [
@@ -766,7 +794,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           });
 
         if (shortNamePayload.status === "success") {
-          // Update optimistically right after this specific transaction succeeds
           setParties((prevParties) =>
             prevParties.map((party) =>
               party.id === selectedParty.id
@@ -774,20 +801,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 : party
             )
           );
-          // Also update selectedParty to reflect changes
-          setSelectedParty((prev) =>
-            prev
-              ? { ...prev, shortName: updatePartyForm.shortName.trim() }
-              : null
-          );
           showToast("Party short name updated successfully", "success");
         } else if (shortNamePayload.error_code !== "user_rejected") {
           showToast("Failed to update party short name", "error");
+          allSuccessful = false;
+        } else {
+          allSuccessful = false;
         }
       }
 
-      // Update description if changed
-      if (updatePartyForm.description.trim() !== selectedParty.description) {
+      // Only continue if previous update was successful or not rejected
+      if (allSuccessful && fieldsToUpdate.includes("description")) {
         const { finalPayload: descPayload } =
           await MiniKit.commandsAsync.sendTransaction({
             transaction: [
@@ -806,7 +830,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           });
 
         if (descPayload.status === "success") {
-          // Update optimistically right after this specific transaction succeeds
           setParties((prevParties) =>
             prevParties.map((party) =>
               party.id === selectedParty.id
@@ -814,21 +837,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 : party
             )
           );
-          // Also update selectedParty to reflect changes
-          setSelectedParty((prev) =>
-            prev
-              ? { ...prev, description: updatePartyForm.description.trim() }
-              : null
-          );
           showToast("Party description updated successfully", "success");
         } else if (descPayload.error_code !== "user_rejected") {
           showToast("Failed to update party description", "error");
+          allSuccessful = false;
+        } else {
+          allSuccessful = false;
         }
       }
 
-      // Update official link if changed
-      if (updatePartyForm.officialLink.trim() !== selectedParty.officialLink) {
-        // If officialLink is empty, use a placeholder to satisfy the non-empty validation
+      // Only continue if previous update was successful or not rejected
+      if (allSuccessful && fieldsToUpdate.includes("officialLink")) {
         const linkToUse =
           updatePartyForm.officialLink.trim() === ""
             ? "https://placeholder.com"
@@ -849,7 +868,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           });
 
         if (linkPayload.status === "success") {
-          // Update optimistically right after this specific transaction succeeds
           setParties((prevParties) =>
             prevParties.map((party) =>
               party.id === selectedParty.id
@@ -857,15 +875,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 : party
             )
           );
-          // Also update selectedParty to reflect changes
-          setSelectedParty((prev) =>
-            prev ? { ...prev, officialLink: linkToUse } : null
-          );
           showToast("Party official link updated successfully", "success");
         } else if (linkPayload.error_code !== "user_rejected") {
           showToast("Failed to update official link", "error");
         }
       }
+
+      // Close the drawer if we completed all updates or user rejected
+      setIsUpdatePartyDrawerOpen(false);
     } catch (error) {
       console.error("Error updating party:", error);
       showToast("Error updating party", "error");
