@@ -5,6 +5,7 @@ interface DropdownProps {
   menuItems: {
     label: string;
     onClick: () => void;
+    className?: string;
   }[];
   align?: "left" | "right";
 }
@@ -48,7 +49,7 @@ export function Dropdown({
             {menuItems.map((item, index) => (
               <button
                 key={index}
-                className="block w-full px-4 py-2.5 text-left text-sm text-gray-700 transition-colors hover:bg-gray-50"
+                className={`block w-full px-4 py-2.5 text-left text-sm text-gray-700 transition-colors hover:bg-gray-50 ${item.className || ""}`}
                 onClick={() => {
                   item.onClick();
                   closeDropdown();

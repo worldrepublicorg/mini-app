@@ -95,7 +95,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [partyToLeaveFrom, setPartyToLeaveFrom] = useState<Party | null>(null);
   const [isCreateConfirmDrawerOpen, setIsCreateConfirmDrawerOpen] =
     useState(false);
-  const [isDeactivateDrawerOpen, setIsDeactivateDrawerOpen] = useState(false);
+  const [isDeleteDrawerOpen, setIsDeleteDrawerOpen] = useState(false);
   const [bannedMemberToUnban, setBannedMemberToUnban] = useState("");
   const [bannedMemberUsername, setBannedMemberUsername] = useState("");
   const [isLookingUp, setIsLookingUp] = useState(false);
@@ -1080,7 +1080,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       if (finalPayload.status === "error") {
         if (finalPayload.error_code !== "user_rejected") {
           showToast(
-            `Failed to ${selectedParty.status !== 2 ? "deactivate" : "reactivate"} party`,
+            `Failed to ${selectedParty.status !== 2 ? "delete" : "reactivate"} party`,
             "error"
           );
         }
@@ -1092,7 +1092,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               ? {
                   ...party,
                   active: party.status === 2, // If currently INACTIVE, set active to true
-                  // When deactivating: status becomes 2 (INACTIVE)
+                  // When deleting: status becomes 2 (INACTIVE)
                   // When reactivating: status becomes 0 (PENDING), not 1 (ACTIVE)
                   status: party.status !== 2 ? 2 : 0,
                 }
@@ -1100,19 +1100,19 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           )
         );
 
-        setIsDeactivateDrawerOpen(false);
+        setIsDeleteDrawerOpen(false);
         showToast(
-          `Party ${selectedParty.status !== 2 ? "deactivated" : "reactivated"} successfully`,
+          `Party ${selectedParty.status !== 2 ? "deleted" : "reactivated"} successfully`,
           "success"
         );
       }
     } catch (error) {
       console.error(
-        `Error ${selectedParty.status !== 2 ? "deactivating" : "reactivating"} party:`,
+        `Error ${selectedParty.status !== 2 ? "deleting" : "reactivating"} party:`,
         error
       );
       showToast(
-        `Error ${selectedParty.status !== 2 ? "deactivating" : "reactivating"} party`,
+        `Error ${selectedParty.status !== 2 ? "deleting" : "reactivating"} party`,
         "error"
       );
     } finally {
@@ -1242,10 +1242,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           )}
           {party.status === 2 && (
             <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
-              Inactive
+              Deleted
             </span>
           )}
-          {party.isUserLeader && (
+          {party.isUserLeader && party.status !== 2 && (
             <Dropdown
               trigger={
                 <button
@@ -1275,14 +1275,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   },
                 },
                 {
-                  label:
-                    party.status === 2
-                      ? "Reactivate party"
-                      : "Deactivate party",
+                  label: "Delete party",
                   onClick: () => {
                     setSelectedParty(party);
-                    setIsDeactivateDrawerOpen(true);
+                    setIsDeleteDrawerOpen(true);
                   },
+                  className: "text-error-600",
                 },
               ]}
               align="right"
@@ -1355,11 +1353,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             fullWidth
             onClick={() => joinParty(party.id)}
           >
-            {party.status === 0
-              ? "Join Pending Party"
-              : party.status === 2
-                ? "Join Inactive Party"
-                : "Join Party"}
+            {party.status === 0 ? "Join Pending Party" : "Join Party"}
           </Button>
         )}
       </div>
@@ -2008,19 +2002,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         </DrawerContent>
       </Drawer>
 
-      {/* Deactivate Party Drawer */}
-      <Drawer
-        open={isDeactivateDrawerOpen}
-        onOpenChange={setIsDeactivateDrawerOpen}
-      >
+      {/* Delete Party Drawer */}
+      <Drawer open={isDeleteDrawerOpen} onOpenChange={setIsDeleteDrawerOpen}>
         <DrawerContent>
           <div className="flex flex-col p-6">
             <DrawerHeader>
-              <DrawerTitle>
-                {selectedParty?.status === 2
-                  ? "Reactivate Party"
-                  : "Deactivate Party"}
-              </DrawerTitle>
+              <DrawerTitle>Delete Party</DrawerTitle>
             </DrawerHeader>
             <Typography
               as="p"
@@ -2028,10 +2015,8 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               className="mx-auto mt-4 text-center text-gray-500"
             >
               {selectedParty?.status === 0
-                ? "Are you sure you want to deactivate this pending party? Inactive parties won't appear in the main listings."
-                : selectedParty?.status === 1
-                  ? "Are you sure you want to deactivate this party? Inactive parties won't appear in the main listings."
-                  : "Do you want to reactivate this party?"}
+                ? "Are you sure you want to delete this pending party?"
+                : "Are you sure you want to delete this party?"}
             </Typography>
             <Button
               variant="primary"
@@ -2043,10 +2028,8 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               {isProcessing
                 ? "Processing..."
                 : selectedParty?.status === 0
-                  ? "Deactivate Pending Party"
-                  : selectedParty?.status === 1
-                    ? "Deactivate Party"
-                    : "Reactivate Party"}
+                  ? "Delete Pending Party"
+                  : "Delete Party"}
             </Button>
           </div>
         </DrawerContent>
