@@ -1736,7 +1736,7 @@ export default function EarnPage({
                           <Typography
                             as="h3"
                             variant={{ variant: "subtitle", level: 2 }}
-                            className="line-clamp-2 font-display text-[15px] font-medium tracking-tight text-gray-900"
+                            className="font-display line-clamp-2 text-[15px] font-medium tracking-tight text-gray-900"
                           >
                             {
                               dictionary?.pages?.earn?.tabs?.basicIncome?.plus
@@ -1895,6 +1895,61 @@ export default function EarnPage({
             >
               {dictionary?.pages?.earn?.tabs?.contribute?.subtitle}
             </Typography>
+
+            {/* Party Subsidy Program Card */}
+            <Link
+              href={`/${lang}/earn/contribute/party-subsidy`}
+              className="group mb-4 flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 transition-all"
+            >
+              <div className="mb-3 flex items-center justify-between">
+                <Typography
+                  as="h3"
+                  variant={{ variant: "subtitle", level: 2 }}
+                  className="line-clamp-1"
+                >
+                  Party Subsidy Program (Test)
+                </Typography>
+                <div className="rounded-full bg-gray-100 px-2.5 py-1">
+                  <Typography
+                    variant={{ variant: "body", level: 3 }}
+                    className="text-gray-500"
+                  >
+                    Daily
+                  </Typography>
+                </div>
+              </div>
+
+              <Typography
+                as="p"
+                variant={{ variant: "body", level: 3 }}
+                className="mb-4 text-gray-500"
+              >
+                Earn rewards for building the largest political parties of the
+                World Republic
+              </Typography>
+
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <div className="rounded-full bg-gray-700 px-2.5 py-1">
+                    <Typography
+                      variant={{ variant: "body", level: 3 }}
+                      className="text-gray-0"
+                    >
+                      1000 WDD
+                    </Typography>
+                  </div>
+                  <Typography
+                    variant={{ variant: "body", level: 3 }}
+                    className="text-gray-400"
+                  >
+                    Top Prize
+                  </Typography>
+                </div>
+                <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5">
+                  <IoIosArrowForward className="size-[14px] text-gray-400" />
+                </div>
+              </div>
+            </Link>
 
             {/* Buyback Program Card */}
             <Link
@@ -2266,7 +2321,7 @@ export default function EarnPage({
 
                     {/* Referral Status */}
                     {localStorage.getItem("referredBy") && (
-                      <div className="border-success-200 bg-success-50 mt-4 w-full rounded-xl border p-4">
+                      <div className="bg-success-50 mt-4 w-full rounded-xl border border-success-200 p-4">
                         <Typography
                           variant={{ variant: "subtitle", level: 3 }}
                           className="text-center text-success-700"
@@ -2432,7 +2487,7 @@ export default function EarnPage({
 
                     {/* Referral Status - same as in first drawer */}
                     {localStorage.getItem("referredBy") && (
-                      <div className="border-success-200 bg-success-50 mt-4 w-full rounded-xl border p-4">
+                      <div className="bg-success-50 mt-4 w-full rounded-xl border border-success-200 p-4">
                         <Typography
                           variant={{ variant: "subtitle", level: 3 }}
                           className="text-center text-success-700"
@@ -2644,7 +2699,7 @@ export default function EarnPage({
                       <Typography
                         as="h3"
                         variant={{ variant: "subtitle", level: 2 }}
-                        className="text-left font-display text-[15px] font-medium tracking-tight text-gray-900"
+                        className="font-display text-left text-[15px] font-medium tracking-tight text-gray-900"
                       >
                         {
                           dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
