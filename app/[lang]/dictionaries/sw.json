@@ -59,6 +59,7 @@
       }
     },
     "politicalPartyList": {
+      "loadingIssue": "Tunafahamu kuhusu baadhi ya matatizo ya kupakia vyama. Tafadhali kuwa mvumilivu tunapofanya kazi kurekebisha.",
       "myParty": "Chama changu",
       "createParty": "Unda Chama Kipya",
       "noParty": "Hujaunda au kujiunga na chama bado.",

@@ -59,6 +59,7 @@
       }
     },
     "politicalPartyList": {
+      "loadingIssue": "Alam namin ang ilang mga isyu sa paglo-load ng partido. Maging matiyaga habang ginagawa naming ayusin ang mga ito.",
       "myParty": "Aking partido",
       "createParty": "Lumikha ng Bagong Partido",
       "noParty": "Hindi ka pa nakakagawa o sumali sa isang partido.",

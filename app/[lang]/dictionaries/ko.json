@@ -59,6 +59,7 @@
       }
     },
     "politicalPartyList": {
+      "loadingIssue": "일부 정당 로딩 문제가 있다는 것을 알고 있습니다. 해결하기 위해 작업 중이니 잠시만 기다려주세요.",
       "myParty": "내 정당",
       "createParty": "새 정당 만들기",
       "noParty": "아직 정당을 만들거나 가입하지 않았습니다.",

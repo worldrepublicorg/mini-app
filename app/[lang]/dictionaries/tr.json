@@ -59,6 +59,7 @@
       }
     },
     "politicalPartyList": {
+      "loadingIssue": "Bazı parti yükleme sorunlarının farkındayız. Bunları düzeltmek için çalışırken lütfen sabırlı olun.",
       "myParty": "Partim",
       "createParty": "Yeni Parti Oluştur",
       "noParty": "Henüz bir parti oluşturmadınız veya katılmadınız.",

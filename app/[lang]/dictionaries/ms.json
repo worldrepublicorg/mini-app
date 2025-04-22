@@ -59,6 +59,7 @@
       }
     },
     "politicalPartyList": {
+      "loadingIssue": "Kami sedar tentang beberapa masalah pemuatan parti. Harap bersabar semasa kami berusaha untuk memperbaikinya.",
       "myParty": "Parti saya",
       "createParty": "Cipta Parti Baharu",
       "noParty": "Anda belum mencipta atau menyertai parti.",

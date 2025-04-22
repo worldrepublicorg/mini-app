@@ -59,6 +59,7 @@
       }
     },
     "politicalPartyList": {
+      "loadingIssue": "Kami menyadari adanya beberapa masalah pemuatan partai. Harap bersabar sementara kami bekerja untuk memperbaikinya.",
       "myParty": "Partai saya",
       "createParty": "Buat Partai Baru",
       "noParty": "Anda belum membuat atau bergabung dengan partai.",

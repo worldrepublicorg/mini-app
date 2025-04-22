@@ -59,6 +59,7 @@
       }
     },
     "politicalPartyList": {
+      "loadingIssue": "We dey aware say some party loading issues dey. Abeg make you patient as we dey work to fix dem.",
       "myParty": "My party",
       "createParty": "Create New Party",
       "noParty": "You no create or join any party yet.",

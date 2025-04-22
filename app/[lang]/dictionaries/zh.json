@@ -59,6 +59,7 @@
       }
     },
     "politicalPartyList": {
+      "loadingIssue": "我们意识到存在一些政党加载问题。请耐心等待，我们正在努力修复它们。",
       "myParty": "我的政党",
       "createParty": "创建新政党",
       "noParty": "您尚未创建或加入政党。",
