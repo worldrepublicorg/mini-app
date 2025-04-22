@@ -1498,19 +1498,19 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         </button>
         <button
           className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
-            activeTab === "top" && "bg-gray-100"
-          }`}
-          onClick={() => setActiveTab("top")}
-        >
-          {dictionary?.components?.politicalPartyList?.tabs?.top}
-        </button>
-        <button
-          className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
             activeTab === "trending" && "bg-gray-100"
           }`}
           onClick={() => setActiveTab("trending")}
         >
           {dictionary?.components?.politicalPartyList?.tabs?.trending}
+        </button>
+        <button
+          className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
+            activeTab === "top" && "bg-gray-100"
+          }`}
+          onClick={() => setActiveTab("top")}
+        >
+          {dictionary?.components?.politicalPartyList?.tabs?.top}
         </button>
         <button
           className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
