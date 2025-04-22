@@ -311,6 +311,42 @@
               "weekOf": "Week of",
               "engagements": "engagements"
             }
+          },
+          "partySubsidy": {
+            "topnav": "Subsidy Program",
+            "title": "Party Subsidy Program",
+            "subtitle": "Build your political movement and earn",
+            "weeklyPool": {
+              "title": "100,000 WDD",
+              "subtitle": "Fixed weekly pool"
+            },
+            "devRewards": {
+              "title": "10% of our Dev Rewards",
+              "subtitle": "Variable reward pool",
+              "tooltip": "World is distributing developer rewards based on app usage by verified humans.",
+              "checkOutRewards": "Check out rewards"
+            },
+            "howItWorks": {
+              "title": "How It Works",
+              "steps": {
+                "createParty": {
+                  "title": "Create a Party",
+                  "description": "Start your political movement in the World Republic app"
+                },
+                "growMembership": {
+                  "title": "Grow Your Membership",
+                  "description": "Recruit members and build your community"
+                },
+                "earnRewards": {
+                  "title": "Earn Rewards",
+                  "description": "Top 25 parties receive weekly subsidies proportional to their membership"
+                }
+              }
+            },
+            "cta": {
+              "createJoin": "Create or Join a Party",
+              "leaderGroup": "Join Party Leader Group"
+            }
           }
         }
       }

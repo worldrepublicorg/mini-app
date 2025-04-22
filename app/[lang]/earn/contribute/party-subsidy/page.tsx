@@ -4,20 +4,15 @@ import { Button } from "@/components/ui/Button";
 import { Typography } from "@/components/ui/Typography";
 import Link from "next/link";
 import {
-  PiUsersThree,
   PiUsersThreeFill,
-  PiChartBar,
   PiCoins,
   PiCurrencyCircleDollar,
   PiRocketLaunch,
-  PiTrophy,
-  PiTrendUp,
   PiInfoFill,
 } from "react-icons/pi";
 import { BiChevronLeft } from "react-icons/bi";
 import { useTranslations } from "@/hooks/useTranslations";
 import { useEffect } from "react";
-import { FiExternalLink } from "react-icons/fi";
 
 export default function PartySubsidyPage({
   params: { lang },
@@ -44,7 +39,7 @@ export default function PartySubsidyPage({
             <BiChevronLeft className="size-6 text-gray-500" />
           </Link>
           <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
-            Subsidy Program
+            {dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy?.topnav}
           </Typography>
         </div>
       </div>
@@ -59,13 +54,13 @@ export default function PartySubsidyPage({
             variant={{ variant: "heading", level: 2 }}
             className="mx-auto mb-2 text-center text-gray-900"
           >
-            Party Subsidy Program
+            {dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy?.title}
           </Typography>
           <Typography
             variant={{ variant: "body", level: 2 }}
             className="text-center text-gray-500"
           >
-            Build your political movement and earn
+            {dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy?.subtitle}
           </Typography>
         </div>
 
@@ -81,13 +76,19 @@ export default function PartySubsidyPage({
                   variant={{ variant: "subtitle", level: 2 }}
                   className="mb-2 text-center text-gray-900"
                 >
-                  100,000 WDD
+                  {
+                    dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy
+                      ?.weeklyPool?.title
+                  }
                 </Typography>
                 <Typography
                   variant={{ variant: "body", level: 3 }}
                   className="text-center text-gray-500"
                 >
-                  Fixed weekly pool
+                  {
+                    dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy
+                      ?.weeklyPool?.subtitle
+                  }
                 </Typography>
               </div>
 
@@ -99,18 +100,26 @@ export default function PartySubsidyPage({
                   variant={{ variant: "subtitle", level: 2 }}
                   className="mb-2 text-center text-gray-900"
                 >
-                  10% of our Dev Rewards
+                  {
+                    dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy
+                      ?.devRewards?.title
+                  }
                   <span className="group relative inline-flex items-center align-baseline">
                     <PiInfoFill className="ml-1 h-4 w-4 translate-y-[3px] cursor-help text-gray-400" />
                     <div className="absolute -right-4 bottom-full mb-2 hidden w-[calc(100dvw/2+24px)] max-w-sm transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
                       <p className="text-left text-gray-700">
-                        World is distributing developer rewards based on app
-                        usage by verified humans.{" "}
+                        {
+                          dictionary?.pages?.earn?.tabs?.contribute
+                            ?.partySubsidy?.devRewards?.tooltip
+                        }{" "}
                         <Link
                           href="https://www.miniapps.world/rewards"
                           className="text-gray-900 underline"
                         >
-                          Check out rewards
+                          {
+                            dictionary?.pages?.earn?.tabs?.contribute
+                              ?.partySubsidy?.devRewards?.checkOutRewards
+                          }
                         </Link>
                       </p>
                     </div>
@@ -120,7 +129,10 @@ export default function PartySubsidyPage({
                   variant={{ variant: "body", level: 3 }}
                   className="text-center text-gray-500"
                 >
-                  Variable reward pool
+                  {
+                    dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy
+                      ?.devRewards?.subtitle
+                  }
                 </Typography>
               </div>
             </div>
@@ -138,7 +150,10 @@ export default function PartySubsidyPage({
                   variant={{ variant: "subtitle", level: 2 }}
                   className="text-gray-900"
                 >
-                  How It Works
+                  {
+                    dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy
+                      ?.howItWorks?.title
+                  }
                 </Typography>
               </div>
             </div>
@@ -153,13 +168,19 @@ export default function PartySubsidyPage({
                       variant={{ variant: "subtitle", level: 2 }}
                       className="text-gray-900"
                     >
-                      Create a Party
+                      {
+                        dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy
+                          ?.howItWorks?.steps?.createParty?.title
+                      }
                     </Typography>
                     <Typography
                       variant={{ variant: "body", level: 3 }}
                       className="text-gray-500"
                     >
-                      Start your political movement in the World Republic app
+                      {
+                        dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy
+                          ?.howItWorks?.steps?.createParty?.description
+                      }
                     </Typography>
                   </div>
                 </div>
@@ -173,13 +194,19 @@ export default function PartySubsidyPage({
                       variant={{ variant: "subtitle", level: 2 }}
                       className="text-gray-900"
                     >
-                      Grow Your Membership
+                      {
+                        dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy
+                          ?.howItWorks?.steps?.growMembership?.title
+                      }
                     </Typography>
                     <Typography
                       variant={{ variant: "body", level: 3 }}
                       className="text-gray-500"
                     >
-                      Recruit members and build your community
+                      {
+                        dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy
+                          ?.howItWorks?.steps?.growMembership?.description
+                      }
                     </Typography>
                   </div>
                 </div>
@@ -193,14 +220,19 @@ export default function PartySubsidyPage({
                       variant={{ variant: "subtitle", level: 2 }}
                       className="text-gray-900"
                     >
-                      Earn Rewards
+                      {
+                        dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy
+                          ?.howItWorks?.steps?.earnRewards?.title
+                      }
                     </Typography>
                     <Typography
                       variant={{ variant: "body", level: 3 }}
                       className="text-gray-500"
                     >
-                      Top 25 parties receive weekly subsidies proportional to
-                      their membership
+                      {
+                        dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy
+                          ?.howItWorks?.steps?.earnRewards?.description
+                      }
                     </Typography>
                   </div>
                 </div>
@@ -212,7 +244,12 @@ export default function PartySubsidyPage({
         {/* CTA Buttons */}
         <div className="mt-10 space-y-4">
           <Link href={`/${lang}/govern`}>
-            <Button fullWidth>Create or Join a Party</Button>
+            <Button fullWidth>
+              {
+                dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy?.cta
+                  ?.createJoin
+              }
+            </Button>
           </Link>
 
           <a
@@ -221,7 +258,10 @@ export default function PartySubsidyPage({
             rel="noopener noreferrer"
           >
             <Button variant="secondary" fullWidth className="mt-4">
-              Join Party Leader Group
+              {
+                dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy?.cta
+                  ?.leaderGroup
+              }
             </Button>
           </a>
         </div>
