@@ -594,6 +594,10 @@
           "worldConstitutional": {
             "title": "Svjetski ustavni referendum"
           }
+        },
+        "politicalParties": {
+          "title": "Političke stranke",
+          "description": "Ujedinite se globalno oko zajedničkih vrijednosti"
         }
       }
     },

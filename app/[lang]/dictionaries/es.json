@@ -606,6 +606,10 @@
           "worldConstitutional": {
             "title": "Referéndum Constitucional Mundial"
           }
+        },
+        "politicalParties": {
+          "title": "Partidos Políticos",
+          "description": "Únete globalmente en torno a valores compartidos"
         }
       }
     },

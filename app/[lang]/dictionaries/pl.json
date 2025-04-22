@@ -593,6 +593,10 @@
           "worldConstitutional": {
             "title": "Światowe Referendum Konstytucyjne"
           }
+        },
+        "politicalParties": {
+          "title": "Partie Polityczne",
+          "description": "Jednoczcie się globalnie wokół wspólnych wartości"
         }
       }
     },

@@ -594,6 +594,10 @@
           "worldConstitutional": {
             "title": "Référendum Constitutionnel Mondial"
           }
+        },
+        "politicalParties": {
+          "title": "Partis Politiques",
+          "description": "Unité mondiale autour de valeurs partagées"
         }
       }
     },

@@ -487,6 +487,10 @@
         "referendums": "ریفرنڈم"
       },
       "sections": {
+        "politicalParties": {
+          "title": "سیاسی جماعتیں",
+          "description": "مشترکہ اقدار کے اردگرد عالمی طور پر متحد ہوں"
+        },
         "polls": {
           "title": "آج کا پول",
           "description": "موجودہ موضوعات پر فوری ووٹنگ",

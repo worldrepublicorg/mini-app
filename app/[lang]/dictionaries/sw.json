@@ -594,6 +594,10 @@
           "worldConstitutional": {
             "title": "Kura ya Maoni ya Katiba ya Dunia"
           }
+        },
+        "politicalParties": {
+          "title": "Vyama vya Siasa",
+          "description": "Ungana kimataifa kuzunguka maadili yanayoshirikishwa"
         }
       }
     },

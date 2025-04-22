@@ -593,6 +593,10 @@
           "worldConstitutional": {
             "title": "世界宪法公投"
           }
+        },
+        "politicalParties": {
+          "title": "政党",
+          "description": "围绕共同价值观全球团结"
         }
       }
     },

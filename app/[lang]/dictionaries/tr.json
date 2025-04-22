@@ -487,6 +487,10 @@
         "referendums": "Referandumlar"
       },
       "sections": {
+        "politicalParties": {
+          "title": "Siyasi Partiler",
+          "description": "Ortak değerler etrafında küresel olarak birleşin"
+        },
         "polls": {
           "title": "Günün Anketi",
           "description": "Güncel konularda hızlı oylamalar",

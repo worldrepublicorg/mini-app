@@ -594,6 +594,10 @@
           "worldConstitutional": {
             "title": "विश्व संवैधानिक जनमत संग्रह"
           }
+        },
+        "politicalParties": {
+          "title": "राजनीतिक दल",
+          "description": "साझा मूल्यों के आसपास वैश्विक एकता"
         }
       }
     },

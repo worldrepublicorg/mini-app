@@ -594,6 +594,10 @@
           "worldConstitutional": {
             "title": "世界憲法国民投票"
           }
+        },
+        "politicalParties": {
+          "title": "政党",
+          "description": "共有価値観のもとで世界的に団結する"
         }
       }
     },

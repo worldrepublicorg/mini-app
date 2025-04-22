@@ -594,6 +594,10 @@
           "worldConstitutional": {
             "title": "Weltweites Verfassungsreferendum"
           }
+        },
+        "politicalParties": {
+          "title": "Politische Parteien",
+          "description": "Vereinen Sie sich weltweit um gemeinsame Werte"
         }
       }
     },

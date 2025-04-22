@@ -594,6 +594,10 @@
           "worldConstitutional": {
             "title": "Referendum Konstitusi Dunia"
           }
+        },
+        "politicalParties": {
+          "title": "Partai Politik",
+          "description": "Bersatu secara global di sekitar nilai-nilai bersama"
         }
       }
     },

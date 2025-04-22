@@ -593,6 +593,10 @@
           "worldConstitutional": {
             "title": "World Constitution Voting"
           }
+        },
+        "politicalParties": {
+          "title": "Political Parties",
+          "description": "Join togeda globally around values wey una share"
         }
       }
     },

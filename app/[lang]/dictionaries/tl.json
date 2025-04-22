@@ -594,6 +594,10 @@
           "worldConstitutional": {
             "title": "World Constitutional Referendum"
           }
+        },
+        "politicalParties": {
+          "title": "Mga Partidong Pampulitika",
+          "description": "Magsama-sama sa buong mundo sa paligid ng mga pagpapahalagang pinagsasaluhan"
         }
       }
     },
