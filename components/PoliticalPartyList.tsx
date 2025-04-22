@@ -183,7 +183,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       // Query to get all parties from subgraph
       const query = `
         query {
-          parties(first: 1000) {
+          parties(first: 1000, where: { memberCount_not: 0, status_not: 2 }) {
             id
             name
             shortName
@@ -1517,7 +1517,8 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           <div className="my-8 text-center text-gray-500">
             {activeTab === "pending"
               ? dictionary?.components?.politicalPartyList?.emptyState?.pending
-              : dictionary?.components?.politicalPartyList?.emptyState?.noParties}
+              : dictionary?.components?.politicalPartyList?.emptyState
+                  ?.noParties}
           </div>
         )}
 
