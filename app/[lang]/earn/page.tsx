@@ -1908,7 +1908,10 @@ export default function EarnPage({
                       variant={{ variant: "subtitle", level: 2 }}
                       className="line-clamp-1"
                     >
-                      Party Subsidy Program
+                      {
+                        dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy
+                          ?.title
+                      }
                     </Typography>
                     {!hasPartySubsidyBeenVisited && (
                       <span className="ml-1.5 h-[7px] w-[7px] rounded-full bg-error-600" />
@@ -1919,7 +1922,10 @@ export default function EarnPage({
                     variant={{ variant: "body", level: 3 }}
                     className="text-gray-500"
                   >
-                    Build your political movement and earn
+                    {
+                      dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy
+                        ?.subtitle
+                    }
                   </Typography>
                 </div>
               </div>
