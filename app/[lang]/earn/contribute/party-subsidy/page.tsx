@@ -99,7 +99,7 @@ export default function PartySubsidyPage({
                   variant={{ variant: "subtitle", level: 2 }}
                   className="mb-2 text-center text-gray-900"
                 >
-                  10% of Dev Rewards
+                  10% of our Dev Rewards
                   <span className="group relative inline-flex items-center align-baseline">
                     <PiInfoFill className="ml-1 h-4 w-4 translate-y-[3px] cursor-help text-gray-400" />
                     <div className="absolute -right-4 bottom-full mb-2 hidden w-[calc(100dvw/2+24px)] max-w-sm transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
