@@ -23,6 +23,7 @@ import { Dropdown } from "@/components/ui/Dropdown";
 import { DrawerTitle } from "@/components/ui/Drawer";
 import { LoadingSkeleton } from "./PartySkeletons";
 import { useTranslations } from "@/hooks/useTranslations";
+import { TabSwiper } from "@/components/TabSwiper";
 
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
   "0x70a993E1D1102F018365F966B5Fc009e8FA9b7dC";
@@ -1397,7 +1398,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   }
 
   return (
-    <div className="w-full">
+    <div className="w-full overflow-x-hidden">
       {/* My Party Section */}
       <div className="mb-6">
         {/* Notification about party loading issues */}
@@ -1487,50 +1488,41 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       </div>
 
       {/* Tabs */}
-      <div className="mb-2 flex items-center gap-1">
-        <button
-          className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
-            activeTab === "new" && "bg-gray-100"
-          }`}
-          onClick={() => setActiveTab("new")}
-        >
-          {dictionary?.components?.politicalPartyList?.tabs?.new}
-        </button>
-        <button
-          className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
-            activeTab === "trending" && "bg-gray-100"
-          }`}
-          onClick={() => setActiveTab("trending")}
-        >
-          {dictionary?.components?.politicalPartyList?.tabs?.trending}
-        </button>
-        <button
-          className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
-            activeTab === "top" && "bg-gray-100"
-          }`}
-          onClick={() => setActiveTab("top")}
-        >
-          {dictionary?.components?.politicalPartyList?.tabs?.top}
-        </button>
-        <button
-          className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
-            activeTab === "pending" && "bg-gray-100"
-          }`}
-          onClick={() => setActiveTab("pending")}
-        >
-          {dictionary?.components?.politicalPartyList?.tabs?.pending}
-        </button>
+      <TabSwiper
+        tabs={[
+          {
+            key: "new",
+            label: dictionary?.components?.politicalPartyList?.tabs?.new,
+          },
+          {
+            key: "trending",
+            label: dictionary?.components?.politicalPartyList?.tabs?.trending,
+          },
+          {
+            key: "top",
+            label: dictionary?.components?.politicalPartyList?.tabs?.top,
+          },
+          {
+            key: "pending",
+            label: dictionary?.components?.politicalPartyList?.tabs?.pending,
+          },
+        ]}
+        activeTab={activeTab}
+        onTabChange={setActiveTab}
+      />
+
+      {/* This div will contain the filtered parties with a minimum height */}
+      <div className="min-h-[50vh]">
+        {filteredParties.length === 0 && (
+          <div className="my-8 text-center text-gray-500">
+            {activeTab === "pending"
+              ? dictionary?.components?.politicalPartyList?.emptyState?.pending
+              : dictionary?.components?.politicalPartyList?.emptyState?.noParties}
+          </div>
+        )}
+
+        {filteredParties.map((party) => renderPartyCard(party))}
       </div>
-
-      {filteredParties.length === 0 && (
-        <div className="my-8 text-center text-gray-500">
-          {activeTab === "pending"
-            ? dictionary?.components?.politicalPartyList?.emptyState?.pending
-            : dictionary?.components?.politicalPartyList?.emptyState?.noParties}
-        </div>
-      )}
-
-      {filteredParties.map((party) => renderPartyCard(party))}
 
       {/* Create Party Drawer */}
       <Drawer open={isCreateDrawerOpen} onOpenChange={setIsCreateDrawerOpen}>
