@@ -181,7 +181,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       // Query to get all parties from subgraph
       const query = `
         query {
-          parties {
+          parties(first: 500) {
             id
             name
             shortName
