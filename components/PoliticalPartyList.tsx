@@ -1481,6 +1481,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             label="Search parties..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
+            onFocus={handleInputFocus}
           />
         </div>
       </div>
