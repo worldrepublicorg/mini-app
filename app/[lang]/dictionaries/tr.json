@@ -341,6 +341,7 @@
             "title": "Önceki Anketler",
             "backToGovern": "Yönet'e Dön",
             "polls": {
+              "globalMilitaryExerciseProtocol": "Ülkeler, tırmanma riskini azaltmak için ihtilaflı bölgelerin yakınında büyük ölçekli askeri tatbikatlar için uluslararası bir bildirim ve gözlemci protokolünde anlaşmalı mı?",
               "globalMaritimeSecurity": "Uluslararası sularda ticari gemileri silahlı saldırılardan korumak için uluslararası bir deniz güvenliği görev gücü kurulmalı mı?",
               "globalNuclearDialogue": "Büyük güçler, tırmanmayı önlemek ve diplomatik gözetimi sağlamak için bir uluslararası anlaşma kapsamında düşman devletlerle sürekli uzman düzeyinde nükleer müzakerelere girmekle yükümlü olmalı mı?",
               "globalMiningStandards": "Temiz enerji teknolojileri için gerekli kritik minerallerin çevresel ve sosyal açıdan sorumlu madenciliğini sağlamak için uluslararası bir protokol kurulmalı mı?",
