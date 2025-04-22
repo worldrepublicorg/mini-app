@@ -1896,69 +1896,42 @@ export default function EarnPage({
             </Typography>
 
             {/* Party Subsidy Program Card */}
-            {/* <Link
+            <Link
               href={`/${lang}/earn/contribute/party-subsidy`}
-              className="group mb-4 flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 transition-all"
+              className="group mb-4 flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border border-gray-200 p-4"
             >
-              <div className="mb-3 flex items-center justify-between">
-                <div className="flex items-center">
+              <div className="flex items-center gap-3">
+                <div>
+                  <div className="mb-1.5 flex items-center">
+                    <Typography
+                      as="h3"
+                      variant={{ variant: "subtitle", level: 2 }}
+                      className="line-clamp-1"
+                    >
+                      Party Subsidy Program
+                    </Typography>
+                    {!hasPartySubsidyBeenVisited && (
+                      <span className="ml-1.5 h-[7px] w-[7px] rounded-full bg-error-600" />
+                    )}
+                  </div>
                   <Typography
-                    as="h3"
-                    variant={{ variant: "subtitle", level: 2 }}
-                    className="line-clamp-1"
-                  >
-                    Party Subsidy Program (Test)
-                  </Typography>
-                  {!hasPartySubsidyBeenVisited && (
-                    <span className="ml-1.5 h-[7px] w-[7px] rounded-full bg-error-600" />
-                  )}
-                </div>
-                <div className="rounded-full bg-gray-100 px-2.5 py-1">
-                  <Typography
+                    as="p"
                     variant={{ variant: "body", level: 3 }}
                     className="text-gray-500"
                   >
-                    Daily
+                    Build your political movement and earn
                   </Typography>
                 </div>
               </div>
-
-              <Typography
-                as="p"
-                variant={{ variant: "body", level: 3 }}
-                className="mb-4 text-gray-500"
-              >
-                Earn rewards for building the largest political parties of the
-                World Republic
-              </Typography>
-
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="rounded-full bg-gray-700 px-2.5 py-1">
-                    <Typography
-                      variant={{ variant: "body", level: 3 }}
-                      className="text-gray-0"
-                    >
-                      1000 WDD
-                    </Typography>
-                  </div>
-                  <Typography
-                    variant={{ variant: "body", level: 3 }}
-                    className="text-gray-400"
-                  >
-                    Top Prize
-                  </Typography>
-                </div>
-                <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5">
-                  <IoIosArrowForward className="size-[14px] text-gray-400" />
-                </div>
+              <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5">
+                <IoIosArrowForward className="size-[14px] text-gray-400" />
               </div>
-            </Link> */}
+            </Link>
 
             {/* Buyback Program Card */}
             <Link
               href={`/${lang}/earn/contribute/buyback-program`}
-              className="group mb-6 flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border border-gray-200 p-4"
+              className="group mb-4 flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border border-gray-200 p-4"
             >
               <div className="flex items-center gap-3">
                 <div>

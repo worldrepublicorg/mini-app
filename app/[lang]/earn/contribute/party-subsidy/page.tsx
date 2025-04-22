@@ -3,10 +3,20 @@
 import { Button } from "@/components/ui/Button";
 import { Typography } from "@/components/ui/Typography";
 import Link from "next/link";
-import { PiUsersThree, PiTrophy, PiBuildingsFill } from "react-icons/pi";
+import {
+  PiUsersThree,
+  PiUsersThreeFill,
+  PiChartBar,
+  PiCoins,
+  PiCurrencyCircleDollar,
+  PiRocketLaunch,
+  PiTrophy,
+  PiTrendUp,
+} from "react-icons/pi";
 import { BiChevronLeft } from "react-icons/bi";
 import { useTranslations } from "@/hooks/useTranslations";
 import { useEffect } from "react";
+import { FiExternalLink } from "react-icons/fi";
 
 export default function PartySubsidyPage({
   params: { lang },
@@ -28,11 +38,12 @@ export default function PartySubsidyPage({
           <Link
             href={`/${lang}/earn?tab=Contribute`}
             className="absolute left-0 flex size-10 items-center justify-center rounded-full bg-gray-100"
+            aria-label="Back to Earn"
           >
             <BiChevronLeft className="size-6 text-gray-500" />
           </Link>
           <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
-            Party Subsidy Program
+            Subsidy Program
           </Typography>
         </div>
       </div>
@@ -41,160 +52,257 @@ export default function PartySubsidyPage({
         {/* Hero section */}
         <div className="mb-10 flex flex-col items-center">
           <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
-            <PiBuildingsFill className="h-10 w-10 text-gray-400" />
+            <PiUsersThreeFill className="h-10 w-10 text-gray-400" />
           </div>
           <Typography
-            variant={{ variant: "subtitle", level: 1 }}
+            variant={{ variant: "heading", level: 2 }}
             className="mx-auto mb-2 text-center text-gray-900"
           >
-            Political Party Subsidy Program (Test)
+            Party Subsidy Program
           </Typography>
           <Typography
             variant={{ variant: "body", level: 2 }}
             className="text-center text-gray-500"
           >
-            Earn rewards for building the largest political parties of the World
-            Republic
+            Build your political movement and earn
           </Typography>
         </div>
 
-        {/* Prize info */}
-        <div className="mb-10 w-full rounded-xl border border-gray-200 p-4">
-          <div className="mb-4 flex items-center justify-between">
-            <Typography
-              variant={{ variant: "subtitle", level: 2 }}
-              className="text-gray-900"
-            >
-              Daily Rewards
-            </Typography>
-          </div>
-          <div className="grid grid-cols-3 gap-3">
-            <div className="flex flex-col items-center rounded-lg bg-gray-50 p-3 shadow-sm">
-              <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-[#C5CED8]">
-                <PiTrophy className="text-gray-600 h-5 w-5" />
-              </div>
-              <Typography
-                variant={{ variant: "heading", level: 3 }}
-                className="text-gray-900"
-              >
-                1000
-              </Typography>
-              <Typography
-                variant={{ variant: "body", level: 3 }}
-                className="text-gray-500"
-              >
-                WDD
-              </Typography>
-            </div>
-            <div className="flex flex-col items-center rounded-lg bg-gray-50 p-3 shadow-sm">
-              <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-[#D5DCE4]">
-                <PiTrophy className="text-gray-600 h-5 w-5" />
-              </div>
-              <Typography
-                variant={{ variant: "heading", level: 3 }}
-                className="text-gray-900"
-              >
-                600
-              </Typography>
-              <Typography
-                variant={{ variant: "body", level: 3 }}
-                className="text-gray-500"
-              >
-                WDD
-              </Typography>
-            </div>
-            <div className="flex flex-col items-center rounded-lg bg-gray-50 p-3 shadow-sm">
-              <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-[#E5EAF0]">
-                <PiTrophy className="text-gray-600 h-5 w-5" />
-              </div>
-              <Typography
-                variant={{ variant: "heading", level: 3 }}
-                className="text-gray-900"
-              >
-                200
-              </Typography>
-              <Typography
-                variant={{ variant: "body", level: 3 }}
-                className="text-gray-500"
-              >
-                WDD
-              </Typography>
-            </div>
-          </div>
-        </div>
-
-        {/* How it works */}
-        <div className="mb-10">
-          <Typography
-            variant={{ variant: "subtitle", level: 2 }}
-            className="mb-4 text-gray-900"
-          >
-            How It Works
-          </Typography>
+        <div className="space-y-8">
+          {/* Feature cards */}
           <div className="space-y-4">
-            <div className="flex gap-3">
-              <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-900 text-sm text-gray-0">
-                1
-              </div>
-              <Typography
-                variant={{ variant: "body", level: 2 }}
-                className="text-gray-600"
-              >
-                Create a political party in the World Republic Labs app
-              </Typography>
-            </div>
-            <div className="flex gap-3">
-              <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-900 text-sm text-gray-0">
-                2
-              </div>
-              <Typography
-                variant={{ variant: "body", level: 2 }}
-                className="text-gray-600"
-              >
-                Grow your party membership
-              </Typography>
-            </div>
-            <div className="flex gap-3">
-              <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-900 text-sm text-gray-0">
-                3
-              </div>
-              <Typography
-                variant={{ variant: "body", level: 2 }}
-                className="text-gray-600"
-              >
-                At the end of each day, the top parties by membership size
-                receive WDD rewards
-              </Typography>
-            </div>
-          </div>
-        </div>
-
-        {/* Additional Benefits */}
-        <div className="mb-10">
-          <Typography
-            variant={{ variant: "subtitle", level: 2 }}
-            className="mb-4 text-gray-900"
-          >
-            Additional Benefit
-          </Typography>
-          <div className="rounded-xl border border-gray-200 bg-gray-50 p-4">
-            <div className="flex items-start">
-              <div className="mr-3 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-gray-200">
-                <PiUsersThree className="h-4 w-4 text-gray-500" />
-              </div>
-              <div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="flex flex-col items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 p-4 shadow-sm">
+                <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-gray-200">
+                  <PiCoins className="h-6 w-6 text-gray-500" />
+                </div>
                 <Typography
-                  variant={{ variant: "subtitle", level: 3 }}
+                  variant={{ variant: "subtitle", level: 2 }}
+                  className="mb-2 text-center text-gray-900"
+                >
+                  100,000 WDD
+                </Typography>
+                <Typography
+                  variant={{ variant: "body", level: 3 }}
+                  className="text-center text-gray-500"
+                >
+                  Fixed weekly pool
+                </Typography>
+              </div>
+
+              <div className="flex flex-col items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 p-4 shadow-sm">
+                <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-gray-200">
+                  <PiCurrencyCircleDollar className="h-6 w-6 text-gray-500" />
+                </div>
+                <Typography
+                  variant={{ variant: "subtitle", level: 2 }}
+                  className="mb-2 text-center text-gray-900"
+                >
+                  10% of Dev Rewards
+                </Typography>
+                <Typography
+                  variant={{ variant: "body", level: 3 }}
+                  className="text-center text-gray-500"
+                >
+                  Variable reward pool
+                </Typography>
+              </div>
+            </div>
+            <a
+              href="https://world.org/blog/announcements/world-launches-mini-apps-300k-dev-rewards-pilot-inspire-human-first-apps"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary-600 inline-flex items-center px-4"
+            >
+              <Typography variant="subtitle" level={3}>
+                Learn more about Developer Rewards
+              </Typography>
+              <FiExternalLink className="mb-0.5 ml-1 h-3 w-3" />
+            </a>
+          </div>
+
+          {/* How it works - modern steps */}
+          <div className="overflow-hidden rounded-xl border border-gray-200 bg-gray-0 shadow-sm">
+            <div className="border-b border-gray-100 bg-gradient-to-r from-gray-50 to-gray-0 p-4">
+              <div className="flex items-center">
+                <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-gray-200">
+                  <PiRocketLaunch className="h-4 w-4 text-gray-500" />
+                </div>
+                <Typography
+                  as="h3"
+                  variant={{ variant: "subtitle", level: 2 }}
                   className="text-gray-900"
                 >
-                  Verification Bonus
+                  How It Works
+                </Typography>
+              </div>
+            </div>
+            <div className="p-4">
+              <div className="space-y-4">
+                <div className="flex items-start rounded-lg border border-gray-100 p-3 shadow-sm">
+                  <div className="mr-3 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-gray-900 text-[15px] text-gray-0">
+                    1
+                  </div>
+                  <div>
+                    <Typography
+                      variant={{ variant: "subtitle", level: 2 }}
+                      className="text-gray-900"
+                    >
+                      Create a Party
+                    </Typography>
+                    <Typography
+                      variant={{ variant: "body", level: 3 }}
+                      className="text-gray-500"
+                    >
+                      Start your political movement in the World Republic app
+                    </Typography>
+                  </div>
+                </div>
+
+                <div className="flex items-start rounded-lg border border-gray-100 p-3 shadow-sm">
+                  <div className="mr-3 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-gray-900 text-[15px] text-gray-0">
+                    2
+                  </div>
+                  <div>
+                    <Typography
+                      variant={{ variant: "subtitle", level: 2 }}
+                      className="text-gray-900"
+                    >
+                      Grow Your Membership
+                    </Typography>
+                    <Typography
+                      variant={{ variant: "body", level: 3 }}
+                      className="text-gray-500"
+                    >
+                      Recruit members and build your community
+                    </Typography>
+                  </div>
+                </div>
+
+                <div className="flex items-start rounded-lg border border-gray-100 p-3 shadow-sm">
+                  <div className="mr-3 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-gray-900 text-[15px] text-gray-0">
+                    3
+                  </div>
+                  <div>
+                    <Typography
+                      variant={{ variant: "subtitle", level: 2 }}
+                      className="text-gray-900"
+                    >
+                      Earn Rewards
+                    </Typography>
+                    <Typography
+                      variant={{ variant: "body", level: 3 }}
+                      className="text-gray-500"
+                    >
+                      Top 25 parties receive weekly subsidies proportional to
+                      their membership
+                    </Typography>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Distribution Visualization */}
+          <div className="overflow-hidden rounded-xl border border-gray-200 bg-gray-0 shadow-sm">
+            <div className="border-b border-gray-100 bg-gradient-to-r from-gray-50 to-gray-0 p-4">
+              <div className="flex items-center">
+                <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-gray-200">
+                  <PiTrophy className="h-4 w-4 text-gray-500" />
+                </div>
+                <Typography
+                  as="h3"
+                  variant={{ variant: "subtitle", level: 2 }}
+                  className="text-gray-900"
+                >
+                  Reward Distribution
+                </Typography>
+              </div>
+            </div>
+
+            <div className="p-4">
+              <div className="mb-6 rounded-xl bg-gray-50 p-4">
+                <Typography
+                  variant={{ variant: "subtitle", level: 2 }}
+                  className="mb-2 text-gray-900"
+                >
+                  Proportional Rewards
                 </Typography>
                 <Typography
                   variant={{ variant: "body", level: 2 }}
                   className="text-gray-600"
                 >
-                  The party with the highest number of verified members receives
-                  an additional 300 WDD
+                  Each party receives rewards based on their membership
+                  percentage among the top 25 parties.
+                </Typography>
+              </div>
+
+              <div className="mb-8 space-y-3">
+                <div className="flex items-center gap-2">
+                  <div className="h-6 w-full overflow-hidden rounded-full bg-gray-100">
+                    <div className="from-indigo-500 to-blue-500 flex h-6 w-[65%] items-center justify-center rounded-full bg-gradient-to-r">
+                      <Typography
+                        variant={{ variant: "body", level: 3 }}
+                        className="text-white"
+                      >
+                        Party A (65%)
+                      </Typography>
+                    </div>
+                  </div>
+                  <Typography
+                    variant={{ variant: "subtitle", level: 3 }}
+                    className="min-w-[80px] text-right text-gray-900"
+                  >
+                    1,950 WDD
+                  </Typography>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <div className="h-6 w-full overflow-hidden rounded-full bg-gray-100">
+                    <div className="from-purple-500 to-fuchsia-500 flex h-6 w-[25%] items-center justify-center rounded-full bg-gradient-to-r">
+                      <Typography
+                        variant={{ variant: "body", level: 3 }}
+                        className="text-white"
+                      >
+                        Party B (25%)
+                      </Typography>
+                    </div>
+                  </div>
+                  <Typography
+                    variant={{ variant: "subtitle", level: 3 }}
+                    className="min-w-[80px] text-right text-gray-900"
+                  >
+                    750 WDD
+                  </Typography>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <div className="h-6 w-full overflow-hidden rounded-full bg-gray-100">
+                    <div className="from-emerald-500 to-teal-500 flex h-6 w-[10%] items-center justify-center rounded-full bg-gradient-to-r">
+                      <Typography
+                        variant={{ variant: "body", level: 3 }}
+                        className="text-white"
+                      >
+                        Party C
+                      </Typography>
+                    </div>
+                  </div>
+                  <Typography
+                    variant={{ variant: "subtitle", level: 3 }}
+                    className="min-w-[80px] text-right text-gray-900"
+                  >
+                    300 WDD
+                  </Typography>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-center gap-2 rounded-lg bg-gray-50 p-3">
+                <PiTrendUp className="text-emerald-500 h-5 w-5" />
+                <Typography
+                  variant={{ variant: "body", level: 2 }}
+                  className="text-gray-600"
+                >
+                  More members = larger share of rewards
                 </Typography>
               </div>
             </div>
@@ -202,10 +310,11 @@ export default function PartySubsidyPage({
         </div>
 
         {/* CTA Buttons */}
-        <div className="mt-auto space-y-3">
+        <div className="mt-10 space-y-4">
           <Link href={`/${lang}/govern`}>
             <Button fullWidth>Create or Join a Party</Button>
           </Link>
+
           <a
             href="https://t.me/worldrepublicpartyleaders"
             target="_blank"

@@ -19,13 +19,13 @@ import { DrawerTitle } from "@/components/ui/Drawer";
 import { LoadingSkeleton } from "./PartySkeletons";
 
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
-  "0xCDf53d307bf828350944d21A54B6318Ed5a5d34f";
+  "0x70a993E1D1102F018365F966B5Fc009e8FA9b7dC";
 
 const MAX_STRING_LENGTH = 256;
 const MAX_SHORT_NAME_LENGTH = 16;
 
 const GOLDSKY_SUBGRAPH_URL =
-  "https://api.goldsky.com/api/public/project_cm9oeq0bhalzw01y0hwth80bk/subgraphs/political-party-registry/0.1.0/gn";
+  "https://api.goldsky.com/api/public/project_cm9oeq0bhalzw01y0hwth80bk/subgraphs/political-party-registry/1.0.0/gn";
 
 interface Party {
   id: number;
