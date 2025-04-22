@@ -144,16 +144,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       // If the URL is already shorter than maxLength, return it as is
       if (cleanUrl.length <= maxLength) return cleanUrl;
 
-      // For very long URLs, truncate at domain level or use ellipsis
-      const parts = cleanUrl.split("/");
-      const domain = parts[0];
-
-      if (domain.length <= maxLength) {
-        return domain;
+      if (cleanUrl.length <= maxLength) {
+        return cleanUrl;
       }
 
       // If domain itself is too long, truncate with ellipsis
-      return domain.substring(0, maxLength - 3) + "...";
+      return cleanUrl.substring(0, maxLength - 3) + "...";
     } catch (e) {
       return url;
     }
