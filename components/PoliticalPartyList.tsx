@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback } from "react";
 import type { FocusEvent as ReactFocusEvent } from "react";
 import { parseAbi } from "viem";
 import { viemClient } from "@/lib/viemClient";
@@ -70,7 +70,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     "top" | "trending" | "new" | "pending"
   >("top");
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const searchInputRef = useRef<HTMLInputElement>(null);
   const { walletAddress } = useWallet();
   const { showToast } = useToast();
   const [isCreateDrawerOpen, setIsCreateDrawerOpen] = useState(false);
@@ -1461,13 +1460,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
       {/* Search bar */}
       <div className="mb-4">
-        <div
-          className="relative"
-          onClick={() => searchInputRef.current?.focus()}
-        >
+        <div className="relative">
           <Input
             type="text"
-            ref={searchInputRef}
             startAdornment={
               <svg
                 className="h-5 w-5"
