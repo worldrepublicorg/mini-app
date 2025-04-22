@@ -502,8 +502,8 @@
                   "description": "Rekrutiere Mitglieder und baue deine Gemeinschaft auf"
                 },
                 "earnRewards": {
-                  "title": "Verdiene Belohnungen",
-                  "description": "Die Top 25 Parteien erhalten wöchentliche Subventionen proportional zu ihrer Mitgliederzahl"
+                  "title": "Belohnungen verdienen",
+                  "description": "Die Vorsitzenden der Top-25-Parteien erhalten wöchentliche Zuschüsse proportional zur Mitgliederzahl ihrer Partei"
                 }
               }
             },
