@@ -51,10 +51,164 @@
     },
     "tabSwiper": {
       "tabs": {
-        "polls": "Votações",
+        "politicalParties": "Partidos",
+        "polls": "Enquetes",
         "openLetters": "Cartas abertas",
         "elections": "Eleições",
         "referendums": "Referendos"
+      }
+    },
+    "politicalPartyList": {
+      "myParty": "Meu partido",
+      "createParty": "Criar Novo Partido",
+      "noParty": "Você ainda não criou ou se juntou a um partido.",
+      "discover": "Descobrir",
+      "tabs": {
+        "top": "Top",
+        "trending": "Em alta",
+        "new": "Novos",
+        "pending": "Pendentes"
+      },
+      "emptyState": {
+        "pending": "Não há partidos pendentes disponíveis.",
+        "noParties": "Não há partidos disponíveis para se juntar."
+      },
+      "partyCard": {
+        "pending": "Pendente",
+        "deleted": "Excluído",
+        "members": "membros",
+        "actions": {
+          "leaveParty": "Sair do Partido",
+          "joinParty": "Entrar no Partido",
+          "joinPendingParty": "Entrar no Partido Pendente"
+        },
+        "management": {
+          "title": "Gestão do Partido",
+          "manageMembers": "Gerenciar membros",
+          "updateInfo": "Atualizar informações",
+          "transferLeadership": "Transferir liderança",
+          "deleteParty": "Excluir partido"
+        }
+      },
+      "drawers": {
+        "create": {
+          "title": "Criar Novo Partido",
+          "name": {
+            "label": "Nome do partido",
+            "placeholder": "Digite o nome do partido",
+            "error": "Por favor, digite um nome para o partido"
+          },
+          "shortName": {
+            "label": "Nome curto",
+            "placeholder": "Digite o nome curto ou abreviação",
+            "error": "Por favor, digite um nome curto"
+          },
+          "description": {
+            "label": "Descrição",
+            "placeholder": "Digite a descrição do partido",
+            "error": "Por favor, digite uma descrição"
+          },
+          "officialLink": {
+            "label": "Link oficial",
+            "placeholder": "Digite o site oficial ou link da comunidade (opcional)"
+          },
+          "limitWarning": {
+            "approaching": "Aproximando-se do limite de caracteres: {{current}}/{{max}}",
+            "reached": "Limite máximo de caracteres atingido"
+          },
+          "button": {
+            "creating": "Criando...",
+            "create": "Criar Partido"
+          }
+        },
+        "update": {
+          "title": "Atualizar Detalhes do Partido",
+          "button": {
+            "update": "Atualizar",
+            "updateDescription": "Atualizar Descrição"
+          }
+        },
+        "transferLeadership": {
+          "title": "Transferir Liderança",
+          "description": "Digite o endereço da carteira do novo líder ou procure pelo nome de usuário. O endereço deve pertencer a um membro existente do partido.",
+          "lookup": {
+            "label": "Procurar por nome de usuário",
+            "placeholder": "Digite o nome de usuário do World App",
+            "buttonText": "Procurar",
+            "loading": "Procurando...",
+            "foundUser": "Usuário encontrado: ",
+            "address": "Endereço: "
+          },
+          "newLeader": {
+            "label": "Endereço do novo líder",
+            "placeholder": "Digite o endereço da carteira (0x...)",
+            "errors": {
+              "required": "Por favor, digite um endereço",
+              "invalid": "Por favor, digite um endereço Ethereum válido (0x...)"
+            }
+          },
+          "button": {
+            "processing": "Processando...",
+            "transfer": "Transferir Liderança"
+          }
+        },
+        "leave": {
+          "title": "Sair do Partido Atual",
+          "description": "Você já é membro de {{partyName}}. Você deve sair do seu partido atual antes de entrar em um novo.",
+          "leaderWarning": "Nota: Você é atualmente o líder deste partido. Se você sair, a liderança será perdida ou reatribuída pelo sistema.",
+          "button": {
+            "leaving": "Saindo...",
+            "leave": "Sair de {{partyShortName}}"
+          }
+        },
+        "createConfirm": {
+          "title": "Sair do Partido Atual",
+          "description": "Você já é membro de {{partyName}}. Você deve sair do seu partido atual antes de criar um novo.",
+          "leaderWarning": "Nota: Você é atualmente o líder deste partido. Se você sair, a liderança será perdida ou reatribuída pelo sistema.",
+          "button": {
+            "processing": "Processando...",
+            "leaveAndCreate": "Sair de {{partyShortName}} e criar"
+          }
+        },
+        "delete": {
+          "title": "Excluir Partido",
+          "confirmPending": "Tem certeza de que deseja excluir este partido pendente?",
+          "confirm": "Tem certeza de que deseja excluir este partido?",
+          "button": {
+            "processing": "Processando...",
+            "deletePending": "Excluir Partido Pendente",
+            "delete": "Excluir Partido"
+          }
+        },
+        "memberManagement": {
+          "title": "Gerenciamento de Membros",
+          "tabs": {
+            "remove": "Remover",
+            "ban": "Banir",
+            "unban": "Desbanir"
+          },
+          "remove": {
+            "description": "Digite o endereço da carteira do membro que você deseja remover ou procure pelo nome de usuário.",
+            "button": {
+              "processing": "Processando...",
+              "remove": "Remover Membro"
+            }
+          },
+          "ban": {
+            "description": "Digite o nome de usuário ou endereço da carteira do membro que você deseja banir do partido.",
+            "button": {
+              "processing": "Processando...",
+              "ban": "Banir Membro"
+            }
+          },
+          "unban": {
+            "description": "Digite o nome de usuário ou endereço da carteira do membro banido que você deseja permitir de volta ao partido.",
+            "button": {
+              "processing": "Processando...",
+              "unban": "Desbanir Membro"
+            }
+          }
+        }
       }
     }
   },
@@ -321,6 +475,42 @@
               "weekOf": "Semana de",
               "engagements": "engajamentos"
             }
+          },
+          "partySubsidy": {
+            "topnav": "Programa de Subsídio",
+            "title": "Programa de Subsídio para Partidos",
+            "subtitle": "Construa seu movimento político e ganhe",
+            "weeklyPool": {
+              "title": "100.000 WDD",
+              "subtitle": "Fundo semanal fixo"
+            },
+            "devRewards": {
+              "title": "10% das nossas Recompensas para Desenvolvedores",
+              "subtitle": "Fundo de recompensas variável",
+              "tooltip": "World está distribuindo recompensas para desenvolvedores com base no uso do aplicativo por humanos verificados.",
+              "checkOutRewards": "Ver recompensas"
+            },
+            "howItWorks": {
+              "title": "Como Funciona",
+              "steps": {
+                "createParty": {
+                  "title": "Crie um Partido",
+                  "description": "Inicie seu movimento político no aplicativo World Republic"
+                },
+                "growMembership": {
+                  "title": "Aumente sua Filiação",
+                  "description": "Recrute membros e construa sua comunidade"
+                },
+                "earnRewards": {
+                  "title": "Ganhe Recompensas",
+                  "description": "Os 25 principais partidos recebem subsídios semanais proporcionais à sua filiação"
+                }
+              }
+            },
+            "cta": {
+              "createJoin": "Criar ou Participar de um Partido",
+              "leaderGroup": "Participar do Grupo de Líderes de Partido"
+            }
           }
         }
       }
@@ -442,6 +632,10 @@
           "worldConstitutional": {
             "title": "Referendo Constitucional Mundial"
           }
+        },
+        "politicalParties": {
+          "title": "Partidos Políticos",
+          "description": "Unir-se globalmente em torno de valores compartilhados"
         }
       }
     },

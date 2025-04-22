@@ -51,10 +51,164 @@
     },
     "tabSwiper": {
       "tabs": {
+        "politicalParties": "Parties",
         "polls": "Polls",
         "openLetters": "Open letters",
         "elections": "Elections",
         "referendums": "Referendums"
+      }
+    },
+    "politicalPartyList": {
+      "myParty": "My party",
+      "createParty": "Create New Party",
+      "noParty": "You haven't created or joined a party yet.",
+      "discover": "Discover",
+      "tabs": {
+        "top": "Top",
+        "trending": "Trending",
+        "new": "New",
+        "pending": "Pending"
+      },
+      "emptyState": {
+        "pending": "No pending parties available.",
+        "noParties": "No parties available to join."
+      },
+      "partyCard": {
+        "pending": "Pending",
+        "deleted": "Deleted",
+        "members": "members",
+        "actions": {
+          "leaveParty": "Leave Party",
+          "joinParty": "Join Party",
+          "joinPendingParty": "Join Pending Party"
+        },
+        "management": {
+          "title": "Party Management",
+          "manageMembers": "Manage members",
+          "updateInfo": "Update party info",
+          "transferLeadership": "Transfer leadership",
+          "deleteParty": "Delete party"
+        }
+      },
+      "drawers": {
+        "create": {
+          "title": "Create New Party",
+          "name": {
+            "label": "Party name",
+            "placeholder": "Enter party name",
+            "error": "Please enter a party name"
+          },
+          "shortName": {
+            "label": "Short name",
+            "placeholder": "Enter short name or abbreviation",
+            "error": "Please enter a short name"
+          },
+          "description": {
+            "label": "Description",
+            "placeholder": "Enter party description",
+            "error": "Please enter a description"
+          },
+          "officialLink": {
+            "label": "Official link",
+            "placeholder": "Enter official website or community link (optional)"
+          },
+          "limitWarning": {
+            "approaching": "Approaching character limit: {{current}}/{{max}}",
+            "reached": "Maximum character limit reached"
+          },
+          "button": {
+            "creating": "Creating...",
+            "create": "Create Party"
+          }
+        },
+        "update": {
+          "title": "Update Party Details",
+          "button": {
+            "update": "Update",
+            "updateDescription": "Update Description"
+          }
+        },
+        "transferLeadership": {
+          "title": "Transfer Leadership",
+          "description": "Enter the wallet address of the new leader or look up by username. The address must belong to an existing party member.",
+          "lookup": {
+            "label": "Look up by username",
+            "placeholder": "Enter World App username",
+            "buttonText": "Lookup",
+            "loading": "Looking up...",
+            "foundUser": "Found user: ",
+            "address": "Address: "
+          },
+          "newLeader": {
+            "label": "New leader address",
+            "placeholder": "Enter wallet address (0x...)",
+            "errors": {
+              "required": "Please enter an address",
+              "invalid": "Please enter a valid Ethereum address (0x...)"
+            }
+          },
+          "button": {
+            "processing": "Processing...",
+            "transfer": "Transfer Leadership"
+          }
+        },
+        "leave": {
+          "title": "Leave Current Party",
+          "description": "You are already a member of {{partyName}}. You must leave your current party before joining a new one.",
+          "leaderWarning": "Note: You are currently the leader of this party. If you leave, leadership will be lost or reassigned by the system.",
+          "button": {
+            "leaving": "Leaving...",
+            "leave": "Leave {{partyShortName}}"
+          }
+        },
+        "createConfirm": {
+          "title": "Leave Current Party",
+          "description": "You are already a member of {{partyName}}. You must leave your current party before creating a new one.",
+          "leaderWarning": "Note: You are currently the leader of this party. If you leave, leadership will be lost or reassigned by the system.",
+          "button": {
+            "processing": "Processing...",
+            "leaveAndCreate": "Leave {{partyShortName}} and create"
+          }
+        },
+        "delete": {
+          "title": "Delete Party",
+          "confirmPending": "Are you sure you want to delete this pending party?",
+          "confirm": "Are you sure you want to delete this party?",
+          "button": {
+            "processing": "Processing...",
+            "deletePending": "Delete Pending Party",
+            "delete": "Delete Party"
+          }
+        },
+        "memberManagement": {
+          "title": "Member Management",
+          "tabs": {
+            "remove": "Remove",
+            "ban": "Ban",
+            "unban": "Unban"
+          },
+          "remove": {
+            "description": "Enter the wallet address of the member you want to remove or look up by username.",
+            "button": {
+              "processing": "Processing...",
+              "remove": "Remove Member"
+            }
+          },
+          "ban": {
+            "description": "Enter the username or wallet address of the member you want to ban from the party.",
+            "button": {
+              "processing": "Processing...",
+              "ban": "Ban Member"
+            }
+          },
+          "unban": {
+            "description": "Enter the username or wallet address of the banned member you want to allow back to the party.",
+            "button": {
+              "processing": "Processing...",
+              "unban": "Unban Member"
+            }
+          }
+        }
       }
     }
   },
@@ -311,6 +465,42 @@
               "weekOf": "Week of",
               "engagements": "engagements"
             }
+          },
+          "partySubsidy": {
+            "topnav": "Subsidy Program",
+            "title": "Party Subsidy Program",
+            "subtitle": "Build your political movement and earn",
+            "weeklyPool": {
+              "title": "100,000 WDD",
+              "subtitle": "Fixed weekly pool"
+            },
+            "devRewards": {
+              "title": "10% of our Dev Rewards",
+              "subtitle": "Variable reward pool",
+              "tooltip": "World is distributing developer rewards based on app usage by verified humans.",
+              "checkOutRewards": "Check out rewards"
+            },
+            "howItWorks": {
+              "title": "How It Works",
+              "steps": {
+                "createParty": {
+                  "title": "Create a Party",
+                  "description": "Start your political movement in the World Republic app"
+                },
+                "growMembership": {
+                  "title": "Grow Your Membership",
+                  "description": "Recruit members and build your community"
+                },
+                "earnRewards": {
+                  "title": "Earn Rewards",
+                  "description": "Top 25 parties receive weekly subsidies proportional to their membership"
+                }
+              }
+            },
+            "cta": {
+              "createJoin": "Create or Join a Party",
+              "leaderGroup": "Join Party Leader Group"
+            }
           }
         }
       }
@@ -324,6 +514,10 @@
         "referendums": "Referendums"
       },
       "sections": {
+        "politicalParties": {
+          "title": "Political Parties",
+          "description": "Unite globally around shared values"
+        },
         "polls": {
           "title": "Poll of the Day",
           "description": "Quick votes on current topics",
@@ -335,8 +529,8 @@
               "globalMaritimeSecurity": "Should an international maritime security task force be established to protect commercial shipping in international waters from armed attacks?",
               "globalNuclearDialogue": "Should major powers be required under an international agreement to engage in continuous expert‑level nuclear negotiations with adversary states to prevent escalation and ensure diplomatic oversight?",
               "globalMiningStandards": "Should an international protocol be established to ensure environmentally and socially responsible mining of critical minerals needed for clean energy technologies?",
-              "globalDigitalServicesTax": "Should nations adopt a coordinated digital services tax targeting large tech platforms’ revenues to ensure fair and predictable global taxation?",
-              "globalIMFQuotaReform": "Should the IMF’s quota review formula be revised to enhance voting power for emerging and developing economies and ensure more equitable decision-making?",
+              "globalDigitalServicesTax": "Should nations adopt a coordinated digital services tax targeting large tech platforms' revenues to ensure fair and predictable global taxation?",
+              "globalIMFQuotaReform": "Should the IMF's quota review formula be revised to enhance voting power for emerging and developing economies and ensure more equitable decision-making?",
               "globalEnergyTransition": "Should countries adopt a legally binding global framework to accelerate the shift from fossil fuels to renewable energy sources?",
               "globalVaccineEquity": "Should an internationally coordinated framework be established to ensure equitable access to vaccines and essential medicines during global health crises?",
               "globalTradeArbitration": "Should a binding international arbitration panel be established to resolve trade disputes and ensure transparent, predictable tariff policies?",

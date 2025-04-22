@@ -51,10 +51,164 @@
     },
     "tabSwiper": {
       "tabs": {
-        "polls": "投票",
+        "politicalParties": "政党",
+        "polls": "民调",
         "openLetters": "公开信",
         "elections": "选举",
         "referendums": "公投"
+      }
+    },
+    "politicalPartyList": {
+      "myParty": "我的政党",
+      "createParty": "创建新政党",
+      "noParty": "您尚未创建或加入政党。",
+      "discover": "发现",
+      "tabs": {
+        "top": "热门",
+        "trending": "趋势",
+        "new": "最新",
+        "pending": "待审核"
+      },
+      "emptyState": {
+        "pending": "没有待审核的政党。",
+        "noParties": "没有可加入的政党。"
+      },
+      "partyCard": {
+        "pending": "待审核",
+        "deleted": "已删除",
+        "members": "成员",
+        "actions": {
+          "leaveParty": "退出政党",
+          "joinParty": "加入政党",
+          "joinPendingParty": "加入待审核政党"
+        },
+        "management": {
+          "title": "政党管理",
+          "manageMembers": "管理成员",
+          "updateInfo": "更新信息",
+          "transferLeadership": "转移领导权",
+          "deleteParty": "删除政党"
+        }
+      },
+      "drawers": {
+        "create": {
+          "title": "创建新政党",
+          "name": {
+            "label": "政党名称",
+            "placeholder": "输入政党名称",
+            "error": "请输入政党名称"
+          },
+          "shortName": {
+            "label": "简称",
+            "placeholder": "输入简称或缩写",
+            "error": "请输入简称"
+          },
+          "description": {
+            "label": "描述",
+            "placeholder": "输入政党描述",
+            "error": "请输入描述"
+          },
+          "officialLink": {
+            "label": "官方链接",
+            "placeholder": "输入官方网站或社区链接（可选）"
+          },
+          "limitWarning": {
+            "approaching": "接近字符限制：{{current}}/{{max}}",
+            "reached": "已达到最大字符限制"
+          },
+          "button": {
+            "creating": "创建中...",
+            "create": "创建政党"
+          }
+        },
+        "update": {
+          "title": "更新政党详情",
+          "button": {
+            "update": "更新",
+            "updateDescription": "更新描述"
+          }
+        },
+        "transferLeadership": {
+          "title": "转移领导权",
+          "description": "输入新领导人的钱包地址或按用户名查找。该地址必须属于现有政党成员。",
+          "lookup": {
+            "label": "按用户名查找",
+            "placeholder": "输入World App用户名",
+            "buttonText": "查找",
+            "loading": "查找中...",
+            "foundUser": "找到用户：",
+            "address": "地址："
+          },
+          "newLeader": {
+            "label": "新领导人地址",
+            "placeholder": "输入钱包地址 (0x...)",
+            "errors": {
+              "required": "请输入地址",
+              "invalid": "请输入有效的以太坊地址 (0x...)"
+            }
+          },
+          "button": {
+            "processing": "处理中...",
+            "transfer": "转移领导权"
+          }
+        },
+        "leave": {
+          "title": "退出当前政党",
+          "description": "您已经是{{partyName}}的成员。您必须退出当前政党才能加入新政党。",
+          "leaderWarning": "注意：您目前是该政党的领导人。如果您离开，领导权将丢失或由系统重新分配。",
+          "button": {
+            "leaving": "退出中...",
+            "leave": "退出{{partyShortName}}"
+          }
+        },
+        "createConfirm": {
+          "title": "退出当前政党",
+          "description": "您已经是{{partyName}}的成员。您必须退出当前政党才能创建新政党。",
+          "leaderWarning": "注意：您目前是该政党的领导人。如果您离开，领导权将丢失或由系统重新分配。",
+          "button": {
+            "processing": "处理中...",
+            "leaveAndCreate": "退出{{partyShortName}}并创建"
+          }
+        },
+        "delete": {
+          "title": "删除政党",
+          "confirmPending": "您确定要删除这个待审核的政党吗？",
+          "confirm": "您确定要删除这个政党吗？",
+          "button": {
+            "processing": "处理中...",
+            "deletePending": "删除待审核政党",
+            "delete": "删除政党"
+          }
+        },
+        "memberManagement": {
+          "title": "成员管理",
+          "tabs": {
+            "remove": "移除",
+            "ban": "禁止",
+            "unban": "解禁"
+          },
+          "remove": {
+            "description": "输入您要移除的成员的钱包地址或按用户名查找。",
+            "button": {
+              "processing": "处理中...",
+              "remove": "移除成员"
+            }
+          },
+          "ban": {
+            "description": "输入您要从政党中禁止的成员的用户名或钱包地址。",
+            "button": {
+              "processing": "处理中...",
+              "ban": "禁止成员"
+            }
+          },
+          "unban": {
+            "description": "输入您要允许重返政党的被禁止成员的用户名或钱包地址。",
+            "button": {
+              "processing": "处理中...",
+              "unban": "解禁成员"
+            }
+          }
+        }
       }
     }
   },
@@ -321,6 +475,42 @@
               "weekOf": "第几周",
               "engagements": "互动量"
             }
+          },
+          "partySubsidy": {
+            "topnav": "补贴计划",
+            "title": "政党补贴计划",
+            "subtitle": "建立您的政治运动并获得收益",
+            "weeklyPool": {
+              "title": "100,000 WDD",
+              "subtitle": "固定每周资金池"
+            },
+            "devRewards": {
+              "title": "我们开发者奖励的10%",
+              "subtitle": "可变奖励资金池",
+              "tooltip": "World正在根据经验证的人类使用应用程序的情况分配开发者奖励。",
+              "checkOutRewards": "查看奖励"
+            },
+            "howItWorks": {
+              "title": "工作原理",
+              "steps": {
+                "createParty": {
+                  "title": "创建政党",
+                  "description": "在World Republic应用程序中开始您的政治运动"
+                },
+                "growMembership": {
+                  "title": "增加您的会员",
+                  "description": "招募成员并建立您的社区"
+                },
+                "earnRewards": {
+                  "title": "获得奖励",
+                  "description": "前25个政党根据其会员比例获得每周补贴"
+                }
+              }
+            },
+            "cta": {
+              "createJoin": "创建或加入政党",
+              "leaderGroup": "加入政党领导人群组"
+            }
           }
         }
       }
@@ -441,6 +631,10 @@
           "worldConstitutional": {
             "title": "世界宪法公投"
           }
+        },
+        "politicalParties": {
+          "title": "政党",
+          "description": "围绕共同价值观全球团结"
         }
       }
     },

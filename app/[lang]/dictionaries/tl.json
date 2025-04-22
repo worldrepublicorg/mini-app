@@ -1,60 +1,214 @@
 {
   "components": {
     "walletAuth": {
-      "connect": "I-konekta ang Wallet"
+      "connect": "Ikonekta ang Wallet"
     },
     "verifyButton": {
-      "verify": "I-verify para Makakuha"
+      "verify": "I-verify upang Mag-claim"
     },
     "pollOfTheDay": {
-      "previousPolls": "Mga Nakaraang Poll",
+      "previousPolls": "Nakaraang mga Poll",
       "vote": "Bumoto Ngayon"
     },
     "stakeForm": {
-      "deposit": "Magdeposito",
+      "deposit": "Mag-deposit",
       "withdraw": "Mag-withdraw",
       "balance": "Balanse:",
-      "depositPlaceholder": "Halaga para sa deposito",
-      "withdrawPlaceholder": "Halaga para sa pag-withdraw",
-      "max": "Maximum",
+      "depositPlaceholder": "Halaga ng deposit",
+      "withdrawPlaceholder": "Halaga ng withdrawal",
+      "max": "Max",
       "interest": "Interes:",
-      "collect": "Kunin",
-      "depositButton": "Magdeposito ng Drachma",
-      "withdrawButton": "Mag-withdraw ng Drachma"
+      "collect": "Kolektahin",
+      "depositButton": "I-deposit ang Drachma",
+      "withdrawButton": "I-withdraw ang Drachma"
     },
     "toasts": {
       "wallet": {
-        "connectInWorldApp": "Mangyaring buksan ang app na ito sa World App para ma-konekta ang iyong wallet.",
-        "stakingError": "May error sa pag-stake ng tokens",
-        "withdrawError": "May error sa pag-withdraw ng tokens",
-        "collectError": "May error sa pagkuha ng rewards"
+        "connectInWorldApp": "Pakibuksan ang app na ito sa World App para ikonekta ang iyong wallet.",
+        "stakingError": "Error sa pag-stake ng token",
+        "withdrawError": "Error sa pag-withdraw ng token",
+        "collectError": "Error sa pagkolekta ng reward"
       },
       "referral": {
-        "pendingReward": "Pinoproseso ang pending na reward para kay {{username}}...",
+        "pendingReward": "Pinoproseso ang nakabinbing reward para kay {{username}}...",
         "rewardSuccess": "Matagumpay na na-reward si {{username}}!",
         "sendingReward": "Nagpapadala ng 50 WDD reward kay {{username}}..."
       },
       "basicIncome": {
-        "setupSuccess": "Na-activate na ang Basic Income Plus! Inihahanda na ang reward para kay {{username}}...",
-        "setupWithReferrer": "Ise-setup muna ang Basic Income Plus, tapos ire-reward natin si {{username}}...",
-        "error": "May error sa pag-activate ng Basic Income",
-        "errorPlus": "May error sa pag-activate ng Basic Income Plus"
+        "setupSuccess": "Na-activate ang Basic Income Plus! Ngayon pinoproseso ang reward para kay {{username}}...",
+        "setupWithReferrer": "Unang ise-set up ang Basic Income Plus, pagkatapos re-reward-an si {{username}}...",
+        "error": "Error sa pag-activate ng Basic Income",
+        "errorPlus": "Error sa pag-activate ng Basic Income Plus"
       },
       "transaction": {
-        "error": "May hindi inaasahang error na naganap",
-        "errorClaim": "May hindi inaasahang error na naganap habang nagke-claim"
+        "error": "May nangyaring hindi inaasahang error",
+        "errorClaim": "May nangyaring hindi inaasahang error habang nagki-claim"
       }
     },
     "comingSoonDrawer": {
-      "title": "Magpapakita na",
-      "description": "Ang feature na ito ay kasalukuyang nasa development. Abangan!"
+      "title": "Malapit nang Dumating",
+      "description": "Ang feature na ito ay kasalukuyang nasa development. Mangyaring maghintay!"
     },
     "tabSwiper": {
       "tabs": {
-        "polls": "Mga Poll",
-        "openLetters": "Mga Open Letter",
-        "elections": "Mga Eleksyon",
-        "referendums": "Mga Referendum"
+        "politicalParties": "Mga Partido",
+        "polls": "Mga Botohan",
+        "openLetters": "Mga Bukas na Liham",
+        "elections": "Mga Halalan",
+        "referendums": "Mga Reperendum"
+      }
+    },
+    "politicalPartyList": {
+      "myParty": "Aking partido",
+      "createParty": "Lumikha ng Bagong Partido",
+      "noParty": "Hindi ka pa nakakagawa o sumali sa isang partido.",
+      "discover": "Tuklasin",
+      "tabs": {
+        "top": "Nangungunang",
+        "trending": "Trending",
+        "new": "Bago",
+        "pending": "Nakabinbin"
+      },
+      "emptyState": {
+        "pending": "Walang nakabinbing partido na magagamit.",
+        "noParties": "Walang magagamit na partido na maaaring salihan."
+      },
+      "partyCard": {
+        "pending": "Nakabinbin",
+        "deleted": "Tinanggal",
+        "members": "mga miyembro",
+        "actions": {
+          "leaveParty": "Umalis sa Partido",
+          "joinParty": "Sumali sa Partido",
+          "joinPendingParty": "Sumali sa Nakabinbing Partido"
+        },
+        "management": {
+          "title": "Pamamahala ng Partido",
+          "manageMembers": "Pamahalaan ang mga miyembro",
+          "updateInfo": "I-update ang impormasyon ng partido",
+          "transferLeadership": "Ilipat ang pamumuno",
+          "deleteParty": "Tanggalin ang partido"
+        }
+      },
+      "drawers": {
+        "create": {
+          "title": "Lumikha ng Bagong Partido",
+          "name": {
+            "label": "Pangalan ng partido",
+            "placeholder": "Ilagay ang pangalan ng partido",
+            "error": "Mangyaring maglagay ng pangalan para sa partido"
+          },
+          "shortName": {
+            "label": "Maikling pangalan",
+            "placeholder": "Ilagay ang maikling pangalan o daglat",
+            "error": "Mangyaring maglagay ng maikling pangalan"
+          },
+          "description": {
+            "label": "Paglalarawan",
+            "placeholder": "Ilagay ang paglalarawan ng partido",
+            "error": "Mangyaring maglagay ng paglalarawan"
+          },
+          "officialLink": {
+            "label": "Opisyal na link",
+            "placeholder": "Ilagay ang opisyal na website o community link (opsyonal)"
+          },
+          "limitWarning": {
+            "approaching": "Papalapit sa limitasyon ng mga karakter: {{current}}/{{max}}",
+            "reached": "Naabot na ang maximum na limitasyon ng mga karakter"
+          },
+          "button": {
+            "creating": "Lumilikha...",
+            "create": "Lumikha ng Partido"
+          }
+        },
+        "update": {
+          "title": "I-update ang mga Detalye ng Partido",
+          "button": {
+            "update": "I-update",
+            "updateDescription": "I-update ang Paglalarawan"
+          }
+        },
+        "transferLeadership": {
+          "title": "Ilipat ang Pamumuno",
+          "description": "Ilagay ang wallet address ng bagong lider o maghanap gamit ang username. Ang address ay dapat na pag-aari ng isang kasalukuyang miyembro ng partido.",
+          "lookup": {
+            "label": "Maghanap gamit ang username",
+            "placeholder": "Ilagay ang World App username",
+            "buttonText": "Maghanap",
+            "loading": "Naghahanap...",
+            "foundUser": "Nahanap na user: ",
+            "address": "Address: "
+          },
+          "newLeader": {
+            "label": "Address ng bagong lider",
+            "placeholder": "Ilagay ang wallet address (0x...)",
+            "errors": {
+              "required": "Mangyaring maglagay ng address",
+              "invalid": "Mangyaring maglagay ng wastong Ethereum address (0x...)"
+            }
+          },
+          "button": {
+            "processing": "Pinoproseso...",
+            "transfer": "Ilipat ang Pamumuno"
+          }
+        },
+        "leave": {
+          "title": "Umalis sa Kasalukuyang Partido",
+          "description": "Ikaw ay miyembro na ng {{partyName}}. Kailangan mong umalis sa iyong kasalukuyang partido bago sumali sa isa pang bago.",
+          "leaderWarning": "Tandaan: Ikaw ay kasalukuyang lider ng partidong ito. Kung aalis ka, ang pamumuno ay mawawala o muling italaga ng sistema.",
+          "button": {
+            "leaving": "Umaalis...",
+            "leave": "Umalis sa {{partyShortName}}"
+          }
+        },
+        "createConfirm": {
+          "title": "Umalis sa Kasalukuyang Partido",
+          "description": "Ikaw ay miyembro na ng {{partyName}}. Kailangan mong umalis sa iyong kasalukuyang partido bago lumikha ng isang bago.",
+          "leaderWarning": "Tandaan: Ikaw ay kasalukuyang lider ng partidong ito. Kung aalis ka, ang pamumuno ay mawawala o muling italaga ng sistema.",
+          "button": {
+            "processing": "Pinoproseso...",
+            "leaveAndCreate": "Umalis sa {{partyShortName}} at lumikha ng bago"
+          }
+        },
+        "delete": {
+          "title": "Tanggalin ang Partido",
+          "confirmPending": "Sigurado ka ba na gusto mong tanggalin ang nakabinbing partido na ito?",
+          "confirm": "Sigurado ka ba na gusto mong tanggalin ang partido na ito?",
+          "button": {
+            "processing": "Pinoproseso...",
+            "deletePending": "Tanggalin ang Nakabinbing Partido",
+            "delete": "Tanggalin ang Partido"
+          }
+        },
+        "memberManagement": {
+          "title": "Pamamahala ng Miyembro",
+          "tabs": {
+            "remove": "Tanggalin",
+            "ban": "I-ban",
+            "unban": "I-unban"
+          },
+          "remove": {
+            "description": "Ilagay ang wallet address ng miyembro na gusto mong tanggalin o maghanap gamit ang username.",
+            "button": {
+              "processing": "Pinoproseso...",
+              "remove": "Tanggalin ang Miyembro"
+            }
+          },
+          "ban": {
+            "description": "Ilagay ang username o wallet address ng miyembro na gusto mong i-ban sa partido.",
+            "button": {
+              "processing": "Pinoproseso...",
+              "ban": "I-ban ang Miyembro"
+            }
+          },
+          "unban": {
+            "description": "Ilagay ang username o wallet address ng na-ban na miyembro na gusto mong payagang bumalik sa partido.",
+            "button": {
+              "processing": "Pinoproseso...",
+              "unban": "I-unban ang Miyembro"
+            }
+          }
+        }
       }
     }
   },
@@ -321,6 +475,42 @@
               "weekOf": "Linggo ng",
               "engagements": "mga engagement"
             }
+          },
+          "partySubsidy": {
+            "topnav": "Programa ng Subsidy",
+            "title": "Programa ng Subsidy para sa Partido",
+            "subtitle": "Bumuo ng iyong pulitikal na kilusan at kumita",
+            "weeklyPool": {
+              "title": "100,000 WDD",
+              "subtitle": "Nakatakdang lingguhang pool"
+            },
+            "devRewards": {
+              "title": "10% ng aming Dev Rewards",
+              "subtitle": "Variable na reward pool",
+              "tooltip": "Ang World ay namamahagi ng mga gantimpala para sa mga developer batay sa paggamit ng app ng mga beripikadong tao.",
+              "checkOutRewards": "Tingnan ang mga gantimpala"
+            },
+            "howItWorks": {
+              "title": "Paano Ito Gumagana",
+              "steps": {
+                "createParty": {
+                  "title": "Gumawa ng Partido",
+                  "description": "Simulan ang iyong pulitikal na kilusan sa World Republic app"
+                },
+                "growMembership": {
+                  "title": "Palaguin ang Iyong Membership",
+                  "description": "Mag-recruit ng mga miyembro at bumuo ng iyong komunidad"
+                },
+                "earnRewards": {
+                  "title": "Kumita ng Gantimpala",
+                  "description": "Ang nangungunang 25 partido ay tumatanggap ng lingguhang subsidiya ayon sa kanilang membership"
+                }
+              }
+            },
+            "cta": {
+              "createJoin": "Gumawa o Sumali sa isang Partido",
+              "leaderGroup": "Sumali sa Party Leader Group"
+            }
           }
         }
       }
@@ -442,6 +632,10 @@
           "worldConstitutional": {
             "title": "World Constitutional Referendum"
           }
+        },
+        "politicalParties": {
+          "title": "Mga Partidong Pampulitika",
+          "description": "Magsama-sama sa buong mundo sa paligid ng mga pagpapahalagang pinagsasaluhan"
         }
       }
     },

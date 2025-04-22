@@ -2,17 +2,31 @@
 import { usePathname, useRouter } from "next/navigation";
 import { FaLandmark, FaDollarSign, FaBars } from "react-icons/fa";
 import { MiniKit } from "@worldcoin/minikit-js";
+import { useEffect, useState } from "react";
 
 const BottomNav = () => {
   const pathname = usePathname();
   const router = useRouter();
   const lang = pathname.split("/")[1]; // Get language from URL
+  const [hasGovernVisited, setHasGovernVisited] = useState(true);
 
   const navItems = [
     { path: "/earn", label: "earn", icon: FaDollarSign },
     { path: "/govern", label: "govern", icon: FaLandmark },
     { path: "/menu", label: "menu", icon: FaBars },
   ];
+
+  useEffect(() => {
+    // Check if user has visited the govern page
+    const governVisited = localStorage.getItem("governVisited") === "true";
+    setHasGovernVisited(governVisited);
+
+    // Mark as visited if currently on the govern page
+    if (pathname.includes("/govern")) {
+      localStorage.setItem("governVisited", "true");
+      setHasGovernVisited(true);
+    }
+  }, [pathname]);
 
   const isActive = (path: string) => {
     // Get the current route after the language code
@@ -29,7 +43,8 @@ const BottomNav = () => {
     e.preventDefault();
     // Add haptic feedback
     MiniKit.commands.sendHapticFeedback({
-      hapticsType: "selection-changed",
+      hapticsType: "notification",
+      style: "success",
     });
 
     // Navigate directly to the correct path: /{language}/{route}
@@ -54,6 +69,9 @@ const BottomNav = () => {
           >
             <div className="relative">
               <Icon className="h-6 w-6" />
+              {path === "/govern" && !hasGovernVisited && (
+                <div className="absolute -right-2 -top-1 h-2 w-2 rounded-full bg-error-600" />
+              )}
             </div>
           </a>
         ))}

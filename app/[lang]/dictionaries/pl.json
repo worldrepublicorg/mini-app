@@ -51,10 +51,164 @@
     },
     "tabSwiper": {
       "tabs": {
+        "politicalParties": "Partie",
         "polls": "Ankiety",
         "openLetters": "Listy otwarte",
         "elections": "Wybory",
         "referendums": "Referenda"
+      }
+    },
+    "politicalPartyList": {
+      "myParty": "Moja partia",
+      "createParty": "Utwórz nową partię",
+      "noParty": "Nie utworzyłeś ani nie dołączyłeś jeszcze do partii.",
+      "discover": "Odkryj",
+      "tabs": {
+        "top": "Najlepsze",
+        "trending": "Popularne",
+        "new": "Nowe",
+        "pending": "Oczekujące"
+      },
+      "emptyState": {
+        "pending": "Brak dostępnych oczekujących partii.",
+        "noParties": "Brak dostępnych partii, do których można dołączyć."
+      },
+      "partyCard": {
+        "pending": "Oczekująca",
+        "deleted": "Usunięta",
+        "members": "członków",
+        "actions": {
+          "leaveParty": "Opuść partię",
+          "joinParty": "Dołącz do partii",
+          "joinPendingParty": "Dołącz do oczekującej partii"
+        },
+        "management": {
+          "title": "Zarządzanie partią",
+          "manageMembers": "Zarządzaj członkami",
+          "updateInfo": "Aktualizuj informacje",
+          "transferLeadership": "Przekaż przywództwo",
+          "deleteParty": "Usuń partię"
+        }
+      },
+      "drawers": {
+        "create": {
+          "title": "Utwórz nową partię",
+          "name": {
+            "label": "Nazwa partii",
+            "placeholder": "Wprowadź nazwę partii",
+            "error": "Wprowadź nazwę partii"
+          },
+          "shortName": {
+            "label": "Krótka nazwa",
+            "placeholder": "Wprowadź krótką nazwę lub skrót",
+            "error": "Wprowadź krótką nazwę"
+          },
+          "description": {
+            "label": "Opis",
+            "placeholder": "Wprowadź opis partii",
+            "error": "Wprowadź opis"
+          },
+          "officialLink": {
+            "label": "Oficjalny link",
+            "placeholder": "Wprowadź oficjalną stronę lub link do społeczności (opcjonalnie)"
+          },
+          "limitWarning": {
+            "approaching": "Zbliżasz się do limitu znaków: {{current}}/{{max}}",
+            "reached": "Osiągnięto maksymalny limit znaków"
+          },
+          "button": {
+            "creating": "Tworzenie...",
+            "create": "Utwórz partię"
+          }
+        },
+        "update": {
+          "title": "Aktualizuj szczegóły partii",
+          "button": {
+            "update": "Aktualizuj",
+            "updateDescription": "Aktualizuj opis"
+          }
+        },
+        "transferLeadership": {
+          "title": "Przekaż przywództwo",
+          "description": "Wprowadź adres portfela nowego lidera lub wyszukaj według nazwy użytkownika. Adres musi należeć do istniejącego członka partii.",
+          "lookup": {
+            "label": "Wyszukaj według nazwy użytkownika",
+            "placeholder": "Wprowadź nazwę użytkownika World App",
+            "buttonText": "Wyszukaj",
+            "loading": "Wyszukiwanie...",
+            "foundUser": "Znaleziono użytkownika: ",
+            "address": "Adres: "
+          },
+          "newLeader": {
+            "label": "Adres nowego lidera",
+            "placeholder": "Wprowadź adres portfela (0x...)",
+            "errors": {
+              "required": "Wprowadź adres",
+              "invalid": "Wprowadź prawidłowy adres Ethereum (0x...)"
+            }
+          },
+          "button": {
+            "processing": "Przetwarzanie...",
+            "transfer": "Przekaż przywództwo"
+          }
+        },
+        "leave": {
+          "title": "Opuść obecną partię",
+          "description": "Jesteś już członkiem {{partyName}}. Musisz opuścić swoją obecną partię przed dołączeniem do nowej.",
+          "leaderWarning": "Uwaga: Obecnie jesteś liderem tej partii. Jeśli ją opuścisz, przywództwo zostanie utracone lub przypisane przez system.",
+          "button": {
+            "leaving": "Opuszczanie...",
+            "leave": "Opuść {{partyShortName}}"
+          }
+        },
+        "createConfirm": {
+          "title": "Opuść obecną partię",
+          "description": "Jesteś już członkiem {{partyName}}. Musisz opuścić swoją obecną partię przed utworzeniem nowej.",
+          "leaderWarning": "Uwaga: Obecnie jesteś liderem tej partii. Jeśli ją opuścisz, przywództwo zostanie utracone lub przypisane przez system.",
+          "button": {
+            "processing": "Przetwarzanie...",
+            "leaveAndCreate": "Opuść {{partyShortName}} i utwórz"
+          }
+        },
+        "delete": {
+          "title": "Usuń partię",
+          "confirmPending": "Czy na pewno chcesz usunąć tę oczekującą partię?",
+          "confirm": "Czy na pewno chcesz usunąć tę partię?",
+          "button": {
+            "processing": "Przetwarzanie...",
+            "deletePending": "Usuń oczekującą partię",
+            "delete": "Usuń partię"
+          }
+        },
+        "memberManagement": {
+          "title": "Zarządzanie członkami",
+          "tabs": {
+            "remove": "Usuń",
+            "ban": "Zablokuj",
+            "unban": "Odblokuj"
+          },
+          "remove": {
+            "description": "Wprowadź adres portfela członka, którego chcesz usunąć, lub wyszukaj według nazwy użytkownika.",
+            "button": {
+              "processing": "Przetwarzanie...",
+              "remove": "Usuń członka"
+            }
+          },
+          "ban": {
+            "description": "Wprowadź nazwę użytkownika lub adres portfela członka, którego chcesz zablokować w partii.",
+            "button": {
+              "processing": "Przetwarzanie...",
+              "ban": "Zablokuj członka"
+            }
+          },
+          "unban": {
+            "description": "Wprowadź nazwę użytkownika lub adres portfela zablokowanego członka, któremu chcesz pozwolić wrócić do partii.",
+            "button": {
+              "processing": "Przetwarzanie...",
+              "unban": "Odblokuj członka"
+            }
+          }
+        }
       }
     }
   },
@@ -321,6 +475,42 @@
               "weekOf": "Tydzień",
               "engagements": "zaangażowań"
             }
+          },
+          "partySubsidy": {
+            "topnav": "Program Dotacji",
+            "title": "Program Dotacji dla Partii",
+            "subtitle": "Buduj swój ruch polityczny i zarabiaj",
+            "weeklyPool": {
+              "title": "100 000 WDD",
+              "subtitle": "Stała tygodniowa pula"
+            },
+            "devRewards": {
+              "title": "10% naszych Nagród dla Deweloperów",
+              "subtitle": "Zmienna pula nagród",
+              "tooltip": "World dystrybuuje nagrody dla deweloperów na podstawie korzystania z aplikacji przez zweryfikowanych ludzi.",
+              "checkOutRewards": "Sprawdź nagrody"
+            },
+            "howItWorks": {
+              "title": "Jak to działa",
+              "steps": {
+                "createParty": {
+                  "title": "Utwórz Partię",
+                  "description": "Rozpocznij swój ruch polityczny w aplikacji World Republic"
+                },
+                "growMembership": {
+                  "title": "Rozwijaj Członkostwo",
+                  "description": "Rekrutuj członków i buduj swoją społeczność"
+                },
+                "earnRewards": {
+                  "title": "Zdobywaj Nagrody",
+                  "description": "Najlepsze 25 partii otrzymuje tygodniowe dotacje proporcjonalne do liczby członków"
+                }
+              }
+            },
+            "cta": {
+              "createJoin": "Utwórz lub Dołącz do Partii",
+              "leaderGroup": "Dołącz do Grupy Liderów Partii"
+            }
           }
         }
       }
@@ -441,6 +631,10 @@
           "worldConstitutional": {
             "title": "Światowe Referendum Konstytucyjne"
           }
+        },
+        "politicalParties": {
+          "title": "Partie Polityczne",
+          "description": "Jednoczcie się globalnie wokół wspólnych wartości"
         }
       }
     },

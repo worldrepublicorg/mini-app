@@ -8,12 +8,14 @@ import { TabSwiper } from "@/components/TabSwiper";
 import { OpenLetterCard } from "@/components/OpenLetterCard";
 import { PollOfTheDay } from "@/components/PollOfTheDay";
 import { useTranslations } from "@/hooks/useTranslations";
+import { PoliticalPartyList } from "@/components/PoliticalPartyList";
 
 const TAB_KEYS = {
   POLLS: "polls",
   OPEN_LETTERS: "openLetters",
   ELECTIONS: "elections",
   REFERENDUMS: "referendums",
+  POLITICAL_PARTIES: "politicalParties",
 } as const;
 
 type TabKey = (typeof TAB_KEYS)[keyof typeof TAB_KEYS];
@@ -24,13 +26,19 @@ export default function GovernPage({
   params: { lang: string };
 }) {
   const dictionary = useTranslations(lang);
-  const [activeTab, setActiveTab] = useState<TabKey>(TAB_KEYS.POLLS);
+  const [activeTab, setActiveTab] = useState<TabKey>(
+    TAB_KEYS.POLITICAL_PARTIES
+  );
 
   if (!dictionary) {
     return null;
   }
 
   const tabs = [
+    {
+      key: TAB_KEYS.POLITICAL_PARTIES,
+      label: dictionary?.components?.tabSwiper?.tabs?.politicalParties,
+    },
     {
       key: TAB_KEYS.POLLS,
       label: dictionary?.components?.tabSwiper?.tabs?.polls,
@@ -51,6 +59,21 @@ export default function GovernPage({
 
   const renderContent = () => {
     switch (activeTab) {
+      case TAB_KEYS.POLITICAL_PARTIES:
+        return (
+          <>
+            <SectionHeader
+              title={
+                dictionary?.pages?.govern?.sections?.politicalParties?.title
+              }
+              description={
+                dictionary?.pages?.govern?.sections?.politicalParties
+                  ?.description
+              }
+            />
+            <PoliticalPartyList lang={lang} />
+          </>
+        );
       case TAB_KEYS.POLLS:
         return (
           <>
@@ -186,7 +209,9 @@ export default function GovernPage({
         />
       </div>
 
-      <div className="mt-[112px] flex flex-1 flex-col items-center justify-center pb-8">
+      <div
+        className={`mt-[112px] flex flex-1 flex-col items-center ${activeTab !== TAB_KEYS.POLITICAL_PARTIES ? "justify-center" : ""} pb-8`}
+      >
         {renderContent()}
       </div>
     </div>

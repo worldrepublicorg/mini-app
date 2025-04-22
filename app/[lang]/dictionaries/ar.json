@@ -51,10 +51,164 @@
     },
     "tabSwiper": {
       "tabs": {
-        "polls": "الاستطلاعات",
-        "openLetters": "الرسائل المفتوحة",
-        "elections": "الانتخابات",
-        "referendums": "الاستفتاءات"
+        "politicalParties": "الأحزاب",
+        "polls": "استطلاعات",
+        "openLetters": "رسائل مفتوحة",
+        "elections": "انتخابات",
+        "referendums": "استفتاءات"
+      }
+    },
+    "politicalPartyList": {
+      "myParty": "حزبي",
+      "createParty": "إنشاء حزب جديد",
+      "noParty": "لم تنشئ أو تنضم إلى حزب بعد.",
+      "discover": "اكتشاف",
+      "tabs": {
+        "top": "الأفضل",
+        "trending": "الرائج",
+        "new": "جديد",
+        "pending": "قيد الانتظار"
+      },
+      "emptyState": {
+        "pending": "لا توجد أحزاب قيد الانتظار متاحة.",
+        "noParties": "لا توجد أحزاب متاحة للانضمام."
+      },
+      "partyCard": {
+        "pending": "قيد الانتظار",
+        "deleted": "محذوف",
+        "members": "أعضاء",
+        "actions": {
+          "leaveParty": "مغادرة الحزب",
+          "joinParty": "الانضمام للحزب",
+          "joinPendingParty": "الانضمام لحزب قيد الانتظار"
+        },
+        "management": {
+          "title": "إدارة الحزب",
+          "manageMembers": "إدارة الأعضاء",
+          "updateInfo": "تحديث المعلومات",
+          "transferLeadership": "نقل القيادة",
+          "deleteParty": "حذف الحزب"
+        }
+      },
+      "drawers": {
+        "create": {
+          "title": "إنشاء حزب جديد",
+          "name": {
+            "label": "اسم الحزب",
+            "placeholder": "أدخل اسم الحزب",
+            "error": "الرجاء إدخال اسم الحزب"
+          },
+          "shortName": {
+            "label": "الاسم المختصر",
+            "placeholder": "أدخل الاسم المختصر أو الاختصار",
+            "error": "الرجاء إدخال اسم مختصر"
+          },
+          "description": {
+            "label": "الوصف",
+            "placeholder": "أدخل وصف الحزب",
+            "error": "الرجاء إدخال وصف"
+          },
+          "officialLink": {
+            "label": "الرابط الرسمي",
+            "placeholder": "أدخل الموقع الرسمي أو رابط المجتمع (اختياري)"
+          },
+          "limitWarning": {
+            "approaching": "اقتراب من حد الأحرف: {{current}}/{{max}}",
+            "reached": "تم الوصول إلى الحد الأقصى للأحرف"
+          },
+          "button": {
+            "creating": "جاري الإنشاء...",
+            "create": "إنشاء الحزب"
+          }
+        },
+        "update": {
+          "title": "تحديث تفاصيل الحزب",
+          "button": {
+            "update": "تحديث",
+            "updateDescription": "تحديث الوصف"
+          }
+        },
+        "transferLeadership": {
+          "title": "نقل القيادة",
+          "description": "أدخل عنوان المحفظة للقائد الجديد أو ابحث بواسطة اسم المستخدم. يجب أن يكون العنوان لعضو حالي في الحزب.",
+          "lookup": {
+            "label": "البحث بواسطة اسم المستخدم",
+            "placeholder": "أدخل اسم مستخدم تطبيق World",
+            "buttonText": "بحث",
+            "loading": "جاري البحث...",
+            "foundUser": "تم العثور على المستخدم: ",
+            "address": "العنوان: "
+          },
+          "newLeader": {
+            "label": "عنوان القائد الجديد",
+            "placeholder": "أدخل عنوان المحفظة (0x...)",
+            "errors": {
+              "required": "الرجاء إدخال عنوان",
+              "invalid": "الرجاء إدخال عنوان إيثريوم صالح (0x...)"
+            }
+          },
+          "button": {
+            "processing": "جاري المعالجة...",
+            "transfer": "نقل القيادة"
+          }
+        },
+        "leave": {
+          "title": "مغادرة الحزب الحالي",
+          "description": "أنت بالفعل عضو في {{partyName}}. يجب عليك مغادرة حزبك الحالي قبل الانضمام إلى حزب جديد.",
+          "leaderWarning": "ملاحظة: أنت حاليًا قائد هذا الحزب. إذا غادرت، سيتم فقدان القيادة أو إعادة تعيينها من قبل النظام.",
+          "button": {
+            "leaving": "جاري المغادرة...",
+            "leave": "مغادرة {{partyShortName}}"
+          }
+        },
+        "createConfirm": {
+          "title": "مغادرة الحزب الحالي",
+          "description": "أنت بالفعل عضو في {{partyName}}. يجب عليك مغادرة حزبك الحالي قبل إنشاء حزب جديد.",
+          "leaderWarning": "ملاحظة: أنت حاليًا قائد هذا الحزب. إذا غادرت، سيتم فقدان القيادة أو إعادة تعيينها من قبل النظام.",
+          "button": {
+            "processing": "جاري المعالجة...",
+            "leaveAndCreate": "مغادرة {{partyShortName}} وإنشاء"
+          }
+        },
+        "delete": {
+          "title": "حذف الحزب",
+          "confirmPending": "هل أنت متأكد من رغبتك في حذف هذا الحزب قيد الانتظار؟",
+          "confirm": "هل أنت متأكد من رغبتك في حذف هذا الحزب؟",
+          "button": {
+            "processing": "جاري المعالجة...",
+            "deletePending": "حذف الحزب قيد الانتظار",
+            "delete": "حذف الحزب"
+          }
+        },
+        "memberManagement": {
+          "title": "إدارة الأعضاء",
+          "tabs": {
+            "remove": "إزالة",
+            "ban": "حظر",
+            "unban": "إلغاء الحظر"
+          },
+          "remove": {
+            "description": "أدخل عنوان المحفظة للعضو الذي ترغب في إزالته أو ابحث بواسطة اسم المستخدم.",
+            "button": {
+              "processing": "جاري المعالجة...",
+              "remove": "إزالة العضو"
+            }
+          },
+          "ban": {
+            "description": "أدخل اسم المستخدم أو عنوان المحفظة للعضو الذي ترغب في حظره من الحزب.",
+            "button": {
+              "processing": "جاري المعالجة...",
+              "ban": "حظر العضو"
+            }
+          },
+          "unban": {
+            "description": "أدخل اسم المستخدم أو عنوان المحفظة للعضو المحظور الذي ترغب في السماح له بالعودة إلى الحزب.",
+            "button": {
+              "processing": "جاري المعالجة...",
+              "unban": "إلغاء حظر العضو"
+            }
+          }
+        }
       }
     }
   },
@@ -321,6 +475,42 @@
               "weekOf": "أسبوع",
               "engagements": "تفاعلات"
             }
+          },
+          "partySubsidy": {
+            "topnav": "برنامج الدعم",
+            "title": "برنامج دعم الأحزاب",
+            "subtitle": "ابنِ حركتك السياسية واكسب",
+            "weeklyPool": {
+              "title": "100,000 WDD",
+              "subtitle": "مجمع أسبوعي ثابت"
+            },
+            "devRewards": {
+              "title": "10% من مكافآت المطورين لدينا",
+              "subtitle": "مجمع مكافآت متغير",
+              "tooltip": "يقوم World بتوزيع مكافآت المطورين بناءً على استخدام التطبيق من قبل البشر المتحقق منهم.",
+              "checkOutRewards": "تحقق من المكافآت"
+            },
+            "howItWorks": {
+              "title": "كيف يعمل",
+              "steps": {
+                "createParty": {
+                  "title": "أنشئ حزبًا",
+                  "description": "ابدأ حركتك السياسية في تطبيق World Republic"
+                },
+                "growMembership": {
+                  "title": "نمِّ عضويتك",
+                  "description": "جنّد أعضاء وابنِ مجتمعك"
+                },
+                "earnRewards": {
+                  "title": "اكسب مكافآت",
+                  "description": "تتلقى أفضل 25 حزبًا إعانات أسبوعية متناسبة مع عضويتها"
+                }
+              }
+            },
+            "cta": {
+              "createJoin": "أنشئ أو انضم إلى حزب",
+              "leaderGroup": "انضم إلى مجموعة قادة الأحزاب"
+            }
           }
         }
       }
@@ -442,6 +632,10 @@
           "worldConstitutional": {
             "title": "الاستفتاء الدستوري العالمي"
           }
+        },
+        "politicalParties": {
+          "title": "الأحزاب السياسية",
+          "description": "توحيد عالمي حول القيم المشتركة"
         }
       }
     },

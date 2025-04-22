@@ -51,10 +51,164 @@
     },
     "tabSwiper": {
       "tabs": {
-        "polls": "Polling",
+        "politicalParties": "Partai",
+        "polls": "Jajak Pendapat",
         "openLetters": "Surat Terbuka",
-        "elections": "Pemilihan",
+        "elections": "Pemilu",
         "referendums": "Referendum"
+      }
+    },
+    "politicalPartyList": {
+      "myParty": "Partai saya",
+      "createParty": "Buat Partai Baru",
+      "noParty": "Anda belum membuat atau bergabung dengan partai.",
+      "discover": "Temukan",
+      "tabs": {
+        "top": "Teratas",
+        "trending": "Trending",
+        "new": "Baru",
+        "pending": "Tertunda"
+      },
+      "emptyState": {
+        "pending": "Tidak ada partai tertunda yang tersedia.",
+        "noParties": "Tidak ada partai yang tersedia untuk bergabung."
+      },
+      "partyCard": {
+        "pending": "Tertunda",
+        "deleted": "Dihapus",
+        "members": "anggota",
+        "actions": {
+          "leaveParty": "Tinggalkan Partai",
+          "joinParty": "Bergabung dengan Partai",
+          "joinPendingParty": "Bergabung dengan Partai Tertunda"
+        },
+        "management": {
+          "title": "Manajemen Partai",
+          "manageMembers": "Kelola anggota",
+          "updateInfo": "Perbarui informasi",
+          "transferLeadership": "Transfer kepemimpinan",
+          "deleteParty": "Hapus partai"
+        }
+      },
+      "drawers": {
+        "create": {
+          "title": "Buat Partai Baru",
+          "name": {
+            "label": "Nama partai",
+            "placeholder": "Masukkan nama partai",
+            "error": "Harap masukkan nama partai"
+          },
+          "shortName": {
+            "label": "Nama singkat",
+            "placeholder": "Masukkan nama singkat atau singkatan",
+            "error": "Harap masukkan nama singkat"
+          },
+          "description": {
+            "label": "Deskripsi",
+            "placeholder": "Masukkan deskripsi partai",
+            "error": "Harap masukkan deskripsi"
+          },
+          "officialLink": {
+            "label": "Tautan resmi",
+            "placeholder": "Masukkan situs web resmi atau tautan komunitas (opsional)"
+          },
+          "limitWarning": {
+            "approaching": "Mendekati batas karakter: {{current}}/{{max}}",
+            "reached": "Batas karakter maksimum tercapai"
+          },
+          "button": {
+            "creating": "Membuat...",
+            "create": "Buat Partai"
+          }
+        },
+        "update": {
+          "title": "Perbarui Detail Partai",
+          "button": {
+            "update": "Perbarui",
+            "updateDescription": "Perbarui Deskripsi"
+          }
+        },
+        "transferLeadership": {
+          "title": "Transfer Kepemimpinan",
+          "description": "Masukkan alamat dompet pemimpin baru atau cari berdasarkan nama pengguna. Alamat harus milik anggota partai yang ada.",
+          "lookup": {
+            "label": "Cari berdasarkan nama pengguna",
+            "placeholder": "Masukkan nama pengguna World App",
+            "buttonText": "Cari",
+            "loading": "Mencari...",
+            "foundUser": "Pengguna ditemukan: ",
+            "address": "Alamat: "
+          },
+          "newLeader": {
+            "label": "Alamat pemimpin baru",
+            "placeholder": "Masukkan alamat dompet (0x...)",
+            "errors": {
+              "required": "Harap masukkan alamat",
+              "invalid": "Harap masukkan alamat Ethereum yang valid (0x...)"
+            }
+          },
+          "button": {
+            "processing": "Memproses...",
+            "transfer": "Transfer Kepemimpinan"
+          }
+        },
+        "leave": {
+          "title": "Tinggalkan Partai Saat Ini",
+          "description": "Anda sudah menjadi anggota {{partyName}}. Anda harus meninggalkan partai saat ini sebelum bergabung dengan yang baru.",
+          "leaderWarning": "Catatan: Anda saat ini adalah pemimpin partai ini. Jika Anda pergi, kepemimpinan akan hilang atau ditugaskan ulang oleh sistem.",
+          "button": {
+            "leaving": "Meninggalkan...",
+            "leave": "Tinggalkan {{partyShortName}}"
+          }
+        },
+        "createConfirm": {
+          "title": "Tinggalkan Partai Saat Ini",
+          "description": "Anda sudah menjadi anggota {{partyName}}. Anda harus meninggalkan partai saat ini sebelum membuat yang baru.",
+          "leaderWarning": "Catatan: Anda saat ini adalah pemimpin partai ini. Jika Anda pergi, kepemimpinan akan hilang atau ditugaskan ulang oleh sistem.",
+          "button": {
+            "processing": "Memproses...",
+            "leaveAndCreate": "Tinggalkan {{partyShortName}} dan buat"
+          }
+        },
+        "delete": {
+          "title": "Hapus Partai",
+          "confirmPending": "Apakah Anda yakin ingin menghapus partai tertunda ini?",
+          "confirm": "Apakah Anda yakin ingin menghapus partai ini?",
+          "button": {
+            "processing": "Memproses...",
+            "deletePending": "Hapus Partai Tertunda",
+            "delete": "Hapus Partai"
+          }
+        },
+        "memberManagement": {
+          "title": "Manajemen Anggota",
+          "tabs": {
+            "remove": "Hapus",
+            "ban": "Blokir",
+            "unban": "Batalkan Blokir"
+          },
+          "remove": {
+            "description": "Masukkan alamat dompet anggota yang ingin Anda hapus atau cari berdasarkan nama pengguna.",
+            "button": {
+              "processing": "Memproses...",
+              "remove": "Hapus Anggota"
+            }
+          },
+          "ban": {
+            "description": "Masukkan nama pengguna atau alamat dompet anggota yang ingin Anda blokir dari partai.",
+            "button": {
+              "processing": "Memproses...",
+              "ban": "Blokir Anggota"
+            }
+          },
+          "unban": {
+            "description": "Masukkan nama pengguna atau alamat dompet anggota yang diblokir yang ingin Anda izinkan kembali ke partai.",
+            "button": {
+              "processing": "Memproses...",
+              "unban": "Batalkan Blokir Anggota"
+            }
+          }
+        }
       }
     }
   },
@@ -321,6 +475,42 @@
               "weekOf": "Minggu",
               "engagements": "keterlibatan"
             }
+          },
+          "partySubsidy": {
+            "topnav": "Program Subsidi",
+            "title": "Program Subsidi Partai",
+            "subtitle": "Bangun gerakan politik Anda dan dapatkan penghasilan",
+            "weeklyPool": {
+              "title": "100.000 WDD",
+              "subtitle": "Dana mingguan tetap"
+            },
+            "devRewards": {
+              "title": "10% dari Reward Developer kami",
+              "subtitle": "Dana reward yang bervariasi",
+              "tooltip": "World mendistribusikan reward developer berdasarkan penggunaan aplikasi oleh manusia terverifikasi.",
+              "checkOutRewards": "Lihat reward"
+            },
+            "howItWorks": {
+              "title": "Cara Kerjanya",
+              "steps": {
+                "createParty": {
+                  "title": "Buat Partai",
+                  "description": "Mulai gerakan politik Anda di aplikasi World Republic"
+                },
+                "growMembership": {
+                  "title": "Kembangkan Keanggotaan Anda",
+                  "description": "Rekrut anggota dan bangun komunitas Anda"
+                },
+                "earnRewards": {
+                  "title": "Dapatkan Reward",
+                  "description": "25 partai teratas menerima subsidi mingguan sebanding dengan jumlah anggota mereka"
+                }
+              }
+            },
+            "cta": {
+              "createJoin": "Buat atau Gabung Partai",
+              "leaderGroup": "Gabung Grup Pemimpin Partai"
+            }
           }
         }
       }
@@ -442,6 +632,10 @@
           "worldConstitutional": {
             "title": "Referendum Konstitusi Dunia"
           }
+        },
+        "politicalParties": {
+          "title": "Partai Politik",
+          "description": "Bersatu secara global di sekitar nilai-nilai bersama"
         }
       }
     },

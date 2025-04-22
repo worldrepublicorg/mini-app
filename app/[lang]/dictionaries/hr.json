@@ -51,10 +51,164 @@
     },
     "tabSwiper": {
       "tabs": {
+        "politicalParties": "Stranke",
         "polls": "Ankete",
         "openLetters": "Otvorena pisma",
         "elections": "Izbori",
         "referendums": "Referendumi"
+      }
+    },
+    "politicalPartyList": {
+      "myParty": "Moja stranka",
+      "createParty": "Stvori novu stranku",
+      "noParty": "Još niste stvorili niti se pridružili stranci.",
+      "discover": "Otkrij",
+      "tabs": {
+        "top": "Najbolje",
+        "trending": "U trendu",
+        "new": "Novo",
+        "pending": "Na čekanju"
+      },
+      "emptyState": {
+        "pending": "Nema stranaka na čekanju.",
+        "noParties": "Nema dostupnih stranaka za pridruživanje."
+      },
+      "partyCard": {
+        "pending": "Na čekanju",
+        "deleted": "Izbrisano",
+        "members": "članova",
+        "actions": {
+          "leaveParty": "Napusti stranku",
+          "joinParty": "Pridruži se stranci",
+          "joinPendingParty": "Pridruži se stranci na čekanju"
+        },
+        "management": {
+          "title": "Upravljanje strankom",
+          "manageMembers": "Upravljanje članovima",
+          "updateInfo": "Ažuriraj informacije",
+          "transferLeadership": "Prijenos vodstva",
+          "deleteParty": "Izbriši stranku"
+        }
+      },
+      "drawers": {
+        "create": {
+          "title": "Stvori novu stranku",
+          "name": {
+            "label": "Ime stranke",
+            "placeholder": "Unesite ime stranke",
+            "error": "Molimo unesite ime stranke"
+          },
+          "shortName": {
+            "label": "Skraćeno ime",
+            "placeholder": "Unesite skraćeno ime ili akronim",
+            "error": "Molimo unesite skraćeno ime"
+          },
+          "description": {
+            "label": "Opis",
+            "placeholder": "Unesite opis stranke",
+            "error": "Molimo unesite opis"
+          },
+          "officialLink": {
+            "label": "Službena poveznica",
+            "placeholder": "Unesite službenu web stranicu ili društveni link (neobavezno)"
+          },
+          "limitWarning": {
+            "approaching": "Približavate se ograničenju znakova: {{current}}/{{max}}",
+            "reached": "Dosegnuto je maksimalno ograničenje znakova"
+          },
+          "button": {
+            "creating": "Stvaranje...",
+            "create": "Stvori stranku"
+          }
+        },
+        "update": {
+          "title": "Ažuriraj informacije o stranci",
+          "button": {
+            "update": "Ažuriraj",
+            "updateDescription": "Ažuriraj opis"
+          }
+        },
+        "transferLeadership": {
+          "title": "Prijenos vodstva",
+          "description": "Unesite adresu lisnice novog vođe ili pretražite po korisničkom imenu. Adresa mora biti postojećeg člana stranke.",
+          "lookup": {
+            "label": "Pretraži po korisničkom imenu",
+            "placeholder": "Unesite korisničko ime World App-a",
+            "buttonText": "Pretraži",
+            "loading": "Pretraživanje...",
+            "foundUser": "Pronađen korisnik: ",
+            "address": "Adresa: "
+          },
+          "newLeader": {
+            "label": "Adresa novog vođe",
+            "placeholder": "Unesite adresu lisnice (0x...)",
+            "errors": {
+              "required": "Molimo unesite adresu",
+              "invalid": "Molimo unesite valjanu Ethereum adresu (0x...)"
+            }
+          },
+          "button": {
+            "processing": "Obrada...",
+            "transfer": "Prijenos vodstva"
+          }
+        },
+        "leave": {
+          "title": "Napusti trenutnu stranku",
+          "description": "Već ste član stranke {{partyName}}. Morate napustiti vašu trenutnu stranku prije nego što se pridružite novoj.",
+          "leaderWarning": "Napomena: Trenutno ste vođa ove stranke. Ako napustite, vodstvo će biti izgubljeno ili ponovno dodijeljeno sistemom.",
+          "button": {
+            "leaving": "Napuštanje...",
+            "leave": "Napusti {{partyShortName}}"
+          }
+        },
+        "createConfirm": {
+          "title": "Napusti trenutnu stranku",
+          "description": "Već ste član stranke {{partyName}}. Morate napustiti vašu trenutnu stranku prije nego što stvorite novu.",
+          "leaderWarning": "Napomena: Trenutno ste vođa ove stranke. Ako napustite, vodstvo će biti izgubljeno ili ponovno dodijeljeno sistemom.",
+          "button": {
+            "processing": "Obrada...",
+            "leaveAndCreate": "Napusti {{partyShortName}} i stvori"
+          }
+        },
+        "delete": {
+          "title": "Izbriši stranku",
+          "confirmPending": "Jeste li sigurni da želite izbrisati ovu stranku na čekanju?",
+          "confirm": "Jeste li sigurni da želite izbrisati ovu stranku?",
+          "button": {
+            "processing": "Obrada...",
+            "deletePending": "Izbriši stranku na čekanju",
+            "delete": "Izbriši stranku"
+          }
+        },
+        "memberManagement": {
+          "title": "Upravljanje članovima",
+          "tabs": {
+            "remove": "Ukloni",
+            "ban": "Zabrani",
+            "unban": "Ukini zabranu"
+          },
+          "remove": {
+            "description": "Unesite adresu lisnice člana kojeg želite ukloniti ili pretražite po korisničkom imenu.",
+            "button": {
+              "processing": "Obrada...",
+              "remove": "Ukloni člana"
+            }
+          },
+          "ban": {
+            "description": "Unesite korisničko ime ili adresu lisnice člana kojeg želite zabraniti iz stranke.",
+            "button": {
+              "processing": "Obrada...",
+              "ban": "Zabrani člana"
+            }
+          },
+          "unban": {
+            "description": "Unesite korisničko ime ili adresu lisnice zabranjenog člana kojeg želite ponovno dopustiti u stranku.",
+            "button": {
+              "processing": "Obrada...",
+              "unban": "Ukini zabranu člana"
+            }
+          }
+        }
       }
     }
   },
@@ -321,6 +475,42 @@
               "weekOf": "Tjedan",
               "engagements": "uključivanja"
             }
+          },
+          "partySubsidy": {
+            "topnav": "Program subvencija",
+            "title": "Program subvencija za stranke",
+            "subtitle": "Izgradite svoj politički pokret i zaradite",
+            "weeklyPool": {
+              "title": "100.000 WDD",
+              "subtitle": "Fiksni tjedni fond"
+            },
+            "devRewards": {
+              "title": "10% naših Dev Nagrada",
+              "subtitle": "Varijabilni fond nagrada",
+              "tooltip": "World distribuira nagrade za developere na temelju korištenja aplikacije od strane verificiranih ljudi.",
+              "checkOutRewards": "Pogledajte nagrade"
+            },
+            "howItWorks": {
+              "title": "Kako to funkcionira",
+              "steps": {
+                "createParty": {
+                  "title": "Stvorite stranku",
+                  "description": "Pokrenite svoj politički pokret u aplikaciji World Republic"
+                },
+                "growMembership": {
+                  "title": "Povećajte članstvo",
+                  "description": "Regrutirajte članove i izgradite svoju zajednicu"
+                },
+                "earnRewards": {
+                  "title": "Zaradite nagrade",
+                  "description": "Top 25 stranaka dobiva tjedne subvencije proporcionalne njihovom članstvu"
+                }
+              }
+            },
+            "cta": {
+              "createJoin": "Stvorite ili se pridružite stranci",
+              "leaderGroup": "Pridružite se grupi vođa stranke"
+            }
           }
         }
       }
@@ -442,6 +632,10 @@
           "worldConstitutional": {
             "title": "Svjetski ustavni referendum"
           }
+        },
+        "politicalParties": {
+          "title": "Političke stranke",
+          "description": "Ujedinite se globalno oko zajedničkih vrijednosti"
         }
       }
     },

@@ -1293,23 +1293,23 @@ export default function EarnPage({
     };
   }, [walletAddress]);
 
-  const [hasSeenNewBuybackProgram, setHasSeenNewBuybackProgram] =
+  const [hasSeenPartySubsidyProgram, setHasSeenPartySubsidyProgram] =
     useState(false);
 
   // Update the localStorage key for the Invite feature
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const hasSeenNewBuyback =
-        localStorage.getItem("hasSeenNewBuybackProgram") === "true";
-      setHasSeenNewBuybackProgram(hasSeenNewBuyback);
+      const hasSeenPartySubsidy =
+        localStorage.getItem("hasSeenPartySubsidyProgram") === "true";
+      setHasSeenPartySubsidyProgram(hasSeenPartySubsidy);
     }
   }, []);
 
   // Update localStorage when the Invite tab is active
   useEffect(() => {
     if (activeTab === "Contribute" && typeof window !== "undefined") {
-      localStorage.setItem("hasSeenNewBuybackProgram", "true");
-      setHasSeenNewBuybackProgram(true);
+      localStorage.setItem("hasSeenPartySubsidyProgram", "true");
+      setHasSeenPartySubsidyProgram(true);
     }
   }, [activeTab]);
 
@@ -1617,15 +1617,14 @@ export default function EarnPage({
   };
 
   // Add state to track whether buyback program has been visited
-  const [hasNewBuybackBeenVisited, setHasNewBuybackBeenVisited] =
+  const [hasPartySubsidyBeenVisited, setHasPartySubsidyBeenVisited] =
     useState(true); // Default to true to prevent flash
 
   // Check if buyback program has been visited
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const hasVisited =
-        localStorage.getItem("newBuybackProgramVisited") === "true";
-      setHasNewBuybackBeenVisited(hasVisited);
+      const hasVisited = localStorage.getItem("partySubsidyVisited") === "true";
+      setHasPartySubsidyBeenVisited(hasVisited);
     }
   }, []);
 
@@ -1736,7 +1735,7 @@ export default function EarnPage({
                           <Typography
                             as="h3"
                             variant={{ variant: "subtitle", level: 2 }}
-                            className="line-clamp-2 font-display text-[15px] font-medium tracking-tight text-gray-900"
+                            className="font-display line-clamp-2 text-[15px] font-medium tracking-tight text-gray-900"
                           >
                             {
                               dictionary?.pages?.earn?.tabs?.basicIncome?.plus
@@ -1896,10 +1895,49 @@ export default function EarnPage({
               {dictionary?.pages?.earn?.tabs?.contribute?.subtitle}
             </Typography>
 
+            {/* Party Subsidy Program Card */}
+            <Link
+              href={`/${lang}/earn/contribute/party-subsidy`}
+              className="group mb-4 flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border border-gray-200 p-4"
+            >
+              <div className="flex items-center gap-3">
+                <div>
+                  <div className="mb-1.5 flex items-center">
+                    <Typography
+                      as="h3"
+                      variant={{ variant: "subtitle", level: 2 }}
+                      className="line-clamp-1"
+                    >
+                      {
+                        dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy
+                          ?.title
+                      }
+                    </Typography>
+                    {!hasPartySubsidyBeenVisited && (
+                      <span className="ml-1.5 h-[7px] w-[7px] rounded-full bg-error-600" />
+                    )}
+                  </div>
+                  <Typography
+                    as="p"
+                    variant={{ variant: "body", level: 3 }}
+                    className="text-gray-500"
+                  >
+                    {
+                      dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy
+                        ?.subtitle
+                    }
+                  </Typography>
+                </div>
+              </div>
+              <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5">
+                <IoIosArrowForward className="size-[14px] text-gray-400" />
+              </div>
+            </Link>
+
             {/* Buyback Program Card */}
             <Link
               href={`/${lang}/earn/contribute/buyback-program`}
-              className="group mb-6 flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border border-gray-200 p-4"
+              className="group mb-4 flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border border-gray-200 p-4"
             >
               <div className="flex items-center gap-3">
                 <div>
@@ -1914,9 +1952,6 @@ export default function EarnPage({
                           ?.buybackProgram?.title
                       }
                     </Typography>
-                    {!hasNewBuybackBeenVisited && (
-                      <span className="mb-[5px] ml-1.5 h-2 w-2 rounded-full bg-error-800 opacity-65" />
-                    )}
                   </div>
                   <Typography
                     as="p"
@@ -1970,139 +2005,6 @@ export default function EarnPage({
                   <BiLinkExternal className="size-[14px] text-gray-400" />
                 </div>
               </a>
-            </div>
-
-            <div className="w-full">
-              <Link
-                href={`/${lang}/earn/contribute/x-contest`}
-                className="group mb-4 flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 opacity-80 transition-all"
-              >
-                <div className="mb-3 flex items-center justify-between">
-                  <Typography
-                    as="h3"
-                    variant={{ variant: "subtitle", level: 2 }}
-                    className="line-clamp-1"
-                  >
-                    {
-                      dictionary?.pages?.earn?.tabs?.contribute?.contests?.xPost
-                        ?.title
-                    }
-                  </Typography>
-                  <div className="rounded-full bg-gray-100 px-2.5 py-1">
-                    <Typography
-                      variant={{ variant: "body", level: 3 }}
-                      className="text-gray-500"
-                    >
-                      {
-                        dictionary?.pages?.earn?.tabs?.contribute?.contests
-                          ?.ended
-                      }
-                    </Typography>
-                  </div>
-                </div>
-
-                <Typography
-                  as="p"
-                  variant={{ variant: "body", level: 3 }}
-                  className="mb-4 text-gray-500"
-                >
-                  {
-                    dictionary?.pages?.earn?.tabs?.contribute?.contests?.xPost
-                      ?.description
-                  }
-                </Typography>
-
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <div className="rounded-full bg-gray-700 px-2.5 py-1">
-                      <Typography
-                        variant={{ variant: "body", level: 3 }}
-                        className="text-gray-0"
-                      >
-                        2000 WDD
-                      </Typography>
-                    </div>
-                    <Typography
-                      variant={{ variant: "body", level: 3 }}
-                      className="text-gray-400"
-                    >
-                      {
-                        dictionary?.pages?.earn?.tabs?.contribute?.contests
-                          ?.topPrize
-                      }
-                    </Typography>
-                  </div>
-                  <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5">
-                    <IoIosArrowForward className="size-[14px] text-gray-400" />
-                  </div>
-                </div>
-              </Link>
-
-              {/* Poll Contest - similar structure with translations */}
-              <Link
-                href={`/${lang}/earn/contribute/poll-contest`}
-                className="group flex w-full cursor-pointer flex-col rounded-xl border border-gray-200 p-4 opacity-80 transition-all"
-              >
-                <div className="mb-3 flex items-center justify-between">
-                  <Typography
-                    as="h3"
-                    variant={{ variant: "subtitle", level: 2 }}
-                    className="line-clamp-1"
-                  >
-                    {
-                      dictionary?.pages?.earn?.tabs?.contribute?.contests?.poll
-                        ?.title
-                    }
-                  </Typography>
-                  <div className="rounded-full bg-gray-100 px-2.5 py-1">
-                    <Typography
-                      variant={{ variant: "body", level: 3 }}
-                      className="text-gray-500"
-                    >
-                      {
-                        dictionary?.pages?.earn?.tabs?.contribute?.contests
-                          ?.ended
-                      }
-                    </Typography>
-                  </div>
-                </div>
-
-                <Typography
-                  as="p"
-                  variant={{ variant: "body", level: 3 }}
-                  className="mb-4 text-gray-500"
-                >
-                  {
-                    dictionary?.pages?.earn?.tabs?.contribute?.contests?.poll
-                      ?.description
-                  }
-                </Typography>
-
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <div className="rounded-full bg-gray-700 px-2.5 py-1">
-                      <Typography
-                        variant={{ variant: "body", level: 3 }}
-                        className="text-gray-0"
-                      >
-                        2000 WDD
-                      </Typography>
-                    </div>
-                    <Typography
-                      variant={{ variant: "body", level: 3 }}
-                      className="text-gray-400"
-                    >
-                      {
-                        dictionary?.pages?.earn?.tabs?.contribute?.contests
-                          ?.topPrize
-                      }
-                    </Typography>
-                  </div>
-                  <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5">
-                    <IoIosArrowForward className="size-[14px] text-gray-400" />
-                  </div>
-                </div>
-              </Link>
             </div>
           </div>
         );
@@ -2266,7 +2168,7 @@ export default function EarnPage({
 
                     {/* Referral Status */}
                     {localStorage.getItem("referredBy") && (
-                      <div className="border-success-200 bg-success-50 mt-4 w-full rounded-xl border p-4">
+                      <div className="bg-success-50 mt-4 w-full rounded-xl border border-success-200 p-4">
                         <Typography
                           variant={{ variant: "subtitle", level: 3 }}
                           className="text-center text-success-700"
@@ -2432,7 +2334,7 @@ export default function EarnPage({
 
                     {/* Referral Status - same as in first drawer */}
                     {localStorage.getItem("referredBy") && (
-                      <div className="border-success-200 bg-success-50 mt-4 w-full rounded-xl border p-4">
+                      <div className="bg-success-50 mt-4 w-full rounded-xl border border-success-200 p-4">
                         <Typography
                           variant={{ variant: "subtitle", level: 3 }}
                           className="text-center text-success-700"
@@ -2644,7 +2546,7 @@ export default function EarnPage({
                       <Typography
                         as="h3"
                         variant={{ variant: "subtitle", level: 2 }}
-                        className="text-left font-display text-[15px] font-medium tracking-tight text-gray-900"
+                        className="font-display text-left text-[15px] font-medium tracking-tight text-gray-900"
                       >
                         {
                           dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
@@ -2876,7 +2778,7 @@ export default function EarnPage({
           tabIndicators={{
             "Basic income": false,
             Savings: false,
-            Contribute: !hasSeenNewBuybackProgram,
+            Contribute: !hasSeenPartySubsidyProgram,
             Invite: false,
           }}
         />
