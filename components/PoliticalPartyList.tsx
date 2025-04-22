@@ -130,7 +130,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     }
   }, []);
 
-  const shortenUrl = (url: string, maxLength = 20) => {
+  const shortenUrl = (url: string, maxLength = 64) => {
     if (!url) return "";
 
     try {
