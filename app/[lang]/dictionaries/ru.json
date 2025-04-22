@@ -51,6 +51,7 @@
     },
     "tabSwiper": {
       "tabs": {
+        "politicalParties": "Партии",
         "polls": "Опросы",
         "openLetters": "Открытые письма",
         "elections": "Выборы",

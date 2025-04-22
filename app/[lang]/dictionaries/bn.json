@@ -51,8 +51,9 @@
     },
     "tabSwiper": {
       "tabs": {
-        "polls": "ভোটগুলি",
-        "openLetters": "উন্মুক্ত চিঠি",
+        "politicalParties": "দলগুলি",
+        "polls": "জরিপ",
+        "openLetters": "খোলা চিঠি",
         "elections": "নির্বাচন",
         "referendums": "গণভোট"
       }

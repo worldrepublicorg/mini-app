@@ -1377,7 +1377,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   );
 
   if (isLoading) {
-    return <LoadingSkeleton />;
+    return <LoadingSkeleton dictionary={dictionary} />;
   }
 
   return (

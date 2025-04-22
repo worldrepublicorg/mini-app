@@ -51,10 +51,11 @@
     },
     "tabSwiper": {
       "tabs": {
+        "politicalParties": "Parteien",
         "polls": "Umfragen",
         "openLetters": "Offene Briefe",
         "elections": "Wahlen",
-        "referendums": "Volksabstimmungen"
+        "referendums": "Referenden"
       }
     },
     "politicalPartyList": {
@@ -484,7 +485,7 @@
               "subtitle": "Fester wöchentlicher Pool"
             },
             "devRewards": {
-              "title": "10% unserer Entwicklerbelohnungen",
+              "title": "10% der Entwicklerprämien",
               "subtitle": "Variabler Belohnungspool",
               "tooltip": "World verteilt Entwicklerbelohnungen basierend auf der App-Nutzung durch verifizierte Menschen.",
               "checkOutRewards": "Belohnungen ansehen"

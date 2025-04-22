@@ -51,6 +51,7 @@
     },
     "tabSwiper": {
       "tabs": {
+        "politicalParties": "الأحزاب",
         "polls": "استطلاعات",
         "openLetters": "رسائل مفتوحة",
         "elections": "انتخابات",

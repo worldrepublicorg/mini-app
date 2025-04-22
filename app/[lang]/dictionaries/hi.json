@@ -51,6 +51,7 @@
     },
     "tabSwiper": {
       "tabs": {
+        "politicalParties": "पार्टियां",
         "polls": "मतदान",
         "openLetters": "खुले पत्र",
         "elections": "चुनाव",

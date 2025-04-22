@@ -37,7 +37,7 @@ export default function GovernPage({
   const tabs = [
     {
       key: TAB_KEYS.POLITICAL_PARTIES,
-      label: "Parties",
+      label: dictionary?.components?.tabSwiper?.tabs?.politicalParties,
     },
     {
       key: TAB_KEYS.POLLS,

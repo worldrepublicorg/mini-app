@@ -51,6 +51,7 @@
     },
     "tabSwiper": {
       "tabs": {
+        "politicalParties": "پارٹیاں",
         "polls": "پولز",
         "openLetters": "کھلے خطوط",
         "elections": "انتخابات",

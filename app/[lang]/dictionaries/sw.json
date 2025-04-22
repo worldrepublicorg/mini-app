@@ -51,10 +51,11 @@
     },
     "tabSwiper": {
       "tabs": {
-        "polls": "Kura",
-        "openLetters": "Barua za Wazi",
-        "elections": "Uchaguzi",
-        "referendums": "Kura ya Maoni"
+        "politicalParties": "Vyama",
+        "polls": "Uchaguzi",
+        "openLetters": "Barua za wazi",
+        "elections": "Uchaguzi wa viongozi",
+        "referendums": "Kura ya maoni"
       }
     },
     "politicalPartyList": {

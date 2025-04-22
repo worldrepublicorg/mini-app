@@ -51,10 +51,11 @@
     },
     "tabSwiper": {
       "tabs": {
-        "polls": "Mga Poll",
-        "openLetters": "Mga Open Letter",
-        "elections": "Mga Eleksyon",
-        "referendums": "Mga Referendum"
+        "politicalParties": "Mga Partido",
+        "polls": "Mga Botohan",
+        "openLetters": "Mga Bukas na Liham",
+        "elections": "Mga Halalan",
+        "referendums": "Mga Reperendum"
       }
     },
     "politicalPartyList": {

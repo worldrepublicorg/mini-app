@@ -51,9 +51,10 @@
     },
     "tabSwiper": {
       "tabs": {
+        "politicalParties": "Partai",
         "polls": "Jajak Pendapat",
         "openLetters": "Surat Terbuka",
-        "elections": "Pemilihan",
+        "elections": "Pemilu",
         "referendums": "Referendum"
       }
     },

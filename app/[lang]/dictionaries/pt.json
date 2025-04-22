@@ -51,7 +51,8 @@
     },
     "tabSwiper": {
       "tabs": {
-        "polls": "Pesquisas",
+        "politicalParties": "Partidos",
+        "polls": "Enquetes",
         "openLetters": "Cartas abertas",
         "elections": "Eleições",
         "referendums": "Referendos"

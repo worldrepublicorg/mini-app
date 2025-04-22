@@ -51,6 +51,7 @@
     },
     "tabSwiper": {
       "tabs": {
+        "politicalParties": "Partie",
         "polls": "Ankiety",
         "openLetters": "Listy otwarte",
         "elections": "Wybory",

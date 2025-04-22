@@ -51,6 +51,7 @@
     },
     "tabSwiper": {
       "tabs": {
+        "politicalParties": "政党",
         "polls": "投票",
         "openLetters": "公開書簡",
         "elections": "選挙",

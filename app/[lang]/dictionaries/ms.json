@@ -51,6 +51,7 @@
     },
     "tabSwiper": {
       "tabs": {
+        "politicalParties": "Parti",
         "polls": "Undian",
         "openLetters": "Surat Terbuka",
         "elections": "Pilihan Raya",

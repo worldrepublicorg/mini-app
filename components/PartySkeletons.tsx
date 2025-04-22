@@ -34,7 +34,7 @@ export const PartySkeletonCard = () => (
   </div>
 );
 
-export const LoadingSkeleton = () => (
+export const LoadingSkeleton = ({ dictionary }: { dictionary: any }) => (
   <div className="w-full">
     {/* My Party Section Skeleton with Create Button */}
     <div className="mb-6">
@@ -44,11 +44,11 @@ export const LoadingSkeleton = () => (
           variant={{ variant: "subtitle", level: 1 }}
           className="text-[19px] font-semibold"
         >
-          My party
+          {dictionary?.components?.politicalPartyList?.myParty}
         </Typography>
         <button
           className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-900"
-          title="Create New Party"
+          title={dictionary?.components?.politicalPartyList?.createParty}
         >
           <FaPlus className="text-gray-500" size={12} />
         </button>
@@ -62,23 +62,23 @@ export const LoadingSkeleton = () => (
       variant={{ variant: "subtitle", level: 1 }}
       className="mb-3 text-[19px] font-semibold"
     >
-      Discover
+      {dictionary?.components?.politicalPartyList?.discover}
     </Typography>
 
     {/* Tabs Skeleton */}
     <div className="mb-2 flex items-center gap-1">
       <div className="flex gap-1">
         <button className="h-9 items-center rounded-full bg-gray-100 px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200">
-          Top
+          {dictionary?.components?.politicalPartyList?.tabs?.top}
         </button>
         <button className="h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200">
-          Trending
+          {dictionary?.components?.politicalPartyList?.tabs?.trending}
         </button>
         <button className="h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200">
-          New
+          {dictionary?.components?.politicalPartyList?.tabs?.new}
         </button>
         <button className="h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200">
-          Pending
+          {dictionary?.components?.politicalPartyList?.tabs?.pending}
         </button>
       </div>
     </div>

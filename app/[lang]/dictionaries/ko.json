@@ -51,7 +51,8 @@
     },
     "tabSwiper": {
       "tabs": {
-        "polls": "여론조사",
+        "politicalParties": "정당",
+        "polls": "투표",
         "openLetters": "공개 서한",
         "elections": "선거",
         "referendums": "국민투표"

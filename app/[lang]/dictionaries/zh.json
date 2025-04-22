@@ -51,10 +51,11 @@
     },
     "tabSwiper": {
       "tabs": {
-        "polls": "民意调查",
+        "politicalParties": "政党",
+        "polls": "民调",
         "openLetters": "公开信",
         "elections": "选举",
-        "referendums": "全民公决"
+        "referendums": "公投"
       }
     },
     "politicalPartyList": {

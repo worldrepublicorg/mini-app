@@ -51,6 +51,7 @@
     },
     "tabSwiper": {
       "tabs": {
+        "politicalParties": "Partiler",
         "polls": "Anketler",
         "openLetters": "Açık Mektuplar",
         "elections": "Seçimler",

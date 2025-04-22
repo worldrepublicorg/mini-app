@@ -51,6 +51,7 @@
     },
     "tabSwiper": {
       "tabs": {
+        "politicalParties": "Stranke",
         "polls": "Ankete",
         "openLetters": "Otvorena pisma",
         "elections": "Izbori",
