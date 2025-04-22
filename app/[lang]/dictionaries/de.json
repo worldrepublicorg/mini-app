@@ -129,8 +129,8 @@
           }
         },
         "transferLeadership": {
-          "title": "Führung übertragen",
-          "description": "Geben Sie die Wallet-Adresse des neuen Führers ein oder suchen Sie nach einem Benutzernamen. Die Adresse muss zu einem existierenden Parteimitglied gehören.",
+          "title": "Vorsitz übertragen",
+          "description": "Geben Sie die Wallet-Adresse des neuen Vorsitzenden ein oder suchen Sie nach einem Benutzernamen. Die Adresse muss zu einem existierenden Parteimitglied gehören.",
           "lookup": {
             "label": "Nach Benutzername suchen",
             "placeholder": "Geben Sie einen World App-Benutzernamen ein",
@@ -140,7 +140,7 @@
             "address": "Adresse: "
           },
           "newLeader": {
-            "label": "Adresse des neuen Führers",
+            "label": "Adresse des neuen Vorsitzenden",
             "placeholder": "Geben Sie eine Wallet-Adresse ein (0x...)",
             "errors": {
               "required": "Bitte geben Sie eine Adresse ein",
@@ -149,7 +149,7 @@
           },
           "button": {
             "processing": "Verarbeitung...",
-            "transfer": "Führung übertragen"
+            "transfer": "Vorsitz übertragen"
           }
         },
         "leave": {
