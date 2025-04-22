@@ -69,6 +69,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [activeTab, setActiveTab] = useState<
     "top" | "trending" | "new" | "pending"
   >("top");
+  const [searchTerm, setSearchTerm] = useState<string>("");
   const { walletAddress } = useWallet();
   const { showToast } = useToast();
   const [isCreateDrawerOpen, setIsCreateDrawerOpen] = useState(false);
@@ -378,6 +379,16 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     .filter((party) => {
       // First filter for parties the user is not a member of - use userPartyId
       if (party.id === userPartyId) return false;
+
+      // Then filter based on search term if provided
+      if (searchTerm.trim() !== "") {
+        const searchLower = searchTerm.toLowerCase();
+        return (
+          party.name.toLowerCase().includes(searchLower) ||
+          party.shortName.toLowerCase().includes(searchLower) ||
+          party.description.toLowerCase().includes(searchLower)
+        );
+      }
 
       // Then filter based on tab
       if (activeTab === "pending") {
@@ -1446,6 +1457,35 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       >
         {dictionary?.components?.politicalPartyList?.discover}
       </Typography>
+
+      {/* Search bar */}
+      <div className="mb-4">
+        <div className="relative">
+          <Input
+            type="text"
+            startAdornment={
+              <svg
+                className="h-5 w-5"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            }
+            label="Search parties..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onFocus={handleInputFocus}
+          />
+        </div>
+      </div>
+
       {/* Tabs */}
       <div className="mb-2 flex items-center gap-1">
         <button
