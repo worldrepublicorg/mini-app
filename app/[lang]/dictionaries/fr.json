@@ -503,7 +503,7 @@
                 },
                 "earnRewards": {
                   "title": "Gagnez des Récompenses",
-                  "description": "Les 25 meilleurs partis reçoivent des subventions hebdomadaires proportionnelles à leur nombre d'adhérents"
+                  "description": "Les dirigeants des 25 premiers partis reçoivent des subventions hebdomadaires proportionnelles à l'adhésion de leur parti"
                 }
               }
             },
