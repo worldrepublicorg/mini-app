@@ -19,8 +19,8 @@ const polls: Poll[] = [
     url: "https://vote.one/D9m1kqNi",
   },
   {
-    key: "globalIMFQuotaReform",
-    url: "https://vote.one/ZI2ILiHT",
+    key: "globalMilitaryExerciseProtocol",
+    url: "https://vote.one/IDqHp7v7",
   },
   {
     key: "globalDigitalServicesTax",

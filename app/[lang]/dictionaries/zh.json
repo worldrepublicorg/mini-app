@@ -530,6 +530,7 @@
             "title": "往期投票",
             "backToGovern": "返回治理",
             "polls": {
+              "globalMilitaryExerciseProtocol": "各国是否应该同意在争议地区附近进行大规模军事演习时采用国际通知和观察员协议，以降低局势升级的风险？",
               "globalMaritimeSecurity": "是否应该建立国际海事安全特别工作组，以保护国际水域中的商业航运免受武装袭击？",
               "globalNuclearDialogue": "根据国际协议，主要大国是否应被要求与敌对国家进行持续的专家级核谈判，以防止局势升级并确保外交监督？",
               "globalMiningStandards": "是否应建立国际协议，确保对清洁能源技术所需的关键矿物进行环境和社会责任开采？",
