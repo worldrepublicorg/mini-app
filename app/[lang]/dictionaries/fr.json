@@ -473,42 +473,42 @@
               "title": "Gagnants du Concours",
               "weekOf": "Semaine du",
               "engagements": "engagements"
+            }
+          },
+          "partySubsidy": {
+            "topnav": "Programme de Subvention",
+            "title": "Programme de Subvention des Partis",
+            "subtitle": "Construisez votre mouvement politique et gagnez",
+            "weeklyPool": {
+              "title": "100 000 WDD",
+              "subtitle": "Cagnotte hebdomadaire fixe"
             },
-            "partySubsidy": {
-              "topnav": "Programme de Subvention",
-              "title": "Programme de Subvention des Partis",
-              "subtitle": "Construisez votre mouvement politique et gagnez",
-              "weeklyPool": {
-                "title": "100 000 WDD",
-                "subtitle": "Cagnotte hebdomadaire fixe"
-              },
-              "devRewards": {
-                "title": "10% de nos Récompenses de Développeurs",
-                "subtitle": "Cagnotte de récompenses variable",
-                "tooltip": "World distribue des récompenses aux développeurs en fonction de l'utilisation de l'application par des humains vérifiés.",
-                "checkOutRewards": "Voir les récompenses"
-              },
-              "howItWorks": {
-                "title": "Comment Ça Marche",
-                "steps": {
-                  "createParty": {
-                    "title": "Créez un Parti",
-                    "description": "Lancez votre mouvement politique dans l'application République Mondiale"
-                  },
-                  "growMembership": {
-                    "title": "Développez votre Adhésion",
-                    "description": "Recrutez des membres et construisez votre communauté"
-                  },
-                  "earnRewards": {
-                    "title": "Gagnez des Récompenses",
-                    "description": "Les 25 meilleurs partis reçoivent des subventions hebdomadaires proportionnelles à leur nombre d'adhérents"
-                  }
+            "devRewards": {
+              "title": "10% de nos Récompenses de Développeurs",
+              "subtitle": "Cagnotte de récompenses variable",
+              "tooltip": "World distribue des récompenses aux développeurs en fonction de l'utilisation de l'application par des humains vérifiés.",
+              "checkOutRewards": "Voir les récompenses"
+            },
+            "howItWorks": {
+              "title": "Comment Ça Marche",
+              "steps": {
+                "createParty": {
+                  "title": "Créez un Parti",
+                  "description": "Lancez votre mouvement politique dans l'application République Mondiale"
+                },
+                "growMembership": {
+                  "title": "Développez votre Adhésion",
+                  "description": "Recrutez des membres et construisez votre communauté"
+                },
+                "earnRewards": {
+                  "title": "Gagnez des Récompenses",
+                  "description": "Les 25 meilleurs partis reçoivent des subventions hebdomadaires proportionnelles à leur nombre d'adhérents"
                 }
-              },
-              "cta": {
-                "createJoin": "Créer ou Rejoindre un Parti",
-                "leaderGroup": "Rejoindre le Groupe des Leaders de Parti"
               }
+            },
+            "cta": {
+              "createJoin": "Créer ou Rejoindre un Parti",
+              "leaderGroup": "Rejoindre le Groupe des Leaders de Parti"
             }
           }
         }

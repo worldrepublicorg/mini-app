@@ -473,42 +473,42 @@
               "title": "コンテスト受賞者",
               "weekOf": "週",
               "engagements": "エンゲージメント"
+            }
+          },
+          "partySubsidy": {
+            "topnav": "補助金プログラム",
+            "title": "政党補助金プログラム",
+            "subtitle": "政治運動を構築して報酬を得る",
+            "weeklyPool": {
+              "title": "100,000 WDD",
+              "subtitle": "固定週間プール"
             },
-            "partySubsidy": {
-              "topnav": "補助金プログラム",
-              "title": "政党補助金プログラム",
-              "subtitle": "政治運動を構築して報酬を得る",
-              "weeklyPool": {
-                "title": "100,000 WDD",
-                "subtitle": "固定週間プール"
-              },
-              "devRewards": {
-                "title": "開発者報酬の10%",
-                "subtitle": "変動報酬プール",
-                "tooltip": "Worldは認証された人間によるアプリ使用に基づいて開発者報酬を配布しています。",
-                "checkOutRewards": "報酬を確認する"
-              },
-              "howItWorks": {
-                "title": "仕組み",
-                "steps": {
-                  "createParty": {
-                    "title": "政党を作成する",
-                    "description": "World Republicアプリで政治運動を始める"
-                  },
-                  "growMembership": {
-                    "title": "メンバーシップを拡大する",
-                    "description": "メンバーを募集しコミュニティを構築する"
-                  },
-                  "earnRewards": {
-                    "title": "報酬を獲得する",
-                    "description": "トップ25の政党はメンバーシップに比例した週間補助金を受け取る"
-                  }
+            "devRewards": {
+              "title": "開発者報酬の10%",
+              "subtitle": "変動報酬プール",
+              "tooltip": "Worldは認証された人間によるアプリ使用に基づいて開発者報酬を配布しています。",
+              "checkOutRewards": "報酬を確認する"
+            },
+            "howItWorks": {
+              "title": "仕組み",
+              "steps": {
+                "createParty": {
+                  "title": "政党を作成する",
+                  "description": "World Republicアプリで政治運動を始める"
+                },
+                "growMembership": {
+                  "title": "メンバーシップを拡大する",
+                  "description": "メンバーを募集しコミュニティを構築する"
+                },
+                "earnRewards": {
+                  "title": "報酬を獲得する",
+                  "description": "トップ25の政党はメンバーシップに比例した週間補助金を受け取る"
                 }
-              },
-              "cta": {
-                "createJoin": "政党を作成または参加する",
-                "leaderGroup": "政党リーダーグループに参加する"
               }
+            },
+            "cta": {
+              "createJoin": "政党を作成または参加する",
+              "leaderGroup": "政党リーダーグループに参加する"
             }
           }
         }

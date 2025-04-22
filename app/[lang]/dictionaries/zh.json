@@ -473,42 +473,42 @@
               "title": "竞赛获奖者",
               "weekOf": "第几周",
               "engagements": "互动量"
+            }
+          },
+          "partySubsidy": {
+            "topnav": "补贴计划",
+            "title": "政党补贴计划",
+            "subtitle": "建立您的政治运动并获得收益",
+            "weeklyPool": {
+              "title": "100,000 WDD",
+              "subtitle": "固定每周资金池"
             },
-            "partySubsidy": {
-              "topnav": "补贴计划",
-              "title": "政党补贴计划",
-              "subtitle": "建立您的政治运动并获得收益",
-              "weeklyPool": {
-                "title": "100,000 WDD",
-                "subtitle": "固定每周资金池"
-              },
-              "devRewards": {
-                "title": "我们开发者奖励的10%",
-                "subtitle": "可变奖励资金池",
-                "tooltip": "World正在根据经验证的人类使用应用程序的情况分配开发者奖励。",
-                "checkOutRewards": "查看奖励"
-              },
-              "howItWorks": {
-                "title": "工作原理",
-                "steps": {
-                  "createParty": {
-                    "title": "创建政党",
-                    "description": "在World Republic应用程序中开始您的政治运动"
-                  },
-                  "growMembership": {
-                    "title": "增加您的会员",
-                    "description": "招募成员并建立您的社区"
-                  },
-                  "earnRewards": {
-                    "title": "获得奖励",
-                    "description": "前25个政党根据其会员比例获得每周补贴"
-                  }
+            "devRewards": {
+              "title": "我们开发者奖励的10%",
+              "subtitle": "可变奖励资金池",
+              "tooltip": "World正在根据经验证的人类使用应用程序的情况分配开发者奖励。",
+              "checkOutRewards": "查看奖励"
+            },
+            "howItWorks": {
+              "title": "工作原理",
+              "steps": {
+                "createParty": {
+                  "title": "创建政党",
+                  "description": "在World Republic应用程序中开始您的政治运动"
+                },
+                "growMembership": {
+                  "title": "增加您的会员",
+                  "description": "招募成员并建立您的社区"
+                },
+                "earnRewards": {
+                  "title": "获得奖励",
+                  "description": "前25个政党根据其会员比例获得每周补贴"
                 }
-              },
-              "cta": {
-                "createJoin": "创建或加入政党",
-                "leaderGroup": "加入政党领导人群组"
               }
+            },
+            "cta": {
+              "createJoin": "创建或加入政党",
+              "leaderGroup": "加入政党领导人群组"
             }
           }
         }

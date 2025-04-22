@@ -473,42 +473,42 @@
               "title": "Zwycięzcy Konkursu",
               "weekOf": "Tydzień",
               "engagements": "zaangażowań"
+            }
+          },
+          "partySubsidy": {
+            "topnav": "Program Dotacji",
+            "title": "Program Dotacji dla Partii",
+            "subtitle": "Buduj swój ruch polityczny i zarabiaj",
+            "weeklyPool": {
+              "title": "100 000 WDD",
+              "subtitle": "Stała tygodniowa pula"
             },
-            "partySubsidy": {
-              "topnav": "Program Dotacji",
-              "title": "Program Dotacji dla Partii",
-              "subtitle": "Buduj swój ruch polityczny i zarabiaj",
-              "weeklyPool": {
-                "title": "100 000 WDD",
-                "subtitle": "Stała tygodniowa pula"
-              },
-              "devRewards": {
-                "title": "10% naszych Nagród dla Deweloperów",
-                "subtitle": "Zmienna pula nagród",
-                "tooltip": "World dystrybuuje nagrody dla deweloperów na podstawie korzystania z aplikacji przez zweryfikowanych ludzi.",
-                "checkOutRewards": "Sprawdź nagrody"
-              },
-              "howItWorks": {
-                "title": "Jak to działa",
-                "steps": {
-                  "createParty": {
-                    "title": "Utwórz Partię",
-                    "description": "Rozpocznij swój ruch polityczny w aplikacji World Republic"
-                  },
-                  "growMembership": {
-                    "title": "Rozwijaj Członkostwo",
-                    "description": "Rekrutuj członków i buduj swoją społeczność"
-                  },
-                  "earnRewards": {
-                    "title": "Zdobywaj Nagrody",
-                    "description": "Najlepsze 25 partii otrzymuje tygodniowe dotacje proporcjonalne do liczby członków"
-                  }
+            "devRewards": {
+              "title": "10% naszych Nagród dla Deweloperów",
+              "subtitle": "Zmienna pula nagród",
+              "tooltip": "World dystrybuuje nagrody dla deweloperów na podstawie korzystania z aplikacji przez zweryfikowanych ludzi.",
+              "checkOutRewards": "Sprawdź nagrody"
+            },
+            "howItWorks": {
+              "title": "Jak to działa",
+              "steps": {
+                "createParty": {
+                  "title": "Utwórz Partię",
+                  "description": "Rozpocznij swój ruch polityczny w aplikacji World Republic"
+                },
+                "growMembership": {
+                  "title": "Rozwijaj Członkostwo",
+                  "description": "Rekrutuj członków i buduj swoją społeczność"
+                },
+                "earnRewards": {
+                  "title": "Zdobywaj Nagrody",
+                  "description": "Najlepsze 25 partii otrzymuje tygodniowe dotacje proporcjonalne do liczby członków"
                 }
-              },
-              "cta": {
-                "createJoin": "Utwórz lub Dołącz do Partii",
-                "leaderGroup": "Dołącz do Grupy Liderów Partii"
               }
+            },
+            "cta": {
+              "createJoin": "Utwórz lub Dołącz do Partii",
+              "leaderGroup": "Dołącz do Grupy Liderów Partii"
             }
           }
         }
