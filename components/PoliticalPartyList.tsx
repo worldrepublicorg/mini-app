@@ -9,7 +9,12 @@ import { Typography } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/Button";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useToast } from "@/components/ui/Toast";
-import { PiLinkSimpleBold, PiUsersBold, PiGearBold } from "react-icons/pi";
+import {
+  PiLinkSimpleBold,
+  PiUsersBold,
+  PiGearBold,
+  PiInfoFill,
+} from "react-icons/pi";
 import { Drawer, DrawerContent } from "@/components/ui/Drawer";
 import { Form, Input } from "@worldcoin/mini-apps-ui-kit-react";
 import { Textarea } from "@/components/ui/Textarea";
@@ -1384,6 +1389,13 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     <div className="w-full">
       {/* My Party Section */}
       <div className="mb-6">
+        {/* Notification about party loading issues */}
+        <div className="mb-4 flex items-center rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 shadow-sm">
+          <PiInfoFill className="text-gray-600 mr-3 h-5 w-5 flex-shrink-0" />
+          <Typography className="text-sm text-gray-700">
+            {dictionary?.components?.politicalPartyList?.loadingIssue}
+          </Typography>
+        </div>
         <div className="mb-3 flex items-center justify-between">
           <Typography
             as="h2"

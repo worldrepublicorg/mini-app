@@ -59,6 +59,7 @@
       }
     },
     "politicalPartyList": {
+      "loadingIssue": "Svjesni smo nekih problema s učitavanjem stranaka. Molimo budite strpljivi dok radimo na njihovom rješavanju.",
       "myParty": "Moja stranka",
       "createParty": "Stvori novu stranku",
       "noParty": "Još niste stvorili niti se pridružili stranci.",

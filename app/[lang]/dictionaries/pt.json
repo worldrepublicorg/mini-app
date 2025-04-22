@@ -59,6 +59,7 @@
       }
     },
     "politicalPartyList": {
+      "loadingIssue": "Estamos cientes de alguns problemas no carregamento dos partidos. Por favor, seja paciente enquanto trabalhamos para corrigi-los.",
       "myParty": "Meu partido",
       "createParty": "Criar Novo Partido",
       "noParty": "Você ainda não criou ou se juntou a um partido.",
