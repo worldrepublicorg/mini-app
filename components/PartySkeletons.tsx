@@ -69,13 +69,13 @@ export const LoadingSkeleton = ({ dictionary }: { dictionary: any }) => (
     <div className="mb-2 flex items-center gap-1">
       <div className="flex gap-1">
         <button className="h-9 items-center rounded-full bg-gray-100 px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200">
+          {dictionary?.components?.politicalPartyList?.tabs?.new}
+        </button>
+        <button className="h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200">
           {dictionary?.components?.politicalPartyList?.tabs?.top}
         </button>
         <button className="h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200">
           {dictionary?.components?.politicalPartyList?.tabs?.trending}
-        </button>
-        <button className="h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200">
-          {dictionary?.components?.politicalPartyList?.tabs?.new}
         </button>
         <button className="h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200">
           {dictionary?.components?.politicalPartyList?.tabs?.pending}

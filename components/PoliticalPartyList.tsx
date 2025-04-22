@@ -68,7 +68,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<
     "top" | "trending" | "new" | "pending"
-  >("top");
+  >("new");
   const [searchTerm, setSearchTerm] = useState<string>("");
   const { walletAddress } = useWallet();
   const { showToast } = useToast();
@@ -1490,6 +1490,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       <div className="mb-2 flex items-center gap-1">
         <button
           className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
+            activeTab === "new" && "bg-gray-100"
+          }`}
+          onClick={() => setActiveTab("new")}
+        >
+          {dictionary?.components?.politicalPartyList?.tabs?.new}
+        </button>
+        <button
+          className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
             activeTab === "top" && "bg-gray-100"
           }`}
           onClick={() => setActiveTab("top")}
@@ -1503,14 +1511,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           onClick={() => setActiveTab("trending")}
         >
           {dictionary?.components?.politicalPartyList?.tabs?.trending}
-        </button>
-        <button
-          className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
-            activeTab === "new" && "bg-gray-100"
-          }`}
-          onClick={() => setActiveTab("new")}
-        >
-          {dictionary?.components?.politicalPartyList?.tabs?.new}
         </button>
         <button
           className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
