@@ -474,6 +474,42 @@
               "weekOf": "Tjedan",
               "engagements": "uključivanja"
             }
+          },
+          "partySubsidy": {
+            "topnav": "Program subvencija",
+            "title": "Program subvencija za stranke",
+            "subtitle": "Izgradite svoj politički pokret i zaradite",
+            "weeklyPool": {
+              "title": "100.000 WDD",
+              "subtitle": "Fiksni tjedni fond"
+            },
+            "devRewards": {
+              "title": "10% naših Dev Nagrada",
+              "subtitle": "Varijabilni fond nagrada",
+              "tooltip": "World distribuira nagrade za developere na temelju korištenja aplikacije od strane verificiranih ljudi.",
+              "checkOutRewards": "Pogledajte nagrade"
+            },
+            "howItWorks": {
+              "title": "Kako to funkcionira",
+              "steps": {
+                "createParty": {
+                  "title": "Stvorite stranku",
+                  "description": "Pokrenite svoj politički pokret u aplikaciji World Republic"
+                },
+                "growMembership": {
+                  "title": "Povećajte članstvo",
+                  "description": "Regrutirajte članove i izgradite svoju zajednicu"
+                },
+                "earnRewards": {
+                  "title": "Zaradite nagrade",
+                  "description": "Top 25 stranaka dobiva tjedne subvencije proporcionalne njihovom članstvu"
+                }
+              }
+            },
+            "cta": {
+              "createJoin": "Stvorite ili se pridružite stranci",
+              "leaderGroup": "Pridružite se grupi vođa stranke"
+            }
           }
         }
       }

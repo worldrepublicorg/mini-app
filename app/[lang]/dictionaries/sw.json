@@ -474,6 +474,42 @@
               "weekOf": "Wiki ya",
               "engagements": "ushiriki"
             }
+          },
+          "partySubsidy": {
+            "topnav": "Programu ya Ruzuku",
+            "title": "Programu ya Ruzuku ya Chama",
+            "subtitle": "Jenga harakati yako ya kisiasa na upate mapato",
+            "weeklyPool": {
+              "title": "WDD 100,000",
+              "subtitle": "Jumba la wiki iliyowekwa"
+            },
+            "devRewards": {
+              "title": "10% ya Tuzo zetu za Wasanidi",
+              "subtitle": "Jumba la tuzo inayobadilika",
+              "tooltip": "World inasambaza tuzo za wasanidi kulingana na matumizi ya programu na wanadamu waliothibitishwa.",
+              "checkOutRewards": "Angalia tuzo"
+            },
+            "howItWorks": {
+              "title": "Jinsi Inavyofanya Kazi",
+              "steps": {
+                "createParty": {
+                  "title": "Unda Chama",
+                  "description": "Anza harakati yako ya kisiasa katika programu ya World Republic"
+                },
+                "growMembership": {
+                  "title": "Kuza Uanachama Wako",
+                  "description": "Ajiri wanachama na jenga jumuiya yako"
+                },
+                "earnRewards": {
+                  "title": "Pata Tuzo",
+                  "description": "Vyama 25 vilivyofanya vizuri zaidi vinapata ruzuku za kila wiki kulingana na idadi ya wanachama wao"
+                }
+              }
+            },
+            "cta": {
+              "createJoin": "Unda au Jiunge na Chama",
+              "leaderGroup": "Jiunge na Kikundi cha Viongozi wa Chama"
+            }
           }
         }
       }

@@ -486,6 +486,42 @@
               "weekOf": "Semana del",
               "engagements": "interacciones "
             }
+          },
+          "partySubsidy": {
+            "topnav": "Programa de Subsidios",
+            "title": "Programa de Subsidios para Partidos",
+            "subtitle": "Construye tu movimiento político y gana",
+            "weeklyPool": {
+              "title": "100.000 WDD",
+              "subtitle": "Fondo semanal fijo"
+            },
+            "devRewards": {
+              "title": "10% de nuestras Recompensas de Desarrolladores",
+              "subtitle": "Fondo de recompensas variable",
+              "tooltip": "World está distribuyendo recompensas para desarrolladores basadas en el uso de la aplicación por humanos verificados.",
+              "checkOutRewards": "Ver recompensas"
+            },
+            "howItWorks": {
+              "title": "Cómo Funciona",
+              "steps": {
+                "createParty": {
+                  "title": "Crea un Partido",
+                  "description": "Inicia tu movimiento político en la app de la República Mundial"
+                },
+                "growMembership": {
+                  "title": "Aumenta tu Membresía",
+                  "description": "Recluta miembros y construye tu comunidad"
+                },
+                "earnRewards": {
+                  "title": "Gana Recompensas",
+                  "description": "Los 25 mejores partidos reciben subsidios semanales proporcionales a su membresía"
+                }
+              }
+            },
+            "cta": {
+              "createJoin": "Crear o Unirse a un Partido",
+              "leaderGroup": "Unirse al Grupo de Líderes de Partido"
+            }
           }
         }
       }

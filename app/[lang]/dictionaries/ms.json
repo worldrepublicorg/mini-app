@@ -474,6 +474,42 @@
               "weekOf": "Minggu",
               "engagements": "penglibatan"
             }
+          },
+          "partySubsidy": {
+            "topnav": "Program Subsidi",
+            "title": "Program Subsidi Parti",
+            "subtitle": "Bina pergerakan politik anda dan dapatkan pendapatan",
+            "weeklyPool": {
+              "title": "100,000 WDD",
+              "subtitle": "Dana mingguan tetap"
+            },
+            "devRewards": {
+              "title": "10% daripada Ganjaran Pembangun kami",
+              "subtitle": "Dana ganjaran berubah-ubah",
+              "tooltip": "World mengagihkan ganjaran pembangun berdasarkan penggunaan aplikasi oleh manusia yang disahkan.",
+              "checkOutRewards": "Lihat ganjaran"
+            },
+            "howItWorks": {
+              "title": "Cara Ia Berfungsi",
+              "steps": {
+                "createParty": {
+                  "title": "Cipta Parti",
+                  "description": "Mulakan pergerakan politik anda dalam aplikasi World Republic"
+                },
+                "growMembership": {
+                  "title": "Tingkatkan Keahlian Anda",
+                  "description": "Rekrut ahli dan bina komuniti anda"
+                },
+                "earnRewards": {
+                  "title": "Dapatkan Ganjaran",
+                  "description": "25 parti teratas menerima subsidi mingguan berkadar dengan keahlian mereka"
+                }
+              }
+            },
+            "cta": {
+              "createJoin": "Cipta atau Sertai Parti",
+              "leaderGroup": "Sertai Kumpulan Pemimpin Parti"
+            }
           }
         }
       }

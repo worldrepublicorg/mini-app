@@ -474,6 +474,42 @@
               "weekOf": "Hafta",
               "engagements": "etkileşim"
             }
+          },
+          "partySubsidy": {
+            "topnav": "Sübvansiyon Programı",
+            "title": "Parti Sübvansiyon Programı",
+            "subtitle": "Siyasi hareketinizi oluşturun ve kazanç sağlayın",
+            "weeklyPool": {
+              "title": "100.000 WDD",
+              "subtitle": "Sabit haftalık havuz"
+            },
+            "devRewards": {
+              "title": "Geliştirici Ödüllerimizin %10'u",
+              "subtitle": "Değişken ödül havuzu",
+              "tooltip": "World, doğrulanmış insanların uygulama kullanımına dayalı olarak geliştirici ödülleri dağıtıyor.",
+              "checkOutRewards": "Ödülleri kontrol et"
+            },
+            "howItWorks": {
+              "title": "Nasıl Çalışır",
+              "steps": {
+                "createParty": {
+                  "title": "Parti Oluştur",
+                  "description": "World Republic uygulamasında siyasi hareketinizi başlatın"
+                },
+                "growMembership": {
+                  "title": "Üyeliğinizi Büyütün",
+                  "description": "Üye toplayın ve topluluğunuzu oluşturun"
+                },
+                "earnRewards": {
+                  "title": "Ödüller Kazanın",
+                  "description": "En iyi 25 parti, üyelikleriyle orantılı olarak haftalık sübvansiyonlar alır"
+                }
+              }
+            },
+            "cta": {
+              "createJoin": "Parti Oluştur veya Katıl",
+              "leaderGroup": "Parti Lider Grubuna Katıl"
+            }
           }
         }
       }

@@ -408,6 +408,42 @@
               "weekOf": "Linggo ng",
               "engagements": "mga engagement"
             }
+          },
+          "partySubsidy": {
+            "topnav": "Programa ng Subsidiya",
+            "title": "Programa ng Subsidiya para sa Partido",
+            "subtitle": "Bumuo ng iyong pulitikal na kilusan at kumita",
+            "weeklyPool": {
+              "title": "100,000 WDD",
+              "subtitle": "Nakatakdang lingguhang pool"
+            },
+            "devRewards": {
+              "title": "10% ng aming Dev Rewards",
+              "subtitle": "Variable na reward pool",
+              "tooltip": "Ang World ay namamahagi ng mga gantimpala para sa mga developer batay sa paggamit ng app ng mga beripikadong tao.",
+              "checkOutRewards": "Tingnan ang mga gantimpala"
+            },
+            "howItWorks": {
+              "title": "Paano Ito Gumagana",
+              "steps": {
+                "createParty": {
+                  "title": "Gumawa ng Partido",
+                  "description": "Simulan ang iyong pulitikal na kilusan sa World Republic app"
+                },
+                "growMembership": {
+                  "title": "Palaguin ang Iyong Membership",
+                  "description": "Mag-recruit ng mga miyembro at bumuo ng iyong komunidad"
+                },
+                "earnRewards": {
+                  "title": "Kumita ng Gantimpala",
+                  "description": "Ang nangungunang 25 partido ay tumatanggap ng lingguhang subsidiya ayon sa kanilang membership"
+                }
+              }
+            },
+            "cta": {
+              "createJoin": "Gumawa o Sumali sa isang Partido",
+              "leaderGroup": "Sumali sa Party Leader Group"
+            }
           }
         },
         "invite": {

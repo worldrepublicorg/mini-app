@@ -474,6 +474,42 @@
               "weekOf": "Woche von",
               "engagements": "Eingaben"
             }
+          },
+          "partySubsidy": {
+            "topnav": "Subventionsprogramm",
+            "title": "Partei-Subventionsprogramm",
+            "subtitle": "Baue deine politische Bewegung auf und verdiene",
+            "weeklyPool": {
+              "title": "100.000 WDD",
+              "subtitle": "Fester wöchentlicher Pool"
+            },
+            "devRewards": {
+              "title": "10% unserer Entwicklerbelohnungen",
+              "subtitle": "Variabler Belohnungspool",
+              "tooltip": "World verteilt Entwicklerbelohnungen basierend auf der App-Nutzung durch verifizierte Menschen.",
+              "checkOutRewards": "Belohnungen ansehen"
+            },
+            "howItWorks": {
+              "title": "Wie es funktioniert",
+              "steps": {
+                "createParty": {
+                  "title": "Gründe eine Partei",
+                  "description": "Starte deine politische Bewegung in der World Republic App"
+                },
+                "growMembership": {
+                  "title": "Vergrößere deine Mitgliedschaft",
+                  "description": "Rekrutiere Mitglieder und baue deine Gemeinschaft auf"
+                },
+                "earnRewards": {
+                  "title": "Verdiene Belohnungen",
+                  "description": "Die Top 25 Parteien erhalten wöchentliche Subventionen proportional zu ihrer Mitgliederzahl"
+                }
+              }
+            },
+            "cta": {
+              "createJoin": "Partei gründen oder beitreten",
+              "leaderGroup": "Parteileitergruppe beitreten"
+            }
           }
         }
       }
