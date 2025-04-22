@@ -72,10 +72,10 @@ export const LoadingSkeleton = ({ dictionary }: { dictionary: any }) => (
           {dictionary?.components?.politicalPartyList?.tabs?.new}
         </button>
         <button className="h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200">
-          {dictionary?.components?.politicalPartyList?.tabs?.top}
+          {dictionary?.components?.politicalPartyList?.tabs?.trending}
         </button>
         <button className="h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200">
-          {dictionary?.components?.politicalPartyList?.tabs?.trending}
+          {dictionary?.components?.politicalPartyList?.tabs?.top}
         </button>
         <button className="h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200">
           {dictionary?.components?.politicalPartyList?.tabs?.pending}
