@@ -513,6 +513,10 @@
         "referendums": "Referendums"
       },
       "sections": {
+        "politicalParties": {
+          "title": "Political Parties",
+          "description": "Unite globally around shared values"
+        },
         "polls": {
           "title": "Poll of the Day",
           "description": "Quick votes on current topics",
@@ -523,8 +527,8 @@
               "globalMaritimeSecurity": "Should an international maritime security task force be established to protect commercial shipping in international waters from armed attacks?",
               "globalNuclearDialogue": "Should major powers be required under an international agreement to engage in continuous expert‑level nuclear negotiations with adversary states to prevent escalation and ensure diplomatic oversight?",
               "globalMiningStandards": "Should an international protocol be established to ensure environmentally and socially responsible mining of critical minerals needed for clean energy technologies?",
-              "globalDigitalServicesTax": "Should nations adopt a coordinated digital services tax targeting large tech platforms’ revenues to ensure fair and predictable global taxation?",
-              "globalIMFQuotaReform": "Should the IMF’s quota review formula be revised to enhance voting power for emerging and developing economies and ensure more equitable decision-making?",
+              "globalDigitalServicesTax": "Should nations adopt a coordinated digital services tax targeting large tech platforms' revenues to ensure fair and predictable global taxation?",
+              "globalIMFQuotaReform": "Should the IMF's quota review formula be revised to enhance voting power for emerging and developing economies and ensure more equitable decision-making?",
               "globalEnergyTransition": "Should countries adopt a legally binding global framework to accelerate the shift from fossil fuels to renewable energy sources?",
               "globalVaccineEquity": "Should an internationally coordinated framework be established to ensure equitable access to vaccines and essential medicines during global health crises?",
               "globalTradeArbitration": "Should a binding international arbitration panel be established to resolve trade disputes and ensure transparent, predictable tariff policies?",

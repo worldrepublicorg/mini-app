@@ -63,8 +63,13 @@ export default function GovernPage({
         return (
           <>
             <SectionHeader
-              title="Political Parties"
-              description="Unite globally around shared values"
+              title={
+                dictionary?.pages?.govern?.sections?.politicalParties?.title
+              }
+              description={
+                dictionary?.pages?.govern?.sections?.politicalParties
+                  ?.description
+              }
             />
             <PoliticalPartyList lang={lang} />
           </>
