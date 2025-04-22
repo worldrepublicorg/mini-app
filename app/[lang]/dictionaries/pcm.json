@@ -1,53 +1,53 @@
 {
   "components": {
     "walletAuth": {
-      "connect": "Connect Your Wallet"
+      "connect": "Connect Wallet"
     },
     "verifyButton": {
-      "verify": "Verify Before You Collect"
+      "verify": "Verify to Claim"
     },
     "pollOfTheDay": {
-      "previousPolls": "Old Polls Dem",
-      "vote": "Vote Now Now"
+      "previousPolls": "Previous Polls",
+      "vote": "Vote Now"
     },
     "stakeForm": {
-      "deposit": "Put Money",
-      "withdraw": "Comot Money",
-      "balance": "Your Balance:",
-      "depositPlaceholder": "How much you wan put",
-      "withdrawPlaceholder": "How much you wan comot",
-      "max": "Maximum",
+      "deposit": "Deposit",
+      "withdraw": "Withdraw",
+      "balance": "Balance:",
+      "depositPlaceholder": "Deposit amount",
+      "withdrawPlaceholder": "Withdrawal amount",
+      "max": "Max",
       "interest": "Interest:",
       "collect": "Collect",
-      "depositButton": "Put Drachma Inside",
-      "withdrawButton": "Comot Your Drachma"
+      "depositButton": "Deposit Drachma",
+      "withdrawButton": "Withdraw Drachma"
     },
     "toasts": {
       "wallet": {
         "connectInWorldApp": "Abeg open dis app for World App to connect your wallet.",
-        "stakingError": "Wahala dey to stake tokens",
-        "withdrawError": "Wahala dey to withdraw tokens",
-        "collectError": "Wahala dey to collect rewards"
+        "stakingError": "Error for token staking",
+        "withdrawError": "Error for token withdrawal",
+        "collectError": "Error for reward collection"
       },
       "referral": {
-        "pendingReward": "We dey process reward for {{username}}...",
+        "pendingReward": "We dey process pending reward for {{username}}...",
         "rewardSuccess": "We don successfully reward {{username}}!",
-        "sendingReward": "We dey send 50 WDD reward give {{username}}..."
+        "sendingReward": "We dey send 50 WDD reward to {{username}}..."
       },
       "basicIncome": {
-        "setupSuccess": "Basic Income Plus don set! We dey prepare reward for {{username}}...",
-        "setupWithReferrer": "We dey set up Basic Income Plus first, then we go reward {{username}}...",
-        "error": "Wahala dey to activate Basic Income",
-        "errorPlus": "Wahala dey to activate Basic Income Plus"
+        "setupSuccess": "Basic Income Plus don activate! Now we dey prepare reward for {{username}}...",
+        "setupWithReferrer": "We go first set up Basic Income Plus, den reward {{username}}...",
+        "error": "Error for activating Basic Income",
+        "errorPlus": "Error for activating Basic Income Plus"
       },
       "transaction": {
-        "error": "An unexpected error occurred",
-        "errorClaim": "An unexpected error occurred while claiming"
+        "error": "One unexpected error happen",
+        "errorClaim": "One unexpected error happen while claiming"
       }
     },
     "comingSoonDrawer": {
-      "title": "E dey come soon",
-      "description": "We still dey work on dis feature. Make you stay tuned!"
+      "title": "E Dey Come Soon",
+      "description": "Dis feature dey under development currently. Stay tuned!"
     },
     "tabSwiper": {
       "tabs": {
@@ -55,6 +55,159 @@
         "openLetters": "Open Letters",
         "elections": "Elections",
         "referendums": "Referendums"
+      }
+    },
+    "politicalPartyList": {
+      "myParty": "My party",
+      "createParty": "Create New Party",
+      "noParty": "You no create or join any party yet.",
+      "discover": "Discover",
+      "tabs": {
+        "top": "Top",
+        "trending": "Trending",
+        "new": "New",
+        "pending": "Dey Process"
+      },
+      "emptyState": {
+        "pending": "No pending party dey available.",
+        "noParties": "No party dey wey you fit join."
+      },
+      "partyCard": {
+        "pending": "Dey Process",
+        "deleted": "Dem don Delete am",
+        "members": "members",
+        "actions": {
+          "leaveParty": "Comot for Party",
+          "joinParty": "Join Party",
+          "joinPendingParty": "Join Party wey dey Process"
+        },
+        "management": {
+          "title": "Party Management",
+          "manageMembers": "Manage members",
+          "updateInfo": "Update party info",
+          "transferLeadership": "Transfer leadership",
+          "deleteParty": "Delete party"
+        }
+      },
+      "drawers": {
+        "create": {
+          "title": "Create New Party",
+          "name": {
+            "label": "Party name",
+            "placeholder": "Enter party name",
+            "error": "Abeg enter party name"
+          },
+          "shortName": {
+            "label": "Short name",
+            "placeholder": "Enter short name or abbreviation",
+            "error": "Abeg enter short name"
+          },
+          "description": {
+            "label": "Description",
+            "placeholder": "Enter party description",
+            "error": "Abeg enter description"
+          },
+          "officialLink": {
+            "label": "Official link",
+            "placeholder": "Enter official website or community link (optional)"
+          },
+          "limitWarning": {
+            "approaching": "Character limit dey near: {{current}}/{{max}}",
+            "reached": "Character limit don reach maximum"
+          },
+          "button": {
+            "creating": "Dey Create...",
+            "create": "Create Party"
+          }
+        },
+        "update": {
+          "title": "Update Party Details",
+          "button": {
+            "update": "Update",
+            "updateDescription": "Update Description"
+          }
+        },
+        "transferLeadership": {
+          "title": "Transfer Leadership",
+          "description": "Enter the wallet address of the new leader or look up by username. The address must belong to existing party member.",
+          "lookup": {
+            "label": "Look up by username",
+            "placeholder": "Enter World App username",
+            "buttonText": "Lookup",
+            "loading": "Dey look...",
+            "foundUser": "Found user: ",
+            "address": "Address: "
+          },
+          "newLeader": {
+            "label": "New leader address",
+            "placeholder": "Enter wallet address (0x...)",
+            "errors": {
+              "required": "Abeg enter address",
+              "invalid": "Abeg enter correct Ethereum address (0x...)"
+            }
+          },
+          "button": {
+            "processing": "Dey Process...",
+            "transfer": "Transfer Leadership"
+          }
+        },
+        "leave": {
+          "title": "Comot from Current Party",
+          "description": "You be member of {{partyName}} already. You must comot from your current party before you fit join new one.",
+          "leaderWarning": "Note: You be the leader of this party now. If you comot, dem go lose or reassign the leadership by the system.",
+          "button": {
+            "leaving": "Dey Comot...",
+            "leave": "Comot from {{partyShortName}}"
+          }
+        },
+        "createConfirm": {
+          "title": "Comot from Current Party",
+          "description": "You be member of {{partyName}} already. You must comot from your current party before you fit create new one.",
+          "leaderWarning": "Note: You be the leader of this party now. If you comot, dem go lose or reassign the leadership by the system.",
+          "button": {
+            "processing": "Dey Process...",
+            "leaveAndCreate": "Comot from {{partyShortName}} and create"
+          }
+        },
+        "delete": {
+          "title": "Delete Party",
+          "confirmPending": "You sure say you wan delete this pending party?",
+          "confirm": "You sure say you wan delete this party?",
+          "button": {
+            "processing": "Dey Process...",
+            "deletePending": "Delete Pending Party",
+            "delete": "Delete Party"
+          }
+        },
+        "memberManagement": {
+          "title": "Member Management",
+          "tabs": {
+            "remove": "Remove",
+            "ban": "Ban",
+            "unban": "Unban"
+          },
+          "remove": {
+            "description": "Enter the wallet address of the member wey you wan remove or look am up by username.",
+            "button": {
+              "processing": "Dey Process...",
+              "remove": "Remove Member"
+            }
+          },
+          "ban": {
+            "description": "Enter the username or wallet address of the member wey you wan ban from the party.",
+            "button": {
+              "processing": "Dey Process...",
+              "ban": "Ban Member"
+            }
+          },
+          "unban": {
+            "description": "Enter the username or wallet address of the banned member wey you wan allow back to the party.",
+            "button": {
+              "processing": "Dey Process...",
+              "unban": "Unban Member"
+            }
+          }
+        }
       }
     }
   },

@@ -52,9 +52,162 @@
     "tabSwiper": {
       "tabs": {
         "polls": "Kura",
-        "openLetters": "Barua wazi",
+        "openLetters": "Barua za Wazi",
         "elections": "Uchaguzi",
-        "referendums": "Kura za maoni"
+        "referendums": "Kura ya Maoni"
+      }
+    },
+    "politicalPartyList": {
+      "myParty": "Chama changu",
+      "createParty": "Unda Chama Kipya",
+      "noParty": "Hujaunda au kujiunga na chama bado.",
+      "discover": "Gundua",
+      "tabs": {
+        "top": "Bora",
+        "trending": "Zinazovuma",
+        "new": "Mpya",
+        "pending": "Zinazosubiri"
+      },
+      "emptyState": {
+        "pending": "Hakuna vyama vinavyosubiri vinapatikana.",
+        "noParties": "Hakuna vyama vinapatikana vya kujiunga."
+      },
+      "partyCard": {
+        "pending": "Inasubiri",
+        "deleted": "Imefutwa",
+        "members": "wanachama",
+        "actions": {
+          "leaveParty": "Ondoka Kwenye Chama",
+          "joinParty": "Jiunge na Chama",
+          "joinPendingParty": "Jiunge na Chama Kinachosubiri"
+        },
+        "management": {
+          "title": "Usimamizi wa Chama",
+          "manageMembers": "Simamia wanachama",
+          "updateInfo": "Sasisha taarifa",
+          "transferLeadership": "Hamisha uongozi",
+          "deleteParty": "Futa chama"
+        }
+      },
+      "drawers": {
+        "create": {
+          "title": "Unda Chama Kipya",
+          "name": {
+            "label": "Jina la chama",
+            "placeholder": "Ingiza jina la chama",
+            "error": "Tafadhali ingiza jina la chama"
+          },
+          "shortName": {
+            "label": "Jina fupi",
+            "placeholder": "Ingiza jina fupi au kifupisho",
+            "error": "Tafadhali ingiza jina fupi"
+          },
+          "description": {
+            "label": "Maelezo",
+            "placeholder": "Ingiza maelezo ya chama",
+            "error": "Tafadhali ingiza maelezo"
+          },
+          "officialLink": {
+            "label": "Kiungo rasmi",
+            "placeholder": "Ingiza tovuti rasmi au kiungo cha jamii (si lazima)"
+          },
+          "limitWarning": {
+            "approaching": "Unakaribia kikomo cha herufi: {{current}}/{{max}}",
+            "reached": "Kikomo cha juu cha herufi kimefikiwa"
+          },
+          "button": {
+            "creating": "Inaunda...",
+            "create": "Unda Chama"
+          }
+        },
+        "update": {
+          "title": "Sasisha Maelezo ya Chama",
+          "button": {
+            "update": "Sasisha",
+            "updateDescription": "Sasisha Maelezo"
+          }
+        },
+        "transferLeadership": {
+          "title": "Hamisha Uongozi",
+          "description": "Ingiza anwani ya mkoba ya kiongozi mpya au tafuta kwa jina la mtumiaji. Anwani lazima iwe ya mwanachama wa chama aliyeko.",
+          "lookup": {
+            "label": "Tafuta kwa jina la mtumiaji",
+            "placeholder": "Ingiza jina la mtumiaji la World App",
+            "buttonText": "Tafuta",
+            "loading": "Inatafuta...",
+            "foundUser": "Mtumiaji amepatikana: ",
+            "address": "Anwani: "
+          },
+          "newLeader": {
+            "label": "Anwani ya kiongozi mpya",
+            "placeholder": "Ingiza anwani ya mkoba (0x...)",
+            "errors": {
+              "required": "Tafadhali ingiza anwani",
+              "invalid": "Tafadhali ingiza anwani halali ya Ethereum (0x...)"
+            }
+          },
+          "button": {
+            "processing": "Inachakata...",
+            "transfer": "Hamisha Uongozi"
+          }
+        },
+        "leave": {
+          "title": "Ondoka Kwenye Chama cha Sasa",
+          "description": "Wewe tayari ni mwanachama wa {{partyName}}. Lazima uondoke kwenye chama chako cha sasa kabla ya kujiunga na kipya.",
+          "leaderWarning": "Kumbuka: Kwa sasa wewe ndiye kiongozi wa chama hiki. Ukiondoka, uongozi utapotea au kupangiwa upya na mfumo.",
+          "button": {
+            "leaving": "Inaondoka...",
+            "leave": "Ondoka {{partyShortName}}"
+          }
+        },
+        "createConfirm": {
+          "title": "Ondoka Kwenye Chama cha Sasa",
+          "description": "Wewe tayari ni mwanachama wa {{partyName}}. Lazima uondoke kwenye chama chako cha sasa kabla ya kuunda kipya.",
+          "leaderWarning": "Kumbuka: Kwa sasa wewe ndiye kiongozi wa chama hiki. Ukiondoka, uongozi utapotea au kupangiwa upya na mfumo.",
+          "button": {
+            "processing": "Inachakata...",
+            "leaveAndCreate": "Ondoka {{partyShortName}} na unda"
+          }
+        },
+        "delete": {
+          "title": "Futa Chama",
+          "confirmPending": "Una uhakika unataka kufuta chama hiki kinachosubiri?",
+          "confirm": "Una uhakika unataka kufuta chama hiki?",
+          "button": {
+            "processing": "Inachakata...",
+            "deletePending": "Futa Chama Kinachosubiri",
+            "delete": "Futa Chama"
+          }
+        },
+        "memberManagement": {
+          "title": "Usimamizi wa Wanachama",
+          "tabs": {
+            "remove": "Ondoa",
+            "ban": "Zuia",
+            "unban": "Ondoa Kizuizi"
+          },
+          "remove": {
+            "description": "Ingiza anwani ya mkoba ya mwanachama unayetaka kuondoa au tafuta kwa jina la mtumiaji.",
+            "button": {
+              "processing": "Inachakata...",
+              "remove": "Ondoa Mwanachama"
+            }
+          },
+          "ban": {
+            "description": "Ingiza jina la mtumiaji au anwani ya mkoba ya mwanachama unayetaka kumzuia kutoka kwenye chama.",
+            "button": {
+              "processing": "Inachakata...",
+              "ban": "Zuia Mwanachama"
+            }
+          },
+          "unban": {
+            "description": "Ingiza jina la mtumiaji au anwani ya mkoba ya mwanachama aliyezuiwa ambaye unataka kumruhusu kurudi kwenye chama.",
+            "button": {
+              "processing": "Inachakata...",
+              "unban": "Ondoa Kizuizi cha Mwanachama"
+            }
+          }
+        }
       }
     }
   },

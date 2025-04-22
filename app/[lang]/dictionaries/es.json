@@ -68,6 +68,159 @@
         "elections": "Elecciones",
         "referendums": "Referéndums"
       }
+    },
+    "politicalPartyList": {
+      "myParty": "Mi partido",
+      "createParty": "Crear Nuevo Partido",
+      "noParty": "Aún no has creado o te has unido a un partido.",
+      "discover": "Descubrir",
+      "tabs": {
+        "top": "Destacados",
+        "trending": "Tendencia",
+        "new": "Nuevos",
+        "pending": "Pendientes"
+      },
+      "emptyState": {
+        "pending": "No hay partidos pendientes disponibles.",
+        "noParties": "No hay partidos disponibles para unirse."
+      },
+      "partyCard": {
+        "pending": "Pendiente",
+        "deleted": "Eliminado",
+        "members": "miembros",
+        "actions": {
+          "leaveParty": "Abandonar Partido",
+          "joinParty": "Unirse al Partido",
+          "joinPendingParty": "Unirse al Partido Pendiente"
+        },
+        "management": {
+          "title": "Gestión del Partido",
+          "manageMembers": "Gestionar miembros",
+          "updateInfo": "Actualizar información del partido",
+          "transferLeadership": "Transferir liderazgo",
+          "deleteParty": "Eliminar partido"
+        }
+      },
+      "drawers": {
+        "create": {
+          "title": "Crear Nuevo Partido",
+          "name": {
+            "label": "Nombre del partido",
+            "placeholder": "Ingrese nombre del partido",
+            "error": "Por favor ingrese un nombre para el partido"
+          },
+          "shortName": {
+            "label": "Nombre corto",
+            "placeholder": "Ingrese nombre corto o abreviatura",
+            "error": "Por favor ingrese un nombre corto"
+          },
+          "description": {
+            "label": "Descripción",
+            "placeholder": "Ingrese descripción del partido",
+            "error": "Por favor ingrese una descripción"
+          },
+          "officialLink": {
+            "label": "Enlace oficial",
+            "placeholder": "Ingrese sitio web oficial o enlace de comunidad (opcional)"
+          },
+          "limitWarning": {
+            "approaching": "Acercándose al límite de caracteres: {{current}}/{{max}}",
+            "reached": "Límite máximo de caracteres alcanzado"
+          },
+          "button": {
+            "creating": "Creando...",
+            "create": "Crear Partido"
+          }
+        },
+        "update": {
+          "title": "Actualizar Detalles del Partido",
+          "button": {
+            "update": "Actualizar",
+            "updateDescription": "Actualizar Descripción"
+          }
+        },
+        "transferLeadership": {
+          "title": "Transferir Liderazgo",
+          "description": "Ingrese la dirección de billetera del nuevo líder o busque por nombre de usuario. La dirección debe pertenecer a un miembro existente del partido.",
+          "lookup": {
+            "label": "Buscar por nombre de usuario",
+            "placeholder": "Ingrese nombre de usuario de World App",
+            "buttonText": "Buscar",
+            "loading": "Buscando...",
+            "foundUser": "Usuario encontrado: ",
+            "address": "Dirección: "
+          },
+          "newLeader": {
+            "label": "Dirección del nuevo líder",
+            "placeholder": "Ingrese dirección de billetera (0x...)",
+            "errors": {
+              "required": "Por favor ingrese una dirección",
+              "invalid": "Por favor ingrese una dirección Ethereum válida (0x...)"
+            }
+          },
+          "button": {
+            "processing": "Procesando...",
+            "transfer": "Transferir Liderazgo"
+          }
+        },
+        "leave": {
+          "title": "Abandonar Partido Actual",
+          "description": "Ya eres miembro de {{partyName}}. Debes abandonar tu partido actual antes de unirte a uno nuevo.",
+          "leaderWarning": "Nota: Actualmente eres el líder de este partido. Si te vas, el liderazgo se perderá o será reasignado por el sistema.",
+          "button": {
+            "leaving": "Abandonando...",
+            "leave": "Abandonar {{partyShortName}}"
+          }
+        },
+        "createConfirm": {
+          "title": "Abandonar Partido Actual",
+          "description": "Ya eres miembro de {{partyName}}. Debes abandonar tu partido actual antes de crear uno nuevo.",
+          "leaderWarning": "Nota: Actualmente eres el líder de este partido. Si te vas, el liderazgo se perderá o será reasignado por el sistema.",
+          "button": {
+            "processing": "Procesando...",
+            "leaveAndCreate": "Abandonar {{partyShortName}} y crear"
+          }
+        },
+        "delete": {
+          "title": "Eliminar Partido",
+          "confirmPending": "¿Estás seguro de que quieres eliminar este partido pendiente?",
+          "confirm": "¿Estás seguro de que quieres eliminar este partido?",
+          "button": {
+            "processing": "Procesando...",
+            "deletePending": "Eliminar Partido Pendiente",
+            "delete": "Eliminar Partido"
+          }
+        },
+        "memberManagement": {
+          "title": "Gestión de Miembros",
+          "tabs": {
+            "remove": "Eliminar",
+            "ban": "Prohibir",
+            "unban": "Permitir"
+          },
+          "remove": {
+            "description": "Ingrese la dirección de billetera del miembro que desea eliminar o busque por nombre de usuario.",
+            "button": {
+              "processing": "Procesando...",
+              "remove": "Eliminar Miembro"
+            }
+          },
+          "ban": {
+            "description": "Ingrese el nombre de usuario o dirección de billetera del miembro que desea prohibir del partido.",
+            "button": {
+              "processing": "Procesando...",
+              "ban": "Prohibir Miembro"
+            }
+          },
+          "unban": {
+            "description": "Ingrese el nombre de usuario o dirección de billetera del miembro prohibido que desea permitir volver al partido.",
+            "button": {
+              "processing": "Procesando...",
+              "unban": "Permitir Miembro"
+            }
+          }
+        }
+      }
     }
   },
   "pages": {

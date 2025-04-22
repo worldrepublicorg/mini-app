@@ -56,6 +56,159 @@
         "elections": "選挙",
         "referendums": "国民投票"
       }
+    },
+    "politicalPartyList": {
+      "myParty": "私の政党",
+      "createParty": "新しい政党を作成",
+      "noParty": "まだ政党を作成したり参加したりしていません。",
+      "discover": "発見",
+      "tabs": {
+        "top": "トップ",
+        "trending": "トレンド",
+        "new": "新着",
+        "pending": "保留中"
+      },
+      "emptyState": {
+        "pending": "利用可能な保留中の政党はありません。",
+        "noParties": "参加できる政党はありません。"
+      },
+      "partyCard": {
+        "pending": "保留中",
+        "deleted": "削除済み",
+        "members": "メンバー",
+        "actions": {
+          "leaveParty": "政党を離れる",
+          "joinParty": "政党に参加",
+          "joinPendingParty": "保留中の政党に参加"
+        },
+        "management": {
+          "title": "政党管理",
+          "manageMembers": "メンバーを管理",
+          "updateInfo": "情報を更新",
+          "transferLeadership": "リーダーシップを移譲",
+          "deleteParty": "政党を削除"
+        }
+      },
+      "drawers": {
+        "create": {
+          "title": "新しい政党を作成",
+          "name": {
+            "label": "政党名",
+            "placeholder": "政党名を入力",
+            "error": "政党名を入力してください"
+          },
+          "shortName": {
+            "label": "略称",
+            "placeholder": "略称や省略形を入力",
+            "error": "略称を入力してください"
+          },
+          "description": {
+            "label": "説明",
+            "placeholder": "政党の説明を入力",
+            "error": "説明を入力してください"
+          },
+          "officialLink": {
+            "label": "公式リンク",
+            "placeholder": "公式ウェブサイトやコミュニティリンクを入力（任意）"
+          },
+          "limitWarning": {
+            "approaching": "文字制限に近づいています: {{current}}/{{max}}",
+            "reached": "最大文字数に達しました"
+          },
+          "button": {
+            "creating": "作成中...",
+            "create": "政党を作成"
+          }
+        },
+        "update": {
+          "title": "政党情報を更新",
+          "button": {
+            "update": "更新",
+            "updateDescription": "説明を更新"
+          }
+        },
+        "transferLeadership": {
+          "title": "リーダーシップを移譲",
+          "description": "新しいリーダーのウォレットアドレスを入力するか、ユーザー名で検索してください。アドレスは既存の政党メンバーに属している必要があります。",
+          "lookup": {
+            "label": "ユーザー名で検索",
+            "placeholder": "World Appのユーザー名を入力",
+            "buttonText": "検索",
+            "loading": "検索中...",
+            "foundUser": "ユーザーが見つかりました: ",
+            "address": "アドレス: "
+          },
+          "newLeader": {
+            "label": "新しいリーダーのアドレス",
+            "placeholder": "ウォレットアドレスを入力 (0x...)",
+            "errors": {
+              "required": "アドレスを入力してください",
+              "invalid": "有効なイーサリアムアドレスを入力してください (0x...)"
+            }
+          },
+          "button": {
+            "processing": "処理中...",
+            "transfer": "リーダーシップを移譲"
+          }
+        },
+        "leave": {
+          "title": "現在の政党を離れる",
+          "description": "あなたはすでに{{partyName}}のメンバーです。新しい政党に参加する前に、現在の政党を離れる必要があります。",
+          "leaderWarning": "注意: 現在あなたはこの政党のリーダーです。離れると、リーダーシップは失われるか、システムによって再割り当てされます。",
+          "button": {
+            "leaving": "離脱中...",
+            "leave": "{{partyShortName}}を離れる"
+          }
+        },
+        "createConfirm": {
+          "title": "現在の政党を離れる",
+          "description": "あなたはすでに{{partyName}}のメンバーです。新しい政党を作成する前に、現在の政党を離れる必要があります。",
+          "leaderWarning": "注意: 現在あなたはこの政党のリーダーです。離れると、リーダーシップは失われるか、システムによって再割り当てされます。",
+          "button": {
+            "processing": "処理中...",
+            "leaveAndCreate": "{{partyShortName}}を離れて作成"
+          }
+        },
+        "delete": {
+          "title": "政党を削除",
+          "confirmPending": "この保留中の政党を削除してもよろしいですか？",
+          "confirm": "この政党を削除してもよろしいですか？",
+          "button": {
+            "processing": "処理中...",
+            "deletePending": "保留中の政党を削除",
+            "delete": "政党を削除"
+          }
+        },
+        "memberManagement": {
+          "title": "メンバー管理",
+          "tabs": {
+            "remove": "削除",
+            "ban": "禁止",
+            "unban": "禁止解除"
+          },
+          "remove": {
+            "description": "削除したいメンバーのウォレットアドレスを入力するか、ユーザー名で検索してください。",
+            "button": {
+              "processing": "処理中...",
+              "remove": "メンバーを削除"
+            }
+          },
+          "ban": {
+            "description": "政党から禁止したいメンバーのユーザー名またはウォレットアドレスを入力してください。",
+            "button": {
+              "processing": "処理中...",
+              "ban": "メンバーを禁止"
+            }
+          },
+          "unban": {
+            "description": "政党に戻ることを許可したい禁止されたメンバーのユーザー名またはウォレットアドレスを入力してください。",
+            "button": {
+              "processing": "処理中...",
+              "unban": "メンバーの禁止を解除"
+            }
+          }
+        }
+      }
     }
   },
   "pages": {

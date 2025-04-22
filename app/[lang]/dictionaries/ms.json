@@ -56,6 +56,159 @@
         "elections": "Pilihan Raya",
         "referendums": "Referendum"
       }
+    },
+    "politicalPartyList": {
+      "myParty": "Parti saya",
+      "createParty": "Cipta Parti Baharu",
+      "noParty": "Anda belum mencipta atau menyertai parti.",
+      "discover": "Terokai",
+      "tabs": {
+        "top": "Teratas",
+        "trending": "Trending",
+        "new": "Baharu",
+        "pending": "Menunggu"
+      },
+      "emptyState": {
+        "pending": "Tiada parti menunggu yang tersedia.",
+        "noParties": "Tiada parti tersedia untuk disertai."
+      },
+      "partyCard": {
+        "pending": "Menunggu",
+        "deleted": "Dipadam",
+        "members": "ahli",
+        "actions": {
+          "leaveParty": "Tinggalkan Parti",
+          "joinParty": "Sertai Parti",
+          "joinPendingParty": "Sertai Parti Menunggu"
+        },
+        "management": {
+          "title": "Pengurusan Parti",
+          "manageMembers": "Urus ahli",
+          "updateInfo": "Kemas kini maklumat",
+          "transferLeadership": "Pindahkan kepimpinan",
+          "deleteParty": "Padam parti"
+        }
+      },
+      "drawers": {
+        "create": {
+          "title": "Cipta Parti Baharu",
+          "name": {
+            "label": "Nama parti",
+            "placeholder": "Masukkan nama parti",
+            "error": "Sila masukkan nama parti"
+          },
+          "shortName": {
+            "label": "Nama ringkas",
+            "placeholder": "Masukkan nama ringkas atau singkatan",
+            "error": "Sila masukkan nama ringkas"
+          },
+          "description": {
+            "label": "Penerangan",
+            "placeholder": "Masukkan penerangan parti",
+            "error": "Sila masukkan penerangan"
+          },
+          "officialLink": {
+            "label": "Pautan rasmi",
+            "placeholder": "Masukkan laman web rasmi atau pautan komuniti (pilihan)"
+          },
+          "limitWarning": {
+            "approaching": "Menghampiri had aksara: {{current}}/{{max}}",
+            "reached": "Had maksimum aksara dicapai"
+          },
+          "button": {
+            "creating": "Mencipta...",
+            "create": "Cipta Parti"
+          }
+        },
+        "update": {
+          "title": "Kemas Kini Butiran Parti",
+          "button": {
+            "update": "Kemas kini",
+            "updateDescription": "Kemas kini Penerangan"
+          }
+        },
+        "transferLeadership": {
+          "title": "Pindahkan Kepimpinan",
+          "description": "Masukkan alamat dompet pemimpin baharu atau cari mengikut nama pengguna. Alamat mesti milik ahli parti yang sedia ada.",
+          "lookup": {
+            "label": "Cari mengikut nama pengguna",
+            "placeholder": "Masukkan nama pengguna World App",
+            "buttonText": "Cari",
+            "loading": "Mencari...",
+            "foundUser": "Pengguna dijumpai: ",
+            "address": "Alamat: "
+          },
+          "newLeader": {
+            "label": "Alamat pemimpin baharu",
+            "placeholder": "Masukkan alamat dompet (0x...)",
+            "errors": {
+              "required": "Sila masukkan alamat",
+              "invalid": "Sila masukkan alamat Ethereum yang sah (0x...)"
+            }
+          },
+          "button": {
+            "processing": "Memproses...",
+            "transfer": "Pindahkan Kepimpinan"
+          }
+        },
+        "leave": {
+          "title": "Tinggalkan Parti Semasa",
+          "description": "Anda sudah menjadi ahli {{partyName}}. Anda mesti meninggalkan parti semasa anda sebelum menyertai yang baharu.",
+          "leaderWarning": "Perhatian: Anda kini adalah pemimpin parti ini. Jika anda pergi, kepimpinan akan hilang atau diperuntukkan semula oleh sistem.",
+          "button": {
+            "leaving": "Meninggalkan...",
+            "leave": "Tinggalkan {{partyShortName}}"
+          }
+        },
+        "createConfirm": {
+          "title": "Tinggalkan Parti Semasa",
+          "description": "Anda sudah menjadi ahli {{partyName}}. Anda mesti meninggalkan parti semasa anda sebelum mencipta yang baharu.",
+          "leaderWarning": "Perhatian: Anda kini adalah pemimpin parti ini. Jika anda pergi, kepimpinan akan hilang atau diperuntukkan semula oleh sistem.",
+          "button": {
+            "processing": "Memproses...",
+            "leaveAndCreate": "Tinggalkan {{partyShortName}} dan cipta"
+          }
+        },
+        "delete": {
+          "title": "Padam Parti",
+          "confirmPending": "Adakah anda pasti mahu memadam parti menunggu ini?",
+          "confirm": "Adakah anda pasti mahu memadam parti ini?",
+          "button": {
+            "processing": "Memproses...",
+            "deletePending": "Padam Parti Menunggu",
+            "delete": "Padam Parti"
+          }
+        },
+        "memberManagement": {
+          "title": "Pengurusan Ahli",
+          "tabs": {
+            "remove": "Keluarkan",
+            "ban": "Sekat",
+            "unban": "Nyahsekat"
+          },
+          "remove": {
+            "description": "Masukkan alamat dompet ahli yang ingin anda keluarkan atau cari mengikut nama pengguna.",
+            "button": {
+              "processing": "Memproses...",
+              "remove": "Keluarkan Ahli"
+            }
+          },
+          "ban": {
+            "description": "Masukkan nama pengguna atau alamat dompet ahli yang ingin anda sekat daripada parti.",
+            "button": {
+              "processing": "Memproses...",
+              "ban": "Sekat Ahli"
+            }
+          },
+          "unban": {
+            "description": "Masukkan nama pengguna atau alamat dompet ahli yang disekat yang ingin anda benarkan kembali ke parti.",
+            "button": {
+              "processing": "Memproses...",
+              "unban": "Nyahsekat Ahli"
+            }
+          }
+        }
+      }
     }
   },
   "pages": {

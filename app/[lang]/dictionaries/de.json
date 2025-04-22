@@ -54,7 +54,160 @@
         "polls": "Umfragen",
         "openLetters": "Offene Briefe",
         "elections": "Wahlen",
-        "referendums": "Referenden"
+        "referendums": "Volksabstimmungen"
+      }
+    },
+    "politicalPartyList": {
+      "myParty": "Meine Partei",
+      "createParty": "Neue Partei gründen",
+      "noParty": "Sie haben noch keine Partei gegründet oder sind keiner beigetreten.",
+      "discover": "Entdecken",
+      "tabs": {
+        "top": "Top",
+        "trending": "Trending",
+        "new": "Neu",
+        "pending": "Ausstehend"
+      },
+      "emptyState": {
+        "pending": "Keine ausstehenden Parteien.",
+        "noParties": "Keine Parteien zum Beitreten verfügbar."
+      },
+      "partyCard": {
+        "pending": "Ausstehend",
+        "deleted": "Gelöscht",
+        "members": "Mitglieder",
+        "actions": {
+          "leaveParty": "Partei verlassen",
+          "joinParty": "Partei beitreten",
+          "joinPendingParty": "Ausstehender Partei beitreten"
+        },
+        "management": {
+          "title": "Parteiverwaltung",
+          "manageMembers": "Mitglieder verwalten",
+          "updateInfo": "Informationen aktualisieren",
+          "transferLeadership": "Führung übertragen",
+          "deleteParty": "Partei löschen"
+        }
+      },
+      "drawers": {
+        "create": {
+          "title": "Neue Partei gründen",
+          "name": {
+            "label": "Parteiname",
+            "placeholder": "Geben Sie den Parteinamen ein",
+            "error": "Bitte geben Sie einen Parteinamen ein"
+          },
+          "shortName": {
+            "label": "Kurzname",
+            "placeholder": "Geben Sie einen Kurznamen oder ein Akronym ein",
+            "error": "Bitte geben Sie einen Kurznamen ein"
+          },
+          "description": {
+            "label": "Beschreibung",
+            "placeholder": "Geben Sie eine Beschreibung der Partei ein",
+            "error": "Bitte geben Sie eine Beschreibung ein"
+          },
+          "officialLink": {
+            "label": "Offizieller Link",
+            "placeholder": "Geben Sie die offizielle Website oder Social-Media-Link ein (optional)"
+          },
+          "limitWarning": {
+            "approaching": "Sie nähern sich dem Zeichenlimit: {{current}}/{{max}}",
+            "reached": "Maximales Zeichenlimit erreicht"
+          },
+          "button": {
+            "creating": "Erstellen...",
+            "create": "Partei gründen"
+          }
+        },
+        "update": {
+          "title": "Parteiinformationen aktualisieren",
+          "button": {
+            "update": "Aktualisieren",
+            "updateDescription": "Beschreibung aktualisieren"
+          }
+        },
+        "transferLeadership": {
+          "title": "Führung übertragen",
+          "description": "Geben Sie die Wallet-Adresse des neuen Führers ein oder suchen Sie nach einem Benutzernamen. Die Adresse muss zu einem existierenden Parteimitglied gehören.",
+          "lookup": {
+            "label": "Nach Benutzername suchen",
+            "placeholder": "Geben Sie einen World App-Benutzernamen ein",
+            "buttonText": "Suchen",
+            "loading": "Suche...",
+            "foundUser": "Benutzer gefunden: ",
+            "address": "Adresse: "
+          },
+          "newLeader": {
+            "label": "Adresse des neuen Führers",
+            "placeholder": "Geben Sie eine Wallet-Adresse ein (0x...)",
+            "errors": {
+              "required": "Bitte geben Sie eine Adresse ein",
+              "invalid": "Bitte geben Sie eine gültige Ethereum-Adresse ein (0x...)"
+            }
+          },
+          "button": {
+            "processing": "Verarbeitung...",
+            "transfer": "Führung übertragen"
+          }
+        },
+        "leave": {
+          "title": "Aktuelle Partei verlassen",
+          "description": "Sie sind bereits Mitglied der Partei {{partyName}}. Sie müssen Ihre aktuelle Partei verlassen, bevor Sie einer neuen beitreten können.",
+          "leaderWarning": "Hinweis: Sie sind derzeit der Führer dieser Partei. Wenn Sie austreten, geht die Führung verloren oder wird vom System neu zugewiesen.",
+          "button": {
+            "leaving": "Verlassen...",
+            "leave": "{{partyShortName}} verlassen"
+          }
+        },
+        "createConfirm": {
+          "title": "Aktuelle Partei verlassen",
+          "description": "Sie sind bereits Mitglied der Partei {{partyName}}. Sie müssen Ihre aktuelle Partei verlassen, bevor Sie eine neue gründen können.",
+          "leaderWarning": "Hinweis: Sie sind derzeit der Führer dieser Partei. Wenn Sie austreten, geht die Führung verloren oder wird vom System neu zugewiesen.",
+          "button": {
+            "processing": "Verarbeitung...",
+            "leaveAndCreate": "{{partyShortName}} verlassen und gründen"
+          }
+        },
+        "delete": {
+          "title": "Partei löschen",
+          "confirmPending": "Sind Sie sicher, dass Sie diese ausstehende Partei löschen möchten?",
+          "confirm": "Sind Sie sicher, dass Sie diese Partei löschen möchten?",
+          "button": {
+            "processing": "Verarbeitung...",
+            "deletePending": "Ausstehende Partei löschen",
+            "delete": "Partei löschen"
+          }
+        },
+        "memberManagement": {
+          "title": "Mitgliederverwaltung",
+          "tabs": {
+            "remove": "Entfernen",
+            "ban": "Sperren",
+            "unban": "Entsperren"
+          },
+          "remove": {
+            "description": "Geben Sie die Wallet-Adresse des Mitglieds ein, das Sie entfernen möchten, oder suchen Sie nach einem Benutzernamen.",
+            "button": {
+              "processing": "Verarbeitung...",
+              "remove": "Mitglied entfernen"
+            }
+          },
+          "ban": {
+            "description": "Geben Sie den Benutzernamen oder die Wallet-Adresse des Mitglieds ein, das Sie aus der Partei sperren möchten.",
+            "button": {
+              "processing": "Verarbeitung...",
+              "ban": "Mitglied sperren"
+            }
+          },
+          "unban": {
+            "description": "Geben Sie den Benutzernamen oder die Wallet-Adresse des gesperrten Mitglieds ein, das Sie wieder in die Partei zulassen möchten.",
+            "button": {
+              "processing": "Verarbeitung...",
+              "unban": "Mitglied entsperren"
+            }
+          }
+        }
       }
     }
   },

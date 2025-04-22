@@ -51,10 +51,163 @@
     },
     "tabSwiper": {
       "tabs": {
-        "polls": "투표",
+        "polls": "여론조사",
         "openLetters": "공개 서한",
         "elections": "선거",
         "referendums": "국민투표"
+      }
+    },
+    "politicalPartyList": {
+      "myParty": "내 정당",
+      "createParty": "새 정당 만들기",
+      "noParty": "아직 정당을 만들거나 가입하지 않았습니다.",
+      "discover": "탐색",
+      "tabs": {
+        "top": "인기",
+        "trending": "트렌딩",
+        "new": "신규",
+        "pending": "대기 중"
+      },
+      "emptyState": {
+        "pending": "사용 가능한 대기 중인 정당이 없습니다.",
+        "noParties": "가입할 수 있는 정당이 없습니다."
+      },
+      "partyCard": {
+        "pending": "대기 중",
+        "deleted": "삭제됨",
+        "members": "회원",
+        "actions": {
+          "leaveParty": "정당 탈퇴",
+          "joinParty": "정당 가입",
+          "joinPendingParty": "대기 중인 정당 가입"
+        },
+        "management": {
+          "title": "정당 관리",
+          "manageMembers": "회원 관리",
+          "updateInfo": "정보 업데이트",
+          "transferLeadership": "리더십 이전",
+          "deleteParty": "정당 삭제"
+        }
+      },
+      "drawers": {
+        "create": {
+          "title": "새 정당 만들기",
+          "name": {
+            "label": "정당명",
+            "placeholder": "정당명 입력",
+            "error": "정당명을 입력해 주세요"
+          },
+          "shortName": {
+            "label": "약칭",
+            "placeholder": "약칭 또는 약어 입력",
+            "error": "약칭을 입력해 주세요"
+          },
+          "description": {
+            "label": "설명",
+            "placeholder": "정당 설명 입력",
+            "error": "설명을 입력해 주세요"
+          },
+          "officialLink": {
+            "label": "공식 링크",
+            "placeholder": "공식 웹사이트 또는 커뮤니티 링크 입력 (선택사항)"
+          },
+          "limitWarning": {
+            "approaching": "글자 수 제한에 근접: {{current}}/{{max}}",
+            "reached": "최대 글자 수 도달"
+          },
+          "button": {
+            "creating": "생성 중...",
+            "create": "정당 만들기"
+          }
+        },
+        "update": {
+          "title": "정당 정보 업데이트",
+          "button": {
+            "update": "업데이트",
+            "updateDescription": "설명 업데이트"
+          }
+        },
+        "transferLeadership": {
+          "title": "리더십 이전",
+          "description": "새 리더의 지갑 주소를 입력하거나 사용자 이름으로 검색하세요. 주소는 기존 정당 회원의 것이어야 합니다.",
+          "lookup": {
+            "label": "사용자 이름으로 검색",
+            "placeholder": "World App 사용자 이름 입력",
+            "buttonText": "검색",
+            "loading": "검색 중...",
+            "foundUser": "사용자 찾음: ",
+            "address": "주소: "
+          },
+          "newLeader": {
+            "label": "새 리더 주소",
+            "placeholder": "지갑 주소 입력 (0x...)",
+            "errors": {
+              "required": "주소를 입력해 주세요",
+              "invalid": "유효한 이더리움 주소를 입력해 주세요 (0x...)"
+            }
+          },
+          "button": {
+            "processing": "처리 중...",
+            "transfer": "리더십 이전"
+          }
+        },
+        "leave": {
+          "title": "현재 정당 탈퇴",
+          "description": "이미 {{partyName}}의 회원입니다. 새 정당에 가입하기 전에 현재 정당을 탈퇴해야 합니다.",
+          "leaderWarning": "참고: 현재 이 정당의 리더입니다. 탈퇴하면 리더십이 상실되거나 시스템에 의해 재할당됩니다.",
+          "button": {
+            "leaving": "탈퇴 중...",
+            "leave": "{{partyShortName}} 탈퇴"
+          }
+        },
+        "createConfirm": {
+          "title": "현재 정당 탈퇴",
+          "description": "이미 {{partyName}}의 회원입니다. 새 정당을 만들기 전에 현재 정당을 탈퇴해야 합니다.",
+          "leaderWarning": "참고: 현재 이 정당의 리더입니다. 탈퇴하면 리더십이 상실되거나 시스템에 의해 재할당됩니다.",
+          "button": {
+            "processing": "처리 중...",
+            "leaveAndCreate": "{{partyShortName}} 탈퇴 및 생성"
+          }
+        },
+        "delete": {
+          "title": "정당 삭제",
+          "confirmPending": "이 대기 중인 정당을 삭제하시겠습니까?",
+          "confirm": "이 정당을 삭제하시겠습니까?",
+          "button": {
+            "processing": "처리 중...",
+            "deletePending": "대기 중인 정당 삭제",
+            "delete": "정당 삭제"
+          }
+        },
+        "memberManagement": {
+          "title": "회원 관리",
+          "tabs": {
+            "remove": "제거",
+            "ban": "차단",
+            "unban": "차단 해제"
+          },
+          "remove": {
+            "description": "제거하려는 회원의 지갑 주소를 입력하거나 사용자 이름으로 검색하세요.",
+            "button": {
+              "processing": "처리 중...",
+              "remove": "회원 제거"
+            }
+          },
+          "ban": {
+            "description": "정당에서 차단하려는 회원의 사용자 이름 또는 지갑 주소를 입력하세요.",
+            "button": {
+              "processing": "처리 중...",
+              "ban": "회원 차단"
+            }
+          },
+          "unban": {
+            "description": "정당에 다시 참여하도록 허용하려는 차단된 회원의 사용자 이름 또는 지갑 주소를 입력하세요.",
+            "button": {
+              "processing": "처리 중...",
+              "unban": "회원 차단 해제"
+            }
+          }
+        }
       }
     }
   },

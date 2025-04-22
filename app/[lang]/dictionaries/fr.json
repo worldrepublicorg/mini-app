@@ -56,6 +56,159 @@
         "elections": "Élections",
         "referendums": "Référendums"
       }
+    },
+    "politicalPartyList": {
+      "myParty": "Mon parti",
+      "createParty": "Créer un Nouveau Parti",
+      "noParty": "Vous n'avez pas encore créé ou rejoint un parti.",
+      "discover": "Découvrir",
+      "tabs": {
+        "top": "Top",
+        "trending": "Tendance",
+        "new": "Nouveaux",
+        "pending": "En attente"
+      },
+      "emptyState": {
+        "pending": "Aucun parti en attente disponible.",
+        "noParties": "Aucun parti disponible à rejoindre."
+      },
+      "partyCard": {
+        "pending": "En attente",
+        "deleted": "Supprimé",
+        "members": "membres",
+        "actions": {
+          "leaveParty": "Quitter le Parti",
+          "joinParty": "Rejoindre le Parti",
+          "joinPendingParty": "Rejoindre le Parti en Attente"
+        },
+        "management": {
+          "title": "Gestion du Parti",
+          "manageMembers": "Gérer les membres",
+          "updateInfo": "Mettre à jour les informations",
+          "transferLeadership": "Transférer le leadership",
+          "deleteParty": "Supprimer le parti"
+        }
+      },
+      "drawers": {
+        "create": {
+          "title": "Créer un Nouveau Parti",
+          "name": {
+            "label": "Nom du parti",
+            "placeholder": "Entrez le nom du parti",
+            "error": "Veuillez entrer un nom de parti"
+          },
+          "shortName": {
+            "label": "Nom court",
+            "placeholder": "Entrez un nom court ou une abréviation",
+            "error": "Veuillez entrer un nom court"
+          },
+          "description": {
+            "label": "Description",
+            "placeholder": "Entrez la description du parti",
+            "error": "Veuillez entrer une description"
+          },
+          "officialLink": {
+            "label": "Lien officiel",
+            "placeholder": "Entrez le site web officiel ou le lien de la communauté (optionnel)"
+          },
+          "limitWarning": {
+            "approaching": "Approche de la limite de caractères : {{current}}/{{max}}",
+            "reached": "Limite maximale de caractères atteinte"
+          },
+          "button": {
+            "creating": "Création en cours...",
+            "create": "Créer le Parti"
+          }
+        },
+        "update": {
+          "title": "Mettre à Jour les Détails du Parti",
+          "button": {
+            "update": "Mettre à jour",
+            "updateDescription": "Mettre à jour la Description"
+          }
+        },
+        "transferLeadership": {
+          "title": "Transférer le Leadership",
+          "description": "Entrez l'adresse de portefeuille du nouveau leader ou recherchez par nom d'utilisateur. L'adresse doit appartenir à un membre existant du parti.",
+          "lookup": {
+            "label": "Rechercher par nom d'utilisateur",
+            "placeholder": "Entrez le nom d'utilisateur World App",
+            "buttonText": "Rechercher",
+            "loading": "Recherche en cours...",
+            "foundUser": "Utilisateur trouvé : ",
+            "address": "Adresse : "
+          },
+          "newLeader": {
+            "label": "Adresse du nouveau leader",
+            "placeholder": "Entrez l'adresse du portefeuille (0x...)",
+            "errors": {
+              "required": "Veuillez entrer une adresse",
+              "invalid": "Veuillez entrer une adresse Ethereum valide (0x...)"
+            }
+          },
+          "button": {
+            "processing": "Traitement en cours...",
+            "transfer": "Transférer le Leadership"
+          }
+        },
+        "leave": {
+          "title": "Quitter le Parti Actuel",
+          "description": "Vous êtes déjà membre de {{partyName}}. Vous devez quitter votre parti actuel avant d'en rejoindre un nouveau.",
+          "leaderWarning": "Remarque : Vous êtes actuellement le leader de ce parti. Si vous partez, le leadership sera perdu ou réattribué par le système.",
+          "button": {
+            "leaving": "Départ en cours...",
+            "leave": "Quitter {{partyShortName}}"
+          }
+        },
+        "createConfirm": {
+          "title": "Quitter le Parti Actuel",
+          "description": "Vous êtes déjà membre de {{partyName}}. Vous devez quitter votre parti actuel avant d'en créer un nouveau.",
+          "leaderWarning": "Remarque : Vous êtes actuellement le leader de ce parti. Si vous partez, le leadership sera perdu ou réattribué par le système.",
+          "button": {
+            "processing": "Traitement en cours...",
+            "leaveAndCreate": "Quitter {{partyShortName}} et créer"
+          }
+        },
+        "delete": {
+          "title": "Supprimer le Parti",
+          "confirmPending": "Êtes-vous sûr de vouloir supprimer ce parti en attente ?",
+          "confirm": "Êtes-vous sûr de vouloir supprimer ce parti ?",
+          "button": {
+            "processing": "Traitement en cours...",
+            "deletePending": "Supprimer le Parti en Attente",
+            "delete": "Supprimer le Parti"
+          }
+        },
+        "memberManagement": {
+          "title": "Gestion des Membres",
+          "tabs": {
+            "remove": "Retirer",
+            "ban": "Bannir",
+            "unban": "Débannir"
+          },
+          "remove": {
+            "description": "Entrez l'adresse de portefeuille du membre que vous souhaitez retirer ou recherchez par nom d'utilisateur.",
+            "button": {
+              "processing": "Traitement en cours...",
+              "remove": "Retirer le Membre"
+            }
+          },
+          "ban": {
+            "description": "Entrez le nom d'utilisateur ou l'adresse de portefeuille du membre que vous souhaitez bannir du parti.",
+            "button": {
+              "processing": "Traitement en cours...",
+              "ban": "Bannir le Membre"
+            }
+          },
+          "unban": {
+            "description": "Entrez le nom d'utilisateur ou l'adresse de portefeuille du membre banni que vous souhaitez autoriser à revenir dans le parti.",
+            "button": {
+              "processing": "Traitement en cours...",
+              "unban": "Débannir le Membre"
+            }
+          }
+        }
+      }
     }
   },
   "pages": {
