@@ -17,6 +17,7 @@ import { FaPlus } from "react-icons/fa";
 import { Dropdown } from "@/components/ui/Dropdown";
 import { DrawerTitle } from "@/components/ui/Drawer";
 import { LoadingSkeleton } from "./PartySkeletons";
+import { useTranslations } from "@/hooks/useTranslations";
 
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
   "0x70a993E1D1102F018365F966B5Fc009e8FA9b7dC";
@@ -57,6 +58,7 @@ interface PoliticalPartyListProps {
 }
 
 export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
+  const dictionary = useTranslations(lang);
   const [parties, setParties] = useState<Party[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<
@@ -1237,12 +1239,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         <div className="flex items-center gap-2">
           {party.status === 0 && (
             <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
-              Pending
+              {dictionary?.components?.politicalPartyList?.partyCard?.pending}
             </span>
           )}
           {party.status === 2 && (
             <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
-              Deleted
+              {dictionary?.components?.politicalPartyList?.partyCard?.deleted}
             </span>
           )}
           {party.isUserLeader && party.status !== 2 && (
@@ -1250,32 +1252,43 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               trigger={
                 <button
                   className="text-gray-600 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 transition-colors hover:bg-gray-200"
-                  title="Party Management"
+                  title={
+                    dictionary?.components?.politicalPartyList?.partyCard
+                      ?.management?.title
+                  }
                 >
                   <PiGearBold size={16} />
                 </button>
               }
               menuItems={[
                 {
-                  label: "Manage members",
+                  label:
+                    dictionary?.components?.politicalPartyList?.partyCard
+                      ?.management?.manageMembers,
                   onClick: () => {
                     setSelectedParty(party);
                     setIsMemberManagementDrawerOpen(true);
                   },
                 },
                 {
-                  label: "Update party info",
+                  label:
+                    dictionary?.components?.politicalPartyList?.partyCard
+                      ?.management?.updateInfo,
                   onClick: () => openUpdatePartyDrawer(party),
                 },
                 {
-                  label: "Transfer leadership",
+                  label:
+                    dictionary?.components?.politicalPartyList?.partyCard
+                      ?.management?.transferLeadership,
                   onClick: () => {
                     setSelectedParty(party);
                     setIsTransferLeadershipDrawerOpen(true);
                   },
                 },
                 {
-                  label: "Delete party",
+                  label:
+                    dictionary?.components?.politicalPartyList?.partyCard
+                      ?.management?.deleteParty,
                   onClick: () => {
                     setSelectedParty(party);
                     setIsDeleteDrawerOpen(true);
@@ -1329,7 +1342,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             variant={{ variant: "caption", level: 1 }}
             className="text-[15px] text-gray-500"
           >
-            members
+            {dictionary?.components?.politicalPartyList?.partyCard?.members}
           </Typography>
         </div>
       </div>
@@ -1343,7 +1356,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             fullWidth
             onClick={() => leaveParty(party.id)}
           >
-            Leave Party
+            {
+              dictionary?.components?.politicalPartyList?.partyCard?.actions
+                ?.leaveParty
+            }
           </Button>
         ) : (
           <Button
@@ -1353,7 +1369,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             fullWidth
             onClick={() => joinParty(party.id)}
           >
-            {party.status === 0 ? "Join Pending Party" : "Join Party"}
+            {party.status === 0
+              ? dictionary?.components?.politicalPartyList?.partyCard?.actions
+                  ?.joinPendingParty
+              : dictionary?.components?.politicalPartyList?.partyCard?.actions
+                  ?.joinParty}
           </Button>
         )}
       </div>
@@ -1374,12 +1394,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             variant={{ variant: "subtitle", level: 1 }}
             className="text-[19px] font-semibold"
           >
-            My party
+            {dictionary?.components?.politicalPartyList?.myParty}
           </Typography>
           <button
             className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-900"
             onClick={handleCreatePartyClick}
-            title="Create New Party"
+            title={dictionary?.components?.politicalPartyList?.createParty}
           >
             <FaPlus className="text-gray-500" size={12} />
           </button>
@@ -1395,7 +1415,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         ) : (
           // Message when user hasn't joined or created a political party yet.
           <div className="p-4 text-center text-gray-500">
-            You haven&apos;t created or joined a party yet.
+            {dictionary?.components?.politicalPartyList?.noParty}
           </div>
         )}
       </div>
@@ -1405,7 +1425,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         variant={{ variant: "subtitle", level: 1 }}
         className="mb-3 text-[19px] font-semibold"
       >
-        Discover
+        {dictionary?.components?.politicalPartyList?.discover}
       </Typography>
       {/* Tabs */}
       <div className="mb-2 flex items-center gap-1">
@@ -1415,7 +1435,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           }`}
           onClick={() => setActiveTab("top")}
         >
-          Top
+          {dictionary?.components?.politicalPartyList?.tabs?.top}
         </button>
         <button
           className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
@@ -1423,7 +1443,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           }`}
           onClick={() => setActiveTab("trending")}
         >
-          Trending
+          {dictionary?.components?.politicalPartyList?.tabs?.trending}
         </button>
         <button
           className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
@@ -1431,7 +1451,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           }`}
           onClick={() => setActiveTab("new")}
         >
-          New
+          {dictionary?.components?.politicalPartyList?.tabs?.new}
         </button>
         <button
           className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
@@ -1439,15 +1459,15 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           }`}
           onClick={() => setActiveTab("pending")}
         >
-          Pending
+          {dictionary?.components?.politicalPartyList?.tabs?.pending}
         </button>
       </div>
 
       {filteredParties.length === 0 && (
         <div className="my-8 text-center text-gray-500">
           {activeTab === "pending"
-            ? "No pending parties available."
-            : "No parties available to join."}
+            ? dictionary?.components?.politicalPartyList?.emptyState?.pending
+            : dictionary?.components?.politicalPartyList?.emptyState?.noParties}
         </div>
       )}
 
@@ -1458,7 +1478,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         <DrawerContent>
           <div className="p-6">
             <DrawerHeader>
-              <DrawerTitle>Create New Party</DrawerTitle>
+              <DrawerTitle>
+                {
+                  dictionary?.components?.politicalPartyList?.drawers?.create
+                    ?.title
+                }
+              </DrawerTitle>
             </DrawerHeader>
             <Form.Root
               onSubmit={(e) => {
@@ -1472,11 +1497,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   variant={{ variant: "caption", level: 1 }}
                   className="mb-1.5 block font-medium"
                 >
-                  Party name
+                  {
+                    dictionary?.components?.politicalPartyList?.drawers?.create
+                      ?.name?.label
+                  }
                 </Typography>
                 <Form.Control asChild>
                   <Input
-                    label="Enter party name"
+                    label={
+                      dictionary?.components?.politicalPartyList?.drawers
+                        ?.create?.name?.placeholder
+                    }
                     value={createPartyForm.name}
                     onChange={(e) =>
                       setCreatePartyForm((prev) => ({
@@ -1490,7 +1521,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   />
                 </Form.Control>
                 <Form.Message match="valueMissing" error>
-                  Please enter a party name
+                  {
+                    dictionary?.components?.politicalPartyList?.drawers?.create
+                      ?.name?.error
+                  }
                 </Form.Message>
                 {createPartyForm.name.length >= MAX_STRING_LENGTH * 0.9 && (
                   <Typography
@@ -1498,8 +1532,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     className={`mt-[7px] px-2 text-xs ${createPartyForm.name.length >= MAX_STRING_LENGTH ? "text-error-600" : "text-gray-500"}`}
                   >
                     {createPartyForm.name.length >= MAX_STRING_LENGTH
-                      ? "Maximum character limit reached"
-                      : `Approaching character limit: ${createPartyForm.name.length}/${MAX_STRING_LENGTH}`}
+                      ? dictionary?.components?.politicalPartyList?.drawers
+                          ?.create?.limitWarning?.reached
+                      : dictionary?.components?.politicalPartyList?.drawers?.create?.limitWarning?.approaching
+                          .replace(
+                            "{{current}}",
+                            createPartyForm.name.length.toString()
+                          )
+                          .replace("{{max}}", MAX_STRING_LENGTH.toString())}
                   </Typography>
                 )}
               </Form.Field>
@@ -1510,11 +1550,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   variant={{ variant: "caption", level: 1 }}
                   className="mb-1.5 block font-medium"
                 >
-                  Short name
+                  {
+                    dictionary?.components?.politicalPartyList?.drawers?.create
+                      ?.shortName?.label
+                  }
                 </Typography>
                 <Form.Control asChild>
                   <Input
-                    label="Enter short name or abbreviation"
+                    label={
+                      dictionary?.components?.politicalPartyList?.drawers
+                        ?.create?.shortName?.placeholder
+                    }
                     value={createPartyForm.shortName}
                     onChange={(e) =>
                       setCreatePartyForm((prev) => ({
@@ -1528,7 +1574,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   />
                 </Form.Control>
                 <Form.Message match="valueMissing" error>
-                  Please enter a short name
+                  {
+                    dictionary?.components?.politicalPartyList?.drawers?.create
+                      ?.shortName?.error
+                  }
                 </Form.Message>
                 {createPartyForm.shortName.length >=
                   MAX_SHORT_NAME_LENGTH * 0.8 && (
@@ -1537,8 +1586,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     className={`mt-[7px] px-2 text-xs ${createPartyForm.shortName.length >= MAX_SHORT_NAME_LENGTH ? "text-error-600" : "text-gray-500"}`}
                   >
                     {createPartyForm.shortName.length >= MAX_SHORT_NAME_LENGTH
-                      ? "Maximum character limit reached"
-                      : `Approaching character limit: ${createPartyForm.shortName.length}/${MAX_SHORT_NAME_LENGTH}`}
+                      ? dictionary?.components?.politicalPartyList?.drawers
+                          ?.create?.limitWarning?.reached
+                      : dictionary?.components?.politicalPartyList?.drawers?.create?.limitWarning?.approaching
+                          .replace(
+                            "{{current}}",
+                            createPartyForm.shortName.length.toString()
+                          )
+                          .replace("{{max}}", MAX_SHORT_NAME_LENGTH.toString())}
                   </Typography>
                 )}
               </Form.Field>
@@ -1549,11 +1604,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   variant={{ variant: "caption", level: 1 }}
                   className="mb-1.5 block font-medium"
                 >
-                  Description
+                  {
+                    dictionary?.components?.politicalPartyList?.drawers?.create
+                      ?.description?.label
+                  }
                 </Typography>
                 <Form.Control asChild>
                   <Textarea
-                    placeholder="Enter party description"
+                    placeholder={
+                      dictionary?.components?.politicalPartyList?.drawers
+                        ?.create?.description?.placeholder
+                    }
                     value={createPartyForm.description}
                     onChange={(e) =>
                       setCreatePartyForm((prev) => ({
@@ -1568,7 +1629,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   />
                 </Form.Control>
                 <Form.Message match="valueMissing" error>
-                  Please enter a description
+                  {
+                    dictionary?.components?.politicalPartyList?.drawers?.create
+                      ?.description?.error
+                  }
                 </Form.Message>
                 {createPartyForm.description.length >=
                   MAX_STRING_LENGTH * 0.9 && (
@@ -1577,8 +1641,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     className={`mt-[7px] px-2 text-xs ${createPartyForm.description.length >= MAX_STRING_LENGTH ? "text-error-600" : "text-gray-500"}`}
                   >
                     {createPartyForm.description.length >= MAX_STRING_LENGTH
-                      ? "Maximum character limit reached"
-                      : `Approaching character limit: ${createPartyForm.description.length}/${MAX_STRING_LENGTH}`}
+                      ? dictionary?.components?.politicalPartyList?.drawers
+                          ?.create?.limitWarning?.reached
+                      : dictionary?.components?.politicalPartyList?.drawers?.create?.limitWarning?.approaching
+                          .replace(
+                            "{{current}}",
+                            createPartyForm.description.length.toString()
+                          )
+                          .replace("{{max}}", MAX_STRING_LENGTH.toString())}
                   </Typography>
                 )}
               </Form.Field>
@@ -1589,11 +1659,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   variant={{ variant: "caption", level: 1 }}
                   className="mb-1.5 block font-medium"
                 >
-                  Official link
+                  {
+                    dictionary?.components?.politicalPartyList?.drawers?.create
+                      ?.officialLink?.label
+                  }
                 </Typography>
                 <Form.Control asChild>
                   <Input
-                    label="Enter official website or community link (optional)"
+                    label={
+                      dictionary?.components?.politicalPartyList?.drawers
+                        ?.create?.officialLink?.placeholder
+                    }
                     value={createPartyForm.officialLink}
                     onChange={(e) =>
                       setCreatePartyForm((prev) => ({
@@ -1612,15 +1688,25 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     className={`mt-[7px] px-2 text-xs ${createPartyForm.officialLink.length >= MAX_STRING_LENGTH ? "text-error-600" : "text-gray-500"}`}
                   >
                     {createPartyForm.officialLink.length >= MAX_STRING_LENGTH
-                      ? "Maximum character limit reached"
-                      : `Approaching character limit: ${createPartyForm.officialLink.length}/${MAX_STRING_LENGTH}`}
+                      ? dictionary?.components?.politicalPartyList?.drawers
+                          ?.create?.limitWarning?.reached
+                      : dictionary?.components?.politicalPartyList?.drawers?.create?.limitWarning?.approaching
+                          .replace(
+                            "{{current}}",
+                            createPartyForm.officialLink.length.toString()
+                          )
+                          .replace("{{max}}", MAX_STRING_LENGTH.toString())}
                   </Typography>
                 )}
               </Form.Field>
 
               <Form.Submit asChild className="mt-4">
                 <Button variant="primary" fullWidth disabled={isCreating}>
-                  {isCreating ? "Creating..." : "Create Party"}
+                  {isCreating
+                    ? dictionary?.components?.politicalPartyList?.drawers
+                        ?.create?.button?.creating
+                    : dictionary?.components?.politicalPartyList?.drawers
+                        ?.create?.button?.create}
                 </Button>
               </Form.Submit>
             </Form.Root>
@@ -1636,7 +1722,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         <DrawerContent>
           <div className="flex flex-col gap-4 p-6">
             <DrawerHeader>
-              <DrawerTitle>Update Party Details</DrawerTitle>
+              <DrawerTitle>
+                {
+                  dictionary?.components?.politicalPartyList?.drawers?.update
+                    ?.title
+                }
+              </DrawerTitle>
             </DrawerHeader>
 
             <div className="grid grid-cols-1 gap-4">
@@ -1647,11 +1738,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   variant={{ variant: "caption", level: 1 }}
                   className="mb-1.5 block font-medium"
                 >
-                  Party name
+                  {
+                    dictionary?.components?.politicalPartyList?.drawers?.create
+                      ?.name?.label
+                  }
                 </Typography>
                 <div className="flex gap-2">
                   <Input
-                    label="Enter party name"
+                    label={
+                      dictionary?.components?.politicalPartyList?.drawers
+                        ?.create?.name?.placeholder
+                    }
                     value={updatePartyForm.name}
                     onChange={(e) =>
                       setUpdatePartyForm((prev) => ({
@@ -1725,7 +1822,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     }}
                     disabled={isProcessing}
                   >
-                    Update
+                    {
+                      dictionary?.components?.politicalPartyList?.drawers
+                        ?.update?.button?.update
+                    }
                   </Button>
                 </div>
                 {updatePartyForm.name.length >= MAX_STRING_LENGTH * 0.9 && (
@@ -1734,8 +1834,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     className={`mt-[7px] px-2 text-xs ${updatePartyForm.name.length >= MAX_STRING_LENGTH ? "text-error-600" : "text-gray-500"}`}
                   >
                     {updatePartyForm.name.length >= MAX_STRING_LENGTH
-                      ? "Maximum character limit reached"
-                      : `Approaching character limit: ${updatePartyForm.name.length}/${MAX_STRING_LENGTH}`}
+                      ? dictionary?.components?.politicalPartyList?.drawers
+                          ?.create?.limitWarning?.reached
+                      : dictionary?.components?.politicalPartyList?.drawers?.create?.limitWarning?.approaching
+                          .replace(
+                            "{{current}}",
+                            updatePartyForm.name.length.toString()
+                          )
+                          .replace("{{max}}", MAX_STRING_LENGTH.toString())}
                   </Typography>
                 )}
               </div>
@@ -1747,11 +1853,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   variant={{ variant: "caption", level: 1 }}
                   className="mb-1.5 block font-medium"
                 >
-                  Short name
+                  {
+                    dictionary?.components?.politicalPartyList?.drawers?.create
+                      ?.shortName?.label
+                  }
                 </Typography>
                 <div className="flex gap-2">
                   <Input
-                    label="Enter short name or abbreviation"
+                    label={
+                      dictionary?.components?.politicalPartyList?.drawers
+                        ?.create?.shortName?.placeholder
+                    }
                     value={updatePartyForm.shortName}
                     onChange={(e) =>
                       setUpdatePartyForm((prev) => ({
@@ -1834,7 +1946,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     }}
                     disabled={isProcessing}
                   >
-                    Update
+                    {
+                      dictionary?.components?.politicalPartyList?.drawers
+                        ?.update?.button?.update
+                    }
                   </Button>
                 </div>
                 {updatePartyForm.shortName.length >=
@@ -1844,8 +1959,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     className={`mt-[7px] px-2 text-xs ${updatePartyForm.shortName.length >= MAX_SHORT_NAME_LENGTH ? "text-error-600" : "text-gray-500"}`}
                   >
                     {updatePartyForm.shortName.length >= MAX_SHORT_NAME_LENGTH
-                      ? "Maximum character limit reached"
-                      : `Approaching character limit: ${updatePartyForm.shortName.length}/${MAX_SHORT_NAME_LENGTH}`}
+                      ? dictionary?.components?.politicalPartyList?.drawers
+                          ?.create?.limitWarning?.reached
+                      : dictionary?.components?.politicalPartyList?.drawers?.create?.limitWarning?.approaching
+                          .replace(
+                            "{{current}}",
+                            updatePartyForm.shortName.length.toString()
+                          )
+                          .replace("{{max}}", MAX_SHORT_NAME_LENGTH.toString())}
                   </Typography>
                 )}
               </div>
@@ -1857,11 +1978,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   variant={{ variant: "caption", level: 1 }}
                   className="mb-1.5 block font-medium"
                 >
-                  Description
+                  {
+                    dictionary?.components?.politicalPartyList?.drawers?.create
+                      ?.description?.label
+                  }
                 </Typography>
                 <div className="flex flex-col gap-2">
                   <Textarea
-                    placeholder="Enter party description"
+                    placeholder={
+                      dictionary?.components?.politicalPartyList?.drawers
+                        ?.create?.description?.placeholder
+                    }
                     value={updatePartyForm.description}
                     onChange={(e) =>
                       setUpdatePartyForm((prev) => ({
@@ -1945,7 +2072,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     }}
                     disabled={isProcessing}
                   >
-                    Update Description
+                    {
+                      dictionary?.components?.politicalPartyList?.drawers
+                        ?.update?.button?.updateDescription
+                    }
                   </Button>
                 </div>
                 {updatePartyForm.description.length >=
@@ -1955,8 +2085,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     className={`mt-[7px] px-2 text-xs ${updatePartyForm.description.length >= MAX_STRING_LENGTH ? "text-error-600" : "text-gray-500"}`}
                   >
                     {updatePartyForm.description.length >= MAX_STRING_LENGTH
-                      ? "Maximum character limit reached"
-                      : `Approaching character limit: ${updatePartyForm.description.length}/${MAX_STRING_LENGTH}`}
+                      ? dictionary?.components?.politicalPartyList?.drawers
+                          ?.create?.limitWarning?.reached
+                      : dictionary?.components?.politicalPartyList?.drawers?.create?.limitWarning?.approaching
+                          .replace(
+                            "{{current}}",
+                            updatePartyForm.description.length.toString()
+                          )
+                          .replace("{{max}}", MAX_STRING_LENGTH.toString())}
                   </Typography>
                 )}
               </div>
@@ -1968,11 +2104,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   variant={{ variant: "caption", level: 1 }}
                   className="mb-1.5 block font-medium"
                 >
-                  Official link
+                  {
+                    dictionary?.components?.politicalPartyList?.drawers?.create
+                      ?.officialLink?.label
+                  }
                 </Typography>
                 <div className="flex gap-2">
                   <Input
-                    label="Enter official website or community link (optional)"
+                    label={
+                      dictionary?.components?.politicalPartyList?.drawers
+                        ?.create?.officialLink?.placeholder
+                    }
                     value={updatePartyForm.officialLink}
                     onChange={(e) =>
                       setUpdatePartyForm((prev) => ({
@@ -2054,7 +2196,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     }}
                     disabled={isProcessing}
                   >
-                    Update
+                    {
+                      dictionary?.components?.politicalPartyList?.drawers
+                        ?.update?.button?.update
+                    }
                   </Button>
                 </div>
                 {updatePartyForm.officialLink.length >=
@@ -2064,8 +2209,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     className={`mt-[7px] px-2 text-xs ${updatePartyForm.officialLink.length >= MAX_STRING_LENGTH ? "text-error-600" : "text-gray-500"}`}
                   >
                     {updatePartyForm.officialLink.length >= MAX_STRING_LENGTH
-                      ? "Maximum character limit reached"
-                      : `Approaching character limit: ${updatePartyForm.officialLink.length}/${MAX_STRING_LENGTH}`}
+                      ? dictionary?.components?.politicalPartyList?.drawers
+                          ?.create?.limitWarning?.reached
+                      : dictionary?.components?.politicalPartyList?.drawers?.create?.limitWarning?.approaching
+                          .replace(
+                            "{{current}}",
+                            updatePartyForm.officialLink.length.toString()
+                          )
+                          .replace("{{max}}", MAX_STRING_LENGTH.toString())}
                   </Typography>
                 )}
               </div>
@@ -2082,15 +2233,22 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         <DrawerContent>
           <div className="flex flex-col gap-4 p-6">
             <DrawerHeader>
-              <DrawerTitle>Transfer Leadership</DrawerTitle>
+              <DrawerTitle>
+                {
+                  dictionary?.components?.politicalPartyList?.drawers
+                    ?.transferLeadership?.title
+                }
+              </DrawerTitle>
             </DrawerHeader>
             <Typography
               as="p"
               variant={{ variant: "body", level: 2 }}
               className="text-[15px]"
             >
-              Enter the wallet address of the new leader or look up by username.
-              The address must belong to an existing party member.
+              {
+                dictionary?.components?.politicalPartyList?.drawers
+                  ?.transferLeadership?.description
+              }
             </Typography>
 
             {/* Username lookup section */}
@@ -2100,11 +2258,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 variant={{ variant: "caption", level: 1 }}
                 className="mb-1.5 block"
               >
-                Look up by username
+                {
+                  dictionary?.components?.politicalPartyList?.drawers
+                    ?.transferLeadership?.lookup?.label
+                }
               </Typography>
               <div className="flex gap-2">
                 <Input
-                  label="Enter World App username"
+                  label={
+                    dictionary?.components?.politicalPartyList?.drawers
+                      ?.transferLeadership?.lookup?.placeholder
+                  }
                   value={leaderUsername}
                   onChange={(e) => setLeaderUsername(e.target.value)}
                   onFocus={handleInputFocus}
@@ -2115,7 +2279,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   onClick={lookupLeaderUsername}
                   disabled={isLeaderLookingUp || !leaderUsername.trim()}
                 >
-                  {isLeaderLookingUp ? "Looking up..." : "Lookup"}
+                  {isLeaderLookingUp
+                    ? dictionary?.components?.politicalPartyList?.drawers
+                        ?.transferLeadership?.lookup?.loading
+                    : dictionary?.components?.politicalPartyList?.drawers
+                        ?.transferLeadership?.lookup?.buttonText}
                 </Button>
               </div>
 
@@ -2133,7 +2301,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     variant={{ variant: "caption", level: 1 }}
                     className="text-gray-700"
                   >
-                    Found user:{" "}
+                    {
+                      dictionary?.components?.politicalPartyList?.drawers
+                        ?.transferLeadership?.lookup?.foundUser
+                    }
                     <span className="font-semibold">{leaderUsername}</span>
                   </Typography>
                   <Typography
@@ -2141,7 +2312,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     variant={{ variant: "caption", level: 1 }}
                     className="truncate text-gray-500"
                   >
-                    Address: {leaderLookupResult.address}
+                    {
+                      dictionary?.components?.politicalPartyList?.drawers
+                        ?.transferLeadership?.lookup?.address
+                    }
+                    {leaderLookupResult.address}
                   </Typography>
                 </div>
               )}
@@ -2159,11 +2334,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   variant={{ variant: "caption", level: 1 }}
                   className="mb-1.5 block font-medium"
                 >
-                  New leader address
+                  {
+                    dictionary?.components?.politicalPartyList?.drawers
+                      ?.transferLeadership?.newLeader?.label
+                  }
                 </Typography>
                 <Form.Control asChild>
                   <Input
-                    label="Enter wallet address (0x...)"
+                    label={
+                      dictionary?.components?.politicalPartyList?.drawers
+                        ?.transferLeadership?.newLeader?.placeholder
+                    }
                     value={newLeaderAddress}
                     onChange={(e) => setNewLeaderAddress(e.target.value)}
                     onFocus={handleInputFocus}
@@ -2172,15 +2353,25 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   />
                 </Form.Control>
                 <Form.Message match="valueMissing" error>
-                  Please enter an address
+                  {
+                    dictionary?.components?.politicalPartyList?.drawers
+                      ?.transferLeadership?.newLeader?.errors?.required
+                  }
                 </Form.Message>
                 <Form.Message match="patternMismatch" error>
-                  Please enter a valid Ethereum address (0x...)
+                  {
+                    dictionary?.components?.politicalPartyList?.drawers
+                      ?.transferLeadership?.newLeader?.errors?.invalid
+                  }
                 </Form.Message>
               </Form.Field>
               <Form.Submit asChild className="mt-4">
                 <Button variant="primary" fullWidth disabled={isProcessing}>
-                  {isProcessing ? "Processing..." : "Transfer Leadership"}
+                  {isProcessing
+                    ? dictionary?.components?.politicalPartyList?.drawers
+                        ?.transferLeadership?.button?.processing
+                    : dictionary?.components?.politicalPartyList?.drawers
+                        ?.transferLeadership?.button?.transfer}
                 </Button>
               </Form.Submit>
             </Form.Root>
@@ -2196,21 +2387,30 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         <DrawerContent>
           <div className="flex flex-col p-6">
             <DrawerHeader>
-              <DrawerTitle>Leave Current Party</DrawerTitle>
+              <DrawerTitle>
+                {
+                  dictionary?.components?.politicalPartyList?.drawers?.leave
+                    ?.title
+                }
+              </DrawerTitle>
             </DrawerHeader>
             <Typography
               as="p"
               variant={{ variant: "subtitle", level: 1 }}
               className="mx-auto mt-4 text-center text-gray-500"
             >
-              You are already a member of {partyToLeaveFrom?.name}. You must
-              leave your current party before joining a new one.
+              {dictionary?.components?.politicalPartyList?.drawers?.leave?.description.replace(
+                "{{partyName}}",
+                partyToLeaveFrom?.name || ""
+              )}
               {partyToLeaveFrom?.isUserLeader && (
                 <>
                   <br />
                   <br />
-                  Note: You are currently the leader of this party. If you
-                  leave, leadership will be lost or reassigned by the system.
+                  {
+                    dictionary?.components?.politicalPartyList?.drawers?.leave
+                      ?.leaderWarning
+                  }
                 </>
               )}
             </Typography>
@@ -2222,8 +2422,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               className="mt-10"
             >
               {isProcessing
-                ? "Leaving..."
-                : `Leave ${partyToLeaveFrom?.shortName}`}
+                ? dictionary?.components?.politicalPartyList?.drawers?.leave
+                    ?.button?.leaving
+                : dictionary?.components?.politicalPartyList?.drawers?.leave?.button?.leave.replace(
+                    "{{partyShortName}}",
+                    partyToLeaveFrom?.shortName || ""
+                  )}
             </Button>
           </div>
         </DrawerContent>
@@ -2237,21 +2441,30 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         <DrawerContent>
           <div className="flex flex-col p-6">
             <DrawerHeader>
-              <DrawerTitle>Leave Current Party</DrawerTitle>
+              <DrawerTitle>
+                {
+                  dictionary?.components?.politicalPartyList?.drawers
+                    ?.createConfirm?.title
+                }
+              </DrawerTitle>
             </DrawerHeader>
             <Typography
               as="p"
               variant={{ variant: "subtitle", level: 1 }}
               className="mx-auto mt-4 text-center text-gray-500"
             >
-              You are already a member of {partyToLeaveFrom?.name}. You must
-              leave your current party before creating a new one.
+              {dictionary?.components?.politicalPartyList?.drawers?.createConfirm?.description.replace(
+                "{{partyName}}",
+                partyToLeaveFrom?.name || ""
+              )}
               {partyToLeaveFrom?.isUserLeader && (
                 <>
                   <br />
                   <br />
-                  Note: You are currently the leader of this party. If you
-                  leave, leadership will be lost or reassigned by the system.
+                  {
+                    dictionary?.components?.politicalPartyList?.drawers
+                      ?.createConfirm?.leaderWarning
+                  }
                 </>
               )}
             </Typography>
@@ -2263,8 +2476,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               className="mt-10"
             >
               {isProcessing
-                ? "Processing..."
-                : `Leave ${partyToLeaveFrom?.shortName} and create`}
+                ? dictionary?.components?.politicalPartyList?.drawers
+                    ?.createConfirm?.button?.processing
+                : dictionary?.components?.politicalPartyList?.drawers?.createConfirm?.button?.leaveAndCreate.replace(
+                    "{{partyShortName}}",
+                    partyToLeaveFrom?.shortName || ""
+                  )}
             </Button>
           </div>
         </DrawerContent>
@@ -2275,7 +2492,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         <DrawerContent>
           <div className="flex flex-col p-6">
             <DrawerHeader>
-              <DrawerTitle>Delete Party</DrawerTitle>
+              <DrawerTitle>
+                {
+                  dictionary?.components?.politicalPartyList?.drawers?.delete
+                    ?.title
+                }
+              </DrawerTitle>
             </DrawerHeader>
             <Typography
               as="p"
@@ -2283,8 +2505,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               className="mx-auto mt-4 text-center text-gray-500"
             >
               {selectedParty?.status === 0
-                ? "Are you sure you want to delete this pending party?"
-                : "Are you sure you want to delete this party?"}
+                ? dictionary?.components?.politicalPartyList?.drawers?.delete
+                    ?.confirmPending
+                : dictionary?.components?.politicalPartyList?.drawers?.delete
+                    ?.confirm}
             </Typography>
             <Button
               variant="primary"
@@ -2294,10 +2518,13 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               className="mt-10"
             >
               {isProcessing
-                ? "Processing..."
+                ? dictionary?.components?.politicalPartyList?.drawers?.delete
+                    ?.button?.processing
                 : selectedParty?.status === 0
-                  ? "Delete Pending Party"
-                  : "Delete Party"}
+                  ? dictionary?.components?.politicalPartyList?.drawers?.delete
+                      ?.button?.deletePending
+                  : dictionary?.components?.politicalPartyList?.drawers?.delete
+                      ?.button?.delete}
             </Button>
           </div>
         </DrawerContent>
@@ -2311,7 +2538,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         <DrawerContent>
           <div className="flex flex-col gap-4 p-6">
             <DrawerHeader>
-              <DrawerTitle>Member Management</DrawerTitle>
+              <DrawerTitle>
+                {
+                  dictionary?.components?.politicalPartyList?.drawers
+                    ?.memberManagement?.title
+                }
+              </DrawerTitle>
             </DrawerHeader>
 
             <div className="mb-4 flex items-center gap-1 border-b">
@@ -2321,7 +2553,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 }`}
                 onClick={() => setActiveMemberTab("remove")}
               >
-                Remove
+                {
+                  dictionary?.components?.politicalPartyList?.drawers
+                    ?.memberManagement?.tabs?.remove
+                }
               </button>
               <button
                 className={`h-9 items-center px-4 font-sans text-sm font-medium ${
@@ -2329,7 +2564,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 }`}
                 onClick={() => setActiveMemberTab("ban")}
               >
-                Ban
+                {
+                  dictionary?.components?.politicalPartyList?.drawers
+                    ?.memberManagement?.tabs?.ban
+                }
               </button>
               <button
                 className={`h-9 items-center px-4 font-sans text-sm font-medium ${
@@ -2337,7 +2575,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 }`}
                 onClick={() => setActiveMemberTab("unban")}
               >
-                Unban
+                {
+                  dictionary?.components?.politicalPartyList?.drawers
+                    ?.memberManagement?.tabs?.unban
+                }
               </button>
             </div>
 
@@ -2349,8 +2590,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   variant={{ variant: "body", level: 2 }}
                   className="text-[15px]"
                 >
-                  Enter the wallet address of the member you want to remove or
-                  look up by username.
+                  {
+                    dictionary?.components?.politicalPartyList?.drawers
+                      ?.memberManagement?.remove?.description
+                  }
                 </Typography>
 
                 {/* Username lookup section for member removal in the tab */}
@@ -2360,11 +2603,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     variant={{ variant: "caption", level: 1 }}
                     className="mb-1.5 block"
                   >
-                    Look up by username
+                    {
+                      dictionary?.components?.politicalPartyList?.drawers
+                        ?.transferLeadership?.lookup?.label
+                    }
                   </Typography>
                   <div className="flex gap-2">
                     <Input
-                      label="Enter World App username"
+                      label={
+                        dictionary?.components?.politicalPartyList?.drawers
+                          ?.transferLeadership?.lookup?.placeholder
+                      }
                       value={memberUsername}
                       onChange={(e) => setMemberUsername(e.target.value)}
                       onFocus={handleInputFocus}
@@ -2375,7 +2624,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       onClick={lookupMemberUsername}
                       disabled={isMemberLookingUp || !memberUsername.trim()}
                     >
-                      {isMemberLookingUp ? "Looking up..." : "Lookup"}
+                      {isMemberLookingUp
+                        ? dictionary?.components?.politicalPartyList?.drawers
+                            ?.transferLeadership?.lookup?.loading
+                        : dictionary?.components?.politicalPartyList?.drawers
+                            ?.transferLeadership?.lookup?.buttonText}
                     </Button>
                   </div>
 
@@ -2393,7 +2646,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         variant={{ variant: "caption", level: 1 }}
                         className="text-gray-700"
                       >
-                        Found user:{" "}
+                        {
+                          dictionary?.components?.politicalPartyList?.drawers
+                            ?.transferLeadership?.lookup?.foundUser
+                        }
                         <span className="font-semibold">{memberUsername}</span>
                       </Typography>
                       <Typography
@@ -2401,7 +2657,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         variant={{ variant: "caption", level: 1 }}
                         className="truncate text-gray-500"
                       >
-                        Address: {memberLookupResult.address}
+                        {
+                          dictionary?.components?.politicalPartyList?.drawers
+                            ?.transferLeadership?.lookup?.address
+                        }
+                        {memberLookupResult.address}
                       </Typography>
                     </div>
                   )}
@@ -2419,11 +2679,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       variant={{ variant: "caption", level: 1 }}
                       className="mb-1.5 block font-medium"
                     >
-                      Member address
+                      {
+                        dictionary?.components?.politicalPartyList?.drawers
+                          ?.transferLeadership?.newLeader?.label
+                      }
                     </Typography>
                     <Form.Control asChild>
                       <Input
-                        label="Enter wallet address (0x...)"
+                        label={
+                          dictionary?.components?.politicalPartyList?.drawers
+                            ?.transferLeadership?.newLeader?.placeholder
+                        }
                         value={memberToRemove}
                         onChange={(e) => setMemberToRemove(e.target.value)}
                         onFocus={handleInputFocus}
@@ -2432,15 +2698,25 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       />
                     </Form.Control>
                     <Form.Message match="valueMissing" error>
-                      Please enter an address
+                      {
+                        dictionary?.components?.politicalPartyList?.drawers
+                          ?.transferLeadership?.newLeader?.errors?.required
+                      }
                     </Form.Message>
                     <Form.Message match="patternMismatch" error>
-                      Please enter a valid Ethereum address (0x...)
+                      {
+                        dictionary?.components?.politicalPartyList?.drawers
+                          ?.transferLeadership?.newLeader?.errors?.invalid
+                      }
                     </Form.Message>
                   </Form.Field>
                   <Form.Submit asChild className="mt-4">
                     <Button variant="primary" fullWidth disabled={isProcessing}>
-                      {isProcessing ? "Processing..." : "Remove Member"}
+                      {isProcessing
+                        ? dictionary?.components?.politicalPartyList?.drawers
+                            ?.memberManagement?.remove?.button?.processing
+                        : dictionary?.components?.politicalPartyList?.drawers
+                            ?.memberManagement?.remove?.button?.remove}
                     </Button>
                   </Form.Submit>
                 </Form.Root>
@@ -2455,8 +2731,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   variant={{ variant: "body", level: 2 }}
                   className="text-[15px]"
                 >
-                  Enter the username or wallet address of the member you want to
-                  ban from the party.
+                  {
+                    dictionary?.components?.politicalPartyList?.drawers
+                      ?.memberManagement?.ban?.description
+                  }
                 </Typography>
 
                 {/* Username lookup section */}
@@ -2466,11 +2744,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     variant={{ variant: "caption", level: 1 }}
                     className="mb-1.5 block"
                   >
-                    Look up by username
+                    {
+                      dictionary?.components?.politicalPartyList?.drawers
+                        ?.transferLeadership?.lookup?.label
+                    }
                   </Typography>
                   <div className="flex gap-2">
                     <Input
-                      label="Enter World App username"
+                      label={
+                        dictionary?.components?.politicalPartyList?.drawers
+                          ?.transferLeadership?.lookup?.placeholder
+                      }
                       value={memberToBanUsername}
                       onChange={(e) => setMemberToBanUsername(e.target.value)}
                       onFocus={handleInputFocus}
@@ -2481,7 +2765,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       onClick={lookupBanUsername}
                       disabled={isBanLookingUp || !memberToBanUsername.trim()}
                     >
-                      {isBanLookingUp ? "Looking up..." : "Lookup"}
+                      {isBanLookingUp
+                        ? dictionary?.components?.politicalPartyList?.drawers
+                            ?.transferLeadership?.lookup?.loading
+                        : dictionary?.components?.politicalPartyList?.drawers
+                            ?.transferLeadership?.lookup?.buttonText}
                     </Button>
                   </div>
 
@@ -2499,7 +2787,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         variant={{ variant: "caption", level: 1 }}
                         className="text-gray-700"
                       >
-                        Found user:{" "}
+                        {
+                          dictionary?.components?.politicalPartyList?.drawers
+                            ?.transferLeadership?.lookup?.foundUser
+                        }
                         <span className="font-semibold">
                           {memberToBanUsername}
                         </span>
@@ -2509,7 +2800,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         variant={{ variant: "caption", level: 1 }}
                         className="truncate text-gray-500"
                       >
-                        Address: {banLookupResult.address}
+                        {
+                          dictionary?.components?.politicalPartyList?.drawers
+                            ?.transferLeadership?.lookup?.address
+                        }
+                        {banLookupResult.address}
                       </Typography>
                     </div>
                   )}
@@ -2527,11 +2822,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       variant={{ variant: "caption", level: 1 }}
                       className="mb-1.5 block font-medium"
                     >
-                      Member address
+                      {
+                        dictionary?.components?.politicalPartyList?.drawers
+                          ?.transferLeadership?.newLeader?.label
+                      }
                     </Typography>
                     <Form.Control asChild>
                       <Input
-                        label="Enter wallet address (0x...)"
+                        label={
+                          dictionary?.components?.politicalPartyList?.drawers
+                            ?.transferLeadership?.newLeader?.placeholder
+                        }
                         value={memberToBan}
                         onChange={(e) => setMemberToBan(e.target.value)}
                         onFocus={handleInputFocus}
@@ -2540,15 +2841,25 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       />
                     </Form.Control>
                     <Form.Message match="valueMissing" error>
-                      Please enter an address
+                      {
+                        dictionary?.components?.politicalPartyList?.drawers
+                          ?.transferLeadership?.newLeader?.errors?.required
+                      }
                     </Form.Message>
                     <Form.Message match="patternMismatch" error>
-                      Please enter a valid Ethereum address (0x...)
+                      {
+                        dictionary?.components?.politicalPartyList?.drawers
+                          ?.transferLeadership?.newLeader?.errors?.invalid
+                      }
                     </Form.Message>
                   </Form.Field>
                   <Form.Submit asChild className="mt-4">
                     <Button variant="primary" fullWidth disabled={isProcessing}>
-                      {isProcessing ? "Processing..." : "Ban Member"}
+                      {isProcessing
+                        ? dictionary?.components?.politicalPartyList?.drawers
+                            ?.memberManagement?.ban?.button?.processing
+                        : dictionary?.components?.politicalPartyList?.drawers
+                            ?.memberManagement?.ban?.button?.ban}
                     </Button>
                   </Form.Submit>
                 </Form.Root>
@@ -2563,8 +2874,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   variant={{ variant: "body", level: 2 }}
                   className="text-[15px]"
                 >
-                  Enter the username or wallet address of the banned member you
-                  want to allow back to the party.
+                  {
+                    dictionary?.components?.politicalPartyList?.drawers
+                      ?.memberManagement?.unban?.description
+                  }
                 </Typography>
 
                 {/* Username lookup section */}
@@ -2574,11 +2887,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     variant={{ variant: "caption", level: 1 }}
                     className="mb-1.5 block"
                   >
-                    Look up by username
+                    {
+                      dictionary?.components?.politicalPartyList?.drawers
+                        ?.transferLeadership?.lookup?.label
+                    }
                   </Typography>
                   <div className="flex gap-2">
                     <Input
-                      label="Enter World App username"
+                      label={
+                        dictionary?.components?.politicalPartyList?.drawers
+                          ?.transferLeadership?.lookup?.placeholder
+                      }
                       value={bannedMemberUsername}
                       onChange={(e) => setBannedMemberUsername(e.target.value)}
                       onFocus={handleInputFocus}
@@ -2589,7 +2908,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       onClick={lookupUsername}
                       disabled={isLookingUp || !bannedMemberUsername.trim()}
                     >
-                      {isLookingUp ? "Looking up..." : "Lookup"}
+                      {isLookingUp
+                        ? dictionary?.components?.politicalPartyList?.drawers
+                            ?.transferLeadership?.lookup?.loading
+                        : dictionary?.components?.politicalPartyList?.drawers
+                            ?.transferLeadership?.lookup?.buttonText}
                     </Button>
                   </div>
 
@@ -2607,7 +2930,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         variant={{ variant: "caption", level: 1 }}
                         className="text-gray-700"
                       >
-                        Found user:{" "}
+                        {
+                          dictionary?.components?.politicalPartyList?.drawers
+                            ?.transferLeadership?.lookup?.foundUser
+                        }
                         <span className="font-semibold">
                           {bannedMemberUsername}
                         </span>
@@ -2617,7 +2943,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         variant={{ variant: "caption", level: 1 }}
                         className="truncate text-gray-500"
                       >
-                        Address: {lookupResult.address}
+                        {
+                          dictionary?.components?.politicalPartyList?.drawers
+                            ?.transferLeadership?.lookup?.address
+                        }
+                        {lookupResult.address}
                       </Typography>
                     </div>
                   )}
@@ -2635,11 +2965,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       variant={{ variant: "caption", level: 1 }}
                       className="mb-1.5 block font-medium"
                     >
-                      Member address
+                      {
+                        dictionary?.components?.politicalPartyList?.drawers
+                          ?.transferLeadership?.newLeader?.label
+                      }
                     </Typography>
                     <Form.Control asChild>
                       <Input
-                        label="Enter wallet address (0x...)"
+                        label={
+                          dictionary?.components?.politicalPartyList?.drawers
+                            ?.transferLeadership?.newLeader?.placeholder
+                        }
                         value={bannedMemberToUnban}
                         onChange={(e) => setBannedMemberToUnban(e.target.value)}
                         onFocus={handleInputFocus}
@@ -2648,15 +2984,25 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       />
                     </Form.Control>
                     <Form.Message match="valueMissing" error>
-                      Please enter an address
+                      {
+                        dictionary?.components?.politicalPartyList?.drawers
+                          ?.transferLeadership?.newLeader?.errors?.required
+                      }
                     </Form.Message>
                     <Form.Message match="patternMismatch" error>
-                      Please enter a valid Ethereum address (0x...)
+                      {
+                        dictionary?.components?.politicalPartyList?.drawers
+                          ?.transferLeadership?.newLeader?.errors?.invalid
+                      }
                     </Form.Message>
                   </Form.Field>
                   <Form.Submit asChild className="mt-4">
                     <Button variant="primary" fullWidth disabled={isProcessing}>
-                      {isProcessing ? "Processing..." : "Unban Member"}
+                      {isProcessing
+                        ? dictionary?.components?.politicalPartyList?.drawers
+                            ?.memberManagement?.unban?.button?.processing
+                        : dictionary?.components?.politicalPartyList?.drawers
+                            ?.memberManagement?.unban?.button?.unban}
                     </Button>
                   </Form.Submit>
                 </Form.Root>

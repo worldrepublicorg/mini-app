@@ -56,6 +56,159 @@
         "elections": "Elections",
         "referendums": "Referendums"
       }
+    },
+    "politicalPartyList": {
+      "myParty": "My party",
+      "createParty": "Create New Party",
+      "noParty": "You haven't created or joined a party yet.",
+      "discover": "Discover",
+      "tabs": {
+        "top": "Top",
+        "trending": "Trending",
+        "new": "New",
+        "pending": "Pending"
+      },
+      "emptyState": {
+        "pending": "No pending parties available.",
+        "noParties": "No parties available to join."
+      },
+      "partyCard": {
+        "pending": "Pending",
+        "deleted": "Deleted",
+        "members": "members",
+        "actions": {
+          "leaveParty": "Leave Party",
+          "joinParty": "Join Party",
+          "joinPendingParty": "Join Pending Party"
+        },
+        "management": {
+          "title": "Party Management",
+          "manageMembers": "Manage members",
+          "updateInfo": "Update party info",
+          "transferLeadership": "Transfer leadership",
+          "deleteParty": "Delete party"
+        }
+      },
+      "drawers": {
+        "create": {
+          "title": "Create New Party",
+          "name": {
+            "label": "Party name",
+            "placeholder": "Enter party name",
+            "error": "Please enter a party name"
+          },
+          "shortName": {
+            "label": "Short name",
+            "placeholder": "Enter short name or abbreviation",
+            "error": "Please enter a short name"
+          },
+          "description": {
+            "label": "Description",
+            "placeholder": "Enter party description",
+            "error": "Please enter a description"
+          },
+          "officialLink": {
+            "label": "Official link",
+            "placeholder": "Enter official website or community link (optional)"
+          },
+          "limitWarning": {
+            "approaching": "Approaching character limit: {{current}}/{{max}}",
+            "reached": "Maximum character limit reached"
+          },
+          "button": {
+            "creating": "Creating...",
+            "create": "Create Party"
+          }
+        },
+        "update": {
+          "title": "Update Party Details",
+          "button": {
+            "update": "Update",
+            "updateDescription": "Update Description"
+          }
+        },
+        "transferLeadership": {
+          "title": "Transfer Leadership",
+          "description": "Enter the wallet address of the new leader or look up by username. The address must belong to an existing party member.",
+          "lookup": {
+            "label": "Look up by username",
+            "placeholder": "Enter World App username",
+            "buttonText": "Lookup",
+            "loading": "Looking up...",
+            "foundUser": "Found user: ",
+            "address": "Address: "
+          },
+          "newLeader": {
+            "label": "New leader address",
+            "placeholder": "Enter wallet address (0x...)",
+            "errors": {
+              "required": "Please enter an address",
+              "invalid": "Please enter a valid Ethereum address (0x...)"
+            }
+          },
+          "button": {
+            "processing": "Processing...",
+            "transfer": "Transfer Leadership"
+          }
+        },
+        "leave": {
+          "title": "Leave Current Party",
+          "description": "You are already a member of {{partyName}}. You must leave your current party before joining a new one.",
+          "leaderWarning": "Note: You are currently the leader of this party. If you leave, leadership will be lost or reassigned by the system.",
+          "button": {
+            "leaving": "Leaving...",
+            "leave": "Leave {{partyShortName}}"
+          }
+        },
+        "createConfirm": {
+          "title": "Leave Current Party",
+          "description": "You are already a member of {{partyName}}. You must leave your current party before creating a new one.",
+          "leaderWarning": "Note: You are currently the leader of this party. If you leave, leadership will be lost or reassigned by the system.",
+          "button": {
+            "processing": "Processing...",
+            "leaveAndCreate": "Leave {{partyShortName}} and create"
+          }
+        },
+        "delete": {
+          "title": "Delete Party",
+          "confirmPending": "Are you sure you want to delete this pending party?",
+          "confirm": "Are you sure you want to delete this party?",
+          "button": {
+            "processing": "Processing...",
+            "deletePending": "Delete Pending Party",
+            "delete": "Delete Party"
+          }
+        },
+        "memberManagement": {
+          "title": "Member Management",
+          "tabs": {
+            "remove": "Remove",
+            "ban": "Ban",
+            "unban": "Unban"
+          },
+          "remove": {
+            "description": "Enter the wallet address of the member you want to remove or look up by username.",
+            "button": {
+              "processing": "Processing...",
+              "remove": "Remove Member"
+            }
+          },
+          "ban": {
+            "description": "Enter the username or wallet address of the member you want to ban from the party.",
+            "button": {
+              "processing": "Processing...",
+              "ban": "Ban Member"
+            }
+          },
+          "unban": {
+            "description": "Enter the username or wallet address of the banned member you want to allow back to the party.",
+            "button": {
+              "processing": "Processing...",
+              "unban": "Unban Member"
+            }
+          }
+        }
+      }
     }
   },
   "pages": {
