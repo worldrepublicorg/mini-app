@@ -27,8 +27,8 @@ const polls: Poll[] = [
     url: "https://vote.one/8veO6EHF",
   },
   {
-    key: "globalMiningStandards",
-    url: "https://vote.one/ntxWgSCA",
+    key: "wildlifeTrafficking",
+    url: "https://vote.one/eWitQrSp",
   },
 ];
 
