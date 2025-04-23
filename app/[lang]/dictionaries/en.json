@@ -526,6 +526,7 @@
             "title": "Previous Polls",
             "backToGovern": "Back to Govern",
             "polls": {
+              "sovereignDebtRestructuring": "Should there be an internationally coordinated sovereign debt restructuring mechanism to provide timely relief to countries facing unsustainable debt levels?",
               "globalMilitaryExerciseProtocol": "Should countries agree to an international notification and observer protocol for large‑scale military exercises near contested regions to reduce the risk of escalation?",
               "globalMaritimeSecurity": "Should an international maritime security task force be established to protect commercial shipping in international waters from armed attacks?",
               "globalNuclearDialogue": "Should major powers be required under an international agreement to engage in continuous expert‑level nuclear negotiations with adversary states to prevent escalation and ensure diplomatic oversight?",
