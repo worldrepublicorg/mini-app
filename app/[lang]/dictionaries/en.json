@@ -494,7 +494,7 @@
                 },
                 "earnRewards": {
                   "title": "Earn Rewards",
-                  "description": "The leaders of the top 25 parties receive weekly subsidies proportional to their party's membership"
+                  "description": "The leaders of the top 50 parties receive weekly subsidies"
                 }
               }
             },

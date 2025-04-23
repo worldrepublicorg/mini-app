@@ -503,8 +503,8 @@
                   "description": "Üye toplayın ve topluluğunuzu oluşturun"
                 },
                 "earnRewards": {
-                  "title": "Ödüller Kazan",
-                  "description": "En iyi 25 partinin liderleri, partilerinin üyeliğiyle orantılı olarak haftalık sübvansiyonlar alırlar"
+                  "title": "Ödüller Kazanın",
+                  "description": "En iyi 50 partinin liderleri haftalık sübvansiyonlar alır"
                 }
               }
             },

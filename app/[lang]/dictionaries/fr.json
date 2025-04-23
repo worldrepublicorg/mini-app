@@ -504,7 +504,7 @@
                 },
                 "earnRewards": {
                   "title": "Gagnez des Récompenses",
-                  "description": "Les dirigeants des 25 premiers partis reçoivent des subventions hebdomadaires proportionnelles à l'adhésion de leur parti"
+                  "description": "Les dirigeants des 50 premiers partis reçoivent des subventions hebdomadaires"
                 }
               }
             },
