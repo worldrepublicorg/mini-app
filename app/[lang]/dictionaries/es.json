@@ -516,7 +516,7 @@
                 },
                 "earnRewards": {
                   "title": "Gana Recompensas",
-                  "description": "Los líderes de los 25 mejores partidos reciben subsidios semanales proporcionales a la membresía de su partido"
+                  "description": "Los líderes de los 50 mejores partidos reciben subsidios semanales"
                 }
               }
             },
