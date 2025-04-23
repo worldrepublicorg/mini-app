@@ -188,7 +188,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       // Query to get active parties from subgraph
       const query = `
         query {
-          parties(first: 1000, where: { memberCount_not: 0, status_not: 2 }) {
+          parties(first: 1000, where: { memberCount_not: 0, status: 1 }) {
             id
             name
             shortName
