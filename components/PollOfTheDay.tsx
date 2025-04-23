@@ -23,8 +23,8 @@ const polls: Poll[] = [
     url: "https://vote.one/IDqHp7v7",
   },
   {
-    key: "globalDigitalServicesTax",
-    url: "https://vote.one/qcY0cooZ",
+    key: "sovereignDebtRestructuring",
+    url: "https://vote.one/8veO6EHF",
   },
   {
     key: "globalMiningStandards",
