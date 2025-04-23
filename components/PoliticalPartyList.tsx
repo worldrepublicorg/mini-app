@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import type { FocusEvent as ReactFocusEvent } from "react";
 import { parseAbi } from "viem";
 import { viemClient } from "@/lib/viemClient";
@@ -21,7 +21,7 @@ import { Textarea } from "@/components/ui/Textarea";
 import { FaPlus } from "react-icons/fa";
 import { Dropdown } from "@/components/ui/Dropdown";
 import { DrawerTitle } from "@/components/ui/Drawer";
-import { LoadingSkeleton } from "./PartySkeletons";
+import { LoadingSkeleton, PartySkeletonCard } from "./PartySkeletons";
 import { useTranslations } from "@/hooks/useTranslations";
 import { TabSwiper } from "@/components/TabSwiper";
 
@@ -66,7 +66,6 @@ interface PoliticalPartyListProps {
 export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const dictionary = useTranslations(lang);
   const [parties, setParties] = useState<Party[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<
     "top" | "trending" | "new" | "pending"
   >("new");
@@ -130,6 +129,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [isMemberLookingUp, setIsMemberLookingUp] = useState(false);
   const [userPartyId, setUserPartyId] = useState<number>(0);
 
+  // Add these state variables for pagination
+  const [pendingParties, setPendingParties] = useState<Party[]>([]);
+  const [activeParties, setActiveParties] = useState<Party[]>([]);
+  const [activeLoading, setActiveLoading] = useState(true);
+  const [pendingLoading, setPendingLoading] = useState(false);
+
   useEffect(() => {
     // Mark govern section as visited when this component loads
     if (typeof window !== "undefined") {
@@ -171,16 +176,16 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     return num.toString();
   };
 
-  const fetchParties = useCallback(async () => {
+  const fetchActiveParties = useCallback(async () => {
     if (!GOLDSKY_SUBGRAPH_URL) {
-      setIsLoading(false);
+      setActiveLoading(false);
       return;
     }
 
     try {
-      setIsLoading(true);
+      setActiveLoading(true);
 
-      // Query to get all parties from subgraph
+      // Query to get active parties from subgraph
       const query = `
         query {
           parties(first: 1000, where: { memberCount_not: 0, status_not: 2 }) {
@@ -201,12 +206,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         }
       `;
 
-      // Fetch data from the Goldsky subgraph
+      // Fetch active parties from Goldsky subgraph
       const response = await fetch(GOLDSKY_SUBGRAPH_URL, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query }),
       });
 
@@ -222,36 +225,33 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         );
       }
 
-      // Get user's party if wallet is connected
+      // Get user party info
       let userParty = 0;
-      let userPartyMapping = null;
 
       if (walletAddress) {
-        const userQuery = `
-          query {
-            userPartyMapping(id: "${walletAddress.toLowerCase()}") {
-              party {
-                id
+        try {
+          const userQuery = `
+            query {
+              userPartyMapping(id: "${walletAddress.toLowerCase()}") {
+                party { id }
               }
             }
+          `;
+
+          const userResponse = await fetch(GOLDSKY_SUBGRAPH_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ query: userQuery }),
+          });
+
+          if (userResponse.ok) {
+            const userData = await userResponse.json();
+            if (userData.data?.userPartyMapping?.party) {
+              userParty = Number(userData.data.userPartyMapping.party.id);
+            }
           }
-        `;
-
-        const userResponse = await fetch(GOLDSKY_SUBGRAPH_URL, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ query: userQuery }),
-        });
-
-        if (userResponse.ok) {
-          const userData = await userResponse.json();
-          userPartyMapping = userData.data?.userPartyMapping;
-
-          if (userPartyMapping && userPartyMapping.party) {
-            userParty = Number(userPartyMapping.party.id);
-          }
+        } catch (error) {
+          console.error("Error fetching user party mapping:", error);
         }
       }
 
@@ -265,7 +265,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         description: party.description,
         officialLink: party.officialLink,
         founder: party.founder,
-        leader: party.currentLeader, // Map currentLeader to leader in your interface
+        leader: party.currentLeader,
         creationTime: Number(party.creationTime),
         status: Number(party.status),
         active: party.active,
@@ -277,144 +277,151 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           walletAddress?.toLowerCase() === party.currentLeader?.toLowerCase(),
       }));
 
-      setParties(fetchedParties);
+      setActiveParties(fetchedParties);
+
+      // Combine active and pending parties into the parties state
+      // Only needed for backward compatibility
+      setParties([...fetchedParties, ...pendingParties]);
     } catch (error) {
-      console.error("Error fetching political parties from subgraph:", error);
-      showToast("Failed to load political parties", "error");
-
-      // Fallback to direct blockchain polling
-      fallbackFetchParties();
+      console.error("Error fetching active parties from subgraph:", error);
+      showToast("Failed to load active political parties", "error");
     } finally {
-      setIsLoading(false);
+      setActiveLoading(false);
     }
-  }, [walletAddress, showToast]);
+  }, [walletAddress, showToast, pendingParties]);
 
-  // Keep the original function as a fallback
-  const fallbackFetchParties = useCallback(async () => {
-    if (
-      !POLITICAL_PARTY_REGISTRY_ADDRESS ||
-      POLITICAL_PARTY_REGISTRY_ADDRESS ===
-        "0x0000000000000000000000000000000000000000"
-    ) {
-      setIsLoading(false);
+  const fetchPendingParties = useCallback(async () => {
+    if (!GOLDSKY_SUBGRAPH_URL) {
+      setPendingLoading(false);
       return;
     }
 
     try {
-      setIsLoading(true);
+      setPendingLoading(true);
 
-      // Original implementation for fetching from blockchain
-      const partyCount = await viemClient.readContract({
-        address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
-        abi: parseAbi(["function totalPartyCount() view returns (uint256)"]),
-        functionName: "totalPartyCount",
+      // Query to get pending parties from subgraph
+      const query = `
+        query {
+          parties(first: 1000, where: { status: 0 }) {
+            id
+            name
+            shortName
+            description
+            officialLink
+            founder
+            currentLeader
+            creationTime
+            status
+            memberCount
+            documentVerifiedMemberCount
+            verifiedMemberCount
+            active
+          }
+        }
+      `;
+
+      // Fetch pending parties from Goldsky subgraph
+      const response = await fetch(GOLDSKY_SUBGRAPH_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query }),
       });
 
-      // Party IDs start from 1 in the new contract, not 0
-      const partyIds = Array.from(
-        { length: Number(partyCount) },
-        (_, i) => i + 1
-      );
-
-      // Check user's party
-      let userParty = 0;
-      if (walletAddress) {
-        const userPartyResult = await viemClient.readContract({
-          address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
-          abi: parseAbi(["function userParty(address) view returns (uint256)"]),
-          functionName: "userParty",
-          args: [walletAddress as `0x${string}`],
-        });
-
-        userParty = Number(userPartyResult);
-        setUserPartyId(userParty > 0 ? userParty : 0);
+      if (!response.ok) {
+        throw new Error(`Subgraph request failed: ${response.statusText}`);
       }
 
-      // Fetch details for each party
-      const partyPromises = partyIds.map(async (id) => {
-        const partyDetails = await viemClient.readContract({
-          address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
-          abi: parseAbi([
-            "function getPartyDetails(uint256 _partyId) view returns (string memory name, string memory shortName, string memory description, string memory officialLink, address founder, address currentLeader, uint256 creationTime, uint8 status, uint256 memberCount, uint256 documentVerifiedMemberCount, uint256 verifiedMemberCount)",
-          ]),
-          functionName: "getPartyDetails",
-          args: [BigInt(id)],
-        });
+      const result = await response.json();
 
-        return {
-          id,
-          name: partyDetails[0],
-          shortName: partyDetails[1],
-          description: partyDetails[2],
-          officialLink: partyDetails[3],
-          founder: partyDetails[4],
-          leader: partyDetails[5], // currentLeader from contract
-          creationTime: Number(partyDetails[6]),
-          status: partyDetails[7],
-          active: partyDetails[7] === 1, // 1 = ACTIVE in the enum
-          memberCount: Number(partyDetails[8]),
-          documentVerifiedMemberCount: Number(partyDetails[9]),
-          verifiedMemberCount: Number(partyDetails[10]),
-          isUserMember: userParty === id,
-          isUserLeader:
-            walletAddress?.toLowerCase() === partyDetails[5].toLowerCase(),
-        };
-      });
-
-      const fetchedParties = await Promise.all(partyPromises);
-      setParties(fetchedParties);
-    } catch (error) {
-      console.error("Error fetching political parties from blockchain:", error);
-      showToast("Failed to load political parties", "error");
-    } finally {
-      setIsLoading(false);
-    }
-  }, [walletAddress, showToast]);
-
-  useEffect(() => {
-    fetchParties();
-  }, [fetchParties]);
-
-  // Filter parties based on tab selection
-  const filteredParties = parties
-    .filter((party) => {
-      // First filter for parties the user is not a member of - use userPartyId
-      if (party.id === userPartyId) return false;
-
-      // Then filter based on search term if provided
-      if (searchTerm.trim() !== "") {
-        const searchLower = searchTerm.toLowerCase();
-        return (
-          party.name.toLowerCase().includes(searchLower) ||
-          party.shortName.toLowerCase().includes(searchLower) ||
-          party.description.toLowerCase().includes(searchLower)
+      if (result.errors) {
+        throw new Error(
+          `GraphQL errors: ${result.errors.map((e: any) => e.message).join(", ")}`
         );
       }
 
-      // Then filter based on tab
-      if (activeTab === "pending") {
-        return party.status === 0; // Show only pending parties
-      } else {
-        return party.status === 1; // Only show active parties for other tabs
-      }
-    })
-    .sort((a, b) => {
-      if (activeTab === "top") {
-        // Sort by member count (highest first) for Top tab
-        return b.memberCount - a.memberCount;
-      } else if (activeTab === "trending") {
-        // For trending tab: mix of recency and member count
-        // This simple formula weights both factors
-        const trendingScoreA =
-          a.memberCount * (1 + (Date.now() / 1000 - a.creationTime) / 86400);
-        const trendingScoreB =
-          b.memberCount * (1 + (Date.now() / 1000 - b.creationTime) / 86400);
-        return trendingScoreB - trendingScoreA;
-      } else {
-        // Default to reverse chronological order (newest first) for New tab
-        return b.creationTime - a.creationTime;
-      }
-    });
+      // Transform the data to match your Party interface
+      const fetchedPendingParties = result.data.parties.map((party: any) => ({
+        id: Number(party.id),
+        name: party.name,
+        shortName: party.shortName,
+        description: party.description,
+        officialLink: party.officialLink,
+        founder: party.founder,
+        leader: party.currentLeader,
+        creationTime: Number(party.creationTime),
+        status: Number(party.status),
+        active: party.active,
+        memberCount: Number(party.memberCount),
+        documentVerifiedMemberCount: Number(party.documentVerifiedMemberCount),
+        verifiedMemberCount: Number(party.verifiedMemberCount),
+        isUserMember: userPartyId === Number(party.id),
+        isUserLeader:
+          walletAddress?.toLowerCase() === party.currentLeader?.toLowerCase(),
+      }));
+
+      setPendingParties(fetchedPendingParties);
+
+      // Update the combined parties state
+      setParties([...activeParties, ...fetchedPendingParties]);
+    } catch (error) {
+      console.error("Error fetching pending parties from subgraph:", error);
+      showToast("Failed to load pending political parties", "error");
+    } finally {
+      setPendingLoading(false);
+    }
+  }, [walletAddress, userPartyId, activeParties]);
+
+  // Replace the original useEffect to call the new functions
+  useEffect(() => {
+    fetchActiveParties();
+  }, [fetchActiveParties]);
+
+  // Fetch pending parties only when the pending tab is selected
+  useEffect(() => {
+    if (activeTab === "pending" && pendingParties.length === 0) {
+      fetchPendingParties();
+    }
+  }, [activeTab, pendingParties.length, fetchPendingParties]);
+
+  // Update the filteredParties logic to use the separate party arrays
+  const filteredParties = useMemo(() => {
+    const partiesToFilter =
+      activeTab === "pending" ? pendingParties : activeParties;
+
+    return partiesToFilter
+      .filter((party) => {
+        // First filter for parties the user is not a member of
+        if (party.id === userPartyId) return false;
+
+        // Then filter based on search term if provided
+        if (searchTerm.trim() !== "") {
+          const searchLower = searchTerm.toLowerCase();
+          return (
+            party.name.toLowerCase().includes(searchLower) ||
+            party.shortName.toLowerCase().includes(searchLower) ||
+            party.description.toLowerCase().includes(searchLower)
+          );
+        }
+
+        return true;
+      })
+      .sort((a, b) => {
+        if (activeTab === "top") {
+          // Sort by member count (highest first)
+          return b.memberCount - a.memberCount;
+        } else if (activeTab === "trending") {
+          // For trending tab: mix of recency and member count
+          const trendingScoreA =
+            a.memberCount * (1 + (Date.now() / 1000 - a.creationTime) / 86400);
+          const trendingScoreB =
+            b.memberCount * (1 + (Date.now() / 1000 - b.creationTime) / 86400);
+          return trendingScoreB - trendingScoreA;
+        } else {
+          // Default to reverse chronological order (newest first)
+          return b.creationTime - a.creationTime;
+        }
+      });
+  }, [activeTab, activeParties, pendingParties, userPartyId, searchTerm]);
 
   const performUsernameLookup = async (
     username: string,
@@ -1393,7 +1400,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     </div>
   );
 
-  if (isLoading) {
+  if (activeLoading && activeTab !== "pending") {
     return <LoadingSkeleton dictionary={dictionary} />;
   }
 
@@ -1513,16 +1520,23 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
       {/* This div will contain the filtered parties with a minimum height */}
       <div className="min-h-[50vh]">
-        {filteredParties.length === 0 && (
+        {activeTab === "pending" && pendingLoading ? (
+          // Show skeletons when loading pending parties
+          <>
+            <PartySkeletonCard />
+            <PartySkeletonCard />
+            <PartySkeletonCard />
+          </>
+        ) : filteredParties.length === 0 ? (
           <div className="my-8 text-center text-gray-500">
             {activeTab === "pending"
               ? dictionary?.components?.politicalPartyList?.emptyState?.pending
               : dictionary?.components?.politicalPartyList?.emptyState
                   ?.noParties}
           </div>
+        ) : (
+          filteredParties.map((party) => renderPartyCard(party))
         )}
-
-        {filteredParties.map((party) => renderPartyCard(party))}
       </div>
 
       {/* Create Party Drawer */}
