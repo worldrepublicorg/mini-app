@@ -268,9 +268,65 @@ export default function PartyDetailPage({
       <div className="mt-24 flex flex-1 flex-col pb-6">
         {isLoading ? (
           // Loading state
-          <div className="flex flex-1 flex-col items-center justify-center">
-            <div className="mt-4 h-8 w-3/4 animate-pulse rounded bg-gray-100"></div>
-            <div className="mt-2 h-4 w-1/2 animate-pulse rounded bg-gray-100"></div>
+          <div className="flex flex-1 flex-col">
+            {/* Hero section skeleton */}
+            <div className="mb-10 flex flex-col items-center">
+              <div className="mb-3 h-8 w-3/4 animate-pulse rounded-lg bg-gray-100"></div>
+              <div className="flex items-center gap-2">
+                <div className="h-6 w-20 animate-pulse rounded-full bg-gray-100"></div>
+                <div className="h-6 w-24 animate-pulse rounded-full bg-gray-100"></div>
+              </div>
+            </div>
+
+            {/* Description skeleton */}
+            <div className="mb-6 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+              <div className="border-b border-gray-200 bg-gradient-to-r from-gray-50 to-gray-0 p-4">
+                <div className="h-6 w-5/12 animate-pulse rounded bg-gray-100"></div>
+              </div>
+              <div className="p-4">
+                <div className="h-20 w-full animate-pulse rounded bg-gray-100"></div>
+              </div>
+            </div>
+
+            {/* Party Info skeleton */}
+            <div className="mb-6 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+              <div className="border-b border-gray-200 bg-gradient-to-r from-gray-50 to-gray-0 p-4">
+                <div className="h-6 w-1/4 animate-pulse rounded bg-gray-100"></div>
+              </div>
+              <div className="divide-y divide-gray-100">
+                <div className="flex items-center justify-between gap-6 p-4">
+                  <div className="h-5 w-1/3 animate-pulse rounded bg-gray-100"></div>
+                  <div className="h-5 w-1/3 animate-pulse rounded bg-gray-100"></div>
+                </div>
+                <div className="flex items-center justify-between gap-6 p-4">
+                  <div className="h-5 w-1/4 animate-pulse rounded bg-gray-100"></div>
+                  <div className="h-5 w-1/2 animate-pulse rounded bg-gray-100"></div>
+                </div>
+              </div>
+            </div>
+
+            {/* Members skeleton */}
+            <div className="mb-6 rounded-xl border border-gray-200 shadow-sm">
+              <div className="flex items-center justify-between border-b border-gray-200 bg-gradient-to-r from-gray-50 to-gray-0 p-4">
+                <div className="h-6 w-1/3 animate-pulse rounded bg-gray-100"></div>
+              </div>
+              <div>
+                <div className="border-b border-gray-100 p-4">
+                  <div className="h-5 w-full animate-pulse rounded bg-gray-100"></div>
+                </div>
+                <div className="border-b border-gray-100 p-4">
+                  <div className="h-5 w-full animate-pulse rounded bg-gray-100"></div>
+                </div>
+                <div className="p-4">
+                  <div className="h-5 w-full animate-pulse rounded bg-gray-100"></div>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA Button skeleton */}
+            <div className="mt-auto">
+              <div className="h-12 w-full animate-pulse rounded-lg bg-gray-100"></div>
+            </div>
           </div>
         ) : error ? (
           // Error state
@@ -331,7 +387,7 @@ export default function PartyDetailPage({
                 </Typography>
               </div>
               <Typography
-                variant={{ variant: "body", level: 2 }}
+                variant={{ variant: "body", level: 3 }}
                 className="p-4 text-gray-700"
               >
                 {party.description}
@@ -357,7 +413,7 @@ export default function PartyDetailPage({
                   <div className="flex items-center">
                     <PiUserFocusBold className="mr-3 h-5 w-5 text-gray-400" />
                     <Typography
-                      variant={{ variant: "body", level: 2 }}
+                      variant={{ variant: "body", level: 3 }}
                       className="text-gray-700"
                     >
                       {dictionary?.components?.politicalPartyList?.leader ||
@@ -365,7 +421,7 @@ export default function PartyDetailPage({
                     </Typography>
                   </div>
                   <Typography
-                    variant={{ variant: "body", level: 2 }}
+                    variant={{ variant: "body", level: 3 }}
                     className="font-medium text-gray-900"
                   >
                     {party.currentLeader.slice(0, 6)}...
@@ -379,7 +435,7 @@ export default function PartyDetailPage({
                     <div className="flex items-center">
                       <PiLinkSimpleBold className="mr-3 h-5 w-5 text-gray-400" />
                       <Typography
-                        variant={{ variant: "body", level: 2 }}
+                        variant={{ variant: "body", level: 3 }}
                         className="text-gray-700"
                       >
                         {dictionary?.components?.politicalPartyList?.website ||
@@ -397,7 +453,7 @@ export default function PartyDetailPage({
                       className="text-blue-600 hover:underline"
                     >
                       <Typography
-                        variant={{ variant: "body", level: 2 }}
+                        variant={{ variant: "body", level: 3 }}
                         className="line-clamp-1 break-all font-medium"
                         title={party.officialLink}
                       >
@@ -449,7 +505,7 @@ export default function PartyDetailPage({
                       } p-4`}
                     >
                       <Typography
-                        variant={{ variant: "body", level: 2 }}
+                        variant={{ variant: "body", level: 3 }}
                         className="line-clamp-1 break-all font-medium text-gray-900"
                       >
                         {member.address}
@@ -470,21 +526,21 @@ export default function PartyDetailPage({
                         } p-4`}
                       >
                         <Typography
-                          variant={{ variant: "body", level: 2 }}
+                          variant={{ variant: "body", level: 3 }}
                           className="line-clamp-1 break-all font-medium text-gray-900"
                         >
                           {member.address}
                         </Typography>
                         {member.address.toLowerCase() ===
                           party.currentLeader.toLowerCase() && (
-                          <span className="bg-blue-100 text-blue-700 rounded-full px-3 py-1 text-xs">
+                          <span className="rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-700">
                             {dictionary?.components?.politicalPartyList
                               ?.leader || "Leader"}
                           </span>
                         )}
                         {member.address.toLowerCase() ===
                           party.founder.toLowerCase() && (
-                          <span className="bg-purple-100 text-purple-700 rounded-full px-3 py-1 text-xs">
+                          <span className="rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-700">
                             {dictionary?.components?.politicalPartyList
                               ?.founder || "Founder"}
                           </span>
@@ -494,7 +550,7 @@ export default function PartyDetailPage({
                 </div>
               ) : (
                 <Typography
-                  variant={{ variant: "body", level: 2 }}
+                  variant={{ variant: "body", level: 3 }}
                   className="text-center text-gray-500"
                 >
                   {dictionary?.components?.politicalPartyList?.noMembers ||
@@ -524,11 +580,10 @@ export default function PartyDetailPage({
                         className="flex items-center justify-between rounded-lg border border-gray-100 p-3"
                       >
                         <Typography
-                          variant={{ variant: "body", level: 2 }}
-                          className="font-medium text-gray-900"
+                          variant={{ variant: "body", level: 3 }}
+                          className="line-clamp-1 break-all font-medium text-gray-900"
                         >
-                          {member.address.slice(0, 6)}...
-                          {member.address.slice(-4)}
+                          {member.address}
                         </Typography>
                       </div>
                     ))}
