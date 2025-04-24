@@ -1,0 +1,599 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { Typography } from "@/components/ui/Typography";
+import { Button } from "@/components/ui/Button";
+import Link from "next/link";
+import { useTranslations } from "@/hooks/useTranslations";
+import { useWallet } from "@/components/contexts/WalletContext";
+import { useToast } from "@/components/ui/Toast";
+import { BiChevronLeft } from "react-icons/bi";
+import {
+  PiUsersThreeFill,
+  PiUserBold,
+  PiUserFocusBold,
+  PiLinkSimpleBold,
+  PiInfoFill,
+  PiCheckCircleBold,
+  PiClockClockwiseBold,
+  PiProhibitBold,
+} from "react-icons/pi";
+
+// GraphQL endpoint
+const GOLDSKY_SUBGRAPH_URL =
+  "https://api.goldsky.com/api/public/project_cm9oeq0bhalzw01y0hwth80bk/subgraphs/political-party-registry/1.0.0/gn";
+
+// Party Status
+enum PartyStatus {
+  PENDING = 0,
+  ACTIVE = 1,
+  INACTIVE = 2,
+}
+
+// Party interface
+interface Party {
+  id: number;
+  name: string;
+  shortName: string;
+  description: string;
+  officialLink: string;
+  founder: string;
+  currentLeader: string;
+  status: number;
+  memberCount: number;
+  verifiedMemberCount: number;
+  members: { address: string }[];
+  bannedMembers: { address: string }[];
+}
+
+export default function PartyDetailPage({
+  params: { lang, id },
+}: {
+  params: { lang: string; id: string };
+}) {
+  const dictionary = useTranslations(lang);
+  const { walletAddress } = useWallet();
+  const { showToast } = useToast();
+
+  const [party, setParty] = useState<Party | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [isUserMember, setIsUserMember] = useState(false);
+  const [isUserLeader, setIsUserLeader] = useState(false);
+  const [showAllMembers, setShowAllMembers] = useState(false);
+
+  // Format timestamp to date
+  const formatDate = (timestamp: number) => {
+    return new Date(timestamp * 1000).toLocaleDateString();
+  };
+
+  // Format number with commas
+  const formatNumber = (num: number): string => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
+  // Shorten URL
+  const shortenUrl = (url: string, maxLength = 64) => {
+    if (!url) return "";
+
+    try {
+      // Remove protocol
+      let cleanUrl = url.replace(/^https?:\/\//, "");
+
+      // Trim www. if present
+      cleanUrl = cleanUrl.replace(/^www\./, "");
+
+      // Remove trailing slash
+      cleanUrl = cleanUrl.replace(/\/$/, "");
+
+      // Add CSS class to ensure text wrapping
+      // For very long URLs, ensure we're showing a meaningful portion
+      if (cleanUrl.length > maxLength) {
+        // Extract domain (everything before the first slash or question mark)
+        const domainMatch = cleanUrl.match(/^([^/?]+)/);
+        const domain = domainMatch ? domainMatch[1] : "";
+
+        // If domain itself is too long, truncate it
+        if (domain.length > maxLength / 2) {
+          return (
+            domain.substring(0, maxLength / 2) +
+            "..." +
+            cleanUrl.substring(cleanUrl.length - 20)
+          );
+        }
+
+        // Otherwise show domain + beginning of path + ... + end
+        return (
+          domain +
+          cleanUrl.substring(
+            domain.length,
+            Math.min(domain.length + 15, cleanUrl.length)
+          ) +
+          "..." +
+          cleanUrl.substring(cleanUrl.length - 15)
+        );
+      }
+
+      return cleanUrl;
+    } catch (e) {
+      // In case of any errors, return a safely truncated version of the original URL
+      return url.length > maxLength
+        ? url.substring(0, maxLength - 3) + "..."
+        : url;
+    }
+  };
+
+  // Get status text
+  const getStatusText = (status: number) => {
+    switch (status) {
+      case PartyStatus.PENDING:
+        return (
+          dictionary?.components?.politicalPartyList?.status?.pending ||
+          "Pending"
+        );
+      case PartyStatus.ACTIVE:
+        return (
+          dictionary?.components?.politicalPartyList?.status?.active || "Active"
+        );
+      case PartyStatus.INACTIVE:
+        return (
+          dictionary?.components?.politicalPartyList?.status?.inactive ||
+          "Inactive"
+        );
+      default:
+        return "Unknown";
+    }
+  };
+
+  // Get status icon
+  const getStatusIcon = (status: number) => {
+    switch (status) {
+      case PartyStatus.PENDING:
+        return <PiClockClockwiseBold className="text-yellow-500" />;
+      case PartyStatus.ACTIVE:
+        return <PiCheckCircleBold className="text-green-500" />;
+      case PartyStatus.INACTIVE:
+        return <PiProhibitBold className="text-red-500" />;
+      default:
+        return <PiInfoFill className="text-gray-500" />;
+    }
+  };
+
+  // Fetch party data
+  useEffect(() => {
+    const fetchPartyData = async () => {
+      if (!id) return;
+
+      try {
+        setIsLoading(true);
+
+        // GraphQL query
+        const query = `
+          {
+            parties(where: {id: ${id}}) {
+              name
+              shortName
+              description
+              officialLink
+              founder
+              currentLeader
+              status
+              memberCount
+              verifiedMemberCount
+              members(first: 1000, where: {isActive: true}) {
+                address
+              }
+              bannedMembers(first: 1000) {
+                address
+              }
+            }
+          }
+        `;
+
+        // Fetch data
+        const response = await fetch(GOLDSKY_SUBGRAPH_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query }),
+        });
+
+        if (!response.ok) {
+          throw new Error(`Subgraph request failed: ${response.statusText}`);
+        }
+
+        const result = await response.json();
+
+        if (result.errors) {
+          throw new Error(
+            `GraphQL errors: ${result.errors.map((e: any) => e.message).join(", ")}`
+          );
+        }
+
+        if (!result.data.parties || result.data.parties.length === 0) {
+          throw new Error("Party not found");
+        }
+
+        const partyData = result.data.parties[0];
+
+        // Transform data to match interface
+        const fetchedParty: Party = {
+          id: parseInt(id),
+          name: partyData.name,
+          shortName: partyData.shortName,
+          description: partyData.description,
+          officialLink: partyData.officialLink,
+          founder: partyData.founder,
+          currentLeader: partyData.currentLeader,
+          status: parseInt(partyData.status),
+          memberCount: parseInt(partyData.memberCount),
+          verifiedMemberCount: parseInt(partyData.verifiedMemberCount),
+          members: partyData.members,
+          bannedMembers: partyData.bannedMembers,
+        };
+
+        setParty(fetchedParty);
+
+        // Check if user is a member
+        if (walletAddress) {
+          const isMember = partyData.members.some(
+            (member: { address: string }) =>
+              member.address.toLowerCase() === walletAddress.toLowerCase()
+          );
+          setIsUserMember(isMember);
+
+          // Check if user is the leader
+          const isLeader =
+            partyData.currentLeader.toLowerCase() ===
+            walletAddress.toLowerCase();
+          setIsUserLeader(isLeader);
+        }
+      } catch (error) {
+        console.error("Error fetching party data:", error);
+        setError(
+          error instanceof Error ? error.message : "Failed to load party data"
+        );
+        showToast("Failed to load party data", "error");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchPartyData();
+  }, [id, walletAddress, showToast]);
+
+  return (
+    <div className="pb-safe flex min-h-dvh flex-col px-6">
+      <div className="fixed left-0 right-0 top-0 z-10 bg-gray-0 px-6">
+        <div className="relative flex items-center justify-center py-6">
+          <Link
+            href={`/${lang}/govern`}
+            className="absolute left-0 flex size-10 items-center justify-center rounded-full bg-gray-100"
+            aria-label="Back to Govern"
+          >
+            <BiChevronLeft className="size-6 text-gray-500" />
+          </Link>
+          <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
+            {dictionary?.components?.politicalPartyList?.partyDetails ||
+              "Party Details"}
+          </Typography>
+        </div>
+      </div>
+
+      <div className="mt-24 flex flex-1 flex-col pb-6">
+        {isLoading ? (
+          // Loading state
+          <div className="flex flex-1 flex-col items-center justify-center">
+            <div className="mt-4 h-8 w-3/4 animate-pulse rounded bg-gray-100"></div>
+            <div className="mt-2 h-4 w-1/2 animate-pulse rounded bg-gray-100"></div>
+          </div>
+        ) : error ? (
+          // Error state
+          <div className="flex flex-1 flex-col items-center justify-center">
+            <PiInfoFill className="h-16 w-16 text-gray-300" />
+            <Typography
+              variant={{ variant: "heading", level: 3 }}
+              className="mt-4 text-center text-gray-900"
+            >
+              {dictionary?.components?.politicalPartyList?.errorLoading ||
+                "Error Loading Party"}
+            </Typography>
+            <Typography
+              variant={{ variant: "body", level: 2 }}
+              className="mt-2 text-center text-gray-500"
+            >
+              {error}
+            </Typography>
+            <Link href={`/${lang}/govern`}>
+              <Button variant="secondary" className="mt-8">
+                {dictionary?.components?.politicalPartyList?.backToParties ||
+                  "Back to Parties"}
+              </Button>
+            </Link>
+          </div>
+        ) : party ? (
+          // Party details
+          <>
+            {/* Hero section */}
+            <div className="mb-10 flex flex-col items-center">
+              <Typography
+                variant={{ variant: "heading", level: 2 }}
+                className="mb-2 text-center text-gray-900"
+              >
+                {party.name}
+              </Typography>
+              <div className="flex items-center gap-2">
+                <span className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-700">
+                  {party.shortName}
+                </span>
+                <span className="flex items-center gap-1 rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-700">
+                  {getStatusIcon(party.status)}
+                  {getStatusText(party.status)}
+                </span>
+              </div>
+            </div>
+
+            {/* Description */}
+            <div className="mb-8 rounded-xl border border-gray-200 bg-gray-50 p-4 shadow-sm">
+              <Typography
+                variant={{ variant: "body", level: 2 }}
+                className="text-gray-700"
+              >
+                {party.description}
+              </Typography>
+            </div>
+
+            {/* Party Info */}
+            <div className="mb-8 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+              <div className="border-b border-gray-200 bg-gradient-to-r from-gray-50 to-gray-0 p-4">
+                <Typography
+                  as="h3"
+                  variant={{ variant: "subtitle", level: 2 }}
+                  className="text-gray-900"
+                >
+                  {dictionary?.components?.politicalPartyList?.partyInfo ||
+                    "Party Info"}
+                </Typography>
+              </div>
+
+              <div className="divide-y divide-gray-100">
+                {/* Leader */}
+                <div className="flex items-center justify-between p-4">
+                  <div className="flex items-center">
+                    <PiUserFocusBold className="mr-3 h-5 w-5 text-gray-400" />
+                    <Typography
+                      variant={{ variant: "body", level: 2 }}
+                      className="text-gray-700"
+                    >
+                      {dictionary?.components?.politicalPartyList?.leader ||
+                        "Leader"}
+                    </Typography>
+                  </div>
+                  <Typography
+                    variant={{ variant: "body", level: 2 }}
+                    className="font-medium text-gray-900"
+                  >
+                    {party.currentLeader.slice(0, 6)}...
+                    {party.currentLeader.slice(-4)}
+                  </Typography>
+                </div>
+
+                {/* Website */}
+                {party.officialLink && (
+                  <div className="flex items-center justify-between p-4">
+                    <div className="flex items-center">
+                      <PiLinkSimpleBold className="mr-3 h-5 w-5 text-gray-400" />
+                      <Typography
+                        variant={{ variant: "body", level: 2 }}
+                        className="text-gray-700"
+                      >
+                        {dictionary?.components?.politicalPartyList?.website ||
+                          "Website"}
+                      </Typography>
+                    </div>
+                    <a
+                      href={
+                        party.officialLink.startsWith("http")
+                          ? party.officialLink
+                          : `https://${party.officialLink}`
+                      }
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      <Typography
+                        variant={{ variant: "body", level: 2 }}
+                        className="max-w-[200px] break-all font-medium sm:max-w-[250px]"
+                        title={party.officialLink}
+                      >
+                        {shortenUrl(party.officialLink)}
+                      </Typography>
+                    </a>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Members count */}
+            <div className="mb-8 rounded-xl border border-gray-200 bg-gray-50 p-4 shadow-sm">
+              <div className="mb-4 flex items-center justify-between">
+                <div className="flex items-center">
+                  <PiUserBold className="mr-3 h-5 w-5 text-gray-400" />
+                  <Typography
+                    variant={{ variant: "subtitle", level: 2 }}
+                    className="text-gray-900"
+                  >
+                    {dictionary?.components?.politicalPartyList?.members ||
+                      "Members"}{" "}
+                    ({formatNumber(party.memberCount)})
+                  </Typography>
+                </div>
+              </div>
+
+              {party.members.length > 0 ? (
+                <div className="space-y-2">
+                  {/* First 5 members always visible */}
+                  {party.members.slice(0, 5).map((member, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-between rounded-lg border border-gray-100 p-3"
+                    >
+                      <Typography
+                        variant={{ variant: "body", level: 2 }}
+                        className="font-medium text-gray-900"
+                      >
+                        {member.address.slice(0, 6)}...
+                        {member.address.slice(-4)}
+                      </Typography>
+                    </div>
+                  ))}
+
+                  {/* Additional members shown conditionally */}
+                  {showAllMembers &&
+                    party.members.length > 5 &&
+                    party.members.slice(5).map((member, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center justify-between rounded-lg border border-gray-100 p-3"
+                      >
+                        <Typography
+                          variant={{ variant: "body", level: 2 }}
+                          className="font-medium text-gray-900"
+                        >
+                          {member.address.slice(0, 6)}...
+                          {member.address.slice(-4)}
+                        </Typography>
+                        {member.address.toLowerCase() ===
+                          party.currentLeader.toLowerCase() && (
+                          <span className="bg-blue-100 text-blue-700 rounded-full px-3 py-1 text-xs">
+                            {dictionary?.components?.politicalPartyList
+                              ?.leader || "Leader"}
+                          </span>
+                        )}
+                        {member.address.toLowerCase() ===
+                          party.founder.toLowerCase() && (
+                          <span className="bg-purple-100 text-purple-700 rounded-full px-3 py-1 text-xs">
+                            {dictionary?.components?.politicalPartyList
+                              ?.founder || "Founder"}
+                          </span>
+                        )}
+                      </div>
+                    ))}
+
+                  {/* Toggle button only appears if there are more than 5 members */}
+                  {party.members.length > 5 && (
+                    <button
+                      onClick={() => setShowAllMembers(!showAllMembers)}
+                      className="flex w-full cursor-pointer items-center justify-center rounded-md bg-gray-100 px-4 py-2 text-sm text-gray-700 hover:bg-gray-200"
+                    >
+                      <span>
+                        {showAllMembers
+                          ? dictionary?.components?.politicalPartyList
+                              ?.showLess || "Show Less"
+                          : dictionary?.components?.politicalPartyList
+                              ?.showMore || "Show More"}
+                      </span>
+                    </button>
+                  )}
+                </div>
+              ) : (
+                <Typography
+                  variant={{ variant: "body", level: 2 }}
+                  className="text-center text-gray-500"
+                >
+                  {dictionary?.components?.politicalPartyList?.noMembers ||
+                    "No members yet"}
+                </Typography>
+              )}
+            </div>
+
+            {/* Banned Members */}
+            {party.bannedMembers.length > 0 && (
+              <div className="mb-8 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+                <div className="border-b border-gray-200 bg-gradient-to-r from-gray-50 to-gray-0 p-4">
+                  <Typography
+                    as="h3"
+                    variant={{ variant: "subtitle", level: 2 }}
+                    className="text-gray-900"
+                  >
+                    {dictionary?.components?.politicalPartyList
+                      ?.bannedMembers || "Banned Members"}
+                  </Typography>
+                </div>
+                <div className="max-h-56 overflow-y-auto p-4">
+                  <div className="space-y-2">
+                    {party.bannedMembers.map((member, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center justify-between rounded-lg border border-gray-100 p-3"
+                      >
+                        <Typography
+                          variant={{ variant: "body", level: 2 }}
+                          className="font-medium text-gray-900"
+                        >
+                          {member.address.slice(0, 6)}...
+                          {member.address.slice(-4)}
+                        </Typography>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* CTA Buttons */}
+            <div className="mt-auto space-y-4">
+              {isUserMember ? (
+                <Link href={`/${lang}/govern`}>
+                  <Button variant="secondary" fullWidth>
+                    {dictionary?.components?.politicalPartyList
+                      ?.backToParties || "Back to Parties"}
+                  </Button>
+                </Link>
+              ) : party.status === PartyStatus.INACTIVE ? (
+                <Link href={`/${lang}/govern`}>
+                  <Button variant="secondary" fullWidth>
+                    {dictionary?.components?.politicalPartyList
+                      ?.backToParties || "Back to Parties"}
+                  </Button>
+                </Link>
+              ) : (
+                <Link href={`/${lang}/govern`}>
+                  <Button fullWidth>
+                    {dictionary?.components?.politicalPartyList?.joinParty ||
+                      "Join Party"}
+                  </Button>
+                </Link>
+              )}
+            </div>
+          </>
+        ) : (
+          // Not found state
+          <div className="flex flex-1 flex-col items-center justify-center">
+            <PiInfoFill className="h-16 w-16 text-gray-300" />
+            <Typography
+              variant={{ variant: "heading", level: 3 }}
+              className="mt-4 text-center text-gray-900"
+            >
+              {dictionary?.components?.politicalPartyList?.partyNotFound ||
+                "Party Not Found"}
+            </Typography>
+            <Typography
+              variant={{ variant: "body", level: 2 }}
+              className="mt-2 text-center text-gray-500"
+            >
+              {dictionary?.components?.politicalPartyList
+                ?.partyNotFoundDescription ||
+                "The party you're looking for doesn't exist or has been removed."}
+            </Typography>
+            <Link href={`/${lang}/govern`}>
+              <Button variant="secondary" className="mt-8">
+                {dictionary?.components?.politicalPartyList?.backToParties ||
+                  "Back to Parties"}
+              </Button>
+            </Link>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
