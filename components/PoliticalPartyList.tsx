@@ -393,6 +393,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         // First filter for parties the user is not a member of
         if (party.id === userPartyId) return false;
 
+        // In trending tab, only show parties with more than 10 members
+        if (activeTab === "trending" && party.memberCount < 5) return false;
+
         // Then filter based on search term if provided
         if (searchTerm.trim() !== "") {
           const searchLower = searchTerm.toLowerCase();
@@ -410,11 +413,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           // Sort by member count (highest first)
           return b.memberCount - a.memberCount;
         } else if (activeTab === "trending") {
-          // For trending tab: mix of recency and member count
-          const trendingScoreA =
-            a.memberCount * (1 + (Date.now() / 1000 - a.creationTime) / 86400);
-          const trendingScoreB =
-            b.memberCount * (1 + (Date.now() / 1000 - b.creationTime) / 86400);
+          // For trending tab: sum of id and member count
+          const trendingScoreA = a.id / 10 + Math.sqrt(a.memberCount);
+          const trendingScoreB = b.id / 10 + Math.sqrt(b.memberCount);
           return trendingScoreB - trendingScoreA;
         } else {
           // Default to reverse chronological order (newest first)
