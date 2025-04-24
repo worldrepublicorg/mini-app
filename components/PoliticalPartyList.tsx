@@ -9,12 +9,7 @@ import { Typography } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/Button";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useToast } from "@/components/ui/Toast";
-import {
-  PiLinkSimpleBold,
-  PiUsersBold,
-  PiGearBold,
-  PiInfoFill,
-} from "react-icons/pi";
+import { PiLinkSimpleBold, PiUsersBold, PiGearBold } from "react-icons/pi";
 import { Drawer, DrawerContent } from "@/components/ui/Drawer";
 import { Form, Input } from "@worldcoin/mini-apps-ui-kit-react";
 import { Textarea } from "@/components/ui/Textarea";
@@ -24,7 +19,7 @@ import { DrawerTitle } from "@/components/ui/Drawer";
 import { LoadingSkeleton, PartySkeletonCard } from "./PartySkeletons";
 import { useTranslations } from "@/hooks/useTranslations";
 import { TabSwiper } from "@/components/TabSwiper";
-
+import Link from "next/link";
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
   "0x70a993E1D1102F018365F966B5Fc009e8FA9b7dC";
 
@@ -1249,87 +1244,89 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           : ""
       } rounded-xl border border-gray-200 p-4`}
     >
-      <div className="flex items-center justify-between">
-        <Typography
-          as="h3"
-          variant={{ variant: "subtitle", level: 1 }}
-          className="text-[19px] font-semibold"
-        >
-          {party.name}
-        </Typography>
-        <div className="flex items-center gap-2">
-          {party.status === 0 && (
-            <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
-              {dictionary?.components?.politicalPartyList?.partyCard?.pending}
-            </span>
-          )}
-          {party.status === 2 && (
-            <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
-              {dictionary?.components?.politicalPartyList?.partyCard?.deleted}
-            </span>
-          )}
-          {party.isUserLeader && party.status !== 2 && (
-            <Dropdown
-              trigger={
-                <button
-                  className="text-gray-600 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 transition-colors hover:bg-gray-200"
-                  title={
-                    dictionary?.components?.politicalPartyList?.partyCard
-                      ?.management?.title
-                  }
-                >
-                  <PiGearBold size={16} />
-                </button>
-              }
-              menuItems={[
-                {
-                  label:
-                    dictionary?.components?.politicalPartyList?.partyCard
-                      ?.management?.manageMembers,
-                  onClick: () => {
-                    setSelectedParty(party);
-                    setIsMemberManagementDrawerOpen(true);
+      <Link href={`/${lang}/govern/party/${party.id}`}>
+        <div className="flex items-center justify-between">
+          <Typography
+            as="h3"
+            variant={{ variant: "subtitle", level: 1 }}
+            className="text-[19px] font-semibold"
+          >
+            {party.name}
+          </Typography>
+          <div className="flex items-center gap-2">
+            {party.status === 0 && (
+              <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
+                {dictionary?.components?.politicalPartyList?.partyCard?.pending}
+              </span>
+            )}
+            {party.status === 2 && (
+              <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
+                {dictionary?.components?.politicalPartyList?.partyCard?.deleted}
+              </span>
+            )}
+            {party.isUserLeader && party.status !== 2 && (
+              <Dropdown
+                trigger={
+                  <button
+                    className="text-gray-600 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 transition-colors hover:bg-gray-200"
+                    title={
+                      dictionary?.components?.politicalPartyList?.partyCard
+                        ?.management?.title
+                    }
+                  >
+                    <PiGearBold size={16} />
+                  </button>
+                }
+                menuItems={[
+                  {
+                    label:
+                      dictionary?.components?.politicalPartyList?.partyCard
+                        ?.management?.manageMembers,
+                    onClick: () => {
+                      setSelectedParty(party);
+                      setIsMemberManagementDrawerOpen(true);
+                    },
                   },
-                },
-                {
-                  label:
-                    dictionary?.components?.politicalPartyList?.partyCard
-                      ?.management?.updateInfo,
-                  onClick: () => openUpdatePartyDrawer(party),
-                },
-                {
-                  label:
-                    dictionary?.components?.politicalPartyList?.partyCard
-                      ?.management?.transferLeadership,
-                  onClick: () => {
-                    setSelectedParty(party);
-                    setIsTransferLeadershipDrawerOpen(true);
+                  {
+                    label:
+                      dictionary?.components?.politicalPartyList?.partyCard
+                        ?.management?.updateInfo,
+                    onClick: () => openUpdatePartyDrawer(party),
                   },
-                },
-                {
-                  label:
-                    dictionary?.components?.politicalPartyList?.partyCard
-                      ?.management?.deleteParty,
-                  onClick: () => {
-                    setSelectedParty(party);
-                    setIsDeleteDrawerOpen(true);
+                  {
+                    label:
+                      dictionary?.components?.politicalPartyList?.partyCard
+                        ?.management?.transferLeadership,
+                    onClick: () => {
+                      setSelectedParty(party);
+                      setIsTransferLeadershipDrawerOpen(true);
+                    },
                   },
-                  className: "text-error-600",
-                },
-              ]}
-              align="right"
-            />
-          )}
+                  {
+                    label:
+                      dictionary?.components?.politicalPartyList?.partyCard
+                        ?.management?.deleteParty,
+                    onClick: () => {
+                      setSelectedParty(party);
+                      setIsDeleteDrawerOpen(true);
+                    },
+                    className: "text-error-600",
+                  },
+                ]}
+                align="right"
+              />
+            )}
+          </div>
         </div>
-      </div>
 
-      <Typography
-        as="p"
-        variant={{ variant: "body", level: 2 }}
-        className="mt-3 text-[15px]"
-      >
-        {party.description}
-      </Typography>
+        <Typography
+          as="p"
+          variant={{ variant: "body", level: 2 }}
+          className="mt-3 text-[15px]"
+        >
+          {party.description}
+        </Typography>
+      </Link>
       <div className="mt-2 flex justify-between gap-1">
         <div className="flex items-center gap-1">
           <PiLinkSimpleBold className="text-gray-500" size={15} />
