@@ -7,10 +7,8 @@ import Link from "next/link";
 import { useTranslations } from "@/hooks/useTranslations";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { useToast } from "@/components/ui/Toast";
-import { BiChevronLeft } from "react-icons/bi";
+import { BiChevronLeft, BiChevronDown } from "react-icons/bi";
 import {
-  PiUsersThreeFill,
-  PiUserBold,
   PiUserFocusBold,
   PiLinkSimpleBold,
   PiInfoFill,
@@ -59,68 +57,11 @@ export default function PartyDetailPage({
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
   const [isUserMember, setIsUserMember] = useState(false);
-  const [isUserLeader, setIsUserLeader] = useState(false);
   const [showAllMembers, setShowAllMembers] = useState(false);
-
-  // Format timestamp to date
-  const formatDate = (timestamp: number) => {
-    return new Date(timestamp * 1000).toLocaleDateString();
-  };
 
   // Format number with commas
   const formatNumber = (num: number): string => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  };
-
-  // Shorten URL
-  const shortenUrl = (url: string, maxLength = 64) => {
-    if (!url) return "";
-
-    try {
-      // Remove protocol
-      let cleanUrl = url.replace(/^https?:\/\//, "");
-
-      // Trim www. if present
-      cleanUrl = cleanUrl.replace(/^www\./, "");
-
-      // Remove trailing slash
-      cleanUrl = cleanUrl.replace(/\/$/, "");
-
-      // Add CSS class to ensure text wrapping
-      // For very long URLs, ensure we're showing a meaningful portion
-      if (cleanUrl.length > maxLength) {
-        // Extract domain (everything before the first slash or question mark)
-        const domainMatch = cleanUrl.match(/^([^/?]+)/);
-        const domain = domainMatch ? domainMatch[1] : "";
-
-        // If domain itself is too long, truncate it
-        if (domain.length > maxLength / 2) {
-          return (
-            domain.substring(0, maxLength / 2) +
-            "..." +
-            cleanUrl.substring(cleanUrl.length - 20)
-          );
-        }
-
-        // Otherwise show domain + beginning of path + ... + end
-        return (
-          domain +
-          cleanUrl.substring(
-            domain.length,
-            Math.min(domain.length + 15, cleanUrl.length)
-          ) +
-          "..." +
-          cleanUrl.substring(cleanUrl.length - 15)
-        );
-      }
-
-      return cleanUrl;
-    } catch (e) {
-      // In case of any errors, return a safely truncated version of the original URL
-      return url.length > maxLength
-        ? url.substring(0, maxLength - 3) + "..."
-        : url;
-    }
   };
 
   // Get status text
@@ -149,13 +90,13 @@ export default function PartyDetailPage({
   const getStatusIcon = (status: number) => {
     switch (status) {
       case PartyStatus.PENDING:
-        return <PiClockClockwiseBold className="text-yellow-500" />;
+        return <PiClockClockwiseBold className="text-gray-700" />;
       case PartyStatus.ACTIVE:
-        return <PiCheckCircleBold className="text-green-500" />;
+        return <PiCheckCircleBold className="text-gray-700" />;
       case PartyStatus.INACTIVE:
-        return <PiProhibitBold className="text-red-500" />;
+        return <PiProhibitBold className="text-gray-700" />;
       default:
-        return <PiInfoFill className="text-gray-500" />;
+        return <PiInfoFill className="text-gray-700" />;
     }
   };
 
@@ -240,12 +181,6 @@ export default function PartyDetailPage({
               member.address.toLowerCase() === walletAddress.toLowerCase()
           );
           setIsUserMember(isMember);
-
-          // Check if user is the leader
-          const isLeader =
-            partyData.currentLeader.toLowerCase() ===
-            walletAddress.toLowerCase();
-          setIsUserLeader(isLeader);
         }
       } catch (error) {
         console.error("Error fetching party data:", error);
@@ -317,7 +252,7 @@ export default function PartyDetailPage({
             <div className="mb-10 flex flex-col items-center">
               <Typography
                 variant={{ variant: "heading", level: 2 }}
-                className="mb-2 text-center text-gray-900"
+                className="mb-3 text-center text-gray-900"
               >
                 {party.name}
               </Typography>
@@ -333,17 +268,27 @@ export default function PartyDetailPage({
             </div>
 
             {/* Description */}
-            <div className="mb-8 rounded-xl border border-gray-200 bg-gray-50 p-4 shadow-sm">
+            <div className="mb-6 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+              <div className="border-b border-gray-200 bg-gradient-to-r from-gray-50 to-gray-0 p-4">
+                <Typography
+                  as="h3"
+                  variant={{ variant: "subtitle", level: 2 }}
+                  className="text-gray-900"
+                >
+                  {dictionary?.components?.politicalPartyList?.description ||
+                    "Description"}
+                </Typography>
+              </div>
               <Typography
                 variant={{ variant: "body", level: 2 }}
-                className="text-gray-700"
+                className="p-4 text-gray-700"
               >
                 {party.description}
               </Typography>
             </div>
 
             {/* Party Info */}
-            <div className="mb-8 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+            <div className="mb-6 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
               <div className="border-b border-gray-200 bg-gradient-to-r from-gray-50 to-gray-0 p-4">
                 <Typography
                   as="h3"
@@ -357,7 +302,7 @@ export default function PartyDetailPage({
 
               <div className="divide-y divide-gray-100">
                 {/* Leader */}
-                <div className="flex items-center justify-between p-4">
+                <div className="flex items-center justify-between gap-6 p-4">
                   <div className="flex items-center">
                     <PiUserFocusBold className="mr-3 h-5 w-5 text-gray-400" />
                     <Typography
@@ -379,7 +324,7 @@ export default function PartyDetailPage({
 
                 {/* Website */}
                 {party.officialLink && (
-                  <div className="flex items-center justify-between p-4">
+                  <div className="flex items-center justify-between gap-6 p-4">
                     <div className="flex items-center">
                       <PiLinkSimpleBold className="mr-3 h-5 w-5 text-gray-400" />
                       <Typography
@@ -402,10 +347,10 @@ export default function PartyDetailPage({
                     >
                       <Typography
                         variant={{ variant: "body", level: 2 }}
-                        className="max-w-[200px] break-all font-medium sm:max-w-[250px]"
+                        className="line-clamp-1 break-all font-medium"
                         title={party.officialLink}
                       >
-                        {shortenUrl(party.officialLink)}
+                        {party.officialLink}
                       </Typography>
                     </a>
                   </div>
@@ -414,10 +359,12 @@ export default function PartyDetailPage({
             </div>
 
             {/* Members count */}
-            <div className="mb-8 rounded-xl border border-gray-200 bg-gray-50 p-4 shadow-sm">
-              <div className="mb-4 flex items-center justify-between">
-                <div className="flex items-center">
-                  <PiUserBold className="mr-3 h-5 w-5 text-gray-400" />
+            <div className="mb-6 rounded-xl border border-gray-200 shadow-sm">
+              <button
+                onClick={() => setShowAllMembers(!showAllMembers)}
+                className="w-full"
+              >
+                <div className="flex items-center justify-between border-b border-gray-200 bg-gradient-to-r from-gray-50 to-gray-0 p-4">
                   <Typography
                     variant={{ variant: "subtitle", level: 2 }}
                     className="text-gray-900"
@@ -426,23 +373,35 @@ export default function PartyDetailPage({
                       "Members"}{" "}
                     ({formatNumber(party.memberCount)})
                   </Typography>
+
+                  {party.members.length > 3 &&
+                    (showAllMembers ? (
+                      <BiChevronDown className="size-[22px] text-gray-500 transition-transform duration-200" />
+                    ) : (
+                      <BiChevronLeft className="size-[22px] text-gray-500 transition-transform duration-200" />
+                    ))}
                 </div>
-              </div>
+              </button>
 
               {party.members.length > 0 ? (
-                <div className="space-y-2">
-                  {/* First 5 members always visible */}
-                  {party.members.slice(0, 5).map((member, index) => (
+                <div>
+                  {/* First 3 members always visible */}
+                  {party.members.slice(0, 3).map((member, index, array) => (
                     <div
                       key={index}
-                      className="flex items-center justify-between rounded-lg border border-gray-100 p-3"
+                      className={`flex items-center justify-between ${
+                        showAllMembers
+                          ? "border-b border-gray-100"
+                          : index === array.length - 1
+                            ? ""
+                            : "border-b border-gray-100"
+                      } p-4`}
                     >
                       <Typography
                         variant={{ variant: "body", level: 2 }}
-                        className="font-medium text-gray-900"
+                        className="line-clamp-1 break-all font-medium text-gray-900"
                       >
-                        {member.address.slice(0, 6)}...
-                        {member.address.slice(-4)}
+                        {member.address}
                       </Typography>
                     </div>
                   ))}
@@ -450,17 +409,20 @@ export default function PartyDetailPage({
                   {/* Additional members shown conditionally */}
                   {showAllMembers &&
                     party.members.length > 5 &&
-                    party.members.slice(5).map((member, index) => (
+                    party.members.slice(5).map((member, index, array) => (
                       <div
                         key={index}
-                        className="flex items-center justify-between rounded-lg border border-gray-100 p-3"
+                        className={`flex items-center justify-between ${
+                          index === array.length - 1
+                            ? ""
+                            : "border-b border-gray-100"
+                        } p-4`}
                       >
                         <Typography
                           variant={{ variant: "body", level: 2 }}
-                          className="font-medium text-gray-900"
+                          className="line-clamp-1 break-all font-medium text-gray-900"
                         >
-                          {member.address.slice(0, 6)}...
-                          {member.address.slice(-4)}
+                          {member.address}
                         </Typography>
                         {member.address.toLowerCase() ===
                           party.currentLeader.toLowerCase() && (
@@ -478,22 +440,6 @@ export default function PartyDetailPage({
                         )}
                       </div>
                     ))}
-
-                  {/* Toggle button only appears if there are more than 5 members */}
-                  {party.members.length > 5 && (
-                    <button
-                      onClick={() => setShowAllMembers(!showAllMembers)}
-                      className="flex w-full cursor-pointer items-center justify-center rounded-md bg-gray-100 px-4 py-2 text-sm text-gray-700 hover:bg-gray-200"
-                    >
-                      <span>
-                        {showAllMembers
-                          ? dictionary?.components?.politicalPartyList
-                              ?.showLess || "Show Less"
-                          : dictionary?.components?.politicalPartyList
-                              ?.showMore || "Show More"}
-                      </span>
-                    </button>
-                  )}
                 </div>
               ) : (
                 <Typography
@@ -508,7 +454,7 @@ export default function PartyDetailPage({
 
             {/* Banned Members */}
             {party.bannedMembers.length > 0 && (
-              <div className="mb-8 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
+              <div className="mb-6 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
                 <div className="border-b border-gray-200 bg-gradient-to-r from-gray-50 to-gray-0 p-4">
                   <Typography
                     as="h3"
@@ -543,12 +489,49 @@ export default function PartyDetailPage({
             {/* CTA Buttons */}
             <div className="mt-auto space-y-4">
               {isUserMember ? (
-                <Link href={`/${lang}/govern`}>
-                  <Button variant="secondary" fullWidth>
-                    {dictionary?.components?.politicalPartyList
-                      ?.backToParties || "Back to Parties"}
-                  </Button>
-                </Link>
+                <Button
+                  fullWidth
+                  onClick={async () => {
+                    const shareUrl = `https://worldcoin.org/mini-app/party/${party.id}`;
+                    const shareTitle = party.name;
+                    const shareText = `Check out this political party: ${party.name}`;
+
+                    // Check if Web Share API is supported
+                    if (navigator.share) {
+                      try {
+                        await navigator.share({
+                          title: shareTitle,
+                          text: shareText,
+                          url: shareUrl,
+                        });
+                      } catch (error) {
+                        // User cancelled or share failed - fallback to clipboard
+                        if (
+                          error instanceof Error &&
+                          error.name !== "AbortError"
+                        ) {
+                          await navigator.clipboard.writeText(shareUrl);
+                          showToast(
+                            dictionary?.components?.politicalPartyList
+                              ?.copied || "Link copied to clipboard",
+                            "success"
+                          );
+                        }
+                      }
+                    } else {
+                      // Fallback for browsers that don't support Web Share API
+                      await navigator.clipboard.writeText(shareUrl);
+                      showToast(
+                        dictionary?.components?.politicalPartyList?.copied ||
+                          "Link copied to clipboard",
+                        "success"
+                      );
+                    }
+                  }}
+                >
+                  {dictionary?.components?.politicalPartyList?.shareParty ||
+                    "Share Party"}
+                </Button>
               ) : party.status === PartyStatus.INACTIVE ? (
                 <Link href={`/${lang}/govern`}>
                   <Button variant="secondary" fullWidth>
