@@ -16,10 +16,16 @@ import {
   PiClockClockwiseBold,
   PiProhibitBold,
 } from "react-icons/pi";
+import { MiniKit } from "@worldcoin/minikit-js";
+import { parseAbi } from "viem";
 
 // GraphQL endpoint
 const GOLDSKY_SUBGRAPH_URL =
   "https://api.goldsky.com/api/public/project_cm9oeq0bhalzw01y0hwth80bk/subgraphs/political-party-registry/1.0.0/gn";
+
+// Contract address
+const POLITICAL_PARTY_REGISTRY_ADDRESS =
+  "0x70a993E1D1102F018365F966B5Fc009e8FA9b7dC";
 
 // Party Status
 enum PartyStatus {
@@ -58,6 +64,7 @@ export default function PartyDetailPage({
   const [error, setError] = useState("");
   const [isUserMember, setIsUserMember] = useState(false);
   const [showAllMembers, setShowAllMembers] = useState(false);
+  const [isJoining, setIsJoining] = useState(false);
 
   // Format number with commas
   const formatNumber = (num: number): string => {
@@ -97,6 +104,50 @@ export default function PartyDetailPage({
         return <PiProhibitBold className="text-gray-700" />;
       default:
         return <PiInfoFill className="text-gray-700" />;
+    }
+  };
+
+  // Join party function
+  const joinParty = async () => {
+    if (!MiniKit.isInstalled()) {
+      showToast("Please connect your wallet first", "error");
+      return;
+    }
+
+    try {
+      setIsJoining(true);
+      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
+        transaction: [
+          {
+            address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
+            abi: parseAbi(["function joinParty(uint256 _partyId) external"]),
+            functionName: "joinParty",
+            args: [BigInt(parseInt(id))],
+          },
+        ],
+      });
+
+      if (finalPayload.status === "error") {
+        if (finalPayload.error_code !== "user_rejected") {
+          showToast("Failed to join party", "error");
+        }
+      } else {
+        showToast("Successfully joined party!", "success");
+        setIsUserMember(true);
+        // Update the party data to reflect membership
+        if (party) {
+          setParty({
+            ...party,
+            memberCount: party.memberCount + 1,
+            members: [...party.members, { address: walletAddress || "" }],
+          });
+        }
+      }
+    } catch (error) {
+      console.error("Error joining party:", error);
+      showToast("Error joining party", "error");
+    } finally {
+      setIsJoining(false);
     }
   };
 
@@ -492,16 +543,14 @@ export default function PartyDetailPage({
                 <Button
                   fullWidth
                   onClick={async () => {
-                    const shareUrl = `https://worldcoin.org/mini-app/party/${party.id}`;
+                    const shareUrl = `https://world.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=%2Fgovern%2Fparty%2F${party.id}`;
                     const shareTitle = party.name;
-                    const shareText = `Check out this political party: ${party.name}`;
 
                     // Check if Web Share API is supported
                     if (navigator.share) {
                       try {
                         await navigator.share({
                           title: shareTitle,
-                          text: shareText,
                           url: shareUrl,
                         });
                       } catch (error) {
@@ -540,12 +589,13 @@ export default function PartyDetailPage({
                   </Button>
                 </Link>
               ) : (
-                <Link href={`/${lang}/govern`}>
-                  <Button fullWidth>
-                    {dictionary?.components?.politicalPartyList?.joinParty ||
+                <Button fullWidth onClick={joinParty} disabled={isJoining}>
+                  {isJoining
+                    ? dictionary?.components?.politicalPartyList?.joining ||
+                      "Joining..."
+                    : dictionary?.components?.politicalPartyList?.joinParty ||
                       "Join Party"}
-                  </Button>
-                </Link>
+                </Button>
               )}
             </div>
           </>
