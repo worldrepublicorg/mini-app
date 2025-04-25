@@ -135,6 +135,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const loadMoreRef = useRef<HTMLDivElement>(null);
 
+  // Add this alongside the other useEffect calls to persist and restore userPartyId
+  useEffect(() => {
+    // Save userPartyId to localStorage whenever it changes
+    if (userPartyId > 0 && typeof window !== "undefined") {
+      localStorage.setItem("userPartyId", userPartyId.toString());
+    }
+  }, [userPartyId]);
+
   // Add this near the beginning of the component to restore userPartyId on mount
   useEffect(() => {
     // Restore userPartyId from localStorage when component mounts
@@ -145,63 +153,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       }
     }
   }, []);
-
-  // Add a new effect to check user's party membership directly when wallet address changes
-  useEffect(() => {
-    const checkUserPartyMembership = async () => {
-      if (!walletAddress || !GOLDSKY_SUBGRAPH_URL) return;
-
-      try {
-        // Query to get user's party directly from subgraph, regardless of status
-        const userQuery = `
-          query {
-            userPartyMapping(id: "${walletAddress.toLowerCase()}") {
-              party { 
-                id 
-                status
-              }
-            }
-          }
-        `;
-
-        const userResponse = await fetch(GOLDSKY_SUBGRAPH_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ query: userQuery }),
-        });
-
-        if (userResponse.ok) {
-          const userData = await userResponse.json();
-          if (userData.data?.userPartyMapping?.party) {
-            const userParty = Number(userData.data.userPartyMapping.party.id);
-            setUserPartyId(userParty);
-
-            // Update cache with status information
-            const partyStatus = Number(
-              userData.data.userPartyMapping.party.status
-            );
-            localStorage.setItem(
-              "userPartyCache",
-              JSON.stringify({
-                partyId: userParty,
-                isLeader: false, // We'll set this later when we have more data
-                partyStatus: partyStatus,
-                timestamp: Date.now(),
-              })
-            );
-          } else {
-            // User is not in any party
-            setUserPartyId(0);
-            localStorage.removeItem("userPartyCache");
-          }
-        }
-      } catch (error) {
-        console.error("Error checking user party membership:", error);
-      }
-    };
-
-    checkUserPartyMembership();
-  }, [walletAddress, GOLDSKY_SUBGRAPH_URL]);
 
   useEffect(() => {
     // Mark govern section as visited when this component loads
@@ -327,6 +278,34 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
       // Get user party info
       let userParty = 0;
+
+      if (walletAddress) {
+        try {
+          const userQuery = `
+            query {
+              userPartyMapping(id: "${walletAddress.toLowerCase()}") {
+                party { id }
+              }
+            }
+          `;
+
+          const userResponse = await fetch(GOLDSKY_SUBGRAPH_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ query: userQuery }),
+          });
+
+          if (userResponse.ok) {
+            const userData = await userResponse.json();
+            if (userData.data?.userPartyMapping?.party) {
+              userParty = Number(userData.data.userPartyMapping.party.id);
+            }
+          }
+        } catch (error) {
+          console.error("Error fetching user party mapping:", error);
+        }
+      }
+
       setUserPartyId(userParty > 0 ? userParty : 0);
 
       // Transform the data to match your Party interface
@@ -731,26 +710,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const createParty = async () => {
     if (!MiniKit.isInstalled()) {
       showToast("Please connect your wallet first", "error");
-      return;
-    }
-
-    // Double-check if the user is already in a party
-    if (userPartyId > 0) {
-      showToast(
-        "You are already a member of a party. Please leave your current party first.",
-        "error"
-      );
-      setIsCreateDrawerOpen(false);
-
-      // Find party and show the leave confirmation
-      const userCurrentParty = parties.find(
-        (party) => party.id === userPartyId
-      );
-
-      if (userCurrentParty) {
-        setPartyToLeaveFrom(userCurrentParty);
-        setIsCreateConfirmDrawerOpen(true);
-      }
       return;
     }
 
