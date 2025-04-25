@@ -424,7 +424,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     } finally {
       setPendingLoading(false);
     }
-  }, [walletAddress, userPartyId, activeParties]);
+  }, [walletAddress, userPartyId, activeParties, showToast]);
 
   // Replace the original useEffect to call the new functions
   useEffect(() => {
@@ -495,7 +495,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     return () => {
       unwatchPartyCreated();
     };
-  }, [walletAddress, pendingPartyData]);
+  }, [walletAddress, pendingPartyData, showToast]);
 
   // Calculate sorted parties for each tab type
   const sortedPartiesByTab = useMemo(() => {
