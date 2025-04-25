@@ -3,7 +3,6 @@
 import React from "react";
 import { Typography } from "@/components/ui/Typography";
 import { FaPlus } from "react-icons/fa";
-import { Input } from "@worldcoin/mini-apps-ui-kit-react";
 
 export const PartySkeletonCard = () => (
   <div className="mb-4 animate-pulse rounded-xl border border-gray-200 p-4">
@@ -69,12 +68,7 @@ export const LoadingSkeleton = ({ dictionary }: { dictionary: any }) => (
     {/* Search Input Skeleton */}
     <div className="mb-3">
       <div className="relative">
-        <div className="animate-pulse rounded-lg border border-gray-200 bg-gray-50 px-4 py-3">
-          <div className="flex items-center">
-            <div className="h-5 w-5 rounded bg-gray-200"></div>
-            <div className="ml-2 h-4 w-36 rounded bg-gray-200"></div>
-          </div>
-        </div>
+        <div className="h-[54px] animate-pulse rounded-lg border border-gray-200 bg-gray-50 px-4 py-3"></div>
       </div>
     </div>
 
