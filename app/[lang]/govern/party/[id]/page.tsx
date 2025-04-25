@@ -510,7 +510,7 @@ export default function PartyDetailPage({
             </div>
 
             {/* Members count */}
-            <div className="mb-6 rounded-xl border border-gray-200 shadow-sm">
+            <div className="mb-6 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
               <button
                 onClick={() => setShowAllMembers(!showAllMembers)}
                 className="w-full"
