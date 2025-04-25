@@ -91,7 +91,7 @@ export const LoadingSkeleton = ({ dictionary }: { dictionary: any }) => (
     </div>
 
     {/* Generate skeleton party cards */}
-    {Array.from({ length: 3 }).map((_, index) => (
+    {Array.from({ length: 20 }).map((_, index) => (
       <PartySkeletonCard key={index} />
     ))}
   </div>

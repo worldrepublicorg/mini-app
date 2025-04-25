@@ -1745,11 +1745,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       {/* This div will contain the filtered parties with a minimum height */}
       <div className="min-h-[50vh]">
         {activeTab === "pending" && pendingLoading ? (
-          // Show skeletons when loading pending parties
+          // Show skeletons matching the initial display count
           <>
-            <PartySkeletonCard />
-            <PartySkeletonCard />
-            <PartySkeletonCard />
+            {Array.from({ length: 20 }).map((_, i) => (
+              <PartySkeletonCard key={i} />
+            ))}
           </>
         ) : filteredParties.length === 0 ? (
           <div className="my-8 text-center text-gray-500">
