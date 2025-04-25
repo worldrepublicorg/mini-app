@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { Typography } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 import { useTranslations } from "@/hooks/useTranslations";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { useToast } from "@/components/ui/Toast";
-import { BiChevronLeft, BiChevronDown } from "react-icons/bi";
+import { BiChevronLeft, BiChevronDown, BiShareAlt } from "react-icons/bi";
 import {
   PiUserFocusBold,
   PiLinkSimpleBold,
@@ -262,6 +262,49 @@ export default function PartyDetailPage({
             {dictionary?.components?.politicalPartyList?.partyDetails ||
               "Party Details"}
           </Typography>
+          {party && (
+            <button
+              onClick={async () => {
+                const shareUrl = `https://world.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=%2Fgovern%2Fparty%2F${party.id}`;
+                const shareTitle = party.name;
+
+                // Check if Web Share API is supported
+                if (navigator.share) {
+                  try {
+                    await navigator.share({
+                      title: shareTitle,
+                      url: shareUrl,
+                    });
+                  } catch (error) {
+                    // User cancelled or share failed - fallback to clipboard
+                    if (error instanceof Error && error.name !== "AbortError") {
+                      await navigator.clipboard.writeText(shareUrl);
+                      showToast(
+                        dictionary?.components?.politicalPartyList?.copied ||
+                          "Link copied to clipboard",
+                        "success"
+                      );
+                    }
+                  }
+                } else {
+                  // Fallback for browsers that don't support Web Share API
+                  await navigator.clipboard.writeText(shareUrl);
+                  showToast(
+                    dictionary?.components?.politicalPartyList?.copied ||
+                      "Link copied to clipboard",
+                    "success"
+                  );
+                }
+              }}
+              className="absolute right-0 flex size-10 items-center justify-center rounded-full bg-gray-100"
+              aria-label={
+                dictionary?.components?.politicalPartyList?.shareParty ||
+                "Share Party"
+              }
+            >
+              <BiShareAlt className="size-5 text-gray-500" />
+            </button>
+          )}
         </div>
       </div>
 
