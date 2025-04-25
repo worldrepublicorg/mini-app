@@ -649,16 +649,20 @@
         },
         "elections": {
           "title": "선거",
-          "description": "대표자 선출",
+          "description": "대표를 선택하세요",
           "worldConstituent": {
-            "title": "세계 제헌의회 선거"
+            "title": "세계 제헌 의회 선거",
+            "description": "민주적으로 선출된 최초의 글로벌 의회를 위한 대표를 선택하세요.",
+            "button": "곧 출시 예정"
           }
         },
         "referendums": {
           "title": "국민투표",
-          "description": "중요 사안에 대한 직접 투표",
+          "description": "중요한 이슈에 대한 직접 투표",
           "worldConstitutional": {
-            "title": "세계 헌법 국민투표"
+            "title": "세계 헌법 국민투표",
+            "description": "인류의 집단적 미래를 이끌어 갈 원칙에 대한 역사적인 투표에 참여하세요.",
+            "button": "곧 출시 예정"
           }
         },
         "politicalParties": {

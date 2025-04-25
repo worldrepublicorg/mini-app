@@ -646,16 +646,20 @@
         },
         "elections": {
           "title": "Izbori",
-          "description": "Odaberite svoje predstavnike",
+          "description": "Izaberite svoje predstavnike",
           "worldConstituent": {
-            "title": "Izbori za Svjetsku ustavotvornu skupštinu"
+            "title": "Izbori za Svjetsku ustavotvornu skupštinu",
+            "description": "Odaberite predstavnike za prvi demokratski izabrani globalni parlament.",
+            "button": "Uskoro"
           }
         },
         "referendums": {
           "title": "Referendumi",
-          "description": "Izravno glasanje o važnim pitanjima",
+          "description": "Izravna glasanja o važnim pitanjima",
           "worldConstitutional": {
-            "title": "Svjetski ustavni referendum"
+            "title": "Svjetski ustavni referendum",
+            "description": "Sudjelujte u povijesnom glasanju o načelima koja će voditi kolektivnu budućnost čovječanstva.",
+            "button": "Uskoro"
           }
         },
         "politicalParties": {

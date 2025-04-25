@@ -642,14 +642,18 @@
           "title": "Elections",
           "description": "Choose your representatives",
           "worldConstituent": {
-            "title": "World Constituent Assembly Election"
+            "title": "World Constituent Assembly Election",
+            "description": "Select representatives for the first democratically elected global parliament.",
+            "button": "Coming Soon"
           }
         },
         "referendums": {
           "title": "Referendums",
           "description": "Direct votes on important issues",
           "worldConstitutional": {
-            "title": "World Constitutional Referendum"
+            "title": "World Constitutional Referendum",
+            "description": "Participate in a historic vote on principles that will guide humanity's collective future.",
+            "button": "Coming Soon"
           }
         }
       }

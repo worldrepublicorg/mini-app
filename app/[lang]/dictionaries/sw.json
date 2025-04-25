@@ -648,14 +648,18 @@
           "title": "Uchaguzi",
           "description": "Chagua wawakilishi wako",
           "worldConstituent": {
-            "title": "Uchaguzi wa Bunge la Katiba la Dunia"
+            "title": "Uchaguzi wa Mkutano wa Kikatiba wa Dunia",
+            "description": "Chagua wawakilishi kwa bunge la kwanza la ulimwengu lililochaguliwa kidemokrasia.",
+            "button": "Inakuja Hivi Karibuni"
           }
         },
         "referendums": {
-          "title": "Kura za Maoni",
+          "title": "Kura ya Maoni",
           "description": "Kura za moja kwa moja kuhusu masuala muhimu",
           "worldConstitutional": {
-            "title": "Kura ya Maoni ya Katiba ya Dunia"
+            "title": "Kura ya Maoni ya Kikatiba ya Dunia",
+            "description": "Shiriki katika upigaji kura wa kihistoria kuhusu kanuni zitakazoongoza mustakabali wa pamoja wa binadamu.",
+            "button": "Inakuja Hivi Karibuni"
           }
         },
         "politicalParties": {

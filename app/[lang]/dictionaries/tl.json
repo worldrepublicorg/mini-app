@@ -647,14 +647,18 @@
           "title": "Mga Eleksyon",
           "description": "Piliin ang iyong mga kinatawan",
           "worldConstituent": {
-            "title": "World Constituent Assembly Election"
+            "title": "World Constituent Assembly Election",
+            "description": "Pumili ng mga kinatawan para sa unang demokratikong hinalal na pandaigdigang parlamento.",
+            "button": "Malapit Na"
           }
         },
         "referendums": {
           "title": "Mga Referendum",
           "description": "Direktang boto sa mga mahalagang isyu",
           "worldConstitutional": {
-            "title": "World Constitutional Referendum"
+            "title": "World Constitutional Referendum",
+            "description": "Lumahok sa isang makasaysayang pagboto sa mga prinsipyo na gagabay sa kolektibong kinabukasan ng sangkatauhan.",
+            "button": "Malapit Na"
           }
         },
         "politicalParties": {

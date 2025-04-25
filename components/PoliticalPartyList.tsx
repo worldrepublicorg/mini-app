@@ -498,6 +498,106 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     }
   }, [partiesToDisplay.length]);
 
+  const fetchPartyFromBlockchain = async (
+    partyId: number
+  ): Promise<Party | null> => {
+    try {
+      const partyDetails = await viemClient.readContract({
+        address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
+        abi: parseAbi([
+          "function getPartyDetails(uint256 _partyId) view returns (string memory name, string memory shortName, string memory description, string memory officialLink, address founder, address currentLeader, uint256 creationTime, uint8 status, uint256 memberCount, uint256 documentVerifiedMemberCount, uint256 verifiedMemberCount)",
+        ]),
+        functionName: "getPartyDetails",
+        args: [BigInt(partyId)],
+      });
+
+      // Create a Party object from the blockchain data
+      return {
+        id: partyId,
+        name: partyDetails[0],
+        shortName: partyDetails[1],
+        description: partyDetails[2],
+        officialLink: partyDetails[3],
+        founder: partyDetails[4],
+        leader: partyDetails[5],
+        creationTime: Number(partyDetails[6]),
+        status: partyDetails[7],
+        active: partyDetails[7] === 1,
+        memberCount: Number(partyDetails[8]),
+        documentVerifiedMemberCount: Number(partyDetails[9]),
+        verifiedMemberCount: Number(partyDetails[10]),
+        isUserMember: true, // Assuming this is the user's party
+        isUserLeader:
+          walletAddress?.toLowerCase() === partyDetails[5].toLowerCase(),
+      };
+    } catch (error) {
+      console.error(`Error fetching party ${partyId} details:`, error);
+      return null;
+    }
+  };
+
+  const FetchUserParty = ({
+    partyId,
+    renderPartyCard,
+    walletAddress,
+    showToast,
+  }: {
+    partyId: number;
+    renderPartyCard: (party: Party) => JSX.Element;
+    walletAddress: string | null;
+    showToast: (message: string, type: "success" | "error" | "info") => void;
+  }) => {
+    const [party, setParty] = useState<Party | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState("");
+
+    useEffect(() => {
+      const loadParty = async () => {
+        try {
+          setIsLoading(true);
+          const fetchedParty = await fetchPartyFromBlockchain(partyId);
+
+          if (fetchedParty) {
+            setParty(fetchedParty);
+          } else {
+            setError("Failed to load your party");
+            showToast(
+              "Failed to load your party information from blockchain",
+              "error"
+            );
+          }
+        } catch (err) {
+          console.error("Error in FetchUserParty:", err);
+          setError("Failed to load your party");
+          showToast(
+            "Failed to load your party information from blockchain",
+            "error"
+          );
+        } finally {
+          setIsLoading(false);
+        }
+      };
+
+      loadParty();
+    }, [partyId, walletAddress, showToast]);
+
+    if (isLoading) {
+      return <PartySkeletonCard />;
+    }
+
+    if (error) {
+      return <div className="p-4 text-center text-gray-500">{error}</div>;
+    }
+
+    if (!party) {
+      return (
+        <div className="p-4 text-center text-gray-500">Party not found</div>
+      );
+    }
+
+    return renderPartyCard(party);
+  };
+
   const performUsernameLookup = async (
     username: string,
     setAddress: (address: string) => void,
@@ -607,9 +707,22 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       const userCurrentParty = parties.find(
         (party) => party.id === userPartyId
       );
+      
       if (userCurrentParty) {
         setPartyToLeaveFrom(userCurrentParty);
         setIsLeaveConfirmDrawerOpen(true);
+        return;
+      } else {
+        // If party not in parties array, fetch it directly from blockchain
+        const fetchedParty = await fetchPartyFromBlockchain(userPartyId);
+        
+        if (fetchedParty) {
+          setPartyToLeaveFrom(fetchedParty);
+          setIsLeaveConfirmDrawerOpen(true);
+        } else {
+          // If fetch fails, proceed with joining new party
+          joinNewParty(partyId);
+        }
         return;
       }
     }
@@ -1146,16 +1259,29 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     }
   };
 
-  const handleCreatePartyClick = () => {
+  const handleCreatePartyClick = async () => {
     // Check if user is already in a party using userPartyId
     if (userPartyId > 0) {
       // Get party details from parties array for the drawer
       const userCurrentParty = parties.find(
         (party) => party.id === userPartyId
       );
+      
       if (userCurrentParty) {
         setPartyToLeaveFrom(userCurrentParty);
         setIsCreateConfirmDrawerOpen(true);
+        return;
+      } else {
+        // If party not in parties array, fetch it directly from blockchain
+        const fetchedParty = await fetchPartyFromBlockchain(userPartyId);
+        
+        if (fetchedParty) {
+          setPartyToLeaveFrom(fetchedParty);
+          setIsCreateConfirmDrawerOpen(true);
+        } else {
+          // If fetch fails, just open create drawer directly
+          setIsCreateDrawerOpen(true);
+        }
         return;
       }
     }
@@ -3191,85 +3317,3 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     </div>
   );
 }
-
-// FetchUserParty component (within the same file)
-const FetchUserParty = ({
-  partyId,
-  renderPartyCard,
-  walletAddress,
-  showToast,
-}: {
-  partyId: number;
-  renderPartyCard: (party: Party) => JSX.Element;
-  walletAddress: string | null;
-  showToast: (message: string, type: "success" | "error" | "info") => void;
-}) => {
-  const [party, setParty] = useState<Party | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    const fetchParty = async () => {
-      try {
-        setIsLoading(true);
-
-        // Try to fetch directly from the blockchain
-        const partyDetails = await viemClient.readContract({
-          address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
-          abi: parseAbi([
-            "function getPartyDetails(uint256 _partyId) view returns (string memory name, string memory shortName, string memory description, string memory officialLink, address founder, address currentLeader, uint256 creationTime, uint8 status, uint256 memberCount, uint256 documentVerifiedMemberCount, uint256 verifiedMemberCount)",
-          ]),
-          functionName: "getPartyDetails",
-          args: [BigInt(partyId)],
-        });
-
-        // Create a Party object from the blockchain data
-        const fetchedParty: Party = {
-          id: partyId,
-          name: partyDetails[0],
-          shortName: partyDetails[1],
-          description: partyDetails[2],
-          officialLink: partyDetails[3],
-          founder: partyDetails[4],
-          leader: partyDetails[5],
-          creationTime: Number(partyDetails[6]),
-          status: partyDetails[7],
-          active: partyDetails[7] === 1,
-          memberCount: Number(partyDetails[8]),
-          documentVerifiedMemberCount: Number(partyDetails[9]),
-          verifiedMemberCount: Number(partyDetails[10]),
-          isUserMember: true, // Since this is the user's party
-          isUserLeader:
-            walletAddress?.toLowerCase() === partyDetails[5].toLowerCase(),
-        };
-
-        setParty(fetchedParty);
-      } catch (err) {
-        console.error("Error fetching user's party:", err);
-        setError("Failed to load your party");
-        showToast(
-          "Failed to load your party information from blockchain",
-          "error"
-        );
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchParty();
-  }, [partyId, walletAddress, showToast]);
-
-  if (isLoading) {
-    return <PartySkeletonCard />;
-  }
-
-  if (error) {
-    return <div className="p-4 text-center text-gray-500">{error}</div>;
-  }
-
-  if (!party) {
-    return <div className="p-4 text-center text-gray-500">Party not found</div>;
-  }
-
-  return renderPartyCard(party);
-};

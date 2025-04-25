@@ -648,14 +648,18 @@
           "title": "Eleições",
           "description": "Escolha seus representantes",
           "worldConstituent": {
-            "title": "Eleição da Assembleia Constituinte Mundial"
+            "title": "Eleição da Assembleia Constituinte Mundial",
+            "description": "Selecione representantes para o primeiro parlamento global eleito democraticamente.",
+            "button": "Em Breve"
           }
         },
         "referendums": {
           "title": "Referendos",
           "description": "Votos diretos em questões importantes",
           "worldConstitutional": {
-            "title": "Referendo Constitucional Mundial"
+            "title": "Referendo Constitucional Mundial",
+            "description": "Participe de uma votação histórica sobre os princípios que guiarão o futuro coletivo da humanidade.",
+            "button": "Em Breve"
           }
         },
         "politicalParties": {

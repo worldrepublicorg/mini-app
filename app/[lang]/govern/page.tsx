@@ -9,6 +9,8 @@ import { OpenLetterCard } from "@/components/OpenLetterCard";
 import { PollOfTheDay } from "@/components/PollOfTheDay";
 import { useTranslations } from "@/hooks/useTranslations";
 import { PoliticalPartyList } from "@/components/PoliticalPartyList";
+import { Button } from "@/components/ui/Button";
+import { PiUsersThreeFill, PiScalesFill } from "react-icons/pi";
 
 const TAB_KEYS = {
   POLLS: "polls",
@@ -153,37 +155,71 @@ export default function GovernPage({
       case TAB_KEYS.ELECTIONS:
         return (
           <>
-            <SectionHeader
-              title={dictionary?.pages?.govern?.sections?.elections?.title}
-              description={
-                dictionary?.pages?.govern?.sections?.elections?.description
-              }
-            />
-            <DrawerItem
-              title={
-                dictionary?.pages?.govern?.sections?.elections?.worldConstituent
-                  ?.title
-              }
-              lang={lang}
-            />
+            <div className="flex flex-col items-center justify-center">
+              <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+                <PiUsersThreeFill className="h-10 w-10 text-gray-400" />
+              </div>
+              <Typography
+                as="h2"
+                variant={{ variant: "heading", level: 1 }}
+                className="mb-4 text-center"
+              >
+                {
+                  dictionary?.pages?.govern?.sections?.elections
+                    ?.worldConstituent?.title
+                }
+              </Typography>
+              <Typography
+                variant={{ variant: "subtitle", level: 1 }}
+                className="mb-10 text-center text-gray-500"
+              >
+                {
+                  dictionary?.pages?.govern?.sections?.elections
+                    ?.worldConstituent?.description
+                }
+              </Typography>
+              <Button variant="primary" fullWidth disabled>
+                {
+                  dictionary?.pages?.govern?.sections?.elections
+                    ?.worldConstituent?.button
+                }
+              </Button>
+            </div>
           </>
         );
       case TAB_KEYS.REFERENDUMS:
         return (
           <>
-            <SectionHeader
-              title={dictionary?.pages?.govern?.sections?.referendums?.title}
-              description={
-                dictionary?.pages?.govern?.sections?.referendums?.description
-              }
-            />
-            <DrawerItem
-              title={
-                dictionary?.pages?.govern?.sections?.referendums
-                  ?.worldConstitutional?.title
-              }
-              lang={lang}
-            />
+            <div className="flex flex-col items-center justify-center">
+              <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+                <PiScalesFill className="h-10 w-10 text-gray-400" />
+              </div>
+              <Typography
+                as="h2"
+                variant={{ variant: "heading", level: 1 }}
+                className="mb-4 text-center"
+              >
+                {
+                  dictionary?.pages?.govern?.sections?.referendums
+                    ?.worldConstitutional?.title
+                }
+              </Typography>
+              <Typography
+                variant={{ variant: "subtitle", level: 1 }}
+                className="mb-10 text-center text-gray-500"
+              >
+                {
+                  dictionary?.pages?.govern?.sections?.referendums
+                    ?.worldConstitutional?.description
+                }
+              </Typography>
+              <Button variant="primary" fullWidth disabled>
+                {
+                  dictionary?.pages?.govern?.sections?.referendums
+                    ?.worldConstitutional?.button
+                }
+              </Button>
+            </div>
           </>
         );
       default:

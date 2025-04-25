@@ -647,14 +647,18 @@
           "title": "Wybory",
           "description": "Wybierz swoich przedstawicieli",
           "worldConstituent": {
-            "title": "Wybory do Światowego Zgromadzenia Konstytucyjnego"
+            "title": "Wybory do Światowego Zgromadzenia Konstytucyjnego",
+            "description": "Wybierz przedstawicieli do pierwszego demokratycznie wybranego parlamentu światowego.",
+            "button": "Wkrótce"
           }
         },
         "referendums": {
           "title": "Referenda",
           "description": "Bezpośrednie głosowania w ważnych sprawach",
           "worldConstitutional": {
-            "title": "Światowe Referendum Konstytucyjne"
+            "title": "Światowe Referendum Konstytucyjne",
+            "description": "Weź udział w historycznym głosowaniu nad zasadami, które będą kierować zbiorową przyszłością ludzkości.",
+            "button": "Wkrótce"
           }
         },
         "politicalParties": {
