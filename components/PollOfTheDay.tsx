@@ -11,8 +11,8 @@ interface Poll {
 
 const polls: Poll[] = [
   {
-    key: "globalNuclearDialogue",
-    url: "https://vote.one/VwgWUVBl",
+    key: "criticalMineralsExport",
+    url: "https://vote.one/GTN2bfzr",
   },
   {
     key: "globalMaritimeSecurity",
