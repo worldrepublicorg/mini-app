@@ -492,46 +492,55 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     }
   }, [activeTab, pendingParties.length, fetchPendingParties]);
 
-  // Update the filteredParties logic to use the separate party arrays
-  const filteredParties = useMemo(() => {
-    const partiesToFilter =
-      activeTab === "pending" ? pendingParties : activeParties;
+  // Calculate sorted parties for each tab type
+  const sortedPartiesByTab = useMemo(() => {
+    const partyLists: Record<string, Party[]> = {
+      new: [],
+      trending: [],
+      top: [],
+      pending: pendingParties,
+    };
 
-    return partiesToFilter
-      .filter((party) => {
-        // First filter for parties the user is not a member of
-        if (party.id === userPartyId) return false;
+    // Sort active parties for "new" tab (newest first)
+    partyLists.new = [...activeParties]
+      .filter((party) => party.id !== userPartyId)
+      .sort((a, b) => b.creationTime - a.creationTime);
 
-        // In trending tab, only show parties with more than 10 members
-        if (activeTab === "trending" && party.memberCount < 5) return false;
+    // Sort active parties for "top" tab (highest member count first)
+    partyLists.top = [...activeParties]
+      .filter((party) => party.id !== userPartyId)
+      .sort((a, b) => b.memberCount - a.memberCount);
 
-        // Then filter based on search term if provided
-        if (searchTerm.trim() !== "") {
-          const searchLower = searchTerm.toLowerCase();
-          return (
-            party.name.toLowerCase().includes(searchLower) ||
-            party.shortName.toLowerCase().includes(searchLower) ||
-            party.description.toLowerCase().includes(searchLower)
-          );
-        }
-
-        return true;
-      })
+    // Sort active parties for "trending" tab (custom formula + minimum 5 members)
+    partyLists.trending = [...activeParties]
+      .filter((party) => party.id !== userPartyId && party.memberCount >= 5)
       .sort((a, b) => {
-        if (activeTab === "top") {
-          // Sort by member count (highest first)
-          return b.memberCount - a.memberCount;
-        } else if (activeTab === "trending") {
-          // For trending tab: sum of id and member count
-          const trendingScoreA = a.id / 10 + Math.sqrt(a.memberCount);
-          const trendingScoreB = b.id / 10 + Math.sqrt(b.memberCount);
-          return trendingScoreB - trendingScoreA;
-        } else {
-          // Default to reverse chronological order (newest first)
-          return b.creationTime - a.creationTime;
-        }
+        const trendingScoreA = a.id / 10 + Math.sqrt(a.memberCount);
+        const trendingScoreB = b.id / 10 + Math.sqrt(b.memberCount);
+        return trendingScoreB - trendingScoreA;
       });
-  }, [activeTab, activeParties, pendingParties, userPartyId, searchTerm]);
+
+    return partyLists;
+  }, [activeParties, pendingParties, userPartyId]);
+
+  // Filter parties based on search term when needed
+  const filteredParties = useMemo(() => {
+    const baseParties = sortedPartiesByTab[activeTab] || [];
+
+    // If no search term, return the pre-sorted list
+    if (searchTerm.trim() === "") {
+      return baseParties;
+    }
+
+    // Otherwise, filter by search term
+    const searchLower = searchTerm.toLowerCase();
+    return baseParties.filter(
+      (party) =>
+        party.name.toLowerCase().includes(searchLower) ||
+        party.shortName.toLowerCase().includes(searchLower) ||
+        party.description.toLowerCase().includes(searchLower)
+    );
+  }, [activeTab, searchTerm, sortedPartiesByTab]);
 
   const performUsernameLookup = async (
     username: string,

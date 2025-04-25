@@ -41,10 +41,9 @@ const BottomNav = () => {
     path: string
   ) => {
     e.preventDefault();
-    // Add haptic feedback
     MiniKit.commands.sendHapticFeedback({
-      hapticsType: "notification",
-      style: "success",
+      hapticsType: "impact",
+      style: "light",
     });
 
     // Navigate directly to the correct path: /{language}/{route}
