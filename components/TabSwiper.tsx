@@ -1,6 +1,7 @@
 "use client";
 
 import { Pill } from "@/components/ui/Pill";
+import { MiniKit } from "@worldcoin/minikit-js";
 
 interface Tab {
   key: string;
@@ -20,6 +21,19 @@ export function TabSwiper<T extends string>({
   onTabChange,
   tabIndicators = {} as Record<T, boolean>,
 }: TabSwiperProps<T>) {
+  const handleTabChange = (tab: T) => {
+    // Add haptic feedback when changing tabs
+    if (MiniKit.isInstalled()) {
+      MiniKit.commands.sendHapticFeedback({
+        hapticsType: "impact",
+        style: "light",
+      });
+    }
+
+    // Call the original onTabChange function
+    onTabChange(tab);
+  };
+
   return (
     <div className="no-scrollbar -mx-6 overflow-x-auto bg-gray-0 py-2">
       <div className="flex gap-1 px-6">
@@ -27,7 +41,7 @@ export function TabSwiper<T extends string>({
           <div className="relative" key={tab.key}>
             <Pill
               checked={activeTab === tab.key}
-              onClick={() => onTabChange(tab.key as T)}
+              onClick={() => handleTabChange(tab.key as T)}
             >
               <span className="whitespace-nowrap">{tab.label}</span>
             </Pill>
