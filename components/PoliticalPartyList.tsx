@@ -1223,7 +1223,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             <Dropdown
               trigger={
                 <button
-                  onClick={(e) => e.stopPropagation()}
                   className="text-gray-600 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 transition-colors hover:bg-gray-200"
                   title={
                     dictionary?.components?.politicalPartyList?.partyCard
