@@ -522,8 +522,8 @@ export default function PartyDetailPage({
 
                   {/* Additional members shown conditionally */}
                   {showAllMembers &&
-                    party.members.length > 5 &&
-                    party.members.slice(5).map((member, index, array) => (
+                    party.members.length > 3 &&
+                    party.members.slice(3).map((member, index, array) => (
                       <div
                         key={index}
                         className={`flex items-center justify-between ${
