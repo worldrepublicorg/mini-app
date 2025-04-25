@@ -65,6 +65,7 @@ export default function PartyDetailPage({
   const [isUserMember, setIsUserMember] = useState(false);
   const [showAllMembers, setShowAllMembers] = useState(false);
   const [isJoining, setIsJoining] = useState(false);
+  const [leaderUsername, setLeaderUsername] = useState<string | null>(null);
 
   // Format number with commas
   const formatNumber = (num: number): string => {
@@ -94,17 +95,67 @@ export default function PartyDetailPage({
   };
 
   // Get status icon
-  const getStatusIcon = (status: number) => {
+  const getStatusIcon = (status: string) => {
     switch (status) {
-      case PartyStatus.PENDING:
+      case "Pending":
         return <PiClockClockwiseBold className="text-gray-700" />;
-      case PartyStatus.ACTIVE:
+      case "Active":
         return <PiCheckCircleBold className="text-gray-700" />;
-      case PartyStatus.INACTIVE:
+      case "Inactive":
         return <PiProhibitBold className="text-gray-700" />;
       default:
         return <PiInfoFill className="text-gray-700" />;
     }
+  };
+
+  // Fetch leader username from address
+  const fetchLeaderUsername = async (
+    address: string
+  ): Promise<string | null> => {
+    if (!address) return null;
+
+    try {
+      // First try MiniKit if available
+      if (MiniKit.isInstalled()) {
+        try {
+          const userInfo = await MiniKit.getUserByAddress(address);
+          if (userInfo && userInfo.username) {
+            console.log(
+              "[Leader] Found username via MiniKit:",
+              userInfo.username
+            );
+            return userInfo.username;
+          }
+        } catch (miniKitError) {
+          console.error(
+            "[Leader] Error with MiniKit getUserByAddress:",
+            miniKitError
+          );
+        }
+      }
+
+      // Fall back to the API
+      try {
+        const response = await fetch(
+          `https://usernames.worldcoin.org/api/v1/${address}`
+        );
+        if (response.ok) {
+          const data = await response.json();
+          console.log("[Leader] Username response:", data);
+          if (data.username) {
+            return data.username;
+          }
+        } else {
+          console.log("[Leader] No username found for address:", address);
+        }
+      } catch (error) {
+        console.error("[Leader] Error fetching username from API:", error);
+      }
+    } catch (error) {
+      console.error("[Leader] Error in fetchLeaderUsername:", error);
+    }
+
+    return null;
   };
 
   // Join party function
@@ -151,9 +202,9 @@ export default function PartyDetailPage({
     }
   };
 
-  // Fetch party data
+  // Fetch party data and leader username
   useEffect(() => {
-    const fetchPartyData = async () => {
+    const fetchData = async () => {
       if (!id) return;
 
       try {
@@ -223,8 +274,6 @@ export default function PartyDetailPage({
           bannedMembers: partyData.bannedMembers,
         };
 
-        setParty(fetchedParty);
-
         // Check if user is a member
         if (walletAddress) {
           const isMember = partyData.members.some(
@@ -233,8 +282,18 @@ export default function PartyDetailPage({
           );
           setIsUserMember(isMember);
         }
+
+        // Fetch username with the party data
+        let username = null;
+        if (partyData.currentLeader) {
+          username = await fetchLeaderUsername(partyData.currentLeader);
+        }
+
+        // Set all state at once
+        setParty(fetchedParty);
+        setLeaderUsername(username);
       } catch (error) {
-        console.error("Error fetching party data:", error);
+        console.error("Error fetching data:", error);
         setError(
           error instanceof Error ? error.message : "Failed to load party data"
         );
@@ -244,7 +303,7 @@ export default function PartyDetailPage({
       }
     };
 
-    fetchPartyData();
+    fetchData();
   }, [id, walletAddress, showToast]);
 
   return (
@@ -404,15 +463,15 @@ export default function PartyDetailPage({
                 variant={{ variant: "heading", level: 2 }}
                 className="mb-3 text-center text-gray-900"
               >
-                {party.name}
+                {party?.name}
               </Typography>
               <div className="flex items-center gap-2">
                 <span className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-700">
-                  {party.shortName}
+                  {party?.shortName}
                 </span>
                 <span className="flex items-center gap-1 rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-700">
-                  {getStatusIcon(party.status)}
-                  {getStatusText(party.status)}
+                  {getStatusIcon(getStatusText(party?.status || 0))}
+                  {getStatusText(party?.status || 0)}
                 </span>
               </div>
             </div>
@@ -433,7 +492,7 @@ export default function PartyDetailPage({
                 variant={{ variant: "body", level: 3 }}
                 className="p-4 text-gray-700"
               >
-                {party.description}
+                {party?.description}
               </Typography>
             </div>
 
@@ -464,7 +523,7 @@ export default function PartyDetailPage({
                     </Typography>
                   </div>
                   <a
-                    href={`https://worldchain-mainnet.explorer.alchemy.com/address/${party.currentLeader}`}
+                    href={`https://worldchain-mainnet.explorer.alchemy.com/address/${party?.currentLeader}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -472,14 +531,14 @@ export default function PartyDetailPage({
                       variant={{ variant: "body", level: 3 }}
                       className="font-medium text-gray-900"
                     >
-                      {party.currentLeader.slice(0, 6)}...
-                      {party.currentLeader.slice(-4)}
+                      {leaderUsername ||
+                        `${party?.currentLeader?.slice(0, 6)}...${party?.currentLeader?.slice(-4)}`}
                     </Typography>
                   </a>
                 </div>
 
                 {/* Website */}
-                {party.officialLink && (
+                {party?.officialLink && (
                   <div className="flex items-center justify-between gap-6 p-4">
                     <div className="flex items-center">
                       <PiLinkSimpleBold className="mr-3 h-5 w-5 text-gray-400" />
@@ -492,16 +551,16 @@ export default function PartyDetailPage({
                       </Typography>
                     </div>
                     <a
-                      href={party.officialLink}
+                      href={party?.officialLink}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <Typography
                         variant={{ variant: "body", level: 3 }}
                         className="line-clamp-1 break-all font-medium"
-                        title={party.officialLink}
+                        title={party?.officialLink}
                       >
-                        {party.officialLink}
+                        {party?.officialLink}
                       </Typography>
                     </a>
                   </div>
@@ -522,10 +581,10 @@ export default function PartyDetailPage({
                   >
                     {dictionary?.components?.politicalPartyList?.members ||
                       "Members"}{" "}
-                    ({formatNumber(party.memberCount)})
+                    ({formatNumber(party?.memberCount || 0)})
                   </Typography>
 
-                  {party.members.length > 3 &&
+                  {party?.members.length > 3 &&
                     (showAllMembers ? (
                       <BiChevronDown className="size-[22px] text-gray-500 transition-transform duration-200" />
                     ) : (
@@ -534,10 +593,10 @@ export default function PartyDetailPage({
                 </div>
               </button>
 
-              {party.members.length > 0 ? (
+              {party?.members.length > 0 ? (
                 <div>
                   {/* First 3 members always visible */}
-                  {party.members.slice(0, 3).map((member, index, array) => (
+                  {party?.members.slice(0, 3).map((member, index, array) => (
                     <div
                       key={index}
                       className={`flex items-center justify-between ${
@@ -565,8 +624,8 @@ export default function PartyDetailPage({
 
                   {/* Additional members shown conditionally */}
                   {showAllMembers &&
-                    party.members.length > 3 &&
-                    party.members.slice(3).map((member, index, array) => (
+                    party?.members.length > 3 &&
+                    party?.members.slice(3).map((member, index, array) => (
                       <div
                         key={index}
                         className={`flex items-center justify-between ${
@@ -602,7 +661,7 @@ export default function PartyDetailPage({
             </div>
 
             {/* Banned Members */}
-            {party.bannedMembers.length > 0 && (
+            {party?.bannedMembers.length > 0 && (
               <div className="mb-6 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
                 <div className="border-b border-gray-200 bg-gradient-to-r from-gray-50 to-gray-0 p-4">
                   <Typography
@@ -616,7 +675,7 @@ export default function PartyDetailPage({
                 </div>
                 <div className="max-h-56 overflow-y-auto p-4">
                   <div className="space-y-2">
-                    {party.bannedMembers.map((member, index) => (
+                    {party?.bannedMembers.map((member, index) => (
                       <div
                         key={index}
                         className="flex items-center justify-between rounded-lg border border-gray-100 p-3"
@@ -646,8 +705,8 @@ export default function PartyDetailPage({
                 <Button
                   fullWidth
                   onClick={async () => {
-                    const shareUrl = `https://world.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=%2Fgovern%2Fparty%2F${party.id}`;
-                    const shareTitle = party.name;
+                    const shareUrl = `https://world.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=%2Fgovern%2Fparty%2F${party?.id}`;
+                    const shareTitle = party?.name;
 
                     // Check if Web Share API is supported
                     if (navigator.share) {
