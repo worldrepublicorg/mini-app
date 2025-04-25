@@ -139,93 +139,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [pendingPartyData, setPendingPartyData] =
     useState<CreatePartyForm | null>(null);
 
-  // Add cache-related state
-  const [activePartiesCache, setActivePartiesCache] = useState<{
-    data: Party[];
-    timestamp: number;
-  } | null>(null);
-  const [pendingPartiesCache, setPendingPartiesCache] = useState<{
-    data: Party[];
-    timestamp: number;
-  } | null>(null);
-  const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes in milliseconds
-
-  // Initialize cache from localStorage on mount
-  useEffect(() => {
-    try {
-      const storedActiveCache = localStorage.getItem('activePartiesCache');
-      const storedPendingCache = localStorage.getItem('pendingPartiesCache');
-      
-      if (storedActiveCache) {
-        const parsedCache = JSON.parse(storedActiveCache);
-        if (Date.now() - parsedCache.timestamp < CACHE_DURATION) {
-          setActivePartiesCache(parsedCache);
-          setActiveParties(parsedCache.data);
-        }
-      }
-      
-      if (storedPendingCache) {
-        const parsedCache = JSON.parse(storedPendingCache);
-        if (Date.now() - parsedCache.timestamp < CACHE_DURATION) {
-          setPendingPartiesCache(parsedCache);
-          setPendingParties(parsedCache.data);
-        }
-      }
-      
-      // If both caches were loaded, set the combined parties
-      if (storedActiveCache && storedPendingCache) {
-        const activeData = JSON.parse(storedActiveCache).data;
-        const pendingData = JSON.parse(storedPendingCache).data;
-        if (activeData && pendingData) {
-          setParties([...activeData, ...pendingData]);
-        }
-      }
-
-      // Check for the specific user party cache
-      const userPartyCache = localStorage.getItem('userPartyCache');
-      if (userPartyCache) {
-        const parsedCache = JSON.parse(userPartyCache);
-        if (Date.now() - parsedCache.timestamp < CACHE_DURATION) {
-          setUserPartyId(parsedCache.partyId);
-          
-          // If we have party data in the cache, make sure the user's leadership status is set correctly
-          // This would update the UI immediately based on cached data
-          if (parsedCache.partyId > 0) {
-            setParties((prevParties) => 
-              prevParties.map(party => 
-                party.id === parsedCache.partyId 
-                  ? {
-                      ...party,
-                      isUserMember: true,
-                      isUserLeader: parsedCache.isLeader
-                    }
-                  : party
-              )
-            );
-          }
-        } else {
-          // Cache expired, clear it
-          localStorage.removeItem('userPartyCache');
-        }
-      }
-    } catch (error) {
-      console.error("Error loading cache from localStorage:", error);
-    }
-  }, []);
-
-  // Update localStorage when cache changes
-  useEffect(() => {
-    if (activePartiesCache) {
-      localStorage.setItem('activePartiesCache', JSON.stringify(activePartiesCache));
-    }
-  }, [activePartiesCache]);
-
-  useEffect(() => {
-    if (pendingPartiesCache) {
-      localStorage.setItem('pendingPartiesCache', JSON.stringify(pendingPartiesCache));
-    }
-  }, [pendingPartiesCache]);
-
   // Add this alongside the other useEffect calls to persist and restore userPartyId
   useEffect(() => {
     // Save userPartyId to localStorage whenever it changes
@@ -320,17 +233,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
   const fetchActiveParties = useCallback(async () => {
     if (!GOLDSKY_SUBGRAPH_URL) {
-      setActiveLoading(false);
-      return;
-    }
-
-    // Check if cached data exists and is still valid
-    if (
-      activePartiesCache &&
-      Date.now() - activePartiesCache.timestamp < CACHE_DURATION
-    ) {
-      setActiveParties(activePartiesCache.data);
-      setParties([...activePartiesCache.data, ...pendingParties]);
       setActiveLoading(false);
       return;
     }
@@ -430,12 +332,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           walletAddress?.toLowerCase() === party.currentLeader?.toLowerCase(),
       }));
 
-      // Save to cache with current timestamp
-      setActivePartiesCache({
-        data: fetchedParties,
-        timestamp: Date.now()
-      });
-      
       setActiveParties(fetchedParties);
 
       // Combine active and pending parties into the parties state
@@ -447,21 +343,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     } finally {
       setActiveLoading(false);
     }
-  }, [walletAddress, showToast, pendingParties, activePartiesCache]);
+  }, [walletAddress, showToast, pendingParties]);
 
   const fetchPendingParties = useCallback(async () => {
     if (!GOLDSKY_SUBGRAPH_URL) {
-      setPendingLoading(false);
-      return;
-    }
-
-    // Check if cached data exists and is still valid
-    if (
-      pendingPartiesCache &&
-      Date.now() - pendingPartiesCache.timestamp < CACHE_DURATION
-    ) {
-      setPendingParties(pendingPartiesCache.data);
-      setParties([...activeParties, ...pendingPartiesCache.data]);
       setPendingLoading(false);
       return;
     }
@@ -529,12 +414,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           walletAddress?.toLowerCase() === party.currentLeader?.toLowerCase(),
       }));
 
-      // Save to cache with current timestamp
-      setPendingPartiesCache({
-        data: fetchedPendingParties,
-        timestamp: Date.now()
-      });
-      
       setPendingParties(fetchedPendingParties);
 
       // Update the combined parties state
@@ -545,17 +424,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     } finally {
       setPendingLoading(false);
     }
-  }, [walletAddress, userPartyId, activeParties, showToast, pendingPartiesCache]);
-
-  // Add a function to force refresh cache
-  const refreshPartiesCache = useCallback(() => {
-    setActivePartiesCache(null);
-    setPendingPartiesCache(null);
-    fetchActiveParties();
-    if (activeTab === "pending") {
-      fetchPendingParties();
-    }
-  }, [fetchActiveParties, fetchPendingParties, activeTab]);
+  }, [walletAddress, userPartyId, activeParties, showToast]);
 
   // Replace the original useEffect to call the new functions
   useEffect(() => {
@@ -608,18 +477,8 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           isUserLeader: true,
         };
 
-        // Update parties array with the correct blockchain ID
+        // Update parties array and user party ID with the correct blockchain ID
         setParties((prevParties: Party[]) => [...prevParties, confirmedParty]);
-        
-        // Update pending parties list too
-        setPendingParties(prevPendingParties => [...prevPendingParties, confirmedParty]);
-        
-        // Force cache refresh to ensure we have latest data
-        setPendingPartiesCache({
-          data: [...(pendingPartiesCache?.data || []), confirmedParty],
-          timestamp: Date.now()
-        });
-        
         setUserPartyId(partyId);
 
         // Save the correct party ID to localStorage
@@ -644,7 +503,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     return () => {
       unwatchPartyCreated();
     };
-  }, [walletAddress, pendingPartyData, pendingPartiesCache, showToast]);
+  }, [walletAddress, pendingPartyData, showToast]);
 
   // Calculate sorted parties for each tab type
   const sortedPartiesByTab = useMemo(() => {
@@ -993,7 +852,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         });
 
         // Party ID and state will be updated when we receive the PartyCreated event
-        // We're NOT using any optimistic ID here - waiting for blockchain confirmation
       }
     } catch (error) {
       console.error("Error creating party:", error);
