@@ -647,14 +647,18 @@
           "title": "選挙",
           "description": "代表を選ぶ",
           "worldConstituent": {
-            "title": "世界制憲議会選挙"
+            "title": "世界制憲議会選挙",
+            "description": "最初の民主的に選ばれたグローバル議会の代表を選出します。",
+            "button": "近日公開"
           }
         },
         "referendums": {
           "title": "国民投票",
           "description": "重要な問題に関する直接投票",
           "worldConstitutional": {
-            "title": "世界憲法国民投票"
+            "title": "世界憲法国民投票",
+            "description": "人類の共同の未来を導く原則に関する歴史的な投票に参加しましょう。",
+            "button": "近日公開"
           }
         },
         "politicalParties": {

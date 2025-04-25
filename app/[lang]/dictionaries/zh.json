@@ -647,14 +647,18 @@
           "title": "选举",
           "description": "选择您的代表",
           "worldConstituent": {
-            "title": "世界制宪大会选举"
+            "title": "世界制宪大会选举",
+            "description": "为第一个民主选举产生的全球议会选择代表。",
+            "button": "即将推出"
           }
         },
         "referendums": {
           "title": "公投",
           "description": "对重要议题直接投票",
           "worldConstitutional": {
-            "title": "世界宪法公投"
+            "title": "世界宪法公投",
+            "description": "参与历史性投票，决定将指导人类集体未来的原则。",
+            "button": "即将推出"
           }
         },
         "politicalParties": {

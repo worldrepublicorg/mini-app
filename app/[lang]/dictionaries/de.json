@@ -647,14 +647,18 @@
           "title": "Wahlen",
           "description": "Wählen Sie Ihre Vertreter",
           "worldConstituent": {
-            "title": "Wahl zur Weltversammlung"
+            "title": "Wahl zur Weltversammlung",
+            "description": "Wählen Sie Vertreter für das erste demokratisch gewählte globale Parlament.",
+            "button": "Demnächst verfügbar"
           }
         },
         "referendums": {
           "title": "Referenden",
           "description": "Direkte Abstimmungen zu wichtigen Themen",
           "worldConstitutional": {
-            "title": "Weltweites Verfassungsreferendum"
+            "title": "Weltweites Verfassungsreferendum",
+            "description": "Nehmen Sie an einer historischen Abstimmung über Prinzipien teil, die die gemeinsame Zukunft der Menschheit leiten werden.",
+            "button": "Demnächst verfügbar"
           }
         },
         "politicalParties": {

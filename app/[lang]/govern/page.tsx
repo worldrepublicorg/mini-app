@@ -160,21 +160,29 @@ export default function GovernPage({
                 <PiUsersThreeFill className="h-10 w-10 text-gray-400" />
               </div>
               <Typography
-                as="h3"
-                variant={{ variant: "heading", level: 2 }}
+                as="h2"
+                variant={{ variant: "heading", level: 1 }}
                 className="mb-4 text-center"
               >
-                World Constituent Assembly Election
+                {
+                  dictionary?.pages?.govern?.sections?.elections
+                    ?.worldConstituent?.title
+                }
               </Typography>
               <Typography
-                variant={{ variant: "body", level: 2 }}
+                variant={{ variant: "subtitle", level: 1 }}
                 className="mb-10 text-center text-gray-500"
               >
-                Select representatives for the first democratically elected
-                global parliament.
+                {
+                  dictionary?.pages?.govern?.sections?.elections
+                    ?.worldConstituent?.description
+                }
               </Typography>
               <Button variant="primary" fullWidth disabled>
-                Coming Soon
+                {
+                  dictionary?.pages?.govern?.sections?.elections
+                    ?.worldConstituent?.button
+                }
               </Button>
             </div>
           </>
@@ -187,21 +195,29 @@ export default function GovernPage({
                 <PiScalesFill className="h-10 w-10 text-gray-400" />
               </div>
               <Typography
-                as="h3"
-                variant={{ variant: "heading", level: 2 }}
+                as="h2"
+                variant={{ variant: "heading", level: 1 }}
                 className="mb-4 text-center"
               >
-                World Constitutional Referendum
+                {
+                  dictionary?.pages?.govern?.sections?.referendums
+                    ?.worldConstitutional?.title
+                }
               </Typography>
               <Typography
-                variant={{ variant: "body", level: 2 }}
+                variant={{ variant: "subtitle", level: 1 }}
                 className="mb-10 text-center text-gray-500"
               >
-                Participate in a historic vote on principles that will guide
-                humanity&apos;s collective future.
+                {
+                  dictionary?.pages?.govern?.sections?.referendums
+                    ?.worldConstitutional?.description
+                }
               </Typography>
               <Button variant="primary" fullWidth disabled>
-                Coming Soon
+                {
+                  dictionary?.pages?.govern?.sections?.referendums
+                    ?.worldConstitutional?.button
+                }
               </Button>
             </div>
           </>

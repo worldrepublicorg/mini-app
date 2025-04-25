@@ -648,14 +648,18 @@
           "title": "Pilihan Raya",
           "description": "Pilih wakil anda",
           "worldConstituent": {
-            "title": "Pilihan Raya Perhimpunan Perlembagaan Dunia"
+            "title": "Pilihan Raya Perhimpunan Perlembagaan Dunia",
+            "description": "Pilih wakil-wakil untuk parlimen global pertama yang dipilih secara demokratik.",
+            "button": "Akan Datang"
           }
         },
         "referendums": {
           "title": "Referendum",
-          "description": "Undian langsung mengenai isu penting",
+          "description": "Undian langsung mengenai isu-isu penting",
           "worldConstitutional": {
-            "title": "Referendum Perlembagaan Dunia"
+            "title": "Referendum Perlembagaan Dunia",
+            "description": "Sertai undian bersejarah mengenai prinsip-prinsip yang akan memandu masa depan kolektif manusia.",
+            "button": "Akan Datang"
           }
         },
         "politicalParties": {

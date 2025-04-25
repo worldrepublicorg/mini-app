@@ -644,16 +644,20 @@
         },
         "elections": {
           "title": "Elections",
-          "description": "Choose who go represent you",
+          "description": "Choose your representatives",
           "worldConstituent": {
-            "title": "World Assembly Election"
+            "title": "World Constituent Assembly Election",
+            "description": "Select representatives for di first democratically elected global parliament.",
+            "button": "Coming Soon"
           }
         },
         "referendums": {
           "title": "Referendums",
-          "description": "Vote direct for important matter",
+          "description": "Direct votes on important issues",
           "worldConstitutional": {
-            "title": "World Constitution Voting"
+            "title": "World Constitutional Referendum",
+            "description": "Participate for historic vote on principles wey go guide humanity collective future.",
+            "button": "Coming Soon"
           }
         },
         "politicalParties": {

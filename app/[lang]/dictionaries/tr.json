@@ -652,14 +652,18 @@
           "title": "Seçimler",
           "description": "Temsilcilerinizi seçin",
           "worldConstituent": {
-            "title": "Dünya Kurucu Meclis Seçimi"
+            "title": "Dünya Kurucu Meclis Seçimi",
+            "description": "Demokratik olarak seçilen ilk küresel parlamento için temsilcileri seçin.",
+            "button": "Yakında"
           }
         },
         "referendums": {
           "title": "Referandumlar",
           "description": "Önemli konularda doğrudan oylamalar",
           "worldConstitutional": {
-            "title": "Dünya Anayasal Referandumu"
+            "title": "Dünya Anayasa Referandumu",
+            "description": "İnsanlığın kolektif geleceğine yön verecek ilkeler üzerine tarihi bir oylamaya katılın.",
+            "button": "Yakında"
           }
         }
       }

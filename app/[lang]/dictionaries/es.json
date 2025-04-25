@@ -660,14 +660,18 @@
           "title": "Elecciones",
           "description": "Elige a tus representantes",
           "worldConstituent": {
-            "title": "Elección de la Asamblea Constituyente Mundial"
+            "title": "Elección de la Asamblea Constituyente Mundial",
+            "description": "Selecciona representantes para el primer parlamento global elegido democráticamente.",
+            "button": "Próximamente"
           }
         },
         "referendums": {
           "title": "Referéndums",
           "description": "Votos directos sobre temas importantes",
           "worldConstitutional": {
-            "title": "Referéndum Constitucional Mundial"
+            "title": "Referéndum Constitucional Mundial",
+            "description": "Participa en una votación histórica sobre los principios que guiarán el futuro colectivo de la humanidad.",
+            "button": "Próximamente"
           }
         },
         "politicalParties": {

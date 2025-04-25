@@ -542,7 +542,7 @@
       "tabs": {
         "polls": "Polling",
         "openLetters": "Surat Terbuka",
-        "elections": "Pemilihan",
+        "elections": "Pemilu",
         "referendums": "Referendum"
       },
       "sections": {
@@ -645,17 +645,21 @@
           }
         },
         "elections": {
-          "title": "Pemilihan",
+          "title": "Pemilu",
           "description": "Pilih perwakilan Anda",
           "worldConstituent": {
-            "title": "Pemilihan Majelis Konstituen Dunia"
+            "title": "Pemilihan Majelis Konstituen Dunia",
+            "description": "Pilih perwakilan untuk parlemen global pertama yang dipilih secara demokratis.",
+            "button": "Segera Hadir"
           }
         },
         "referendums": {
           "title": "Referendum",
-          "description": "Voting langsung untuk isu-isu penting",
+          "description": "Voting langsung terhadap isu-isu penting",
           "worldConstitutional": {
-            "title": "Referendum Konstitusi Dunia"
+            "title": "Referendum Konstitusional Dunia",
+            "description": "Berpartisipasilah dalam pemungutan suara bersejarah tentang prinsip-prinsip yang akan memandu masa depan kolektif umat manusia.",
+            "button": "Segera Hadir"
           }
         },
         "politicalParties": {
