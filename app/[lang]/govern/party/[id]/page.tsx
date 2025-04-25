@@ -76,19 +76,11 @@ export default function PartyDetailPage({
   const getStatusText = (status: number) => {
     switch (status) {
       case PartyStatus.PENDING:
-        return (
-          dictionary?.components?.politicalPartyList?.status?.pending ||
-          "Pending"
-        );
+        return dictionary?.components?.politicalPartyList?.status?.pending;
       case PartyStatus.ACTIVE:
-        return (
-          dictionary?.components?.politicalPartyList?.status?.active || "Active"
-        );
+        return dictionary?.components?.politicalPartyList?.status?.active;
       case PartyStatus.INACTIVE:
-        return (
-          dictionary?.components?.politicalPartyList?.status?.inactive ||
-          "Inactive"
-        );
+        return dictionary?.components?.politicalPartyList?.status?.inactive;
       default:
         return "Unknown";
     }
@@ -318,8 +310,7 @@ export default function PartyDetailPage({
             <BiChevronLeft className="size-6 text-gray-500" />
           </Link>
           <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
-            {dictionary?.components?.politicalPartyList?.partyDetails ||
-              "Party Details"}
+            {dictionary?.components?.politicalPartyList?.partyDetails}
           </Typography>
           {party && (
             <button
@@ -339,8 +330,7 @@ export default function PartyDetailPage({
                     if (error instanceof Error && error.name !== "AbortError") {
                       await navigator.clipboard.writeText(shareUrl);
                       showToast(
-                        dictionary?.components?.politicalPartyList?.copied ||
-                          "Link copied to clipboard",
+                        dictionary?.components?.politicalPartyList?.copied,
                         "success"
                       );
                     }
@@ -349,16 +339,14 @@ export default function PartyDetailPage({
                   // Fallback for browsers that don't support Web Share API
                   await navigator.clipboard.writeText(shareUrl);
                   showToast(
-                    dictionary?.components?.politicalPartyList?.copied ||
-                      "Link copied to clipboard",
+                    dictionary?.components?.politicalPartyList?.copied,
                     "success"
                   );
                 }
               }}
               className="absolute right-0 flex size-10 items-center justify-center rounded-full bg-gray-100"
               aria-label={
-                dictionary?.components?.politicalPartyList?.shareParty ||
-                "Share Party"
+                dictionary?.components?.politicalPartyList?.shareParty
               }
             >
               <BiShareAlt className="size-5 text-gray-500" />
@@ -438,8 +426,7 @@ export default function PartyDetailPage({
               variant={{ variant: "heading", level: 3 }}
               className="mt-4 text-center text-gray-900"
             >
-              {dictionary?.components?.politicalPartyList?.errorLoading ||
-                "Error Loading Party"}
+              {dictionary?.components?.politicalPartyList?.errorLoading}
             </Typography>
             <Typography
               variant={{ variant: "body", level: 2 }}
@@ -449,8 +436,7 @@ export default function PartyDetailPage({
             </Typography>
             <Link href={`/${lang}/govern`}>
               <Button variant="secondary" className="mt-8">
-                {dictionary?.components?.politicalPartyList?.backToParties ||
-                  "Back to Parties"}
+                {dictionary?.components?.politicalPartyList?.backToParties}
               </Button>
             </Link>
           </div>
@@ -484,8 +470,7 @@ export default function PartyDetailPage({
                   variant={{ variant: "subtitle", level: 2 }}
                   className="text-gray-900"
                 >
-                  {dictionary?.components?.politicalPartyList?.description ||
-                    "Description"}
+                  {dictionary?.components?.politicalPartyList?.description}
                 </Typography>
               </div>
               <Typography
@@ -504,8 +489,7 @@ export default function PartyDetailPage({
                   variant={{ variant: "subtitle", level: 2 }}
                   className="text-gray-900"
                 >
-                  {dictionary?.components?.politicalPartyList?.partyInfo ||
-                    "Party Info"}
+                  {dictionary?.components?.politicalPartyList?.partyInfo}
                 </Typography>
               </div>
 
@@ -518,8 +502,7 @@ export default function PartyDetailPage({
                       variant={{ variant: "body", level: 3 }}
                       className="text-gray-700"
                     >
-                      {dictionary?.components?.politicalPartyList?.leader ||
-                        "Leader"}
+                      {dictionary?.components?.politicalPartyList?.leader}
                     </Typography>
                   </div>
                   <a
@@ -546,8 +529,7 @@ export default function PartyDetailPage({
                         variant={{ variant: "body", level: 3 }}
                         className="text-gray-700"
                       >
-                        {dictionary?.components?.politicalPartyList?.website ||
-                          "Website"}
+                        {dictionary?.components?.politicalPartyList?.website}
                       </Typography>
                     </div>
                     <a
@@ -579,9 +561,8 @@ export default function PartyDetailPage({
                     variant={{ variant: "subtitle", level: 2 }}
                     className="text-gray-900"
                   >
-                    {dictionary?.components?.politicalPartyList?.members ||
-                      "Members"}{" "}
-                    ({formatNumber(party?.memberCount || 0)})
+                    {dictionary?.components?.politicalPartyList?.members} (
+                    {formatNumber(party?.memberCount || 0)})
                   </Typography>
 
                   {party?.members.length > 3 &&
@@ -654,8 +635,7 @@ export default function PartyDetailPage({
                   variant={{ variant: "body", level: 3 }}
                   className="text-center text-gray-500"
                 >
-                  {dictionary?.components?.politicalPartyList?.noMembers ||
-                    "No members yet"}
+                  {dictionary?.components?.politicalPartyList?.noMembers}
                 </Typography>
               )}
             </div>
@@ -669,8 +649,7 @@ export default function PartyDetailPage({
                     variant={{ variant: "subtitle", level: 2 }}
                     className="text-gray-900"
                   >
-                    {dictionary?.components?.politicalPartyList
-                      ?.bannedMembers || "Banned Members"}
+                    {dictionary?.components?.politicalPartyList?.bannedMembers}
                   </Typography>
                 </div>
                 <div className="max-h-56 overflow-y-auto p-4">
@@ -723,8 +702,7 @@ export default function PartyDetailPage({
                         ) {
                           await navigator.clipboard.writeText(shareUrl);
                           showToast(
-                            dictionary?.components?.politicalPartyList
-                              ?.copied || "Link copied to clipboard",
+                            dictionary?.components?.politicalPartyList?.copied,
                             "success"
                           );
                         }
@@ -733,30 +711,25 @@ export default function PartyDetailPage({
                       // Fallback for browsers that don't support Web Share API
                       await navigator.clipboard.writeText(shareUrl);
                       showToast(
-                        dictionary?.components?.politicalPartyList?.copied ||
-                          "Link copied to clipboard",
+                        dictionary?.components?.politicalPartyList?.copied,
                         "success"
                       );
                     }
                   }}
                 >
-                  {dictionary?.components?.politicalPartyList?.shareParty ||
-                    "Share Party"}
+                  {dictionary?.components?.politicalPartyList?.shareParty}
                 </Button>
               ) : party.status === PartyStatus.INACTIVE ? (
                 <Link href={`/${lang}/govern`}>
                   <Button variant="secondary" fullWidth>
-                    {dictionary?.components?.politicalPartyList
-                      ?.backToParties || "Back to Parties"}
+                    {dictionary?.components?.politicalPartyList?.backToParties}
                   </Button>
                 </Link>
               ) : (
                 <Button fullWidth onClick={joinParty} disabled={isJoining}>
                   {isJoining
-                    ? dictionary?.components?.politicalPartyList?.joining ||
-                      "Joining..."
-                    : dictionary?.components?.politicalPartyList?.joinParty ||
-                      "Join Party"}
+                    ? dictionary?.components?.politicalPartyList?.joining
+                    : dictionary?.components?.politicalPartyList?.joinParty}
                 </Button>
               )}
             </div>
@@ -769,21 +742,20 @@ export default function PartyDetailPage({
               variant={{ variant: "heading", level: 3 }}
               className="mt-4 text-center text-gray-900"
             >
-              {dictionary?.components?.politicalPartyList?.partyNotFound ||
-                "Party Not Found"}
+              {dictionary?.components?.politicalPartyList?.partyNotFound}
             </Typography>
             <Typography
               variant={{ variant: "body", level: 2 }}
               className="mt-2 text-center text-gray-500"
             >
-              {dictionary?.components?.politicalPartyList
-                ?.partyNotFoundDescription ||
-                "The party you're looking for doesn't exist or has been removed."}
+              {
+                dictionary?.components?.politicalPartyList
+                  ?.partyNotFoundDescription
+              }
             </Typography>
             <Link href={`/${lang}/govern`}>
               <Button variant="secondary" className="mt-8">
-                {dictionary?.components?.politicalPartyList?.backToParties ||
-                  "Back to Parties"}
+                {dictionary?.components?.politicalPartyList?.backToParties}
               </Button>
             </Link>
           </div>

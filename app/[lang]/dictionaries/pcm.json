@@ -59,11 +59,32 @@
       }
     },
     "politicalPartyList": {
-      "loadingIssue": "We dey aware say some party loading issues dey. Abeg make you patient as we dey work to fix dem.",
+      "loadingIssue": "We know say some party loading problems dey. Abeg make you patient as we dey work to fix am.",
       "myParty": "My party",
       "createParty": "Create New Party",
-      "noParty": "You no create or join any party yet.",
+      "noParty": "You never create or join any party.",
       "discover": "Discover",
+      "partyDetails": "Party Details",
+      "description": "Description",
+      "partyInfo": "Party Info",
+      "leader": "Leader",
+      "website": "Website",
+      "members": "Members",
+      "noMembers": "No members yet",
+      "bannedMembers": "Banned Members",
+      "errorLoading": "Error Loading Party",
+      "partyNotFound": "Party No Dey Found",
+      "partyNotFoundDescription": "The party wey you dey find no exist or dem don remove am.",
+      "backToParties": "Back to Parties",
+      "joining": "Joining...",
+      "joinParty": "Join Party",
+      "shareParty": "Share Party",
+      "copied": "Link don copy to clipboard",
+      "status": {
+        "pending": "Pending",
+        "active": "Active",
+        "inactive": "Inactive"
+      },
       "tabs": {
         "top": "Top",
         "trending": "Trending",
@@ -77,7 +98,6 @@
       "partyCard": {
         "pending": "Dey Process",
         "deleted": "Dem don Delete am",
-        "members": "members",
         "actions": {
           "leaveParty": "Comot for Party",
           "joinParty": "Join Party",

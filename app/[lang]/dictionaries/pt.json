@@ -59,11 +59,32 @@
       }
     },
     "politicalPartyList": {
-      "loadingIssue": "Estamos cientes de alguns problemas no carregamento dos partidos. Por favor, seja paciente enquanto trabalhamos para corrigi-los.",
+      "loadingIssue": "Estamos cientes de alguns problemas de carregamento de partidos. Por favor, seja paciente enquanto trabalhamos para corrigi-los.",
       "myParty": "Meu partido",
       "createParty": "Criar Novo Partido",
       "noParty": "Você ainda não criou ou se juntou a um partido.",
       "discover": "Descobrir",
+      "partyDetails": "Detalhes do Partido",
+      "description": "Descrição",
+      "partyInfo": "Informações do Partido",
+      "leader": "Líder",
+      "website": "Site",
+      "members": "Membros",
+      "noMembers": "Ainda não há membros",
+      "bannedMembers": "Membros Banidos",
+      "errorLoading": "Erro ao Carregar Partido",
+      "partyNotFound": "Partido Não Encontrado",
+      "partyNotFoundDescription": "O partido que você está procurando não existe ou foi removido.",
+      "backToParties": "Voltar para Partidos",
+      "joining": "Entrando...",
+      "joinParty": "Entrar no Partido",
+      "shareParty": "Compartilhar Partido",
+      "copied": "Link copiado para a área de transferência",
+      "status": {
+        "pending": "Pendente",
+        "active": "Ativo",
+        "inactive": "Inativo"
+      },
       "tabs": {
         "top": "Top",
         "trending": "Em alta",
