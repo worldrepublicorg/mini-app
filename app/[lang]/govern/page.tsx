@@ -10,10 +10,7 @@ import { PollOfTheDay } from "@/components/PollOfTheDay";
 import { useTranslations } from "@/hooks/useTranslations";
 import { PoliticalPartyList } from "@/components/PoliticalPartyList";
 import { Button } from "@/components/ui/Button";
-import {
-  PiUsersThreeFill,
-  PiScalesFill,
-} from "react-icons/pi";
+import { PiUsersThreeFill, PiScalesFill } from "react-icons/pi";
 
 const TAB_KEYS = {
   POLLS: "polls",
@@ -201,7 +198,7 @@ export default function GovernPage({
                 className="mb-10 text-center text-gray-500"
               >
                 Participate in a historic vote on principles that will guide
-                humanity's collective future.
+                humanity&apos;s collective future.
               </Typography>
               <Button variant="primary" fullWidth disabled>
                 Coming Soon
