@@ -646,14 +646,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           )
         );
         setUserPartyId(partyId);
-        
+
         // Update user party cache
-        localStorage.setItem('userPartyCache', JSON.stringify({
-          partyId: partyId,
-          isLeader: false,
-          partyStatus: 1, // ACTIVE
-          timestamp: Date.now()
-        }));
+        localStorage.setItem(
+          "userPartyCache",
+          JSON.stringify({
+            partyId: partyId,
+            isLeader: false,
+            partyStatus: 1, // ACTIVE
+            timestamp: Date.now(),
+          })
+        );
       }
     } catch (error) {
       console.error("Error joining party:", error);
@@ -694,9 +697,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           )
         );
         setUserPartyId(0);
-        
+
         // Clear user party cache
-        localStorage.removeItem('userPartyCache');
+        localStorage.removeItem("userPartyCache");
       }
     } catch (error) {
       console.error("Error leaving party:", error);
@@ -1032,16 +1035,21 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         );
 
         // Check if user is transferring their own leadership
-        if (walletAddress?.toLowerCase() === selectedParty.leader.toLowerCase()) {
+        if (
+          walletAddress?.toLowerCase() === selectedParty.leader.toLowerCase()
+        ) {
           // Update user's leadership status in cache if they were the leader
-          const userPartyCache = localStorage.getItem('userPartyCache');
+          const userPartyCache = localStorage.getItem("userPartyCache");
           if (userPartyCache) {
             const parsedCache = JSON.parse(userPartyCache);
-            localStorage.setItem('userPartyCache', JSON.stringify({
-              ...parsedCache,
-              isLeader: false,
-              timestamp: Date.now()
-            }));
+            localStorage.setItem(
+              "userPartyCache",
+              JSON.stringify({
+                ...parsedCache,
+                isLeader: false,
+                timestamp: Date.now(),
+              })
+            );
           }
         }
 
@@ -1186,7 +1194,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       if (finalPayload.status !== "error") {
         // New party status after the action
         const newStatus = selectedParty.status !== 2 ? 2 : 0;
-        
+
         // Update party in the UI optimistically - based on the contract behavior
         setParties((prevParties) =>
           prevParties.map((party) =>
@@ -1201,17 +1209,20 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               : party
           )
         );
-        
+
         // Update cache if this is user's party
         if (selectedParty.id === userPartyId) {
-          const userPartyCache = localStorage.getItem('userPartyCache');
+          const userPartyCache = localStorage.getItem("userPartyCache");
           if (userPartyCache) {
             const parsedCache = JSON.parse(userPartyCache);
-            localStorage.setItem('userPartyCache', JSON.stringify({
-              ...parsedCache,
-              partyStatus: newStatus,
-              timestamp: Date.now()
-            }));
+            localStorage.setItem(
+              "userPartyCache",
+              JSON.stringify({
+                ...parsedCache,
+                partyStatus: newStatus,
+                timestamp: Date.now(),
+              })
+            );
           }
         }
 
@@ -3245,9 +3256,7 @@ const FetchUserParty = ({
   }, [partyId, walletAddress, showToast]);
 
   if (isLoading) {
-    return (
-      <div className="p-4 text-center text-gray-500">Loading your party...</div>
-    );
+    return <PartySkeletonCard />;
   }
 
   if (error) {
