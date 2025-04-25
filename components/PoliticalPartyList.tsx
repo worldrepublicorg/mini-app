@@ -444,18 +444,18 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     };
 
     // Sort active parties for "new" tab (newest first)
-    partyLists.new = [...activeParties]
-      .filter((party) => party.id !== userPartyId)
-      .sort((a, b) => b.creationTime - a.creationTime);
+    partyLists.new = [...activeParties].sort(
+      (a, b) => b.creationTime - a.creationTime
+    );
 
     // Sort active parties for "top" tab (highest member count first)
-    partyLists.top = [...activeParties]
-      .filter((party) => party.id !== userPartyId)
-      .sort((a, b) => b.memberCount - a.memberCount);
+    partyLists.top = [...activeParties].sort(
+      (a, b) => b.memberCount - a.memberCount
+    );
 
     // Sort active parties for "trending" tab (custom formula + minimum 5 members)
     partyLists.trending = [...activeParties]
-      .filter((party) => party.id !== userPartyId && party.memberCount >= 5)
+      .filter((party) => party.memberCount >= 5)
       .sort((a, b) => {
         const trendingScoreA = a.id / 10 + Math.sqrt(a.memberCount);
         const trendingScoreB = b.id / 10 + Math.sqrt(b.memberCount);
@@ -463,7 +463,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       });
 
     return partyLists;
-  }, [activeParties, pendingParties, userPartyId]);
+  }, [activeParties, pendingParties]);
 
   // Filter parties based on search term when needed
   const filteredParties = useMemo(() => {
@@ -707,7 +707,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       const userCurrentParty = parties.find(
         (party) => party.id === userPartyId
       );
-      
+
       if (userCurrentParty) {
         setPartyToLeaveFrom(userCurrentParty);
         setIsLeaveConfirmDrawerOpen(true);
@@ -715,7 +715,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       } else {
         // If party not in parties array, fetch it directly from blockchain
         const fetchedParty = await fetchPartyFromBlockchain(userPartyId);
-        
+
         if (fetchedParty) {
           setPartyToLeaveFrom(fetchedParty);
           setIsLeaveConfirmDrawerOpen(true);
@@ -1266,7 +1266,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       const userCurrentParty = parties.find(
         (party) => party.id === userPartyId
       );
-      
+
       if (userCurrentParty) {
         setPartyToLeaveFrom(userCurrentParty);
         setIsCreateConfirmDrawerOpen(true);
@@ -1274,7 +1274,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       } else {
         // If party not in parties array, fetch it directly from blockchain
         const fetchedParty = await fetchPartyFromBlockchain(userPartyId);
-        
+
         if (fetchedParty) {
           setPartyToLeaveFrom(fetchedParty);
           setIsCreateConfirmDrawerOpen(true);
