@@ -1369,7 +1369,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             <Dropdown
               trigger={
                 <button
-                  className="text-gray-600 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 transition-colors hover:bg-gray-200"
+                  className="text-gray-600 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 transition-colors"
                   title={
                     dictionary?.components?.politicalPartyList?.partyCard
                       ?.management?.title
@@ -1434,10 +1434,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         <div className="flex items-center gap-1">
           <PiLinkSimpleBold className="text-gray-500" size={15} />
           <a
-            href={party.officialLink}
+            href={
+              party.officialLink.startsWith("http")
+                ? party.officialLink
+                : `https://${party.officialLink}`
+            }
             target="_blank"
             rel="noopener noreferrer"
-            className="-m-1 flex rounded-md px-1 py-1 transition-colors hover:bg-gray-50"
+            className="-m-1 flex rounded-md px-1 py-1 transition-colors"
             title={party.officialLink}
           >
             <Typography
