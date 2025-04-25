@@ -9,7 +9,12 @@ import { Typography } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/Button";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useToast } from "@/components/ui/Toast";
-import { PiLinkSimpleBold, PiUsersBold, PiGearBold } from "react-icons/pi";
+import {
+  PiLinkSimpleBold,
+  PiUsersBold,
+  PiGearBold,
+  PiInfoFill,
+} from "react-icons/pi";
 import { Drawer, DrawerContent } from "@/components/ui/Drawer";
 import { Form, Input } from "@worldcoin/mini-apps-ui-kit-react";
 import { Textarea } from "@/components/ui/Textarea";
@@ -19,7 +24,7 @@ import { DrawerTitle } from "@/components/ui/Drawer";
 import { LoadingSkeleton, PartySkeletonCard } from "./PartySkeletons";
 import { useTranslations } from "@/hooks/useTranslations";
 import { TabSwiper } from "@/components/TabSwiper";
-import Link from "next/link";
+
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
   "0x70a993E1D1102F018365F966B5Fc009e8FA9b7dC";
 
@@ -164,9 +169,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
   const formatNumber = (num: number): string => {
     if (num >= 1000000) {
-      return (Math.round(num / 10000) / 100).toFixed(1) + "M";
+      return (Math.round(num / 10000) / 100).toFixed(2) + "M";
     } else if (num >= 1000) {
-      return (Math.round(num / 10) / 100).toFixed(1) + "K";
+      return (Math.round(num / 10) / 100).toFixed(2) + "K";
     }
     return num.toString();
   };
@@ -175,33 +180,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     if (!GOLDSKY_SUBGRAPH_URL) {
       setActiveLoading(false);
       return;
-    }
-
-    // Check if we have cached data and it's less than 1 minute old
-    if (typeof window !== "undefined") {
-      const cachedParties = localStorage.getItem("cachedActiveParties");
-      const cachedTimestamp = localStorage.getItem(
-        "cachedActivePartiesTimestamp"
-      );
-
-      if (cachedParties && cachedTimestamp) {
-        const timestamp = parseInt(cachedTimestamp);
-        const now = Date.now();
-
-        // If the cache is less than 10 minutes old, use it
-        if (now - timestamp < 600000) {
-          try {
-            const parsedParties = JSON.parse(cachedParties);
-            setActiveParties(parsedParties);
-            setParties([...parsedParties, ...pendingParties]);
-            setActiveLoading(false);
-            return;
-          } catch (e) {
-            // If parsing fails, continue with the fetch
-            console.error("Error parsing cached parties:", e);
-          }
-        }
-      }
     }
 
     try {
@@ -299,18 +277,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           walletAddress?.toLowerCase() === party.currentLeader?.toLowerCase(),
       }));
 
-      // Cache the fetched parties
-      if (typeof window !== "undefined") {
-        localStorage.setItem(
-          "cachedActiveParties",
-          JSON.stringify(fetchedParties)
-        );
-        localStorage.setItem(
-          "cachedActivePartiesTimestamp",
-          Date.now().toString()
-        );
-      }
-
       setActiveParties(fetchedParties);
 
       // Combine active and pending parties into the parties state
@@ -328,33 +294,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     if (!GOLDSKY_SUBGRAPH_URL) {
       setPendingLoading(false);
       return;
-    }
-
-    // Check if we have cached data and it's less than 1 minute old
-    if (typeof window !== "undefined") {
-      const cachedParties = localStorage.getItem("cachedPendingParties");
-      const cachedTimestamp = localStorage.getItem(
-        "cachedPendingPartiesTimestamp"
-      );
-
-      if (cachedParties && cachedTimestamp) {
-        const timestamp = parseInt(cachedTimestamp);
-        const now = Date.now();
-
-        // If the cache is less than 10 minutes old, use it
-        if (now - timestamp < 600000) {
-          try {
-            const parsedParties = JSON.parse(cachedParties);
-            setPendingParties(parsedParties);
-            setParties([...activeParties, ...parsedParties]);
-            setPendingLoading(false);
-            return;
-          } catch (e) {
-            // If parsing fails, continue with the fetch
-            console.error("Error parsing cached pending parties:", e);
-          }
-        }
-      }
     }
 
     try {
@@ -420,18 +359,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           walletAddress?.toLowerCase() === party.currentLeader?.toLowerCase(),
       }));
 
-      // Cache the fetched parties
-      if (typeof window !== "undefined") {
-        localStorage.setItem(
-          "cachedPendingParties",
-          JSON.stringify(fetchedPendingParties)
-        );
-        localStorage.setItem(
-          "cachedPendingPartiesTimestamp",
-          Date.now().toString()
-        );
-      }
-
       setPendingParties(fetchedPendingParties);
 
       // Update the combined parties state
@@ -442,7 +369,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     } finally {
       setPendingLoading(false);
     }
-  }, [walletAddress, userPartyId, activeParties, showToast]);
+  }, [walletAddress, userPartyId, activeParties]);
 
   // Replace the original useEffect to call the new functions
   useEffect(() => {
@@ -1322,89 +1249,87 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           : ""
       } rounded-xl border border-gray-200 p-4`}
     >
-      <Link href={`/${lang}/govern/party/${party.id}`}>
-        <div className="flex items-center justify-between">
-          <Typography
-            as="h3"
-            variant={{ variant: "subtitle", level: 1 }}
-            className="text-[19px] font-semibold"
-          >
-            {party.name}
-          </Typography>
-          <div className="flex items-center gap-2">
-            {party.status === 0 && (
-              <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
-                {dictionary?.components?.politicalPartyList?.partyCard?.pending}
-              </span>
-            )}
-            {party.status === 2 && (
-              <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
-                {dictionary?.components?.politicalPartyList?.partyCard?.deleted}
-              </span>
-            )}
-            {party.isUserLeader && party.status !== 2 && (
-              <Dropdown
-                trigger={
-                  <button
-                    className="text-gray-600 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 transition-colors hover:bg-gray-200"
-                    title={
-                      dictionary?.components?.politicalPartyList?.partyCard
-                        ?.management?.title
-                    }
-                  >
-                    <PiGearBold size={16} />
-                  </button>
-                }
-                menuItems={[
-                  {
-                    label:
-                      dictionary?.components?.politicalPartyList?.partyCard
-                        ?.management?.manageMembers,
-                    onClick: () => {
-                      setSelectedParty(party);
-                      setIsMemberManagementDrawerOpen(true);
-                    },
-                  },
-                  {
-                    label:
-                      dictionary?.components?.politicalPartyList?.partyCard
-                        ?.management?.updateInfo,
-                    onClick: () => openUpdatePartyDrawer(party),
-                  },
-                  {
-                    label:
-                      dictionary?.components?.politicalPartyList?.partyCard
-                        ?.management?.transferLeadership,
-                    onClick: () => {
-                      setSelectedParty(party);
-                      setIsTransferLeadershipDrawerOpen(true);
-                    },
-                  },
-                  {
-                    label:
-                      dictionary?.components?.politicalPartyList?.partyCard
-                        ?.management?.deleteParty,
-                    onClick: () => {
-                      setSelectedParty(party);
-                      setIsDeleteDrawerOpen(true);
-                    },
-                    className: "text-error-600",
-                  },
-                ]}
-                align="right"
-              />
-            )}
-          </div>
-        </div>
-
+      <div className="flex items-center justify-between">
         <Typography
-          as="p"
-          variant={{ variant: "body", level: 2 }}
-          className="mt-3 text-[15px]"
+          as="h3"
+          variant={{ variant: "subtitle", level: 1 }}
+          className="text-[19px] font-semibold"
         >
-          {party.description}
+          {party.name}
         </Typography>
-      </Link>
+        <div className="flex items-center gap-2">
+          {party.status === 0 && (
+            <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
+              {dictionary?.components?.politicalPartyList?.partyCard?.pending}
+            </span>
+          )}
+          {party.status === 2 && (
+            <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
+              {dictionary?.components?.politicalPartyList?.partyCard?.deleted}
+            </span>
+          )}
+          {party.isUserLeader && party.status !== 2 && (
+            <Dropdown
+              trigger={
+                <button
+                  className="text-gray-600 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 transition-colors hover:bg-gray-200"
+                  title={
+                    dictionary?.components?.politicalPartyList?.partyCard
+                      ?.management?.title
+                  }
+                >
+                  <PiGearBold size={16} />
+                </button>
+              }
+              menuItems={[
+                {
+                  label:
+                    dictionary?.components?.politicalPartyList?.partyCard
+                      ?.management?.manageMembers,
+                  onClick: () => {
+                    setSelectedParty(party);
+                    setIsMemberManagementDrawerOpen(true);
+                  },
+                },
+                {
+                  label:
+                    dictionary?.components?.politicalPartyList?.partyCard
+                      ?.management?.updateInfo,
+                  onClick: () => openUpdatePartyDrawer(party),
+                },
+                {
+                  label:
+                    dictionary?.components?.politicalPartyList?.partyCard
+                      ?.management?.transferLeadership,
+                  onClick: () => {
+                    setSelectedParty(party);
+                    setIsTransferLeadershipDrawerOpen(true);
+                  },
+                },
+                {
+                  label:
+                    dictionary?.components?.politicalPartyList?.partyCard
+                      ?.management?.deleteParty,
+                  onClick: () => {
+                    setSelectedParty(party);
+                    setIsDeleteDrawerOpen(true);
+                  },
+                  className: "text-error-600",
+                },
+              ]}
+              align="right"
+            />
+          )}
+        </div>
+      </div>
+
+      <Typography
+        as="p"
+        variant={{ variant: "body", level: 2 }}
+        className="mt-3 text-[15px]"
+      >
+        {party.description}
+      </Typography>
       <div className="mt-2 flex justify-between gap-1">
         <div className="flex items-center gap-1">
           <PiLinkSimpleBold className="text-gray-500" size={15} />
