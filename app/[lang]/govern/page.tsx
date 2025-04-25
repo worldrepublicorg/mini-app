@@ -9,6 +9,11 @@ import { OpenLetterCard } from "@/components/OpenLetterCard";
 import { PollOfTheDay } from "@/components/PollOfTheDay";
 import { useTranslations } from "@/hooks/useTranslations";
 import { PoliticalPartyList } from "@/components/PoliticalPartyList";
+import { Button } from "@/components/ui/Button";
+import {
+  PiUsersThreeFill,
+  PiScalesFill,
+} from "react-icons/pi";
 
 const TAB_KEYS = {
   POLLS: "polls",
@@ -153,37 +158,55 @@ export default function GovernPage({
       case TAB_KEYS.ELECTIONS:
         return (
           <>
-            <SectionHeader
-              title={dictionary?.pages?.govern?.sections?.elections?.title}
-              description={
-                dictionary?.pages?.govern?.sections?.elections?.description
-              }
-            />
-            <DrawerItem
-              title={
-                dictionary?.pages?.govern?.sections?.elections?.worldConstituent
-                  ?.title
-              }
-              lang={lang}
-            />
+            <div className="flex flex-col items-center justify-center">
+              <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+                <PiUsersThreeFill className="h-10 w-10 text-gray-400" />
+              </div>
+              <Typography
+                as="h3"
+                variant={{ variant: "heading", level: 2 }}
+                className="mb-4 text-center"
+              >
+                World Constituent Assembly Election
+              </Typography>
+              <Typography
+                variant={{ variant: "body", level: 2 }}
+                className="mb-10 text-center text-gray-500"
+              >
+                Select representatives for the first democratically elected
+                global parliament.
+              </Typography>
+              <Button variant="primary" fullWidth disabled>
+                Coming Soon
+              </Button>
+            </div>
           </>
         );
       case TAB_KEYS.REFERENDUMS:
         return (
           <>
-            <SectionHeader
-              title={dictionary?.pages?.govern?.sections?.referendums?.title}
-              description={
-                dictionary?.pages?.govern?.sections?.referendums?.description
-              }
-            />
-            <DrawerItem
-              title={
-                dictionary?.pages?.govern?.sections?.referendums
-                  ?.worldConstitutional?.title
-              }
-              lang={lang}
-            />
+            <div className="flex flex-col items-center justify-center">
+              <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+                <PiScalesFill className="h-10 w-10 text-gray-400" />
+              </div>
+              <Typography
+                as="h3"
+                variant={{ variant: "heading", level: 2 }}
+                className="mb-4 text-center"
+              >
+                World Constitutional Referendum
+              </Typography>
+              <Typography
+                variant={{ variant: "body", level: 2 }}
+                className="mb-10 text-center text-gray-500"
+              >
+                Participate in a historic vote on principles that will guide
+                humanity's collective future.
+              </Typography>
+              <Button variant="primary" fullWidth disabled>
+                Coming Soon
+              </Button>
+            </div>
           </>
         );
       default:
