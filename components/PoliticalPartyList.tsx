@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import type { FocusEvent as ReactFocusEvent } from "react";
 import { parseAbi } from "viem";
 import { viemClient } from "@/lib/viemClient";
@@ -9,12 +9,7 @@ import { Typography } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/Button";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useToast } from "@/components/ui/Toast";
-import {
-  PiLinkSimpleBold,
-  PiUsersBold,
-  PiGearBold,
-  PiInfoFill,
-} from "react-icons/pi";
+import { PiLinkSimpleBold, PiUsersBold, PiGearBold } from "react-icons/pi";
 import { Drawer, DrawerContent } from "@/components/ui/Drawer";
 import { Form, Input } from "@worldcoin/mini-apps-ui-kit-react";
 import { Textarea } from "@/components/ui/Textarea";
@@ -24,7 +19,7 @@ import { DrawerTitle } from "@/components/ui/Drawer";
 import { LoadingSkeleton, PartySkeletonCard } from "./PartySkeletons";
 import { useTranslations } from "@/hooks/useTranslations";
 import { TabSwiper } from "@/components/TabSwiper";
-
+import Link from "next/link";
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
   "0x70a993E1D1102F018365F966B5Fc009e8FA9b7dC";
 
@@ -135,12 +130,68 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [activeLoading, setActiveLoading] = useState(true);
   const [pendingLoading, setPendingLoading] = useState(false);
 
+  // Add these state variables for lazy loading
+  const [displayCount, setDisplayCount] = useState<number>(20);
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const loadMoreRef = useRef<HTMLDivElement>(null);
+
+  // Add this alongside the other useEffect calls to persist and restore userPartyId
+  useEffect(() => {
+    // Save userPartyId to localStorage whenever it changes
+    if (userPartyId > 0 && typeof window !== "undefined") {
+      localStorage.setItem("userPartyId", userPartyId.toString());
+    }
+  }, [userPartyId]);
+
+  // Add this near the beginning of the component to restore userPartyId on mount
+  useEffect(() => {
+    // Restore userPartyId from localStorage when component mounts
+    if (typeof window !== "undefined") {
+      const savedUserPartyId = localStorage.getItem("userPartyId");
+      if (savedUserPartyId && parseInt(savedUserPartyId) > 0) {
+        setUserPartyId(parseInt(savedUserPartyId));
+      }
+    }
+  }, []);
+
   useEffect(() => {
     // Mark govern section as visited when this component loads
     if (typeof window !== "undefined") {
       localStorage.setItem("governVisited", "true");
     }
   }, []);
+
+  // Add this after the other useEffect hooks
+  useEffect(() => {
+    // Initialize the intersection observer
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          // Load more items when the load more element comes into view
+          setDisplayCount((prevCount) => prevCount + 20);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    // Start observing the load more element
+    if (loadMoreRef.current) {
+      observerRef.current.observe(loadMoreRef.current);
+    }
+
+    // Cleanup the observer when component unmounts
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, []);
+
+  // Reset display count when changing tabs or search
+  useEffect(() => {
+    setDisplayCount(20);
+  }, [activeTab, searchTerm]);
 
   const shortenUrl = (url: string, maxLength = 64) => {
     if (!url) return "";
@@ -169,9 +220,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
   const formatNumber = (num: number): string => {
     if (num >= 1000000) {
-      return (Math.round(num / 10000) / 100).toFixed(2) + "M";
+      return (Math.round(num / 10000) / 100).toFixed(1) + "M";
     } else if (num >= 1000) {
-      return (Math.round(num / 10) / 100).toFixed(2) + "K";
+      return (Math.round(num / 10) / 100).toFixed(1) + "K";
     }
     return num.toString();
   };
@@ -369,7 +420,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     } finally {
       setPendingLoading(false);
     }
-  }, [walletAddress, userPartyId, activeParties]);
+  }, [walletAddress, userPartyId, activeParties, showToast]);
 
   // Replace the original useEffect to call the new functions
   useEffect(() => {
@@ -383,46 +434,69 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     }
   }, [activeTab, pendingParties.length, fetchPendingParties]);
 
-  // Update the filteredParties logic to use the separate party arrays
-  const filteredParties = useMemo(() => {
-    const partiesToFilter =
-      activeTab === "pending" ? pendingParties : activeParties;
+  // Calculate sorted parties for each tab type
+  const sortedPartiesByTab = useMemo(() => {
+    const partyLists: Record<string, Party[]> = {
+      new: [],
+      trending: [],
+      top: [],
+      pending: pendingParties,
+    };
 
-    return partiesToFilter
-      .filter((party) => {
-        // First filter for parties the user is not a member of
-        if (party.id === userPartyId) return false;
+    // Sort active parties for "new" tab (newest first)
+    partyLists.new = [...activeParties]
+      .filter((party) => party.id !== userPartyId)
+      .sort((a, b) => b.creationTime - a.creationTime);
 
-        // In trending tab, only show parties with more than 10 members
-        if (activeTab === "trending" && party.memberCount < 5) return false;
+    // Sort active parties for "top" tab (highest member count first)
+    partyLists.top = [...activeParties]
+      .filter((party) => party.id !== userPartyId)
+      .sort((a, b) => b.memberCount - a.memberCount);
 
-        // Then filter based on search term if provided
-        if (searchTerm.trim() !== "") {
-          const searchLower = searchTerm.toLowerCase();
-          return (
-            party.name.toLowerCase().includes(searchLower) ||
-            party.shortName.toLowerCase().includes(searchLower) ||
-            party.description.toLowerCase().includes(searchLower)
-          );
-        }
-
-        return true;
-      })
+    // Sort active parties for "trending" tab (custom formula + minimum 5 members)
+    partyLists.trending = [...activeParties]
+      .filter((party) => party.id !== userPartyId && party.memberCount >= 5)
       .sort((a, b) => {
-        if (activeTab === "top") {
-          // Sort by member count (highest first)
-          return b.memberCount - a.memberCount;
-        } else if (activeTab === "trending") {
-          // For trending tab: sum of id and member count
-          const trendingScoreA = a.id / 10 + Math.sqrt(a.memberCount);
-          const trendingScoreB = b.id / 10 + Math.sqrt(b.memberCount);
-          return trendingScoreB - trendingScoreA;
-        } else {
-          // Default to reverse chronological order (newest first)
-          return b.creationTime - a.creationTime;
-        }
+        const trendingScoreA = a.id / 10 + Math.sqrt(a.memberCount);
+        const trendingScoreB = b.id / 10 + Math.sqrt(b.memberCount);
+        return trendingScoreB - trendingScoreA;
       });
-  }, [activeTab, activeParties, pendingParties, userPartyId, searchTerm]);
+
+    return partyLists;
+  }, [activeParties, pendingParties, userPartyId]);
+
+  // Filter parties based on search term when needed
+  const filteredParties = useMemo(() => {
+    const baseParties = sortedPartiesByTab[activeTab] || [];
+
+    // If no search term, return the pre-sorted list
+    if (searchTerm.trim() === "") {
+      return baseParties;
+    }
+
+    // Otherwise, filter by search term
+    const searchLower = searchTerm.toLowerCase();
+    return baseParties.filter(
+      (party) =>
+        party.name.toLowerCase().includes(searchLower) ||
+        party.shortName.toLowerCase().includes(searchLower) ||
+        party.description.toLowerCase().includes(searchLower)
+    );
+  }, [activeTab, searchTerm, sortedPartiesByTab]);
+
+  // Get only the parties to display based on the current display count
+  const partiesToDisplay = useMemo(() => {
+    return filteredParties.slice(0, displayCount);
+  }, [filteredParties, displayCount]);
+
+  // When filteredParties or displayCount changes, make sure intersection observer updates
+  useEffect(() => {
+    // Reset the observer when the displayed items change
+    if (loadMoreRef.current && observerRef.current) {
+      observerRef.current.disconnect();
+      observerRef.current.observe(loadMoreRef.current);
+    }
+  }, [partiesToDisplay.length]);
 
   const performUsernameLookup = async (
     username: string,
@@ -558,11 +632,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         ],
       });
 
-      if (finalPayload.status === "error") {
-        if (finalPayload.error_code !== "user_rejected") {
-          showToast("Failed to join party", "error");
-        }
-      } else {
+      if (finalPayload.status !== "error") {
         // Only update optimistically after user confirms transaction
         setParties((prevParties) =>
           prevParties.map((party) =>
@@ -576,6 +646,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           )
         );
         setUserPartyId(partyId);
+
+        // Update user party cache
+        localStorage.setItem(
+          "userPartyCache",
+          JSON.stringify({
+            partyId: partyId,
+            isLeader: false,
+            partyStatus: 1, // ACTIVE
+            timestamp: Date.now(),
+          })
+        );
       }
     } catch (error) {
       console.error("Error joining party:", error);
@@ -601,11 +682,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         ],
       });
 
-      if (finalPayload.status === "error") {
-        if (finalPayload.error_code !== "user_rejected") {
-          showToast("Failed to leave party", "error");
-        }
-      } else {
+      if (finalPayload.status !== "error") {
         // Only update optimistically after user confirms transaction
         setParties((prevParties) =>
           prevParties.map((party) =>
@@ -620,6 +697,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           )
         );
         setUserPartyId(0);
+
+        // Clear user party cache
+        localStorage.removeItem("userPartyCache");
       }
     } catch (error) {
       console.error("Error leaving party:", error);
@@ -940,11 +1020,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         ],
       });
 
-      if (finalPayload.status === "error") {
-        if (finalPayload.error_code !== "user_rejected") {
-          showToast("Failed to transfer leadership", "error");
-        }
-      } else {
+      if (finalPayload.status !== "error") {
         // Update party in the UI optimistically
         setParties((prevParties) =>
           prevParties.map((party) =>
@@ -957,6 +1033,25 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               : party
           )
         );
+
+        // Check if user is transferring their own leadership
+        if (
+          walletAddress?.toLowerCase() === selectedParty.leader.toLowerCase()
+        ) {
+          // Update user's leadership status in cache if they were the leader
+          const userPartyCache = localStorage.getItem("userPartyCache");
+          if (userPartyCache) {
+            const parsedCache = JSON.parse(userPartyCache);
+            localStorage.setItem(
+              "userPartyCache",
+              JSON.stringify({
+                ...parsedCache,
+                isLeader: false,
+                timestamp: Date.now(),
+              })
+            );
+          }
+        }
 
         setIsTransferLeadershipDrawerOpen(false);
         showToast("Party leadership transferred successfully", "success");
@@ -990,11 +1085,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         ],
       });
 
-      if (finalPayload.status === "error") {
-        if (finalPayload.error_code !== "user_rejected") {
-          showToast("Failed to remove member", "error");
-        }
-      } else {
+      if (finalPayload.status !== "error") {
         // Update party in the UI optimistically
         setParties((prevParties) =>
           prevParties.map((party) =>
@@ -1100,14 +1191,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         ],
       });
 
-      if (finalPayload.status === "error") {
-        if (finalPayload.error_code !== "user_rejected") {
-          showToast(
-            `Failed to ${selectedParty.status !== 2 ? "delete" : "reactivate"} party`,
-            "error"
-          );
-        }
-      } else {
+      if (finalPayload.status !== "error") {
+        // New party status after the action
+        const newStatus = selectedParty.status !== 2 ? 2 : 0;
+
         // Update party in the UI optimistically - based on the contract behavior
         setParties((prevParties) =>
           prevParties.map((party) =>
@@ -1117,11 +1204,27 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   active: party.status === 2, // If currently INACTIVE, set active to true
                   // When deleting: status becomes 2 (INACTIVE)
                   // When reactivating: status becomes 0 (PENDING), not 1 (ACTIVE)
-                  status: party.status !== 2 ? 2 : 0,
+                  status: newStatus,
                 }
               : party
           )
         );
+
+        // Update cache if this is user's party
+        if (selectedParty.id === userPartyId) {
+          const userPartyCache = localStorage.getItem("userPartyCache");
+          if (userPartyCache) {
+            const parsedCache = JSON.parse(userPartyCache);
+            localStorage.setItem(
+              "userPartyCache",
+              JSON.stringify({
+                ...parsedCache,
+                partyStatus: newStatus,
+                timestamp: Date.now(),
+              })
+            );
+          }
+        }
 
         setIsDeleteDrawerOpen(false);
         showToast(
@@ -1167,11 +1270,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         ],
       });
 
-      if (finalPayload.status === "error") {
-        if (finalPayload.error_code !== "user_rejected") {
-          showToast("Failed to unban member", "error");
-        }
-      } else {
+      if (finalPayload.status !== "error") {
         showToast("Member unbanned successfully", "success");
       }
     } catch (error) {
@@ -1203,11 +1302,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         ],
       });
 
-      if (finalPayload.status === "error") {
-        if (finalPayload.error_code !== "user_rejected") {
-          showToast("Failed to ban member", "error");
-        }
-      } else {
+      if (finalPayload.status !== "error") {
         showToast("Member banned successfully", "success");
       }
     } catch (error) {
@@ -1250,13 +1345,15 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       } rounded-xl border border-gray-200 p-4`}
     >
       <div className="flex items-center justify-between">
-        <Typography
-          as="h3"
-          variant={{ variant: "subtitle", level: 1 }}
-          className="text-[19px] font-semibold"
-        >
-          {party.name}
-        </Typography>
+        <Link href={`/${lang}/govern/party/${party.id}`} className="flex-1">
+          <Typography
+            as="h3"
+            variant={{ variant: "subtitle", level: 1 }}
+            className="text-[19px] font-semibold"
+          >
+            {party.name}
+          </Typography>
+        </Link>
         <div className="flex items-center gap-2">
           {party.status === 0 && (
             <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
@@ -1323,13 +1420,16 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         </div>
       </div>
 
-      <Typography
-        as="p"
-        variant={{ variant: "body", level: 2 }}
-        className="mt-3 text-[15px]"
-      >
-        {party.description}
-      </Typography>
+      <Link href={`/${lang}/govern/party/${party.id}`}>
+        <Typography
+          as="p"
+          variant={{ variant: "body", level: 2 }}
+          className="mt-3 text-[15px]"
+        >
+          {party.description}
+        </Typography>
+      </Link>
+
       <div className="mt-2 flex justify-between gap-1">
         <div className="flex items-center gap-1">
           <PiLinkSimpleBold className="text-gray-500" size={15} />
@@ -1529,7 +1629,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   ?.noParties}
           </div>
         ) : (
-          filteredParties.map((party) => renderPartyCard(party))
+          <>
+            {/* Only render the parties that should be displayed */}
+            {partiesToDisplay.map((party) => renderPartyCard(party))}
+
+            {/* Loading footer - becomes visible when user scrolls down */}
+            {filteredParties.length > displayCount && (
+              <div ref={loadMoreRef} className="py-4 text-center">
+                <div className="border-t-primary inline-block h-6 w-6 animate-spin rounded-full border-2 border-gray-300"></div>
+              </div>
+            )}
+          </>
         )}
       </div>
 
@@ -1853,7 +1963,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                             ],
                           });
 
-                        if (finalPayload.status === "success") {
+                        if (finalPayload.status !== "error") {
                           setParties((prevParties) =>
                             prevParties.map((party) =>
                               party.id === selectedParty.id
@@ -1971,7 +2081,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                             ],
                           });
 
-                        if (finalPayload.status === "success") {
+                        if (finalPayload.status !== "error") {
                           setParties((prevParties) =>
                             prevParties.map((party) =>
                               party.id === selectedParty.id
@@ -2096,7 +2206,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                             ],
                           });
 
-                        if (finalPayload.status === "success") {
+                        if (finalPayload.status !== "error") {
                           setParties((prevParties) =>
                             prevParties.map((party) =>
                               party.id === selectedParty.id
@@ -2224,7 +2334,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                             ],
                           });
 
-                        if (finalPayload.status === "success") {
+                        if (finalPayload.status !== "error") {
                           setParties((prevParties) =>
                             prevParties.map((party) =>
                               party.id === selectedParty.id
@@ -3071,6 +3181,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           </div>
         </DrawerContent>
       </Drawer>
+
+      {/* Add the intersection observer for lazy loading */}
+      <div ref={loadMoreRef} style={{ height: "1px" }}></div>
     </div>
   );
 }
@@ -3143,9 +3256,7 @@ const FetchUserParty = ({
   }, [partyId, walletAddress, showToast]);
 
   if (isLoading) {
-    return (
-      <div className="p-4 text-center text-gray-500">Loading your party...</div>
-    );
+    return <PartySkeletonCard />;
   }
 
   if (error) {

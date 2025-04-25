@@ -61,9 +61,30 @@
     "politicalPartyList": {
       "loadingIssue": "Wir sind uns einiger Probleme beim Laden von Parteien bewusst. Bitte haben Sie Geduld, während wir daran arbeiten, diese zu beheben.",
       "myParty": "Meine Partei",
-      "createParty": "Neue Partei gründen",
-      "noParty": "Sie haben noch keine Partei gegründet oder sind keiner beigetreten.",
+      "createParty": "Neue Partei erstellen",
+      "noParty": "Sie haben noch keine Partei erstellt oder sind keiner beigetreten.",
       "discover": "Entdecken",
+      "partyDetails": "Parteidetails",
+      "description": "Beschreibung",
+      "partyInfo": "Parteiinformationen",
+      "leader": "Vorsitzender",
+      "website": "Webseite",
+      "members": "Mitglieder",
+      "noMembers": "Noch keine Mitglieder",
+      "bannedMembers": "Gesperrte Mitglieder",
+      "errorLoading": "Fehler beim Laden der Partei",
+      "partyNotFound": "Partei nicht gefunden",
+      "partyNotFoundDescription": "Die gesuchte Partei existiert nicht oder wurde entfernt.",
+      "backToParties": "Zurück zu den Parteien",
+      "joining": "Beitritt...",
+      "joinParty": "Partei beitreten",
+      "shareParty": "Partei teilen",
+      "copied": "Link in die Zwischenablage kopiert",
+      "status": {
+        "pending": "Ausstehend",
+        "active": "Aktiv",
+        "inactive": "Inaktiv"
+      },
       "tabs": {
         "top": "Top",
         "trending": "Trending",
@@ -77,7 +98,6 @@
       "partyCard": {
         "pending": "Ausstehend",
         "deleted": "Gelöscht",
-        "members": "Mitglieder",
         "actions": {
           "leaveParty": "Partei verlassen",
           "joinParty": "Partei beitreten",

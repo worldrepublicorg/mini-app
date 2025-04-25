@@ -59,11 +59,32 @@
       }
     },
     "politicalPartyList": {
-      "loadingIssue": "我们意识到存在一些政党加载问题。请耐心等待，我们正在努力修复它们。",
+      "loadingIssue": "我们知道存在一些政党加载问题。请耐心等待，我们正在努力修复。",
       "myParty": "我的政党",
       "createParty": "创建新政党",
       "noParty": "您尚未创建或加入政党。",
       "discover": "发现",
+      "partyDetails": "政党详情",
+      "description": "描述",
+      "partyInfo": "政党信息",
+      "leader": "领导人",
+      "website": "网站",
+      "members": "成员",
+      "noMembers": "暂无成员",
+      "bannedMembers": "被禁成员",
+      "errorLoading": "加载政党时出错",
+      "partyNotFound": "未找到政党",
+      "partyNotFoundDescription": "您查找的政党不存在或已被移除。",
+      "backToParties": "返回政党列表",
+      "joining": "加入中...",
+      "joinParty": "加入政党",
+      "shareParty": "分享政党",
+      "copied": "链接已复制到剪贴板",
+      "status": {
+        "pending": "待定",
+        "active": "活跃",
+        "inactive": "不活跃"
+      },
       "tabs": {
         "top": "热门",
         "trending": "趋势",
