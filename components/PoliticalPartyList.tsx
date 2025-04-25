@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import type { FocusEvent as ReactFocusEvent } from "react";
 import { parseAbi } from "viem";
 import { viemClient } from "@/lib/viemClient";
@@ -130,6 +130,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [activeLoading, setActiveLoading] = useState(true);
   const [pendingLoading, setPendingLoading] = useState(false);
 
+  // Add these state variables for lazy loading
+  const [displayCount, setDisplayCount] = useState<number>(10);
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const loadMoreRef = useRef<HTMLDivElement>(null);
+
   // Add this alongside the other useEffect calls to persist and restore userPartyId
   useEffect(() => {
     // Save userPartyId to localStorage whenever it changes
@@ -155,6 +160,38 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       localStorage.setItem("governVisited", "true");
     }
   }, []);
+
+  // Add this after the other useEffect hooks
+  useEffect(() => {
+    // Initialize the intersection observer
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          // Load more items when the load more element comes into view
+          setDisplayCount((prevCount) => prevCount + 10);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    // Start observing the load more element
+    if (loadMoreRef.current) {
+      observerRef.current.observe(loadMoreRef.current);
+    }
+
+    // Cleanup the observer when component unmounts
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, []);
+
+  // Reset display count when changing tabs or search
+  useEffect(() => {
+    setDisplayCount(10);
+  }, [activeTab, searchTerm]);
 
   const shortenUrl = (url: string, maxLength = 64) => {
     if (!url) return "";
@@ -541,6 +578,20 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         party.description.toLowerCase().includes(searchLower)
     );
   }, [activeTab, searchTerm, sortedPartiesByTab]);
+
+  // Get only the parties to display based on the current display count
+  const partiesToDisplay = useMemo(() => {
+    return filteredParties.slice(0, displayCount);
+  }, [filteredParties, displayCount]);
+
+  // When filteredParties or displayCount changes, make sure intersection observer updates
+  useEffect(() => {
+    // Reset the observer when the displayed items change
+    if (loadMoreRef.current && observerRef.current) {
+      observerRef.current.disconnect();
+      observerRef.current.observe(loadMoreRef.current);
+    }
+  }, [partiesToDisplay.length]);
 
   const performUsernameLookup = async (
     username: string,
@@ -1653,7 +1704,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   ?.noParties}
           </div>
         ) : (
-          filteredParties.map((party) => renderPartyCard(party))
+          <>
+            {/* Only render the parties that should be displayed */}
+            {partiesToDisplay.map((party) => renderPartyCard(party))}
+            
+            {/* Loading footer - becomes visible when user scrolls down */}
+            {filteredParties.length > displayCount && (
+              <div ref={loadMoreRef} className="py-4 text-center">
+                <div className="inline-block h-6 w-6 animate-spin rounded-full border-2 border-gray-300 border-t-primary"></div>
+              </div>
+            )}
+          </>
         )}
       </div>
 
@@ -3195,6 +3256,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           </div>
         </DrawerContent>
       </Drawer>
+
+      {/* Add the intersection observer for lazy loading */}
+      <div ref={loadMoreRef} style={{ height: "1px" }}></div>
     </div>
   );
 }
