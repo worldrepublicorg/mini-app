@@ -180,6 +180,34 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           setParties([...activeData, ...pendingData]);
         }
       }
+
+      // Check for the specific user party cache
+      const userPartyCache = localStorage.getItem('userPartyCache');
+      if (userPartyCache) {
+        const parsedCache = JSON.parse(userPartyCache);
+        if (Date.now() - parsedCache.timestamp < CACHE_DURATION) {
+          setUserPartyId(parsedCache.partyId);
+          
+          // If we have party data in the cache, make sure the user's leadership status is set correctly
+          // This would update the UI immediately based on cached data
+          if (parsedCache.partyId > 0) {
+            setParties((prevParties) => 
+              prevParties.map(party => 
+                party.id === parsedCache.partyId 
+                  ? {
+                      ...party,
+                      isUserMember: true,
+                      isUserLeader: parsedCache.isLeader
+                    }
+                  : party
+              )
+            );
+          }
+        } else {
+          // Cache expired, clear it
+          localStorage.removeItem('userPartyCache');
+        }
+      }
     } catch (error) {
       console.error("Error loading cache from localStorage:", error);
     }
@@ -596,6 +624,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
         // Save the correct party ID to localStorage
         localStorage.setItem("userPartyId", partyId.toString());
+        
+        // Update user party cache with leadership status
+        localStorage.setItem('userPartyCache', JSON.stringify({
+          partyId: partyId,
+          isLeader: true,
+          partyStatus: 0, // PENDING
+          timestamp: Date.now()
+        }));
 
         // Reset pending data
         setPendingPartyData(null);
@@ -808,11 +844,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         ],
       });
 
-      if (finalPayload.status === "error") {
-        if (finalPayload.error_code !== "user_rejected") {
-          showToast("Failed to join party", "error");
-        }
-      } else {
+      if (finalPayload.status !== "error") {
         // Only update optimistically after user confirms transaction
         setParties((prevParties) =>
           prevParties.map((party) =>
@@ -826,6 +858,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           )
         );
         setUserPartyId(partyId);
+        
+        // Update user party cache
+        localStorage.setItem('userPartyCache', JSON.stringify({
+          partyId: partyId,
+          isLeader: false,
+          partyStatus: 1, // ACTIVE
+          timestamp: Date.now()
+        }));
       }
     } catch (error) {
       console.error("Error joining party:", error);
@@ -851,11 +891,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         ],
       });
 
-      if (finalPayload.status === "error") {
-        if (finalPayload.error_code !== "user_rejected") {
-          showToast("Failed to leave party", "error");
-        }
-      } else {
+      if (finalPayload.status !== "error") {
         // Only update optimistically after user confirms transaction
         setParties((prevParties) =>
           prevParties.map((party) =>
@@ -870,6 +906,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           )
         );
         setUserPartyId(0);
+        
+        // Clear user party cache
+        localStorage.removeItem('userPartyCache');
       }
     } catch (error) {
       console.error("Error leaving party:", error);
@@ -937,14 +976,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         ],
       });
 
-      if (finalPayload.status === "error") {
-        if (finalPayload.error_code !== "user_rejected") {
-          showToast("Failed to create party", "error");
-        }
-        // Reset the pending data if the transaction failed
-        setPendingPartyData(null);
-        setIsCreating(false);
-      } else {
+      if (finalPayload.status !== "error") {
         // Show temporary loading state
         showToast(
           "Creating party, waiting for blockchain confirmation...",
@@ -1003,11 +1035,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         ],
       });
 
-      if (finalPayload.status === "error") {
-        if (finalPayload.error_code !== "user_rejected") {
-          showToast("Failed to transfer leadership", "error");
-        }
-      } else {
+      if (finalPayload.status !== "error") {
         // Update party in the UI optimistically
         setParties((prevParties) =>
           prevParties.map((party) =>
@@ -1020,6 +1048,20 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               : party
           )
         );
+
+        // Check if user is transferring their own leadership
+        if (walletAddress?.toLowerCase() === selectedParty.leader.toLowerCase()) {
+          // Update user's leadership status in cache if they were the leader
+          const userPartyCache = localStorage.getItem('userPartyCache');
+          if (userPartyCache) {
+            const parsedCache = JSON.parse(userPartyCache);
+            localStorage.setItem('userPartyCache', JSON.stringify({
+              ...parsedCache,
+              isLeader: false,
+              timestamp: Date.now()
+            }));
+          }
+        }
 
         setIsTransferLeadershipDrawerOpen(false);
         showToast("Party leadership transferred successfully", "success");
@@ -1053,11 +1095,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         ],
       });
 
-      if (finalPayload.status === "error") {
-        if (finalPayload.error_code !== "user_rejected") {
-          showToast("Failed to remove member", "error");
-        }
-      } else {
+      if (finalPayload.status !== "error") {
         // Update party in the UI optimistically
         setParties((prevParties) =>
           prevParties.map((party) =>
@@ -1163,14 +1201,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         ],
       });
 
-      if (finalPayload.status === "error") {
-        if (finalPayload.error_code !== "user_rejected") {
-          showToast(
-            `Failed to ${selectedParty.status !== 2 ? "delete" : "reactivate"} party`,
-            "error"
-          );
-        }
-      } else {
+      if (finalPayload.status !== "error") {
+        // New party status after the action
+        const newStatus = selectedParty.status !== 2 ? 2 : 0;
+        
         // Update party in the UI optimistically - based on the contract behavior
         setParties((prevParties) =>
           prevParties.map((party) =>
@@ -1180,11 +1214,24 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   active: party.status === 2, // If currently INACTIVE, set active to true
                   // When deleting: status becomes 2 (INACTIVE)
                   // When reactivating: status becomes 0 (PENDING), not 1 (ACTIVE)
-                  status: party.status !== 2 ? 2 : 0,
+                  status: newStatus,
                 }
               : party
           )
         );
+        
+        // Update cache if this is user's party
+        if (selectedParty.id === userPartyId) {
+          const userPartyCache = localStorage.getItem('userPartyCache');
+          if (userPartyCache) {
+            const parsedCache = JSON.parse(userPartyCache);
+            localStorage.setItem('userPartyCache', JSON.stringify({
+              ...parsedCache,
+              partyStatus: newStatus,
+              timestamp: Date.now()
+            }));
+          }
+        }
 
         setIsDeleteDrawerOpen(false);
         showToast(
@@ -1230,11 +1277,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         ],
       });
 
-      if (finalPayload.status === "error") {
-        if (finalPayload.error_code !== "user_rejected") {
-          showToast("Failed to unban member", "error");
-        }
-      } else {
+      if (finalPayload.status !== "error") {
         showToast("Member unbanned successfully", "success");
       }
     } catch (error) {
@@ -1266,11 +1309,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         ],
       });
 
-      if (finalPayload.status === "error") {
-        if (finalPayload.error_code !== "user_rejected") {
-          showToast("Failed to ban member", "error");
-        }
-      } else {
+      if (finalPayload.status !== "error") {
         showToast("Member banned successfully", "success");
       }
     } catch (error) {
@@ -1931,7 +1970,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                             ],
                           });
 
-                        if (finalPayload.status === "success") {
+                        if (finalPayload.status !== "error") {
                           setParties((prevParties) =>
                             prevParties.map((party) =>
                               party.id === selectedParty.id
@@ -2049,7 +2088,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                             ],
                           });
 
-                        if (finalPayload.status === "success") {
+                        if (finalPayload.status !== "error") {
                           setParties((prevParties) =>
                             prevParties.map((party) =>
                               party.id === selectedParty.id
@@ -2174,7 +2213,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                             ],
                           });
 
-                        if (finalPayload.status === "success") {
+                        if (finalPayload.status !== "error") {
                           setParties((prevParties) =>
                             prevParties.map((party) =>
                               party.id === selectedParty.id
@@ -2302,7 +2341,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                             ],
                           });
 
-                        if (finalPayload.status === "success") {
+                        if (finalPayload.status !== "error") {
                           setParties((prevParties) =>
                             prevParties.map((party) =>
                               party.id === selectedParty.id
