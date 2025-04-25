@@ -131,7 +131,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [pendingLoading, setPendingLoading] = useState(false);
 
   // Add these state variables for lazy loading
-  const [displayCount, setDisplayCount] = useState<number>(10);
+  const [displayCount, setDisplayCount] = useState<number>(20);
   const observerRef = useRef<IntersectionObserver | null>(null);
   const loadMoreRef = useRef<HTMLDivElement>(null);
 
@@ -169,7 +169,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         const [entry] = entries;
         if (entry.isIntersecting) {
           // Load more items when the load more element comes into view
-          setDisplayCount((prevCount) => prevCount + 10);
+          setDisplayCount((prevCount) => prevCount + 20);
         }
       },
       { threshold: 0.1 }
@@ -190,7 +190,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
   // Reset display count when changing tabs or search
   useEffect(() => {
-    setDisplayCount(10);
+    setDisplayCount(20);
   }, [activeTab, searchTerm]);
 
   const shortenUrl = (url: string, maxLength = 64) => {
@@ -1707,11 +1707,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           <>
             {/* Only render the parties that should be displayed */}
             {partiesToDisplay.map((party) => renderPartyCard(party))}
-            
+
             {/* Loading footer - becomes visible when user scrolls down */}
             {filteredParties.length > displayCount && (
               <div ref={loadMoreRef} className="py-4 text-center">
-                <div className="inline-block h-6 w-6 animate-spin rounded-full border-2 border-gray-300 border-t-primary"></div>
+                <div className="border-t-primary inline-block h-6 w-6 animate-spin rounded-full border-2 border-gray-300"></div>
               </div>
             )}
           </>
