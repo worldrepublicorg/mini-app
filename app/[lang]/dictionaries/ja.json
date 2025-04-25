@@ -64,27 +64,6 @@
       "createParty": "新しい政党を作成",
       "noParty": "まだ政党を作成したり参加したりしていません。",
       "discover": "発見",
-      "partyDetails": "政党詳細",
-      "description": "説明",
-      "partyInfo": "政党情報",
-      "leader": "リーダー",
-      "website": "ウェブサイト",
-      "members": "メンバー",
-      "noMembers": "まだメンバーがいません",
-      "bannedMembers": "禁止されたメンバー",
-      "errorLoading": "政党の読み込みエラー",
-      "partyNotFound": "政党が見つかりません",
-      "partyNotFoundDescription": "お探しの政党は存在しないか、削除されました。",
-      "backToParties": "政党一覧に戻る",
-      "joining": "参加中...",
-      "joinParty": "政党に参加",
-      "shareParty": "政党を共有",
-      "copied": "リンクがクリップボードにコピーされました",
-      "status": {
-        "pending": "保留中",
-        "active": "アクティブ",
-        "inactive": "非アクティブ"
-      },
       "tabs": {
         "top": "トップ",
         "trending": "トレンド",
@@ -98,6 +77,7 @@
       "partyCard": {
         "pending": "保留中",
         "deleted": "削除済み",
+        "members": "メンバー",
         "actions": {
           "leaveParty": "政党を離れる",
           "joinParty": "政党に参加",

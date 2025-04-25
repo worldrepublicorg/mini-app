@@ -59,32 +59,11 @@
       }
     },
     "politicalPartyList": {
-      "loadingIssue": "Kami ay may kamalayan sa ilang mga isyu sa paglo-load ng partido. Pakiusap na maging matiyaga habang kami ay nagsisikap na ayusin ito.",
+      "loadingIssue": "Alam namin ang ilang mga isyu sa paglo-load ng partido. Maging matiyaga habang ginagawa naming ayusin ang mga ito.",
       "myParty": "Aking partido",
       "createParty": "Lumikha ng Bagong Partido",
-      "noParty": "Hindi ka pa lumilikha o sumasali sa isang partido.",
+      "noParty": "Hindi ka pa nakakagawa o sumali sa isang partido.",
       "discover": "Tuklasin",
-      "partyDetails": "Mga Detalye ng Partido",
-      "description": "Paglalarawan",
-      "partyInfo": "Impormasyon ng Partido",
-      "leader": "Pinuno",
-      "website": "Website",
-      "members": "Mga Miyembro",
-      "noMembers": "Wala pang mga miyembro",
-      "bannedMembers": "Mga Pinagbawal na Miyembro",
-      "errorLoading": "May Error sa Paglo-load ng Partido",
-      "partyNotFound": "Hindi Nahanap ang Partido",
-      "partyNotFoundDescription": "Ang partido na hinahanap mo ay hindi umiiral o inalis na.",
-      "backToParties": "Bumalik sa Mga Partido",
-      "joining": "Sumasali...",
-      "joinParty": "Sumali sa Partido",
-      "shareParty": "Ibahagi ang Partido",
-      "copied": "Nakopya ang link sa clipboard",
-      "status": {
-        "pending": "Nakabinbin",
-        "active": "Aktibo",
-        "inactive": "Hindi aktibo"
-      },
       "tabs": {
         "top": "Nangungunang",
         "trending": "Trending",
@@ -98,6 +77,7 @@
       "partyCard": {
         "pending": "Nakabinbin",
         "deleted": "Tinanggal",
+        "members": "mga miyembro",
         "actions": {
           "leaveParty": "Umalis sa Partido",
           "joinParty": "Sumali sa Partido",
