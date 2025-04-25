@@ -420,13 +420,19 @@ export default function PartyDetailPage({
                         "Leader"}
                     </Typography>
                   </div>
-                  <Typography
-                    variant={{ variant: "body", level: 3 }}
-                    className="font-medium text-gray-900"
+                  <a
+                    href={`https://worldchain-mainnet.explorer.alchemy.com/address/${party.currentLeader}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    {party.currentLeader.slice(0, 6)}...
-                    {party.currentLeader.slice(-4)}
-                  </Typography>
+                    <Typography
+                      variant={{ variant: "body", level: 3 }}
+                      className="font-medium text-gray-900"
+                    >
+                      {party.currentLeader.slice(0, 6)}...
+                      {party.currentLeader.slice(-4)}
+                    </Typography>
+                  </a>
                 </div>
 
                 {/* Website */}
@@ -443,14 +449,9 @@ export default function PartyDetailPage({
                       </Typography>
                     </div>
                     <a
-                      href={
-                        party.officialLink.startsWith("http")
-                          ? party.officialLink
-                          : `https://${party.officialLink}`
-                      }
+                      href={party.officialLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:underline"
                     >
                       <Typography
                         variant={{ variant: "body", level: 3 }}
@@ -504,12 +505,18 @@ export default function PartyDetailPage({
                             : "border-b border-gray-100"
                       } p-4`}
                     >
-                      <Typography
-                        variant={{ variant: "body", level: 3 }}
-                        className="line-clamp-1 break-all font-medium text-gray-900"
+                      <a
+                        href={`https://worldchain-mainnet.explorer.alchemy.com/address/${member.address}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
-                        {member.address}
-                      </Typography>
+                        <Typography
+                          variant={{ variant: "body", level: 3 }}
+                          className="line-clamp-1 break-all text-gray-900"
+                        >
+                          {member.address}
+                        </Typography>
+                      </a>
                     </div>
                   ))}
 
@@ -525,26 +532,18 @@ export default function PartyDetailPage({
                             : "border-b border-gray-100"
                         } p-4`}
                       >
-                        <Typography
-                          variant={{ variant: "body", level: 3 }}
-                          className="line-clamp-1 break-all font-medium text-gray-900"
+                        <a
+                          href={`https://worldchain-mainnet.explorer.alchemy.com/address/${member.address}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
                         >
-                          {member.address}
-                        </Typography>
-                        {member.address.toLowerCase() ===
-                          party.currentLeader.toLowerCase() && (
-                          <span className="rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-700">
-                            {dictionary?.components?.politicalPartyList
-                              ?.leader || "Leader"}
-                          </span>
-                        )}
-                        {member.address.toLowerCase() ===
-                          party.founder.toLowerCase() && (
-                          <span className="rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-700">
-                            {dictionary?.components?.politicalPartyList
-                              ?.founder || "Founder"}
-                          </span>
-                        )}
+                          <Typography
+                            variant={{ variant: "body", level: 3 }}
+                            className="line-clamp-1 break-all text-gray-900"
+                          >
+                            {member.address}
+                          </Typography>
+                        </a>
                       </div>
                     ))}
                 </div>
@@ -579,12 +578,18 @@ export default function PartyDetailPage({
                         key={index}
                         className="flex items-center justify-between rounded-lg border border-gray-100 p-3"
                       >
-                        <Typography
-                          variant={{ variant: "body", level: 3 }}
-                          className="line-clamp-1 break-all font-medium text-gray-900"
+                        <a
+                          href={`https://worldchain-mainnet.explorer.alchemy.com/address/${member.address}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
                         >
-                          {member.address}
-                        </Typography>
+                          <Typography
+                            variant={{ variant: "body", level: 3 }}
+                            className="line-clamp-1 break-all font-medium text-gray-900"
+                          >
+                            {member.address}
+                          </Typography>
+                        </a>
                       </div>
                     ))}
                   </div>
