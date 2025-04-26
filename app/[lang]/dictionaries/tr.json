@@ -204,6 +204,7 @@
         },
         "memberManagement": {
           "title": "Üye Yönetimi",
+          "label": "Üye adresi",
           "tabs": {
             "remove": "Çıkar",
             "ban": "Yasakla",

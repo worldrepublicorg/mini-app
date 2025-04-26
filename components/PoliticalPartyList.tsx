@@ -2552,11 +2552,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             </Typography>
 
             {/* Username lookup section */}
-            <div className="mb-4">
+            <div>
               <Typography
                 as="label"
                 variant={{ variant: "caption", level: 1 }}
-                className="mb-1.5 block"
+                className="mb-1.5 block font-medium"
               >
                 {
                   dictionary?.components?.politicalPartyList?.drawers
@@ -2665,7 +2665,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   }
                 </Form.Message>
               </Form.Field>
-              <Form.Submit asChild className="mt-4">
+              <Form.Submit asChild className="mt-8">
                 <Button variant="primary" fullWidth disabled={isProcessing}>
                   {isProcessing
                     ? dictionary?.components?.politicalPartyList?.drawers
@@ -2897,11 +2897,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 </Typography>
 
                 {/* Username lookup section for member removal in the tab */}
-                <div className="mb-4">
+                <div>
                   <Typography
                     as="label"
                     variant={{ variant: "caption", level: 1 }}
-                    className="mb-1.5 block"
+                    className="mb-1.5 block font-medium"
                   >
                     {
                       dictionary?.components?.politicalPartyList?.drawers
@@ -2981,7 +2981,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     >
                       {
                         dictionary?.components?.politicalPartyList?.drawers
-                          ?.transferLeadership?.newLeader?.label
+                          ?.memberManagement?.label
                       }
                     </Typography>
                     <Form.Control asChild>
@@ -3010,7 +3010,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       }
                     </Form.Message>
                   </Form.Field>
-                  <Form.Submit asChild className="mt-4">
+                  <Form.Submit asChild className="mt-8">
                     <Button variant="primary" fullWidth disabled={isProcessing}>
                       {isProcessing
                         ? dictionary?.components?.politicalPartyList?.drawers
@@ -3038,11 +3038,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 </Typography>
 
                 {/* Username lookup section */}
-                <div className="mb-4">
+                <div>
                   <Typography
                     as="label"
                     variant={{ variant: "caption", level: 1 }}
-                    className="mb-1.5 block"
+                    className="mb-1.5 block font-medium"
                   >
                     {
                       dictionary?.components?.politicalPartyList?.drawers
@@ -3124,7 +3124,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     >
                       {
                         dictionary?.components?.politicalPartyList?.drawers
-                          ?.transferLeadership?.newLeader?.label
+                          ?.memberManagement?.label
                       }
                     </Typography>
                     <Form.Control asChild>
@@ -3153,7 +3153,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       }
                     </Form.Message>
                   </Form.Field>
-                  <Form.Submit asChild className="mt-4">
+                  <Form.Submit asChild className="mt-8">
                     <Button variant="primary" fullWidth disabled={isProcessing}>
                       {isProcessing
                         ? dictionary?.components?.politicalPartyList?.drawers
@@ -3181,7 +3181,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 </Typography>
 
                 {/* Username lookup section */}
-                <div className="mb-4">
+                <div>
                   <Typography
                     as="label"
                     variant={{ variant: "caption", level: 1 }}
@@ -3267,7 +3267,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     >
                       {
                         dictionary?.components?.politicalPartyList?.drawers
-                          ?.transferLeadership?.newLeader?.label
+                          ?.memberManagement?.label
                       }
                     </Typography>
                     <Form.Control asChild>
@@ -3296,7 +3296,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       }
                     </Form.Message>
                   </Form.Field>
-                  <Form.Submit asChild className="mt-4">
+                  <Form.Submit asChild className="mt-8">
                     <Button variant="primary" fullWidth disabled={isProcessing}>
                       {isProcessing
                         ? dictionary?.components?.politicalPartyList?.drawers

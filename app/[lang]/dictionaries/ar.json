@@ -204,6 +204,7 @@
         },
         "memberManagement": {
           "title": "إدارة الأعضاء",
+          "label": "عنوان العضو",
           "tabs": {
             "remove": "إزالة",
             "ban": "حظر",

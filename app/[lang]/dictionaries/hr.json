@@ -204,6 +204,7 @@
         },
         "memberManagement": {
           "title": "Upravljanje članovima",
+          "label": "Adresa člana",
           "tabs": {
             "remove": "Ukloni",
             "ban": "Zabrani",

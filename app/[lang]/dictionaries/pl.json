@@ -203,7 +203,8 @@
           }
         },
         "memberManagement": {
-          "title": "Zarządzanie członkami",
+          "title": "Zarządzanie Członkami",
+          "label": "Adres członka",
           "tabs": {
             "remove": "Usuń",
             "ban": "Zablokuj",

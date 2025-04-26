@@ -203,6 +203,7 @@
         },
         "memberManagement": {
           "title": "Member Management",
+          "label": "Member address",
           "tabs": {
             "remove": "Remove",
             "ban": "Ban",

@@ -204,6 +204,7 @@
         },
         "memberManagement": {
           "title": "회원 관리",
+          "label": "회원 주소",
           "tabs": {
             "remove": "제거",
             "ban": "차단",

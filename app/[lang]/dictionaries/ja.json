@@ -203,6 +203,7 @@
         },
         "memberManagement": {
           "title": "メンバー管理",
+          "label": "メンバーアドレス",
           "tabs": {
             "remove": "削除",
             "ban": "禁止",

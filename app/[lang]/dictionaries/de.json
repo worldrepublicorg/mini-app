@@ -203,6 +203,7 @@
         },
         "memberManagement": {
           "title": "Mitgliederverwaltung",
+          "label": "Mitgliedsadresse",
           "tabs": {
             "remove": "Entfernen",
             "ban": "Sperren",

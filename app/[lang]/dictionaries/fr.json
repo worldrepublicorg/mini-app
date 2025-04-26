@@ -204,6 +204,7 @@
         },
         "memberManagement": {
           "title": "Gestion des Membres",
+          "label": "Adresse du membre",
           "tabs": {
             "remove": "Retirer",
             "ban": "Bannir",

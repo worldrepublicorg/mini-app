@@ -204,6 +204,7 @@
         },
         "memberManagement": {
           "title": "ممبر مینجمنٹ",
+          "label": "ممبر کا پتہ",
           "tabs": {
             "remove": "ہٹائیں",
             "ban": "پابندی لگائیں",

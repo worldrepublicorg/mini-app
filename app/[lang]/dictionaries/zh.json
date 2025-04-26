@@ -204,6 +204,7 @@
         },
         "memberManagement": {
           "title": "成员管理",
+          "label": "成员地址",
           "tabs": {
             "remove": "移除",
             "ban": "禁止",

@@ -204,6 +204,7 @@
         },
         "memberManagement": {
           "title": "Manajemen Anggota",
+          "label": "Alamat anggota",
           "tabs": {
             "remove": "Hapus",
             "ban": "Blokir",

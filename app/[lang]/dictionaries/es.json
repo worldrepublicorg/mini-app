@@ -216,6 +216,7 @@
         },
         "memberManagement": {
           "title": "Gestión de Miembros",
+          "label": "Dirección del miembro",
           "tabs": {
             "remove": "Eliminar",
             "ban": "Prohibir",

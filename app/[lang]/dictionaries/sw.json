@@ -204,6 +204,7 @@
         },
         "memberManagement": {
           "title": "Usimamizi wa Wanachama",
+          "label": "Anwani ya mwanachama",
           "tabs": {
             "remove": "Ondoa",
             "ban": "Zuia",

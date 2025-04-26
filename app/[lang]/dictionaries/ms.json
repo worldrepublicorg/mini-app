@@ -204,6 +204,7 @@
         },
         "memberManagement": {
           "title": "Pengurusan Ahli",
+          "label": "Alamat ahli",
           "tabs": {
             "remove": "Keluarkan",
             "ban": "Sekat",

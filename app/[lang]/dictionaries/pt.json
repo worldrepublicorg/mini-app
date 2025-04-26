@@ -204,6 +204,7 @@
         },
         "memberManagement": {
           "title": "Gerenciamento de Membros",
+          "label": "Endereço do membro",
           "tabs": {
             "remove": "Remover",
             "ban": "Banir",
