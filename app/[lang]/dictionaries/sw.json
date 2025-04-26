@@ -554,6 +554,7 @@
             "title": "Kura za Awali",
             "backToGovern": "Rudi kwa Tawala",
             "polls": {
+              "heatAdaptation": "Je, nchi zinapaswa kuanzisha utaratibu wa uratibu wa kimataifa kwa ajili ya tahadhari za mapema za mawimbi ya joto na juhudi za pamoja za msaada ili kulinda watu walio hatarini wakati wa matukio ya joto kali?",
               "sovereignDebtRestructuring": "Je, kunapaswa kuwa na utaratibu wa kimataifa wa kuratibu upangaji upya wa deni la nchi ili kutoa msaada wa wakati unaofaa kwa nchi zinazokabiliwa na viwango vya deni visivyoweza kuhimiliwa?",
               "globalMilitaryExerciseProtocol": "Je, nchi zinapaswa kukubaliana na itifaki ya kimataifa ya taarifa na waangalizi kwa mazoezi makubwa ya kijeshi karibu na maeneo yanayogombewa ili kupunguza hatari ya kupanda kwa mvutano?",
               "globalMaritimeSecurity": "Je, kikosi cha kimataifa cha usalama wa baharini kianzishwe ili kulinda usafirishaji wa kibiashara katika maji ya kimataifa dhidi ya mashambulizi ya silaha?",
