@@ -2447,7 +2447,7 @@ export default function EarnPage({
                           )}
 
                           {/* World ID Widget */}
-                          <div className="my-4">
+                          <div className="mt-4">
                             <Button
                               onClick={async () => {
                                 if (!MiniKit.isInstalled() || !walletAddress) {
@@ -2520,6 +2520,7 @@ export default function EarnPage({
                               fullWidth
                               disabled={isVerifying}
                               isLoading={isVerifying}
+                              className="mb-4"
                             >
                               {
                                 dictionary?.pages?.earn?.tabs?.invite?.drawer
