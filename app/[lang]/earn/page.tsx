@@ -1,7 +1,7 @@
 "use client";
 
 import { Typography } from "@/components/ui/Typography";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import {
   PiHandCoinsFill,
   PiUserPlusFill,
@@ -1628,6 +1628,18 @@ export default function EarnPage({
     }
   }, []);
 
+  // Add useRef and useEffect hooks to track changes in lookup state
+  const drawerContentRef = useRef<HTMLDivElement>(null);
+
+  // Add this useEffect to update the drawer when lookupResult changes
+  useEffect(() => {
+    if (drawerContentRef.current) {
+      // Force a layout recalculation when content height changes
+      const event = new Event("resize");
+      window.visualViewport?.dispatchEvent(event);
+    }
+  }, [lookupResult, lookupError, isLookingUp, rewardStatus]);
+
   const renderContent = () => {
     switch (activeTab) {
       case "Basic income":
@@ -2187,7 +2199,7 @@ export default function EarnPage({
                       </div>
                     )}
 
-                    <div className="w-full">
+                    <div className="w-full" ref={drawerContentRef}>
                       {!lookupResult ? (
                         <>
                           <input
@@ -2353,7 +2365,7 @@ export default function EarnPage({
                       </div>
                     )}
 
-                    <div className="w-full">
+                    <div className="w-full" ref={drawerContentRef}>
                       {!lookupResult ? (
                         <>
                           <input
