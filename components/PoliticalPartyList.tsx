@@ -227,6 +227,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     return num.toString();
   };
 
+  // Updated fetchActiveParties function that handles pagination
   const fetchActiveParties = useCallback(async () => {
     if (!GOLDSKY_SUBGRAPH_URL) {
       setActiveLoading(false);
@@ -236,44 +237,61 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     try {
       setActiveLoading(true);
 
-      // Query to get active parties from subgraph
-      const query = `
-        query {
-          parties(first: 1000, where: { memberCount_not: 0, status: 1 }) {
-            id
-            name
-            shortName
-            description
-            officialLink
-            founder
-            currentLeader
-            creationTime
-            status
-            memberCount
-            documentVerifiedMemberCount
-            verifiedMemberCount
-            active
+      let allFetchedParties: any[] = [];
+      let hasMore = true;
+      let skip = 0;
+      const pageSize = 1000;
+
+      while (hasMore) {
+        // Query to get active parties from subgraph with pagination
+        const query = `
+          query {
+            parties(first: ${pageSize}, skip: ${skip}, where: { memberCount_not: 0, status: 1 }) {
+              id
+              name
+              shortName
+              description
+              officialLink
+              founder
+              currentLeader
+              creationTime
+              status
+              memberCount
+              documentVerifiedMemberCount
+              verifiedMemberCount
+              active
+            }
           }
+        `;
+
+        // Fetch active parties from Goldsky subgraph
+        const response = await fetch(GOLDSKY_SUBGRAPH_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query }),
+        });
+
+        if (!response.ok) {
+          throw new Error(`Subgraph request failed: ${response.statusText}`);
         }
-      `;
 
-      // Fetch active parties from Goldsky subgraph
-      const response = await fetch(GOLDSKY_SUBGRAPH_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query }),
-      });
+        const result = await response.json();
 
-      if (!response.ok) {
-        throw new Error(`Subgraph request failed: ${response.statusText}`);
-      }
+        if (result.errors) {
+          throw new Error(
+            `GraphQL errors: ${result.errors.map((e: any) => e.message).join(", ")}`
+          );
+        }
 
-      const result = await response.json();
+        const currentPageParties = result.data.parties;
+        allFetchedParties = [...allFetchedParties, ...currentPageParties];
 
-      if (result.errors) {
-        throw new Error(
-          `GraphQL errors: ${result.errors.map((e: any) => e.message).join(", ")}`
-        );
+        // If we received fewer results than the page size, we've reached the end
+        if (currentPageParties.length < pageSize) {
+          hasMore = false;
+        } else {
+          skip += pageSize; // Move to the next page
+        }
       }
 
       // Get user party info
@@ -309,7 +327,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       setUserPartyId(userParty > 0 ? userParty : 0);
 
       // Transform the data to match your Party interface
-      const fetchedParties = result.data.parties.map((party: any) => ({
+      const fetchedParties = allFetchedParties.map((party: any) => ({
         id: Number(party.id),
         name: party.name,
         shortName: party.shortName,
@@ -341,6 +359,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     }
   }, [walletAddress, showToast, pendingParties]);
 
+  // Updated fetchPendingParties function that handles pagination
   const fetchPendingParties = useCallback(async () => {
     if (!GOLDSKY_SUBGRAPH_URL) {
       setPendingLoading(false);
@@ -350,65 +369,89 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     try {
       setPendingLoading(true);
 
-      // Query to get pending parties from subgraph
-      const query = `
-        query {
-          parties(first: 1000, where: { status: 0 }) {
-            id
-            name
-            shortName
-            description
-            officialLink
-            founder
-            currentLeader
-            creationTime
-            status
-            memberCount
-            documentVerifiedMemberCount
-            verifiedMemberCount
-            active
+      let allFetchedPendingParties: any[] = [];
+      let hasMore = true;
+      let skip = 0;
+      const pageSize = 1000;
+
+      while (hasMore) {
+        // Query to get pending parties from subgraph with pagination
+        const query = `
+          query {
+            parties(first: ${pageSize}, skip: ${skip}, where: { status: 0 }) {
+              id
+              name
+              shortName
+              description
+              officialLink
+              founder
+              currentLeader
+              creationTime
+              status
+              memberCount
+              documentVerifiedMemberCount
+              verifiedMemberCount
+              active
+            }
           }
+        `;
+
+        // Fetch pending parties from Goldsky subgraph
+        const response = await fetch(GOLDSKY_SUBGRAPH_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query }),
+        });
+
+        if (!response.ok) {
+          throw new Error(`Subgraph request failed: ${response.statusText}`);
         }
-      `;
 
-      // Fetch pending parties from Goldsky subgraph
-      const response = await fetch(GOLDSKY_SUBGRAPH_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query }),
-      });
+        const result = await response.json();
 
-      if (!response.ok) {
-        throw new Error(`Subgraph request failed: ${response.statusText}`);
-      }
+        if (result.errors) {
+          throw new Error(
+            `GraphQL errors: ${result.errors.map((e: any) => e.message).join(", ")}`
+          );
+        }
 
-      const result = await response.json();
+        const currentPageParties = result.data.parties;
+        allFetchedPendingParties = [
+          ...allFetchedPendingParties,
+          ...currentPageParties,
+        ];
 
-      if (result.errors) {
-        throw new Error(
-          `GraphQL errors: ${result.errors.map((e: any) => e.message).join(", ")}`
-        );
+        // If we received fewer results than the page size, we've reached the end
+        if (currentPageParties.length < pageSize) {
+          hasMore = false;
+        } else {
+          skip += pageSize; // Move to the next page
+        }
       }
 
       // Transform the data to match your Party interface
-      const fetchedPendingParties = result.data.parties.map((party: any) => ({
-        id: Number(party.id),
-        name: party.name,
-        shortName: party.shortName,
-        description: party.description,
-        officialLink: party.officialLink,
-        founder: party.founder,
-        leader: party.currentLeader,
-        creationTime: Number(party.creationTime),
-        status: Number(party.status),
-        active: party.active,
-        memberCount: Number(party.memberCount),
-        documentVerifiedMemberCount: Number(party.documentVerifiedMemberCount),
-        verifiedMemberCount: Number(party.verifiedMemberCount),
-        isUserMember: userPartyId === Number(party.id),
-        isUserLeader:
-          walletAddress?.toLowerCase() === party.currentLeader?.toLowerCase(),
-      }));
+      const fetchedPendingParties = allFetchedPendingParties.map(
+        (party: any) => ({
+          id: Number(party.id),
+          name: party.name,
+          shortName: party.shortName,
+          description: party.description,
+          officialLink: party.officialLink,
+          founder: party.founder,
+          leader: party.currentLeader,
+          creationTime: Number(party.creationTime),
+          status: Number(party.status),
+          active: party.active,
+          memberCount: Number(party.memberCount),
+          documentVerifiedMemberCount: Number(
+            party.documentVerifiedMemberCount
+          ),
+          verifiedMemberCount: Number(party.verifiedMemberCount),
+          isUserMember: userPartyId === Number(party.id),
+          isUserLeader:
+            walletAddress?.toLowerCase() === party.currentLeader?.toLowerCase(),
+        })
+      );
 
       setPendingParties(fetchedPendingParties);
 
