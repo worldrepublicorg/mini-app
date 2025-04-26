@@ -3185,7 +3185,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   <Typography
                     as="label"
                     variant={{ variant: "caption", level: 1 }}
-                    className="mb-1.5 block"
+                    className="mb-1.5 block font-medium"
                   >
                     {
                       dictionary?.components?.politicalPartyList?.drawers
