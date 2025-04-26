@@ -1735,7 +1735,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
       {/* Search bar */}
       <div className="mb-3">
-        <div className="relative">
+        <div className="relative h-[3.125rem]">
           <Input
             type="text"
             startAdornment={
