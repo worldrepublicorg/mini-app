@@ -204,6 +204,7 @@
         },
         "memberManagement": {
           "title": "Manajemen Anggota",
+          "label": "Alamat anggota",
           "tabs": {
             "remove": "Hapus",
             "ban": "Blokir",
@@ -553,6 +554,7 @@
             "title": "Polling Sebelumnya",
             "backToGovern": "Kembali ke Kelola",
             "polls": {
+              "heatAdaptation": "Haruskah negara-negara membentuk mekanisme koordinasi global untuk peringatan dini gelombang panas dan upaya bantuan bersama untuk melindungi populasi rentan selama peristiwa panas ekstrem?",
               "globalMilitaryExerciseProtocol": "Haruskah negara-negara menyetujui protokol notifikasi dan pengamat internasional untuk latihan militer skala besar di dekat wilayah yang diperebutkan untuk mengurangi risiko eskalasi?",
               "globalMaritimeSecurity": "Haruskah satuan tugas keamanan maritim internasional dibentuk untuk melindungi pengiriman komersial di perairan internasional dari serangan bersenjata?",
               "globalNuclearDialogue": "Haruskah kekuatan utama dunia diwajibkan berdasarkan perjanjian internasional untuk terlibat dalam negosiasi nuklir tingkat ahli yang berkelanjutan dengan negara-negara musuh untuk mencegah eskalasi dan memastikan pengawasan diplomatik?",

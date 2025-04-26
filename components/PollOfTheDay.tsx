@@ -15,8 +15,8 @@ const polls: Poll[] = [
     url: "https://vote.one/GTN2bfzr",
   },
   {
-    key: "globalMaritimeSecurity",
-    url: "https://vote.one/D9m1kqNi",
+    key: "heatAdaptation",
+    url: "https://vote.one/lYGmfQI7",
   },
   {
     key: "globalMilitaryExerciseProtocol",
