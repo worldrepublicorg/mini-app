@@ -20,6 +20,7 @@ import { LoadingSkeleton, PartySkeletonCard } from "./PartySkeletons";
 import { useTranslations } from "@/hooks/useTranslations";
 import { TabSwiper } from "@/components/TabSwiper";
 import Link from "next/link";
+import React from "react";
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
   "0x70a993E1D1102F018365F966B5Fc009e8FA9b7dC";
 
@@ -579,7 +580,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     }
   };
 
-  const FetchUserParty = ({
+  const FetchUserParty = React.memo(({
     partyId,
     renderPartyCard,
     walletAddress,
@@ -639,7 +640,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     }
 
     return renderPartyCard(party);
-  };
+  });
 
   const performUsernameLookup = async (
     username: string,
@@ -1504,7 +1505,8 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     <div className="mb-4">{children}</div>
   );
 
-  const renderPartyCard = (party: Party) => (
+  // Memoize the renderPartyCard function
+  const renderPartyCard = useCallback((party: Party) => (
     <div
       key={party.id}
       className={`${
@@ -1672,15 +1674,29 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         )}
       </div>
     </div>
-  );
+  ), [filteredParties, dictionary, lang, joinParty, leaveParty]);
 
-  if (activeLoading && activeTab !== "pending") {
-    return <LoadingSkeleton dictionary={dictionary} />;
-  }
-
-  return (
-    <div className="w-full overflow-x-hidden">
-      {/* My Party Section */}
+  // Create a new UserPartySection component wrapped with React.memo
+  const UserPartySection = React.memo(({
+    userPartyId,
+    parties,
+    renderPartyCard,
+    walletAddress,
+    showToast,
+    handleCreatePartyClick,
+    dictionary,
+    fetchPartyFromBlockchain,
+  }: {
+    userPartyId: number;
+    parties: Party[];
+    renderPartyCard: (party: Party) => JSX.Element;
+    walletAddress: string | null;
+    showToast: (message: string, type: "success" | "error" | "info") => void;
+    handleCreatePartyClick: () => void;
+    dictionary: any;
+    fetchPartyFromBlockchain: (partyId: number) => Promise<Party | null>;
+  }) => {
+    return (
       <div className="mb-6">
         <div className="mb-3 flex items-center justify-between">
           <Typography
@@ -1724,6 +1740,26 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           </div>
         )}
       </div>
+    );
+  });
+
+  if (activeLoading && activeTab !== "pending") {
+    return <LoadingSkeleton dictionary={dictionary} />;
+  }
+
+  return (
+    <div className="w-full overflow-x-hidden">
+      {/* My Party Section */}
+      <UserPartySection
+        userPartyId={userPartyId}
+        parties={parties}
+        renderPartyCard={renderPartyCard}
+        walletAddress={walletAddress}
+        showToast={showToast}
+        handleCreatePartyClick={handleCreatePartyClick}
+        dictionary={dictionary}
+        fetchPartyFromBlockchain={fetchPartyFromBlockchain}
+      />
 
       <Typography
         as="h2"
