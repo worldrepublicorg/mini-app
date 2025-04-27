@@ -19,8 +19,8 @@ const polls: Poll[] = [
     url: "https://vote.one/lYGmfQI7",
   },
   {
-    key: "globalMilitaryExerciseProtocol",
-    url: "https://vote.one/IDqHp7v7",
+    key: "tradePolicyStability",
+    url: "https://vote.one/2LwLzOSv",
   },
   {
     key: "sovereignDebtRestructuring",
