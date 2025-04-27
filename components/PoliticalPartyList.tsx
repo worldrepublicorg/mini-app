@@ -20,8 +20,6 @@ import { LoadingSkeleton, PartySkeletonCard } from "./PartySkeletons";
 import { useTranslations } from "@/hooks/useTranslations";
 import { TabSwiper } from "@/components/TabSwiper";
 import Link from "next/link";
-import React from "react";
-
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
   "0x70a993E1D1102F018365F966B5Fc009e8FA9b7dC";
 
@@ -1506,243 +1504,175 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     <div className="mb-4">{children}</div>
   );
 
-  // Memoize renderPartyCard to avoid unnecessary re-renders
-  const renderPartyCard = useCallback(
-    (party: Party) => (
-      <div key={party.id} className="mb-2 border-b border-gray-100 p-4 pb-6">
-        <div className="flex items-center justify-between">
-          <Link href={`/${lang}/govern/party/${party.id}`} className="flex-1">
-            <Typography
-              as="h3"
-              variant={{ variant: "subtitle", level: 1 }}
-              className="text-[19px] font-semibold"
-            >
-              {party.name}
-            </Typography>
-          </Link>
-          <div className="flex items-center gap-2">
-            {party.status === 0 && (
-              <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
-                {dictionary?.components?.politicalPartyList?.partyCard?.pending}
-              </span>
-            )}
-            {party.status === 2 && (
-              <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
-                {dictionary?.components?.politicalPartyList?.partyCard?.deleted}
-              </span>
-            )}
-            {party.isUserLeader && party.status !== 2 && (
-              <Dropdown
-                trigger={
-                  <button
-                    className="text-gray-600 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 transition-colors"
-                    title={
-                      dictionary?.components?.politicalPartyList?.partyCard
-                        ?.management?.title
-                    }
-                  >
-                    <PiGearBold size={16} />
-                  </button>
-                }
-                menuItems={[
-                  {
-                    label:
-                      dictionary?.components?.politicalPartyList?.partyCard
-                        ?.management?.manageMembers,
-                    onClick: () => {
-                      setSelectedParty(party);
-                      setIsMemberManagementDrawerOpen(true);
-                    },
-                  },
-                  {
-                    label:
-                      dictionary?.components?.politicalPartyList?.partyCard
-                        ?.management?.updateInfo,
-                    onClick: () => openUpdatePartyDrawer(party),
-                  },
-                  {
-                    label:
-                      dictionary?.components?.politicalPartyList?.partyCard
-                        ?.management?.transferLeadership,
-                    onClick: () => {
-                      setSelectedParty(party);
-                      setIsTransferLeadershipDrawerOpen(true);
-                    },
-                  },
-                  {
-                    label:
-                      dictionary?.components?.politicalPartyList?.partyCard
-                        ?.management?.deleteParty,
-                    onClick: () => {
-                      setSelectedParty(party);
-                      setIsDeleteDrawerOpen(true);
-                    },
-                    className: "text-error-600",
-                  },
-                ]}
-                align="right"
-              />
-            )}
-          </div>
-        </div>
-
-        <Link href={`/${lang}/govern/party/${party.id}`}>
+  const renderPartyCard = (party: Party) => (
+    <div
+      key={party.id}
+      className={`${
+        filteredParties.indexOf(party) !== filteredParties.length - 1
+          ? "mb-4"
+          : ""
+      } rounded-xl border border-gray-200 p-4`}
+    >
+      <div className="flex items-center justify-between">
+        <Link href={`/${lang}/govern/party/${party.id}`} className="flex-1">
           <Typography
-            as="p"
-            variant={{ variant: "body", level: 2 }}
-            className="mt-3 text-[15px]"
+            as="h3"
+            variant={{ variant: "subtitle", level: 1 }}
+            className="text-[19px] font-semibold"
           >
-            {party.description}
+            {party.name}
           </Typography>
         </Link>
-
-        <div className="mt-2 flex justify-between gap-1">
-          <div className="flex items-center gap-1">
-            <PiLinkSimpleBold className="text-gray-500" size={15} />
-            <a
-              href={
-                party.officialLink.startsWith("http")
-                  ? party.officialLink
-                  : `https://${party.officialLink}`
+        <div className="flex items-center gap-2">
+          {party.status === 0 && (
+            <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
+              {dictionary?.components?.politicalPartyList?.partyCard?.pending}
+            </span>
+          )}
+          {party.status === 2 && (
+            <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
+              {dictionary?.components?.politicalPartyList?.partyCard?.deleted}
+            </span>
+          )}
+          {party.isUserLeader && party.status !== 2 && (
+            <Dropdown
+              trigger={
+                <button
+                  className="text-gray-600 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 transition-colors"
+                  title={
+                    dictionary?.components?.politicalPartyList?.partyCard
+                      ?.management?.title
+                  }
+                >
+                  <PiGearBold size={16} />
+                </button>
               }
-              target="_blank"
-              rel="noopener noreferrer"
-              className="-m-1 flex rounded-md px-1 py-1 transition-colors"
-              title={party.officialLink}
-            >
-              <Typography
-                variant={{ variant: "caption", level: 1 }}
-                className="max-w-[calc(100dvw/2-56px)] truncate text-[15px] text-[#0A66C2]"
-              >
-                {shortenUrl(party.officialLink)}
-              </Typography>
-            </a>
-          </div>
-          <div className="flex items-center gap-1">
-            <PiUsersBold className="text-gray-500" size={15} />
-            <Typography
-              as="span"
-              variant={{ variant: "caption", level: 1 }}
-              className="text-[15px] font-semibold"
-              title={party.memberCount.toString()}
-            >
-              {formatNumber(party.memberCount)}
-            </Typography>
-            <Typography
-              as="span"
-              variant={{ variant: "caption", level: 1 }}
-              className="text-[15px] text-gray-500"
-            >
-              {dictionary?.components?.politicalPartyList?.partyCard?.members}
-            </Typography>
-          </div>
-        </div>
-
-        <div className="mt-4 flex flex-col gap-2">
-          {party.isUserMember ? (
-            <Button
-              className="px-6"
-              variant="secondary"
-              size="sm"
-              fullWidth
-              onClick={() => leaveParty(party.id)}
-            >
-              {
-                dictionary?.components?.politicalPartyList?.partyCard?.actions
-                  ?.leaveParty
-              }
-            </Button>
-          ) : (
-            <Button
-              className="px-6"
-              variant={party.status === 1 ? "primary" : "secondary"}
-              size="sm"
-              fullWidth
-              onClick={() => joinParty(party.id)}
-            >
-              {party.status === 0
-                ? dictionary?.components?.politicalPartyList?.partyCard?.actions
-                    ?.joinPendingParty
-                : dictionary?.components?.politicalPartyList?.partyCard?.actions
-                    ?.joinParty}
-            </Button>
+              menuItems={[
+                {
+                  label:
+                    dictionary?.components?.politicalPartyList?.partyCard
+                      ?.management?.manageMembers,
+                  onClick: () => {
+                    setSelectedParty(party);
+                    setIsMemberManagementDrawerOpen(true);
+                  },
+                },
+                {
+                  label:
+                    dictionary?.components?.politicalPartyList?.partyCard
+                      ?.management?.updateInfo,
+                  onClick: () => openUpdatePartyDrawer(party),
+                },
+                {
+                  label:
+                    dictionary?.components?.politicalPartyList?.partyCard
+                      ?.management?.transferLeadership,
+                  onClick: () => {
+                    setSelectedParty(party);
+                    setIsTransferLeadershipDrawerOpen(true);
+                  },
+                },
+                {
+                  label:
+                    dictionary?.components?.politicalPartyList?.partyCard
+                      ?.management?.deleteParty,
+                  onClick: () => {
+                    setSelectedParty(party);
+                    setIsDeleteDrawerOpen(true);
+                  },
+                  className: "text-error-600",
+                },
+              ]}
+              align="right"
+            />
           )}
         </div>
       </div>
-    ),
-    [walletAddress, dictionary, shortenUrl, formatNumber, leaveParty, joinParty]
-  );
 
-  // Create MyPartySection component inside the main component
-  const MyPartySection = React.memo(
-    ({
-      userPartyId,
-      parties,
-      renderPartyCard,
-      walletAddress,
-      showToast,
-      dictionary,
-      handleCreatePartyClick,
-    }: {
-      userPartyId: number;
-      parties: Party[];
-      renderPartyCard: (party: Party) => JSX.Element;
-      walletAddress: string | null;
-      showToast: (message: string, type: "success" | "error" | "info") => void;
-      dictionary: any;
-      handleCreatePartyClick: () => void;
-    }) => {
-      return (
-        <div className="mb-6">
-          <div className="mb-3 flex items-center justify-between">
+      <Link href={`/${lang}/govern/party/${party.id}`}>
+        <Typography
+          as="p"
+          variant={{ variant: "body", level: 2 }}
+          className="mt-3 text-[15px]"
+        >
+          {party.description}
+        </Typography>
+      </Link>
+
+      <div className="mt-2 flex justify-between gap-1">
+        <div className="flex items-center gap-1">
+          <PiLinkSimpleBold className="text-gray-500" size={15} />
+          <a
+            href={
+              party.officialLink.startsWith("http")
+                ? party.officialLink
+                : `https://${party.officialLink}`
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+            className="-m-1 flex rounded-md px-1 py-1 transition-colors"
+            title={party.officialLink}
+          >
             <Typography
-              as="h2"
-              variant={{ variant: "subtitle", level: 1 }}
-              className="text-[19px] font-semibold"
+              variant={{ variant: "caption", level: 1 }}
+              className="max-w-[calc(100dvw/2-56px)] truncate text-[15px] text-[#0A66C2]"
             >
-              {dictionary?.components?.politicalPartyList?.myParty}
+              {shortenUrl(party.officialLink)}
             </Typography>
-            <button
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-900"
-              onClick={handleCreatePartyClick}
-              title={dictionary?.components?.politicalPartyList?.createParty}
-            >
-              <FaPlus className="text-gray-500" size={12} />
-            </button>
-          </div>
-
-          {userPartyId > 0 ? (
-            // Display the user's party
-            <>
-              {parties.filter((party) => party.id === userPartyId).length >
-              0 ? (
-                // If the party is in the parties array
-                parties
-                  .filter((party) => party.id === userPartyId)
-                  .map((party) => renderPartyCard(party))
-              ) : (
-                // If the party is not in the parties array, fetch it directly
-                <FetchUserParty
-                  partyId={userPartyId}
-                  renderPartyCard={renderPartyCard}
-                  walletAddress={walletAddress}
-                  showToast={showToast}
-                />
-              )}
-            </>
-          ) : (
-            // Message when user hasn't joined or created a political party yet.
-            <div className="p-4 text-center text-gray-500">
-              {dictionary?.components?.politicalPartyList?.noParty}
-            </div>
-          )}
+          </a>
         </div>
-      );
-    }
-  );
+        <div className="flex items-center gap-1">
+          <PiUsersBold className="text-gray-500" size={15} />
+          <Typography
+            as="span"
+            variant={{ variant: "caption", level: 1 }}
+            className="text-[15px] font-semibold"
+            title={party.memberCount.toString()}
+          >
+            {formatNumber(party.memberCount)}
+          </Typography>
+          <Typography
+            as="span"
+            variant={{ variant: "caption", level: 1 }}
+            className="text-[15px] text-gray-500"
+          >
+            {dictionary?.components?.politicalPartyList?.partyCard?.members}
+          </Typography>
+        </div>
+      </div>
 
-  // Add display name for debugging
-  MyPartySection.displayName = "MyPartySection";
+      <div className="mt-4 flex flex-col gap-2">
+        {party.isUserMember ? (
+          <Button
+            className="px-6"
+            variant="secondary"
+            size="sm"
+            fullWidth
+            onClick={() => leaveParty(party.id)}
+          >
+            {
+              dictionary?.components?.politicalPartyList?.partyCard?.actions
+                ?.leaveParty
+            }
+          </Button>
+        ) : (
+          <Button
+            className="px-6"
+            variant={party.status === 1 ? "primary" : "secondary"}
+            size="sm"
+            fullWidth
+            onClick={() => joinParty(party.id)}
+          >
+            {party.status === 0
+              ? dictionary?.components?.politicalPartyList?.partyCard?.actions
+                  ?.joinPendingParty
+              : dictionary?.components?.politicalPartyList?.partyCard?.actions
+                  ?.joinParty}
+          </Button>
+        )}
+      </div>
+    </div>
+  );
 
   if (activeLoading && activeTab !== "pending") {
     return <LoadingSkeleton dictionary={dictionary} />;
@@ -1751,15 +1681,49 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   return (
     <div className="w-full overflow-x-hidden">
       {/* My Party Section */}
-      <MyPartySection
-        userPartyId={userPartyId}
-        parties={parties}
-        renderPartyCard={renderPartyCard}
-        walletAddress={walletAddress}
-        showToast={showToast}
-        dictionary={dictionary}
-        handleCreatePartyClick={handleCreatePartyClick}
-      />
+      <div className="mb-6">
+        <div className="mb-3 flex items-center justify-between">
+          <Typography
+            as="h2"
+            variant={{ variant: "subtitle", level: 1 }}
+            className="text-[19px] font-semibold"
+          >
+            {dictionary?.components?.politicalPartyList?.myParty}
+          </Typography>
+          <button
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-900"
+            onClick={handleCreatePartyClick}
+            title={dictionary?.components?.politicalPartyList?.createParty}
+          >
+            <FaPlus className="text-gray-500" size={12} />
+          </button>
+        </div>
+
+        {userPartyId > 0 ? (
+          // Display the user's party
+          <>
+            {parties.filter((party) => party.id === userPartyId).length > 0 ? (
+              // If the party is in the parties array
+              parties
+                .filter((party) => party.id === userPartyId)
+                .map((party) => renderPartyCard(party))
+            ) : (
+              // If the party is not in the parties array, fetch it directly
+              <FetchUserParty
+                partyId={userPartyId}
+                renderPartyCard={renderPartyCard}
+                walletAddress={walletAddress}
+                showToast={showToast}
+              />
+            )}
+          </>
+        ) : (
+          // Message when user hasn't joined or created a political party yet.
+          <div className="p-4 text-center text-gray-500">
+            {dictionary?.components?.politicalPartyList?.noParty}
+          </div>
+        )}
+      </div>
 
       <Typography
         as="h2"
