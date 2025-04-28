@@ -396,7 +396,7 @@ export default function BuybackProgramPage({
             variant="secondary"
             size="lg"
             fullWidth
-            onClick={() => window.open("https://www.miniapps.world/", "_blank")}
+            onClick={() => window.open("https://www.miniapps.world/rewards", "_blank")}
           >
             {dictionary?.pages?.earn?.tabs?.contribute?.buybackProgram?.cta}
           </Button>
