@@ -71,6 +71,7 @@
       "website": "Webseite",
       "members": "Mitglieder",
       "noMembers": "Noch keine Mitglieder",
+      "approvalNote": "Parteien mit einem funktionierenden offiziellen Link und aktiver Mitgliedschaft werden bei der Genehmigung priorisiert.",
       "bannedMembers": "Gesperrte Mitglieder",
       "errorLoading": "Fehler beim Laden der Partei",
       "partyNotFound": "Partei nicht gefunden",
