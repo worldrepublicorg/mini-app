@@ -6,7 +6,7 @@
     "verifyButton": {
       "verify": "Zweryfikuj, aby Odebrać"
     },
-    "pollOfTheDay": {
+    "pollOfTheWeek": {
       "previousPolls": "Poprzednie Ankiety",
       "vote": "Zagłosuj Teraz"
     },
@@ -548,7 +548,7 @@
       },
       "sections": {
         "polls": {
-          "title": "Ankieta Dnia",
+          "title": "Ankieta Tygodnia",
           "description": "Szybkie głosowania na aktualne tematy",
           "previous": {
             "title": "Poprzednie Ankiety",

@@ -6,8 +6,8 @@
     "verifyButton": {
       "verify": "Verificar para Receber"
     },
-    "pollOfTheDay": {
-      "previousPolls": "Votações Anteriores",
+    "pollOfTheWeek": {
+      "previousPolls": "Enquetes Anteriores",
       "vote": "Votar Agora"
     },
     "stakeForm": {
@@ -548,8 +548,8 @@
       },
       "sections": {
         "polls": {
-          "title": "Votação do Dia",
-          "description": "Votos rápidos sobre temas atuais",
+          "title": "Votação da Semana",
+          "description": "Votos rápidos sobre tópicos atuais",
           "previous": {
             "title": "Votações Anteriores",
             "backToGovern": "Voltar para Governar",

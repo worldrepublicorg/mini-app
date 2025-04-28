@@ -6,7 +6,7 @@
     "verifyButton": {
       "verify": "Vérifier pour réclamer"
     },
-    "pollOfTheDay": {
+    "pollOfTheWeek": {
       "previousPolls": "Sondages précédents",
       "vote": "Voter maintenant"
     },
@@ -548,8 +548,8 @@
       },
       "sections": {
         "polls": {
-          "title": "Sondage du Jour",
-          "description": "Votes rapides sur les sujets d'actualité",
+          "title": "Sondage de la Semaine",
+          "description": "Votes rapides sur des sujets d'actualité",
           "previous": {
             "title": "Sondages précédents",
             "backToGovern": "Retour à Gouverner",

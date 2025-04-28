@@ -6,7 +6,7 @@
     "verifyButton": {
       "verify": "Verifizieren zum Beanspruchen"
     },
-    "pollOfTheDay": {
+    "pollOfTheWeek": {
       "previousPolls": "Vorherige Umfragen",
       "vote": "Jetzt abstimmen"
     },
@@ -547,8 +547,8 @@
       },
       "sections": {
         "polls": {
-          "title": "Umfrage des Tages",
-          "description": "Schnelle Abstimmungen auf aktuelle Themen",
+          "title": "Umfrage der Woche",
+          "description": "Schnelle Abstimmungen zu aktuellen Themen",
           "previous": {
             "title": "Vorherige Umfragen",
             "backToGovern": "Zurück zu Regieren",

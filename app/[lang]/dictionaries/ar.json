@@ -6,8 +6,8 @@
     "verifyButton": {
       "verify": "تحقق للمطالبة"
     },
-    "pollOfTheDay": {
-      "previousPolls": "الاستطلاعات السابقة",
+    "pollOfTheWeek": {
+      "previousPolls": "استطلاعات سابقة",
       "vote": "صوت الآن"
     },
     "stakeForm": {
@@ -548,7 +548,7 @@
       },
       "sections": {
         "polls": {
-          "title": "استطلاع اليوم",
+          "title": "استطلاع الأسبوع",
           "description": "تصويت سريع على المواضيع الحالية",
           "previous": {
             "title": "الاستطلاعات السابقة",

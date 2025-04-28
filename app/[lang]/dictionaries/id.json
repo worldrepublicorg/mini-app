@@ -6,9 +6,9 @@
     "verifyButton": {
       "verify": "Verifikasi untuk Klaim"
     },
-    "pollOfTheDay": {
-      "previousPolls": "Polling Sebelumnya",
-      "vote": "Voting Sekarang"
+    "pollOfTheWeek": {
+      "previousPolls": "Jajak Pendapat Sebelumnya",
+      "vote": "Pilih Sekarang"
     },
     "stakeForm": {
       "deposit": "Setor",
@@ -548,8 +548,8 @@
       },
       "sections": {
         "polls": {
-          "title": "Polling Hari Ini",
-          "description": "Voting cepat tentang topik terkini",
+          "title": "Polling Mingguan",
+          "description": "Voting cepat tentang topik saat ini",
           "previous": {
             "title": "Polling Sebelumnya",
             "backToGovern": "Kembali ke Kelola",

@@ -6,7 +6,7 @@
     "verifyButton": {
       "verify": "인증 후 수령하기"
     },
-    "pollOfTheDay": {
+    "pollOfTheWeek": {
       "previousPolls": "이전 투표",
       "vote": "투표하기"
     },
@@ -548,8 +548,8 @@
       },
       "sections": {
         "polls": {
-          "title": "오늘의 투표",
-          "description": "현안에 대한 신속한 투표",
+          "title": "이번 주 투표",
+          "description": "현재 주제에 대한 빠른 투표",
           "previous": {
             "title": "이전 투표",
             "backToGovern": "거버넌스로 돌아가기",

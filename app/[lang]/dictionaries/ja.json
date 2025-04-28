@@ -6,7 +6,7 @@
     "verifyButton": {
       "verify": "認証して受け取る"
     },
-    "pollOfTheDay": {
+    "pollOfTheWeek": {
       "previousPolls": "過去の投票",
       "vote": "投票する"
     },
@@ -547,8 +547,8 @@
       },
       "sections": {
         "polls": {
-          "title": "今日の投票",
-          "description": "現在のトピックに関するクイック投票",
+          "title": "今週の投票",
+          "description": "最新のトピックに関する迅速な投票",
           "previous": {
             "title": "過去の投票",
             "backToGovern": "ガバナンスに戻る",

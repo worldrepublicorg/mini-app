@@ -4,9 +4,9 @@
       "connect": "Unganisha Pochi"
     },
     "verifyButton": {
-      "verify": "Thibitisha Ili Kuchukua"
+      "verify": "Thibitisha Kupata"
     },
-    "pollOfTheDay": {
+    "pollOfTheWeek": {
       "previousPolls": "Kura za Awali",
       "vote": "Piga Kura Sasa"
     },
@@ -548,7 +548,7 @@
       },
       "sections": {
         "polls": {
-          "title": "Kura ya Siku",
+          "title": "Kura ya Wiki",
           "description": "Kura za haraka kuhusu mada za sasa",
           "previous": {
             "title": "Kura za Awali",
