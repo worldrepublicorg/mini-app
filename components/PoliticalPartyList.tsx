@@ -1790,7 +1790,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         onTabChange={setActiveTab}
       />
 
-      {activeTab === "pending" && (
+      {/* {activeTab === "pending" && (
         <div className="mb-4 rounded-xl border border-gray-200 bg-gray-50 p-4 text-gray-700">
           <div className="flex items-start gap-2">
             <PiInfoFill className="mt-0.5 h-4 w-4 flex-shrink-0 text-gray-500" />
@@ -1803,7 +1803,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             </Typography>
           </div>
         </div>
-      )}
+      )} */}
 
       {/* This div will contain the filtered parties with a minimum height */}
       <div className="min-h-[50vh]">
