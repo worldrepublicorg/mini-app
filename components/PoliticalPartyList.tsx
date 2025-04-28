@@ -9,7 +9,12 @@ import { Typography } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/Button";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useToast } from "@/components/ui/Toast";
-import { PiLinkSimpleBold, PiUsersBold, PiGearBold } from "react-icons/pi";
+import {
+  PiLinkSimpleBold,
+  PiUsersBold,
+  PiGearBold,
+  PiInfoFill,
+} from "react-icons/pi";
 import { Drawer, DrawerContent } from "@/components/ui/Drawer";
 import { Form, Input } from "@worldcoin/mini-apps-ui-kit-react";
 import { Textarea } from "@/components/ui/Textarea";
@@ -1784,6 +1789,21 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         activeTab={activeTab}
         onTabChange={setActiveTab}
       />
+
+      {activeTab === "pending" && (
+        <div className="mb-4 rounded-xl border border-gray-200 bg-gray-50 p-4 text-gray-700">
+          <div className="flex items-start gap-2">
+            <PiInfoFill className="mt-0.5 h-4 w-4 flex-shrink-0 text-gray-500" />
+            <Typography
+              variant={{ variant: "body", level: 3 }}
+              className="text-gray-600"
+            >
+              Parties with a working official link and active membership are
+              prioritized for approval.
+            </Typography>
+          </div>
+        </div>
+      )}
 
       {/* This div will contain the filtered parties with a minimum height */}
       <div className="min-h-[50vh]">
