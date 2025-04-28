@@ -71,6 +71,7 @@
       "website": "ウェブサイト",
       "members": "メンバー",
       "noMembers": "まだメンバーがいません",
+      "approvalNote": "公式リンクが機能し、アクティブなメンバーシップを持つ政党は承認の優先順位が高くなります。",
       "bannedMembers": "禁止されたメンバー",
       "errorLoading": "政党の読み込みエラー",
       "partyNotFound": "政党が見つかりません",

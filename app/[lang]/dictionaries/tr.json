@@ -71,6 +71,7 @@
       "website": "Web Sitesi",
       "members": "Üyeler",
       "noMembers": "Henüz üye yok",
+      "approvalNote": "Çalışan resmi bağlantısı ve aktif üyeliği olan partiler onay için önceliklendirilir.",
       "bannedMembers": "Yasaklı Üyeler",
       "errorLoading": "Parti Yüklenirken Hata",
       "partyNotFound": "Parti Bulunamadı",

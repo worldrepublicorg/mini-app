@@ -71,6 +71,7 @@
       "website": "网站",
       "members": "成员",
       "noMembers": "暂无成员",
+      "approvalNote": "具有有效官方链接和活跃成员资格的政党在审批时享有优先权。",
       "bannedMembers": "被禁成员",
       "errorLoading": "加载政党时出错",
       "partyNotFound": "未找到政党",

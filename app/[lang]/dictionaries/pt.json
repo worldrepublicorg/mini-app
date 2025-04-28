@@ -71,6 +71,7 @@
       "website": "Site",
       "members": "Membros",
       "noMembers": "Ainda não há membros",
+      "approvalNote": "Partidos com um link oficial funcionando e associação ativa são priorizados para aprovação.",
       "bannedMembers": "Membros Banidos",
       "errorLoading": "Erro ao Carregar Partido",
       "partyNotFound": "Partido Não Encontrado",
