@@ -533,7 +533,11 @@ export default function PartyDetailPage({
                       </Typography>
                     </div>
                     <a
-                      href={party?.officialLink}
+                      href={
+                        party.officialLink.startsWith("http")
+                          ? party.officialLink
+                          : `https://${party.officialLink}`
+                      }
                       target="_blank"
                       rel="noopener noreferrer"
                     >
