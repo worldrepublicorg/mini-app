@@ -1510,173 +1510,189 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   );
 
   const renderPartyCard = (party: Party) => (
-    <div
-      key={party.id}
-      className={`${
-        filteredParties.indexOf(party) !== filteredParties.length - 1
-          ? "mb-4"
-          : ""
-      } rounded-xl border border-gray-200 p-4`}
-    >
-      <div className="flex items-center justify-between">
-        <Link href={`/${lang}/govern/party/${party.id}`} className="flex-1">
+    <>
+      {party.isUserLeader && party.status === 0 && (
+        <div className="mb-4 rounded-xl border border-gray-200 bg-gray-50 p-4 text-gray-700">
+          <div className="flex items-start gap-2">
+            <PiInfoFill className="mt-0.5 h-4 w-4 flex-shrink-0 text-gray-500" />
+            <Typography
+              variant={{ variant: "body", level: 3 }}
+              className="text-gray-600"
+            >
+              {dictionary?.components?.politicalPartyList?.approvalNote}
+            </Typography>
+          </div>
+        </div>
+      )}
+
+      <div
+        key={party.id}
+        className={`${
+          filteredParties.indexOf(party) !== filteredParties.length - 1
+            ? "mb-4"
+            : ""
+        } rounded-xl border border-gray-200 p-4`}
+      >
+        <div className="flex items-center justify-between">
+          <Link href={`/${lang}/govern/party/${party.id}`} className="flex-1">
+            <Typography
+              as="h3"
+              variant={{ variant: "subtitle", level: 1 }}
+              className="text-[19px] font-semibold"
+            >
+              {party.name}
+            </Typography>
+          </Link>
+          <div className="flex items-center gap-2">
+            {party.status === 0 && (
+              <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
+                {dictionary?.components?.politicalPartyList?.partyCard?.pending}
+              </span>
+            )}
+            {party.status === 2 && (
+              <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
+                {dictionary?.components?.politicalPartyList?.partyCard?.deleted}
+              </span>
+            )}
+            {party.isUserLeader && party.status !== 2 && (
+              <Dropdown
+                trigger={
+                  <button
+                    className="text-gray-600 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 transition-colors"
+                    title={
+                      dictionary?.components?.politicalPartyList?.partyCard
+                        ?.management?.title
+                    }
+                  >
+                    <PiGearBold size={16} />
+                  </button>
+                }
+                menuItems={[
+                  {
+                    label:
+                      dictionary?.components?.politicalPartyList?.partyCard
+                        ?.management?.manageMembers,
+                    onClick: () => {
+                      setSelectedParty(party);
+                      setIsMemberManagementDrawerOpen(true);
+                    },
+                  },
+                  {
+                    label:
+                      dictionary?.components?.politicalPartyList?.partyCard
+                        ?.management?.updateInfo,
+                    onClick: () => openUpdatePartyDrawer(party),
+                  },
+                  {
+                    label:
+                      dictionary?.components?.politicalPartyList?.partyCard
+                        ?.management?.transferLeadership,
+                    onClick: () => {
+                      setSelectedParty(party);
+                      setIsTransferLeadershipDrawerOpen(true);
+                    },
+                  },
+                  {
+                    label:
+                      dictionary?.components?.politicalPartyList?.partyCard
+                        ?.management?.deleteParty,
+                    onClick: () => {
+                      setSelectedParty(party);
+                      setIsDeleteDrawerOpen(true);
+                    },
+                    className: "text-error-600",
+                  },
+                ]}
+                align="right"
+              />
+            )}
+          </div>
+        </div>
+
+        <Link href={`/${lang}/govern/party/${party.id}`}>
           <Typography
-            as="h3"
-            variant={{ variant: "subtitle", level: 1 }}
-            className="text-[19px] font-semibold"
+            as="p"
+            variant={{ variant: "body", level: 2 }}
+            className="mt-3 text-[15px]"
           >
-            {party.name}
+            {party.description}
           </Typography>
         </Link>
-        <div className="flex items-center gap-2">
-          {party.status === 0 && (
-            <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
-              {dictionary?.components?.politicalPartyList?.partyCard?.pending}
-            </span>
-          )}
-          {party.status === 2 && (
-            <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
-              {dictionary?.components?.politicalPartyList?.partyCard?.deleted}
-            </span>
-          )}
-          {party.isUserLeader && party.status !== 2 && (
-            <Dropdown
-              trigger={
-                <button
-                  className="text-gray-600 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 transition-colors"
-                  title={
-                    dictionary?.components?.politicalPartyList?.partyCard
-                      ?.management?.title
-                  }
-                >
-                  <PiGearBold size={16} />
-                </button>
+
+        <div className="mt-2 flex justify-between gap-1">
+          <div className="flex items-center gap-1">
+            <PiLinkSimpleBold className="text-gray-500" size={15} />
+            <a
+              href={
+                party.officialLink.startsWith("http")
+                  ? party.officialLink
+                  : `https://${party.officialLink}`
               }
-              menuItems={[
-                {
-                  label:
-                    dictionary?.components?.politicalPartyList?.partyCard
-                      ?.management?.manageMembers,
-                  onClick: () => {
-                    setSelectedParty(party);
-                    setIsMemberManagementDrawerOpen(true);
-                  },
-                },
-                {
-                  label:
-                    dictionary?.components?.politicalPartyList?.partyCard
-                      ?.management?.updateInfo,
-                  onClick: () => openUpdatePartyDrawer(party),
-                },
-                {
-                  label:
-                    dictionary?.components?.politicalPartyList?.partyCard
-                      ?.management?.transferLeadership,
-                  onClick: () => {
-                    setSelectedParty(party);
-                    setIsTransferLeadershipDrawerOpen(true);
-                  },
-                },
-                {
-                  label:
-                    dictionary?.components?.politicalPartyList?.partyCard
-                      ?.management?.deleteParty,
-                  onClick: () => {
-                    setSelectedParty(party);
-                    setIsDeleteDrawerOpen(true);
-                  },
-                  className: "text-error-600",
-                },
-              ]}
-              align="right"
-            />
+              target="_blank"
+              rel="noopener noreferrer"
+              className="-m-1 flex rounded-md px-1 py-1 transition-colors"
+              title={party.officialLink}
+            >
+              <Typography
+                variant={{ variant: "caption", level: 1 }}
+                className="max-w-[calc(100dvw/2-56px)] truncate text-[15px] text-[#0A66C2]"
+              >
+                {shortenUrl(party.officialLink)}
+              </Typography>
+            </a>
+          </div>
+          <div className="flex items-center gap-1">
+            <PiUsersBold className="text-gray-500" size={15} />
+            <Typography
+              as="span"
+              variant={{ variant: "caption", level: 1 }}
+              className="text-[15px] font-semibold"
+              title={party.memberCount.toString()}
+            >
+              {formatNumber(party.memberCount)}
+            </Typography>
+            <Typography
+              as="span"
+              variant={{ variant: "caption", level: 1 }}
+              className="text-[15px] text-gray-500"
+            >
+              {dictionary?.components?.politicalPartyList?.partyCard?.members}
+            </Typography>
+          </div>
+        </div>
+
+        <div className="mt-4 flex flex-col gap-2">
+          {party.isUserMember ? (
+            <Button
+              className="px-6"
+              variant="secondary"
+              size="sm"
+              fullWidth
+              onClick={() => leaveParty(party.id)}
+            >
+              {
+                dictionary?.components?.politicalPartyList?.partyCard?.actions
+                  ?.leaveParty
+              }
+            </Button>
+          ) : (
+            <Button
+              className="px-6"
+              variant={party.status === 1 ? "primary" : "secondary"}
+              size="sm"
+              fullWidth
+              onClick={() => joinParty(party.id)}
+            >
+              {party.status === 0
+                ? dictionary?.components?.politicalPartyList?.partyCard?.actions
+                    ?.joinPendingParty
+                : dictionary?.components?.politicalPartyList?.partyCard?.actions
+                    ?.joinParty}
+            </Button>
           )}
         </div>
       </div>
-
-      <Link href={`/${lang}/govern/party/${party.id}`}>
-        <Typography
-          as="p"
-          variant={{ variant: "body", level: 2 }}
-          className="mt-3 text-[15px]"
-        >
-          {party.description}
-        </Typography>
-      </Link>
-
-      <div className="mt-2 flex justify-between gap-1">
-        <div className="flex items-center gap-1">
-          <PiLinkSimpleBold className="text-gray-500" size={15} />
-          <a
-            href={
-              party.officialLink.startsWith("http")
-                ? party.officialLink
-                : `https://${party.officialLink}`
-            }
-            target="_blank"
-            rel="noopener noreferrer"
-            className="-m-1 flex rounded-md px-1 py-1 transition-colors"
-            title={party.officialLink}
-          >
-            <Typography
-              variant={{ variant: "caption", level: 1 }}
-              className="max-w-[calc(100dvw/2-56px)] truncate text-[15px] text-[#0A66C2]"
-            >
-              {shortenUrl(party.officialLink)}
-            </Typography>
-          </a>
-        </div>
-        <div className="flex items-center gap-1">
-          <PiUsersBold className="text-gray-500" size={15} />
-          <Typography
-            as="span"
-            variant={{ variant: "caption", level: 1 }}
-            className="text-[15px] font-semibold"
-            title={party.memberCount.toString()}
-          >
-            {formatNumber(party.memberCount)}
-          </Typography>
-          <Typography
-            as="span"
-            variant={{ variant: "caption", level: 1 }}
-            className="text-[15px] text-gray-500"
-          >
-            {dictionary?.components?.politicalPartyList?.partyCard?.members}
-          </Typography>
-        </div>
-      </div>
-
-      <div className="mt-4 flex flex-col gap-2">
-        {party.isUserMember ? (
-          <Button
-            className="px-6"
-            variant="secondary"
-            size="sm"
-            fullWidth
-            onClick={() => leaveParty(party.id)}
-          >
-            {
-              dictionary?.components?.politicalPartyList?.partyCard?.actions
-                ?.leaveParty
-            }
-          </Button>
-        ) : (
-          <Button
-            className="px-6"
-            variant={party.status === 1 ? "primary" : "secondary"}
-            size="sm"
-            fullWidth
-            onClick={() => joinParty(party.id)}
-          >
-            {party.status === 0
-              ? dictionary?.components?.politicalPartyList?.partyCard?.actions
-                  ?.joinPendingParty
-              : dictionary?.components?.politicalPartyList?.partyCard?.actions
-                  ?.joinParty}
-          </Button>
-        )}
-      </div>
-    </div>
+    </>
   );
 
   if (activeLoading && activeTab !== "pending") {
@@ -1703,21 +1719,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             <FaPlus className="text-gray-500" size={12} />
           </button>
         </div>
-
-        {parties.some((party) => party.isUserLeader && party.status === 0) && (
-          <div className="mb-4 rounded-xl border border-gray-200 bg-gray-50 p-4 text-gray-700">
-            <div className="flex items-start gap-2">
-              <PiInfoFill className="mt-0.5 h-4 w-4 flex-shrink-0 text-gray-500" />
-              <Typography
-                variant={{ variant: "body", level: 3 }}
-                className="text-gray-600"
-              >
-                Parties with a working official link and active membership are
-                prioritized for approval.
-              </Typography>
-            </div>
-          </div>
-        )}
 
         {userPartyId > 0 ? (
           // Display the user's party
