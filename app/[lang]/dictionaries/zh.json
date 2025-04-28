@@ -6,7 +6,7 @@
     "verifyButton": {
       "verify": "验证以领取"
     },
-    "pollOfTheDay": {
+    "pollOfTheWeek": {
       "previousPolls": "往期投票",
       "vote": "立即投票"
     },
@@ -459,7 +459,7 @@
             "actions": {
               "share": "分享邀请"
             },
-            "cta": "查看小程序统计"
+            "cta": "查看小程序奖励"
           },
           "buybackLink": {
             "title": "回购计划",
@@ -548,7 +548,7 @@
       },
       "sections": {
         "polls": {
-          "title": "每日投票",
+          "title": "每周投票",
           "description": "对当前话题进行快速投票",
           "previous": {
             "title": "往期投票",

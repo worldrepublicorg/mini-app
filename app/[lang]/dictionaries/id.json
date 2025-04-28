@@ -6,9 +6,9 @@
     "verifyButton": {
       "verify": "Verifikasi untuk Klaim"
     },
-    "pollOfTheDay": {
-      "previousPolls": "Polling Sebelumnya",
-      "vote": "Voting Sekarang"
+    "pollOfTheWeek": {
+      "previousPolls": "Jajak Pendapat Sebelumnya",
+      "vote": "Pilih Sekarang"
     },
     "stakeForm": {
       "deposit": "Setor",
@@ -459,7 +459,7 @@
             "actions": {
               "share": "Bagikan Undangan"
             },
-            "cta": "Lihat Statistik Mini App"
+            "cta": "Lihat Reward Mini App"
           },
           "buybackLink": {
             "title": "Program Buyback",
@@ -548,8 +548,8 @@
       },
       "sections": {
         "polls": {
-          "title": "Polling Hari Ini",
-          "description": "Voting cepat tentang topik terkini",
+          "title": "Polling Mingguan",
+          "description": "Voting cepat tentang topik saat ini",
           "previous": {
             "title": "Polling Sebelumnya",
             "backToGovern": "Kembali ke Kelola",

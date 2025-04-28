@@ -4,10 +4,10 @@
       "connect": "Ikonekta ang Wallet"
     },
     "verifyButton": {
-      "verify": "I-verify para mag-claim"
+      "verify": "I-verify para Makuha"
     },
-    "pollOfTheDay": {
-      "previousPolls": "Mga nakaraang poll",
+    "pollOfTheWeek": {
+      "previousPolls": "Mga Nakaraang Botohan",
       "vote": "Bumoto Ngayon"
     },
     "stakeForm": {
@@ -391,7 +391,7 @@
             "actions": {
               "share": "Ibahagi ang Imbitasyon"
             },
-            "cta": "Tingnan ang Mga Istatistika ng Mini App"
+            "cta": "Tingnan ang Mga Gantimpala ng Mini App"
           },
           "buybackLink": {
             "title": "Programa ng Buyback",
@@ -546,8 +546,8 @@
       },
       "sections": {
         "polls": {
-          "title": "Botohan ng Araw",
-          "description": "Mabilisang mga boto sa kasalukuyang mga paksa",
+          "title": "Botohan ng Linggo",
+          "description": "Mabilis na boto sa mga kasalukuyang paksa",
           "previous": {
             "title": "Mga Nakaraang Botohan",
             "backToGovern": "Bumalik sa Pamamahala",

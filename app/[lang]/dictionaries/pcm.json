@@ -6,7 +6,7 @@
     "verifyButton": {
       "verify": "Verify to Claim"
     },
-    "pollOfTheDay": {
+    "pollOfTheWeek": {
       "previousPolls": "Previous Polls",
       "vote": "Vote Now"
     },
@@ -458,7 +458,7 @@
             "actions": {
               "share": "Share Invitation"
             },
-            "cta": "View Mini App Stats"
+            "cta": "View Mini App Rewards"
           },
           "buybackLink": {
             "title": "Buyback Program",
@@ -547,7 +547,7 @@
       },
       "sections": {
         "polls": {
-          "title": "Today Poll",
+          "title": "Weekly Poll",
           "description": "Quick quick vote for matter wey dey ground",
           "previous": {
             "title": "Old Polls",

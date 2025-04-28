@@ -1,14 +1,14 @@
 {
   "components": {
     "walletAuth": {
-      "connect": "ওয়ালেট সংযুক্ত করুন"
+      "connect": "ওয়ালেট সংযোগ করুন"
     },
     "verifyButton": {
       "verify": "দাবি করতে যাচাই করুন"
     },
-    "pollOfTheDay": {
+    "pollOfTheWeek": {
       "previousPolls": "পূর্ববর্তী ভোটগুলি",
-      "vote": "এখন ভোট দিন"
+      "vote": "এখনই ভোট দিন"
     },
     "stakeForm": {
       "deposit": "জমা করুন",
@@ -459,7 +459,7 @@
             "actions": {
               "share": "আমন্ত্রণ শেয়ার করুন"
             },
-            "cta": "মিনি অ্যাপ পরিসংখ্যান দেখুন"
+            "cta": "মিনি অ্যাপ পুরস্কার দেখুন"
           },
           "buybackLink": {
             "title": "বাইব্যাক প্রোগ্রাম",
@@ -548,8 +548,8 @@
       },
       "sections": {
         "polls": {
-          "title": "দিনের ভোট",
-          "description": "বর্তমান বিষয়ে দ্রুত ভোট",
+          "title": "সপ্তাহের ভোট",
+          "description": "বর্তমান বিষয়গুলির উপর দ্রুত ভোট",
           "previous": {
             "title": "পূর্ববর্তী ভোটগুলি",
             "backToGovern": "শাসনে ফিরে যান",

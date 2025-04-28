@@ -4,9 +4,9 @@
       "connect": "Poveži novčanik"
     },
     "verifyButton": {
-      "verify": "Verificiraj za preuzimanje"
+      "verify": "Potvrdi za preuzimanje"
     },
-    "pollOfTheDay": {
+    "pollOfTheWeek": {
       "previousPolls": "Prethodne ankete",
       "vote": "Glasaj sada"
     },
@@ -459,7 +459,7 @@
             "actions": {
               "share": "Podijelite Pozivnicu"
             },
-            "cta": "Pogledajte Statistiku Mini Aplikacije"
+            "cta": "Pogledajte Nagrade Mini Aplikacije"
           },
           "buybackLink": {
             "title": "Program otkupa",
@@ -548,8 +548,8 @@
       },
       "sections": {
         "polls": {
-          "title": "Anketa dana",
-          "description": "Brzo glasanje o aktualnim temama",
+          "title": "Anketa tjedna",
+          "description": "Brza glasovanja o aktualnim temama",
           "previous": {
             "title": "Prethodne Ankete",
             "backToGovern": "Povratak na Upravljanje",

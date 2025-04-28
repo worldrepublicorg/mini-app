@@ -11,7 +11,7 @@
       "verifying": "Verificando...",
       "verified": "Verificado"
     },
-    "pollOfTheDay": {
+    "pollOfTheWeek": {
       "title": "Encuesta del Día",
       "viewAll": "Ver Todas las Encuestas",
       "vote": "Votar Ahora",
@@ -467,7 +467,7 @@
             "actions": {
               "share": "Compartir Invitación"
             },
-            "cta": "Ver Estadísticas de Mini App"
+            "cta": "Ver Recompensas de Mini App"
           },
           "buybackLink": {
             "title": "Programa de Recompra",
@@ -560,7 +560,7 @@
       },
       "sections": {
         "polls": {
-          "title": "Encuesta del Día",
+          "title": "Encuesta de la Semana",
           "description": "Votaciones rápidas sobre temas actuales",
           "previous": {
             "title": "Encuestas Anteriores",

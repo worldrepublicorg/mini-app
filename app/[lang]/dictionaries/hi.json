@@ -6,7 +6,7 @@
     "verifyButton": {
       "verify": "दावा करने के लिए सत्यापित करें"
     },
-    "pollOfTheDay": {
+    "pollOfTheWeek": {
       "previousPolls": "पिछले मतदान",
       "vote": "अभी वोट करें"
     },
@@ -459,7 +459,7 @@
             "actions": {
               "share": "आमंत्रण साझा करें"
             },
-            "cta": "मिनी ऐप आंकड़े देखें"
+            "cta": "मिनी ऐप पुरस्कार देखें"
           },
           "buybackLink": {
             "title": "बायबैक प्रोग्राम",
@@ -548,8 +548,8 @@
       },
       "sections": {
         "polls": {
-          "title": "आज का मतदान",
-          "description": "वर्तमान विषयों पर त्वरित वोट",
+          "title": "सप्ताह का मतदान",
+          "description": "वर्तमान विषयों पर त्वरित मतदान",
           "previous": {
             "title": "पिछले मतदान",
             "backToGovern": "शासन पर वापस जाएं",

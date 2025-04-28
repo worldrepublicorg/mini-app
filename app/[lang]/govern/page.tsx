@@ -6,7 +6,7 @@ import { DrawerItem } from "@/components/DrawerItem";
 import { SectionHeader } from "@/components/SectionHeader";
 import { TabSwiper } from "@/components/TabSwiper";
 import { OpenLetterCard } from "@/components/OpenLetterCard";
-import { PollOfTheDay } from "@/components/PollOfTheDay";
+import { PollOfTheWeek } from "@/components/PollOfTheWeek";
 import { useTranslations } from "@/hooks/useTranslations";
 import { PoliticalPartyList } from "@/components/PoliticalPartyList";
 import { Button } from "@/components/ui/Button";
@@ -85,7 +85,7 @@ export default function GovernPage({
                 dictionary?.pages?.govern?.sections?.polls?.description
               }
             />
-            <PollOfTheDay lang={lang} />
+            <PollOfTheWeek lang={lang} />
           </>
         );
       case TAB_KEYS.OPEN_LETTERS:

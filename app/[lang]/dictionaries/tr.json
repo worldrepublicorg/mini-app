@@ -6,7 +6,7 @@
     "verifyButton": {
       "verify": "Talep Etmek İçin Doğrula"
     },
-    "pollOfTheDay": {
+    "pollOfTheWeek": {
       "previousPolls": "Önceki Anketler",
       "vote": "Şimdi Oyla"
     },
@@ -459,7 +459,7 @@
             "actions": {
               "share": "Davetiyeyi Paylaş"
             },
-            "cta": "Mini Uygulama İstatistiklerini Görüntüle"
+            "cta": "Mini Uygulama Ödüllerini Görüntüle"
           },
           "buybackLink": {
             "title": "Geri Alım Programı",
@@ -552,8 +552,8 @@
           "description": "Ortak değerler etrafında küresel olarak birleşin"
         },
         "polls": {
-          "title": "Günün Anketi",
-          "description": "Güncel konularda hızlı oylamalar",
+          "title": "Haftanın Anketi",
+          "description": "Güncel konular hakkında hızlı oylamalar",
           "previous": {
             "title": "Önceki Anketler",
             "backToGovern": "Yönet'e Dön",

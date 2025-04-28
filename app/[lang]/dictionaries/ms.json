@@ -6,7 +6,7 @@
     "verifyButton": {
       "verify": "Sahkan untuk Tuntut"
     },
-    "pollOfTheDay": {
+    "pollOfTheWeek": {
       "previousPolls": "Undian Sebelumnya",
       "vote": "Undi Sekarang"
     },
@@ -459,7 +459,7 @@
             "actions": {
               "share": "Kongsi Jemputan"
             },
-            "cta": "Lihat Statistik Mini App"
+            "cta": "Lihat Ganjaran Mini App"
           },
           "buybackLink": {
             "title": "Program Pembelian Semula",
@@ -548,8 +548,8 @@
       },
       "sections": {
         "polls": {
-          "title": "Undian Hari Ini",
-          "description": "Undian pantas tentang topik semasa",
+          "title": "Undian Mingguan",
+          "description": "Undian pantas mengenai topik semasa",
           "previous": {
             "title": "Undian Sebelumnya",
             "backToGovern": "Kembali ke Tadbir Urus",
