@@ -3,6 +3,12 @@
     "walletAuth": {
       "connect": "वॉलेट कनेक्ट करें"
     },
+    "banners": {
+      "holdstation": {
+        "message": "शीर्ष WDD धारकों के लिए Holdstation वॉलेट पर मुफ्त WLD।",
+        "collect": "एकत्र करें"
+      }
+    },
     "verifyButton": {
       "verify": "दावा करने के लिए सत्यापित करें"
     },

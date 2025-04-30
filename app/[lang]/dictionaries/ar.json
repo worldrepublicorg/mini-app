@@ -3,6 +3,12 @@
     "walletAuth": {
       "connect": "ربط المحفظة"
     },
+    "banners": {
+      "holdstation": {
+        "message": "WLD مجاني في محفظة Holdstation لحاملي WDD الأوائل.",
+        "collect": "جمع"
+      }
+    },
     "verifyButton": {
       "verify": "تحقق للمطالبة"
     },

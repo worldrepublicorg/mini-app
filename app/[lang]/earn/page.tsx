@@ -1616,6 +1616,23 @@ export default function EarnPage({
     localStorage.setItem("passportBadgeClosed", "true");
   };
 
+  const [isAirdropBannerVisible, setIsAirdropBannerVisible] = useState(true);
+
+  // Add useEffect to load badge state from localStorage
+  useEffect(() => {
+    const badgeState = localStorage.getItem("airdropBannerClosed");
+    if (badgeState === "true") {
+      setIsAirdropBannerVisible(false);
+    }
+  }, []);
+
+  // Function to handle closing the badge
+  const handleCloseAirdropBanner = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent triggering the drawer
+    setIsAirdropBannerVisible(false);
+    localStorage.setItem("airdropBannerClosed", "true");
+  };
+
   // Add state to track whether buyback program has been visited
   const [hasPartySubsidyBeenVisited, setHasPartySubsidyBeenVisited] =
     useState(true); // Default to true to prevent flash
@@ -1632,218 +1649,271 @@ export default function EarnPage({
     switch (activeTab) {
       case "Basic income":
         return (
-          <div className="flex w-full flex-col items-center py-8">
-            <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
-              <PiHandCoinsFill className="h-10 w-10 text-gray-400" />
-            </div>
-            <Typography
-              as="h2"
-              variant="heading"
-              level={1}
-              className="text-center"
-            >
-              {dictionary?.pages?.earn?.tabs?.basicIncome?.title}
-            </Typography>
-
-            {walletAddress === null ? (
-              <>
-                <Typography
-                  variant="subtitle"
-                  level={1}
-                  className="mx-auto mb-10 mt-4 text-center text-gray-500"
-                >
-                  {dictionary?.pages?.earn?.tabs?.basicIncome?.subtitle}
-                </Typography>
-                <WalletAuth
-                  lang={lang}
-                  onError={(error) => console.error(error)}
-                />
-              </>
-            ) : !basicIncomeActivated ? (
-              <>
-                <Typography
-                  variant="subtitle"
-                  level={1}
-                  className="mx-auto mb-10 mt-4 text-center text-gray-500"
-                >
-                  {dictionary?.pages?.earn?.tabs?.basicIncome?.setupSubtitle}
-                </Typography>
-                <Button onClick={sendSetup} isLoading={isSubmitting} fullWidth>
-                  {dictionary?.pages?.earn?.tabs?.basicIncome?.activateButton}
-                </Button>
-              </>
-            ) : (
-              <>
-                <Typography
-                  variant="subtitle"
-                  level={1}
-                  className="mx-auto mb-10 mt-4 text-center text-gray-500"
-                >
-                  {
-                    dictionary?.pages?.earn?.tabs?.basicIncome
-                      ?.claimableSubtitle
-                  }
-                </Typography>
-                <div className="text-center">
-                  {isClaimableLoading ? (
-                    <div className="mx-auto mb-[57px] mt-[6px] h-[56px] w-64 animate-pulse rounded-xl bg-gray-100"></div>
-                  ) : (
-                    <p className="mx-auto mb-[52px] font-sans text-[56px] font-semibold leading-narrow tracking-normal">
-                      {displayClaimable.toFixed(5)}
-                    </p>
-                  )}
-                </div>
-                {basicIncomePlusActivated ? (
-                  <div className="flex w-full flex-col gap-4">
-                    <Button
-                      onClick={sendClaimPlus}
-                      isLoading={isClaimingPlus}
-                      fullWidth
+          <>
+            {isAirdropBannerVisible && (
+              <div className="fixed left-0 right-0 top-28 z-50 mx-auto w-full max-w-md px-6">
+                <div className="mt-2 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-gray-0 py-3 pr-4">
+                  <div className="flex w-full items-center overflow-hidden">
+                    <div className="mx-2 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full">
+                      <PiInfoFill className="h-5 w-5 text-gray-900" />
+                    </div>
+                    <Typography
+                      as="a"
+                      href="https://world.org/mini-app?app_id=app_0d4b759921490adc1f2bd569fda9b53a&path=/ref/a7DgwV"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      variant={{ variant: "subtitle", level: 2 }}
+                      className="font-display text-left text-[15px] font-medium tracking-tight text-gray-900"
                     >
-                      {
-                        dictionary?.pages?.earn?.tabs?.basicIncome?.plus?.drawer
-                          ?.claimButton
-                      }
-                    </Button>
+                      {dictionary?.components?.banners?.holdstation?.message}{" "}
+                      <span className="underline">
+                        {dictionary?.components?.banners?.holdstation?.collect}
+                      </span>
+                    </Typography>
+                    <div className="ml-2 flex items-center">
+                      <div className="flex items-center rounded-full">
+                        <button
+                          onClick={handleCloseAirdropBanner}
+                          className="text-gray-400 focus:outline-none"
+                          aria-label="Close banner"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            className="h-5 w-5"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            <div className="flex w-full flex-col items-center py-8">
+              <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+                <PiHandCoinsFill className="h-10 w-10 text-gray-400" />
+              </div>
+              <Typography
+                as="h2"
+                variant="heading"
+                level={1}
+                className="text-center"
+              >
+                {dictionary?.pages?.earn?.tabs?.basicIncome?.title}
+              </Typography>
+
+              {walletAddress === null ? (
+                <>
+                  <Typography
+                    variant="subtitle"
+                    level={1}
+                    className="mx-auto mb-10 mt-4 text-center text-gray-500"
+                  >
+                    {dictionary?.pages?.earn?.tabs?.basicIncome?.subtitle}
+                  </Typography>
+                  <WalletAuth
+                    lang={lang}
+                    onError={(error) => console.error(error)}
+                  />
+                </>
+              ) : !basicIncomeActivated ? (
+                <>
+                  <Typography
+                    variant="subtitle"
+                    level={1}
+                    className="mx-auto mb-10 mt-4 text-center text-gray-500"
+                  >
+                    {dictionary?.pages?.earn?.tabs?.basicIncome?.setupSubtitle}
+                  </Typography>
+                  <Button
+                    onClick={sendSetup}
+                    isLoading={isSubmitting}
+                    fullWidth
+                  >
+                    {dictionary?.pages?.earn?.tabs?.basicIncome?.activateButton}
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Typography
+                    variant="subtitle"
+                    level={1}
+                    className="mx-auto mb-10 mt-4 text-center text-gray-500"
+                  >
+                    {
+                      dictionary?.pages?.earn?.tabs?.basicIncome
+                        ?.claimableSubtitle
+                    }
+                  </Typography>
+                  <div className="text-center">
+                    {isClaimableLoading ? (
+                      <div className="mx-auto mb-[57px] mt-[6px] h-[56px] w-64 animate-pulse rounded-xl bg-gray-100"></div>
+                    ) : (
+                      <p className="mx-auto mb-[52px] font-sans text-[56px] font-semibold leading-narrow tracking-normal">
+                        {displayClaimable.toFixed(5)}
+                      </p>
+                    )}
+                  </div>
+                  {basicIncomePlusActivated ? (
+                    <div className="flex w-full flex-col gap-4">
+                      <Button
+                        onClick={sendClaimPlus}
+                        isLoading={isClaimingPlus}
+                        fullWidth
+                      >
+                        {
+                          dictionary?.pages?.earn?.tabs?.basicIncome?.plus
+                            ?.drawer?.claimButton
+                        }
+                      </Button>
+                      <Button
+                        onClick={sendClaim}
+                        isLoading={isClaimingBasic}
+                        variant="secondary"
+                        fullWidth
+                      >
+                        {
+                          dictionary?.pages?.earn?.tabs?.basicIncome?.plus
+                            ?.drawer?.claimBasicButton
+                        }
+                      </Button>
+                    </div>
+                  ) : (
                     <Button
                       onClick={sendClaim}
                       isLoading={isClaimingBasic}
-                      variant="secondary"
                       fullWidth
                     >
-                      {
-                        dictionary?.pages?.earn?.tabs?.basicIncome?.plus?.drawer
-                          ?.claimBasicButton
-                      }
+                      {dictionary?.pages?.earn?.tabs?.basicIncome?.claimButton}
                     </Button>
-                  </div>
-                ) : (
-                  <Button
-                    onClick={sendClaim}
-                    isLoading={isClaimingBasic}
-                    fullWidth
-                  >
-                    {dictionary?.pages?.earn?.tabs?.basicIncome?.claimButton}
-                  </Button>
-                )}
-                {!basicIncomePlusActivated && (
-                  <Drawer>
-                    <DrawerTrigger asChild>
-                      <div className="mt-4 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-transparent py-2 pr-4">
-                        <div className="flex w-full items-center overflow-hidden">
-                          <div className="-ml-[2px] mr-[10px] h-[30px] w-[30px] flex-shrink-0 rounded-full border-[5px] border-gray-900"></div>
+                  )}
+                  {!basicIncomePlusActivated && (
+                    <Drawer>
+                      <DrawerTrigger asChild>
+                        <div className="mt-4 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-transparent py-2 pr-4">
+                          <div className="flex w-full items-center overflow-hidden">
+                            <div className="-ml-[2px] mr-[10px] h-[30px] w-[30px] flex-shrink-0 rounded-full border-[5px] border-gray-900"></div>
+                            <Typography
+                              as="h3"
+                              variant={{ variant: "subtitle", level: 2 }}
+                              className="font-display line-clamp-2 text-[15px] font-medium tracking-tight text-gray-900"
+                            >
+                              {
+                                dictionary?.pages?.earn?.tabs?.basicIncome?.plus
+                                  ?.drawerTrigger
+                              }
+                            </Typography>
+                            <div className="ml-1 rounded-full bg-gray-200 px-1.5 py-0.5">
+                              <p className="font-sans text-[12px] font-medium leading-narrow tracking-normal text-gray-900">
+                                {
+                                  dictionary?.pages?.earn?.tabs?.basicIncome
+                                    ?.plus?.newBadge
+                                }
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </DrawerTrigger>
+                      <DrawerContent>
+                        <div className="flex flex-col items-center p-6 pt-10">
+                          <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+                            <PiCoinsFill className="h-10 w-10 text-gray-400" />
+                          </div>
                           <Typography
-                            as="h3"
-                            variant={{ variant: "subtitle", level: 2 }}
-                            className="font-display line-clamp-2 text-[15px] font-medium tracking-tight text-gray-900"
+                            as="h2"
+                            variant={{ variant: "heading", level: 1 }}
+                            className="text-center"
                           >
                             {
                               dictionary?.pages?.earn?.tabs?.basicIncome?.plus
-                                ?.drawerTrigger
+                                ?.drawer?.title
                             }
                           </Typography>
-                          <div className="ml-1 rounded-full bg-gray-200 px-1.5 py-0.5">
-                            <p className="font-sans text-[12px] font-medium leading-narrow tracking-normal text-gray-900">
-                              {
-                                dictionary?.pages?.earn?.tabs?.basicIncome?.plus
-                                  ?.newBadge
-                              }
-                            </p>
+                          <Typography
+                            variant={{ variant: "subtitle", level: 1 }}
+                            className="mx-auto mt-4 text-center text-gray-500"
+                          >
+                            {
+                              dictionary?.pages?.earn?.tabs?.basicIncome?.plus
+                                ?.drawer?.subtitle
+                            }
+                          </Typography>
+
+                          <div className="mt-4 w-full px-3 py-4">
+                            <ul className="space-y-3">
+                              <li className="flex items-start">
+                                <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                                  <PiTrendUpFill className="h-3.5 w-3.5 text-gray-400" />
+                                </div>
+                                <Typography
+                                  variant={{ variant: "body", level: 3 }}
+                                  className="text-gray-600 mt-[3px]"
+                                >
+                                  {
+                                    dictionary?.pages?.earn?.tabs?.basicIncome
+                                      ?.plus?.drawer?.features?.rate?.title
+                                  }
+                                </Typography>
+                              </li>
+                              <li className="flex items-start">
+                                <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                                  <PiUserCheckFill className="h-3.5 w-3.5 text-gray-400" />
+                                </div>
+                                <Typography
+                                  variant={{ variant: "body", level: 3 }}
+                                  className="text-gray-600 mt-[3px]"
+                                >
+                                  {
+                                    dictionary?.pages?.earn?.tabs?.basicIncome
+                                      ?.plus?.drawer?.features?.verification
+                                      ?.title
+                                  }
+                                </Typography>
+                              </li>
+                              <li className="flex items-start">
+                                <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                                  <PiCurrencyCircleDollarFill className="h-3.5 w-3.5 text-gray-400" />
+                                </div>
+                                <Typography
+                                  variant={{ variant: "body", level: 3 }}
+                                  className="text-gray-600 mt-[3px]"
+                                >
+                                  {
+                                    dictionary?.pages?.earn?.tabs?.basicIncome
+                                      ?.plus?.drawer?.features?.rewards?.title
+                                  }
+                                </Typography>
+                              </li>
+                            </ul>
                           </div>
-                        </div>
-                      </div>
-                    </DrawerTrigger>
-                    <DrawerContent>
-                      <div className="flex flex-col items-center p-6 pt-10">
-                        <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
-                          <PiCoinsFill className="h-10 w-10 text-gray-400" />
-                        </div>
-                        <Typography
-                          as="h2"
-                          variant={{ variant: "heading", level: 1 }}
-                          className="text-center"
-                        >
-                          {
-                            dictionary?.pages?.earn?.tabs?.basicIncome?.plus
-                              ?.drawer?.title
-                          }
-                        </Typography>
-                        <Typography
-                          variant={{ variant: "subtitle", level: 1 }}
-                          className="mx-auto mt-4 text-center text-gray-500"
-                        >
-                          {
-                            dictionary?.pages?.earn?.tabs?.basicIncome?.plus
-                              ?.drawer?.subtitle
-                          }
-                        </Typography>
 
-                        <div className="mt-4 w-full px-3 py-4">
-                          <ul className="space-y-3">
-                            <li className="flex items-start">
-                              <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
-                                <PiTrendUpFill className="h-3.5 w-3.5 text-gray-400" />
-                              </div>
-                              <Typography
-                                variant={{ variant: "body", level: 3 }}
-                                className="text-gray-600 mt-[3px]"
-                              >
-                                {
-                                  dictionary?.pages?.earn?.tabs?.basicIncome
-                                    ?.plus?.drawer?.features?.rate?.title
-                                }
-                              </Typography>
-                            </li>
-                            <li className="flex items-start">
-                              <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
-                                <PiUserCheckFill className="h-3.5 w-3.5 text-gray-400" />
-                              </div>
-                              <Typography
-                                variant={{ variant: "body", level: 3 }}
-                                className="text-gray-600 mt-[3px]"
-                              >
-                                {
-                                  dictionary?.pages?.earn?.tabs?.basicIncome
-                                    ?.plus?.drawer?.features?.verification
-                                    ?.title
-                                }
-                              </Typography>
-                            </li>
-                            <li className="flex items-start">
-                              <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
-                                <PiCurrencyCircleDollarFill className="h-3.5 w-3.5 text-gray-400" />
-                              </div>
-                              <Typography
-                                variant={{ variant: "body", level: 3 }}
-                                className="text-gray-600 mt-[3px]"
-                              >
-                                {
-                                  dictionary?.pages?.earn?.tabs?.basicIncome
-                                    ?.plus?.drawer?.features?.rewards?.title
-                                }
-                              </Typography>
-                            </li>
-                          </ul>
+                          <Button
+                            onClick={sendSetupPlus}
+                            isLoading={isSubmitting}
+                            fullWidth
+                            className="mt-6"
+                          >
+                            {
+                              dictionary?.pages?.earn?.tabs?.basicIncome?.plus
+                                ?.drawer?.activateButton
+                            }
+                          </Button>
                         </div>
-
-                        <Button
-                          onClick={sendSetupPlus}
-                          isLoading={isSubmitting}
-                          fullWidth
-                          className="mt-6"
-                        >
-                          {
-                            dictionary?.pages?.earn?.tabs?.basicIncome?.plus
-                              ?.drawer?.activateButton
-                          }
-                        </Button>
-                      </div>
-                    </DrawerContent>
-                  </Drawer>
-                )}
-              </>
-            )}
-          </div>
+                      </DrawerContent>
+                    </Drawer>
+                  )}
+                </>
+              )}
+            </div>
+          </>
         );
       case "Savings":
         return (
@@ -2559,7 +2629,7 @@ export default function EarnPage({
                           }
                         </span>
                       </Typography>
-                      <div className="ml-1 flex items-center">
+                      <div className="ml-2 flex items-center">
                         <div className="flex items-center rounded-full">
                           <button
                             onClick={handleCloseBadge}

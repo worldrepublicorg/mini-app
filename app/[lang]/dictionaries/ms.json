@@ -3,6 +3,12 @@
     "walletAuth": {
       "connect": "Sambung Dompet"
     },
+    "banners": {
+      "holdstation": {
+        "message": "WLD percuma di Holdstation Wallet untuk pemegang WDD teratas.",
+        "collect": "Kutip"
+      }
+    },
     "verifyButton": {
       "verify": "Sahkan untuk Tuntut"
     },

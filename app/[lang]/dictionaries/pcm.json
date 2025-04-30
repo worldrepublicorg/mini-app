@@ -3,8 +3,14 @@
     "walletAuth": {
       "connect": "Connect Wallet"
     },
+    "banners": {
+      "holdstation": {
+        "message": "Free WLD on Holdstation Wallet for top WDD holders.",
+        "collect": "Collect"
+      }
+    },
     "verifyButton": {
-      "verify": "Verify to Claim"
+      "verify": "Verify to Collect"
     },
     "pollOfTheWeek": {
       "previousPolls": "Previous Polls",

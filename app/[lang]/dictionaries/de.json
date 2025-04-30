@@ -3,8 +3,14 @@
     "walletAuth": {
       "connect": "Wallet verbinden"
     },
+    "banners": {
+      "holdstation": {
+        "message": "Kostenloses WLD auf Holdstation Wallet für Top-WDD-Inhaber.",
+        "collect": "Sammeln"
+      }
+    },
     "verifyButton": {
-      "verify": "Verifizieren zum Beanspruchen"
+      "verify": "Verifizieren zum Einlösen"
     },
     "pollOfTheWeek": {
       "previousPolls": "Vorherige Umfragen",

@@ -3,8 +3,14 @@
     "walletAuth": {
       "connect": "Unganisha Pochi"
     },
+    "banners": {
+      "holdstation": {
+        "message": "WLD ya bure kwenye Pochi ya Holdstation kwa wamiliki wa WDD wa juu.",
+        "collect": "Kusanya"
+      }
+    },
     "verifyButton": {
-      "verify": "Thibitisha Kupata"
+      "verify": "Thibitisha Kupokea"
     },
     "pollOfTheWeek": {
       "previousPolls": "Kura za Awali",

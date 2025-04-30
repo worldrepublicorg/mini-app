@@ -3,8 +3,14 @@
     "walletAuth": {
       "connect": "ウォレットを接続"
     },
+    "banners": {
+      "holdstation": {
+        "message": "トップWDD保有者向けHoldstationウォレットで無料WLD。",
+        "collect": "受け取る"
+      }
+    },
     "verifyButton": {
-      "verify": "認証して受け取る"
+      "verify": "請求するには確認"
     },
     "pollOfTheWeek": {
       "previousPolls": "過去の投票",

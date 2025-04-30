@@ -3,6 +3,12 @@
     "walletAuth": {
       "connect": "ওয়ালেট সংযোগ করুন"
     },
+    "banners": {
+      "holdstation": {
+        "message": "শীর্ষ WDD ধারকদের জন্য Holdstation ওয়ালেটে বিনামূল্যে WLD।",
+        "collect": "সংগ্রহ করুন"
+      }
+    },
     "verifyButton": {
       "verify": "দাবি করতে যাচাই করুন"
     },
