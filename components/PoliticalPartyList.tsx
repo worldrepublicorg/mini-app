@@ -492,18 +492,26 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     };
 
     // Sort active parties for "new" tab (newest first)
-    partyLists.new = [...activeParties].sort(
+    const sortedByCreation = [...activeParties].sort(
       (a, b) => b.creationTime - a.creationTime
     );
+
+    // Shuffle the top 20
+    const top20 = sortedByCreation.slice(0, 20);
+    for (let i = top20.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [top20[i], top20[j]] = [top20[j], top20[i]];
+    }
+    partyLists.new = [...top20, ...sortedByCreation.slice(20)];
 
     // Sort active parties for "top" tab (highest member count first)
     partyLists.top = [...activeParties].sort(
       (a, b) => b.memberCount - a.memberCount
     );
 
-    // Sort active parties for "trending" tab (custom formula + minimum 5 members)
+    // Sort active parties for "trending" tab (custom formula + minimum 10 members)
     partyLists.trending = [...activeParties]
-      .filter((party) => party.memberCount >= 5)
+      .filter((party) => party.memberCount >= 10)
       .sort((a, b) => {
         const trendingScoreA = a.id / 10 + Math.sqrt(a.memberCount);
         const trendingScoreB = b.id / 10 + Math.sqrt(b.memberCount);
