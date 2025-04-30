@@ -268,9 +268,6 @@
                 },
                 "verification": {
                   "title": "Dostępne wyłącznie dla użytkowników zweryfikowanych przez Orb, aby zapewnić sprawiedliwą dystrybucję"
-                },
-                "rewards": {
-                  "title": "Nagrody przechodzą na Plus z czasem, utrzymując łączną sumę 11 WDD/dzień"
                 }
               },
               "activateButton": "Aktywuj Dochód Podstawowy Plus",

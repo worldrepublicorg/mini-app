@@ -1884,20 +1884,6 @@ export default function EarnPage({
                                   }
                                 </Typography>
                               </li>
-                              <li className="flex items-start">
-                                <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
-                                  <PiCurrencyCircleDollarFill className="h-3.5 w-3.5 text-gray-400" />
-                                </div>
-                                <Typography
-                                  variant={{ variant: "body", level: 3 }}
-                                  className="text-gray-600 mt-[3px]"
-                                >
-                                  {
-                                    dictionary?.pages?.earn?.tabs?.basicIncome
-                                      ?.plus?.drawer?.features?.rewards?.title
-                                  }
-                                </Typography>
-                              </li>
                             </ul>
                           </div>
 

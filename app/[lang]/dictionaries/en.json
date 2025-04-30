@@ -268,9 +268,6 @@
                 },
                 "verification": {
                   "title": "Exclusive to Orb-verified users to ensure fair distribution"
-                },
-                "rewards": {
-                  "title": "Rewards shift to Plus over time while keeping total at 11 WDD/day"
                 }
               },
               "activateButton": "Activate Basic Income Plus",
