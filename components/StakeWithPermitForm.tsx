@@ -436,7 +436,7 @@ export function StakeWithPermitForm({
         </div>
       </div>
 
-      <div className="mb-6 mt-4 flex items-center justify-between px-2">
+      <div className="mb-6 mt-4 flex items-center justify-between gap-2 px-2">
         <Typography
           as="p"
           variant={{ variant: "body", level: 1 }}

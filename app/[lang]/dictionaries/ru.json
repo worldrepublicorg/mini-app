@@ -1,10 +1,16 @@
 {
   "components": {
     "walletAuth": {
-      "connect": "Подключить кошелёк"
+      "connect": "Подключить кошелек"
+    },
+    "banners": {
+      "holdstation": {
+        "message": "Бесплатные WLD в Holdstation Wallet для крупнейших держателей WDD.",
+        "collect": "Получить"
+      }
     },
     "verifyButton": {
-      "verify": "Пройти верификацию"
+      "verify": "Подтвердить для получения"
     },
     "pollOfTheWeek": {
       "previousPolls": "Предыдущие опросы",

@@ -3,6 +3,12 @@
     "walletAuth": {
       "connect": "Poveži novčanik"
     },
+    "banners": {
+      "holdstation": {
+        "message": "Besplatni WLD na Holdstation novčaniku za vrhunske WDD posjednike.",
+        "collect": "Prikupi"
+      }
+    },
     "verifyButton": {
       "verify": "Potvrdi za preuzimanje"
     },

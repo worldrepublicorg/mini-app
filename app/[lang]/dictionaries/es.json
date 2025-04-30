@@ -6,6 +6,12 @@
       "connected": "Conectado",
       "error": "Error de Conexión"
     },
+    "banners": {
+      "holdstation": {
+        "message": "WLD gratis en Holdstation Wallet para los principales tenedores de WDD.",
+        "collect": "Recolectar"
+      }
+    },
     "verifyButton": {
       "verify": "Verificar para Reclamar",
       "verifying": "Verificando...",

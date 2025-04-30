@@ -3,6 +3,12 @@
     "walletAuth": {
       "connect": "Conectar Carteira"
     },
+    "banners": {
+      "holdstation": {
+        "message": "WLD grátis na Holdstation Wallet para os principais detentores de WDD.",
+        "collect": "Coletar"
+      }
+    },
     "verifyButton": {
       "verify": "Verificar para Receber"
     },

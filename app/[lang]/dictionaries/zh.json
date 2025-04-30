@@ -3,6 +3,12 @@
     "walletAuth": {
       "connect": "连接钱包"
     },
+    "banners": {
+      "holdstation": {
+        "message": "顶级WDD持有者可在Holdstation钱包获得免费WLD。",
+        "collect": "领取"
+      }
+    },
     "verifyButton": {
       "verify": "验证以领取"
     },

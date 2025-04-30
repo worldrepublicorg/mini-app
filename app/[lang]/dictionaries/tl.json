@@ -3,8 +3,14 @@
     "walletAuth": {
       "connect": "Ikonekta ang Wallet"
     },
+    "banners": {
+      "holdstation": {
+        "message": "Libreng WLD sa Holdstation Wallet para sa mga nangungunang may-ari ng WDD.",
+        "collect": "Ipunin"
+      }
+    },
     "verifyButton": {
-      "verify": "I-verify para Makuha"
+      "verify": "I-verify para sa Claim"
     },
     "pollOfTheWeek": {
       "previousPolls": "Mga Nakaraang Botohan",

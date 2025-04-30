@@ -3,6 +3,12 @@
     "walletAuth": {
       "connect": "Połącz Portfel"
     },
+    "banners": {
+      "holdstation": {
+        "message": "Darmowe WLD w portfelu Holdstation dla największych posiadaczy WDD.",
+        "collect": "Zbierz"
+      }
+    },
     "verifyButton": {
       "verify": "Zweryfikuj, aby Odebrać"
     },

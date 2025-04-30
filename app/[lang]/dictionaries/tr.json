@@ -3,8 +3,14 @@
     "walletAuth": {
       "connect": "Cüzdanı Bağla"
     },
+    "banners": {
+      "holdstation": {
+        "message": "En üst düzey WDD sahipleri için Holdstation Cüzdanında ücretsiz WLD.",
+        "collect": "Topla"
+      }
+    },
     "verifyButton": {
-      "verify": "Talep Etmek İçin Doğrula"
+      "verify": "Talep etmek için doğrula"
     },
     "pollOfTheWeek": {
       "previousPolls": "Önceki Anketler",
