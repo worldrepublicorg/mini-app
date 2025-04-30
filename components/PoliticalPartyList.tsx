@@ -509,9 +509,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       (a, b) => b.memberCount - a.memberCount
     );
 
-    // Sort active parties for "trending" tab (custom formula + minimum 5 members)
+    // Sort active parties for "trending" tab (custom formula + minimum 10 members)
     partyLists.trending = [...activeParties]
-      .filter((party) => party.memberCount >= 5)
+      .filter((party) => party.memberCount >= 10)
       .sort((a, b) => {
         const trendingScoreA = a.id / 10 + Math.sqrt(a.memberCount);
         const trendingScoreB = b.id / 10 + Math.sqrt(b.memberCount);
