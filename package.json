@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.6.1",
+    "@holdstation/worldchain-sdk": "^2.0.14",
     "@radix-ui/react-form": "^0.1.3",
     "@radix-ui/react-slot": "^1.1.2",
     "@worldcoin/mini-apps-ui-kit-react": "^1.0.2",

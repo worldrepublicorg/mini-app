@@ -11,6 +11,7 @@ import React, {
 import { parseAbi } from "viem";
 import { viemClient } from "@/lib/viemClient";
 import { MiniKit } from "@worldcoin/minikit-js";
+import { TokenProvider } from "@holdstation/worldchain-sdk";
 
 interface WalletContextProps {
   walletAddress: string | null;
@@ -71,6 +72,12 @@ const WalletContext = createContext<WalletContextProps>({
 interface WalletProviderProps {
   children: ReactNode;
 }
+
+const tokenProvider = new TokenProvider({
+  provider: viemClient,
+});
+
+const WDD = "0xede54d9c024ee80c85ec0a75ed2d8774c7fbac9b";
 
 export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [walletAddress, setWalletAddress] = useState<string | null>(null);
@@ -236,26 +243,21 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   ]);
 
   const fetchBalance = useCallback(async () => {
+    if (!walletAddress) return;
     try {
-      const balanceResult = await viemClient.readContract({
-        address: "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B",
-        abi: parseAbi([
-          "function balanceOf(address) external view returns (uint256)",
-        ]),
-        functionName: "balanceOf",
-        args: [walletAddress as `0x${string}`],
+      const balances = await tokenProvider.balanceOf({
+        wallet: walletAddress,
+        tokens: [WDD],
       });
 
-      if (typeof balanceResult === "bigint") {
-        const newTokenBalance = fromWei(balanceResult);
-        setTokenBalance(newTokenBalance);
-        localStorage.setItem("tokenBalance", newTokenBalance);
-      }
+      const newTokenBalance = balances[WDD];
+      setTokenBalance(newTokenBalance);
+      localStorage.setItem("tokenBalance", newTokenBalance);
     } catch (error) {
       console.error("Error fetching balance:", error);
       setTimeout(fetchBalance, 1000);
     }
-  }, [walletAddress, setTokenBalance, fromWei]);
+  }, [walletAddress, setTokenBalance]);
 
   const fetchCanReward = useCallback(async () => {
     if (!walletAddress) return;
