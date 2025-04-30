@@ -1657,19 +1657,25 @@ export default function EarnPage({
                     <div className="mx-2 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full">
                       <PiInfoFill className="h-5 w-5 text-gray-900" />
                     </div>
-                    <Typography
-                      as="a"
+                    <a
                       href="https://world.org/mini-app?app_id=app_0d4b759921490adc1f2bd569fda9b53a&path=/ref/a7DgwV"
                       target="_blank"
                       rel="noopener noreferrer"
-                      variant={{ variant: "subtitle", level: 2 }}
-                      className="font-display text-left text-[15px] font-medium tracking-tight text-gray-900"
                     >
-                      {dictionary?.components?.banners?.holdstation?.message}{" "}
-                      <span className="underline">
-                        {dictionary?.components?.banners?.holdstation?.collect}
-                      </span>
-                    </Typography>
+                      <Typography
+                        as="h3"
+                        variant={{ variant: "subtitle", level: 2 }}
+                        className="font-display text-left text-[15px] font-medium tracking-tight text-gray-900"
+                      >
+                        {dictionary?.components?.banners?.holdstation?.message}{" "}
+                        <span className="underline">
+                          {
+                            dictionary?.components?.banners?.holdstation
+                              ?.collect
+                          }
+                        </span>
+                      </Typography>
+                    </a>
                     <div className="ml-2 flex items-center">
                       <div className="flex items-center rounded-full">
                         <button
@@ -2608,7 +2614,7 @@ export default function EarnPage({
             {isPassportBadgeVisible && (
               <Drawer>
                 <DrawerTrigger className="fixed left-0 right-0 top-28 z-50 mx-auto w-full max-w-md px-6">
-                  <div className="mt-2 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-gray-0 py-2 pr-4">
+                  <div className="mt-2 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-gray-0 py-3 pr-4">
                     <div className="flex w-full items-center overflow-hidden">
                       <div className="mx-2 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full">
                         <PiInfoFill className="h-5 w-5 text-gray-900" />
