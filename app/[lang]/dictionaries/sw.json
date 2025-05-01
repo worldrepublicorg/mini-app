@@ -537,6 +537,11 @@
             "cta": {
               "createJoin": "Unda au Jiunge na Chama",
               "leaderGroup": "Jiunge na Kikundi cha Viongozi wa Chama"
+            },
+            "payouts": {
+              "title": "Malipo",
+              "week": "Wiki",
+              "showAll": "Onyesha Zote"
             }
           }
         }

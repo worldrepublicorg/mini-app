@@ -537,6 +537,11 @@
             "cta": {
               "createJoin": "Criar ou Participar de um Partido",
               "leaderGroup": "Participar do Grupo de Líderes de Partido"
+            },
+            "payouts": {
+              "title": "Pagamentos",
+              "week": "Semana",
+              "showAll": "Mostrar tudo"
             }
           }
         }

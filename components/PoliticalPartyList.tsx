@@ -135,6 +135,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [activeLoading, setActiveLoading] = useState(true);
   const [pendingLoading, setPendingLoading] = useState(false);
 
+  // Add state for scroll-to-top button visibility
+  const [showScrollToTop, setShowScrollToTop] = useState(false);
+
   // Add these state variables for lazy loading
   const [displayCount, setDisplayCount] = useState<number>(20);
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -197,6 +200,30 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   useEffect(() => {
     setDisplayCount(20);
   }, [activeTab, searchTerm]);
+
+  // Handle scroll events to show/hide scroll-to-top button
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show button when user has scrolled down 300px from the top
+      setShowScrollToTop(window.scrollY > 300);
+    };
+
+    // Add scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Function to scroll back to top
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   const shortenUrl = (url: string, maxLength = 64) => {
     if (!url) return "";
@@ -3386,6 +3413,34 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
       {/* Add the intersection observer for lazy loading */}
       <div ref={loadMoreRef} style={{ height: "1px" }}></div>
+
+      {/* Scroll to top button */}
+      {showScrollToTop && (
+        <button
+          onClick={scrollToTop}
+          className="mb-safe fixed right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-gray-100 shadow-lg transition-all"
+          style={{ bottom: "16px" }}
+          aria-label={
+            dictionary?.components?.politicalPartyList?.scrollToTop ||
+            "Scroll to top"
+          }
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="text-gray-500"
+          >
+            <path d="m18 15-6-6-6 6" />
+          </svg>
+        </button>
+      )}
     </div>
   );
 }

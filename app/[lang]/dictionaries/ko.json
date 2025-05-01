@@ -537,6 +537,11 @@
             "cta": {
               "createJoin": "정당 만들기 또는 가입하기",
               "leaderGroup": "정당 리더 그룹 가입하기"
+            },
+            "payouts": {
+              "title": "지급",
+              "week": "주",
+              "showAll": "전체 보기"
             }
           }
         }

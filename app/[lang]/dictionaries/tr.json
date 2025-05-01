@@ -537,6 +537,11 @@
             "cta": {
               "createJoin": "Parti Oluştur veya Katıl",
               "leaderGroup": "Parti Lider Grubuna Katıl"
+            },
+            "payouts": {
+              "title": "Ödemeler",
+              "week": "Hafta",
+              "showAll": "Tümünü Göster"
             }
           }
         }

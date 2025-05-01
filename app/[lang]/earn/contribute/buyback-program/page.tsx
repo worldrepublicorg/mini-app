@@ -122,7 +122,7 @@ export default function BuybackProgramPage({
         <div className="space-y-8">
           {/* Developer Rewards Section */}
           <div className="overflow-hidden rounded-xl border border-gray-200 bg-gray-0 shadow-sm">
-            <div className="border-b border-gray-100 bg-gradient-to-r from-gray-50 to-gray-0 p-4">
+            <div className="border-b border-gray-200 bg-gradient-to-r from-gray-50 to-gray-0 p-4">
               <div className="mb-3 flex items-center">
                 <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-gray-200">
                   <PiCode className="h-4 w-4 text-gray-500" />
@@ -396,7 +396,9 @@ export default function BuybackProgramPage({
             variant="secondary"
             size="lg"
             fullWidth
-            onClick={() => window.open("https://www.miniapps.world/rewards", "_blank")}
+            onClick={() =>
+              window.open("https://www.miniapps.world/rewards", "_blank")
+            }
           >
             {dictionary?.pages?.earn?.tabs?.contribute?.buybackProgram?.cta}
           </Button>
