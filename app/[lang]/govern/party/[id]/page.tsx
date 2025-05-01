@@ -61,7 +61,13 @@ export default function PartyDetailPage({
   const dictionary = useTranslations(lang);
   const { walletAddress } = useWallet();
   const { showToast } = useToast();
-  const { fetchPartyById, activeParties, pendingParties } = useParties();
+  const {
+    fetchPartyById,
+    activeParties,
+    pendingParties,
+    setUserPartyId,
+    setParties,
+  } = useParties();
 
   const [party, setParty] = useState<Party | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -332,6 +338,22 @@ export default function PartyDetailPage({
       if (finalPayload.status !== "error") {
         // Update local state
         setIsUserMember(true);
+
+        // Update the context
+        setUserPartyId(party.id);
+
+        // Update the parties array in context
+        setParties((prevParties: any) =>
+          prevParties.map((p: any) =>
+            p.id === party.id
+              ? {
+                  ...p,
+                  isUserMember: true,
+                  memberCount: p.memberCount + 1,
+                }
+              : p
+          )
+        );
 
         // Update user party cache in localStorage
         localStorage.setItem(
