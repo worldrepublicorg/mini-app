@@ -753,7 +753,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 2626,
     name: "Partido real Tierra Plana Flat Earth",
     leaderAddress: "0xe76f58f8b81eca1d15499c7b98d9059de0635620",
-    leaderUsername: "",
+    leaderUsername: "0xe76f...5620",
     totalWdd: "1366",
     totalWld: "4.39",
     weeklyPayouts: [

@@ -50,6 +50,7 @@ export default function PartySubsidyPage({
                     target="_blank"
                     rel="noopener noreferrer"
                     className="shrink-0"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     <Typography
                       variant={{ variant: "subtitle", level: 2 }}
@@ -61,6 +62,7 @@ export default function PartySubsidyPage({
                   <Link
                     href={`/${lang}/govern/party/${party.id}`}
                     className="min-w-0"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     <Typography
                       variant={{ variant: "subtitle", level: 2 }}
@@ -131,7 +133,7 @@ export default function PartySubsidyPage({
             variant="ghost"
             fullWidth
             onClick={() => setShowAllParties(true)}
-            className="text-sm"
+            className="text-sm font-medium"
           >
             Show All
           </Button>
