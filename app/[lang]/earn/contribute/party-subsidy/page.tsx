@@ -12,7 +12,8 @@ import {
 } from "react-icons/pi";
 import { BiChevronLeft } from "react-icons/bi";
 import { useTranslations } from "@/hooks/useTranslations";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { latestPayouts } from "@/data/payouts/payouts";
 
 export default function PartySubsidyPage({
   params: { lang },
@@ -20,6 +21,122 @@ export default function PartySubsidyPage({
   params: { lang: string };
 }) {
   const dictionary = useTranslations(lang);
+  const [expandedParties, setExpandedParties] = useState<number[]>([]);
+  const [showAllParties, setShowAllParties] = useState(false);
+
+  const toggleParty = (partyId: number) => {
+    setExpandedParties((prev) =>
+      prev.includes(partyId)
+        ? prev.filter((id) => id !== partyId)
+        : [...prev, partyId]
+    );
+  };
+
+  const renderPayoutsList = () => (
+    <div className="divide-y divide-gray-100">
+      {/* Party rows */}
+      {(showAllParties ? latestPayouts : latestPayouts.slice(0, 3)).map(
+        (party) => (
+          <div key={party.id}>
+            {/* Party Header - Always visible */}
+            <button
+              onClick={() => toggleParty(party.id)}
+              className="w-full px-4 py-2"
+            >
+              <div className="flex items-center justify-between gap-1">
+                <div className="flex min-w-0 items-center gap-1">
+                  <a
+                    href={`https://worldchain-mainnet.explorer.alchemy.com/address/${party.leaderAddress}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="shrink-0"
+                  >
+                    <Typography
+                      variant={{ variant: "subtitle", level: 2 }}
+                      className="text-sm text-gray-900"
+                    >
+                      {party.leaderUsername}
+                    </Typography>
+                  </a>
+                  <Link
+                    href={`/${lang}/govern/party/${party.id}`}
+                    className="min-w-0"
+                  >
+                    <Typography
+                      variant={{ variant: "subtitle", level: 2 }}
+                      className="truncate text-sm font-normal text-gray-500"
+                    >
+                      ({party.name})
+                    </Typography>
+                  </Link>
+                </div>
+                <div className="shrink-0 text-right">
+                  <span className="block text-sm text-gray-900">
+                    {party.totalWdd} WDD
+                  </span>
+                  <span className="block text-sm text-gray-500">
+                    {party.totalWld} WLD
+                  </span>
+                </div>
+              </div>
+            </button>
+
+            {/* Weekly Breakdown - Shown when expanded */}
+            {expandedParties.includes(party.id) && (
+              <div className="divide-y divide-gray-100 bg-gray-50">
+                {party.weeklyPayouts
+                  .sort((a, b) => a.weekNumber - b.weekNumber)
+                  .map((weekPayout) => (
+                    <div
+                      key={`${party.id}-week-${weekPayout.weekNumber}`}
+                      className="px-6 py-2"
+                    >
+                      <div className="flex items-center justify-between">
+                        <Typography
+                          variant={{ variant: "subtitle", level: 2 }}
+                          className="text-sm font-normal text-gray-500"
+                        >
+                          Week {weekPayout.weekNumber}
+                        </Typography>
+                        <div className="text-right">
+                          <a
+                            href={`https://worldchain-mainnet.explorer.alchemy.com/tx/${weekPayout.wdd.transactionHash}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block text-sm text-gray-900"
+                          >
+                            {weekPayout.wdd.amount} WDD
+                          </a>
+                          <a
+                            href={`https://worldchain-mainnet.explorer.alchemy.com/tx/${weekPayout.wld.transactionHash}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block text-sm text-gray-500"
+                          >
+                            {weekPayout.wld.amount} WLD
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            )}
+          </div>
+        )
+      )}
+      {!showAllParties && latestPayouts.length > 3 && (
+        <div className="px-4 py-3">
+          <Button
+            variant="secondary"
+            fullWidth
+            onClick={() => setShowAllParties(true)}
+          >
+            Show All ({latestPayouts.length})
+          </Button>
+        </div>
+      )}
+    </div>
+  );
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -106,7 +223,7 @@ export default function PartySubsidyPage({
                   }
                   <span className="group relative inline-flex items-center align-baseline">
                     <PiInfoFill className="ml-1 h-4 w-4 translate-y-[3px] cursor-help text-gray-400" />
-                    <div className="absolute -right-4 bottom-full mb-2 hidden w-[calc(100dvw/2+24px)] max-w-sm transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
+                    <div className="absolute -right-4 bottom-full mb-2 hidden w-[calc(100dvw/2+24px)] max-w-sm transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg">
                       <p className="text-left text-gray-700">
                         {
                           dictionary?.pages?.earn?.tabs?.contribute
@@ -137,14 +254,10 @@ export default function PartySubsidyPage({
               </div>
             </div>
           </div>
-
           {/* How it works - modern steps */}
           <div className="overflow-hidden rounded-xl border border-gray-200 bg-gray-0 shadow-sm">
-            <div className="border-b border-gray-100 bg-gradient-to-r from-gray-50 to-gray-0 p-4">
+            <div className="border-b border-gray-200 bg-gradient-to-r from-gray-50 to-gray-0 p-4">
               <div className="flex items-center">
-                <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-gray-200">
-                  <PiRocketLaunch className="h-4 w-4 text-gray-500" />
-                </div>
                 <Typography
                   as="h3"
                   variant={{ variant: "subtitle", level: 2 }}
@@ -237,6 +350,23 @@ export default function PartySubsidyPage({
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+          {/* Weekly Payout Results Section */}
+          <div className="overflow-hidden rounded-xl border border-gray-200 bg-gray-0 shadow-sm">
+            <div className="border-b border-gray-200 bg-gradient-to-r from-gray-50 to-gray-0 p-4">
+              <div className="flex items-center">
+                <Typography
+                  as="h3"
+                  variant={{ variant: "subtitle", level: 2 }}
+                  className="text-gray-900"
+                >
+                  Payouts
+                </Typography>
+              </div>
+            </div>
+            <div className="divide-y divide-gray-100">
+              {renderPayoutsList()}
             </div>
           </div>
         </div>
