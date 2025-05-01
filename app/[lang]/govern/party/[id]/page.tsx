@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 import { useTranslations } from "@/hooks/useTranslations";
 import { useWallet } from "@/components/contexts/WalletContext";
+import { useParties } from "@/components/contexts/PartiesContext";
 import { useToast } from "@/components/ui/Toast";
 import { BiChevronLeft, BiChevronDown, BiShareAlt } from "react-icons/bi";
 import {
@@ -18,10 +19,6 @@ import {
 } from "react-icons/pi";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { parseAbi } from "viem";
-
-// GraphQL endpoint
-const GOLDSKY_SUBGRAPH_URL =
-  "https://api.goldsky.com/api/public/project_cm9oeq0bhalzw01y0hwth80bk/subgraphs/political-party-registry/1.0.0/gn";
 
 // Contract address
 const POLITICAL_PARTY_REGISTRY_ADDRESS =
@@ -46,8 +43,11 @@ interface Party {
   status: number;
   memberCount: number;
   verifiedMemberCount: number;
-  members: { address: string }[];
-  bannedMembers: { address: string }[];
+  members?: { address: string }[];
+  bannedMembers?: { address: string }[];
+  leader?: string; // Alias for currentLeader for compatibility with context
+  isUserMember?: boolean;
+  isUserLeader?: boolean;
 }
 
 export default function PartyDetailPage({
@@ -58,6 +58,7 @@ export default function PartyDetailPage({
   const dictionary = useTranslations(lang);
   const { walletAddress } = useWallet();
   const { showToast } = useToast();
+  const { fetchPartyById, activeParties, pendingParties } = useParties();
 
   const [party, setParty] = useState<Party | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -66,6 +67,8 @@ export default function PartyDetailPage({
   const [showAllMembers, setShowAllMembers] = useState(false);
   const [isJoining, setIsJoining] = useState(false);
   const [leaderUsername, setLeaderUsername] = useState<string | null>(null);
+  const [partyMembers, setPartyMembers] = useState<{ address: string }[]>([]);
+  const [bannedMembers, setBannedMembers] = useState<{ address: string }[]>([]);
 
   // Format number with commas
   const formatNumber = (num: number): string => {
@@ -202,19 +205,66 @@ export default function PartyDetailPage({
       try {
         setIsLoading(true);
 
-        // GraphQL query
+        // First try to find the party in the context cache
+        const partyId = parseInt(id);
+        const cachedParty = [...activeParties, ...pendingParties].find(
+          (p) => p.id === partyId
+        );
+
+        // If found in cache, use it
+        if (cachedParty) {
+          console.log("Found party in context cache:", cachedParty);
+          setParty(cachedParty);
+          setIsUserMember(cachedParty.isUserMember || false);
+
+          // For cache hits, we still need to fetch members via GraphQL
+          fetchPartyMembers(partyId);
+        } else {
+          // If not in cache, fetch from blockchain
+          console.log("Fetching party from blockchain");
+          const fetchedParty = await fetchPartyById(partyId);
+
+          if (!fetchedParty) {
+            throw new Error("Party not found");
+          }
+
+          setParty(fetchedParty);
+          setIsUserMember(fetchedParty.isUserMember || false);
+
+          // For non-cache hits, we need to fetch members
+          fetchPartyMembers(partyId);
+        }
+
+        // Fetch username for the leader
+        if (party?.currentLeader || party?.leader) {
+          const leaderAddress = party.currentLeader || party.leader;
+          if (leaderAddress) {
+            const username = await fetchLeaderUsername(leaderAddress);
+            setLeaderUsername(username);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setError(
+          error instanceof Error ? error.message : "Failed to load party data"
+        );
+        showToast("Failed to load party data", "error");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    // Function to fetch members from GraphQL
+    const fetchPartyMembers = async (partyId: number) => {
+      try {
+        // GraphQL endpoint
+        const GOLDSKY_SUBGRAPH_URL =
+          "https://api.goldsky.com/api/public/project_cm9oeq0bhalzw01y0hwth80bk/subgraphs/political-party-registry/1.0.0/gn";
+
+        // GraphQL query for members
         const query = `
           {
-            parties(where: {id: ${id}}) {
-              name
-              shortName
-              description
-              officialLink
-              founder
-              currentLeader
-              status
-              memberCount
-              verifiedMemberCount
+            parties(where: {id: ${partyId}}) {
               members(first: 1000, where: {isActive: true}) {
                 address
               }
@@ -245,28 +295,14 @@ export default function PartyDetailPage({
         }
 
         if (!result.data.parties || result.data.parties.length === 0) {
-          throw new Error("Party not found");
+          throw new Error("Party members not found");
         }
 
         const partyData = result.data.parties[0];
+        setPartyMembers(partyData.members || []);
+        setBannedMembers(partyData.bannedMembers || []);
 
-        // Transform data to match interface
-        const fetchedParty: Party = {
-          id: parseInt(id),
-          name: partyData.name,
-          shortName: partyData.shortName,
-          description: partyData.description,
-          officialLink: partyData.officialLink,
-          founder: partyData.founder,
-          currentLeader: partyData.currentLeader,
-          status: parseInt(partyData.status),
-          memberCount: parseInt(partyData.memberCount),
-          verifiedMemberCount: parseInt(partyData.verifiedMemberCount),
-          members: partyData.members,
-          bannedMembers: partyData.bannedMembers,
-        };
-
-        // Check if user is a member
+        // Check if user is a member based on the member list
         if (walletAddress) {
           const isMember = partyData.members.some(
             (member: { address: string }) =>
@@ -274,29 +310,20 @@ export default function PartyDetailPage({
           );
           setIsUserMember(isMember);
         }
-
-        // Fetch username with the party data
-        let username = null;
-        if (partyData.currentLeader) {
-          username = await fetchLeaderUsername(partyData.currentLeader);
-        }
-
-        // Set all state at once
-        setParty(fetchedParty);
-        setLeaderUsername(username);
       } catch (error) {
-        console.error("Error fetching data:", error);
-        setError(
-          error instanceof Error ? error.message : "Failed to load party data"
-        );
-        showToast("Failed to load party data", "error");
-      } finally {
-        setIsLoading(false);
+        console.error("Error fetching members:", error);
       }
     };
 
     fetchData();
-  }, [id, walletAddress, showToast]);
+  }, [
+    id,
+    walletAddress,
+    showToast,
+    fetchPartyById,
+    activeParties,
+    pendingParties,
+  ]);
 
   return (
     <div className="pb-safe flex min-h-dvh flex-col px-6">
@@ -578,10 +605,10 @@ export default function PartyDetailPage({
                 </div>
               </button>
 
-              {party?.members.length > 0 ? (
+              {partyMembers.length > 0 ? (
                 <div>
                   {/* First 3 members always visible */}
-                  {party?.members.slice(0, 3).map((member, index, array) => (
+                  {partyMembers.slice(0, 3).map((member, index, array) => (
                     <div
                       key={index}
                       className={`flex items-center justify-between ${
@@ -609,8 +636,8 @@ export default function PartyDetailPage({
 
                   {/* Additional members shown conditionally */}
                   {showAllMembers &&
-                    party?.members.length > 3 &&
-                    party?.members.slice(3).map((member, index, array) => (
+                    partyMembers.length > 3 &&
+                    partyMembers.slice(3).map((member, index, array) => (
                       <div
                         key={index}
                         className={`flex items-center justify-between ${
@@ -645,7 +672,7 @@ export default function PartyDetailPage({
             </div>
 
             {/* Banned Members */}
-            {party?.bannedMembers.length > 0 && (
+            {bannedMembers.length > 0 && (
               <div className="mb-6 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
                 <div className="border-b border-gray-200 bg-gradient-to-r from-gray-50 to-gray-0 p-4">
                   <Typography
@@ -658,7 +685,7 @@ export default function PartyDetailPage({
                 </div>
                 <div className="max-h-56 overflow-y-auto p-4">
                   <div className="space-y-2">
-                    {party?.bannedMembers.map((member, index) => (
+                    {bannedMembers.map((member, index) => (
                       <div
                         key={index}
                         className="flex items-center justify-between rounded-lg border border-gray-100 p-3"
