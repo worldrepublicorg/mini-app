@@ -10,7 +10,7 @@ import {
   PiRocketLaunch,
   PiInfoFill,
 } from "react-icons/pi";
-import { BiChevronLeft } from "react-icons/bi";
+import { BiChevronLeft, BiLinkExternal } from "react-icons/bi";
 import { useTranslations } from "@/hooks/useTranslations";
 import { useEffect, useState } from "react";
 import { latestPayouts } from "@/data/payouts/payouts";
@@ -103,9 +103,10 @@ export default function PartySubsidyPage({
                             href={`https://worldchain-mainnet.explorer.alchemy.com/tx/${weekPayout.wdd.transactionHash}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block text-sm text-gray-900"
+                            className="flex items-center gap-1 text-sm text-gray-900"
                           >
                             {weekPayout.wdd.amount} WDD
+                            <BiLinkExternal className="size-[15px] text-gray-500" />
                           </a>
                           <a
                             href={`https://worldchain-mainnet.explorer.alchemy.com/tx/${weekPayout.wld.transactionHash}`}
@@ -125,13 +126,14 @@ export default function PartySubsidyPage({
         )
       )}
       {!showAllParties && latestPayouts.length > 3 && (
-        <div className="px-4 py-3">
+        <div className="px-4">
           <Button
-            variant="secondary"
+            variant="ghost"
             fullWidth
             onClick={() => setShowAllParties(true)}
+            className="text-sm"
           >
-            Show All ({latestPayouts.length})
+            Show All
           </Button>
         </div>
       )}
