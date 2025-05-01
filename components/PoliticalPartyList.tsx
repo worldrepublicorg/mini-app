@@ -1451,7 +1451,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         </div>
 
         <div className="mt-4 flex flex-col gap-2">
-          {party.isUserMember ? (
+          {party.id === userPartyId ? (
             <Button
               className="px-6"
               variant="secondary"
