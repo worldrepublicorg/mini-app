@@ -137,7 +137,7 @@ export default function PartySubsidyPage({
             variant="ghost"
             fullWidth
             onClick={() => setShowAllParties(true)}
-            className="text-sm font-medium"
+            className="h-12 text-sm font-medium"
           >
             {
               dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy?.payouts
