@@ -26,7 +26,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 5,
     name: "ONE UNITED GLOBE",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "gmusyoki95",
     totalWdd: "4803",
     totalWld: "15.44",
     weeklyPayouts: [
@@ -47,7 +47,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 829,
     name: "PUF",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "rijal_123.9991",
     totalWdd: "2591",
     totalWld: "8.33",
     weeklyPayouts: [
@@ -68,7 +68,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 1294,
     name: "26is",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "mate_orc.9403",
     totalWdd: "2418",
     totalWld: "7.77",
     weeklyPayouts: [
@@ -89,7 +89,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 9,
     name: "WorldChain Indonesia",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "ariesh",
     totalWdd: "2196",
     totalWld: "7.06",
     weeklyPayouts: [
@@ -110,7 +110,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 11,
     name: "Gobernanza Hispana",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "nico1",
     totalWdd: "2174",
     totalWld: "6.99",
     weeklyPayouts: [
@@ -131,7 +131,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 979,
     name: "Wld, Wdd, Cash, puf, Dna, orb, todos unidos para todo el mundo",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "paolove",
     totalWdd: "2059",
     totalWld: "6.62",
     weeklyPayouts: [
@@ -152,7 +152,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 1090,
     name: "WLD OWNER INDONESIA",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "maraz06.6754",
     totalWdd: "2038",
     totalWld: "6.55",
     weeklyPayouts: [
@@ -173,7 +173,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 2175,
     name: "Union Trabajadores Virtuales",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "nevski",
     totalWdd: "2034",
     totalWld: "6.54",
     weeklyPayouts: [
@@ -194,7 +194,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 1824,
     name: "WORLD DEMOCRATIC MOVEMENT",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "fayzal",
     totalWdd: "1966",
     totalWld: "6.32",
     weeklyPayouts: [
@@ -215,7 +215,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 2797,
     name: "Latinos -spañol",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "rivas77502.6277",
     totalWdd: "1941",
     totalWld: "6.24",
     weeklyPayouts: [
@@ -236,7 +236,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 2805,
     name: "FREE WORLD",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "faqih.5838",
     totalWdd: "1758",
     totalWld: "5.65",
     weeklyPayouts: [
@@ -257,7 +257,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 2111,
     name: "GERAKAN WDD INDONESIA PENGEN KAYA",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "endriyan.5758",
     totalWdd: "1725",
     totalWld: "5.54",
     weeklyPayouts: [
@@ -278,7 +278,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 2157,
     name: "WorldHunterCoin",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "irfan7373",
     totalWdd: "1722",
     totalWld: "5.53",
     weeklyPayouts: [
@@ -299,7 +299,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 2546,
     name: "Worldwide Republicans",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "sultan00",
     totalWdd: "1686",
     totalWld: "5.42",
     weeklyPayouts: [
@@ -320,7 +320,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 2320,
     name: "LATINOS UNIDOS AL MUNDO CRIPTO",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "zlepy.8527",
     totalWdd: "1661",
     totalWld: "5.34",
     weeklyPayouts: [
@@ -341,7 +341,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 240,
     name: "World Republic of AMERICA",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "broda.6969",
     totalWdd: "1654",
     totalWld: "5.32",
     weeklyPayouts: [
@@ -362,7 +362,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 1526,
     name: "Partido México",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "elgranpelon",
     totalWdd: "1654",
     totalWld: "5.32",
     weeklyPayouts: [
@@ -383,7 +383,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 1479,
     name: "World Republic Indonesia",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "ardiansh.2384",
     totalWdd: "1643",
     totalWld: "5.28",
     weeklyPayouts: [
@@ -404,7 +404,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 1418,
     name: "Wldwdd Indonesian",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "koh_alung.3411",
     totalWdd: "1632",
     totalWld: "5.25",
     weeklyPayouts: [
@@ -425,7 +425,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 1978,
     name: "Nexus Global",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "bifosy",
     totalWdd: "1600",
     totalWld: "5.14",
     weeklyPayouts: [
@@ -446,7 +446,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 2463,
     name: "Movimiento Anarco Popular",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "eskizorock_92.5626",
     totalWdd: "1567",
     totalWld: "5.04",
     weeklyPayouts: [
@@ -467,7 +467,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 1077,
     name: "Latinos Crypto World",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "andresg34",
     totalWdd: "1542",
     totalWld: "4.96",
     weeklyPayouts: [
@@ -488,7 +488,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 993,
     name: "Unión de Realidades (UR)",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "yosoymingo",
     totalWdd: "1521",
     totalWld: "4.89",
     weeklyPayouts: [
@@ -509,7 +509,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 1768,
     name: "WLD survivor Indo",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "adijepe.8881",
     totalWdd: "1499",
     totalWld: "4.82",
     weeklyPayouts: [
@@ -530,7 +530,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 1684,
     name: "Indonesia maju bersama",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "uziii.7614",
     totalWdd: "1481",
     totalWld: "4.76",
     weeklyPayouts: [
@@ -551,7 +551,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 2575,
     name: "WINGS OF FREEDOM",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "jaganjash",
     totalWdd: "1463",
     totalWld: "4.70",
     weeklyPayouts: [
@@ -572,7 +572,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 2415,
     name: "Digital Nomad Party",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "wahyu.2312",
     totalWdd: "1452",
     totalWld: "4.67",
     weeklyPayouts: [
@@ -593,7 +593,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 1215,
     name: "World Community Indonesia",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "panjirama.1811",
     totalWdd: "1427",
     totalWld: "4.59",
     weeklyPayouts: [
@@ -614,7 +614,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 2383,
     name: "KNTL👅",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "aisakbar.6740",
     totalWdd: "1417",
     totalWld: "4.55",
     weeklyPayouts: [
@@ -635,7 +635,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 2662,
     name: "Latino America 💰💰 unidos podemos hacer más 💲💰",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "andresg26",
     totalWdd: "1413",
     totalWld: "4.54",
     weeklyPayouts: [
@@ -655,8 +655,8 @@ export const latestPayouts: PartyPayout[] = [
   {
     id: 1815,
     name: "Flow",
-    leaderAddress: "",
-    leaderUsername: "",
+    leaderAddress: "0xcE6F05454649dF0068bD85c24344Bdc248D692D8",
+    leaderUsername: "imkillua1945.2290",
     totalWdd: "1406",
     totalWld: "4.52",
     weeklyPayouts: [
@@ -677,7 +677,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 1880,
     name: "Partido de la renta común",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "nazareth37",
     totalWdd: "1399",
     totalWld: "4.50",
     weeklyPayouts: [
@@ -698,7 +698,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 2822,
     name: "Amigos de todo el mundo",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "juanescalante.8849",
     totalWdd: "1370",
     totalWld: "4.40",
     weeklyPayouts: [
@@ -718,7 +718,7 @@ export const latestPayouts: PartyPayout[] = [
   {
     id: 2626,
     name: "Partido real Tierra Plana Flat Earth",
-    leaderAddress: "",
+    leaderAddress: "0xe76f58f8b81eca1d15499c7b98d9059de0635620",
     leaderUsername: "",
     totalWdd: "1366",
     totalWld: "4.39",
@@ -738,9 +738,9 @@ export const latestPayouts: PartyPayout[] = [
   },
   {
     id: 2788,
-    name: "Partai GreenEzzet WDD",
+    name: "CLAIM WLD DISINI 🪙",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "galang.9999",
     totalWdd: "1359",
     totalWld: "4.37",
     weeklyPayouts: [
@@ -761,7 +761,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 1963,
     name: "WLD ID Signals",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "jikays.7687",
     totalWdd: "1352",
     totalWld: "4.35",
     weeklyPayouts: [
@@ -782,7 +782,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 10,
     name: "World Republic European Union",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "gawronek.9191",
     totalWdd: "1352",
     totalWld: "4.35",
     weeklyPayouts: [
@@ -801,9 +801,9 @@ export const latestPayouts: PartyPayout[] = [
   },
   {
     id: 975,
-    name: "Yang masuk grup ini 2025 kaya raya",
+    name: "PAGUYUBAN WLD SAWAH BESAR",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "rickjordy.6669",
     totalWdd: "1341",
     totalWld: "4.31",
     weeklyPayouts: [
@@ -824,7 +824,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 2760,
     name: "BITCOIN MUNDIAL",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "criptobisnes",
     totalWdd: "1338",
     totalWld: "4.30",
     weeklyPayouts: [
@@ -845,7 +845,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 2062,
     name: "Malaysia WLD/WDD",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "abgcik.1033",
     totalWdd: "1338",
     totalWld: "4.30",
     weeklyPayouts: [
@@ -866,7 +866,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 1995,
     name: "Republic of Kemayoran",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "crews",
     totalWdd: "1338",
     totalWld: "4.30",
     weeklyPayouts: [
@@ -887,7 +887,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 1403,
     name: "Latinos Unidos 🇵🇾",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "rockijo.5495",
     totalWdd: "1334",
     totalWld: "4.29",
     weeklyPayouts: [
@@ -908,7 +908,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 1795,
     name: "Minning all crypto",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "moh0404.9225",
     totalWdd: "1330",
     totalWld: "4.27",
     weeklyPayouts: [
@@ -929,7 +929,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 2845,
     name: "INDONESIA MAJU DIGITAL",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "alfino.7912",
     totalWdd: "1323",
     totalWld: "4.25",
     weeklyPayouts: [
@@ -950,7 +950,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 2491,
     name: "Kenyan people's party",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "twenty3stores",
     totalWdd: "1316",
     totalWld: "4.23",
     weeklyPayouts: [
@@ -971,7 +971,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 2810,
     name: "Partai Taekanjing",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "salma.9906",
     totalWdd: "1266",
     totalWld: "4.07",
     weeklyPayouts: [
@@ -992,7 +992,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 2562,
     name: "World Republic id 🇮🇩",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "nr1awr.3601",
     totalWdd: "1262",
     totalWld: "4.06",
     weeklyPayouts: [
@@ -1013,7 +1013,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 547,
     name: "🇵🇪ARRIBA PERU GRANDE🇵🇪",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "yummi1111",
     totalWdd: "1259",
     totalWld: "4.05",
     weeklyPayouts: [
@@ -1034,7 +1034,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 1568,
     name: "Arcadia Party",
     leaderAddress: "",
-    leaderUsername: "",
+    leaderUsername: "wldchan",
     totalWdd: "1241",
     totalWld: "3.99",
     weeklyPayouts: [

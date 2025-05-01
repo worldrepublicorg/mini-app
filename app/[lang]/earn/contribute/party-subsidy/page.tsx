@@ -43,7 +43,7 @@ export default function PartySubsidyPage({
               onClick={() => toggleParty(party.id)}
               className="w-full px-4 py-2"
             >
-              <div className="flex items-center justify-between gap-1">
+              <div className="flex items-center justify-between gap-2">
                 <div className="flex min-w-0 items-center gap-1">
                   <a
                     href={`https://worldchain-mainnet.explorer.alchemy.com/address/${party.leaderAddress}`}
