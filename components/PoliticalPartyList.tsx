@@ -1512,21 +1512,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         {userPartyId > 0 ? (
           // Display the user's party
           <>
-            {activeParties.filter((party) => party.id === userPartyId).length >
-            0 ? (
-              // If the party is in the parties array
-              activeParties
-                .filter((party) => party.id === userPartyId)
-                .map((party) => renderPartyCard(party))
-            ) : (
-              // If the party is not in the parties array, fetch it directly
-              <FetchUserParty
-                partyId={userPartyId}
-                renderPartyCard={renderPartyCard}
-                walletAddress={walletAddress}
-                showToast={showToast}
-              />
-            )}
+            {activeParties
+              .filter((party) => party.id === userPartyId)
+              .map((party) =>
+                renderPartyCard({ ...party, isUserMember: true })
+              )}
           </>
         ) : (
           // Message when user hasn't joined or created a political party yet.
