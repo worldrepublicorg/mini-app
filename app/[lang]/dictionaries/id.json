@@ -537,6 +537,11 @@
             "cta": {
               "createJoin": "Buat atau Gabung Partai",
               "leaderGroup": "Gabung Grup Pemimpin Partai"
+            },
+            "payouts": {
+              "title": "Pembayaran",
+              "week": "Minggu",
+              "showAll": "Tampilkan Semua"
             }
           }
         }

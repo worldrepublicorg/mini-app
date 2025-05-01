@@ -537,6 +537,11 @@
             "cta": {
               "createJoin": "Cipta atau Sertai Parti",
               "leaderGroup": "Sertai Kumpulan Pemimpin Parti"
+            },
+            "payouts": {
+              "title": "Pembayaran",
+              "week": "Minggu",
+              "showAll": "Tunjukkan Semua"
             }
           }
         }

@@ -98,7 +98,11 @@ export default function PartySubsidyPage({
                           variant={{ variant: "subtitle", level: 2 }}
                           className="text-sm font-normal text-gray-500"
                         >
-                          Week {weekPayout.weekNumber}
+                          {
+                            dictionary?.pages?.earn?.tabs?.contribute
+                              ?.partySubsidy?.payouts?.week
+                          }{" "}
+                          {weekPayout.weekNumber}
                         </Typography>
                         <div className="text-right">
                           <a
@@ -135,7 +139,10 @@ export default function PartySubsidyPage({
             onClick={() => setShowAllParties(true)}
             className="text-sm font-medium"
           >
-            Show All
+            {
+              dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy?.payouts
+                ?.showAll
+            }
           </Button>
         </div>
       )}
@@ -365,7 +372,10 @@ export default function PartySubsidyPage({
                   variant={{ variant: "subtitle", level: 2 }}
                   className="text-gray-900"
                 >
-                  Payouts
+                  {
+                    dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy
+                      ?.payouts?.title
+                  }
                 </Typography>
               </div>
             </div>

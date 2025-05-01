@@ -537,6 +537,11 @@
             "cta": {
               "createJoin": "Stvorite ili se pridružite stranci",
               "leaderGroup": "Pridružite se grupi vođa stranke"
+            },
+            "payouts": {
+              "title": "Isplate",
+              "week": "Tjedan",
+              "showAll": "Prikaži sve"
             }
           }
         }

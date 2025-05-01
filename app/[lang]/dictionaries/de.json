@@ -536,6 +536,11 @@
             "cta": {
               "createJoin": "Partei gründen oder beitreten",
               "leaderGroup": "Parteileitergruppe beitreten"
+            },
+            "payouts": {
+              "title": "Auszahlungen",
+              "week": "Woche",
+              "showAll": "Alle anzeigen"
             }
           }
         }

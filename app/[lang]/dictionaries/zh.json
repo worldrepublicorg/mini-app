@@ -537,6 +537,11 @@
             "cta": {
               "createJoin": "创建或加入政党",
               "leaderGroup": "加入政党领导人群组"
+            },
+            "payouts": {
+              "title": "支付",
+              "week": "周",
+              "showAll": "显示全部"
             }
           }
         }

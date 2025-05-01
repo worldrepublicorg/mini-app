@@ -536,6 +536,11 @@
             "cta": {
               "createJoin": "政党を作成または参加する",
               "leaderGroup": "政党リーダーグループに参加する"
+            },
+            "payouts": {
+              "title": "支払い",
+              "week": "週",
+              "showAll": "すべて表示"
             }
           }
         }

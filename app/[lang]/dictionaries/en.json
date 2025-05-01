@@ -527,6 +527,11 @@
             "cta": {
               "createJoin": "Create or Join a Party",
               "leaderGroup": "Join Party Leader Group"
+            },
+            "payouts": {
+              "title": "Payouts",
+              "week": "Week",
+              "showAll": "Show All"
             }
           }
         }

@@ -535,6 +535,11 @@
             "cta": {
               "createJoin": "Gumawa o Sumali sa isang Partido",
               "leaderGroup": "Sumali sa Party Leader Group"
+            },
+            "payouts": {
+              "title": "Mga Bayad",
+              "week": "Linggo",
+              "showAll": "Ipakita Lahat"
             }
           }
         }
