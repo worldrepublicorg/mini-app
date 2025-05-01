@@ -34,7 +34,7 @@ interface Party {
 interface PartiesContextType {
   activeParties: Party[];
   pendingParties: Party[];
-  parties: Party[]; // Combined array for backward compatibility
+  parties: Party[];
   activeLoading: boolean;
   pendingLoading: boolean;
   userPartyId: number;
@@ -61,7 +61,6 @@ const PartiesContext = createContext<PartiesContextType>({
   getOptimisticPartyId: () => 0,
 });
 
-// Add constants
 const GOLDSKY_SUBGRAPH_URL =
   "https://api.goldsky.com/api/public/project_cm9oeq0bhalzw01y0hwth80bk/subgraphs/political-party-registry/1.0.0/gn";
 
@@ -324,7 +323,6 @@ export const PartiesProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   }, [walletAddress, showToast, setUserPartyId]);
 
-  // Add fetchPendingParties function
   const fetchPendingParties = useCallback(async () => {
     if (!GOLDSKY_SUBGRAPH_URL) {
       setPendingLoading(false);
@@ -426,11 +424,6 @@ export const PartiesProvider: React.FC<{ children: React.ReactNode }> = ({
       setPendingLoading(false);
     }
   }, [walletAddress, userPartyId, showToast]);
-
-  // Initial fetch of active parties
-  useEffect(() => {
-    fetchActiveParties();
-  }, [fetchActiveParties]);
 
   return (
     <PartiesContext.Provider

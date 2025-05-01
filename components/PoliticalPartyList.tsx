@@ -80,6 +80,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     activeLoading,
     pendingLoading,
     userPartyId,
+    fetchActiveParties,
     fetchPendingParties,
     setUserPartyId,
     setParties,
@@ -144,15 +145,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [isLeaderLookingUp, setIsLeaderLookingUp] = useState(false);
   const [isMemberLookingUp, setIsMemberLookingUp] = useState(false);
 
-  // Keep your existing useEffect but update it
-  useEffect(() => {
-    console.log(
-      "Component mounted, parties from context:",
-      activeParties.length
-    );
-    // Don't call fetchActiveParties() as it's handled by the context
-  }, []);
-
   // Keep your useEffect for pending parties but use the context version
   useEffect(() => {
     if (activeTab === "pending" && pendingParties.length === 0) {
@@ -168,7 +160,19 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     }
   }, []);
 
-  // Add this after the other useEffect hooks
+  useEffect(() => {
+    console.log(
+      "Component mounted, parties from context:",
+      activeParties.length
+    );
+
+    // If no active parties loaded yet, fetch them
+    if (activeParties.length === 0 && !activeLoading) {
+      console.log("Fetching active parties on-demand");
+      fetchActiveParties();
+    }
+  }, [activeParties.length, activeLoading, fetchActiveParties]);
+
   useEffect(() => {
     // Initialize the intersection observer
     observerRef.current = new IntersectionObserver(
