@@ -419,13 +419,23 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   }) => {
     const [party, setParty] = useState<Party | null>(null);
     const [loading, setLoading] = useState(true);
+    const { fetchPartyById, userPartyData, storeUserParty } = useParties();
+
+    // Create a flag to prevent refetching after the first fetch
+    const hasLoadedRef = useRef(false);
 
     useEffect(() => {
       const loadParty = async () => {
-        // Check if we already have the data in context
+        // Skip if we already have data in local state or if we already loaded once
+        if (party || hasLoadedRef.current) {
+          return;
+        }
+
+        // Check if we have the data in context first
         if (userPartyData && userPartyData.id === partyId) {
           setParty(userPartyData);
           setLoading(false);
+          hasLoadedRef.current = true;
           return;
         }
 
@@ -437,6 +447,8 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             setParty(partyWithMemberFlag);
             // Store in context for future use
             storeUserParty(partyWithMemberFlag);
+            // Mark as loaded
+            hasLoadedRef.current = true;
           }
         } catch (error) {
           console.error("Error fetching user party:", error);
@@ -449,14 +461,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       if (partyId > 0) {
         loadParty();
       }
-    }, [
-      partyId,
-      fetchPartyById,
-      walletAddress,
-      showToast,
-      userPartyData,
-      storeUserParty,
-    ]);
+      // Only depend on partyId which should remain stable
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [partyId]);
+
+    // Reset the loading flag if partyId changes
+    useEffect(() => {
+      hasLoadedRef.current = false;
+    }, [partyId]);
 
     if (loading) {
       return <PartySkeletonCard />;
