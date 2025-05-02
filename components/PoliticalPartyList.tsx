@@ -646,6 +646,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       });
 
       if (finalPayload.status !== "error") {
+        // Find the party in the current parties list
+        const partyToJoin = [...activeParties, ...pendingParties].find(
+          (party) => party.id === partyId
+        );
+
         // Only update optimistically after user confirms transaction
         setParties((prevParties: Party[]) =>
           prevParties.map((party: Party) =>
@@ -658,6 +663,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               : party
           )
         );
+
+        // If we have the party data, store it directly in context
+        if (partyToJoin) {
+          const partyWithMemberFlag = {
+            ...partyToJoin,
+            isUserMember: true,
+            memberCount: partyToJoin.memberCount + 1,
+          };
+          storeUserParty(partyWithMemberFlag);
+        }
+
         setUserPartyId(partyId);
 
         // Update user party cache
