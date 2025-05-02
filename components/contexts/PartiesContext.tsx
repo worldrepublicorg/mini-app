@@ -38,12 +38,14 @@ interface PartiesContextType {
   activeLoading: boolean;
   pendingLoading: boolean;
   userPartyId: number;
+  userPartyData: Party | null;
   fetchActiveParties: () => Promise<void>;
   fetchPendingParties: () => Promise<void>;
   fetchPartyById: (id: number) => Promise<Party | null>;
   setUserPartyId: (id: number) => void;
   setParties: (parties: Party[] | ((prevParties: Party[]) => Party[])) => void;
   getOptimisticPartyId: () => number;
+  storeUserParty: (party: Party) => void;
 }
 
 const PartiesContext = createContext<PartiesContextType>({
@@ -53,12 +55,14 @@ const PartiesContext = createContext<PartiesContextType>({
   activeLoading: false,
   pendingLoading: false,
   userPartyId: 0,
+  userPartyData: null,
   fetchActiveParties: async () => {},
   fetchPendingParties: async () => {},
   fetchPartyById: async () => null,
   setUserPartyId: () => {},
   setParties: () => {},
   getOptimisticPartyId: () => 0,
+  storeUserParty: () => {},
 });
 
 const GOLDSKY_SUBGRAPH_URL =
@@ -77,6 +81,7 @@ export const PartiesProvider: React.FC<{ children: React.ReactNode }> = ({
   const [pendingLoading, setPendingLoading] = useState(false);
   const [userPartyId, setUserPartyIdState] = useState<number>(0);
   const [highestKnownPartyId, setHighestKnownPartyId] = useState<number>(0);
+  const [userPartyData, setUserPartyData] = useState<Party | null>(null);
   const { walletAddress } = useWallet();
   const { showToast } = useToast();
 
@@ -133,9 +138,19 @@ export const PartiesProvider: React.FC<{ children: React.ReactNode }> = ({
     setPartiesState([...activeParties, ...pendingParties]);
   }, [activeParties, pendingParties]);
 
+  // Add a function to store user party data
+  const storeUserParty = useCallback((party: Party) => {
+    setUserPartyData(party);
+  }, []);
+
   // Fetch a specific party by ID
   const fetchPartyById = useCallback(
     async (partyId: number): Promise<Party | null> => {
+      // First check if it's the user's party and we have it cached
+      if (partyId === userPartyId && userPartyData) {
+        return userPartyData;
+      }
+
       // First check if we already have this party in our state
       const cachedParty = [...activeParties, ...pendingParties].find(
         (p) => p.id === partyId
@@ -179,6 +194,11 @@ export const PartiesProvider: React.FC<{ children: React.ReactNode }> = ({
           setHighestKnownPartyId(partyId);
         }
 
+        // If this is the user's party, cache it
+        if (partyId === userPartyId) {
+          setUserPartyData(party);
+        }
+
         return party;
       } catch (error) {
         console.error(`Error fetching party ${partyId} details:`, error);
@@ -193,6 +213,7 @@ export const PartiesProvider: React.FC<{ children: React.ReactNode }> = ({
       userPartyId,
       highestKnownPartyId,
       showToast,
+      userPartyData,
     ]
   );
 
@@ -434,12 +455,14 @@ export const PartiesProvider: React.FC<{ children: React.ReactNode }> = ({
         activeLoading,
         pendingLoading,
         userPartyId,
+        userPartyData,
         fetchActiveParties,
         fetchPendingParties,
         fetchPartyById,
         setUserPartyId,
         setParties,
         getOptimisticPartyId,
+        storeUserParty,
       }}
     >
       {children}

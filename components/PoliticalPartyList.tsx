@@ -86,6 +86,8 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     setUserPartyId,
     setParties,
     fetchPartyById,
+    userPartyData,
+    storeUserParty,
   } = useParties();
 
   const { walletAddress } = useWallet();
@@ -420,11 +422,21 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
     useEffect(() => {
       const loadParty = async () => {
+        // Check if we already have the data in context
+        if (userPartyData && userPartyData.id === partyId) {
+          setParty(userPartyData);
+          setLoading(false);
+          return;
+        }
+
         setLoading(true);
         try {
           const partyData = await fetchPartyById(partyId);
           if (partyData) {
-            setParty({ ...partyData, isUserMember: true });
+            const partyWithMemberFlag = { ...partyData, isUserMember: true };
+            setParty(partyWithMemberFlag);
+            // Store in context for future use
+            storeUserParty(partyWithMemberFlag);
           }
         } catch (error) {
           console.error("Error fetching user party:", error);
@@ -437,7 +449,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       if (partyId > 0) {
         loadParty();
       }
-    }, [partyId, fetchPartyById, walletAddress, showToast]);
+    }, [
+      partyId,
+      fetchPartyById,
+      walletAddress,
+      showToast,
+      userPartyData,
+      storeUserParty,
+    ]);
 
     if (loading) {
       return <PartySkeletonCard />;
