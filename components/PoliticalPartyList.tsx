@@ -85,7 +85,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     fetchPendingParties,
     setUserPartyId,
     setParties,
-    getOptimisticPartyId,
+    fetchPartyById,
   } = useParties();
 
   const { walletAddress } = useWallet();
@@ -416,54 +416,34 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     showToast: (message: string, type: "success" | "error" | "info") => void;
   }) => {
     const [party, setParty] = useState<Party | null>(null);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
       const loadParty = async () => {
+        setLoading(true);
         try {
-          setIsLoading(true);
-          const fetchedParty = await fetchPartyFromBlockchain(partyId);
-
-          if (fetchedParty) {
-            setParty(fetchedParty);
-          } else {
-            setError("Failed to load your party");
-            showToast(
-              "Failed to load your party information from blockchain",
-              "error"
-            );
+          const partyData = await fetchPartyById(partyId);
+          if (partyData) {
+            setParty({ ...partyData, isUserMember: true });
           }
-        } catch (err) {
-          console.error("Error in FetchUserParty:", err);
-          setError("Failed to load your party");
-          showToast(
-            "Failed to load your party information from blockchain",
-            "error"
-          );
+        } catch (error) {
+          console.error("Error fetching user party:", error);
+          showToast("Failed to load your party", "error");
         } finally {
-          setIsLoading(false);
+          setLoading(false);
         }
       };
 
-      loadParty();
-    }, [partyId, walletAddress, showToast]);
+      if (partyId > 0) {
+        loadParty();
+      }
+    }, [partyId, fetchPartyById, walletAddress, showToast]);
 
-    if (isLoading) {
+    if (loading) {
       return <PartySkeletonCard />;
     }
 
-    if (error) {
-      return <div className="p-4 text-center text-gray-500">{error}</div>;
-    }
-
-    if (!party) {
-      return (
-        <div className="p-4 text-center text-gray-500">Party not found</div>
-      );
-    }
-
-    return renderPartyCard(party);
+    return party ? renderPartyCard(party) : null;
   };
 
   const performUsernameLookup = async (
@@ -1518,14 +1498,13 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         </div>
 
         {userPartyId > 0 ? (
-          // Display the user's party
-          <>
-            {activeParties
-              .filter((party) => party.id === userPartyId)
-              .map((party) =>
-                renderPartyCard({ ...party, isUserMember: true })
-              )}
-          </>
+          // Display the user's party using fetchPartyById
+          <FetchUserParty
+            partyId={userPartyId}
+            renderPartyCard={renderPartyCard}
+            walletAddress={walletAddress}
+            showToast={showToast}
+          />
         ) : isCreating || isPartyCreationPending ? (
           // Show placeholder for party being created
           <div className="rounded-lg border border-gray-200 p-4">
