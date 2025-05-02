@@ -1540,13 +1540,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     </>
   );
 
-  if (activeLoading && activeTab !== "pending") {
-    return <LoadingSkeleton dictionary={dictionary} />;
-  }
-
-  return (
-    <div className="w-full overflow-x-hidden">
-      {/* My Party Section */}
+  // Create a memoized MyPartySection component
+  const MyPartySection = useMemo(() => {
+    return (
       <div className="mb-6">
         <div className="mb-3 flex items-center justify-between">
           <Typography
@@ -1604,6 +1600,26 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           </div>
         )}
       </div>
+    );
+  }, [
+    userPartyId,
+    walletAddress,
+    isCreating,
+    isPartyCreationPending,
+    dictionary,
+    showToast,
+    renderPartyCard,
+    handleCreatePartyClick,
+  ]);
+
+  if (activeLoading && activeTab !== "pending") {
+    return <LoadingSkeleton dictionary={dictionary} />;
+  }
+
+  return (
+    <div className="w-full overflow-x-hidden">
+      {/* My Party Section - now memoized */}
+      {MyPartySection}
 
       <Typography
         as="h2"
