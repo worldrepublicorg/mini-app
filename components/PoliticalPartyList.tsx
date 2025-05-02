@@ -3170,12 +3170,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       {/* Add the intersection observer for lazy loading */}
       <div ref={loadMoreRef} style={{ height: "1px" }}></div>
 
-      {/* Scroll to top button */}
-      {showScrollToTop && (
+      {/* Scroll to top button container - always present */}
+      <div
+        className="mb-safe fixed right-4 z-50 h-12 w-12"
+        style={{ bottom: "16px" }}
+      >
+        {/* Button with transition */}
         <button
           onClick={scrollToTop}
-          className="mb-safe fixed right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-gray-100 shadow-lg transition-all"
-          style={{ bottom: "16px" }}
+          className={`flex h-full w-full items-center justify-center rounded-full bg-gray-100 shadow-lg transition-opacity duration-300 ${
+            showScrollToTop ? "opacity-100" : "pointer-events-none opacity-0"
+          }`}
           aria-label={
             dictionary?.components?.politicalPartyList?.scrollToTop ||
             "Scroll to top"
@@ -3196,7 +3201,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             <path d="m18 15-6-6-6 6" />
           </svg>
         </button>
-      )}
+      </div>
     </div>
   );
 }
