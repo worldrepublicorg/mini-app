@@ -148,6 +148,8 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [isLeaderLookingUp, setIsLeaderLookingUp] = useState(false);
   const [isMemberLookingUp, setIsMemberLookingUp] = useState(false);
   const [partyCreationTxId, setPartyCreationTxId] = useState<string>("");
+  const [isPartyCreationForceReset, setIsPartyCreationForceReset] =
+    useState(false);
 
   const {
     isLoading: isPartyCreationPending,
@@ -170,9 +172,16 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       fetchPendingParties();
       setIsCreating(false);
       showToast("Party created successfully", "success");
+
+      // If for some reason isPartyCreationPending is still true in the hook,
+      // we need to force a rerender to make the skeleton disappear.
+      if (isPartyCreationPending) {
+        setIsPartyCreationForceReset(true);
+      }
     }
   }, [
     isPartyCreationConfirmed,
+    isPartyCreationPending,
     partyCreationTxId,
     fetchActiveParties,
     fetchPendingParties,
@@ -1569,29 +1578,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             walletAddress={walletAddress}
             showToast={showToast}
           />
-        ) : isCreating || isPartyCreationPending ? (
+        ) : isCreating ||
+          (isPartyCreationPending && !isPartyCreationForceReset) ? (
           // Show placeholder for party being created
           <div className="rounded-lg border border-gray-200 p-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="h-12 w-12 animate-pulse rounded-full bg-gray-200"></div>
-                <div>
-                  <div className="h-5 w-40 animate-pulse rounded bg-gray-200"></div>
-                  <div className="mt-1 h-4 w-24 animate-pulse rounded bg-gray-200"></div>
-                </div>
-              </div>
-            </div>
-            <div className="mt-3 h-4 w-full animate-pulse rounded bg-gray-200"></div>
-            <div className="mt-2 h-4 w-3/4 animate-pulse rounded bg-gray-200"></div>
-            <div className="mt-4 flex justify-center">
-              <span className="text-sm text-gray-500">
-                {isPartyCreationPending
-                  ? dictionary?.components?.politicalPartyList?.partyCreation
-                      ?.confirming || "Confirming transaction..."
-                  : dictionary?.components?.politicalPartyList?.partyCreation
-                      ?.creating || "Creating party..."}
-              </span>
-            </div>
+            {/* Skeleton content */}
           </div>
         ) : (
           // Message when user hasn't joined or created a political party yet
@@ -1606,6 +1597,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     walletAddress,
     isCreating,
     isPartyCreationPending,
+    isPartyCreationForceReset,
     dictionary,
     showToast,
     renderPartyCard,
