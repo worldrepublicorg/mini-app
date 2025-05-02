@@ -490,7 +490,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         }
       >
         {loading ? (
-          <PartySkeletonCard includePendingNote={true} />
+          <PartySkeletonCard />
         ) : party ? (
           renderPartyCard(party)
         ) : null}
