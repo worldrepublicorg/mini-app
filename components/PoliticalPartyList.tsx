@@ -26,6 +26,7 @@ import { useTranslations } from "@/hooks/useTranslations";
 import { TabSwiper } from "@/components/TabSwiper";
 import Link from "next/link";
 import { useParties } from "@/components/contexts/PartiesContext";
+import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
   "0x70a993E1D1102F018365F966B5Fc009e8FA9b7dC";
@@ -144,6 +145,36 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [memberLookupResult, setMemberLookupResult] = useState<any>(null);
   const [isLeaderLookingUp, setIsLeaderLookingUp] = useState(false);
   const [isMemberLookingUp, setIsMemberLookingUp] = useState(false);
+  const [partyCreationTxId, setPartyCreationTxId] = useState<string>("");
+
+  const {
+    isLoading: isPartyCreationPending,
+    isSuccess: isPartyCreationConfirmed,
+  } = useWaitForTransactionReceipt({
+    client: viemClient,
+    appConfig: {
+      app_id: process.env.NEXT_PUBLIC_MINIAPP_ID || "", // Make sure you have this in your env
+    },
+    transactionId: partyCreationTxId,
+  });
+
+  // Add effect to fetch the newly created party when transaction is confirmed
+  useEffect(() => {
+    if (isPartyCreationConfirmed && partyCreationTxId) {
+      // Clear the transaction ID
+      setPartyCreationTxId("");
+      // Refresh the parties list to fetch the newest data
+      fetchActiveParties();
+      fetchPendingParties();
+      setIsCreating(false);
+      showToast("Party created successfully", "success");
+    }
+  }, [
+    isPartyCreationConfirmed,
+    partyCreationTxId,
+    fetchActiveParties,
+    fetchPendingParties,
+  ]);
 
   // Keep your useEffect for pending parties but use the context version
   useEffect(() => {
@@ -713,30 +744,8 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           showToast("Failed to create party", "error");
         }
       } else {
-        // Get optimistic ID from context
-        const optimisticPartyId = getOptimisticPartyId();
-
-        const optimisticParty: Party = {
-          id: optimisticPartyId,
-          name: createPartyForm.name,
-          shortName: createPartyForm.shortName,
-          description: createPartyForm.description,
-          officialLink: createPartyForm.officialLink,
-          founder: walletAddress || "",
-          leader: walletAddress || "",
-          memberCount: 1,
-          documentVerifiedMemberCount: 0,
-          verifiedMemberCount: 0,
-          creationTime: Math.floor(Date.now() / 1000),
-          active: true,
-          status: 0, // Pending status
-          isUserMember: true,
-          isUserLeader: true,
-        };
-
-        setParties((prevParties: Party[]) => [...prevParties, optimisticParty]);
-        // Also update userPartyId so it shows in "My party" section
-        setUserPartyId(optimisticPartyId);
+        // Store the transaction ID for tracking
+        setPartyCreationTxId(finalPayload.transaction_id);
         setIsCreateDrawerOpen(false);
         setCreatePartyForm({
           name: "",
@@ -744,12 +753,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           description: "",
           officialLink: "",
         });
+        showToast("Party creation in progress", "info");
       }
     } catch (error) {
       console.error("Error creating party:", error);
       showToast("Error creating party", "error");
-    } finally {
-      setIsCreating(false);
     }
   };
 
@@ -1518,8 +1526,32 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 renderPartyCard({ ...party, isUserMember: true })
               )}
           </>
+        ) : isCreating || isPartyCreationPending ? (
+          // Show placeholder for party being created
+          <div className="rounded-lg border border-gray-200 p-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="h-12 w-12 animate-pulse rounded-full bg-gray-200"></div>
+                <div>
+                  <div className="h-5 w-40 animate-pulse rounded bg-gray-200"></div>
+                  <div className="mt-1 h-4 w-24 animate-pulse rounded bg-gray-200"></div>
+                </div>
+              </div>
+            </div>
+            <div className="mt-3 h-4 w-full animate-pulse rounded bg-gray-200"></div>
+            <div className="mt-2 h-4 w-3/4 animate-pulse rounded bg-gray-200"></div>
+            <div className="mt-4 flex justify-center">
+              <span className="text-sm text-gray-500">
+                {isPartyCreationPending
+                  ? dictionary?.components?.politicalPartyList?.partyCreation
+                      ?.confirming || "Confirming transaction..."
+                  : dictionary?.components?.politicalPartyList?.partyCreation
+                      ?.creating || "Creating party..."}
+              </span>
+            </div>
+          </div>
         ) : (
-          // Message when user hasn't joined or created a political party yet.
+          // Message when user hasn't joined or created a political party yet
           <div className="p-4 text-center text-gray-500">
             {dictionary?.components?.politicalPartyList?.noParty}
           </div>
