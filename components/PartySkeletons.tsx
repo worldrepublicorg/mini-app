@@ -4,34 +4,48 @@ import React from "react";
 import { Typography } from "@/components/ui/Typography";
 import { FaPlus } from "react-icons/fa";
 
-export const PartySkeletonCard = () => (
-  <div className="mb-4 animate-pulse rounded-xl border border-gray-200 p-4">
-    {/* Party name skeleton */}
-    <div className="h-[19px] w-48 rounded bg-gray-100"></div>
-
-    {/* Description skeleton - 3 lines */}
-    <div className="mt-3 space-y-2">
-      <div className="h-[15px] w-full rounded bg-gray-100"></div>
-      <div className="h-[15px] w-11/12 rounded bg-gray-100"></div>
-      <div className="h-[15px] w-4/5 rounded bg-gray-100"></div>
-    </div>
-
-    {/* Links and members count skeletons */}
-    <div className="mt-2 flex justify-between gap-1">
-      <div className="flex items-center gap-1">
-        <div className="h-[15px] w-[15px] rounded-full bg-gray-100"></div>
-        <div className="h-[15px] w-24 rounded bg-gray-100"></div>
+export const PartySkeletonCard = ({
+  includePendingNote = false,
+}: {
+  includePendingNote?: boolean;
+}) => (
+  <>
+    {includePendingNote && (
+      <div className="mb-4 min-h-[72px] rounded-xl border border-gray-200 bg-gray-50 p-4 text-gray-700">
+        <div className="flex items-start gap-2">
+          <div className="mt-0.5 h-4 w-4 flex-shrink-0 rounded-full bg-gray-200"></div>
+          <div className="h-4 w-full rounded bg-gray-200"></div>
+        </div>
       </div>
-      <div className="flex items-center gap-1">
-        <div className="h-[15px] w-[15px] rounded-full bg-gray-100"></div>
-        <div className="h-[15px] w-8 rounded bg-gray-100"></div>
-        <div className="h-[15px] w-16 rounded bg-gray-100"></div>
-      </div>
-    </div>
+    )}
+    <div className="mb-4 min-h-[200px] animate-pulse rounded-xl border border-gray-200 p-4">
+      {/* Party name skeleton */}
+      <div className="h-[19px] w-48 rounded bg-gray-100"></div>
 
-    {/* Button skeleton */}
-    <div className="mt-4 h-9 w-full rounded bg-gray-100"></div>
-  </div>
+      {/* Description skeleton - 3 lines */}
+      <div className="mt-3 space-y-2">
+        <div className="h-[15px] w-full rounded bg-gray-100"></div>
+        <div className="h-[15px] w-11/12 rounded bg-gray-100"></div>
+        <div className="h-[15px] w-4/5 rounded bg-gray-100"></div>
+      </div>
+
+      {/* Links and members count skeletons */}
+      <div className="mt-2 flex justify-between gap-1">
+        <div className="flex items-center gap-1">
+          <div className="h-[15px] w-[15px] rounded-full bg-gray-100"></div>
+          <div className="h-[15px] w-24 rounded bg-gray-100"></div>
+        </div>
+        <div className="flex items-center gap-1">
+          <div className="h-[15px] w-[15px] rounded-full bg-gray-100"></div>
+          <div className="h-[15px] w-8 rounded bg-gray-100"></div>
+          <div className="h-[15px] w-16 rounded bg-gray-100"></div>
+        </div>
+      </div>
+
+      {/* Button skeleton */}
+      <div className="mt-4 h-9 w-full rounded bg-gray-100"></div>
+    </div>
+  </>
 );
 
 export const LoadingSkeleton = ({ dictionary }: { dictionary: any }) => (
