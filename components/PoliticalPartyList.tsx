@@ -420,9 +420,20 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     const [party, setParty] = useState<Party | null>(null);
     const [loading, setLoading] = useState(true);
     const { fetchPartyById, userPartyData, storeUserParty } = useParties();
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    // Remember the height to prevent layout shifts
+    const [containerHeight, setContainerHeight] = useState<number | null>(null);
 
     // Create a flag to prevent refetching after the first fetch
     const hasLoadedRef = useRef(false);
+
+    useEffect(() => {
+      // Measure initial height if placeholder is rendered
+      if (loading && containerRef.current && !containerHeight) {
+        setContainerHeight(containerRef.current.offsetHeight);
+      }
+    }, [loading, containerHeight]);
 
     useEffect(() => {
       const loadParty = async () => {
@@ -470,11 +481,21 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       hasLoadedRef.current = false;
     }, [partyId]);
 
-    if (loading) {
-      return <PartySkeletonCard />;
-    }
-
-    return party ? renderPartyCard(party) : null;
+    // Stable height container to prevent layout shifts
+    return (
+      <div
+        ref={containerRef}
+        style={
+          containerHeight ? { minHeight: `${containerHeight}px` } : undefined
+        }
+      >
+        {loading ? (
+          <PartySkeletonCard includePendingNote={true} />
+        ) : party ? (
+          renderPartyCard(party)
+        ) : null}
+      </div>
+    );
   };
 
   const performUsernameLookup = async (
@@ -1651,7 +1672,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
             {/* Loading footer - becomes visible when user scrolls down */}
             {filteredParties.length > displayCount && (
-              <div ref={loadMoreRef} className="py-4 text-center">
+              <div ref={loadMoreRef} className="h-14 py-4 text-center">
                 <div className="border-t-primary inline-block h-6 w-6 animate-spin rounded-full border-2 border-gray-300"></div>
               </div>
             )}
@@ -3197,9 +3218,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           </div>
         </DrawerContent>
       </Drawer>
-
-      {/* Add the intersection observer for lazy loading */}
-      <div ref={loadMoreRef} style={{ height: "1px" }}></div>
 
       {/* Scroll to top button container - always present */}
       <div
