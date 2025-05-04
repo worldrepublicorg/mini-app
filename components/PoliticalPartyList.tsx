@@ -524,12 +524,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     );
 
     // Shuffle the top 40
-    const top40 = sortedByCreation.slice(0, 40);
-    for (let i = top40.length - 1; i > 0; i--) {
+    const top60 = sortedByCreation.slice(0, 60);
+    for (let i = top60.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [top40[i], top40[j]] = [top40[j], top40[i]];
+      [top60[i], top60[j]] = [top60[j], top60[i]];
     }
-    partyLists.new = [...top40, ...sortedByCreation.slice(40)];
+    partyLists.new = [...top60, ...sortedByCreation.slice(60)];
 
     // Sort active parties for "top" tab (highest member count first)
     partyLists.top = [...activeParties].sort(
