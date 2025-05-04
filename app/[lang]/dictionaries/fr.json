@@ -563,6 +563,7 @@
             "title": "Sondages précédents",
             "backToGovern": "Retour à Gouverner",
             "polls": {
+              "aiSafetyTreaty": "Les nations devraient-elles s'accorder sur un traité mondial exécutoire sur la sécurité de l'IA ?",
               "heatAdaptation": "Les pays devraient-ils établir un mécanisme de coordination mondiale pour les alertes précoces aux vagues de chaleur et les efforts de secours conjoints afin de protéger les populations vulnérables lors d'événements de chaleur extrême?",
               "globalMilitaryExerciseProtocol": "Les pays devraient-ils s'accorder sur un protocole international de notification et d'observation pour les exercices militaires à grande échelle près des régions contestées afin de réduire le risque d'escalade ?",
               "globalMaritimeSecurity": "Faudrait-il établir une force d'intervention internationale de sécurité maritime pour protéger les navires commerciaux dans les eaux internationales contre les attaques armées ?",

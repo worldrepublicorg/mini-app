@@ -563,6 +563,7 @@
             "title": "Votações Anteriores",
             "backToGovern": "Voltar para Governar",
             "polls": {
+              "aiSafetyTreaty": "As nações deveriam concordar com um tratado global de segurança de IA aplicável?",
               "heatAdaptation": "Os países deveriam estabelecer um mecanismo de coordenação global para alertas precoces de ondas de calor e esforços conjuntos de socorro para proteger populações vulneráveis durante eventos de calor extremo?",
               "globalMilitaryExerciseProtocol": "Os países deveriam concordar com um protocolo internacional de notificação e observação para exercícios militares de grande escala perto de regiões contestadas para reduzir o risco de escalada?",
               "globalMaritimeSecurity": "Deveria ser estabelecida uma força-tarefa internacional de segurança marítima para proteger o transporte comercial em águas internacionais de ataques armados?",

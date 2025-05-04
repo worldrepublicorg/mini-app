@@ -557,6 +557,7 @@
             "title": "Previous Polls",
             "backToGovern": "Back to Govern",
             "polls": {
+              "aiSafetyTreaty": "Should nations agree to an enforceable global AI safety treaty?",
               "polarIceProtocol": "Should nations agree to a global sea-ice monitoring and early-response protocol—including joint research, data sharing, and mitigation strategies—to address declining polar ice and avert accelerated sea-level rise?",
               "tradePolicyStability": "Should nations adopt a coordinated international code of conduct for tariff policies to enhance predictability and stability in global trade?",
               "heatAdaptation": "Should countries establish a global coordination mechanism for heatwave early warnings and joint relief efforts to protect vulnerable populations during extreme heat events?",

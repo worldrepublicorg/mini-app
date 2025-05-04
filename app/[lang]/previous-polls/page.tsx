@@ -7,6 +7,7 @@ import { PollCard } from "@/components/PollCard";
 import { useTranslations } from "@/hooks/useTranslations";
 
 const pollKeys = [
+  "polarIceProtocol",
   "heatAdaptation",
   "criticalMineralsExport",
   "wildlifeTrafficking",
@@ -76,6 +77,7 @@ const pollKeys = [
 ];
 
 const pollUrls = {
+  polarIceProtocol: "https://vote.one/afA1jsIQ",
   heatAdaptation: "https://vote.one/lYGmfQI7",
   criticalMineralsExport: "https://vote.one/GTN2bfzr",
   wildlifeTrafficking: "https://vote.one/eWitQrSp",
