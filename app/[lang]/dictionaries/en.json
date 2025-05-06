@@ -252,6 +252,11 @@
           "subtitle": "Sign in to claim your basic income",
           "setupSubtitle": "Set up your basic income",
           "claimableSubtitle": "Claimable drachma",
+          "claimableTooltip1": "As part of our",
+          "claimableTooltip2": "buyback program",
+          "claimableTooltip3": ", we're fine-tuning basic income levels to create sustainable, long-term benefits for our community. See the",
+          "claimableTooltip4": "FAQ",
+          "claimableTooltip5": "for current rates.",
           "activateButton": "Activate Basic Income",
           "claimButton": "Claim",
           "plus": {

@@ -252,6 +252,11 @@
           "subtitle": "Log masuk untuk menuntut pendapatan asas anda",
           "setupSubtitle": "Sediakan pendapatan asas anda",
           "claimableSubtitle": "Drachma yang boleh dituntut",
+          "claimableTooltip1": "Sebagai sebahagian daripada",
+          "claimableTooltip2": "program pembelian balik",
+          "claimableTooltip3": " kami, kami sedang menyelaraskan tahap pendapatan asas untuk mewujudkan faedah jangka panjang yang mampan untuk komuniti kami. Lihat",
+          "claimableTooltip4": "FAQ",
+          "claimableTooltip5": "untuk kadar semasa.",
           "activateButton": "Aktifkan Pendapatan Asas",
           "claimButton": "Tuntut",
           "plus": {

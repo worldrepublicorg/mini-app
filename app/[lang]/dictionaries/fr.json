@@ -252,6 +252,11 @@
           "subtitle": "Connectez-vous pour réclamer votre revenu de base",
           "setupSubtitle": "Configurez votre revenu de base",
           "claimableSubtitle": "Drachmes réclamables",
+          "claimableTooltip1": "Dans le cadre de notre",
+          "claimableTooltip2": "programme de rachat",
+          "claimableTooltip3": ", nous ajustons les niveaux de revenu de base pour créer des avantages durables et à long terme pour notre communauté. Consultez la",
+          "claimableTooltip4": "FAQ",
+          "claimableTooltip5": "pour les taux actuels.",
           "activateButton": "Activer le Revenu de Base",
           "claimButton": "Réclamer",
           "plus": {

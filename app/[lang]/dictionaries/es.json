@@ -264,6 +264,11 @@
           "subtitle": "Inicia sesión para reclamar tu renta básica",
           "setupSubtitle": "Configura tu renta básica",
           "claimableSubtitle": "Dracmas reclamables",
+          "claimableTooltip1": "Como parte de nuestro",
+          "claimableTooltip2": "programa de recompra",
+          "claimableTooltip3": ", estamos ajustando los niveles de renta básica para crear beneficios sostenibles y a largo plazo para nuestra comunidad. Consulta las",
+          "claimableTooltip4": "FAQ",
+          "claimableTooltip5": "para las tasas actuales.",
           "activateButton": "Activar Renta Básica",
           "claimButton": "Reclamar",
           "plus": {

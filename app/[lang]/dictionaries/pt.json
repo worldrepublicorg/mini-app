@@ -251,7 +251,12 @@
           "title": "Renda Básica",
           "subtitle": "Faça login para receber sua renda básica",
           "setupSubtitle": "Configure sua renda básica",
-          "claimableSubtitle": "Dracma disponível",
+          "claimableSubtitle": "Dracmas resgatáveis",
+          "claimableTooltip1": "Como parte do nosso",
+          "claimableTooltip2": "programa de recompra",
+          "claimableTooltip3": ", estamos ajustando os níveis de renda básica para criar benefícios sustentáveis e de longo prazo para nossa comunidade. Consulte o",
+          "claimableTooltip4": "FAQ",
+          "claimableTooltip5": "para taxas atuais.",
           "activateButton": "Ativar Renda Básica",
           "claimButton": "Receber",
           "plus": {

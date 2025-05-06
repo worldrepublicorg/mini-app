@@ -252,6 +252,11 @@
           "subtitle": "Zaloguj się, aby odebrać swój dochód podstawowy",
           "setupSubtitle": "Skonfiguruj swój dochód podstawowy",
           "claimableSubtitle": "Drachmy do odebrania",
+          "claimableTooltip1": "W ramach naszego",
+          "claimableTooltip2": "programu wykupu",
+          "claimableTooltip3": ", dostosowujemy poziomy dochodu podstawowego, aby stworzyć zrównoważone, długoterminowe korzyści dla naszej społeczności. Zobacz",
+          "claimableTooltip4": "FAQ",
+          "claimableTooltip5": "aby poznać aktualne stawki.",
           "activateButton": "Aktywuj Dochód Podstawowy",
           "claimButton": "Odbierz",
           "plus": {

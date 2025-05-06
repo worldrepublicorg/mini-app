@@ -251,7 +251,12 @@
           "title": "기본소득",
           "subtitle": "로그인하여 기본소득을 받으세요",
           "setupSubtitle": "기본소득 설정하기",
-          "claimableSubtitle": "받을 수 있는 드라크마",
+          "claimableSubtitle": "청구 가능한 드라크마",
+          "claimableTooltip1": "저희",
+          "claimableTooltip2": "바이백 프로그램",
+          "claimableTooltip3": "의 일환으로, 커뮤니티에 지속 가능하고 장기적인 혜택을 제공하기 위해 기본 소득 수준을 미세 조정하고 있습니다. 현재 요율은",
+          "claimableTooltip4": "FAQ",
+          "claimableTooltip5": "를 참조하세요.",
           "activateButton": "기본소득 활성화",
           "claimButton": "받기",
           "plus": {

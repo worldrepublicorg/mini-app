@@ -251,7 +251,12 @@
           "title": "الدخل الأساسي",
           "subtitle": "سجل دخول للمطالبة بدخلك الأساسي",
           "setupSubtitle": "قم بإعداد دخلك الأساسي",
-          "claimableSubtitle": "دراخما قابلة للمطالبة",
+          "claimableSubtitle": "الدراخما القابلة للمطالبة",
+          "claimableTooltip1": "كجزء من",
+          "claimableTooltip2": "برنامج إعادة الشراء",
+          "claimableTooltip3": " لدينا، نقوم بضبط مستويات الدخل الأساسي لخلق فوائد مستدامة طويلة الأمد لمجتمعنا. راجع",
+          "claimableTooltip4": "الأسئلة الشائعة",
+          "claimableTooltip5": "للاطلاع على المعدلات الحالية.",
           "activateButton": "تفعيل الدخل الأساسي",
           "claimButton": "مطالبة",
           "plus": {

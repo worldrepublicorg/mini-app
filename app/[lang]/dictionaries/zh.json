@@ -252,6 +252,11 @@
           "subtitle": "登录以领取您的基本收入",
           "setupSubtitle": "设置您的基本收入",
           "claimableSubtitle": "可领取的德拉克马",
+          "claimableTooltip1": "作为我们",
+          "claimableTooltip2": "回购计划",
+          "claimableTooltip3": "的一部分，我们正在调整基本收入水平，为我们的社区创造可持续的长期利益。有关当前费率，请参阅",
+          "claimableTooltip4": "常见问题解答",
+          "claimableTooltip5": "。",
           "activateButton": "激活基本收入",
           "claimButton": "领取",
           "plus": {

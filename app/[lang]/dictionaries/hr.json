@@ -252,7 +252,12 @@
           "subtitle": "Prijavite se za preuzimanje temeljnog dohotka",
           "setupSubtitle": "Postavite svoj temeljni dohodak",
           "claimableSubtitle": "Dostupne drahme",
-          "activateButton": "Aktiviraj temeljni dohodak",
+          "claimableTooltip1": "Kao dio našeg",
+          "claimableTooltip2": "programa otkupa",
+          "claimableTooltip3": ", usavršavamo razine temeljnog dohotka kako bismo stvorili održive, dugoročne koristi za našu zajednicu. Pogledajte",
+          "claimableTooltip4": "FAQ",
+          "claimableTooltip5": "za trenutne stope.",
+          "activateButton": "Aktiviraj Temeljni Dohodak",
           "claimButton": "Preuzmi",
           "plus": {
             "title": "Temeljni dohodak Plus",

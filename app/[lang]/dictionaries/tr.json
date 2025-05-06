@@ -252,7 +252,12 @@
           "subtitle": "Temel gelirinizi talep etmek için giriş yapın",
           "setupSubtitle": "Temel gelirinizi ayarlayın",
           "claimableSubtitle": "Talep edilebilir drahmi",
-          "activateButton": "Temel Geliri Aktifleştir",
+          "claimableTooltip1": "Bizim",
+          "claimableTooltip2": "geri alım programımızın",
+          "claimableTooltip3": " bir parçası olarak, topluluğumuz için sürdürülebilir, uzun vadeli faydalar yaratmak için temel gelir seviyelerini ince ayarlarla düzenliyoruz. Güncel oranlar için",
+          "claimableTooltip4": "SSS",
+          "claimableTooltip5": "'e bakın.",
+          "activateButton": "Temel Geliri Etkinleştir",
           "claimButton": "Talep Et",
           "plus": {
             "title": "Temel Gelir Plus",

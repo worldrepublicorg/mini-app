@@ -252,6 +252,11 @@
           "subtitle": "Masuk untuk mengklaim pendapatan dasar Anda",
           "setupSubtitle": "Atur pendapatan dasar Anda",
           "claimableSubtitle": "Drachma yang dapat diklaim",
+          "claimableTooltip1": "Sebagai bagian dari",
+          "claimableTooltip2": "program pembelian kembali",
+          "claimableTooltip3": " kami, kami menyesuaikan tingkat pendapatan dasar untuk menciptakan manfaat berkelanjutan jangka panjang bagi komunitas kami. Lihat",
+          "claimableTooltip4": "FAQ",
+          "claimableTooltip5": "untuk tarif saat ini.",
           "activateButton": "Aktifkan Pendapatan Dasar",
           "claimButton": "Klaim",
           "plus": {

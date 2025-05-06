@@ -251,6 +251,11 @@
           "subtitle": "Melden Sie sich an, um Ihr Grundeinkommen zu beanspruchen",
           "setupSubtitle": "Richten Sie Ihr Grundeinkommen ein",
           "claimableSubtitle": "Beanspruchbare Drachmen",
+          "claimableTooltip1": "Im Rahmen unseres",
+          "claimableTooltip2": "Rückkaufprogramms",
+          "claimableTooltip3": " optimieren wir die Grundeinkommensniveaus, um nachhaltige, langfristige Vorteile für unsere Gemeinschaft zu schaffen. Weitere Informationen finden Sie in den",
+          "claimableTooltip4": "FAQ",
+          "claimableTooltip5": "für aktuelle Raten.",
           "activateButton": "Grundeinkommen aktivieren",
           "claimButton": "Beanspruchen",
           "plus": {

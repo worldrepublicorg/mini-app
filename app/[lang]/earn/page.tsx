@@ -1758,6 +1758,43 @@ export default function EarnPage({
                       dictionary?.pages?.earn?.tabs?.basicIncome
                         ?.claimableSubtitle
                     }
+                    <span className="group relative inline-flex items-center align-baseline">
+                      <PiInfoFill className="ml-1 h-4 w-4 translate-y-[2px] cursor-help text-gray-400" />
+                      <div className="absolute -right-4 bottom-full mb-2 hidden w-[calc(100dvw/2+24px)] max-w-sm transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
+                        <p className="text-left text-gray-700">
+                          {
+                            dictionary?.pages?.earn?.tabs?.basicIncome
+                              ?.claimableTooltip1
+                          }{" "}
+                          <Link
+                            href={`/${lang}/earn/contribute/buyback-program`}
+                            className="text-gray-900 underline"
+                          >
+                            {
+                              dictionary?.pages?.earn?.tabs?.basicIncome
+                                ?.claimableTooltip2
+                            }
+                          </Link>
+                          {
+                            dictionary?.pages?.earn?.tabs?.basicIncome
+                              ?.claimableTooltip3
+                          }{" "}
+                          <Link
+                            href={`/${lang}/faq`}
+                            className="text-gray-900 underline"
+                          >
+                            {
+                              dictionary?.pages?.earn?.tabs?.basicIncome
+                                ?.claimableTooltip4
+                            }
+                          </Link>{" "}
+                          {
+                            dictionary?.pages?.earn?.tabs?.basicIncome
+                              ?.claimableTooltip5
+                          }
+                        </p>
+                      </div>
+                    </span>
                   </Typography>
                   <div className="text-center">
                     {isClaimableLoading ? (

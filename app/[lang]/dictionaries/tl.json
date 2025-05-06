@@ -249,7 +249,12 @@
           "title": "Basic Income",
           "subtitle": "Mag-sign in para makuha ang iyong basic income",
           "setupSubtitle": "I-setup ang iyong basic income",
-          "claimableSubtitle": "Maaaring kunin na drachma",
+          "claimableSubtitle": "Naa-claim na drachma",
+          "claimableTooltip1": "Bilang bahagi ng aming",
+          "claimableTooltip2": "programa ng buyback",
+          "claimableTooltip3": ", kami ay nag-fine-tune ng mga antas ng basic income upang lumikha ng sustainable, pangmatagalang benepisyo para sa aming komunidad. Tingnan ang",
+          "claimableTooltip4": "FAQ",
+          "claimableTooltip5": "para sa kasalukuyang rate.",
           "activateButton": "I-activate ang Basic Income",
           "claimButton": "Kunin",
           "plus": {

@@ -252,6 +252,11 @@
           "subtitle": "আপনার মৌলিক আয় দাবি করতে সাইন ইন করুন",
           "setupSubtitle": "আপনার মৌলিক আয় সেট আপ করুন",
           "claimableSubtitle": "দাবিযোগ্য ড্রাকমা",
+          "claimableTooltip1": "আমাদের",
+          "claimableTooltip2": "বাইব্যাক প্রোগ্রাম",
+          "claimableTooltip3": "এর অংশ হিসাবে, আমরা আমাদের সম্প্রদায়ের জন্য টেকসই, দীর্ঘমেয়াদী সুবিধা তৈরি করতে মৌলিক আয়ের স্তর সূক্ষ্ম সামঞ্জস্য করছি। বর্তমান হারের জন্য",
+          "claimableTooltip4": "FAQ",
+          "claimableTooltip5": "দেখুন।",
           "activateButton": "মৌলিক আয় সক্রিয় করুন",
           "claimButton": "দাবি করুন",
           "plus": {

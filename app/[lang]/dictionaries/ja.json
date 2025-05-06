@@ -251,6 +251,11 @@
           "subtitle": "サインインしてベーシックインカムを受け取る",
           "setupSubtitle": "ベーシックインカムを設定",
           "claimableSubtitle": "請求可能なドラクマ",
+          "claimableTooltip1": "私たちの",
+          "claimableTooltip2": "バイバックプログラム",
+          "claimableTooltip3": "の一環として、コミュニティに持続可能な長期的利益をもたらすために基本所得のレベルを微調整しています。現在のレートについては",
+          "claimableTooltip4": "FAQ",
+          "claimableTooltip5": "をご覧ください。",
           "activateButton": "ベーシックインカムを有効化",
           "claimButton": "請求",
           "plus": {
