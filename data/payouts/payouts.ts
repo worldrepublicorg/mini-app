@@ -38,11 +38,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "17512",
+          transactionHash:
+            "0xb498626d35b1e14dd7b68dce46480c1e752684642d0ddfe59431c1ce0f86a803",
         },
         wld: {
-          amount: "",
+          amount: "49.79",
           transactionHash: "",
         },
       },
@@ -50,7 +51,7 @@ export const latestPayouts: PartyPayout[] = [
   },
   {
     id: 5,
-    name: "ONE UNITED GLOBE",
+    name: "ONE UNITED GLOBE 🌍",
     leaderAddress: "0x8fA57020E5296aC3E806cFda024aeC7CBd93a1AE",
     leaderUsername: "gmusyoki95",
     get totalWdd() {
@@ -75,11 +76,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "4215",
+          transactionHash:
+            "0x4c59ab267a48ffd4be6c178ba153ee2c1dd119b5b829f547ae7a1187dae16513",
         },
         wld: {
-          amount: "",
+          amount: "11.98",
           transactionHash: "",
         },
       },
@@ -112,11 +114,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "2275",
+          transactionHash:
+            "0x4b3476cbae48787cae8ee72f4f9be831e0d1ca9441c15f29c01716fff3d1e278",
         },
         wld: {
-          amount: "",
+          amount: "6.47",
           transactionHash: "",
         },
       },
@@ -149,11 +152,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "2137",
+          transactionHash:
+            "0x6b91c05afc94b06c4ecc1a3e778b9867831dae12ee0ba031aa006fa9079a0149",
         },
         wld: {
-          amount: "",
+          amount: "6.08",
           transactionHash: "",
         },
       },
@@ -186,11 +190,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "2143",
+          transactionHash:
+            "0xc0122330b93f085f450320ab8dfd90dfca5409aec92d734cab16e690062da8da",
         },
         wld: {
-          amount: "",
+          amount: "6.09",
           transactionHash: "",
         },
       },
@@ -223,11 +228,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "2080",
+          transactionHash:
+            "0x34bac40a9e1d61c15498b242703c210f1cb5f7b165b2eeb11eda9cce8218f1ba",
         },
         wld: {
-          amount: "",
+          amount: "5.91",
           transactionHash: "",
         },
       },
@@ -260,11 +266,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1905",
+          transactionHash:
+            "0xfaeb4ec6c26e40c36e923a75dc34bd565a099a3c64d0d950937539d035da9dce",
         },
         wld: {
-          amount: "",
+          amount: "5.42",
           transactionHash: "",
         },
       },
@@ -297,11 +304,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1803",
+          transactionHash:
+            "0x9c970bc9339b75936ee13179f0c789612c438bee3d1332d8735c1195319dc15f",
         },
         wld: {
-          amount: "",
+          amount: "5.13",
           transactionHash: "",
         },
       },
@@ -334,11 +342,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1803",
+          transactionHash:
+            "0xf41359c486dc918dee408d44a00927708d3bc970c9687a4bb0ba48727355e00b",
         },
         wld: {
-          amount: "",
+          amount: "5.13",
           transactionHash: "",
         },
       },
@@ -371,11 +380,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1776",
+          transactionHash:
+            "0xdbc24fe2f312eb295effe4c5c96a5c6ef7658f1527ac43aabf93356df206bf4a",
         },
         wld: {
-          amount: "",
+          amount: "5.05",
           transactionHash: "",
         },
       },
@@ -408,11 +418,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1743",
+          transactionHash:
+            "0xf0f463c405b44905bc5677f2343d3ec64b48410a91a3f17e7e4a2761cdd5784e",
         },
         wld: {
-          amount: "",
+          amount: "4.96",
           transactionHash: "",
         },
       },
@@ -445,11 +456,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1668",
+          transactionHash:
+            "0xea95c008e78da06f8c8bf1e6de28687bb26a81133b951cdb5a04128f4f40bf52",
         },
         wld: {
-          amount: "",
+          amount: "4.74",
           transactionHash: "",
         },
       },
@@ -482,11 +494,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1538",
+          transactionHash:
+            "0x79bf005949947f23c05d55306db2e8b6aeef6680e3edbfe571e12c9f14be9f2a",
         },
         wld: {
-          amount: "",
+          amount: "4.37",
           transactionHash: "",
         },
       },
@@ -513,6 +526,18 @@ export const latestPayouts: PartyPayout[] = [
         },
         wld: {
           amount: "5.53",
+          transactionHash: "",
+        },
+      },
+      {
+        weekNumber: 2,
+        wdd: {
+          amount: "1547",
+          transactionHash:
+            "0xae8c969b3e137a6321793c231044e28a84799e46e6e212e94d1557df16e16e08",
+        },
+        wld: {
+          amount: "4.40",
           transactionHash: "",
         },
       },
@@ -545,11 +570,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1568",
+          transactionHash:
+            "0x109163c63d0a19533a43b889a82a8d7c961edf1ee8b006403efae15c6d1021da",
         },
         wld: {
-          amount: "",
+          amount: "4.46",
           transactionHash: "",
         },
       },
@@ -582,11 +608,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1532",
+          transactionHash:
+            "0x80759f2fc299236617655985ba36b88cf3b7177537c883ff002c70b4a126c207",
         },
         wld: {
-          amount: "",
+          amount: "4.36",
           transactionHash: "",
         },
       },
@@ -619,11 +646,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1520",
+          transactionHash:
+            "0x8f97e62e094e43d1757b1e0e5f4b3c4e9f51174f05c2e773468fbc5196e71375",
         },
         wld: {
-          amount: "",
+          amount: "4.32",
           transactionHash: "",
         },
       },
@@ -656,11 +684,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1508",
+          transactionHash:
+            "0x7d0c07ce9e3037ee7596935e648453035987d7d3dfbb0ba3c858ef7eda125c5b",
         },
         wld: {
-          amount: "",
+          amount: "4.29",
           transactionHash: "",
         },
       },
@@ -693,11 +722,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1511",
+          transactionHash:
+            "0x50458b35ee5870f60b5e1474c9f8f196d6e57987587e95f24bba62f7e306508a",
         },
         wld: {
-          amount: "",
+          amount: "4.30",
           transactionHash: "",
         },
       },
@@ -730,11 +760,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1490",
+          transactionHash:
+            "0x1a610b344827dd073dfec995a95fb219b6eb52d34fa05ce1546d8796480ccb69",
         },
         wld: {
-          amount: "",
+          amount: "4.24",
           transactionHash: "",
         },
       },
@@ -767,11 +798,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1469",
+          transactionHash:
+            "0x96f05125150b623d1b9278c41bbf33dc69b91bcccaef430ff7afd30ef45bb70b",
         },
         wld: {
-          amount: "",
+          amount: "4.18",
           transactionHash: "",
         },
       },
@@ -804,11 +836,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1445",
+          transactionHash:
+            "0x26124ba389f6f28ba738dff6034d26eb42b6b5bdab26bb2cbd489c0db2a337bf",
         },
         wld: {
-          amount: "",
+          amount: "4.11",
           transactionHash: "",
         },
       },
@@ -841,11 +874,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1439",
+          transactionHash:
+            "0x772ff6eade44c576f3e7ec11c72e310412dde716a28741c26d93ffd6b1a05b0f",
         },
         wld: {
-          amount: "",
+          amount: "4.09",
           transactionHash: "",
         },
       },
@@ -878,11 +912,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1412",
+          transactionHash:
+            "0x7c46951f2b6019c257a6b524d474dc1efc6f47c42de5f6b5446ad9d44b2a6e6b",
         },
         wld: {
-          amount: "",
+          amount: "4.01",
           transactionHash: "",
         },
       },
@@ -915,11 +950,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1388",
+          transactionHash:
+            "0x82bbbbd5470a07f25bd5fce8e382d67d0ec561226b5c039cb63b920f26d4ca15",
         },
         wld: {
-          amount: "",
+          amount: "3.95",
           transactionHash: "",
         },
       },
@@ -952,11 +988,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1382",
+          transactionHash:
+            "0x088e10fe6c5ecb59150a1a93464cd9b28052813af9ca5dc359156af95bdfbea9",
         },
         wld: {
-          amount: "",
+          amount: "3.93",
           transactionHash: "",
         },
       },
@@ -989,11 +1026,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1370",
+          transactionHash:
+            "0x96ac8e3e538d2ded2de8688291457c9ed81642537385a3afa7eb183aafde745d",
         },
         wld: {
-          amount: "",
+          amount: "3.89",
           transactionHash: "",
         },
       },
@@ -1026,11 +1064,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1349",
+          transactionHash:
+            "0x2b41cd717f1bed9ac51972b169e773be2e74d4e37ec92c5deb450660b1512734",
         },
         wld: {
-          amount: "",
+          amount: "3.84",
           transactionHash: "",
         },
       },
@@ -1433,11 +1472,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1328",
+          transactionHash:
+            "0x8eb986c4fbd4782c12981311905d05ee4cdf59994981c72c0b914f1120b57d64",
         },
         wld: {
-          amount: "",
+          amount: "3.78",
           transactionHash: "",
         },
       },
@@ -1854,7 +1894,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 3979,
     name: "100.000 World Coin",
     leaderAddress: "0x72218bbd0cc41469154ded707a96226a67ba6b0b",
-    leaderUsername: "",
+    leaderUsername: "rahmattaufik.5405",
     get totalWdd() {
       return calculateTotal(this.weeklyPayouts, "wdd");
     },
@@ -1876,11 +1916,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "2967",
+          transactionHash:
+            "0x8a4693653e0235678392dfc0ce84364662f5249bd6d3c70e91b2004bb532703a",
         },
         wld: {
-          amount: "",
+          amount: "8.44",
           transactionHash: "",
         },
       },
@@ -1890,7 +1931,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 3149,
     name: "FREE WORLD COINS",
     leaderAddress: "0xf25abcfbf2cad2fed5f0f8e47e193d235ac0b7f3",
-    leaderUsername: "",
+    leaderUsername: "onlinebanking",
     get totalWdd() {
       return calculateTotal(this.weeklyPayouts, "wdd");
     },
@@ -1912,11 +1953,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "2513",
+          transactionHash:
+            "0x093fb6e88c6b6a6b4975ae8ed380368ba4c218fdb113a6e1e2f091fa6cca0f01",
         },
         wld: {
-          amount: "",
+          amount: "7.14",
           transactionHash: "",
         },
       },
@@ -1926,7 +1968,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 3381,
     name: "Humildemente somos pocos",
     leaderAddress: "0x63877a19611d310d6bece8de69033692cb1f0b45",
-    leaderUsername: "",
+    leaderUsername: "ferrr98",
     get totalWdd() {
       return calculateTotal(this.weeklyPayouts, "wdd");
     },
@@ -1948,11 +1990,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1782",
+          transactionHash:
+            "0x00b40e8e66eb362c1be143250b94a7114ae0abcf7d95588f770ea4608648289f",
         },
         wld: {
-          amount: "",
+          amount: "5.07",
           transactionHash: "",
         },
       },
@@ -1962,7 +2005,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 1304,
     name: "TPulseFi",
     leaderAddress: "0xf04a78df4cc3017c0c23f37528d7b6cbbeea6677",
-    leaderUsername: "",
+    leaderUsername: "tpulsefi",
     get totalWdd() {
       return calculateTotal(this.weeklyPayouts, "wdd");
     },
@@ -1984,11 +2027,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1872",
+          transactionHash:
+            "0xa1edd97cec227212653e9421a866bf72db9b8f48e6f8f66eba8e0e78f0792c94",
         },
         wld: {
-          amount: "",
+          amount: "5.32",
           transactionHash: "",
         },
       },
@@ -1998,7 +2042,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 3673,
     name: "WDD REPUBLIK",
     leaderAddress: "0x697227fdb0611737b9080762092876f6092e504b",
-    leaderUsername: "",
+    leaderUsername: "brew.5910",
     get totalWdd() {
       return calculateTotal(this.weeklyPayouts, "wdd");
     },
@@ -2020,11 +2064,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1632",
+          transactionHash:
+            "0x517a752efc5e0c1de4845d92b200478720b3f30aec38e4072ccb636d8917f7d6",
         },
         wld: {
-          amount: "",
+          amount: "4.64",
           transactionHash: "",
         },
       },
@@ -2034,7 +2079,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 4109,
     name: "Get FREE WLD, join sekarang!!!",
     leaderAddress: "0x6c8506d6e95854c99f1e4e54f68e2099d0e4fcb9",
-    leaderUsername: "",
+    leaderUsername: "yugolaksono.5121",
     get totalWdd() {
       return calculateTotal(this.weeklyPayouts, "wdd");
     },
@@ -2056,11 +2101,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1622",
+          transactionHash:
+            "0x24251de90cca135481816e23d73cb401c1d04166ce3b67a4de8b128888eda2e1",
         },
         wld: {
-          amount: "",
+          amount: "4.61",
           transactionHash: "",
         },
       },
@@ -2070,7 +2116,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 3721,
     name: "GABUNG DAN DAPATKAN FREE Rp.50.000,- SETELAH JOIN",
     leaderAddress: "0x9491ddf6892a1f14d3bd996b6481cf47bef863b9",
-    leaderUsername: "",
+    leaderUsername: "0x9491...63b9",
     get totalWdd() {
       return calculateTotal(this.weeklyPayouts, "wdd");
     },
@@ -2092,11 +2138,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1613",
+          transactionHash:
+            "0x2b1e423dec95c6212f18d3c9c4fe8a0cb28a94025edc1a80ac800ec431d35314",
         },
         wld: {
-          amount: "",
+          amount: "4.59",
           transactionHash: "",
         },
       },
@@ -2106,7 +2153,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 4137,
     name: "GRATIS WLD",
     leaderAddress: "0xf788355d36278b734dd0d9e7f54317b8e46acfad",
-    leaderUsername: "",
+    leaderUsername: "imaferik.6784",
     get totalWdd() {
       return calculateTotal(this.weeklyPayouts, "wdd");
     },
@@ -2128,11 +2175,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1580",
+          transactionHash:
+            "0xf30bd4b02cdd3c29f74e51e42b6eac6c6461b17ad0072cbe4af6710537c60669",
         },
         wld: {
-          amount: "",
+          amount: "4.49",
           transactionHash: "",
         },
       },
@@ -2142,7 +2190,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 3415,
     name: "Partai Republic Coin",
     leaderAddress: "0xa11928d9a92a2e1ca5877d32a2f70b7dabd51b0c",
-    leaderUsername: "",
+    leaderUsername: "ondel.8888",
     get totalWdd() {
       return calculateTotal(this.weeklyPayouts, "wdd");
     },
@@ -2164,11 +2212,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1529",
+          transactionHash:
+            "0x27b9d794fd56a86fc096725f9cdfb4489992ef3dcfeeabdfa6040cd478f2f23c",
         },
         wld: {
-          amount: "",
+          amount: "4.35",
           transactionHash: "",
         },
       },
@@ -2178,7 +2227,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 3039,
     name: "🔘 United New Humanity Party - UNHP",
     leaderAddress: "0xf52adbe72dc532e4564e1c0256e45ca0d0d012ab",
-    leaderUsername: "",
+    leaderUsername: "elias.6600",
     get totalWdd() {
       return calculateTotal(this.weeklyPayouts, "wdd");
     },
@@ -2200,11 +2249,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1523",
+          transactionHash:
+            "0x33c408634cc421d836e2c7f6c05aabf9c4bb3be2f5d76f9298d18c87bc32b483",
         },
         wld: {
-          amount: "",
+          amount: "4.33",
           transactionHash: "",
         },
       },
@@ -2214,7 +2264,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 3556,
     name: "CLAIM 250 WLD ✔️",
     leaderAddress: "0x4e05a1a7f6b44850e4fc380ddcc21a07afc27049",
-    leaderUsername: "",
+    leaderUsername: "ceo999",
     get totalWdd() {
       return calculateTotal(this.weeklyPayouts, "wdd");
     },
@@ -2236,11 +2286,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1499",
+          transactionHash:
+            "0x4e403e2d61dc46a45cccfd65d212f7e4a3a464412ea4ebe1d1c4152e12d6ab2b",
         },
         wld: {
-          amount: "",
+          amount: "4.26",
           transactionHash: "",
         },
       },
@@ -2250,7 +2301,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 3167,
     name: "World Indonesia bersatu",
     leaderAddress: "0xdef877654ec503afa09a227f954a231617ec5e57",
-    leaderUsername: "",
+    leaderUsername: "asepyusup.7975",
     get totalWdd() {
       return calculateTotal(this.weeklyPayouts, "wdd");
     },
@@ -2272,11 +2323,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1499",
+          transactionHash:
+            "0x20f8144a1ab17b862ab6a6ecd5325f926dacb5718ce1d8ffc44280913d0fc757",
         },
         wld: {
-          amount: "",
+          amount: "4.26",
           transactionHash: "",
         },
       },
@@ -2286,7 +2338,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 3526,
     name: "Gabung dengan saya Get Free your world coin ditiap 100.000 wld",
     leaderAddress: "0xa457f57d16b51145788a3cc89e65851a679e5e45",
-    leaderUsername: "",
+    leaderUsername: "firmansyah.8293",
     get totalWdd() {
       return calculateTotal(this.weeklyPayouts, "wdd");
     },
@@ -2308,11 +2360,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1481",
+          transactionHash:
+            "0x655e73e66a80e69d75dae275a1e290327f10ca1ad53f386ab7f4194da0533c16",
         },
         wld: {
-          amount: "",
+          amount: "4.21",
           transactionHash: "",
         },
       },
@@ -2322,7 +2375,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 3825,
     name: "Dapat koin gratis 999++",
     leaderAddress: "0xd9d5c85fc1776621428091f108c36ec450f4e3ac",
-    leaderUsername: "",
+    leaderUsername: "0xd9d5...e3ac",
     get totalWdd() {
       return calculateTotal(this.weeklyPayouts, "wdd");
     },
@@ -2344,11 +2397,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1409",
+          transactionHash:
+            "0xd5078c2a2afc5bbe97c10b7c5c8dcf24ce9ed8a5849c17c6d65ffcf2170a7be8",
         },
         wld: {
-          amount: "",
+          amount: "4.01",
           transactionHash: "",
         },
       },
@@ -2358,7 +2412,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 3006,
     name: "Bgolden",
     leaderAddress: "0xae31b7566b4765cda92e0f0cf33a5d185b55e674",
-    leaderUsername: "",
+    leaderUsername: "andres.4837",
     get totalWdd() {
       return calculateTotal(this.weeklyPayouts, "wdd");
     },
@@ -2380,11 +2434,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1400",
+          transactionHash:
+            "0xe0b2a6a05adecdef9c5b946ec2ce17a832bbc6261be4dd8caf7b15c79ff319b2",
         },
         wld: {
-          amount: "",
+          amount: "3.98",
           transactionHash: "",
         },
       },
@@ -2394,7 +2449,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 3159,
     name: "Argentina Republic",
     leaderAddress: "0x4c34857bbf51b584b36c4db4e4591da990c022b7",
-    leaderUsername: "",
+    leaderUsername: "tordoya13",
     get totalWdd() {
       return calculateTotal(this.weeklyPayouts, "wdd");
     },
@@ -2416,11 +2471,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1397",
+          transactionHash:
+            "0xf930218cc14aa6570a3590c503bd8ac21fd20b35c2f40ae3c23706210367ed1c",
         },
         wld: {
-          amount: "",
+          amount: "3.97",
           transactionHash: "",
         },
       },
@@ -2430,7 +2486,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 3490,
     name: "Maju Jaya Sejahtera",
     leaderAddress: "0x71197e5bb924298c92dcdf618f6be16bce1dd064",
-    leaderUsername: "",
+    leaderUsername: "sapoetra.3907",
     get totalWdd() {
       return calculateTotal(this.weeklyPayouts, "wdd");
     },
@@ -2452,11 +2508,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1376",
+          transactionHash:
+            "0x35343c8b832ab9a252fcaa75193c96031f985e0461466e1e5b95f3266995ceb1",
         },
         wld: {
-          amount: "",
+          amount: "3.91",
           transactionHash: "",
         },
       },
@@ -2466,7 +2523,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 4372,
     name: "World Coin Indonesia",
     leaderAddress: "0x4d68b23c251640d8fbf9981b98b8811689c1b75d",
-    leaderUsername: "",
+    leaderUsername: "rangs_09",
     get totalWdd() {
       return calculateTotal(this.weeklyPayouts, "wdd");
     },
@@ -2488,11 +2545,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1373",
+          transactionHash:
+            "0x80659f0c66637fa4461f5161cd349522d2454e1c3b3cb1175caddefa1070c86c",
         },
         wld: {
-          amount: "",
+          amount: "3.90",
           transactionHash: "",
         },
       },
@@ -2500,9 +2558,9 @@ export const latestPayouts: PartyPayout[] = [
   },
   {
     id: 3402,
-    name: "INDONESIAN DEMOCRATIC WDD🇮🇩🇮🇩🇮",
+    name: "INDONESIAN DEMOCRATIC WDD🇮🇩🇮🇩🇮🇩",
     leaderAddress: "0xd79d7f957a95b53a7508799b00341979d903a360",
-    leaderUsername: "",
+    leaderUsername: "reincarnate.1801",
     get totalWdd() {
       return calculateTotal(this.weeklyPayouts, "wdd");
     },
@@ -2524,11 +2582,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1373",
+          transactionHash:
+            "0x5e07ee40e4e0bac9c5040c90f81367b34afe9f8a0f1d495dee3898e7e1bacf05",
         },
         wld: {
-          amount: "",
+          amount: "3.90",
           transactionHash: "",
         },
       },
@@ -2538,7 +2597,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 3262,
     name: "DAGET SETIAP HARI",
     leaderAddress: "0xdf25e94d41bd00c47dc7e6529208ac18cb00a78c",
-    leaderUsername: "",
+    leaderUsername: "whalebtc",
     get totalWdd() {
       return calculateTotal(this.weeklyPayouts, "wdd");
     },
@@ -2560,11 +2619,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1358",
+          transactionHash:
+            "0xfcdcf68e252454f657f8b8428a233356f7eee5bba790988e2c149c1c654fe4e2",
         },
         wld: {
-          amount: "",
+          amount: "3.86",
           transactionHash: "",
         },
       },
@@ -2574,7 +2634,7 @@ export const latestPayouts: PartyPayout[] = [
     id: 3207,
     name: "Partido Indígena Colombiano",
     leaderAddress: "0x30ef3e3f56c67bc59428e98f70aeff1de92bf8c1",
-    leaderUsername: "",
+    leaderUsername: "admJulioCesar",
     get totalWdd() {
       return calculateTotal(this.weeklyPayouts, "wdd");
     },
@@ -2596,11 +2656,12 @@ export const latestPayouts: PartyPayout[] = [
       {
         weekNumber: 2,
         wdd: {
-          amount: "",
-          transactionHash: "",
+          amount: "1346",
+          transactionHash:
+            "0x14c254721f716007f7eb395e4569c2a94b122e92ba35cfa4f92ef9d0d5318bfc",
         },
         wld: {
-          amount: "",
+          amount: "3.83",
           transactionHash: "",
         },
       },
