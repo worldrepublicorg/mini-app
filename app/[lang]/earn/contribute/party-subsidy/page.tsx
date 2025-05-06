@@ -10,7 +10,7 @@ import {
   PiRocketLaunch,
   PiInfoFill,
 } from "react-icons/pi";
-import { BiChevronLeft, BiLinkExternal } from "react-icons/bi";
+import { BiChevronLeft, BiChevronUp, BiLinkExternal } from "react-icons/bi";
 import { useTranslations } from "@/hooks/useTranslations";
 import { useEffect, useState } from "react";
 import { latestPayouts } from "@/data/payouts/payouts";
@@ -24,6 +24,11 @@ export default function PartySubsidyPage({
   const [expandedParties, setExpandedParties] = useState<number[]>([]);
   const [showAllParties, setShowAllParties] = useState(false);
 
+  // Sort payouts by total WDD in descending order
+  const sortedPayouts = [...latestPayouts].sort(
+    (a, b) => parseFloat(b.totalWdd) - parseFloat(a.totalWdd)
+  );
+
   const toggleParty = (partyId: number) => {
     setExpandedParties((prev) =>
       prev.includes(partyId)
@@ -35,7 +40,7 @@ export default function PartySubsidyPage({
   const renderPayoutsList = () => (
     <div className="divide-y divide-gray-100">
       {/* Party rows */}
-      {(showAllParties ? latestPayouts : latestPayouts.slice(0, 3)).map(
+      {(showAllParties ? sortedPayouts : sortedPayouts.slice(0, 3)).map(
         (party) => (
           <div key={party.id}>
             {/* Party Header - Always visible */}
@@ -87,6 +92,7 @@ export default function PartySubsidyPage({
             {expandedParties.includes(party.id) && (
               <div className="divide-y divide-gray-100 bg-gray-50">
                 {party.weeklyPayouts
+                  .filter((week) => week.wdd.amount !== "") // Only show weeks with WDD amounts
                   .sort((a, b) => a.weekNumber - b.weekNumber)
                   .map((weekPayout) => (
                     <div
@@ -131,7 +137,7 @@ export default function PartySubsidyPage({
           </div>
         )
       )}
-      {!showAllParties && latestPayouts.length > 3 && (
+      {!showAllParties && sortedPayouts.length > 3 && (
         <div className="px-4">
           <Button
             variant="ghost"
@@ -365,8 +371,11 @@ export default function PartySubsidyPage({
           </div>
           {/* Weekly Payout Results Section */}
           <div className="overflow-hidden rounded-xl border border-gray-200 bg-gray-0 shadow-sm">
-            <div className="border-b border-gray-200 bg-gradient-to-r from-gray-50 to-gray-0 p-4">
-              <div className="flex items-center">
+            <button
+              onClick={() => setShowAllParties(!showAllParties)}
+              className="w-full"
+            >
+              <div className="flex items-center justify-between border-b border-gray-200 bg-gradient-to-r from-gray-50 to-gray-0 p-4">
                 <Typography
                   as="h3"
                   variant={{ variant: "subtitle", level: 2 }}
@@ -377,8 +386,11 @@ export default function PartySubsidyPage({
                       ?.payouts?.title
                   }
                 </Typography>
+                {showAllParties && (
+                  <BiChevronUp className="size-[20px] text-gray-500 transition-transform duration-200" />
+                )}
               </div>
-            </div>
+            </button>
             <div className="divide-y divide-gray-100">
               {renderPayoutsList()}
             </div>

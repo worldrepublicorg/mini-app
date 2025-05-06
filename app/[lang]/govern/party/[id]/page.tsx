@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useTranslations } from "@/hooks/useTranslations";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { useToast } from "@/components/ui/Toast";
-import { BiChevronLeft, BiChevronDown, BiShareAlt } from "react-icons/bi";
+import { BiChevronLeft, BiShareAlt, BiChevronUp } from "react-icons/bi";
 import {
   PiUserFocusBold,
   PiLinkSimpleBold,
@@ -569,12 +569,9 @@ export default function PartyDetailPage({
                     {formatNumber(party?.memberCount || 0)})
                   </Typography>
 
-                  {party?.members.length > 3 &&
-                    (showAllMembers ? (
-                      <BiChevronDown className="size-[22px] text-gray-500 transition-transform duration-200" />
-                    ) : (
-                      <BiChevronLeft className="size-[22px] text-gray-500 transition-transform duration-200" />
-                    ))}
+                  {party?.members.length > 3 && showAllMembers && (
+                    <BiChevronUp className="size-[20px] text-gray-500 transition-transform duration-200" />
+                  )}
                 </div>
               </button>
 
@@ -633,6 +630,21 @@ export default function PartyDetailPage({
                         </a>
                       </div>
                     ))}
+
+                  {/* Show All button */}
+                  {!showAllMembers && party?.members.length > 3 && (
+                    <div className="border-t border-gray-100 px-4">
+                      <Button
+                        variant="ghost"
+                        fullWidth
+                        onClick={() => setShowAllMembers(true)}
+                        className="h-12 text-sm font-medium"
+                      >
+                        {dictionary?.components?.politicalPartyList?.showAll ||
+                          "Show All"}
+                      </Button>
+                    </div>
+                  )}
                 </div>
               ) : (
                 <Typography
