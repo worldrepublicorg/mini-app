@@ -1617,49 +1617,16 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           </button>
         </div>
 
-        {userPartyId > 0 ? (
-          // Display the user's party using fetchPartyById
+        {userPartyId > 0 || userPartyId === -1 ? (
+          // Always show the party card - either with real ID or temporary (-1) ID
           <FetchUserParty
             partyId={userPartyId}
             renderPartyCard={renderPartyCard}
             walletAddress={walletAddress}
             showToast={showToast}
           />
-        ) : isCreating ? (
-          // Show a better placeholder that resembles a pending party
-          <div className="rounded-xl border border-gray-200 p-4">
-            <div className="mb-4 rounded-xl border border-gray-200 bg-gray-50 p-4 text-gray-700">
-              <div className="flex items-start gap-2">
-                <PiInfoFill className="mt-0.5 h-4 w-4 flex-shrink-0 text-gray-500" />
-                <Typography
-                  variant={{ variant: "body", level: 3 }}
-                  className="text-gray-600"
-                >
-                  {dictionary?.components?.politicalPartyList?.approvalNote}
-                </Typography>
-              </div>
-            </div>
-            <div className="flex items-center justify-between">
-              <div className="flex-1">
-                <div className="h-6 w-40 animate-pulse rounded bg-gray-200"></div>
-              </div>
-              <div className="flex gap-2">
-                <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
-                  {
-                    dictionary?.components?.politicalPartyList?.partyCard
-                      ?.pending
-                  }
-                </span>
-                <button className="text-gray-600 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100">
-                  <PiGearBold size={16} />
-                </button>
-              </div>
-            </div>
-            <div className="mt-3 h-16 w-full animate-pulse rounded bg-gray-200"></div>
-            <div className="mt-4 h-10 w-full animate-pulse rounded bg-gray-200"></div>
-          </div>
         ) : (
-          // Message when user hasn't joined or created a party
+          // Only show this when user truly has no party
           <div className="p-4 text-center text-gray-500">
             {dictionary?.components?.politicalPartyList?.noParty}
           </div>
@@ -1669,7 +1636,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   }, [
     userPartyId,
     walletAddress,
-    isCreating,
     showToast,
     renderPartyCard,
     handleCreatePartyClick,
