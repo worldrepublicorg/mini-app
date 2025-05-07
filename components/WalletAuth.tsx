@@ -1,11 +1,12 @@
 "use client";
 
 import { MiniKit } from "@worldcoin/minikit-js";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "./ui/Button";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { useToast } from "./ui/Toast";
 import { useTranslations } from "@/hooks/useTranslations";
+import { useMiniKit } from "./providers/minikit-provider";
 
 interface WalletAuthProps {
   lang: string;
@@ -45,6 +46,30 @@ export function WalletAuth({ lang, onError, onSuccess }: WalletAuthProps) {
   const [isLoading, setIsLoading] = useState(false);
   const { setWalletAddress, setUsername } = useWallet();
   const { showToast } = useToast();
+  const { isInstalled, isInitializing } = useMiniKit();
+  const [miniKitChecked, setMiniKitChecked] = useState(false);
+
+  // Add a retry mechanism for checking MiniKit installation
+  useEffect(() => {
+    if (isInitializing) return;
+
+    let retryCount = 0;
+    const maxRetries = 3;
+    const checkInterval = setInterval(() => {
+      const currentInstalled = MiniKit.isInstalled();
+      console.log(
+        `MiniKit installation check (${retryCount}): ${currentInstalled}`
+      );
+
+      if (currentInstalled || retryCount >= maxRetries) {
+        clearInterval(checkInterval);
+        setMiniKitChecked(true);
+      }
+      retryCount++;
+    }, 1000);
+
+    return () => clearInterval(checkInterval);
+  }, [isInitializing]);
 
   const handleError = (message: string) => {
     console.error("handleError:", message);
@@ -54,7 +79,9 @@ export function WalletAuth({ lang, onError, onSuccess }: WalletAuthProps) {
 
   const signInWithWallet = async () => {
     console.log("signInWithWallet: Button clicked");
-    if (!MiniKit.isInstalled()) {
+
+    // Use the context value first, then fall back to direct check
+    if (!isInstalled && !MiniKit.isInstalled()) {
       console.warn("signInWithWallet: MiniKit is not installed");
       handleError("MiniKit is not installed");
       showToast(
@@ -199,6 +226,15 @@ export function WalletAuth({ lang, onError, onSuccess }: WalletAuthProps) {
       setIsLoading(false);
     }
   };
+
+  // Don't show the button until we've checked MiniKit properly
+  if (isInitializing && !miniKitChecked) {
+    return (
+      <Button disabled isLoading fullWidth>
+        {dictionary?.components?.walletAuth?.connect || "Connect Wallet"}
+      </Button>
+    );
+  }
 
   return (
     <Button onClick={signInWithWallet} isLoading={isLoading} fullWidth>
