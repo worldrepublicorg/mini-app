@@ -163,45 +163,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       // Clear the transaction ID
       setTransactionId(null);
 
-      // Get the transaction details to find the party ID
-      const fetchNewPartyId = async () => {
-        try {
-          // Try to extract party ID from transaction receipt
-          const receipt = await viemClient.getTransactionReceipt({
-            hash: transactionId as `0x${string}`,
-          });
-
-          // Get details from event logs - assuming there's a log emitted with party ID
-          if (receipt && receipt.logs && receipt.logs.length > 0) {
-            // After fetching the transaction receipt, refresh parties
-            fetchActiveParties();
-            fetchPendingParties();
-          } else {
-            // Fallback approach: just refresh all parties, party will appear in pending
-            fetchActiveParties();
-            fetchPendingParties();
-          }
-        } catch (error) {
-          console.error("Error getting transaction details:", error);
-          // Fallback to just refreshing parties
-          fetchActiveParties();
-          fetchPendingParties();
-        }
-
-        // Reset creation state
-        setIsCreating(false);
-        showToast("Party created successfully", "success");
-      };
-
-      fetchNewPartyId();
+      // Reset creation state
+      setIsCreating(false);
+      showToast("Party created successfully", "success");
     }
-  }, [
-    isSuccess,
-    transactionId,
-    fetchActiveParties,
-    fetchPendingParties,
-    viemClient,
-  ]);
+  }, [isSuccess, transactionId]);
 
   useEffect(() => {
     // Mark govern section as visited when this component loads
@@ -767,28 +733,13 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       return;
     }
 
-    // Additional validation before submitting to the contract
-    if (!createPartyForm.name.trim()) {
-      showToast("Party name cannot be empty", "error");
-      return;
-    }
-
-    if (!createPartyForm.shortName.trim()) {
-      showToast("Short name cannot be empty", "error");
-      return;
-    }
-
-    if (!createPartyForm.description.trim()) {
-      showToast("Description cannot be empty", "error");
-      return;
-    }
-
-    // Official link is optional, but if provided, it cannot be empty
+    // Basic validation
     if (
-      createPartyForm.officialLink.trim() === "" &&
-      createPartyForm.officialLink !== ""
+      !createPartyForm.name.trim() ||
+      !createPartyForm.shortName.trim() ||
+      !createPartyForm.description.trim()
     ) {
-      showToast("Official link cannot contain only whitespace", "error");
+      showToast("Please fill in all required fields", "error");
       return;
     }
 
@@ -816,14 +767,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         if (finalPayload.error_code !== "user_rejected") {
           showToast("Failed to create party", "error");
         }
-        setIsCreating(false); // Reset isCreating on error
       } else {
-        // Set transaction ID for tracking
-        setTransactionId(finalPayload.transaction_id);
-
-        // Create optimistic UI update - simulate a pending party
+        // Create optimistic party
         const newParty: Party = {
-          id: -1, // Temporary ID
+          id: -1,
           name: createPartyForm.name.trim(),
           shortName: createPartyForm.shortName.trim(),
           description: createPartyForm.description.trim(),
@@ -835,15 +782,13 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           verifiedMemberCount: 0,
           creationTime: Math.floor(Date.now() / 1000),
           active: false,
-          status: 0, // PENDING
+          status: 0,
           isUserMember: true,
           isUserLeader: true,
         };
 
-        // Store the optimistic party data in a temporary state
         storeUserParty(newParty);
-
-        // Close the drawer and reset form
+        setUserPartyId(-1);
         setIsCreateDrawerOpen(false);
         setCreatePartyForm({
           name: "",
@@ -851,17 +796,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           description: "",
           officialLink: "",
         });
-
-        // Set a temporary party ID to show it in the UI
-        setUserPartyId(-1);
-
-        showToast("Party creation in progress", "info");
-        // Note: Don't reset isCreating here - wait for the transaction to complete
       }
     } catch (error) {
       console.error("Error creating party:", error);
       showToast("Error creating party", "error");
-      setIsCreating(false); // Reset isCreating on exception
+    } finally {
+      setIsCreating(false);
     }
   };
 
