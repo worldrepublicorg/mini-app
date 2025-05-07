@@ -241,11 +241,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             const partyId = Number(logs[0].args.partyId);
             console.log("[PartyCreated] New party ID:", partyId);
 
-            // Get current optimistic party data from context
-            const { userPartyData } = useParties(); // This won't work directly in the event listener
-
-            // Instead, we need to update the party directly in the event listener
-            // by using the existing storeUserParty function
+            // Only update the ID in the optimistic party data
             if (userPartyId === -1) {
               // Update the existing optimistic party with the real ID
               const optimisticParty = JSON.parse(
@@ -290,7 +286,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     } catch (error) {
       console.error("[PartyCreated] Error setting up event listener:", error);
     }
-  }, [walletAddress, setUserPartyId]);
+  }, [walletAddress, setUserPartyId, userPartyId, storeUserParty]);
 
   // Function to scroll back to top
   const scrollToTop = () => {
