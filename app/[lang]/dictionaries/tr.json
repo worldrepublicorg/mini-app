@@ -254,7 +254,7 @@
           "claimableSubtitle": "Talep edilebilir drahmi",
           "claimableTooltip1": "Bizim",
           "claimableTooltip2": "geri alım programımızın",
-          "claimableTooltip3": " bir parçası olarak, topluluğumuz için sürdürülebilir, uzun vadeli faydalar yaratmak için temel gelir seviyelerini ince ayarlarla düzenliyoruz. Güncel oranlar için",
+          "claimableTooltip3": " bir parçası olarak, topluluğumuz için sürdürülebilir, uzun vadeli faydalar yaratmak için temel gelir seviyelerini ince ayarlarla düzenliyoruz. Lütfen güncel oranlar için",
           "claimableTooltip4": "SSS",
           "claimableTooltip5": "'e bakın.",
           "activateButton": "Temel Geliri Etkinleştir",
@@ -535,7 +535,7 @@
                 },
                 "earnRewards": {
                   "title": "Ödüller Kazanın",
-                  "description": "En iyi 50 partinin liderleri haftalık sübvansiyonlar alır"
+                  "description": "İlk 50 parti sıralamasını koruyarak haftalık sübvansiyonlar alın"
                 }
               }
             },

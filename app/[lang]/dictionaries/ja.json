@@ -253,9 +253,9 @@
           "claimableSubtitle": "請求可能なドラクマ",
           "claimableTooltip1": "私たちの",
           "claimableTooltip2": "バイバックプログラム",
-          "claimableTooltip3": "の一環として、コミュニティに持続可能な長期的利益をもたらすために基本所得のレベルを微調整しています。現在のレートについては",
+          "claimableTooltip3": "の一環として、コミュニティに持続可能な長期的利益をもたらすために基本所得のレベルを微調整しています。現在のレートについては、",
           "claimableTooltip4": "FAQ",
-          "claimableTooltip5": "をご覧ください。",
+          "claimableTooltip5": "をご参照ください。",
           "activateButton": "ベーシックインカムを有効化",
           "claimButton": "請求",
           "plus": {
@@ -534,7 +534,7 @@
                 },
                 "earnRewards": {
                   "title": "報酬を獲得",
-                  "description": "上位50政党のリーダーは毎週補助金を受け取ります"
+                  "description": "トップ50の党ランキングを維持することで毎週補助金を受け取る"
                 }
               }
             },

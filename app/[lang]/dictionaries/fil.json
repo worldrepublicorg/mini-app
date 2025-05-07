@@ -252,7 +252,7 @@
           "claimableSubtitle": "Maa-claim na drachma",
           "claimableTooltip1": "Bilang bahagi ng aming",
           "claimableTooltip2": "programa ng buyback",
-          "claimableTooltip3": ", kami ay nag-aadjust ng antas ng basic income upang makalikha ng pangmatagalang benepisyo para sa aming komunidad. Tingnan ang",
+          "claimableTooltip3": ", kami ay nag-aadjust ng antas ng basic income upang makalikha ng pangmatagalang benepisyo para sa aming komunidad. Mangyaring tingnan ang",
           "claimableTooltip4": "FAQ",
           "claimableTooltip5": "para sa kasalukuyang rates.",
           "activateButton": "I-activate ang Basic Income",
@@ -466,8 +466,8 @@
                   "description": "Mag-recruit ng mga miyembro at bumuo ng iyong komunidad"
                 },
                 "earnRewards": {
-                  "title": "Kumita ng Mga Gantimpala",
-                  "description": "Ang mga lider ng nangungunang 50 partido ay tumatanggap ng lingguhang subsidiya"
+                  "title": "Kumita ng Rewards",
+                  "description": "Tumanggap ng lingguhang subsidyo sa pamamagitan ng pagpapanatili ng top 50 party ranking"
                 }
               }
             },

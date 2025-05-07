@@ -254,7 +254,7 @@
           "claimableSubtitle": "Dostupne drahme",
           "claimableTooltip1": "Kao dio našeg",
           "claimableTooltip2": "programa otkupa",
-          "claimableTooltip3": ", usavršavamo razine temeljnog dohotka kako bismo stvorili održive, dugoročne koristi za našu zajednicu. Pogledajte",
+          "claimableTooltip3": ", usavršavamo razine temeljnog dohotka kako bismo stvorili održive, dugoročne koristi za našu zajednicu. Molimo pogledajte",
           "claimableTooltip4": "FAQ",
           "claimableTooltip5": "za trenutne stope.",
           "activateButton": "Aktiviraj Temeljni Dohodak",
@@ -534,8 +534,8 @@
                   "description": "Regrutirajte članove i izgradite svoju zajednicu"
                 },
                 "earnRewards": {
-                  "title": "Zaradite Nagrade",
-                  "description": "Vođe 50 najboljih stranaka primaju tjedne subvencije"
+                  "title": "Zaradite nagrade",
+                  "description": "Primite tjedne subvencije održavanjem ranga među 50 najboljih stranaka"
                 }
               }
             },

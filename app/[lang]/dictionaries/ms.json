@@ -254,7 +254,7 @@
           "claimableSubtitle": "Drachma yang boleh dituntut",
           "claimableTooltip1": "Sebagai sebahagian daripada",
           "claimableTooltip2": "program pembelian balik",
-          "claimableTooltip3": " kami, kami sedang menyelaraskan tahap pendapatan asas untuk mewujudkan faedah jangka panjang yang mampan untuk komuniti kami. Lihat",
+          "claimableTooltip3": " kami, kami sedang menyelaraskan tahap pendapatan asas untuk mewujudkan faedah jangka panjang yang mampan untuk komuniti kami. Sila lihat",
           "claimableTooltip4": "FAQ",
           "claimableTooltip5": "untuk kadar semasa.",
           "activateButton": "Aktifkan Pendapatan Asas",
@@ -535,7 +535,7 @@
                 },
                 "earnRewards": {
                   "title": "Dapatkan Ganjaran",
-                  "description": "Pemimpin 50 parti teratas menerima subsidi mingguan"
+                  "description": "Terima subsidi mingguan dengan mengekalkan kedudukan parti 50 teratas"
                 }
               }
             },

@@ -532,8 +532,8 @@
                   "description": "Mag-recruit ng mga miyembro at bumuo ng iyong komunidad"
                 },
                 "earnRewards": {
-                  "title": "Kumita ng Mga Gantimpala",
-                  "description": "Ang mga lider ng nangungunang 50 partido ay tumatanggap ng lingguhang subsidya"
+                  "title": "Kumita ng Gantimpala",
+                  "description": "Tumanggap ng lingguhang subsidyo sa pamamagitan ng pagpapanatili ng top 50 party ranking"
                 }
               }
             },

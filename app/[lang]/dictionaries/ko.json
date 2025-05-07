@@ -256,7 +256,7 @@
           "claimableTooltip2": "바이백 프로그램",
           "claimableTooltip3": "의 일환으로, 커뮤니티에 지속 가능하고 장기적인 혜택을 제공하기 위해 기본 소득 수준을 미세 조정하고 있습니다. 현재 요율은",
           "claimableTooltip4": "FAQ",
-          "claimableTooltip5": "를 참조하세요.",
+          "claimableTooltip5": "를 참조해 주세요.",
           "activateButton": "기본소득 활성화",
           "claimButton": "받기",
           "plus": {
@@ -534,8 +534,8 @@
                   "description": "구성원을 모집하고 커뮤니티를 구축하세요"
                 },
                 "earnRewards": {
-                  "title": "보상 획득",
-                  "description": "상위 50개 정당의 지도자들은 매주 보조금을 받습니다"
+                  "title": "보상 획득하기",
+                  "description": "상위 50위 정당 랭킹을 유지하며 주간 보조금 받기"
                 }
               }
             },

@@ -254,7 +254,7 @@
           "claimableSubtitle": "Claimable drachma",
           "claimableTooltip1": "As part of our",
           "claimableTooltip2": "buyback program",
-          "claimableTooltip3": ", we're fine-tuning basic income levels to create sustainable, long-term benefits for our community. See the",
+          "claimableTooltip3": ", we're fine-tuning basic income levels to create sustainable, long-term benefits for our community. Please refer to the",
           "claimableTooltip4": "FAQ",
           "claimableTooltip5": "for current rates.",
           "activateButton": "Activate Basic Income",
@@ -525,7 +525,7 @@
                 },
                 "earnRewards": {
                   "title": "Earn Rewards",
-                  "description": "The leaders of the top 50 parties receive weekly subsidies"
+                  "description": "Receive weekly subsidies by maintaining a top 50 party ranking"
                 }
               }
             },

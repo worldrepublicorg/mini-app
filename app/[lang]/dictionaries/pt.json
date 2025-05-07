@@ -254,7 +254,7 @@
           "claimableSubtitle": "Dracmas resgatáveis",
           "claimableTooltip1": "Como parte do nosso",
           "claimableTooltip2": "programa de recompra",
-          "claimableTooltip3": ", estamos ajustando os níveis de renda básica para criar benefícios sustentáveis e de longo prazo para nossa comunidade. Consulte o",
+          "claimableTooltip3": ", estamos ajustando os níveis de renda básica para criar benefícios sustentáveis e de longo prazo para nossa comunidade. Por favor, consulte o",
           "claimableTooltip4": "FAQ",
           "claimableTooltip5": "para taxas atuais.",
           "activateButton": "Ativar Renda Básica",
@@ -535,7 +535,7 @@
                 },
                 "earnRewards": {
                   "title": "Ganhe Recompensas",
-                  "description": "Os líderes dos 50 principais partidos recebem subsídios semanais"
+                  "description": "Receba subsídios semanais mantendo uma classificação entre os 50 melhores partidos"
                 }
               }
             },

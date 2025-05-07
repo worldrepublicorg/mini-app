@@ -253,7 +253,7 @@
           "claimableSubtitle": "Beanspruchbare Drachmen",
           "claimableTooltip1": "Im Rahmen unseres",
           "claimableTooltip2": "Rückkaufprogramms",
-          "claimableTooltip3": " optimieren wir die Grundeinkommensniveaus, um nachhaltige, langfristige Vorteile für unsere Gemeinschaft zu schaffen. Weitere Informationen finden Sie in den",
+          "claimableTooltip3": " optimieren wir die Grundeinkommensniveaus, um nachhaltige, langfristige Vorteile für unsere Gemeinschaft zu schaffen. Bitte beachten Sie die",
           "claimableTooltip4": "FAQ",
           "claimableTooltip5": "für aktuelle Raten.",
           "activateButton": "Grundeinkommen aktivieren",
@@ -533,8 +533,8 @@
                   "description": "Rekrutiere Mitglieder und baue deine Gemeinschaft auf"
                 },
                 "earnRewards": {
-                  "title": "Belohnungen Verdienen",
-                  "description": "Die Führungskräfte der Top-50-Parteien erhalten wöchentliche Subventionen"
+                  "title": "Belohnungen verdienen",
+                  "description": "Erhalte wöchentliche Zuschüsse durch Aufrechterhaltung eines Top-50-Partei-Rankings"
                 }
               }
             },
