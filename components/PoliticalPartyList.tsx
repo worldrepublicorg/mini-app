@@ -162,14 +162,46 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       console.log("Party creation transaction successful");
       // Clear the transaction ID
       setTransactionId(null);
-      // Refresh the parties list
-      fetchActiveParties();
-      fetchPendingParties();
-      // Reset creation state
-      setIsCreating(false);
-      showToast("Party created successfully", "success");
+
+      // Get the transaction details to find the party ID
+      const fetchNewPartyId = async () => {
+        try {
+          // Try to extract party ID from transaction receipt
+          const receipt = await viemClient.getTransactionReceipt({
+            hash: transactionId as `0x${string}`,
+          });
+
+          // Get details from event logs - assuming there's a log emitted with party ID
+          if (receipt && receipt.logs && receipt.logs.length > 0) {
+            // After fetching the transaction receipt, refresh parties
+            fetchActiveParties();
+            fetchPendingParties();
+          } else {
+            // Fallback approach: just refresh all parties, party will appear in pending
+            fetchActiveParties();
+            fetchPendingParties();
+          }
+        } catch (error) {
+          console.error("Error getting transaction details:", error);
+          // Fallback to just refreshing parties
+          fetchActiveParties();
+          fetchPendingParties();
+        }
+
+        // Reset creation state
+        setIsCreating(false);
+        showToast("Party created successfully", "success");
+      };
+
+      fetchNewPartyId();
     }
-  }, [isSuccess, transactionId, fetchActiveParties, fetchPendingParties]);
+  }, [
+    isSuccess,
+    transactionId,
+    fetchActiveParties,
+    fetchPendingParties,
+    viemClient,
+  ]);
 
   useEffect(() => {
     // Mark govern section as visited when this component loads
@@ -427,6 +459,14 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           return;
         }
 
+        // Check if this is a temporary optimistic update
+        if (partyId === -1 && userPartyData) {
+          setParty(userPartyData);
+          setLoading(false);
+          hasLoadedRef.current = true;
+          return;
+        }
+
         // Check if we have the data in context first
         if (userPartyData && userPartyData.id === partyId) {
           setParty(userPartyData);
@@ -454,7 +494,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         }
       };
 
-      if (partyId > 0) {
+      if (partyId > 0 || partyId === -1) {
         loadParty();
       }
       // Only depend on partyId which should remain stable
@@ -780,6 +820,30 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       } else {
         // Set transaction ID for tracking
         setTransactionId(finalPayload.transaction_id);
+
+        // Create optimistic UI update - simulate a pending party
+        const newParty: Party = {
+          id: -1, // Temporary ID
+          name: createPartyForm.name.trim(),
+          shortName: createPartyForm.shortName.trim(),
+          description: createPartyForm.description.trim(),
+          officialLink: createPartyForm.officialLink.trim(),
+          founder: walletAddress || "",
+          leader: walletAddress || "",
+          memberCount: 1,
+          documentVerifiedMemberCount: 0,
+          verifiedMemberCount: 0,
+          creationTime: Math.floor(Date.now() / 1000),
+          active: false,
+          status: 0, // PENDING
+          isUserMember: true,
+          isUserLeader: true,
+        };
+
+        // Store the optimistic party data in a temporary state
+        storeUserParty(newParty);
+
+        // Close the drawer and reset form
         setIsCreateDrawerOpen(false);
         setCreatePartyForm({
           name: "",
@@ -787,6 +851,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           description: "",
           officialLink: "",
         });
+
+        // Set a temporary party ID to show it in the UI
+        setUserPartyId(-1);
+
         showToast("Party creation in progress", "info");
         // Note: Don't reset isCreating here - wait for the transaction to complete
       }
@@ -1558,19 +1626,37 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             showToast={showToast}
           />
         ) : isCreating ? (
-          // Show placeholder while creating
-          <div className="rounded-lg border border-gray-200 p-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="h-12 w-12 animate-pulse rounded-full bg-gray-200"></div>
-                <div>
-                  <div className="h-5 w-40 animate-pulse rounded bg-gray-200"></div>
-                  <div className="mt-1 h-4 w-24 animate-pulse rounded bg-gray-200"></div>
-                </div>
+          // Show a better placeholder that resembles a pending party
+          <div className="rounded-xl border border-gray-200 p-4">
+            <div className="mb-4 rounded-xl border border-gray-200 bg-gray-50 p-4 text-gray-700">
+              <div className="flex items-start gap-2">
+                <PiInfoFill className="mt-0.5 h-4 w-4 flex-shrink-0 text-gray-500" />
+                <Typography
+                  variant={{ variant: "body", level: 3 }}
+                  className="text-gray-600"
+                >
+                  {dictionary?.components?.politicalPartyList?.approvalNote}
+                </Typography>
               </div>
             </div>
-            <div className="mt-3 h-4 w-full animate-pulse rounded bg-gray-200"></div>
-            <div className="mt-2 h-4 w-3/4 animate-pulse rounded bg-gray-200"></div>
+            <div className="flex items-center justify-between">
+              <div className="flex-1">
+                <div className="h-6 w-40 animate-pulse rounded bg-gray-200"></div>
+              </div>
+              <div className="flex gap-2">
+                <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
+                  {
+                    dictionary?.components?.politicalPartyList?.partyCard
+                      ?.pending
+                  }
+                </span>
+                <button className="text-gray-600 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100">
+                  <PiGearBold size={16} />
+                </button>
+              </div>
+            </div>
+            <div className="mt-3 h-16 w-full animate-pulse rounded bg-gray-200"></div>
+            <div className="mt-4 h-10 w-full animate-pulse rounded bg-gray-200"></div>
           </div>
         ) : (
           // Message when user hasn't joined or created a party
