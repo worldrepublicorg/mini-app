@@ -15,7 +15,13 @@ export function PartySkeletonCard({
   showPendingNote = false,
   dictionary,
 }: PartySkeletonCardProps) {
-  const { userPartyData } = useParties();
+  const { userPartyData, userPartyId } = useParties();
+
+  // If we have an optimistic party in state or we're transitioning from optimistic to real ID,
+  // don't show the skeleton
+  if (userPartyData && (userPartyId === -1 || userPartyData.id === -1)) {
+    return null;
+  }
 
   // Only show pending note when the user is a leader and has a pending party
   const shouldShowPendingNote =

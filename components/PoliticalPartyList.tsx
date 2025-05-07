@@ -241,18 +241,27 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             const partyId = Number(logs[0].args.partyId);
             console.log("[PartyCreated] New party ID:", partyId);
 
-            // Get userPartyData from the context
-            const { userPartyData } = useParties();
+            // Get current optimistic party data from context
+            const { userPartyData } = useParties(); // This won't work directly in the event listener
 
-            // Only update the ID in the optimistic party data
-            if (userPartyData && userPartyId === -1) {
-              const updatedParty = {
-                ...userPartyData,
-                id: partyId,
-              };
+            // Instead, we need to update the party directly in the event listener
+            // by using the existing storeUserParty function
+            if (userPartyId === -1) {
+              // Update the existing optimistic party with the real ID
+              const optimisticParty = JSON.parse(
+                localStorage.getItem("optimisticParty") || "null"
+              );
 
-              // Store the updated party data
-              storeUserParty(updatedParty);
+              if (optimisticParty) {
+                // Update the ID while keeping all other data
+                optimisticParty.id = partyId;
+
+                // Store the updated party
+                storeUserParty(optimisticParty);
+
+                // Remove temporary storage
+                localStorage.removeItem("optimisticParty");
+              }
             }
 
             // Update userPartyId
@@ -459,11 +468,13 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     const hasLoadedRef = useRef(false);
 
     useEffect(() => {
-      // Measure initial height if placeholder is rendered
-      if (loading && containerRef.current && !containerHeight) {
-        setContainerHeight(containerRef.current.offsetHeight);
+      // Only reset loading state if NOT transitioning from optimistic to real ID
+      if (partyId === -1 || (party && party.id === -1 && partyId > 0)) {
+        // Don't reset for the transition from optimistic to real ID
+        return;
       }
-    }, [loading, containerHeight]);
+      hasLoadedRef.current = false;
+    }, [partyId, party]);
 
     useEffect(() => {
       const loadParty = async () => {
@@ -815,6 +826,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       // Update state immediately with optimistic data
       storeUserParty(optimisticParty);
       setUserPartyId(-1);
+
+      // Store optimistic party in localStorage for the event listener
+      localStorage.setItem("optimisticParty", JSON.stringify(optimisticParty));
 
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
