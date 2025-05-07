@@ -457,19 +457,44 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     const { fetchPartyById, userPartyData, storeUserParty } = useParties();
     const containerRef = useRef<HTMLDivElement>(null);
 
-    // Remember the height to prevent layout shifts
+    // Remember the height to prevent layout shifts during transitions
     const [containerHeight, setContainerHeight] = useState<number | null>(null);
 
     // Create a flag to prevent refetching after the first fetch
     const hasLoadedRef = useRef(false);
+    // Track the previous party ID for smoother transitions
+    const prevPartyIdRef = useRef<number | null>(null);
+
+    // Set container height when content renders to prevent layout shifts
+    useEffect(() => {
+      if (
+        containerRef.current &&
+        containerRef.current.offsetHeight &&
+        !containerHeight
+      ) {
+        setContainerHeight(containerRef.current.offsetHeight);
+      }
+    }, [party, loading, containerHeight]);
 
     useEffect(() => {
-      // Only reset loading state if NOT transitioning from optimistic to real ID
-      if (partyId === -1 || (party && party.id === -1 && partyId > 0)) {
-        // Don't reset for the transition from optimistic to real ID
+      // Special handling for transition from optimistic ID (-1) to real ID
+      if (prevPartyIdRef.current === -1 && partyId > 0 && party) {
+        // Just update the ID in the existing party object without re-fetching
+        setParty({
+          ...party,
+          id: partyId,
+        });
+        hasLoadedRef.current = true;
         return;
       }
-      hasLoadedRef.current = false;
+
+      // Regular case: only reset loading state if not in transition
+      if (partyId !== -1 && !(party && party.id === -1 && partyId > 0)) {
+        hasLoadedRef.current = false;
+      }
+
+      // Update the ref to track transitions
+      prevPartyIdRef.current = partyId;
     }, [partyId, party]);
 
     useEffect(() => {
@@ -519,11 +544,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       }
       // Only depend on partyId which should remain stable
       // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [partyId]);
-
-    // Reset the loading flag if partyId changes
-    useEffect(() => {
-      hasLoadedRef.current = false;
     }, [partyId]);
 
     // Stable height container to prevent layout shifts
