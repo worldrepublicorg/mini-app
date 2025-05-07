@@ -26,7 +26,6 @@ import { useTranslations } from "@/hooks/useTranslations";
 import { TabSwiper } from "@/components/TabSwiper";
 import Link from "next/link";
 import { useParties } from "@/components/contexts/PartiesContext";
-import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
   "0x70a993E1D1102F018365F966B5Fc009e8FA9b7dC";
@@ -82,11 +81,8 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     pendingLoading,
     userPartyId,
     fetchActiveParties,
-    fetchPendingParties,
     setUserPartyId,
     setParties,
-    fetchPartyById,
-    userPartyData,
     storeUserParty,
   } = useParties();
 
@@ -782,6 +778,30 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
     try {
       setIsCreating(true);
+
+      // Create optimistic party immediately
+      const optimisticParty: Party = {
+        id: -1, // Temporary ID
+        name: createPartyForm.name.trim(),
+        shortName: createPartyForm.shortName.trim(),
+        description: createPartyForm.description.trim(),
+        officialLink: createPartyForm.officialLink.trim(),
+        founder: walletAddress || "",
+        leader: walletAddress || "",
+        memberCount: 1,
+        documentVerifiedMemberCount: 0,
+        verifiedMemberCount: 0,
+        creationTime: Math.floor(Date.now() / 1000),
+        active: false,
+        status: 0, // PENDING
+        isUserMember: true,
+        isUserLeader: true,
+      };
+
+      // Update state immediately with optimistic data
+      storeUserParty(optimisticParty);
+      setUserPartyId(-1);
+
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -804,28 +824,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         if (finalPayload.error_code !== "user_rejected") {
           showToast("Failed to create party", "error");
         }
+        // Just reset the userPartyId, don't try to store null
+        setUserPartyId(0);
       } else {
-        // Create optimistic party
-        const newParty: Party = {
-          id: -1,
-          name: createPartyForm.name.trim(),
-          shortName: createPartyForm.shortName.trim(),
-          description: createPartyForm.description.trim(),
-          officialLink: createPartyForm.officialLink.trim(),
-          founder: walletAddress || "",
-          leader: walletAddress || "",
-          memberCount: 1,
-          documentVerifiedMemberCount: 0,
-          verifiedMemberCount: 0,
-          creationTime: Math.floor(Date.now() / 1000),
-          active: false,
-          status: 0,
-          isUserMember: true,
-          isUserLeader: true,
-        };
-
-        storeUserParty(newParty);
-        setUserPartyId(-1);
         setIsCreateDrawerOpen(false);
         setCreatePartyForm({
           name: "",
@@ -837,6 +838,8 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     } catch (error) {
       console.error("Error creating party:", error);
       showToast("Error creating party", "error");
+      // Just reset the userPartyId, don't try to store null
+      setUserPartyId(0);
     } finally {
       setIsCreating(false);
     }
@@ -851,191 +854,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       officialLink: party.officialLink,
     });
     setIsUpdatePartyDrawerOpen(true);
-  };
-
-  const updateParty = async () => {
-    if (!selectedParty || !MiniKit.isInstalled()) {
-      showToast("Please connect your wallet first", "error");
-      return;
-    }
-
-    try {
-      // Create an array to track which fields need updating
-      const fieldsToUpdate = [];
-
-      if (updatePartyForm.name.trim() !== selectedParty.name) {
-        fieldsToUpdate.push("name");
-      }
-      if (updatePartyForm.shortName.trim() !== selectedParty.shortName) {
-        fieldsToUpdate.push("shortName");
-      }
-      if (updatePartyForm.description.trim() !== selectedParty.description) {
-        fieldsToUpdate.push("description");
-      }
-      if (updatePartyForm.officialLink.trim() !== selectedParty.officialLink) {
-        fieldsToUpdate.push("officialLink");
-      }
-
-      // If no fields need updating, return early
-      if (fieldsToUpdate.length === 0) {
-        showToast("No changes to update", "info");
-        return;
-      }
-
-      // Show which fields will be updated
-      showToast(
-        `Updates will require ${fieldsToUpdate.length} approval(s)`,
-        "info"
-      );
-
-      let allSuccessful = true;
-
-      // Update name if changed
-      if (fieldsToUpdate.includes("name")) {
-        const { finalPayload: namePayload } =
-          await MiniKit.commandsAsync.sendTransaction({
-            transaction: [
-              {
-                address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
-                abi: parseAbi([
-                  "function updatePartyName(uint256 _partyId, string memory _name) external",
-                ]),
-                functionName: "updatePartyName",
-                args: [BigInt(selectedParty.id), updatePartyForm.name.trim()],
-              },
-            ],
-          });
-
-        if (namePayload.status === "success") {
-          setParties((prevParties: Party[]) =>
-            prevParties.map((party: Party) =>
-              party.id === selectedParty.id
-                ? { ...party, name: updatePartyForm.name.trim() }
-                : party
-            )
-          );
-          showToast("Party name updated successfully", "success");
-        } else if (namePayload.error_code !== "user_rejected") {
-          showToast("Failed to update party name", "error");
-          allSuccessful = false;
-        } else {
-          allSuccessful = false;
-        }
-      }
-
-      // Only continue if previous update was successful or not rejected
-      if (allSuccessful && fieldsToUpdate.includes("shortName")) {
-        const { finalPayload: shortNamePayload } =
-          await MiniKit.commandsAsync.sendTransaction({
-            transaction: [
-              {
-                address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
-                abi: parseAbi([
-                  "function updatePartyShortName(uint256 _partyId, string memory _shortName) external",
-                ]),
-                functionName: "updatePartyShortName",
-                args: [
-                  BigInt(selectedParty.id),
-                  updatePartyForm.shortName.trim(),
-                ],
-              },
-            ],
-          });
-
-        if (shortNamePayload.status === "success") {
-          setParties((prevParties: Party[]) =>
-            prevParties.map((party: Party) =>
-              party.id === selectedParty.id
-                ? { ...party, shortName: updatePartyForm.shortName.trim() }
-                : party
-            )
-          );
-          showToast("Party short name updated successfully", "success");
-        } else if (shortNamePayload.error_code !== "user_rejected") {
-          showToast("Failed to update party short name", "error");
-          allSuccessful = false;
-        } else {
-          allSuccessful = false;
-        }
-      }
-
-      // Only continue if previous update was successful or not rejected
-      if (allSuccessful && fieldsToUpdate.includes("description")) {
-        const { finalPayload: descPayload } =
-          await MiniKit.commandsAsync.sendTransaction({
-            transaction: [
-              {
-                address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
-                abi: parseAbi([
-                  "function updatePartyDescription(uint256 _partyId, string memory _description) external",
-                ]),
-                functionName: "updatePartyDescription",
-                args: [
-                  BigInt(selectedParty.id),
-                  updatePartyForm.description.trim(),
-                ],
-              },
-            ],
-          });
-
-        if (descPayload.status === "success") {
-          setParties((prevParties: Party[]) =>
-            prevParties.map((party: Party) =>
-              party.id === selectedParty.id
-                ? { ...party, description: updatePartyForm.description.trim() }
-                : party
-            )
-          );
-          showToast("Party description updated successfully", "success");
-        } else if (descPayload.error_code !== "user_rejected") {
-          showToast("Failed to update party description", "error");
-          allSuccessful = false;
-        } else {
-          allSuccessful = false;
-        }
-      }
-
-      // Only continue if previous update was successful or not rejected
-      if (allSuccessful && fieldsToUpdate.includes("officialLink")) {
-        const linkToUse =
-          updatePartyForm.officialLink.trim() === ""
-            ? "https://placeholder.com"
-            : updatePartyForm.officialLink.trim();
-
-        const { finalPayload: linkPayload } =
-          await MiniKit.commandsAsync.sendTransaction({
-            transaction: [
-              {
-                address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
-                abi: parseAbi([
-                  "function updateOfficialLink(uint256 _partyId, string memory _officialLink) external",
-                ]),
-                functionName: "updateOfficialLink",
-                args: [BigInt(selectedParty.id), linkToUse],
-              },
-            ],
-          });
-
-        if (linkPayload.status === "success") {
-          setParties((prevParties: Party[]) =>
-            prevParties.map((party: Party) =>
-              party.id === selectedParty.id
-                ? { ...party, officialLink: linkToUse }
-                : party
-            )
-          );
-          showToast("Party official link updated successfully", "success");
-        } else if (linkPayload.error_code !== "user_rejected") {
-          showToast("Failed to update official link", "error");
-        }
-      }
-
-      // Close the drawer if we completed all updates or user rejected
-      setIsUpdatePartyDrawerOpen(false);
-    } catch (error) {
-      console.error("Error updating party:", error);
-      showToast("Error updating party", "error");
-    }
   };
 
   const transferLeadership = async () => {
@@ -1575,6 +1393,46 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
   // Create a memoized MyPartySection component
   const MyPartySection = useMemo(() => {
+    // If we have optimistic data or real data, show it
+    if (userPartyId === -1 || userPartyId > 0) {
+      return (
+        <div className="mb-6">
+          <div className="mb-3 flex items-center justify-between">
+            <Typography
+              as="h2"
+              variant={{ variant: "subtitle", level: 1 }}
+              className="text-[19px] font-semibold"
+            >
+              {dictionary?.components?.politicalPartyList?.myParty}
+            </Typography>
+            <button
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-900"
+              onClick={handleCreatePartyClick}
+              title={dictionary?.components?.politicalPartyList?.createParty}
+            >
+              <FaPlus className="text-gray-500" size={12} />
+            </button>
+          </div>
+
+          {userPartyId > 0 || userPartyId === -1 ? (
+            // Always show the party card - either with real ID or temporary (-1) ID
+            <FetchUserParty
+              partyId={userPartyId}
+              renderPartyCard={renderPartyCard}
+              walletAddress={walletAddress}
+              showToast={showToast}
+            />
+          ) : (
+            // Only show this when user truly has no party
+            <div className="p-4 text-center text-gray-500">
+              {dictionary?.components?.politicalPartyList?.noParty}
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    // Only show "no party" message when we're sure user has no party
     return (
       <div className="mb-6">
         <div className="mb-3 flex items-center justify-between">
@@ -1594,29 +1452,13 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           </button>
         </div>
 
-        {userPartyId > 0 || userPartyId === -1 ? (
-          // Always show the party card - either with real ID or temporary (-1) ID
-          <FetchUserParty
-            partyId={userPartyId}
-            renderPartyCard={renderPartyCard}
-            walletAddress={walletAddress}
-            showToast={showToast}
-          />
-        ) : (
-          // Only show this when user truly has no party
-          <div className="p-4 text-center text-gray-500">
-            {dictionary?.components?.politicalPartyList?.noParty}
-          </div>
-        )}
+        {/* ... existing header ... */}
+        <div className="p-4 text-center text-gray-500">
+          {dictionary?.components?.politicalPartyList?.noParty}
+        </div>
       </div>
     );
-  }, [
-    userPartyId,
-    walletAddress,
-    showToast,
-    renderPartyCard,
-    handleCreatePartyClick,
-  ]);
+  }, [userPartyId, walletAddress, showToast, renderPartyCard]);
 
   if (activeLoading && activeTab !== "pending") {
     return <LoadingSkeleton dictionary={dictionary} />;
