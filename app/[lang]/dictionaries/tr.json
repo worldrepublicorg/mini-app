@@ -572,6 +572,7 @@
             "title": "Önceki Anketler",
             "backToGovern": "Yönet'e Dön",
             "polls": {
+              "aiSafetyTreaty": "Ülkeler, uygulanabilir küresel bir yapay zeka güvenlik anlaşmasında mutabık kalmalı mı?",
               "heatAdaptation": "Ülkeler, aşırı sıcaklık olayları sırasında savunmasız nüfusları korumak için sıcak hava dalgası erken uyarıları ve ortak yardım çabaları için küresel bir koordinasyon mekanizması kurmalı mı?",
               "globalMilitaryExerciseProtocol": "Ülkeler, tırmanma riskini azaltmak için ihtilaflı bölgelerin yakınında büyük ölçekli askeri tatbikatlar için uluslararası bir bildirim ve gözlemci protokolünde anlaşmalı mı?",
               "globalMaritimeSecurity": "Uluslararası sularda ticari gemileri silahlı saldırılardan korumak için uluslararası bir deniz güvenliği görev gücü kurulmalı mı?",

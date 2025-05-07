@@ -107,7 +107,7 @@ export default function GovernPage({
                   ?.aiRisk?.referenceTitle
               }
               referenceUrl="https://www.safe.ai/work/statement-on-ai-risk"
-              voteUrl="https://vote.one/kJc54AbK"
+              voteUrl="https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/kJc54AbK"
             />
             <OpenLetterCard
               title={
@@ -119,7 +119,7 @@ export default function GovernPage({
                   ?.nuclear?.referenceTitle
               }
               referenceUrl="https://futureoflife.org/open-letter/nuclear-open-letter/"
-              voteUrl="https://vote.one/w1MDn0Dt"
+              voteUrl="https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/w1MDn0Dt"
             />
             <OpenLetterCard
               title={
@@ -131,7 +131,7 @@ export default function GovernPage({
                   ?.autonomousWeapons?.referenceTitle
               }
               referenceUrl="https://futureoflife.org/open-letter/lethal-autonomous-weapons-pledge/"
-              voteUrl="https://vote.one/eASgdeUE"
+              voteUrl="https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/eASgdeUE"
             />
             <OpenLetterCard
               title={
@@ -143,7 +143,7 @@ export default function GovernPage({
                   ?.longView?.referenceTitle
               }
               referenceUrl="https://futureoflife.org/open-letter/long-view-leadership-on-existential-threats/"
-              voteUrl="https://vote.one/NtprLPWh"
+              voteUrl="https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/NtprLPWh"
             />
             <DrawerItem
               title={dictionary?.pages?.govern?.sections?.openLetters?.addNew}

@@ -295,13 +295,13 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       (a, b) => b.creationTime - a.creationTime
     );
 
-    // Shuffle the top 40
-    const top40 = sortedByCreation.slice(0, 40);
-    for (let i = top40.length - 1; i > 0; i--) {
+    // Shuffle the top 100
+    const top100 = sortedByCreation.slice(0, 100);
+    for (let i = top100.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [top40[i], top40[j]] = [top40[j], top40[i]];
+      [top100[i], top100[j]] = [top100[j], top100[i]];
     }
-    partyLists.new = [...top40, ...sortedByCreation.slice(40)];
+    partyLists.new = [...top100, ...sortedByCreation.slice(100)];
 
     // Sort active parties for "top" tab (highest member count first)
     partyLists.top = [...activeParties].sort(

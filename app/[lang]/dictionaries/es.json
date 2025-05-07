@@ -580,6 +580,7 @@
             "title": "Encuestas Anteriores",
             "backToGovern": "Volver a Gobernar",
             "polls": {
+              "aiSafetyTreaty": "¿Deberían las naciones acordar un tratado global de seguridad de IA ejecutable?",
               "heatAdaptation": "¿Deberían los países establecer un mecanismo de coordinación global para alertas tempranas de olas de calor y esfuerzos de ayuda conjuntos para proteger a las poblaciones vulnerables durante eventos de calor extremo?",
               "wildlifeTrafficking": "¿Deberían las naciones colaborar en un marco internacional dedicado para combatir el tráfico ilegal de vida silvestre, incluida la biopiratería emergente de insectos y otras especies?",
               "globalMilitaryExerciseProtocol": "¿Deberían los países acordar un protocolo internacional de notificación y observación para ejercicios militares a gran escala cerca de regiones en disputa para reducir el riesgo de escalada?",

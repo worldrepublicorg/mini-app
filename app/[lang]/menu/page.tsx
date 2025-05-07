@@ -85,13 +85,6 @@ export default function MenuPage({
           url: "/language",
           isExternal: false,
         },
-        {
-          label:
-            dictionary?.pages?.menu?.sections?.experimental?.links
-              ?.verification,
-          url: "/verification",
-          isExternal: false,
-        },
       ],
     },
   ] as const;

@@ -12,23 +12,23 @@ interface Poll {
 const polls: Poll[] = [
   {
     key: "heatAdaptation",
-    url: "https://vote.one/lYGmfQI7",
+    url: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/lYGmfQI7",
   },
   {
     key: "polarIceProtocol",
-    url: "https://vote.one/afA1jsIQ",
+    url: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/afA1jsIQ",
   },
   {
-    key: "sovereignDebtRestructuring",
-    url: "https://vote.one/8veO6EHF",
+    key: "aiSafetyTreaty",
+    url: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/b6be3PF1",
   },
   {
     key: "wildlifeTrafficking",
-    url: "https://vote.one/eWitQrSp",
+    url: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/eWitQrSp",
   },
   {
     key: "criticalMineralsExport",
-    url: "https://vote.one/GTN2bfzr",
+    url: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/GTN2bfzr",
   },
 ];
 

@@ -567,7 +567,8 @@
             "title": "Vorherige Umfragen",
             "backToGovern": "Zurück zu Regieren",
             "polls": {
-              "heatAdaptation": "Sollten Länder einen globalen Koordinierungsmechanismus für Hitzewellen-Frühwarnungen und gemeinsame Hilfsmaßnahmen einrichten, um gefährdete Bevölkerungsgruppen während extremer Hitzeereignisse zu schützen?",
+              "aiSafetyTreaty": "Sollten Nationen einem durchsetzbaren globalen KI-Sicherheitsvertrag zustimmen?",
+              "heatAdaptation": "Sollten Länder einen globalen Koordinierungsmechanismus für Hitzewellen-Frühwarnungen und gemeinsame Hilfsmaßnahmen einrichten, um gefährdete Bevölkerungsgruppen bei extremen Hitzeereignissen zu schützen?",
               "globalMilitaryExerciseProtocol": "Sollten Länder einem internationalen Protokoll für Benachrichtigung und Beobachtung von groß angelegten Militärübungen in der Nähe umstrittener Regionen zustimmen, um das Risiko einer Eskalation zu verringern?",
               "globalMaritimeSecurity": "Sollte eine internationale maritime Sicherheitseinsatztruppe eingerichtet werden, um die kommerzielle Schifffahrt in internationalen Gewässern vor bewaffneten Angriffen zu schützen?",
               "globalNuclearDialogue": "Sollten Großmächte durch ein internationales Abkommen verpflichtet werden, sich an kontinuierlichen Nuklearverhandlungen auf Expertenebene mit gegnerischen Staaten zu beteiligen, um Eskalationen zu verhindern und diplomatische Aufsicht zu gewährleisten?",
