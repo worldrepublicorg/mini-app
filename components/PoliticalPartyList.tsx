@@ -147,27 +147,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [memberLookupResult, setMemberLookupResult] = useState<any>(null);
   const [isLeaderLookingUp, setIsLeaderLookingUp] = useState(false);
   const [isMemberLookingUp, setIsMemberLookingUp] = useState(false);
-  const [transactionId, setTransactionId] = useState<string | null>(null);
-
-  const { isSuccess } = useWaitForTransactionReceipt({
-    client: viemClient,
-    appConfig: {
-      app_id: process.env.NEXT_PUBLIC_APP_ID || "",
-    },
-    transactionId: transactionId!,
-  });
-
-  useEffect(() => {
-    if (isSuccess && transactionId) {
-      console.log("Party creation transaction successful");
-      // Clear the transaction ID
-      setTransactionId(null);
-
-      // Reset creation state
-      setIsCreating(false);
-      showToast("Party created successfully", "success");
-    }
-  }, [isSuccess, transactionId]);
 
   useEffect(() => {
     // Mark govern section as visited when this component loads
@@ -235,6 +214,64 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    if (!walletAddress) {
+      console.log("[PartyCreated] No wallet address, skipping event setup");
+      return;
+    }
+
+    console.log(
+      "[PartyCreated] Setting up event listener for address:",
+      walletAddress
+    );
+
+    try {
+      const unwatchPartyCreated = viemClient.watchContractEvent({
+        address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
+        abi: parseAbi([
+          "event PartyCreated(uint256 indexed partyId, string name, string shortName, string description, string officialLink, address indexed founder, address indexed initialLeader, uint8 status, uint256 timestamp)",
+        ]),
+        eventName: "PartyCreated",
+        args: {
+          founder: walletAddress as `0x${string}`,
+          initialLeader: walletAddress as `0x${string}`,
+        },
+        onLogs: (logs: any) => {
+          try {
+            console.log("[PartyCreated] Event detected:", logs);
+
+            // Extract partyId from the event
+            const partyId = Number(logs[0].args.partyId);
+            console.log("[PartyCreated] New party ID:", partyId);
+
+            // Update userPartyId
+            setUserPartyId(partyId);
+
+            // Update user party cache
+            localStorage.setItem(
+              "userPartyCache",
+              JSON.stringify({
+                partyId: partyId,
+                isLeader: true,
+                partyStatus: 0, // PENDING
+                timestamp: Date.now(),
+              })
+            );
+          } catch (error) {
+            console.error("[PartyCreated] Error processing event:", error);
+          }
+        },
+      });
+
+      return () => {
+        console.log("[PartyCreated] Cleaning up event listener");
+        unwatchPartyCreated();
+      };
+    } catch (error) {
+      console.error("[PartyCreated] Error setting up event listener:", error);
+    }
+  }, [walletAddress, setUserPartyId]);
 
   // Function to scroll back to top
   const scrollToTop = () => {
