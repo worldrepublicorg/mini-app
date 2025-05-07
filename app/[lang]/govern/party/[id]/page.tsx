@@ -712,7 +712,7 @@ export default function PartyDetailPage({
                     ))}
 
                   {/* Show All button */}
-                  {!showAllMembers && party?.members.length > 3 && (
+                  {!showAllMembers && partyMembers.length > 3 && (
                     <div className="border-t border-gray-100 px-4">
                       <Button
                         variant="ghost"
