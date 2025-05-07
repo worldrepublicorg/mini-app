@@ -241,6 +241,20 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             const partyId = Number(logs[0].args.partyId);
             console.log("[PartyCreated] New party ID:", partyId);
 
+            // Get userPartyData from the context
+            const { userPartyData } = useParties();
+
+            // Only update the ID in the optimistic party data
+            if (userPartyData && userPartyId === -1) {
+              const updatedParty = {
+                ...userPartyData,
+                id: partyId,
+              };
+
+              // Store the updated party data
+              storeUserParty(updatedParty);
+            }
+
             // Update userPartyId
             setUserPartyId(partyId);
 
