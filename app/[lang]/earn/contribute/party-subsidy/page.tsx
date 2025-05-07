@@ -7,7 +7,6 @@ import {
   PiUsersThreeFill,
   PiCoins,
   PiCurrencyCircleDollar,
-  PiRocketLaunch,
   PiInfoFill,
 } from "react-icons/pi";
 import { BiChevronLeft, BiChevronUp, BiLinkExternal } from "react-icons/bi";
@@ -115,18 +114,23 @@ export default function PartySubsidyPage({
                             href={`https://worldchain-mainnet.explorer.alchemy.com/tx/${weekPayout.wdd.transactionHash}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-1 text-sm text-gray-900"
+                            className="flex items-center justify-end gap-1 text-sm text-gray-900"
                           >
                             {weekPayout.wdd.amount} WDD
-                            <BiLinkExternal className="size-[15px] text-gray-500" />
+                            {weekPayout.wdd.transactionHash && (
+                              <BiLinkExternal className="size-[15px] text-gray-500" />
+                            )}
                           </a>
                           <a
                             href={`https://worldchain-mainnet.explorer.alchemy.com/tx/${weekPayout.wld.transactionHash}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block text-sm text-gray-500"
+                            className="flex items-center justify-end gap-1 text-sm text-gray-500"
                           >
                             {weekPayout.wld.amount} WLD
+                            {weekPayout.wld.transactionHash && (
+                              <BiLinkExternal className="size-[15px] text-gray-500" />
+                            )}
                           </a>
                         </div>
                       </div>
