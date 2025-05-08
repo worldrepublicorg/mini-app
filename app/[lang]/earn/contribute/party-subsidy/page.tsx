@@ -163,7 +163,7 @@ export default function PartySubsidyPage({
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      localStorage.setItem("partySubsidyVisited", "true");
+      localStorage.setItem("increasedPartySubsidyVisited", "true");
     }
   }, []);
 
@@ -216,6 +216,7 @@ export default function PartySubsidyPage({
                   variant={{ variant: "subtitle", level: 2 }}
                   className="mb-2 text-center text-gray-900"
                 >
+                  <span className="line-through">100,000</span>{" "}
                   {
                     dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy
                       ?.weeklyPool?.title
