@@ -39,7 +39,7 @@ export const typographyVariants = cva("", {
     variant: {
       number: "font-sans font-semibold leading-narrow tracking-normal",
       heading: "font-display font-semibold tracking-[-0.01em] leading-narrow",
-      subtitle: "font-lausanne font-medium leading-narrow tracking-normal",
+      subtitle: "font-sans font-medium leading-narrow tracking-normal",
       body: "font-sans font-normal leading-compact tracking-normal",
       mono: "font-mono font-normal tracking-normal",
     },
