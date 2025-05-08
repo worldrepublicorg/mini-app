@@ -2359,11 +2359,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 }
               </DrawerTitle>
             </DrawerHeader>
-            <Typography
-              as="p"
-              variant={{ variant: "body", level: 2 }}
-              className="text-[15px]"
-            >
+            <Typography as="p" variant={{ variant: "body", level: 2 }}>
               {
                 dictionary?.components?.politicalPartyList?.drawers
                   ?.transferLeadership?.description
@@ -2515,7 +2511,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             </DrawerHeader>
             <Typography
               as="p"
-              variant={{ variant: "subtitle", level: 1 }}
+              variant={{ variant: "body", level: 2 }}
               className="mx-auto mt-4 text-center text-gray-500"
             >
               {dictionary?.components?.politicalPartyList?.drawers?.leave?.description.replace(
@@ -2526,10 +2522,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <>
                   <br />
                   <br />
-                  {
-                    dictionary?.components?.politicalPartyList?.drawers?.leave
-                      ?.leaderWarning
-                  }
+                  <div className="text-error-600">
+                    {
+                      dictionary?.components?.politicalPartyList?.drawers?.leave
+                        ?.leaderWarning
+                    }
+                  </div>
                 </>
               )}
             </Typography>
@@ -2569,7 +2567,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             </DrawerHeader>
             <Typography
               as="p"
-              variant={{ variant: "subtitle", level: 1 }}
+              variant={{ variant: "body", level: 2 }}
               className="mx-auto mt-4 text-center text-gray-500"
             >
               {dictionary?.components?.politicalPartyList?.drawers?.createConfirm?.description.replace(
@@ -2580,10 +2578,12 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <>
                   <br />
                   <br />
-                  {
-                    dictionary?.components?.politicalPartyList?.drawers
-                      ?.createConfirm?.leaderWarning
-                  }
+                  <div className="text-error-600">
+                    {
+                      dictionary?.components?.politicalPartyList?.drawers
+                        ?.createConfirm?.leaderWarning
+                    }
+                  </div>
                 </>
               )}
             </Typography>
@@ -2620,8 +2620,8 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             </DrawerHeader>
             <Typography
               as="p"
-              variant={{ variant: "subtitle", level: 1 }}
-              className="mx-auto mt-4 text-center text-gray-500"
+              variant={{ variant: "body", level: 2 }}
+              className="mx-auto mt-4 text-center text-error-600"
             >
               {selectedParty?.status === 0
                 ? dictionary?.components?.politicalPartyList?.drawers?.delete
@@ -2704,11 +2704,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             {/* Remove Member Panel */}
             {activeMemberTab === "remove" && (
               <>
-                <Typography
-                  as="p"
-                  variant={{ variant: "body", level: 2 }}
-                  className="text-[15px]"
-                >
+                <Typography as="p" variant={{ variant: "body", level: 2 }}>
                   {
                     dictionary?.components?.politicalPartyList?.drawers
                       ?.memberManagement?.remove?.description
@@ -2845,11 +2841,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             {/* Ban Member Panel */}
             {activeMemberTab === "ban" && (
               <>
-                <Typography
-                  as="p"
-                  variant={{ variant: "body", level: 2 }}
-                  className="text-[15px]"
-                >
+                <Typography as="p" variant={{ variant: "body", level: 2 }}>
                   {
                     dictionary?.components?.politicalPartyList?.drawers
                       ?.memberManagement?.ban?.description
@@ -2988,11 +2980,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             {/* Unban Member Panel */}
             {activeMemberTab === "unban" && (
               <>
-                <Typography
-                  as="p"
-                  variant={{ variant: "body", level: 2 }}
-                  className="text-[15px]"
-                >
+                <Typography as="p" variant={{ variant: "body", level: 2 }}>
                   {
                     dictionary?.components?.politicalPartyList?.drawers
                       ?.memberManagement?.unban?.description
