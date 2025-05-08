@@ -89,7 +89,7 @@
       "website": "Sitio Web",
       "members": "Miembros",
       "noMembers": "Aún no hay miembros",
-      "approvalNote": "Los partidos con un enlace oficial funcional y membresía activa tienen prioridad para la aprobación.",
+      "approvalNote": "Los partidos con un enlace oficial funcional y/o membresía creciente tienen prioridad para la aprobación.",
       "bannedMembers": "Miembros Prohibidos",
       "errorLoading": "Error al Cargar el Partido",
       "partyNotFound": "Partido No Encontrado",
@@ -264,6 +264,11 @@
           "subtitle": "Inicia sesión para reclamar tu renta básica",
           "setupSubtitle": "Configura tu renta básica",
           "claimableSubtitle": "Dracmas reclamables",
+          "claimableTooltip1": "Como parte de nuestro",
+          "claimableTooltip2": "programa de recompra",
+          "claimableTooltip3": ", estamos ajustando los niveles de renta básica para crear beneficios sostenibles y a largo plazo para nuestra comunidad. Por favor, consulte las",
+          "claimableTooltip4": "FAQ",
+          "claimableTooltip5": "para las tasas actuales.",
           "activateButton": "Activar Renta Básica",
           "claimButton": "Reclamar",
           "plus": {
@@ -520,7 +525,8 @@
             "title": "Programa de Subsidios para Partidos",
             "subtitle": "Construye tu movimiento político y gana",
             "weeklyPool": {
-              "title": "100.000 WDD",
+              "old": "100.000",
+              "new": "250.000 WDD",
               "subtitle": "Fondo semanal fijo"
             },
             "devRewards": {
@@ -542,7 +548,7 @@
                 },
                 "earnRewards": {
                   "title": "Gana Recompensas",
-                  "description": "Los líderes de los 50 mejores partidos reciben subsidios semanales"
+                  "description": "Recibe subsidios semanales manteniendo un ranking entre los 50 mejores partidos"
                 }
               }
             },

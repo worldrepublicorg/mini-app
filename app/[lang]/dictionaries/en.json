@@ -77,7 +77,7 @@
       "website": "Website",
       "members": "Members",
       "noMembers": "No members yet",
-      "approvalNote": "Parties with a working official link and active membership are prioritized for approval.",
+      "approvalNote": "Parties with a working official link and/or growing membership are prioritized for approval.",
       "bannedMembers": "Banned Members",
       "errorLoading": "Error Loading Party",
       "partyNotFound": "Party Not Found",
@@ -252,6 +252,11 @@
           "subtitle": "Sign in to claim your basic income",
           "setupSubtitle": "Set up your basic income",
           "claimableSubtitle": "Claimable drachma",
+          "claimableTooltip1": "As part of our",
+          "claimableTooltip2": "buyback program",
+          "claimableTooltip3": ", we're fine-tuning basic income levels to create sustainable, long-term benefits for our community. Please refer to the",
+          "claimableTooltip4": "FAQ",
+          "claimableTooltip5": "for current rates.",
           "activateButton": "Activate Basic Income",
           "claimButton": "Claim",
           "plus": {
@@ -498,7 +503,8 @@
             "title": "Party Subsidy Program",
             "subtitle": "Build your political movement and earn",
             "weeklyPool": {
-              "title": "100,000 WDD",
+              "old": "100,000",
+              "new": "250,000 WDD",
               "subtitle": "Fixed weekly pool"
             },
             "devRewards": {
@@ -520,7 +526,7 @@
                 },
                 "earnRewards": {
                   "title": "Earn Rewards",
-                  "description": "The leaders of the top 50 parties receive weekly subsidies"
+                  "description": "Receive weekly subsidies by maintaining a top 50 party ranking"
                 }
               }
             },

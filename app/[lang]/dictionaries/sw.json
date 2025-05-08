@@ -77,7 +77,7 @@
       "website": "Tovuti",
       "members": "Wanachama",
       "noMembers": "Bado hakuna wanachama",
-      "approvalNote": "Vyama vya siasa vyenye kiungo rasmi kinachofanya kazi na uanachama wa hai vinapendelewa kwa idhini.",
+      "approvalNote": "Vyama vya siasa vyenye kiungo rasmi kinachofanya kazi na/au uanachama unaokua vinapendelewa kwa idhini.",
       "bannedMembers": "Wanachama Waliozuiwa",
       "errorLoading": "Hitilafu Kupakia Chama",
       "partyNotFound": "Chama Hakijapatikana",
@@ -251,8 +251,13 @@
           "title": "Mapato ya Msingi",
           "subtitle": "Ingia ili kuchukua mapato yako ya msingi",
           "setupSubtitle": "Weka mapato yako ya msingi",
-          "claimableSubtitle": "Drachma zinazoweza kuchukuliwa",
-          "activateButton": "Anzisha Mapato ya Msingi",
+          "claimableSubtitle": "Drachma zinazoweza kudaiwa",
+          "claimableTooltip1": "Kama sehemu ya",
+          "claimableTooltip2": "mpango wetu wa ununuzi",
+          "claimableTooltip3": ", tunafanya marekebisho ya viwango vya mapato ya msingi ili kuunda faida endelevu na za muda mrefu kwa jamii yetu. Angalia",
+          "claimableTooltip4": "Maswali Yanayoulizwa Mara kwa Mara",
+          "claimableTooltip5": "kwa viwango vya sasa.",
+          "activateButton": "Washa Mapato ya Msingi",
           "claimButton": "Chukua",
           "plus": {
             "title": "Mapato ya Msingi Plus",
@@ -508,7 +513,8 @@
             "title": "Programu ya Ruzuku ya Chama",
             "subtitle": "Jenga harakati yako ya kisiasa na upate mapato",
             "weeklyPool": {
-              "title": "WDD 100,000",
+              "old": "WDD 100,000",
+              "new": "WDD 250,000",
               "subtitle": "Jumba la wiki iliyowekwa"
             },
             "devRewards": {
@@ -530,7 +536,7 @@
                 },
                 "earnRewards": {
                   "title": "Pata Zawadi",
-                  "description": "Viongozi wa vyama 50 bora wanapokea ruzuku za kila wiki"
+                  "description": "Pokea ruzuku za kila wiki kwa kudumisha nafasi kati ya vyama 50 bora"
                 }
               }
             },

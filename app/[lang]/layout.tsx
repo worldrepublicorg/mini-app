@@ -7,6 +7,7 @@ import BottomNav from "@/components/BottomNav";
 import "@worldcoin/mini-apps-ui-kit-react/styles.css";
 import dynamic from "next/dynamic";
 import { ToastProvider } from "@/components/providers/ToastProvider";
+import { PartiesProvider } from "@/components/contexts/PartiesContext";
 
 export const metadata: Metadata = {
   title: "World Republic",
@@ -56,8 +57,10 @@ export default function RootLayout({
             <ErudaProvider>
               <MiniKitProvider>
                 <WalletProvider>
-                  {children}
-                  <BottomNav />
+                  <PartiesProvider>
+                    {children}
+                    <BottomNav />
+                  </PartiesProvider>
                 </WalletProvider>
               </MiniKitProvider>
             </ErudaProvider>
