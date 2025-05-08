@@ -81,6 +81,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     pendingLoading,
     userPartyId,
     fetchActiveParties,
+    fetchPendingParties,
     setUserPartyId,
     setParties,
     storeUserParty,
@@ -164,6 +165,18 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       fetchActiveParties();
     }
   }, [activeParties.length, activeLoading, fetchActiveParties]);
+
+  // Fetch pending parties when tab changes to "pending"
+  useEffect(() => {
+    if (
+      activeTab === "pending" &&
+      pendingParties.length === 0 &&
+      !pendingLoading
+    ) {
+      console.log("Fetching pending parties on-demand");
+      fetchPendingParties();
+    }
+  }, [activeTab, pendingParties.length, pendingLoading, fetchPendingParties]);
 
   useEffect(() => {
     // Initialize the intersection observer
