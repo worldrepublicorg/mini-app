@@ -59,12 +59,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-sans: "Rubik", sans-serif;
-  --font-display: "Sora", sans-serif;
-  --font-mono: "DM Mono", monospace;
-  --font-lausanne:
+  --font-sans:
     "TWK Lausanne", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Sora", sans-serif;
+  --font-mono: "DM Mono", monospace;
 }
 
 body {
