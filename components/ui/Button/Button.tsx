@@ -8,7 +8,7 @@ import Spinner from "./Spinner";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "flex items-center justify-center gap-1 font-display font-semibold leading-[1.2] tracking-normal transition-all rounded-full",
+  "flex items-center justify-center gap-1 font-lausanne font-semibold leading-[1.2] tracking-normal transition-all rounded-full",
   {
     variants: {
       variant: {
