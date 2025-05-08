@@ -1,7 +1,7 @@
-import type { Config } from "tailwindcss";
 import { uiKitTailwindPlugin } from "@worldcoin/mini-apps-ui-kit-react";
+import type { Config } from "tailwindcss";
 
-const config: Config = {
+export default {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -17,5 +17,4 @@ const config: Config = {
     },
   },
   plugins: [uiKitTailwindPlugin],
-};
-export default config;
+} satisfies Config;
