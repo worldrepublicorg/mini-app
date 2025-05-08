@@ -196,11 +196,25 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     setDisplayCount(20);
   }, [activeTab, searchTerm]);
 
-  // Handle scroll events to show/hide scroll-to-top button
+  // Add a debounced show/hide function to prevent flickering during scroll
+  const [isButtonReady, setIsButtonReady] = useState(true);
   useEffect(() => {
     const handleScroll = () => {
       // Show button when user has scrolled down 300px from the top
-      setShowScrollToTop(window.scrollY > 300);
+      const shouldShow = window.scrollY > 300;
+      setShowScrollToTop(shouldShow);
+
+      // If we're hiding the button, mark it as ready immediately
+      // If showing, delay the "ready" state to avoid touch conflicts
+      if (!shouldShow) {
+        setIsButtonReady(true);
+      } else if (shouldShow && !isButtonReady) {
+        // Small delay to ensure the button is fully rendered and ready for touch
+        const readyTimer = setTimeout(() => {
+          setIsButtonReady(true);
+        }, 300);
+        return () => clearTimeout(readyTimer);
+      }
     };
 
     // Add scroll event listener
@@ -210,7 +224,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isButtonReady]);
 
   useEffect(() => {
     if (!walletAddress) {
@@ -2621,7 +2635,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             <Typography
               as="p"
               variant={{ variant: "body", level: 2 }}
-              className="mx-auto mt-4 text-center text-error-600"
+              className="mx-auto mt-4 text-center"
             >
               {selectedParty?.status === 0
                 ? dictionary?.components?.politicalPartyList?.drawers?.delete
@@ -2634,7 +2648,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
               fullWidth
               onClick={deactivateParty}
               disabled={isProcessing}
-              className="mt-10"
+              className="mt-10 bg-error-600"
             >
               {isProcessing
                 ? dictionary?.components?.politicalPartyList?.drawers?.delete
@@ -3127,8 +3141,20 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         {/* Button with transition */}
         <button
           onClick={scrollToTop}
+          onTouchStart={() => {
+            // Ensure button is fully interactive
+            if (isButtonReady) {
+              // Trigger scroll on touchstart for more responsive feel
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
+            }
+          }}
           className={`flex h-full w-full items-center justify-center rounded-full bg-gray-100 shadow-lg transition-opacity duration-300 ${
-            showScrollToTop ? "opacity-100" : "pointer-events-none opacity-0"
+            showScrollToTop && isButtonReady
+              ? "opacity-100"
+              : "pointer-events-none opacity-0"
           }`}
           aria-label={
             dictionary?.components?.politicalPartyList?.scrollToTop ||
