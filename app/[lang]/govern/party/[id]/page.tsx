@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 import { useTranslations } from "@/hooks/useTranslations";
 import { useWallet } from "@/components/contexts/WalletContext";
-import { useParties } from "@/components/contexts/PartiesContext";
 import { useToast } from "@/components/ui/Toast";
 import { BiChevronLeft, BiShareAlt, BiChevronUp } from "react-icons/bi";
 import {
@@ -19,7 +18,10 @@ import {
 } from "react-icons/pi";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { parseAbi } from "viem";
-import { useRouter } from "next/navigation";
+
+// GraphQL endpoint
+const GOLDSKY_SUBGRAPH_URL =
+  "https://api.goldsky.com/api/public/project_cm9oeq0bhalzw01y0hwth80bk/subgraphs/political-party-registry/1.0.0/gn";
 
 // Contract address
 const POLITICAL_PARTY_REGISTRY_ADDRESS =
@@ -41,17 +43,11 @@ interface Party {
   officialLink: string;
   founder: string;
   currentLeader: string;
-  leader?: string; // For compatibility with context
   status: number;
   memberCount: number;
   verifiedMemberCount: number;
   members: { address: string }[];
   bannedMembers: { address: string }[];
-  isUserMember?: boolean;
-  isUserLeader?: boolean;
-  active?: boolean; // Add for compatibility with context
-  creationTime?: number; // Add for compatibility with context
-  documentVerifiedMemberCount?: number; // Add for compatibility with context
 }
 
 export default function PartyDetailPage({
@@ -62,14 +58,6 @@ export default function PartyDetailPage({
   const dictionary = useTranslations(lang);
   const { walletAddress } = useWallet();
   const { showToast } = useToast();
-  const router = useRouter();
-  const {
-    fetchPartyById,
-    activeParties,
-    pendingParties,
-    setUserPartyId,
-    setParties,
-  } = useParties();
 
   const [party, setParty] = useState<Party | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -78,8 +66,6 @@ export default function PartyDetailPage({
   const [showAllMembers, setShowAllMembers] = useState(false);
   const [isJoining, setIsJoining] = useState(false);
   const [leaderUsername, setLeaderUsername] = useState<string | null>(null);
-  const [partyMembers, setPartyMembers] = useState<{ address: string }[]>([]);
-  const [bannedMembers, setBannedMembers] = useState<{ address: string }[]>([]);
 
   // Format number with commas
   const formatNumber = (num: number): string => {
@@ -164,65 +150,47 @@ export default function PartyDetailPage({
     return null;
   };
 
-  // Put the fetchPartyMembers function definition before the fetchData function
-  // Define fetchPartyMembers before the useEffect that calls it
-  const fetchPartyMembers = async (partyId: number) => {
+  // Join party function
+  const joinParty = async () => {
+    if (!MiniKit.isInstalled()) {
+      showToast("Please connect your wallet first", "error");
+      return;
+    }
+
     try {
-      // GraphQL endpoint
-      const GOLDSKY_SUBGRAPH_URL =
-        "https://api.goldsky.com/api/public/project_cm9oeq0bhalzw01y0hwth80bk/subgraphs/political-party-registry/1.0.0/gn";
-
-      // GraphQL query for members
-      const query = `
-        {
-          parties(where: {id: ${partyId}}) {
-            members(first: 1000, where: {isActive: true}) {
-              address
-            }
-            bannedMembers(first: 1000) {
-              address
-            }
-          }
-        }
-      `;
-
-      // Fetch data
-      const response = await fetch(GOLDSKY_SUBGRAPH_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query }),
+      setIsJoining(true);
+      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
+        transaction: [
+          {
+            address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
+            abi: parseAbi(["function joinParty(uint256 _partyId) external"]),
+            functionName: "joinParty",
+            args: [BigInt(parseInt(id))],
+          },
+        ],
       });
 
-      if (!response.ok) {
-        throw new Error(`Subgraph request failed: ${response.statusText}`);
-      }
-
-      const result = await response.json();
-
-      if (result.errors) {
-        throw new Error(
-          `GraphQL errors: ${result.errors.map((e: any) => e.message).join(", ")}`
-        );
-      }
-
-      if (!result.data.parties || result.data.parties.length === 0) {
-        throw new Error("Party members not found");
-      }
-
-      const partyData = result.data.parties[0];
-      setPartyMembers(partyData.members || []);
-      setBannedMembers(partyData.bannedMembers || []);
-
-      // Check if user is a member based on the member list
-      if (walletAddress) {
-        const isMember = partyData.members.some(
-          (member: { address: string }) =>
-            member.address.toLowerCase() === walletAddress.toLowerCase()
-        );
-        setIsUserMember(isMember);
+      if (finalPayload.status === "error") {
+        if (finalPayload.error_code !== "user_rejected") {
+          showToast("Failed to join party", "error");
+        }
+      } else {
+        showToast("Successfully joined party!", "success");
+        setIsUserMember(true);
+        // Update the party data to reflect membership
+        if (party) {
+          setParty({
+            ...party,
+            memberCount: party.memberCount + 1,
+            members: [...party.members, { address: walletAddress || "" }],
+          });
+        }
       }
     } catch (error) {
-      console.error("Error fetching members:", error);
+      console.error("Error joining party:", error);
+      showToast("Error joining party", "error");
+    } finally {
+      setIsJoining(false);
     }
   };
 
@@ -234,62 +202,88 @@ export default function PartyDetailPage({
       try {
         setIsLoading(true);
 
-        // First try to find the party in the context cache
-        const partyId = parseInt(id);
-        const cachedParty = [...activeParties, ...pendingParties].find(
-          (p) => p.id === partyId
-        );
-
-        let currentParty: Party | null = null;
-
-        // If found in cache, use it
-        if (cachedParty) {
-          console.log("Found party in context cache:", cachedParty);
-          currentParty = {
-            ...cachedParty,
-            currentLeader: cachedParty.leader || "",
-            members: [],
-            bannedMembers: [],
-          };
-          setParty(currentParty);
-          setIsUserMember(cachedParty.isUserMember || false);
-
-          // For cache hits, we still need to fetch members via GraphQL
-          fetchPartyMembers(partyId);
-        } else {
-          // If not in cache, fetch from blockchain
-          console.log("Fetching party from blockchain");
-          const fetchedParty = await fetchPartyById(partyId);
-
-          if (!fetchedParty) {
-            throw new Error("Party not found");
+        // GraphQL query
+        const query = `
+          {
+            parties(where: {id: ${id}}) {
+              name
+              shortName
+              description
+              officialLink
+              founder
+              currentLeader
+              status
+              memberCount
+              verifiedMemberCount
+              members(first: 1000, where: {isActive: true}) {
+                address
+              }
+              bannedMembers(first: 1000) {
+                address
+              }
+            }
           }
+        `;
 
-          currentParty = {
-            ...fetchedParty,
-            currentLeader: fetchedParty.leader || "",
-            members: [],
-            bannedMembers: [],
-          };
-          setParty(currentParty);
-          setIsUserMember(fetchedParty.isUserMember || false);
+        // Fetch data
+        const response = await fetch(GOLDSKY_SUBGRAPH_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query }),
+        });
 
-          // For non-cache hits, we need to fetch members
-          fetchPartyMembers(partyId);
+        if (!response.ok) {
+          throw new Error(`Subgraph request failed: ${response.statusText}`);
         }
 
-        // Fetch username for the leader
-        if (
-          currentParty &&
-          (currentParty.currentLeader || currentParty.leader)
-        ) {
-          const leaderAddress =
-            currentParty.currentLeader || currentParty.leader;
-          if (leaderAddress) {
-            const username = await fetchLeaderUsername(leaderAddress);
-            setLeaderUsername(username);
-          }
+        const result = await response.json();
+
+        if (result.errors) {
+          throw new Error(
+            `GraphQL errors: ${result.errors.map((e: any) => e.message).join(", ")}`
+          );
         }
+
+        if (!result.data.parties || result.data.parties.length === 0) {
+          throw new Error("Party not found");
+        }
+
+        const partyData = result.data.parties[0];
+
+        // Transform data to match interface
+        const fetchedParty: Party = {
+          id: parseInt(id),
+          name: partyData.name,
+          shortName: partyData.shortName,
+          description: partyData.description,
+          officialLink: partyData.officialLink,
+          founder: partyData.founder,
+          currentLeader: partyData.currentLeader,
+          status: parseInt(partyData.status),
+          memberCount: parseInt(partyData.memberCount),
+          verifiedMemberCount: parseInt(partyData.verifiedMemberCount),
+          members: partyData.members,
+          bannedMembers: partyData.bannedMembers,
+        };
+
+        // Check if user is a member
+        if (walletAddress) {
+          const isMember = partyData.members.some(
+            (member: { address: string }) =>
+              member.address.toLowerCase() === walletAddress.toLowerCase()
+          );
+          setIsUserMember(isMember);
+        }
+
+        // Fetch username with the party data
+        let username = null;
+        if (partyData.currentLeader) {
+          username = await fetchLeaderUsername(partyData.currentLeader);
+        }
+
+        // Set all state at once
+        setParty(fetchedParty);
+        setLeaderUsername(username);
       } catch (error) {
         console.error("Error fetching data:", error);
         setError(
@@ -302,95 +296,19 @@ export default function PartyDetailPage({
     };
 
     fetchData();
-  }, [
-    id,
-    walletAddress,
-    showToast,
-    fetchPartyById,
-    activeParties,
-    pendingParties,
-  ]);
-
-  // Join party function
-  const joinParty = async () => {
-    if (!MiniKit.isInstalled()) {
-      showToast("Please connect your wallet first", "error");
-      return;
-    }
-
-    if (!party) {
-      showToast("Party not found", "error");
-      return;
-    }
-
-    try {
-      setIsJoining(true);
-
-      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
-        transaction: [
-          {
-            address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
-            abi: parseAbi(["function joinParty(uint256 _partyId) external"]),
-            functionName: "joinParty",
-            args: [BigInt(party.id)],
-          },
-        ],
-      });
-
-      if (finalPayload.status !== "error") {
-        // Update local state
-        setIsUserMember(true);
-
-        // Update the context
-        setUserPartyId(party.id);
-
-        // Update the parties array in context
-        setParties((prevParties: any) =>
-          prevParties.map((p: any) =>
-            p.id === party.id
-              ? {
-                  ...p,
-                  isUserMember: true,
-                  memberCount: p.memberCount + 1,
-                }
-              : p
-          )
-        );
-
-        // Update user party cache in localStorage
-        localStorage.setItem(
-          "userPartyCache",
-          JSON.stringify({
-            partyId: party.id,
-            isLeader: false,
-            partyStatus: party.status,
-            timestamp: Date.now(),
-          })
-        );
-
-        showToast("Successfully joined the party", "success");
-      } else if (finalPayload.error_code !== "user_rejected") {
-        showToast("Failed to join party", "error");
-      }
-    } catch (error) {
-      console.error("Error joining party:", error);
-      showToast("Error joining party", "error");
-    } finally {
-      setIsJoining(false);
-    }
-  };
+  }, [id, walletAddress, showToast]);
 
   return (
     <div className="pb-safe flex min-h-dvh flex-col px-6">
       <div className="fixed left-0 right-0 top-0 z-10 bg-gray-0 px-6">
         <div className="relative flex items-center justify-center py-6">
-          <button
-            onClick={() => router.back()}
+          <Link
+            href={`/${lang}/govern`}
             className="absolute left-0 flex size-10 items-center justify-center rounded-full bg-gray-100"
-            aria-label="Back"
+            aria-label="Back to Govern"
           >
             <BiChevronLeft className="size-6 text-gray-500" />
-          </button>
+          </Link>
           <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
             {dictionary?.components?.politicalPartyList?.partyDetails}
           </Typography>
@@ -651,16 +569,16 @@ export default function PartyDetailPage({
                     {formatNumber(party?.memberCount || 0)})
                   </Typography>
 
-                  {partyMembers.length > 3 && showAllMembers && (
+                  {party?.members.length > 3 && showAllMembers && (
                     <BiChevronUp className="size-[20px] text-gray-500 transition-transform duration-200" />
                   )}
                 </div>
               </button>
 
-              {partyMembers.length > 0 ? (
+              {party?.members.length > 0 ? (
                 <div>
                   {/* First 3 members always visible */}
-                  {partyMembers.slice(0, 3).map((member, index, array) => (
+                  {party?.members.slice(0, 3).map((member, index, array) => (
                     <div
                       key={index}
                       className={`flex items-center justify-between ${
@@ -688,8 +606,8 @@ export default function PartyDetailPage({
 
                   {/* Additional members shown conditionally */}
                   {showAllMembers &&
-                    partyMembers.length > 3 &&
-                    partyMembers.slice(3).map((member, index, array) => (
+                    party?.members.length > 3 &&
+                    party?.members.slice(3).map((member, index, array) => (
                       <div
                         key={index}
                         className={`flex items-center justify-between ${
@@ -714,7 +632,7 @@ export default function PartyDetailPage({
                     ))}
 
                   {/* Show All button */}
-                  {!showAllMembers && partyMembers.length > 3 && (
+                  {!showAllMembers && party?.members.length > 3 && (
                     <div className="border-t border-gray-100 px-4">
                       <Button
                         variant="ghost"
@@ -739,7 +657,7 @@ export default function PartyDetailPage({
             </div>
 
             {/* Banned Members */}
-            {bannedMembers.length > 0 && (
+            {party?.bannedMembers.length > 0 && (
               <div className="mb-6 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
                 <div className="border-b border-gray-200 bg-gradient-to-r from-gray-50 to-gray-0 p-4">
                   <Typography
@@ -752,7 +670,7 @@ export default function PartyDetailPage({
                 </div>
                 <div className="max-h-56 overflow-y-auto p-4">
                   <div className="space-y-2">
-                    {bannedMembers.map((member, index) => (
+                    {party?.bannedMembers.map((member, index) => (
                       <div
                         key={index}
                         className="flex items-center justify-between rounded-lg border border-gray-100 p-3"
@@ -817,7 +735,7 @@ export default function PartyDetailPage({
                 >
                   {dictionary?.components?.politicalPartyList?.shareParty}
                 </Button>
-              ) : party?.status === PartyStatus.INACTIVE ? (
+              ) : party.status === PartyStatus.INACTIVE ? (
                 <Link href={`/${lang}/govern`}>
                   <Button variant="secondary" fullWidth>
                     {dictionary?.components?.politicalPartyList?.backToParties}

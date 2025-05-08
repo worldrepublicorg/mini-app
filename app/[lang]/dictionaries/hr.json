@@ -77,7 +77,7 @@
       "website": "Web stranica",
       "members": "Članovi",
       "noMembers": "Još nema članova",
-      "approvalNote": "Stranke s funkcionalnom službenom poveznicom i/ili rastućim članstvom imaju prednost pri odobravanju.",
+      "approvalNote": "Stranke s funkcionalnom službenom poveznicom i aktivnim članstvom imaju prednost pri odobravanju.",
       "bannedMembers": "Zabranjeni članovi",
       "errorLoading": "Pogreška pri učitavanju stranke",
       "partyNotFound": "Stranka nije pronađena",
@@ -252,12 +252,7 @@
           "subtitle": "Prijavite se za preuzimanje temeljnog dohotka",
           "setupSubtitle": "Postavite svoj temeljni dohodak",
           "claimableSubtitle": "Dostupne drahme",
-          "claimableTooltip1": "Kao dio našeg",
-          "claimableTooltip2": "programa otkupa",
-          "claimableTooltip3": ", usavršavamo razine temeljnog dohotka kako bismo stvorili održive, dugoročne koristi za našu zajednicu. Molimo pogledajte",
-          "claimableTooltip4": "FAQ",
-          "claimableTooltip5": "za trenutne stope.",
-          "activateButton": "Aktiviraj Temeljni Dohodak",
+          "activateButton": "Aktiviraj temeljni dohodak",
           "claimButton": "Preuzmi",
           "plus": {
             "title": "Temeljni dohodak Plus",
@@ -513,8 +508,7 @@
             "title": "Program subvencija za stranke",
             "subtitle": "Izgradite svoj politički pokret i zaradite",
             "weeklyPool": {
-              "old": "100.000",
-              "new": "250.000 WDD",
+              "title": "100.000 WDD",
               "subtitle": "Fiksni tjedni fond"
             },
             "devRewards": {
@@ -535,8 +529,8 @@
                   "description": "Regrutirajte članove i izgradite svoju zajednicu"
                 },
                 "earnRewards": {
-                  "title": "Zaradite nagrade",
-                  "description": "Primite tjedne subvencije održavanjem ranga među 50 najboljih stranaka"
+                  "title": "Zaradite Nagrade",
+                  "description": "Vođe 50 najboljih stranaka primaju tjedne subvencije"
                 }
               }
             },

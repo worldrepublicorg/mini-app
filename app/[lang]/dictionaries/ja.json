@@ -77,7 +77,7 @@
       "website": "ウェブサイト",
       "members": "メンバー",
       "noMembers": "まだメンバーがいません",
-      "approvalNote": "公式リンクが機能しており、かつ/または会員数が増加している政党は承認の優先順位が高くなります。",
+      "approvalNote": "公式リンクが機能し、アクティブなメンバーシップを持つ政党は承認の優先順位が高くなります。",
       "bannedMembers": "禁止されたメンバー",
       "errorLoading": "政党の読み込みエラー",
       "partyNotFound": "政党が見つかりません",
@@ -251,11 +251,6 @@
           "subtitle": "サインインしてベーシックインカムを受け取る",
           "setupSubtitle": "ベーシックインカムを設定",
           "claimableSubtitle": "請求可能なドラクマ",
-          "claimableTooltip1": "私たちの",
-          "claimableTooltip2": "バイバックプログラム",
-          "claimableTooltip3": "の一環として、コミュニティに持続可能な長期的利益をもたらすために基本所得のレベルを微調整しています。現在のレートについては、",
-          "claimableTooltip4": "FAQ",
-          "claimableTooltip5": "をご参照ください。",
           "activateButton": "ベーシックインカムを有効化",
           "claimButton": "請求",
           "plus": {
@@ -512,8 +507,7 @@
             "title": "政党補助金プログラム",
             "subtitle": "政治運動を構築して報酬を得る",
             "weeklyPool": {
-              "old": "100,000",
-              "new": "250,000 WDD",
+              "title": "100,000 WDD",
               "subtitle": "固定週間プール"
             },
             "devRewards": {
@@ -535,7 +529,7 @@
                 },
                 "earnRewards": {
                   "title": "報酬を獲得",
-                  "description": "トップ50の党ランキングを維持することで毎週補助金を受け取る"
+                  "description": "上位50政党のリーダーは毎週補助金を受け取ります"
                 }
               }
             },

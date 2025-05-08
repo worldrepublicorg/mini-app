@@ -77,7 +77,7 @@
       "website": "웹사이트",
       "members": "멤버",
       "noMembers": "아직 멤버가 없습니다",
-      "approvalNote": "작동하는 공식 링크 및/또는 성장하는 멤버십이 있는 정당은 승인 우선순위가 높습니다.",
+      "approvalNote": "작동하는 공식 링크와 활성 멤버십이 있는 정당은 승인 우선순위가 높습니다.",
       "bannedMembers": "금지된 멤버",
       "errorLoading": "정당 로딩 오류",
       "partyNotFound": "정당을 찾을 수 없음",
@@ -251,12 +251,7 @@
           "title": "기본소득",
           "subtitle": "로그인하여 기본소득을 받으세요",
           "setupSubtitle": "기본소득 설정하기",
-          "claimableSubtitle": "청구 가능한 드라크마",
-          "claimableTooltip1": "저희",
-          "claimableTooltip2": "바이백 프로그램",
-          "claimableTooltip3": "의 일환으로, 커뮤니티에 지속 가능하고 장기적인 혜택을 제공하기 위해 기본 소득 수준을 미세 조정하고 있습니다. 현재 요율은",
-          "claimableTooltip4": "FAQ",
-          "claimableTooltip5": "를 참조해 주세요.",
+          "claimableSubtitle": "받을 수 있는 드라크마",
           "activateButton": "기본소득 활성화",
           "claimButton": "받기",
           "plus": {
@@ -513,8 +508,7 @@
             "title": "정당 보조금 프로그램",
             "subtitle": "정치 운동을 구축하고 수익을 창출하세요",
             "weeklyPool": {
-              "old": "100,000",
-              "new": "250,000 WDD",
+              "title": "100,000 WDD",
               "subtitle": "고정 주간 풀"
             },
             "devRewards": {
@@ -535,8 +529,8 @@
                   "description": "구성원을 모집하고 커뮤니티를 구축하세요"
                 },
                 "earnRewards": {
-                  "title": "보상 획득하기",
-                  "description": "상위 50위 정당 랭킹을 유지하며 주간 보조금 받기"
+                  "title": "보상 획득",
+                  "description": "상위 50개 정당의 지도자들은 매주 보조금을 받습니다"
                 }
               }
             },

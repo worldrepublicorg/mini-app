@@ -77,7 +77,7 @@
       "website": "Strona internetowa",
       "members": "Członkowie",
       "noMembers": "Brak członków",
-      "approvalNote": "Partie z działającym oficjalnym linkiem i/lub rosnącym członkostwem mają priorytet przy zatwierdzaniu.",
+      "approvalNote": "Partie z działającym oficjalnym linkiem i aktywnym członkostwem mają priorytet przy zatwierdzaniu.",
       "bannedMembers": "Zablokowani członkowie",
       "errorLoading": "Błąd ładowania partii",
       "partyNotFound": "Nie znaleziono partii",
@@ -252,11 +252,6 @@
           "subtitle": "Zaloguj się, aby odebrać swój dochód podstawowy",
           "setupSubtitle": "Skonfiguruj swój dochód podstawowy",
           "claimableSubtitle": "Drachmy do odebrania",
-          "claimableTooltip1": "W ramach naszego",
-          "claimableTooltip2": "programu wykupu",
-          "claimableTooltip3": ", dostosowujemy poziomy dochodu podstawowego, aby stworzyć zrównoważone, długoterminowe korzyści dla naszej społeczności. Zobacz",
-          "claimableTooltip4": "FAQ",
-          "claimableTooltip5": "aby poznać aktualne stawki.",
           "activateButton": "Aktywuj Dochód Podstawowy",
           "claimButton": "Odbierz",
           "plus": {
@@ -513,8 +508,7 @@
             "title": "Program Dotacji dla Partii",
             "subtitle": "Buduj swój ruch polityczny i zarabiaj",
             "weeklyPool": {
-              "old": "100 000",
-              "new": "250 000 WDD",
+              "title": "100 000 WDD",
               "subtitle": "Stała tygodniowa pula"
             },
             "devRewards": {
@@ -536,7 +530,7 @@
                 },
                 "earnRewards": {
                   "title": "Zdobywaj Nagrody",
-                  "description": "Otrzymuj cotygodniowe dotacje utrzymując pozycję w rankingu 50 najlepszych partii"
+                  "description": "Liderzy 50 najlepszych partii otrzymują cotygodniowe dofinansowanie"
                 }
               }
             },

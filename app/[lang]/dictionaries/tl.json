@@ -77,7 +77,7 @@
       "website": "Website",
       "members": "Mga Miyembro",
       "noMembers": "Wala pang miyembro",
-      "approvalNote": "Ang mga partido na may gumaganang opisyal na link at/o lumalaking membership ay binibigyan ng priyoridad para sa pag-apruba.",
+      "approvalNote": "Ang mga partido na may gumaganang opisyal na link at aktibong membership ay binibigyan ng priyoridad para sa pag-apruba.",
       "bannedMembers": "Mga Banned na Miyembro",
       "errorLoading": "May Error sa Paglo-load ng Partido",
       "partyNotFound": "Hindi Nahanap ang Partido",
@@ -249,12 +249,7 @@
           "title": "Basic Income",
           "subtitle": "Mag-sign in para makuha ang iyong basic income",
           "setupSubtitle": "I-setup ang iyong basic income",
-          "claimableSubtitle": "Naa-claim na drachma",
-          "claimableTooltip1": "Bilang bahagi ng aming",
-          "claimableTooltip2": "programa ng buyback",
-          "claimableTooltip3": ", kami ay nag-fine-tune ng mga antas ng basic income upang lumikha ng sustainable, pangmatagalang benepisyo para sa aming komunidad. Tingnan ang",
-          "claimableTooltip4": "FAQ",
-          "claimableTooltip5": "para sa kasalukuyang rate.",
+          "claimableSubtitle": "Maaaring kunin na drachma",
           "activateButton": "I-activate ang Basic Income",
           "claimButton": "Kunin",
           "plus": {
@@ -511,8 +506,7 @@
             "title": "Programa ng Subsidy para sa Partido",
             "subtitle": "Bumuo ng iyong pulitikal na kilusan at kumita",
             "weeklyPool": {
-              "old": "100,000",
-              "new": "250,000 WDD",
+              "title": "100,000 WDD",
               "subtitle": "Nakatakdang lingguhang pool"
             },
             "devRewards": {
@@ -533,8 +527,8 @@
                   "description": "Mag-recruit ng mga miyembro at bumuo ng iyong komunidad"
                 },
                 "earnRewards": {
-                  "title": "Kumita ng Gantimpala",
-                  "description": "Tumanggap ng lingguhang subsidyo sa pamamagitan ng pagpapanatili ng top 50 party ranking"
+                  "title": "Kumita ng Mga Gantimpala",
+                  "description": "Ang mga lider ng nangungunang 50 partido ay tumatanggap ng lingguhang subsidya"
                 }
               }
             },

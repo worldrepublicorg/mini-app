@@ -77,7 +77,7 @@
       "website": "Laman Web",
       "members": "Ahli",
       "noMembers": "Belum ada ahli",
-      "approvalNote": "Parti dengan pautan rasmi yang berfungsi dan/atau keahlian yang berkembang diberi keutamaan untuk kelulusan.",
+      "approvalNote": "Parti dengan pautan rasmi yang berfungsi dan keahlian aktif diberi keutamaan untuk kelulusan.",
       "bannedMembers": "Ahli yang Diharamkan",
       "errorLoading": "Ralat Memuatkan Parti",
       "partyNotFound": "Parti Tidak Dijumpai",
@@ -252,11 +252,6 @@
           "subtitle": "Log masuk untuk menuntut pendapatan asas anda",
           "setupSubtitle": "Sediakan pendapatan asas anda",
           "claimableSubtitle": "Drachma yang boleh dituntut",
-          "claimableTooltip1": "Sebagai sebahagian daripada",
-          "claimableTooltip2": "program pembelian balik",
-          "claimableTooltip3": " kami, kami sedang menyelaraskan tahap pendapatan asas untuk mewujudkan faedah jangka panjang yang mampan untuk komuniti kami. Sila lihat",
-          "claimableTooltip4": "FAQ",
-          "claimableTooltip5": "untuk kadar semasa.",
           "activateButton": "Aktifkan Pendapatan Asas",
           "claimButton": "Tuntut",
           "plus": {
@@ -513,8 +508,7 @@
             "title": "Program Subsidi Parti",
             "subtitle": "Bina pergerakan politik anda dan dapatkan pendapatan",
             "weeklyPool": {
-              "old": "100,000",
-              "new": "250,000 WDD",
+              "title": "100,000 WDD",
               "subtitle": "Dana mingguan tetap"
             },
             "devRewards": {
@@ -536,7 +530,7 @@
                 },
                 "earnRewards": {
                   "title": "Dapatkan Ganjaran",
-                  "description": "Terima subsidi mingguan dengan mengekalkan kedudukan parti 50 teratas"
+                  "description": "Pemimpin 50 parti teratas menerima subsidi mingguan"
                 }
               }
             },

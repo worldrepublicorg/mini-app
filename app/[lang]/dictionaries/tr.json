@@ -77,7 +77,7 @@
       "website": "Web Sitesi",
       "members": "Üyeler",
       "noMembers": "Henüz üye yok",
-      "approvalNote": "Çalışan resmi bağlantısı ve/veya büyüyen üyeliği olan partiler onay için önceliklendirilir.",
+      "approvalNote": "Çalışan resmi bağlantısı ve aktif üyeliği olan partiler onay için önceliklendirilir.",
       "bannedMembers": "Yasaklı Üyeler",
       "errorLoading": "Parti Yüklenirken Hata",
       "partyNotFound": "Parti Bulunamadı",
@@ -252,12 +252,7 @@
           "subtitle": "Temel gelirinizi talep etmek için giriş yapın",
           "setupSubtitle": "Temel gelirinizi ayarlayın",
           "claimableSubtitle": "Talep edilebilir drahmi",
-          "claimableTooltip1": "Bizim",
-          "claimableTooltip2": "geri alım programımızın",
-          "claimableTooltip3": " bir parçası olarak, topluluğumuz için sürdürülebilir, uzun vadeli faydalar yaratmak için temel gelir seviyelerini ince ayarlarla düzenliyoruz. Lütfen güncel oranlar için",
-          "claimableTooltip4": "SSS",
-          "claimableTooltip5": "'e bakın.",
-          "activateButton": "Temel Geliri Etkinleştir",
+          "activateButton": "Temel Geliri Aktifleştir",
           "claimButton": "Talep Et",
           "plus": {
             "title": "Temel Gelir Plus",
@@ -513,8 +508,7 @@
             "title": "Parti Sübvansiyon Programı",
             "subtitle": "Siyasi hareketinizi oluşturun ve kazanç sağlayın",
             "weeklyPool": {
-              "old": "100.000",
-              "new": "250.000 WDD",
+              "title": "100.000 WDD",
               "subtitle": "Sabit haftalık havuz"
             },
             "devRewards": {
@@ -536,7 +530,7 @@
                 },
                 "earnRewards": {
                   "title": "Ödüller Kazanın",
-                  "description": "İlk 50 parti sıralamasını koruyarak haftalık sübvansiyonlar alın"
+                  "description": "En iyi 50 partinin liderleri haftalık sübvansiyonlar alır"
                 }
               }
             },

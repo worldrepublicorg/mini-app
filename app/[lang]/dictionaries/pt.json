@@ -77,7 +77,7 @@
       "website": "Site",
       "members": "Membros",
       "noMembers": "Ainda não há membros",
-      "approvalNote": "Partidos com um link oficial funcionando e/ou crescimento de associados são priorizados para aprovação.",
+      "approvalNote": "Partidos com um link oficial funcionando e associação ativa são priorizados para aprovação.",
       "bannedMembers": "Membros Banidos",
       "errorLoading": "Erro ao Carregar Partido",
       "partyNotFound": "Partido Não Encontrado",
@@ -251,12 +251,7 @@
           "title": "Renda Básica",
           "subtitle": "Faça login para receber sua renda básica",
           "setupSubtitle": "Configure sua renda básica",
-          "claimableSubtitle": "Dracmas resgatáveis",
-          "claimableTooltip1": "Como parte do nosso",
-          "claimableTooltip2": "programa de recompra",
-          "claimableTooltip3": ", estamos ajustando os níveis de renda básica para criar benefícios sustentáveis e de longo prazo para nossa comunidade. Por favor, consulte o",
-          "claimableTooltip4": "FAQ",
-          "claimableTooltip5": "para taxas atuais.",
+          "claimableSubtitle": "Dracma disponível",
           "activateButton": "Ativar Renda Básica",
           "claimButton": "Receber",
           "plus": {
@@ -513,8 +508,7 @@
             "title": "Programa de Subsídio para Partidos",
             "subtitle": "Construa seu movimento político e ganhe",
             "weeklyPool": {
-              "old": "100.000",
-              "new": "250.000 WDD",
+              "title": "100.000 WDD",
               "subtitle": "Fundo semanal fixo"
             },
             "devRewards": {
@@ -536,7 +530,7 @@
                 },
                 "earnRewards": {
                   "title": "Ganhe Recompensas",
-                  "description": "Receba subsídios semanais mantendo uma classificação entre os 50 melhores partidos"
+                  "description": "Os líderes dos 50 principais partidos recebem subsídios semanais"
                 }
               }
             },

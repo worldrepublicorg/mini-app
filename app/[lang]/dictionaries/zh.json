@@ -77,7 +77,7 @@
       "website": "网站",
       "members": "成员",
       "noMembers": "暂无成员",
-      "approvalNote": "具有有效官方链接和/或成员增长的政党在审批时享有优先权。",
+      "approvalNote": "具有有效官方链接和活跃成员资格的政党在审批时享有优先权。",
       "bannedMembers": "被禁成员",
       "errorLoading": "加载政党时出错",
       "partyNotFound": "未找到政党",
@@ -252,11 +252,6 @@
           "subtitle": "登录以领取您的基本收入",
           "setupSubtitle": "设置您的基本收入",
           "claimableSubtitle": "可领取的德拉克马",
-          "claimableTooltip1": "作为我们",
-          "claimableTooltip2": "回购计划",
-          "claimableTooltip3": "的一部分，我们正在调整基本收入水平，为我们的社区创造可持续的长期利益。有关当前费率，请参阅",
-          "claimableTooltip4": "常见问题解答",
-          "claimableTooltip5": "。",
           "activateButton": "激活基本收入",
           "claimButton": "领取",
           "plus": {
@@ -513,8 +508,7 @@
             "title": "政党补贴计划",
             "subtitle": "建立您的政治运动并获得收益",
             "weeklyPool": {
-              "old": "100,000",
-              "new": "250,000 WDD",
+              "title": "100,000 WDD",
               "subtitle": "固定每周资金池"
             },
             "devRewards": {
@@ -536,7 +530,7 @@
                 },
                 "earnRewards": {
                   "title": "获得奖励",
-                  "description": "通过保持前50名政党排名获得每周补贴"
+                  "description": "前50名政党的领导者会收到每周补贴"
                 }
               }
             },

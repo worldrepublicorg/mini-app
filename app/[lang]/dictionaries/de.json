@@ -77,7 +77,7 @@
       "website": "Webseite",
       "members": "Mitglieder",
       "noMembers": "Noch keine Mitglieder",
-      "approvalNote": "Parteien mit einem funktionierenden offiziellen Link und/oder wachsender Mitgliedschaft werden bei der Genehmigung priorisiert.",
+      "approvalNote": "Parteien mit einem funktionierenden offiziellen Link und aktiver Mitgliedschaft werden bei der Genehmigung priorisiert.",
       "bannedMembers": "Gesperrte Mitglieder",
       "errorLoading": "Fehler beim Laden der Partei",
       "partyNotFound": "Partei nicht gefunden",
@@ -251,11 +251,6 @@
           "subtitle": "Melden Sie sich an, um Ihr Grundeinkommen zu beanspruchen",
           "setupSubtitle": "Richten Sie Ihr Grundeinkommen ein",
           "claimableSubtitle": "Beanspruchbare Drachmen",
-          "claimableTooltip1": "Im Rahmen unseres",
-          "claimableTooltip2": "Rückkaufprogramms",
-          "claimableTooltip3": " optimieren wir die Grundeinkommensniveaus, um nachhaltige, langfristige Vorteile für unsere Gemeinschaft zu schaffen. Bitte beachten Sie die",
-          "claimableTooltip4": "FAQ",
-          "claimableTooltip5": "für aktuelle Raten.",
           "activateButton": "Grundeinkommen aktivieren",
           "claimButton": "Beanspruchen",
           "plus": {
@@ -512,8 +507,7 @@
             "title": "Partei-Subventionsprogramm",
             "subtitle": "Baue deine politische Bewegung auf und verdiene",
             "weeklyPool": {
-              "old": "100.000",
-              "new": "250.000 WDD",
+              "title": "100.000 WDD",
               "subtitle": "Fester wöchentlicher Pool"
             },
             "devRewards": {
@@ -534,8 +528,8 @@
                   "description": "Rekrutiere Mitglieder und baue deine Gemeinschaft auf"
                 },
                 "earnRewards": {
-                  "title": "Belohnungen verdienen",
-                  "description": "Erhalte wöchentliche Zuschüsse durch Aufrechterhaltung eines Top-50-Partei-Rankings"
+                  "title": "Belohnungen Verdienen",
+                  "description": "Die Führungskräfte der Top-50-Parteien erhalten wöchentliche Subventionen"
                 }
               }
             },
