@@ -2512,7 +2512,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             <Typography
               as="p"
               variant={{ variant: "body", level: 2 }}
-              className="mx-auto mt-4 text-center text-gray-500"
+              className="mx-auto mt-4 text-center"
             >
               {dictionary?.components?.politicalPartyList?.drawers?.leave?.description.replace(
                 "{{partyName}}",
@@ -2568,7 +2568,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             <Typography
               as="p"
               variant={{ variant: "body", level: 2 }}
-              className="mx-auto mt-4 text-center text-gray-500"
+              className="mx-auto mt-4 text-center"
             >
               {dictionary?.components?.politicalPartyList?.drawers?.createConfirm?.description.replace(
                 "{{partyName}}",
