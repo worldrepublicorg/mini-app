@@ -89,7 +89,7 @@
       "website": "Sitio Web",
       "members": "Miembros",
       "noMembers": "Aún no hay miembros",
-      "approvalNote": "Los partidos con un enlace oficial funcional y membresía activa tienen prioridad para la aprobación.",
+      "approvalNote": "Los partidos con un enlace oficial funcional y/o membresía creciente tienen prioridad para la aprobación.",
       "bannedMembers": "Miembros Prohibidos",
       "errorLoading": "Error al Cargar el Partido",
       "partyNotFound": "Partido No Encontrado",

@@ -77,7 +77,7 @@
       "website": "Strona internetowa",
       "members": "Członkowie",
       "noMembers": "Brak członków",
-      "approvalNote": "Partie z działającym oficjalnym linkiem i aktywnym członkostwem mają priorytet przy zatwierdzaniu.",
+      "approvalNote": "Partie z działającym oficjalnym linkiem i/lub rosnącym członkostwem mają priorytet przy zatwierdzaniu.",
       "bannedMembers": "Zablokowani członkowie",
       "errorLoading": "Błąd ładowania partii",
       "partyNotFound": "Nie znaleziono partii",

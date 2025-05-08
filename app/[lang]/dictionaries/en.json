@@ -77,7 +77,7 @@
       "website": "Website",
       "members": "Members",
       "noMembers": "No members yet",
-      "approvalNote": "Parties with a working official link and active membership are prioritized for approval.",
+      "approvalNote": "Parties with a working official link and/or growing membership are prioritized for approval.",
       "bannedMembers": "Banned Members",
       "errorLoading": "Error Loading Party",
       "partyNotFound": "Party Not Found",

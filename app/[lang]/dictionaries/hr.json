@@ -77,7 +77,7 @@
       "website": "Web stranica",
       "members": "Članovi",
       "noMembers": "Još nema članova",
-      "approvalNote": "Stranke s funkcionalnom službenom poveznicom i aktivnim članstvom imaju prednost pri odobravanju.",
+      "approvalNote": "Stranke s funkcionalnom službenom poveznicom i/ili rastućim članstvom imaju prednost pri odobravanju.",
       "bannedMembers": "Zabranjeni članovi",
       "errorLoading": "Pogreška pri učitavanju stranke",
       "partyNotFound": "Stranka nije pronađena",
