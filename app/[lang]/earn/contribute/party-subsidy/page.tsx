@@ -7,13 +7,13 @@ import {
   PiUsersThreeFill,
   PiCoins,
   PiCurrencyCircleDollar,
-  PiRocketLaunch,
   PiInfoFill,
 } from "react-icons/pi";
 import { BiChevronLeft, BiChevronUp, BiLinkExternal } from "react-icons/bi";
 import { useTranslations } from "@/hooks/useTranslations";
 import { useEffect, useState } from "react";
 import { latestPayouts } from "@/data/payouts/payouts";
+import { useRouter } from "next/navigation";
 
 export default function PartySubsidyPage({
   params: { lang },
@@ -23,6 +23,7 @@ export default function PartySubsidyPage({
   const dictionary = useTranslations(lang);
   const [expandedParties, setExpandedParties] = useState<number[]>([]);
   const [showAllParties, setShowAllParties] = useState(false);
+  const router = useRouter();
 
   // Sort payouts by total WDD in descending order
   const sortedPayouts = [...latestPayouts].sort(
@@ -115,18 +116,23 @@ export default function PartySubsidyPage({
                             href={`https://worldchain-mainnet.explorer.alchemy.com/tx/${weekPayout.wdd.transactionHash}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-1 text-sm text-gray-900"
+                            className="flex items-center justify-end gap-1 text-sm text-gray-900"
                           >
                             {weekPayout.wdd.amount} WDD
-                            <BiLinkExternal className="size-[15px] text-gray-500" />
+                            {weekPayout.wdd.transactionHash && (
+                              <BiLinkExternal className="size-[15px] text-gray-500" />
+                            )}
                           </a>
                           <a
                             href={`https://worldchain-mainnet.explorer.alchemy.com/tx/${weekPayout.wld.transactionHash}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block text-sm text-gray-500"
+                            className="flex items-center justify-end gap-1 text-sm text-gray-500"
                           >
                             {weekPayout.wld.amount} WLD
+                            {weekPayout.wld.transactionHash && (
+                              <BiLinkExternal className="size-[15px] text-gray-500" />
+                            )}
                           </a>
                         </div>
                       </div>
@@ -157,7 +163,7 @@ export default function PartySubsidyPage({
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      localStorage.setItem("partySubsidyVisited", "true");
+      localStorage.setItem("increasedPartySubsidyVisited", "true");
     }
   }, []);
 
@@ -165,13 +171,13 @@ export default function PartySubsidyPage({
     <div className="pb-safe flex min-h-dvh flex-col px-6">
       <div className="fixed left-0 right-0 top-0 z-10 bg-gray-0 px-6">
         <div className="relative flex items-center justify-center py-6">
-          <Link
-            href={`/${lang}/earn?tab=Contribute`}
+          <button
+            onClick={() => router.back()}
             className="absolute left-0 flex size-10 items-center justify-center rounded-full bg-gray-100"
-            aria-label="Back to Earn"
+            aria-label="Back"
           >
             <BiChevronLeft className="size-6 text-gray-500" />
-          </Link>
+          </button>
           <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
             {dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy?.topnav}
           </Typography>
@@ -210,9 +216,15 @@ export default function PartySubsidyPage({
                   variant={{ variant: "subtitle", level: 2 }}
                   className="mb-2 text-center text-gray-900"
                 >
+                  <span className="line-through">
+                    {
+                      dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy
+                        ?.weeklyPool?.old
+                    }
+                  </span>{" "}
                   {
                     dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy
-                      ?.weeklyPool?.title
+                      ?.weeklyPool?.new
                   }
                 </Typography>
                 <Typography

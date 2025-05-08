@@ -77,7 +77,7 @@
       "website": "Website",
       "members": "Members",
       "noMembers": "No members yet",
-      "approvalNote": "Parties wey get working official link and active membership dey get priority for approval.",
+      "approvalNote": "Parties wey get working official link and/or growing membership dey get priority for approval.",
       "bannedMembers": "Banned Members",
       "errorLoading": "Error Loading Party",
       "partyNotFound": "Party No Dey Found",
@@ -250,8 +250,13 @@
           "title": "Basic Income",
           "subtitle": "Sign in to collect your basic income",
           "setupSubtitle": "Set up your basic income",
-          "claimableSubtitle": "Drachma wey you fit collect",
-          "activateButton": "Start Basic Income",
+          "claimableSubtitle": "Drachma wey you fit claim",
+          "claimableTooltip1": "As part of our",
+          "claimableTooltip2": "buyback program",
+          "claimableTooltip3": ", we dey fine-tune basic income levels to create sustainable, long-term benefits for our community. See the",
+          "claimableTooltip4": "FAQ",
+          "claimableTooltip5": "for current rates.",
+          "activateButton": "Activate Basic Income",
           "claimButton": "Collect",
           "plus": {
             "title": "Basic Income Plus",
@@ -507,7 +512,8 @@
             "title": "Party Subsidy Program",
             "subtitle": "Build your political movement and earn money",
             "weeklyPool": {
-              "title": "100,000 WDD",
+              "old": "100,000",
+              "new": "250,000 WDD",
               "subtitle": "Fixed weekly pool"
             },
             "devRewards": {
@@ -529,7 +535,7 @@
                 },
                 "earnRewards": {
                   "title": "Collect Rewards",
-                  "description": "De leaders of de top 50 parties dey collect weekly subsidy"
+                  "description": "Receive weekly money support as you maintain top 50 party ranking"
                 }
               }
             },

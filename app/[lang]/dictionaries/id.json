@@ -77,7 +77,7 @@
       "website": "Situs Web",
       "members": "Anggota",
       "noMembers": "Belum ada anggota",
-      "approvalNote": "Partai dengan tautan resmi yang berfungsi dan keanggotaan aktif diprioritaskan untuk persetujuan.",
+      "approvalNote": "Partai dengan tautan resmi yang berfungsi dan/atau keanggotaan yang berkembang diprioritaskan untuk persetujuan.",
       "bannedMembers": "Anggota yang Diblokir",
       "errorLoading": "Kesalahan Memuat Partai",
       "partyNotFound": "Partai Tidak Ditemukan",
@@ -252,6 +252,11 @@
           "subtitle": "Masuk untuk mengklaim pendapatan dasar Anda",
           "setupSubtitle": "Atur pendapatan dasar Anda",
           "claimableSubtitle": "Drachma yang dapat diklaim",
+          "claimableTooltip1": "Sebagai bagian dari",
+          "claimableTooltip2": "program pembelian kembali",
+          "claimableTooltip3": " kami, kami menyesuaikan tingkat pendapatan dasar untuk menciptakan manfaat berkelanjutan jangka panjang bagi komunitas kami. Silakan lihat",
+          "claimableTooltip4": "FAQ",
+          "claimableTooltip5": "untuk tarif saat ini.",
           "activateButton": "Aktifkan Pendapatan Dasar",
           "claimButton": "Klaim",
           "plus": {
@@ -508,7 +513,8 @@
             "title": "Program Subsidi Partai",
             "subtitle": "Bangun gerakan politik Anda dan dapatkan penghasilan",
             "weeklyPool": {
-              "title": "100.000 WDD",
+              "old": "100.000",
+              "new": "250.000 WDD",
               "subtitle": "Dana mingguan tetap"
             },
             "devRewards": {
@@ -529,8 +535,8 @@
                   "description": "Rekrut anggota dan bangun komunitas Anda"
                 },
                 "earnRewards": {
-                  "title": "Dapatkan Hadiah",
-                  "description": "Para pemimpin dari 50 partai teratas menerima subsidi mingguan"
+                  "title": "Dapatkan Imbalan",
+                  "description": "Terima subsidi mingguan dengan mempertahankan peringkat partai 50 teratas"
                 }
               }
             },
