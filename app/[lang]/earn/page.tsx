@@ -1293,23 +1293,23 @@ export default function EarnPage({
     };
   }, [walletAddress]);
 
-  const [hasSeenPartySubsidyProgram, setHasSeenPartySubsidyProgram] =
+  const [hasSeenNewPartySubsidyProgram, setHasSeenNewPartySubsidyProgram] =
     useState(false);
 
   // Update the localStorage key for the Invite feature
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const hasSeenPartySubsidy =
-        localStorage.getItem("hasSeenPartySubsidyProgram") === "true";
-      setHasSeenPartySubsidyProgram(hasSeenPartySubsidy);
+      const hasSeenNewPartySubsidy =
+        localStorage.getItem("hasSeenNewPartySubsidyProgram") === "true";
+      setHasSeenNewPartySubsidyProgram(hasSeenNewPartySubsidy);
     }
   }, []);
 
   // Update localStorage when the Invite tab is active
   useEffect(() => {
     if (activeTab === "Contribute" && typeof window !== "undefined") {
-      localStorage.setItem("hasSeenPartySubsidyProgram", "true");
-      setHasSeenPartySubsidyProgram(true);
+      localStorage.setItem("hasSeenNewPartySubsidyProgram", "true");
+      setHasSeenNewPartySubsidyProgram(true);
     }
   }, [activeTab]);
 
@@ -1640,7 +1640,8 @@ export default function EarnPage({
   // Check if buyback program has been visited
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const hasVisited = localStorage.getItem("partySubsidyVisited") === "true";
+      const hasVisited =
+        localStorage.getItem("increasedPartySubsidyVisited") === "true";
       setHasPartySubsidyBeenVisited(hasVisited);
     }
   }, []);
@@ -2877,7 +2878,7 @@ export default function EarnPage({
           tabIndicators={{
             "Basic income": false,
             Savings: false,
-            Contribute: !hasSeenPartySubsidyProgram,
+            Contribute: !hasSeenNewPartySubsidyProgram,
             Invite: false,
           }}
         />

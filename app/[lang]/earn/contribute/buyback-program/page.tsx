@@ -19,6 +19,7 @@ import { useCallback, useEffect } from "react";
 import { useToast } from "@/components/ui/Toast";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { MiniKit } from "@worldcoin/minikit-js";
+import { useRouter } from "next/navigation";
 
 export default function BuybackProgramPage({
   params: { lang },
@@ -28,6 +29,7 @@ export default function BuybackProgramPage({
   const dictionary = useTranslations(lang);
   const { showToast } = useToast();
   const { username, walletAddress, setUsername } = useWallet();
+  const router = useRouter();
 
   // First, wrap loadCurrentUsername with useCallback to prevent infinite loop
   const loadCurrentUsernameCallback = useCallback(async () => {
@@ -84,13 +86,13 @@ export default function BuybackProgramPage({
     <div className="pb-safe flex min-h-dvh flex-col px-6">
       <div className="fixed left-0 right-0 top-0 z-10 bg-gray-0 px-6">
         <div className="relative flex items-center justify-center py-6">
-          <Link
-            href={`/${lang}/earn?tab=Contribute`}
+          <button
+            onClick={() => router.back()}
             className="absolute left-0 flex size-10 items-center justify-center rounded-full bg-gray-100"
-            aria-label="Back to Earn"
+            aria-label="Back"
           >
             <BiChevronLeft className="size-6 text-gray-500" />
-          </Link>
+          </button>
           <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
             {dictionary?.pages?.earn?.tabs?.contribute?.buybackProgram?.topnav}
           </Typography>

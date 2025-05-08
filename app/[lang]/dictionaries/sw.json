@@ -513,7 +513,8 @@
             "title": "Programu ya Ruzuku ya Chama",
             "subtitle": "Jenga harakati yako ya kisiasa na upate mapato",
             "weeklyPool": {
-              "title": "WDD 100,000",
+              "old": "WDD 100,000",
+              "new": "WDD 250,000",
               "subtitle": "Jumba la wiki iliyowekwa"
             },
             "devRewards": {

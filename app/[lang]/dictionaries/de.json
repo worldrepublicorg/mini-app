@@ -512,7 +512,8 @@
             "title": "Partei-Subventionsprogramm",
             "subtitle": "Baue deine politische Bewegung auf und verdiene",
             "weeklyPool": {
-              "title": "100.000 WDD",
+              "old": "100.000",
+              "new": "250.000 WDD",
               "subtitle": "Fester wöchentlicher Pool"
             },
             "devRewards": {

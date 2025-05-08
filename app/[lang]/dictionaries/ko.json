@@ -513,7 +513,8 @@
             "title": "정당 보조금 프로그램",
             "subtitle": "정치 운동을 구축하고 수익을 창출하세요",
             "weeklyPool": {
-              "title": "100,000 WDD",
+              "old": "100,000",
+              "new": "250,000 WDD",
               "subtitle": "고정 주간 풀"
             },
             "devRewards": {
