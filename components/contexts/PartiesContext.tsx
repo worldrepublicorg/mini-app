@@ -46,6 +46,7 @@ interface PartiesContextType {
   setParties: (parties: Party[] | ((prevParties: Party[]) => Party[])) => void;
   getOptimisticPartyId: () => number;
   storeUserParty: (party: Party) => void;
+  shuffledActiveParties: Party[];
 }
 
 const PartiesContext = createContext<PartiesContextType>({
@@ -63,6 +64,7 @@ const PartiesContext = createContext<PartiesContextType>({
   setParties: () => {},
   getOptimisticPartyId: () => 0,
   storeUserParty: () => {},
+  shuffledActiveParties: [],
 });
 
 const GOLDSKY_SUBGRAPH_URL =
@@ -82,6 +84,9 @@ export const PartiesProvider: React.FC<{ children: React.ReactNode }> = ({
   const [userPartyId, setUserPartyIdState] = useState<number>(0);
   const [highestKnownPartyId, setHighestKnownPartyId] = useState<number>(0);
   const [userPartyData, setUserPartyData] = useState<Party | null>(null);
+  const [shuffledActiveParties, setShuffledActiveParties] = useState<Party[]>(
+    []
+  );
   const { walletAddress } = useWallet();
   const { showToast } = useToast();
 
@@ -336,13 +341,35 @@ export const PartiesProvider: React.FC<{ children: React.ReactNode }> = ({
       }));
 
       setActiveParties(fetchedParties);
+
+      if (fetchedParties.length > 0) {
+        // Only shuffle if we haven't shuffled yet or if the active parties list changed significantly
+        if (
+          shuffledActiveParties.length === 0 ||
+          Math.abs(shuffledActiveParties.length - fetchedParties.length) > 10
+        ) {
+          // Sort parties by creation time (newest first)
+          const sortedByCreation = [...fetchedParties].sort(
+            (a, b) => b.creationTime - a.creationTime
+          );
+
+          // Shuffle the top 100 only once after fetching
+          const top100 = sortedByCreation.slice(0, 100);
+          for (let i = top100.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [top100[i], top100[j]] = [top100[j], top100[i]];
+          }
+
+          setShuffledActiveParties([...top100, ...sortedByCreation.slice(100)]);
+        }
+      }
     } catch (error) {
       console.error("Error fetching active parties from subgraph:", error);
       showToast("Failed to load active political parties", "error");
     } finally {
       setActiveLoading(false);
     }
-  }, [walletAddress, showToast, setUserPartyId]);
+  }, [walletAddress, showToast, setUserPartyId, shuffledActiveParties]);
 
   const fetchPendingParties = useCallback(async () => {
     if (!GOLDSKY_SUBGRAPH_URL) {
@@ -463,6 +490,7 @@ export const PartiesProvider: React.FC<{ children: React.ReactNode }> = ({
         setParties,
         getOptimisticPartyId,
         storeUserParty,
+        shuffledActiveParties,
       }}
     >
       {children}

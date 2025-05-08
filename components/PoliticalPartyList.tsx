@@ -84,6 +84,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     setUserPartyId,
     setParties,
     storeUserParty,
+    shuffledActiveParties, // Get the shuffled parties from context
   } = useParties();
 
   const { walletAddress } = useWallet();
@@ -334,24 +335,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const sortedPartiesByTab = useMemo(() => {
     console.log("Recalculating sortedPartiesByTab with context data");
     const partyLists: Record<string, Party[]> = {
-      new: [],
+      new: shuffledActiveParties, // Use pre-shuffled parties from context
       trending: [],
       top: [],
       pending: pendingParties,
     };
-
-    // Sort active parties for "new" tab (newest first)
-    const sortedByCreation = [...activeParties].sort(
-      (a, b) => b.creationTime - a.creationTime
-    );
-
-    // Shuffle the top 100
-    const top100 = sortedByCreation.slice(0, 100);
-    for (let i = top100.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [top100[i], top100[j]] = [top100[j], top100[i]];
-    }
-    partyLists.new = [...top100, ...sortedByCreation.slice(100)];
 
     // Sort active parties for "top" tab (highest member count first)
     partyLists.top = [...activeParties].sort(
@@ -368,7 +356,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       });
 
     return partyLists;
-  }, [activeParties, pendingParties]);
+  }, [activeParties, pendingParties, shuffledActiveParties]);
 
   // Filter parties based on search term when needed
   const filteredParties = useMemo(() => {
