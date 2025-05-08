@@ -1,7 +1,7 @@
 "use client";
 
 import { Typography } from "@/components/ui/Typography";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { DrawerItem } from "@/components/DrawerItem";
 import { SectionHeader } from "@/components/SectionHeader";
 import { TabSwiper } from "@/components/TabSwiper";
@@ -11,6 +11,7 @@ import { useTranslations } from "@/hooks/useTranslations";
 import { PoliticalPartyList } from "@/components/PoliticalPartyList";
 import { Button } from "@/components/ui/Button";
 import { PiUsersThreeFill, PiScalesFill } from "react-icons/pi";
+import { useSearchParams } from "next/navigation";
 
 const TAB_KEYS = {
   POLLS: "polls",
@@ -28,9 +29,38 @@ export default function GovernPage({
   params: { lang: string };
 }) {
   const dictionary = useTranslations(lang);
+  const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState<TabKey>(
     TAB_KEYS.POLITICAL_PARTIES
   );
+
+  // Handle initial URL tab parameter
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const urlParams = new URLSearchParams(window.location.search);
+      const tabParam = urlParams.get("tab");
+      if (tabParam && Object.values(TAB_KEYS).includes(tabParam as TabKey)) {
+        setActiveTab(tabParam as TabKey);
+      }
+    }
+  }, []);
+
+  // Handle browser back/forward navigation
+  useEffect(() => {
+    const handlePopState = () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const tabParam = urlParams.get("tab");
+      if (tabParam && Object.values(TAB_KEYS).includes(tabParam as TabKey)) {
+        setActiveTab(tabParam as TabKey);
+      } else {
+        // Default to political parties if no valid tab is in the URL
+        setActiveTab(TAB_KEYS.POLITICAL_PARTIES);
+      }
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
 
   if (!dictionary) {
     return null;
@@ -58,6 +88,18 @@ export default function GovernPage({
       label: dictionary?.components?.tabSwiper?.tabs?.referendums,
     },
   ];
+
+  const handleTabChange = (tab: TabKey) => {
+    setActiveTab(tab);
+
+    // Update URL query parameter without full page refresh
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("tab", tab);
+
+    // Update the URL to include both the language and tab parameter
+    const newUrl = `/${lang}/govern?${params.toString()}`;
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  };
 
   const renderContent = () => {
     switch (activeTab) {
@@ -155,7 +197,7 @@ export default function GovernPage({
       case TAB_KEYS.ELECTIONS:
         return (
           <>
-            <div className="flex flex-col items-center justify-center">
+            <div className="flex w-full flex-col items-center justify-center">
               <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
                 <PiUsersThreeFill className="h-10 w-10 text-gray-400" />
               </div>
@@ -190,7 +232,7 @@ export default function GovernPage({
       case TAB_KEYS.REFERENDUMS:
         return (
           <>
-            <div className="flex flex-col items-center justify-center">
+            <div className="flex w-full flex-col items-center justify-center">
               <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
                 <PiScalesFill className="h-10 w-10 text-gray-400" />
               </div>
@@ -241,7 +283,7 @@ export default function GovernPage({
         <TabSwiper<TabKey>
           tabs={tabs}
           activeTab={activeTab}
-          onTabChange={setActiveTab}
+          onTabChange={handleTabChange}
         />
       </div>
 
