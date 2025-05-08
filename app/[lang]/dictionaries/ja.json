@@ -512,7 +512,8 @@
             "title": "政党補助金プログラム",
             "subtitle": "政治運動を構築して報酬を得る",
             "weeklyPool": {
-              "title": "250,000 WDD",
+              "old": "100,000",
+              "new": "250,000 WDD",
               "subtitle": "固定週間プール"
             },
             "devRewards": {

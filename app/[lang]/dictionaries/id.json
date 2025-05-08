@@ -513,7 +513,8 @@
             "title": "Program Subsidi Partai",
             "subtitle": "Bangun gerakan politik Anda dan dapatkan penghasilan",
             "weeklyPool": {
-              "title": "250.000 WDD",
+              "old": "100.000",
+              "new": "250.000 WDD",
               "subtitle": "Dana mingguan tetap"
             },
             "devRewards": {

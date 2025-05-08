@@ -513,7 +513,8 @@
             "title": "Program subvencija za stranke",
             "subtitle": "Izgradite svoj politički pokret i zaradite",
             "weeklyPool": {
-              "title": "250.000 WDD",
+              "old": "100.000",
+              "new": "250.000 WDD",
               "subtitle": "Fiksni tjedni fond"
             },
             "devRewards": {

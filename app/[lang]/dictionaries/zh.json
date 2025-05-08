@@ -513,7 +513,8 @@
             "title": "政党补贴计划",
             "subtitle": "建立您的政治运动并获得收益",
             "weeklyPool": {
-              "title": "250,000 WDD",
+              "old": "100,000",
+              "new": "250,000 WDD",
               "subtitle": "固定每周资金池"
             },
             "devRewards": {

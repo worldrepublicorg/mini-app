@@ -513,7 +513,8 @@
             "title": "Programme de Subvention des Partis",
             "subtitle": "Construisez votre mouvement politique et gagnez",
             "weeklyPool": {
-              "title": "250 000 WDD",
+              "old": "100 000",
+              "new": "250 000 WDD",
               "subtitle": "Cagnotte hebdomadaire fixe"
             },
             "devRewards": {

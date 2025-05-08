@@ -511,7 +511,8 @@
             "title": "Programa ng Subsidy para sa Partido",
             "subtitle": "Bumuo ng iyong pulitikal na kilusan at kumita",
             "weeklyPool": {
-              "title": "250,000 WDD",
+              "old": "100,000",
+              "new": "250,000 WDD",
               "subtitle": "Nakatakdang lingguhang pool"
             },
             "devRewards": {
