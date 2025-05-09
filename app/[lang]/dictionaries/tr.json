@@ -269,7 +269,7 @@
               "subtitle": "Doğrulanmış kullanıcılar için ek gelir",
               "features": {
                 "rate": {
-                  "title": "Günde ek 8,75 WDD"
+                  "title": "Günde ek 7,8 WDD"
                 },
                 "verification": {
                   "title": "Adil dağıtım için sadece Orb-doğrulanmış kullanıcılara özel"
@@ -729,11 +729,11 @@
         },
         "basicIncome": {
           "question": "Temel Gelir nedir?",
-          "answer": "Temel Gelirimiz, Dünya Cumhuriyeti'nin tüm vatandaşlarına sağlanan günlük 0,25 WDD (dünya drahmi) sübvansiyonudur. Gerçek zamanlı olarak birikir ve uygulama üzerinden her an talep edilebilir."
+          "answer": "Temel Gelirimiz, Dünya Cumhuriyeti'nin tüm vatandaşlarına sağlanan günlük 0,2 WDD (dünya drahmi) sübvansiyonudur. Gerçek zamanlı olarak birikir ve uygulama üzerinden her an talep edilebilir."
         },
         "basicIncomePlus": {
           "question": "Temel Gelir Plus'ı nasıl aktifleştiririm?",
-          "answer": "Temel Gelir Plus, günlük ek 8,75 WDD sağlar ve sadece Orb-doğrulanmış kullanıcılara özeldir. Temel Geliri aktifleştirdikten sonra, Kazan sayfasında Temel Gelir Plus'ı aktifleştirme seçeneğini göreceksiniz."
+          "answer": "Temel Gelir Plus, günlük ek 7,8 WDD sağlar ve sadece Orb-doğrulanmış kullanıcılara özeldir. Temel Geliri aktifleştirdikten sonra, Kazan sayfasında Temel Gelir Plus'ı aktifleştirme seçeneğini göreceksiniz."
         },
         "savings": {
           "question": "Tasarruf Hesabı nasıl çalışır?",

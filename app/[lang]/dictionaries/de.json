@@ -268,7 +268,7 @@
               "subtitle": "Zusätzliches Einkommen für verifizierte Nutzer",
               "features": {
                 "rate": {
-                  "title": "Zusätzliche 8,75 WDD pro Tag"
+                  "title": "Zusätzliche 7,8 WDD pro Tag"
                 },
                 "verification": {
                   "title": "Exklusiv für Orb-verifizierte Nutzer zur Sicherstellung einer fairen Verteilung"
@@ -728,11 +728,11 @@
         },
         "basicIncome": {
           "question": "Was ist Grundeinkommen?",
-          "answer": "Unser Grundeinkommen ist ein tägliches Subventionsprogramm von 0,25 WDD (Weltdrachme) für alle Bürger der Weltrepublik. Es kumuliert in Echtzeit und kann jederzeit über die App beansprucht werden."
+          "answer": "Unser Grundeinkommen ist ein tägliches Subventionsprogramm von 0,2 WDD (Weltdrachme) für alle Bürger der Weltrepublik. Es kumuliert in Echtzeit und kann jederzeit über die App beansprucht werden."
         },
         "basicIncomePlus": {
           "question": "Wie aktiviere ich Grundeinkommen Plus?",
-          "answer": "Grundeinkommen Plus bietet zusätzliche 8,75 WDD pro Tag und ist ausschließlich den Orb-verifizierten Nutzern verfügbar. Nach der Aktivierung von Grundeinkommen sehen Sie eine Option, Grundeinkommen Plus auf der Verdienen-Seite zu aktivieren."
+          "answer": "Grundeinkommen Plus bietet zusätzliche 7,8 WDD pro Tag und ist ausschließlich den Orb-verifizierten Nutzern verfügbar. Nach der Aktivierung von Grundeinkommen sehen Sie eine Option, Grundeinkommen Plus auf der Verdienen-Seite zu aktivieren."
         },
         "savings": {
           "question": "Wie funktioniert der Sparen Account?",
