@@ -269,7 +269,7 @@
               "subtitle": "Revenu supplémentaire pour les utilisateurs vérifiés",
               "features": {
                 "rate": {
-                  "title": "9,5 WDD supplémentaires par jour"
+                  "title": "8,75 WDD supplémentaires par jour"
                 },
                 "verification": {
                   "title": "Exclusif aux utilisateurs vérifiés par Orb pour assurer une distribution équitable"
@@ -729,11 +729,11 @@
         },
         "basicIncome": {
           "question": "Qu'est-ce que le Revenu de Base ?",
-          "answer": "Notre Revenu de Base est une subvention quotidienne de 0,5 WDD (drachme mondiale) fournie à tous les citoyens de la République Mondiale. Il s'accumule en temps réel et peut être réclamé à tout moment via l'application."
+          "answer": "Notre Revenu de Base est une subvention quotidienne de 0,25 WDD (drachme mondiale) fournie à tous les citoyens de la République Mondiale. Il s'accumule en temps réel et peut être réclamé à tout moment via l'application."
         },
         "basicIncomePlus": {
           "question": "Comment activer le Revenu de Base Plus ?",
-          "answer": "Le Revenu de Base Plus fournit 9,5 WDD supplémentaires par jour et est exclusivement disponible pour les utilisateurs vérifiés par Orb. Après avoir activé le Revenu de Base, vous verrez une option pour activer le Revenu de Base Plus sur la page Gagner."
+          "answer": "Le Revenu de Base Plus fournit 8,75 WDD supplémentaires par jour et est exclusivement disponible pour les utilisateurs vérifiés par Orb. Après avoir activé le Revenu de Base, vous verrez une option pour activer le Revenu de Base Plus sur la page Gagner."
         },
         "savings": {
           "question": "Comment fonctionne le Compte d'Épargne ?",
