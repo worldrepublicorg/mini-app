@@ -267,7 +267,7 @@
               "subtitle": "Extra income para sa mga verified na user",
               "features": {
                 "rate": {
-                  "title": "Dagdagan ng 9.5 WDD bawat araw"
+                  "title": "Dagdagan ng 8.75 WDD bawat araw"
                 },
                 "verification": {
                   "title": "Eksklusibo para sa mga Orb-verified na user para masiguro ang patas na distribusyon"
@@ -727,11 +727,11 @@
         },
         "basicIncome": {
           "question": "Ano ang Basic Income?",
-          "answer": "Ang aming Basic Income ay isang pang-araw-araw na subsidy na 0.5 WDD (world drachma) na ibinibigay sa lahat ng mamamayan ng World Republic. Ito ay naaaccumulate sa real-time at maaaring kunin sa anumang oras sa pamamagitan ng app."
+          "answer": "Ang aming Basic Income ay isang pang-araw-araw na subsidy na 0.25 WDD (world drachma) na ibinibigay sa lahat ng mamamayan ng World Republic. Ito ay naaaccumulate sa real-time at maaaring kunin sa anumang oras sa pamamagitan ng app."
         },
         "basicIncomePlus": {
           "question": "Paano ko i-activate ang Basic Income Plus?",
-          "answer": "Ang Basic Income Plus ay nagbibigay ng karagdagang 9.5 WDD bawat araw at available lamang sa mga Orb-verified na user. Pagkatapos i-activate ang Basic Income, makakakita ka ng option para i-activate ang Basic Income Plus sa Earn page."
+          "answer": "Ang Basic Income Plus ay nagbibigay ng karagdagang 8.75 WDD bawat araw at available lamang sa mga Orb-verified na user. Pagkatapos i-activate ang Basic Income, makakakita ka ng option para i-activate ang Basic Income Plus sa Earn page."
         },
         "savings": {
           "question": "Paano gumagana ang Savings Account?",
