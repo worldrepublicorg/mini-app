@@ -123,8 +123,8 @@ export default function EarnPage({
     // Set loading to false once we have the data
     setIsClaimableLoading(false);
 
-    const rate = 1 / 345600; // Increment rate (tokens per second)
-    const ratePlus = 35 / 345600; // Increment rate (tokens per second)
+    const rate = 1 / 432000; // Increment rate (tokens per second)
+    const ratePlus = 39 / 432000; // Increment rate (tokens per second)
     const currentClaimable = Number(claimableAmount);
     const currentClaimablePlus = Number(claimableAmountPlus);
 
@@ -1802,7 +1802,9 @@ export default function EarnPage({
                       <div className="mx-auto mb-[57px] mt-[6px] h-[56px] w-64 animate-pulse rounded-xl bg-gray-100"></div>
                     ) : (
                       <p className="mx-auto mb-[52px] font-sans text-[56px] font-semibold leading-narrow tracking-normal">
-                        {displayClaimable.toFixed(5)}
+                        {basicIncomePlusActivated
+                          ? displayClaimable.toFixed(5)
+                          : displayClaimable.toFixed(6)}
                       </p>
                     )}
                   </div>
