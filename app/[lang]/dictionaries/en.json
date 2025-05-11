@@ -563,6 +563,7 @@
             "title": "Previous Polls",
             "backToGovern": "Back to Govern",
             "polls": {
+              "coralCrisisAction": "Should nations commit to a coordinated global strategy to protect coral reefs amid the worst bleaching event in recorded history?",
               "aiSafetyTreaty": "Should nations agree to an enforceable global AI safety treaty?",
               "polarIceProtocol": "Should nations agree to a global sea-ice monitoring and early-response protocol—including joint research, data sharing, and mitigation strategies—to address declining polar ice and avert accelerated sea-level rise?",
               "tradePolicyStability": "Should nations adopt a coordinated international code of conduct for tariff policies to enhance predictability and stability in global trade?",

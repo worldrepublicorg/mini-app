@@ -23,8 +23,8 @@ const polls: Poll[] = [
     url: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/b6be3PF1",
   },
   {
-    key: "wildlifeTrafficking",
-    url: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/eWitQrSp",
+    key: "coralCrisisAction",
+    url: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/jNqEO9XV",
   },
   {
     key: "criticalMineralsExport",
