@@ -569,6 +569,7 @@
             "title": "Kura za Awali",
             "backToGovern": "Rudi kwa Tawala",
             "polls": {
+              "coralCrisisAction": "Je, mataifa yanapaswa kujitolea kwa mkakati wa pamoja wa kimataifa kulinda matumbawe ya bahari katika hali ya mabadiliko ya rangi ya matumbawe mbaya zaidi katika historia iliyorekodiwa?",
               "aiSafetyTreaty": "Je, mataifa yanapaswa kukubaliana na mkataba wa kimataifa wa usalama wa AI unaoweza kutekelezwa?",
               "heatAdaptation": "Je, nchi zinapaswa kuanzisha utaratibu wa uratibu wa kimataifa kwa onyo la mapema la joto na juhudi za pamoja za msaada ili kulinda watu walio hatarini wakati wa matukio ya joto kali?",
               "sovereignDebtRestructuring": "Je, kunapaswa kuwa na utaratibu wa kimataifa wa kuratibu upangaji upya wa deni la nchi ili kutoa msaada wa wakati unaofaa kwa nchi zinazokabiliwa na viwango vya deni visivyoweza kuhimiliwa?",
