@@ -47,7 +47,7 @@ export default function PartySubsidyPage({
             {/* Party Header - Always visible */}
             <button
               onClick={() => toggleParty(party.id)}
-              className="w-full px-4 py-2"
+              className={`w-full px-4 py-2 ${expandedParties.includes(party.id) ? "bg-gray-50" : ""}`}
             >
               <div className="flex items-center justify-between gap-2">
                 <div className="flex min-w-0 items-center gap-1">
@@ -123,17 +123,19 @@ export default function PartySubsidyPage({
                               <BiLinkExternal className="size-[15px] text-gray-500" />
                             )}
                           </a>
-                          <a
-                            href={`https://worldchain-mainnet.explorer.alchemy.com/tx/${weekPayout.wld.transactionHash}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center justify-end gap-1 text-sm text-gray-500"
-                          >
-                            {weekPayout.wld.amount} WLD
-                            {weekPayout.wld.transactionHash && (
-                              <BiLinkExternal className="size-[15px] text-gray-500" />
-                            )}
-                          </a>
+                          {weekPayout.wld.amount && (
+                            <a
+                              href={`https://worldchain-mainnet.explorer.alchemy.com/tx/${weekPayout.wld.transactionHash}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center justify-end gap-1 text-sm text-gray-500"
+                            >
+                              {weekPayout.wld.amount} WLD
+                              {weekPayout.wld.transactionHash && (
+                                <BiLinkExternal className="size-[15px] text-gray-500" />
+                              )}
+                            </a>
+                          )}
                         </div>
                       </div>
                     </div>
