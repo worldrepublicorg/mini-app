@@ -2601,9 +2601,9 @@ export const latestPayouts: PartyPayout[] = [
             "0xcd9c7f86c22b52ea3c69ea04a6845a7995f1173dba3a5a0d25a54c45ebd62b3a",
         },
         wld: {
-          amount: "3745",
+          amount: "",
           transactionHash:
-            "0x27caab47c704ac9b6eada0bc05aee373c032477f8ed7c444d726a9838fa81ced",
+            "",
         },
       },
     ],
