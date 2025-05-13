@@ -269,7 +269,7 @@
               "subtitle": "Dodatni prihod za verificirane korisnike",
               "features": {
                 "rate": {
-                  "title": "4,9 WDD dodatnih po danu"
+                  "title": "3,95 WDD dodatnih po danu"
                 },
                 "verification": {
                   "title": "Ekskluzivno za Orb-verificirane korisnike radi osiguranja pravedne distribucije"
@@ -730,11 +730,11 @@
         },
         "basicIncome": {
           "question": "Što je Temeljni dohodak?",
-          "answer": "Naš Temeljni dohodak je dnevna subvencija od 0,1 WDD (svjetska drahma) koja se pruža svim građanima Svjetske Republike. Akumulira se u stvarnom vremenu i može se preuzeti u bilo kojem trenutku putem aplikacije."
+          "answer": "Naš Temeljni dohodak je dnevna subvencija od 0,05 WDD (svjetska drahma) koja se pruža svim građanima Svjetske Republike. Akumulira se u stvarnom vremenu i može se preuzeti u bilo kojem trenutku putem aplikacije."
         },
         "basicIncomePlus": {
           "question": "Kako aktivirati Temeljni dohodak Plus?",
-          "answer": "Temeljni dohodak Plus pruža dodatnih 4,9 WDD dnevno i dostupan je isključivo Orb-verificiranim korisnicima. Nakon aktivacije Temeljnog dohotka, vidjet ćete opciju za aktivaciju Temeljnog dohotka Plus na stranici Zarada."
+          "answer": "Temeljni dohodak Plus pruža dodatnih 3,95 WDD dnevno i dostupan je isključivo Orb-verificiranim korisnicima. Nakon aktivacije Temeljnog dohotka, vidjet ćete opciju za aktivaciju Temeljnog dohotka Plus na stranici Zarada."
         },
         "savings": {
           "question": "Kako funkcionira Štedni račun?",
