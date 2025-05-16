@@ -26,7 +26,6 @@ import { useTranslations } from "@/hooks/useTranslations";
 import { TabSwiper } from "@/components/TabSwiper";
 import Link from "next/link";
 import { useParties } from "@/components/contexts/PartiesContext";
-import React from "react";
 
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
   "0x70a993E1D1102F018365F966B5Fc009e8FA9b7dC";
@@ -62,94 +61,6 @@ interface CreatePartyForm {
 interface PoliticalPartyListProps {
   lang: string;
 }
-
-interface MyPartySectionProps {
-  userPartyId: number;
-  walletAddress: string | null;
-  showToast: (message: string, type: "success" | "error" | "info") => void;
-  renderPartyCard: (party: Party) => JSX.Element;
-  dictionary: any;
-  handleCreatePartyClick: () => void;
-  FetchUserParty: React.ComponentType<any>; // Add this
-}
-
-// Extract MyPartySection into a separate component
-const MyPartySectionComponent = React.memo<MyPartySectionProps>(
-  ({
-    userPartyId,
-    walletAddress,
-    showToast,
-    renderPartyCard,
-    dictionary,
-    handleCreatePartyClick,
-    FetchUserParty, // Add this
-  }) => {
-    // If we have optimistic data or real data, show it
-    if (userPartyId === -1 || userPartyId > 0) {
-      return (
-        <div className="mb-6">
-          <div className="mb-3 flex items-center justify-between">
-            <Typography
-              as="h2"
-              variant={{ variant: "subtitle", level: 1 }}
-              className="text-[19px] font-semibold"
-            >
-              {dictionary?.components?.politicalPartyList?.myParty}
-            </Typography>
-            <button
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-900"
-              onClick={handleCreatePartyClick}
-              title={dictionary?.components?.politicalPartyList?.createParty}
-            >
-              <FaPlus className="text-gray-500" size={12} />
-            </button>
-          </div>
-
-          {userPartyId > 0 || userPartyId === -1 ? (
-            // Always show the party card - either with real ID or temporary (-1) ID
-            <FetchUserParty
-              partyId={userPartyId}
-              renderPartyCard={renderPartyCard}
-              walletAddress={walletAddress}
-              showToast={showToast}
-            />
-          ) : (
-            // Only show this when user truly has no party
-            <div className="p-4 text-center text-gray-500">
-              {dictionary?.components?.politicalPartyList?.noParty}
-            </div>
-          )}
-        </div>
-      );
-    }
-
-    // Only show "no party" message when we're sure user has no party
-    return (
-      <div className="mb-6">
-        <div className="mb-3 flex items-center justify-between">
-          <Typography
-            as="h2"
-            variant={{ variant: "subtitle", level: 1 }}
-            className="text-[19px] font-semibold"
-          >
-            {dictionary?.components?.politicalPartyList?.myParty}
-          </Typography>
-          <button
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-900"
-            onClick={handleCreatePartyClick}
-            title={dictionary?.components?.politicalPartyList?.createParty}
-          >
-            <FaPlus className="text-gray-500" size={12} />
-          </button>
-        </div>
-
-        <div className="p-4 text-center text-gray-500">
-          {dictionary?.components?.politicalPartyList?.noParty}
-        </div>
-      </div>
-    );
-  }
-);
 
 export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const dictionary = useTranslations(lang);
@@ -1600,6 +1511,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           </button>
         </div>
 
+        {/* ... existing header ... */}
         <div className="p-4 text-center text-gray-500">
           {dictionary?.components?.politicalPartyList?.noParty}
         </div>
@@ -1613,16 +1525,8 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
   return (
     <div className="w-full overflow-x-hidden">
-      {/* My Party Section - now properly memoized */}
-      <MyPartySectionComponent
-        userPartyId={userPartyId}
-        walletAddress={walletAddress}
-        showToast={showToast}
-        renderPartyCard={renderPartyCard}
-        dictionary={dictionary}
-        handleCreatePartyClick={handleCreatePartyClick}
-        FetchUserParty={FetchUserParty} // Pass this
-      />
+      {/* My Party Section - now memoized */}
+      {MyPartySection}
 
       <Typography
         as="h2"
