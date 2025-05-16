@@ -1801,7 +1801,7 @@ export default function EarnPage({
                     {isClaimableLoading ? (
                       <div className="mx-auto mb-[57px] mt-[6px] h-[56px] w-64 animate-pulse rounded-xl bg-gray-100"></div>
                     ) : (
-                      <p className="mx-auto mb-[52px] font-sans text-[56px] font-semibold leading-narrow tracking-normal">
+                      <p className="!font-number mx-auto mb-[52px] text-[56px] font-semibold leading-narrow tracking-normal">
                         {basicIncomePlusActivated
                           ? displayClaimable.toFixed(5)
                           : displayClaimable.toFixed(6)}
