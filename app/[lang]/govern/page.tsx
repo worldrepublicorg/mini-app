@@ -115,7 +115,6 @@ export default function GovernPage({
                   ?.description
               }
             />
-            <MyPartySection lang={lang} />
             <PoliticalPartyList lang={lang} />
           </>
         );

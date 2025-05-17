@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo, useRef, useCallback } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import type { FocusEvent as ReactFocusEvent } from "react";
 import { parseAbi } from "viem";
 import { viemClient } from "@/lib/viemClient";
@@ -1450,41 +1450,17 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     </>
   );
 
-  // Memoize the renderPartyCard function to keep it stable
-  const memoizedRenderPartyCard = useCallback(
-    (party: Party) => renderPartyCard(party),
-    // Dependencies that renderPartyCard actually uses
-    [
-      filteredParties,
-      dictionary,
-      setSelectedParty,
-      setIsCreateDrawerOpen,
-      setIsMemberManagementDrawerOpen,
-      setIsTransferLeadershipDrawerOpen,
-      setIsDeleteDrawerOpen,
-      userPartyId,
-      leaveParty,
-      joinParty,
-    ]
-  );
-
-  // Memoize the handleCreatePartyClick function
-  const memoizedHandleCreatePartyClick = useCallback(
-    () => handleCreatePartyClick(),
-    [handleCreatePartyClick]
-  );
-
   if (activeLoading && activeTab !== "pending") {
     return <LoadingSkeleton dictionary={dictionary} />;
   }
 
   return (
     <div className="w-full overflow-x-hidden">
-      {/* Use the memoized MyPartySection component with stable props */}
+      {/* Use the new MyPartySection component */}
       <MyPartySection
         dictionary={dictionary}
-        renderPartyCard={memoizedRenderPartyCard}
-        handleCreatePartyClick={memoizedHandleCreatePartyClick}
+        renderPartyCard={renderPartyCard}
+        handleCreatePartyClick={handleCreatePartyClick}
       />
 
       <Typography

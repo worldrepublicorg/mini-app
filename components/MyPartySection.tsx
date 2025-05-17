@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, memo } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Typography } from "@/components/ui/Typography";
 import { FaPlus } from "react-icons/fa";
 import { useParties } from "@/components/contexts/PartiesContext";
@@ -32,41 +32,7 @@ interface MyPartySectionProps {
   handleCreatePartyClick: () => void;
 }
 
-// Create a custom comparison function for our component
-function arePropsEqual(
-  prevProps: MyPartySectionProps,
-  nextProps: MyPartySectionProps
-) {
-  // Only re-render if dictionary related to MyParty changed
-  const prevMyParty =
-    prevProps.dictionary?.components?.politicalPartyList?.myParty;
-  const nextMyParty =
-    nextProps.dictionary?.components?.politicalPartyList?.myParty;
-  const prevNoParty =
-    prevProps.dictionary?.components?.politicalPartyList?.noParty;
-  const nextNoParty =
-    nextProps.dictionary?.components?.politicalPartyList?.noParty;
-  const prevCreateParty =
-    prevProps.dictionary?.components?.politicalPartyList?.createParty;
-  const nextCreateParty =
-    nextProps.dictionary?.components?.politicalPartyList?.createParty;
-
-  // Check if functions are the same
-  const sameRenderCard =
-    prevProps.renderPartyCard === nextProps.renderPartyCard;
-  const sameCreateClick =
-    prevProps.handleCreatePartyClick === nextProps.handleCreatePartyClick;
-
-  // Check if relevant dictionary entries are the same
-  const sameDictionary =
-    prevMyParty === nextMyParty &&
-    prevNoParty === nextNoParty &&
-    prevCreateParty === nextCreateParty;
-
-  return sameRenderCard && sameCreateClick && sameDictionary;
-}
-
-function MyPartySectionComponent({
+export function MyPartySection({
   dictionary,
   renderPartyCard,
   handleCreatePartyClick,
@@ -262,6 +228,3 @@ function MyPartySectionComponent({
     </div>
   );
 }
-
-// Export the component with memoization and our custom comparison
-export const MyPartySection = memo(MyPartySectionComponent, arePropsEqual);
