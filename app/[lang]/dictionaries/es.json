@@ -581,6 +581,7 @@
             "title": "Encuestas Anteriores",
             "backToGovern": "Volver a Gobernar",
             "polls": {
+              "globalAidCuts": "¿Deberían los países reconsiderar las reducciones de ayuda exterior que amenazan con revertir décadas de progreso contra enfermedades como el SIDA y la malaria?",
               "coralCrisisAction": "¿Deberían las naciones comprometerse con una estrategia global coordinada para proteger los arrecifes de coral en medio del peor evento de blanqueamiento registrado en la historia?",
               "aiSafetyTreaty": "¿Deberían las naciones acordar un tratado global de seguridad de IA ejecutable?",
               "heatAdaptation": "¿Deberían los países establecer un mecanismo de coordinación global para alertas tempranas de olas de calor y esfuerzos de ayuda conjuntos para proteger a las poblaciones vulnerables durante eventos de calor extremo?",

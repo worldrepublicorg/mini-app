@@ -27,8 +27,8 @@ const polls: Poll[] = [
     url: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/jNqEO9XV",
   },
   {
-    key: "criticalMineralsExport",
-    url: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/GTN2bfzr",
+    key: "globalAidCuts",
+    url: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/t1zvwYDI",
   },
 ];
 

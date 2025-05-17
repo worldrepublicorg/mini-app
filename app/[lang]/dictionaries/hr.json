@@ -567,8 +567,9 @@
           "description": "Brza glasovanja o aktualnim temama",
           "previous": {
             "title": "Prethodne Ankete",
-            "backToGovern": "Povratak na Upravljanje",
+            "backToGovern": "Natrag na Upravljanje",
             "polls": {
+              "globalAidCuts": "Trebaju li zemlje preispitati smanjenja inozemne pomoći koja prijete poništavanjem desetljeća napretka u borbi protiv bolesti poput AIDS-a i malarije?",
               "coralCrisisAction": "Trebaju li se države obvezati na koordiniranu globalnu strategiju za zaštitu koraljnih grebena usred najgoreg događaja izbjeljivanja koralja u zabilježenoj povijesti?",
               "aiSafetyTreaty": "Trebaju li države pristati na provedivi globalni sporazum o sigurnosti umjetne inteligencije?",
               "heatAdaptation": "Trebaju li zemlje uspostaviti globalni koordinacijski mehanizam za rana upozorenja na toplinske valove i zajedničke napore pomoći kako bi se zaštitile ranjive populacije tijekom ekstremnih vrućina?",

@@ -571,8 +571,9 @@
           "description": "Güncel konular hakkında hızlı oylamalar",
           "previous": {
             "title": "Önceki Anketler",
-            "backToGovern": "Yönet'e Dön",
+            "backToGovern": "Yönetişim'e Dön",
             "polls": {
+              "globalAidCuts": "Ülkeler AIDS ve sıtma gibi hastalıklara karşı on yıllık ilerlemeyi tersine çevirme riski taşıyan dış yardım kesintilerini yeniden düşünmeli mi?",
               "coralCrisisAction": "Ülkeler, kayıtlı tarihte en kötü mercan beyazlaması olayı sırasında mercan resiflerini korumak için koordineli bir küresel stratejiye bağlı kalmalı mıdır?",
               "aiSafetyTreaty": "Ülkeler uygulanabilir bir küresel yapay zeka güvenlik anlaşmasına onay vermeli midir?",
               "heatAdaptation": "Ülkeler, aşırı sıcaklık olayları sırasında savunmasız nüfusları korumak için sıcak hava dalgası erken uyarıları ve ortak yardım çabaları için küresel bir koordinasyon mekanizması kurmalı mı?",
