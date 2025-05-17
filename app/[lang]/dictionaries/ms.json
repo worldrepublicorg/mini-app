@@ -567,8 +567,9 @@
           "description": "Undian pantas mengenai topik semasa",
           "previous": {
             "title": "Undian Sebelumnya",
-            "backToGovern": "Kembali ke Tadbir Urus",
+            "backToGovern": "Kembali ke Tadbir",
             "polls": {
+              "globalAidCuts": "Patutkah negara-negara mempertimbangkan semula pengurangan bantuan asing yang berisiko membalikkan dekad kemajuan dalam menentang penyakit seperti AIDS dan malaria?",
               "coralCrisisAction": "Haruskah negara-negara komited kepada strategi global yang terkoordinasi untuk melindungi terumbu karang di tengah-tengah peristiwa pemutihan karang terburuk dalam sejarah yang direkodkan?",
               "aiSafetyTreaty": "Haruskah negara-negara bersetuju dengan perjanjian keselamatan AI global yang boleh dikuatkuasakan?",
               "heatAdaptation": "Patutkah negara-negara mewujudkan mekanisme koordinasi global untuk amaran awal gelombang panas dan usaha bantuan bersama untuk melindungi populasi yang terdedah semasa kejadian panas melampau?",

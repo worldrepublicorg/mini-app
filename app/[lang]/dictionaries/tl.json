@@ -565,8 +565,9 @@
           "description": "Mabilis na boto sa mga kasalukuyang paksa",
           "previous": {
             "title": "Mga Nakaraang Poll",
-            "backToGovern": "Bumalik sa Govern",
+            "backToGovern": "Bumalik sa Pamamahala",
             "polls": {
+              "globalAidCuts": "Dapat bang muling isaalang-alang ng mga bansa ang pagbabawas ng tulong panlabas na nanganganib na ibalik ang dekada ng pag-unlad laban sa mga sakit tulad ng AIDS at malaria?",
               "coralCrisisAction": "Dapat ba na mangako ang mga bansa sa isang koordinadong pandaigdigang estratehiya upang protektahan ang mga coral reef sa gitna ng pinakamasamang coral bleaching event sa naitalang kasaysayan?",
               "aiSafetyTreaty": "Dapat ba na sumang-ayon ang mga bansa sa isang maipapatupad na pandaigdigang kasunduan sa kaligtasan ng AI?",
               "heatAdaptation": "Dapat ba na magtatag ang mga bansa ng isang pandaigdigang mekanismo ng koordinasyon para sa mga maagang babala sa heat wave at mga pinagsamang pagsisikap sa pagsagip upang protektahan ang mga bulnerableng populasyon sa panahon ng matinding init?",
