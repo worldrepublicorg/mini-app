@@ -387,7 +387,7 @@ export function StakeWithPermitForm({
           </Typography>
           <Typography
             variant={{ variant: "number", level: 6 }}
-            className="mb-4 text-base"
+            className="mb-4 font-['Rubik'] text-base"
           >
             {Number(stakedBalance).toFixed(2)} WDD
           </Typography>
@@ -402,7 +402,9 @@ export function StakeWithPermitForm({
                 ? dictionary?.components?.stakeForm?.depositPlaceholder
                 : dictionary?.components?.stakeForm?.withdrawPlaceholder
             }
-            className="-ml-2 mr-2 h-9 w-full rounded-xl pl-2"
+            className={`-ml-2 mr-2 h-9 w-full rounded-xl pl-2 ${
+              amount ? "font-['Rubik']" : "font-sans"
+            }`}
           />
           <button
             type="button"
@@ -456,7 +458,7 @@ export function StakeWithPermitForm({
           </Button>
           <Typography
             variant={{ variant: "number", level: 6 }}
-            className="text-base"
+            className="font-['Rubik'] text-base"
             data-testid="reward-value"
           >
             {displayAvailableReward}

@@ -1801,7 +1801,7 @@ export default function EarnPage({
                     {isClaimableLoading ? (
                       <div className="mx-auto mb-[57px] mt-[6px] h-[56px] w-64 animate-pulse rounded-xl bg-gray-100"></div>
                     ) : (
-                      <p className="mx-auto mb-[52px] font-sans text-[56px] font-semibold leading-narrow tracking-normal">
+                      <p className="mx-auto mb-[52px] font-['Rubik'] text-[56px] font-semibold leading-narrow tracking-normal">
                         {basicIncomePlusActivated
                           ? displayClaimable.toFixed(5)
                           : displayClaimable.toFixed(6)}
@@ -2846,7 +2846,7 @@ export default function EarnPage({
               <PiWalletFill className="h-5 w-5" />
               <Typography
                 variant={{ variant: "number", level: 6 }}
-                className="text-base"
+                className="font-['Rubik'] text-base"
               >
                 {tokenBalance
                   ? `${Number(tokenBalance).toFixed(2)} WDD`

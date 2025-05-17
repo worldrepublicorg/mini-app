@@ -1368,7 +1368,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           <Typography
             as="p"
             variant={{ variant: "body", level: 2 }}
-            className="mt-3 text-[15px]"
+            className="mt-3 text-[15px] text-gray-700"
           >
             {party.description}
           </Typography>
