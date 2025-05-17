@@ -18,6 +18,7 @@ import {
 import { Drawer, DrawerContent } from "@/components/ui/Drawer";
 import { Form, Input } from "@worldcoin/mini-apps-ui-kit-react";
 import { Textarea } from "@/components/ui/Textarea";
+import { FaPlus } from "react-icons/fa";
 import { Dropdown } from "@/components/ui/Dropdown";
 import { DrawerTitle } from "@/components/ui/Drawer";
 import { LoadingSkeleton, PartySkeletonCard } from "./PartySkeletons";
@@ -25,7 +26,6 @@ import { useTranslations } from "@/hooks/useTranslations";
 import { TabSwiper } from "@/components/TabSwiper";
 import Link from "next/link";
 import { useParties } from "@/components/contexts/PartiesContext";
-import { MyPartySection } from "./MyPartySection";
 
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
   "0x70a993E1D1102F018365F966B5Fc009e8FA9b7dC";
@@ -1450,18 +1450,83 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     </>
   );
 
+  // Create a memoized MyPartySection component
+  const MyPartySection = useMemo(() => {
+    // If we have optimistic data or real data, show it
+    if (userPartyId === -1 || userPartyId > 0) {
+      return (
+        <div className="mb-6">
+          <div className="mb-3 flex items-center justify-between">
+            <Typography
+              as="h2"
+              variant={{ variant: "subtitle", level: 1 }}
+              className="text-[19px] font-semibold"
+            >
+              {dictionary?.components?.politicalPartyList?.myParty}
+            </Typography>
+            <button
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-900"
+              onClick={handleCreatePartyClick}
+              title={dictionary?.components?.politicalPartyList?.createParty}
+            >
+              <FaPlus className="text-gray-500" size={12} />
+            </button>
+          </div>
+
+          {userPartyId > 0 || userPartyId === -1 ? (
+            // Always show the party card - either with real ID or temporary (-1) ID
+            <FetchUserParty
+              partyId={userPartyId}
+              renderPartyCard={renderPartyCard}
+              walletAddress={walletAddress}
+              showToast={showToast}
+            />
+          ) : (
+            // Only show this when user truly has no party
+            <div className="p-4 text-center text-gray-500">
+              {dictionary?.components?.politicalPartyList?.noParty}
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    // Only show "no party" message when we're sure user has no party
+    return (
+      <div className="mb-6">
+        <div className="mb-3 flex items-center justify-between">
+          <Typography
+            as="h2"
+            variant={{ variant: "subtitle", level: 1 }}
+            className="text-[19px] font-semibold"
+          >
+            {dictionary?.components?.politicalPartyList?.myParty}
+          </Typography>
+          <button
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-900"
+            onClick={handleCreatePartyClick}
+            title={dictionary?.components?.politicalPartyList?.createParty}
+          >
+            <FaPlus className="text-gray-500" size={12} />
+          </button>
+        </div>
+
+        {/* ... existing header ... */}
+        <div className="p-4 text-center text-gray-500">
+          {dictionary?.components?.politicalPartyList?.noParty}
+        </div>
+      </div>
+    );
+  }, [userPartyId, walletAddress, showToast, renderPartyCard]);
+
   if (activeLoading && activeTab !== "pending") {
     return <LoadingSkeleton dictionary={dictionary} />;
   }
 
   return (
     <div className="w-full overflow-x-hidden">
-      {/* Use the new MyPartySection component */}
-      <MyPartySection
-        dictionary={dictionary}
-        renderPartyCard={renderPartyCard}
-        handleCreatePartyClick={handleCreatePartyClick}
-      />
+      {/* My Party Section - now memoized */}
+      {MyPartySection}
 
       <Typography
         as="h2"
