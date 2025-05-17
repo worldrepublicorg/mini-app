@@ -5,6 +5,7 @@ import { Typography } from "@/components/ui/Typography";
 import { FaPlus } from "react-icons/fa";
 import { PiInfoFill } from "react-icons/pi";
 import { useParties } from "./contexts/PartiesContext";
+import { Input } from "@worldcoin/mini-apps-ui-kit-react";
 
 interface PartySkeletonCardProps {
   showPendingNote?: boolean;
@@ -96,13 +97,31 @@ export const LoadingSkeleton = ({ dictionary }: { dictionary: any }) => (
 
     {/* Search Input Skeleton */}
     <div className="mb-3">
-      <div className="relative">
-        <div className="h-[54px] animate-pulse rounded-lg border border-gray-200 bg-gray-50 px-4 py-3"></div>
+      <div className="relative h-[3.125rem]">
+        <Input
+          type="text"
+          startAdornment={
+            <svg
+              className="h-5 w-5"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fillRule="evenodd"
+                d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+                clipRule="evenodd"
+              />
+            </svg>
+          }
+          label="Search parties..."
+        />
       </div>
     </div>
 
     {/* Tabs Skeleton */}
-    <div className="mb-2 flex items-center gap-1">
+    <div className="flex items-center gap-1 py-2">
       <div className="flex gap-1">
         <button className="h-9 items-center rounded-full bg-gray-100 px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200">
           {dictionary?.components?.politicalPartyList?.tabs?.new}
