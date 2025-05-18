@@ -380,8 +380,8 @@ export function StakeWithPermitForm({
         <div className="flex items-center justify-between">
           <Typography
             as="p"
-            variant={{ variant: "body", level: 1 }}
-            className="mb-4 text-[18px] font-medium text-gray-900"
+            variant={{ variant: "body", level: 2 }}
+            className="mb-4 font-medium text-gray-900"
           >
             {dictionary?.components?.stakeForm?.balance}
           </Typography>
@@ -441,8 +441,8 @@ export function StakeWithPermitForm({
       <div className="mb-6 mt-4 flex items-center justify-between gap-2 px-2">
         <Typography
           as="p"
-          variant={{ variant: "body", level: 1 }}
-          className="text-[18px] font-medium text-gray-900"
+          variant={{ variant: "body", level: 2 }}
+          className="font-medium text-gray-900"
         >
           {dictionary?.components?.stakeForm?.interest}
         </Typography>
