@@ -2146,8 +2146,8 @@ export default function EarnPage({
 
             <div className="mb-10 w-full rounded-xl border border-gray-200 p-4">
               <Typography
-                variant={{ variant: "subtitle", level: 2 }}
-                className="mb-4 text-center text-gray-900"
+                variant={{ variant: "subtitle", level: 1 }}
+                className="mb-4 text-center text-[18px] text-gray-900"
               >
                 {dictionary?.pages?.earn?.tabs?.invite?.stats?.title}
               </Typography>
