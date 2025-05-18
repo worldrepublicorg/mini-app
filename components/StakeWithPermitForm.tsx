@@ -380,8 +380,8 @@ export function StakeWithPermitForm({
         <div className="flex items-center justify-between">
           <Typography
             as="p"
-            variant={{ variant: "body", level: 1 }}
-            className="mb-4 font-medium text-gray-900"
+            variant={{ variant: "body", level: 2 }}
+            className="mb-4 text-[17px] font-medium text-gray-900"
           >
             {dictionary?.components?.stakeForm?.balance}
           </Typography>
@@ -403,7 +403,7 @@ export function StakeWithPermitForm({
                 : dictionary?.components?.stakeForm?.withdrawPlaceholder
             }
             className={`-ml-2 mr-2 h-9 w-full rounded-xl pl-2 ${
-              amount ? "font-['Rubik']" : "font-sans"
+              amount ? "font-['Rubik'] text-[17px]" : "font-sans"
             }`}
           />
           <button
@@ -441,8 +441,8 @@ export function StakeWithPermitForm({
       <div className="mb-6 mt-4 flex items-center justify-between gap-2 px-2">
         <Typography
           as="p"
-          variant={{ variant: "body", level: 1 }}
-          className="font-medium text-gray-900"
+          variant={{ variant: "body", level: 2 }}
+          className="text-[17px] font-medium text-gray-900"
         >
           {dictionary?.components?.stakeForm?.interest}
         </Typography>
