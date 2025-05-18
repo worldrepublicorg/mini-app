@@ -381,7 +381,7 @@ export function StakeWithPermitForm({
           <Typography
             as="p"
             variant={{ variant: "body", level: 2 }}
-            className="mb-4 font-medium text-gray-900"
+            className="mb-4 text-[17px] font-medium text-gray-900"
           >
             {dictionary?.components?.stakeForm?.balance}
           </Typography>
@@ -442,7 +442,7 @@ export function StakeWithPermitForm({
         <Typography
           as="p"
           variant={{ variant: "body", level: 2 }}
-          className="font-medium text-gray-900"
+          className="text-[17px] font-medium text-gray-900"
         >
           {dictionary?.components?.stakeForm?.interest}
         </Typography>
