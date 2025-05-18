@@ -2008,7 +2008,7 @@ export default function EarnPage({
                     <Typography
                       as="h3"
                       variant={{ variant: "subtitle", level: 2 }}
-                      className="line-clamp-1"
+                      className="line-clamp-1 text-[18px]"
                     >
                       {
                         dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy
@@ -2047,7 +2047,7 @@ export default function EarnPage({
                     <Typography
                       as="h3"
                       variant={{ variant: "subtitle", level: 2 }}
-                      className="mb-1.5 line-clamp-1"
+                      className="mb-1.5 line-clamp-1 text-[18px]"
                     >
                       {
                         dictionary?.pages?.earn?.tabs?.contribute
@@ -2084,7 +2084,7 @@ export default function EarnPage({
                     <Typography
                       as="h3"
                       variant={{ variant: "subtitle", level: 2 }}
-                      className="mb-1.5 line-clamp-1"
+                      className="mb-1.5 line-clamp-1 text-[18px]"
                     >
                       {
                         dictionary?.pages?.earn?.tabs?.contribute?.earlyAccess
