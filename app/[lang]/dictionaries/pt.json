@@ -269,7 +269,7 @@
               "subtitle": "Renda extra para usuários verificados",
               "features": {
                 "rate": {
-                  "title": "Mais 2,95 WDD por dia"
+                  "title": "Mais 2,8 WDD por dia"
                 },
                 "verification": {
                   "title": "Exclusivo para usuários verificados pelo Orb para garantir distribuição justa"
@@ -735,7 +735,7 @@
         },
         "basicIncomePlus": {
           "question": "Como ativo a Renda Básica Plus?",
-          "answer": "A Renda Básica Plus fornece 2,95 WDD adicionais por dia e está disponível exclusivamente para usuários verificados pelo Orb. Após ativar a Renda Básica, você verá uma opção para ativar a Renda Básica Plus na página Ganhar."
+          "answer": "A Renda Básica Plus fornece 2,8 WDD adicionais por dia e está disponível exclusivamente para usuários verificados pelo Orb. Após ativar a Renda Básica, você verá uma opção para ativar a Renda Básica Plus na página Ganhar."
         },
         "savings": {
           "question": "Como funciona a Conta Poupança?",
