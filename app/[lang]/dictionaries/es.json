@@ -440,36 +440,45 @@
             "title": "Programa de Recompra de Tokens",
             "subtitle": "Fortalecer el valor de WDD juntos",
             "sections": {
-              "devRewards": {
-                "title": "Programa de Recompensas para Desarrolladores",
-                "startDate": "Iniciado el 1 de abril de 2025",
-                "description": "World está pilotando recompensas para desarrolladores basadas en el uso de la aplicación por humanos verificados.",
-                "learnMore": "Conocer más sobre el programa"
+              "fundingSources": {
+                "title": "Fuentes de Financiamiento",
+                "devRewards": {
+                  "title": "Recompensas de Desarrolladores World",
+                  "weekProgress": "Semana 7 de 12"
+                },
+                "worldRetro": {
+                  "title": "Financiamiento World Retro"
+                },
+                "optimism": {
+                  "title": "Financiamiento Optimism Retro",
+                  "status": "Aplicado"
+                }
               },
               "commitment": {
-                "title": "Nuestro compromiso del 50%",
-                "body": "Nos comprometemos a utilizar al menos el 50% de nuestras recompensas del programa para recompras de WDD."
+                "title": "Nuestro Compromiso",
+                "description": "Nos comprometemos a utilizar al menos el 50% de todos estos financiamientos para recompras de WDD.",
+                "viewAccount": "Ver cuenta de recompra"
+              },
+              "valueCycle": {
+                "title": "El Ciclo de Valor Positivo",
+                "steps": {
+                  "step1": "Más usuarios y uso de la app",
+                  "step2": "Mayores recompensas",
+                  "step3": "Más recompras de tokens"
+                }
               },
               "helpSection": {
                 "title": "Cómo puedes ayudar",
                 "intro": "Puedes contribuir directamente a aumentar el valor de tus tokens WDD:",
                 "steps": {
                   "invite": {
-                    "title": "Invita a otros a unirse",
+                    "title": "Invitar a otros a unirse",
                     "description": "Hacer crecer nuestra comunidad de miembros verificados"
                   },
                   "useApp": {
-                    "title": "Usa la aplicación regularmente",
-                    "description": "Impulsa el ciclo económico virtuoso"
+                    "title": "Usar la app regularmente",
+                    "description": "Impulsar el ciclo económico virtuoso"
                   }
-                }
-              },
-              "valueCycle": {
-                "title": "El Ciclo Positivo de Valor",
-                "steps": {
-                  "step1": "Más usuarios y uso de la aplicación",
-                  "step2": "Mayores recompensas para desarrolladores",
-                  "step3": "Más recompras de tokens"
                 }
               }
             },

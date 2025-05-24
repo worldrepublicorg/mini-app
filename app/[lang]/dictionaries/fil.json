@@ -364,15 +364,32 @@
             "title": "Programa ng Muling Pagbili ng Token",
             "subtitle": "Palakasin ang halaga ng WDD nang sama-sama",
             "sections": {
-              "devRewards": {
-                "title": "Programa ng Gantimpala para sa Developer",
-                "startDate": "Nagsimula noong Abril 1, 2025",
-                "description": "Sinusubukan ng World ang mga gantimpala para sa developer batay sa paggamit ng app ng mga verified na tao.",
-                "learnMore": "Alamin pa ang tungkol sa programa"
+              "fundingSources": {
+                "title": "Mga Pinagmumulan ng Pondo",
+                "devRewards": {
+                  "title": "World Dev Rewards",
+                  "weekProgress": "Linggo 7 ng 12"
+                },
+                "worldRetro": {
+                  "title": "World Retro Funding"
+                },
+                "optimism": {
+                  "title": "Optimism Retro Funding",
+                  "status": "Inilapat"
+                }
               },
               "commitment": {
                 "title": "Ang aming 50% na pangako",
-                "body": "Nangangako kaming gamitin ang hindi bababa sa 50% ng aming mga gantimpala mula sa programa para sa mga WDD buyback."
+                "description": "Nangangako kaming gamitin ang hindi bababa sa 50% ng aming mga gantimpala mula sa programa para sa mga WDD buyback.",
+                "viewAccount": "Tingnan ang buyback account"
+              },
+              "valueCycle": {
+                "title": "Ang Positibong Siklo ng Halaga",
+                "steps": {
+                  "step1": "Mas maraming gumagamit at paggamit ng app",
+                  "step2": "Mas mataas na gantimpala",
+                  "step3": "Mas maraming muling pagbili ng token"
+                }
               },
               "helpSection": {
                 "title": "Paano ka makakatulong",
@@ -386,14 +403,6 @@
                     "title": "Regular na gamitin ang app",
                     "description": "Isulong ang mabuting siklo ng ekonomiya"
                   }
-                }
-              },
-              "valueCycle": {
-                "title": "Ang Positibong Siklo ng Halaga",
-                "steps": {
-                  "step1": "Mas maraming gumagamit at paggamit ng app",
-                  "step2": "Mas mataas na gantimpala para sa mga developer",
-                  "step3": "Mas maraming muling pagbili ng token"
                 }
               }
             },

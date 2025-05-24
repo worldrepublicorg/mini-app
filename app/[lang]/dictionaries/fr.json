@@ -430,45 +430,54 @@
           "buybackProgram": {
             "topnav": "Programme de Rachat",
             "title": "Programme de Rachat de Tokens",
-            "subtitle": "Renforcer ensemble la valeur de WDD",
+            "subtitle": "Renforcer la valeur de WDD ensemble",
             "sections": {
-              "devRewards": {
-                "title": "Programme de Récompenses pour Développeurs",
-                "startDate": "Commencé le 1er avril 2025",
-                "description": "World expérimente des récompenses pour développeurs basées sur l'utilisation de l'application par des humains vérifiés.",
-                "learnMore": "En savoir plus sur le programme"
+              "fundingSources": {
+                "title": "Sources de Financement",
+                "devRewards": {
+                  "title": "Récompenses Développeurs World",
+                  "weekProgress": "Semaine 7 sur 12"
+                },
+                "worldRetro": {
+                  "title": "Financement World Retro"
+                },
+                "optimism": {
+                  "title": "Financement Optimism Retro",
+                  "status": "Demande soumise"
+                }
               },
               "commitment": {
-                "title": "Notre engagement de 50%",
-                "body": "Nous nous engageons à utiliser au moins 50% de nos récompenses du programme pour les rachats de WDD."
+                "title": "Notre Engagement",
+                "description": "Nous nous engageons à utiliser au moins 50% de tous ces financements pour des rachats de WDD.",
+                "viewAccount": "Voir le compte de rachat"
+              },
+              "valueCycle": {
+                "title": "Le Cycle de Valeur Positif",
+                "steps": {
+                  "step1": "Plus d'utilisateurs et d'utilisation de l'app",
+                  "step2": "Récompenses plus élevées",
+                  "step3": "Plus de rachats de tokens"
+                }
               },
               "helpSection": {
                 "title": "Comment vous pouvez aider",
-                "intro": "Vous pouvez contribuer directement à augmenter la valeur de vos tokens WDD:",
+                "intro": "Vous pouvez contribuer directement à l'augmentation de la valeur de vos tokens WDD :",
                 "steps": {
                   "invite": {
                     "title": "Inviter d'autres personnes à rejoindre",
-                    "description": "Développer notre communauté de membres vérifiés"
+                    "description": "Faire grandir notre communauté de membres vérifiés"
                   },
                   "useApp": {
                     "title": "Utiliser l'application régulièrement",
-                    "description": "Alimenter le cercle économique vertueux"
+                    "description": "Alimenter le cycle économique vertueux"
                   }
-                }
-              },
-              "valueCycle": {
-                "title": "Le Cycle Positif de Valeur",
-                "steps": {
-                  "step1": "Plus d'utilisateurs et d'utilisation",
-                  "step2": "Plus de récompenses pour développeurs",
-                  "step3": "Plus de rachats de tokens"
                 }
               }
             },
             "actions": {
               "share": "Partager l'Invitation"
             },
-            "cta": "Voir les Récompenses de Mini App"
+            "cta": "Voir les Récompenses Mini App"
           },
           "buybackLink": {
             "title": "Programme de Rachat",

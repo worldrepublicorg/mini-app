@@ -428,45 +428,54 @@
             "description": "Gelecek özelliklerimizi test ederek WDD kazanın"
           },
           "buybackProgram": {
-            "topnav": "Geri Alım Programı",
-            "title": "Token Geri Alım Programı",
+            "topnav": "Geri Satın Alma Programı",
+            "title": "Token Geri Satın Alma Programı",
             "subtitle": "WDD değerini birlikte güçlendirelim",
             "sections": {
-              "devRewards": {
-                "title": "Geliştirici Ödül Programı",
-                "startDate": "1 Nisan 2025'te başladı",
-                "description": "World, doğrulanmış insanların uygulama kullanımına dayalı geliştirici ödüllerini test ediyor.",
-                "learnMore": "Program hakkında daha fazla bilgi edinin"
+              "fundingSources": {
+                "title": "Finansman Kaynakları",
+                "devRewards": {
+                  "title": "World Geliştirici Ödülleri",
+                  "weekProgress": "12 Haftanın 7'si"
+                },
+                "worldRetro": {
+                  "title": "World Retro Finansmanı"
+                },
+                "optimism": {
+                  "title": "Optimism Retro Finansmanı",
+                  "status": "Başvuruldu"
+                }
               },
               "commitment": {
-                "title": "%50 taahhüdümüz",
-                "body": "Programdan elde ettiğimiz ödüllerin en az %50'sini WDD geri alımları için kullanmayı taahhüt ediyoruz."
+                "title": "Taahhüdümüz",
+                "description": "Bu finansmanın en az %50'sini WDD geri satın alımı için kullanmayı taahhüt ediyoruz.",
+                "viewAccount": "Geri satın alma hesabını görüntüle"
+              },
+              "valueCycle": {
+                "title": "Pozitif Değer Döngüsü",
+                "steps": {
+                  "step1": "Daha fazla kullanıcı ve uygulama kullanımı",
+                  "step2": "Daha yüksek ödüller",
+                  "step3": "Daha fazla token geri satın alma"
+                }
               },
               "helpSection": {
                 "title": "Nasıl yardımcı olabilirsiniz",
-                "intro": "WDD tokenlerinizin değerini artırmaya doğrudan katkıda bulunabilirsiniz:",
+                "intro": "WDD tokenlerinizin değerini artırmak için doğrudan katkıda bulunabilirsiniz:",
                 "steps": {
                   "invite": {
                     "title": "Başkalarını katılmaya davet edin",
-                    "description": "Doğrulanmış üye topluluğumuzu büyütelim"
+                    "description": "Doğrulanmış üyelerden oluşan topluluğumuzu büyütün"
                   },
                   "useApp": {
-                    "title": "Uygulamayı düzenli olarak kullanın",
-                    "description": "Olumlu ekonomik döngüyü destekleyin"
+                    "title": "Uygulamayı düzenli kullanın",
+                    "description": "Pozitif ekonomik döngüyü destekleyin"
                   }
-                }
-              },
-              "valueCycle": {
-                "title": "Olumlu Değer Döngüsü",
-                "steps": {
-                  "step1": "Daha fazla uygulama kullanıcısı ve kullanımı",
-                  "step2": "Daha yüksek geliştirici ödülleri",
-                  "step3": "Daha fazla token geri alımı"
                 }
               }
             },
             "actions": {
-              "share": "Davetiyeyi Paylaş"
+              "share": "Daveti Paylaş"
             },
             "cta": "Mini Uygulama Ödüllerini Görüntüle"
           },

@@ -432,15 +432,32 @@
             "title": "Programu ya Ununuzi wa Tokeni",
             "subtitle": "Kuimarisha thamani ya WDD pamoja",
             "sections": {
-              "devRewards": {
-                "title": "Programu ya Tuzo za Waendelezaji",
-                "startDate": "Ilianza Aprili 1, 2025",
-                "description": "World inapima tuzo za waendelezaji kulingana na matumizi ya programu na watumiaji waliothibitishwa.",
-                "learnMore": "Jifunze zaidi kuhusu programu"
+              "fundingSources": {
+                "title": "Vyanzo vya Fedha",
+                "devRewards": {
+                  "title": "Tuzo za Waendelezaji wa World",
+                  "weekProgress": "Wiki 7 kati ya 12"
+                },
+                "worldRetro": {
+                  "title": "Fedha za Nyuma ya World"
+                },
+                "optimism": {
+                  "title": "Fedha za Nyuma ya Optimism",
+                  "status": "Imetumika"
+                }
               },
               "commitment": {
-                "title": "Ahadi yetu ya 50%",
-                "body": "Tunaahidi kutumia angalau 50% ya tuzo zetu kutoka kwenye programu kwa ununuzi wa WDD."
+                "title": "Ahadi Yetu",
+                "description": "Tunaahidi kutumia angalau 50% ya fedha zote hizi kwa ununuzi wa WDD.",
+                "viewAccount": "Tazama akaunti ya ununuzi"
+              },
+              "valueCycle": {
+                "title": "Mzunguko Chanya wa Thamani",
+                "steps": {
+                  "step1": "Watumiaji zaidi na matumizi ya programu",
+                  "step2": "Tuzo zaidi kwa waendelezaji",
+                  "step3": "Ununuzi zaidi wa tokeni"
+                }
               },
               "helpSection": {
                 "title": "Jinsi unaweza kusaidia",
@@ -454,14 +471,6 @@
                     "title": "Tumia programu mara kwa mara",
                     "description": "Endesha mzunguko mzuri wa kiuchumi"
                   }
-                }
-              },
-              "valueCycle": {
-                "title": "Mzunguko Chanya wa Thamani",
-                "steps": {
-                  "step1": "Watumiaji zaidi na matumizi ya programu",
-                  "step2": "Tuzo zaidi kwa waendelezaji",
-                  "step3": "Ununuzi zaidi wa tokeni"
                 }
               }
             },
