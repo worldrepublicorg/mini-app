@@ -432,15 +432,32 @@
             "title": "代币回购计划",
             "subtitle": "共同增强WDD价值",
             "sections": {
-              "devRewards": {
-                "title": "开发者奖励计划",
-                "startDate": "2025年4月1日开始",
-                "description": "World正在试行基于经验证的人类使用应用的开发者奖励。",
-                "learnMore": "了解更多关于该计划"
+              "fundingSources": {
+                "title": "资金来源",
+                "devRewards": {
+                  "title": "World开发者奖励",
+                  "weekProgress": "第7周/共12周"
+                },
+                "worldRetro": {
+                  "title": "World Retro资金"
+                },
+                "optimism": {
+                  "title": "Optimism Retro资金",
+                  "status": "已申请"
+                }
               },
               "commitment": {
-                "title": "我们的50%承诺",
-                "body": "我们承诺至少将计划奖励的50%用于WDD回购。"
+                "title": "我们的承诺",
+                "description": "我们承诺至少将50%的这些资金用于WDD回购。",
+                "viewAccount": "查看回购账户"
+              },
+              "valueCycle": {
+                "title": "正向价值循环",
+                "steps": {
+                  "step1": "更多应用用户和使用率",
+                  "step2": "更高的奖励",
+                  "step3": "更多代币回购"
+                }
               },
               "helpSection": {
                 "title": "您如何帮助",
@@ -454,14 +471,6 @@
                     "title": "定期使用应用",
                     "description": "推动良性经济循环"
                   }
-                }
-              },
-              "valueCycle": {
-                "title": "正向价值循环",
-                "steps": {
-                  "step1": "更多应用用户和使用率",
-                  "step2": "更高的开发者奖励",
-                  "step3": "更多代币回购"
                 }
               }
             },
@@ -692,9 +701,8 @@
       "title": "菜单",
       "sections": {
         "experimental": {
-          "title": "实验性功能",
+          "title": "设置",
           "links": {
-            "verification": "验证状态",
             "language": "语言"
           }
         },
@@ -709,6 +717,7 @@
         "help": {
           "title": "帮助",
           "links": {
+            "support": "支持",
             "faq": "常见问题"
           }
         },

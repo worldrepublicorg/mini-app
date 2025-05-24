@@ -428,40 +428,49 @@
             "description": "Dapatkan WDD dengan menguji ciri-ciri kami yang akan datang"
           },
           "buybackProgram": {
-            "topnav": "Program Belian Balik",
-            "title": "Program Belian Balik Token",
-            "subtitle": "Perkukuhkan nilai WDD bersama",
+            "topnav": "Program Pembelian Semula",
+            "title": "Program Pembelian Semula Token",
+            "subtitle": "Perkukuh nilai WDD bersama",
             "sections": {
-              "devRewards": {
-                "title": "Program Ganjaran Pembangun",
-                "startDate": "Bermula 1 April 2025",
-                "description": "World sedang menguji ganjaran pembangun berdasarkan penggunaan aplikasi oleh manusia yang disahkan.",
-                "learnMore": "Ketahui lebih lanjut tentang program"
+              "fundingSources": {
+                "title": "Sumber Pembiayaan",
+                "devRewards": {
+                  "title": "Ganjaran Pembangun World",
+                  "weekProgress": "Minggu 7 daripada 12"
+                },
+                "worldRetro": {
+                  "title": "Pembiayaan World Retro"
+                },
+                "optimism": {
+                  "title": "Pembiayaan Optimism Retro",
+                  "status": "Telah Dipohon"
+                }
               },
               "commitment": {
-                "title": "Janji kami sebanyak 50%",
-                "body": "Kami berjanji untuk menggunakan sekurang-kurangnya 50% daripada ganjaran program kami untuk belian balik WDD."
-              },
-              "helpSection": {
-                "title": "Bagaimana anda boleh membantu",
-                "intro": "Anda boleh menyumbang secara langsung untuk meningkatkan nilai token WDD anda:",
-                "steps": {
-                  "invite": {
-                    "title": "Jemput orang lain untuk menyertai",
-                    "description": "Kembangkan komuniti ahli yang disahkan"
-                  },
-                  "useApp": {
-                    "title": "Gunakan aplikasi secara kerap",
-                    "description": "Dorong kitaran ekonomi yang baik"
-                  }
-                }
+                "title": "Komitmen Kami",
+                "description": "Kami berjanji untuk menggunakan sekurang-kurangnya 50% daripada semua pembiayaan ini untuk pembelian semula WDD.",
+                "viewAccount": "Lihat Akaun Pembelian Semula"
               },
               "valueCycle": {
                 "title": "Kitaran Nilai Positif",
                 "steps": {
-                  "step1": "Lebih banyak pengguna & penggunaan aplikasi",
-                  "step2": "Ganjaran pembangun yang lebih tinggi",
-                  "step3": "Lebih banyak belian balik token"
+                  "step1": "Lebih ramai pengguna & penggunaan aplikasi",
+                  "step2": "Ganjaran lebih tinggi",
+                  "step3": "Lebih banyak pembelian semula token"
+                }
+              },
+              "helpSection": {
+                "title": "Cara Anda Boleh Membantu",
+                "intro": "Anda boleh menyumbang secara langsung untuk meningkatkan nilai token WDD anda:",
+                "steps": {
+                  "invite": {
+                    "title": "Jemput orang lain untuk menyertai",
+                    "description": "Tumbuhkan komuniti ahli yang disahkan kami"
+                  },
+                  "useApp": {
+                    "title": "Gunakan aplikasi secara berkala",
+                    "description": "Dorong kitaran ekonomi yang positif"
+                  }
                 }
               }
             },
@@ -693,14 +702,13 @@
       "title": "Menu",
       "sections": {
         "experimental": {
-          "title": "EKSPERIMENTAL",
+          "title": "TETAPAN",
           "links": {
-            "verification": "Status pengesahan",
             "language": "Bahasa"
           }
         },
         "connect": {
-          "title": "HUBUNGAN",
+          "title": "BERHUBUNG",
           "links": {
             "community": "Komuniti",
             "announcements": "Pengumuman",
@@ -710,7 +718,8 @@
         "help": {
           "title": "BANTUAN",
           "links": {
-            "faq": "Soalan Lazim"
+            "support": "Sokongan",
+            "faq": "FAQ"
           }
         },
         "code": {

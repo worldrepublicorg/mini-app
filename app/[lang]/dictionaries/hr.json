@@ -432,15 +432,32 @@
             "title": "Program Otkupa Tokena",
             "subtitle": "Zajedno ojačajmo vrijednost WDD-a",
             "sections": {
-              "devRewards": {
-                "title": "Program Nagrada za Programere",
-                "startDate": "Započeo 1. travnja 2025.",
-                "description": "World testira nagrade za programere na temelju korištenja aplikacije od strane provjerenih ljudi.",
-                "learnMore": "Saznajte više o programu"
+              "fundingSources": {
+                "title": "Izvori Financiranja",
+                "devRewards": {
+                  "title": "World Dev Nagrade",
+                  "weekProgress": "Tjedan 7 od 12"
+                },
+                "worldRetro": {
+                  "title": "World Retro Financiranje"
+                },
+                "optimism": {
+                  "title": "Optimism Retro Financiranje",
+                  "status": "Primijenjeno"
+                }
               },
               "commitment": {
                 "title": "Naša obveza od 50%",
-                "body": "Obvezujemo se koristiti najmanje 50% naših nagrada iz programa za otkup WDD-a."
+                "description": "Obvezujemo se koristiti najmanje 50% naših nagrada iz programa za otkup WDD-a.",
+                "viewAccount": "Pogledaj račun za otkup"
+              },
+              "valueCycle": {
+                "title": "Pozitivan Ciklus Vrijednosti",
+                "steps": {
+                  "step1": "Više korisnika i korištenja aplikacije",
+                  "step2": "Veće nagrade",
+                  "step3": "Više otkupa tokena"
+                }
               },
               "helpSection": {
                 "title": "Kako možete pomoći",
@@ -454,14 +471,6 @@
                     "title": "Redovito koristite aplikaciju",
                     "description": "Potaknite pozitivan ekonomski ciklus"
                   }
-                }
-              },
-              "valueCycle": {
-                "title": "Pozitivan Ciklus Vrijednosti",
-                "steps": {
-                  "step1": "Više korisnika i korištenja aplikacije",
-                  "step2": "Veće nagrade za programere",
-                  "step3": "Više otkupa tokena"
                 }
               }
             },
@@ -693,9 +702,8 @@
       "title": "Izbornik",
       "sections": {
         "experimental": {
-          "title": "EKSPERIMENTALNO",
+          "title": "POSTAVKE",
           "links": {
-            "verification": "Status provjere",
             "language": "Jezik"
           }
         },
@@ -710,7 +718,8 @@
         "help": {
           "title": "POMOĆ",
           "links": {
-            "faq": "Česta pitanja"
+            "support": "Podrška",
+            "faq": "FAQ"
           }
         },
         "code": {

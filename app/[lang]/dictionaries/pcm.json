@@ -427,47 +427,56 @@
             "description": "Earn WDD as you dey test our upcoming features"
           },
           "buybackProgram": {
-            "topnav": "Token Buy-back Program",
-            "title": "Token Buy-back Program",
-            "subtitle": "Make we strengthen WDD value together",
+            "topnav": "Buyback Program",
+            "title": "Token Buyback Program",
+            "subtitle": "Make WDD value strong together",
             "sections": {
-              "devRewards": {
-                "title": "Developer Reward Program",
-                "startDate": "E start for April 1, 2025",
-                "description": "World dey test developer rewards based on how verified humans dey use di app.",
-                "learnMore": "Learn more about di program"
+              "fundingSources": {
+                "title": "Funding Sources",
+                "devRewards": {
+                  "title": "World Dev Rewards",
+                  "weekProgress": "Week 7 of 12"
+                },
+                "worldRetro": {
+                  "title": "World Retro Funding"
+                },
+                "optimism": {
+                  "title": "Optimism Retro Funding",
+                  "status": "Don Apply"
+                }
               },
               "commitment": {
-                "title": "Our 50% promise",
-                "body": "We promise say we go use at least 50% of our rewards from di program for WDD buybacks."
+                "title": "Our Promise",
+                "description": "We promise to use at least 50% of all this funding for WDD buyback.",
+                "viewAccount": "See buyback account"
+              },
+              "valueCycle": {
+                "title": "The Positive Value Cycle",
+                "steps": {
+                  "step1": "More app users & usage",
+                  "step2": "Higher rewards",
+                  "step3": "More token buyback"
+                }
               },
               "helpSection": {
                 "title": "How you fit help",
-                "intro": "You fit directly contribute to increase di value of your WDD tokens:",
+                "intro": "You fit contribute directly to increase your WDD token value:",
                 "steps": {
                   "invite": {
                     "title": "Invite others to join",
                     "description": "Grow our community of verified members"
                   },
                   "useApp": {
-                    "title": "Use di app regularly",
-                    "description": "Drive di good economic cycle"
+                    "title": "Use app regularly",
+                    "description": "Drive the good economic cycle"
                   }
-                }
-              },
-              "valueCycle": {
-                "title": "Di Positive Value Cycle",
-                "steps": {
-                  "step1": "More app users & usage",
-                  "step2": "Higher developer rewards",
-                  "step3": "More token buy-backs"
                 }
               }
             },
             "actions": {
-              "share": "Share Invitation"
+              "share": "Share Invite"
             },
-            "cta": "View Mini App Rewards"
+            "cta": "See Mini App Rewards"
           },
           "buybackLink": {
             "title": "Buyback Program",
@@ -691,24 +700,24 @@
       "title": "Menu",
       "sections": {
         "experimental": {
-          "title": "NEW THINGS",
+          "title": "SETTINGS",
           "links": {
-            "verification": "Check Your Status",
             "language": "Language"
           }
         },
         "connect": {
-          "title": "JOIN",
+          "title": "CONNECT",
           "links": {
-            "community": "Our People",
-            "announcements": "News",
+            "community": "Community",
+            "announcements": "Announcements",
             "x": "X"
           }
         },
         "help": {
           "title": "HELP",
           "links": {
-            "faq": "Questions Wey People Dey Ask"
+            "support": "Support",
+            "faq": "FAQ"
           }
         },
         "code": {

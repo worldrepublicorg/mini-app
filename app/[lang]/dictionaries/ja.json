@@ -427,19 +427,36 @@
             "description": "今後の機能をテストしてWDDを獲得"
           },
           "buybackProgram": {
-            "topnav": "買い戻しプログラム",
-            "title": "トークン買い戻しプログラム",
+            "topnav": "バイバックプログラム",
+            "title": "トークンバイバックプログラム",
             "subtitle": "共にWDDの価値を強化する",
             "sections": {
-              "devRewards": {
-                "title": "開発者報酬プログラム",
-                "startDate": "2025年4月1日開始",
-                "description": "Worldは認証済みユーザーのアプリ使用に基づく開発者報酬を試験的に実施しています。",
-                "learnMore": "プログラムの詳細を見る"
+              "fundingSources": {
+                "title": "資金源",
+                "devRewards": {
+                  "title": "World Developer Rewards",
+                  "weekProgress": "7/12週目"
+                },
+                "worldRetro": {
+                  "title": "World Retro資金"
+                },
+                "optimism": {
+                  "title": "Optimism Retro資金",
+                  "status": "申請済み"
+                }
               },
               "commitment": {
-                "title": "50%の誓約",
-                "body": "プログラムからの報酬の少なくとも50%をWDDの買い戻しに使用することを約束します。"
+                "title": "私たちの誓約",
+                "description": "これらの資金の少なくとも50%をWDDのバイバックに使用することを約束します。",
+                "viewAccount": "バイバックアカウントを表示"
+              },
+              "valueCycle": {
+                "title": "ポジティブな価値サイクル",
+                "steps": {
+                  "step1": "より多くのユーザーとアプリ使用",
+                  "step2": "より多くの報酬",
+                  "step3": "より多くのトークンバイバック"
+                }
               },
               "helpSection": {
                 "title": "あなたができること",
@@ -453,14 +470,6 @@
                     "title": "アプリを定期的に利用する",
                     "description": "好循環の経済サイクルを推進する"
                   }
-                }
-              },
-              "valueCycle": {
-                "title": "ポジティブな価値サイクル",
-                "steps": {
-                  "step1": "より多くのユーザーとアプリ使用",
-                  "step2": "より高い開発者報酬",
-                  "step3": "より多くのトークン買い戻し"
                 }
               }
             },
@@ -692,9 +701,8 @@
       "title": "メニュー",
       "sections": {
         "experimental": {
-          "title": "実験的機能",
+          "title": "設定",
           "links": {
-            "verification": "認証状態",
             "language": "言語"
           }
         },
@@ -709,6 +717,7 @@
         "help": {
           "title": "ヘルプ",
           "links": {
+            "support": "サポート",
             "faq": "よくある質問"
           }
         },

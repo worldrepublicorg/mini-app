@@ -428,47 +428,56 @@
             "description": "Zarabiaj WDD testując nasze nadchodzące funkcje"
           },
           "buybackProgram": {
-            "topnav": "Program Odkupu",
-            "title": "Program Odkupu Tokenów",
-            "subtitle": "Wzmacniajmy razem wartość WDD",
+            "topnav": "Program Wykupu",
+            "title": "Program Wykupu Tokenów",
+            "subtitle": "Wzmocnijmy wartość WDD razem",
             "sections": {
-              "devRewards": {
-                "title": "Program Nagród dla Deweloperów",
-                "startDate": "Rozpoczęty 1 kwietnia 2025",
-                "description": "World testuje nagrody dla deweloperów oparte na użytkowaniu aplikacji przez zweryfikowanych ludzi.",
-                "learnMore": "Dowiedz się więcej o programie"
+              "fundingSources": {
+                "title": "Źródła Finansowania",
+                "devRewards": {
+                  "title": "Nagrody dla Deweloperów World",
+                  "weekProgress": "Tydzień 7 z 12"
+                },
+                "worldRetro": {
+                  "title": "Finansowanie World Retro"
+                },
+                "optimism": {
+                  "title": "Finansowanie Optimism Retro",
+                  "status": "Złożono wniosek"
+                }
               },
               "commitment": {
-                "title": "Nasze zobowiązanie 50%",
-                "body": "Zobowiązujemy się wykorzystać co najmniej 50% naszych nagród z programu na odkup WDD."
+                "title": "Nasze Zobowiązanie",
+                "description": "Zobowiązujemy się do wykorzystania co najmniej 50% wszystkich tych środków na wykup WDD.",
+                "viewAccount": "Zobacz konto wykupu"
+              },
+              "valueCycle": {
+                "title": "Pozytywny Cykl Wartości",
+                "steps": {
+                  "step1": "Więcej użytkowników i wykorzystania aplikacji",
+                  "step2": "Wyższe nagrody",
+                  "step3": "Więcej wykupów tokenów"
+                }
               },
               "helpSection": {
                 "title": "Jak możesz pomóc",
-                "intro": "Możesz bezpośrednio przyczynić się do zwiększenia wartości Twoich tokenów WDD:",
+                "intro": "Możesz bezpośrednio przyczynić się do zwiększenia wartości swoich tokenów WDD:",
                 "steps": {
                   "invite": {
                     "title": "Zaproś innych do dołączenia",
                     "description": "Rozwijaj naszą społeczność zweryfikowanych członków"
                   },
                   "useApp": {
-                    "title": "Korzystaj z aplikacji regularnie",
+                    "title": "Regularnie korzystaj z aplikacji",
                     "description": "Napędzaj pozytywny cykl ekonomiczny"
                   }
-                }
-              },
-              "valueCycle": {
-                "title": "Pozytywny Cykl Wartości",
-                "steps": {
-                  "step1": "Więcej użytkowników i korzystania z aplikacji",
-                  "step2": "Wyższe nagrody dla deweloperów",
-                  "step3": "Więcej odkupów tokenów"
                 }
               }
             },
             "actions": {
               "share": "Udostępnij Zaproszenie"
             },
-            "cta": "Zobacz Nagrody Mini Aplikacji"
+            "cta": "Zobacz Nagrody Mini App"
           },
           "buybackLink": {
             "title": "Program Odkupu",
@@ -692,9 +701,8 @@
       "title": "Menu",
       "sections": {
         "experimental": {
-          "title": "EKSPERYMENTALNE",
+          "title": "USTAWIENIA",
           "links": {
-            "verification": "Status weryfikacji",
             "language": "Język"
           }
         },
@@ -709,6 +717,7 @@
         "help": {
           "title": "POMOC",
           "links": {
+            "support": "Wsparcie",
             "faq": "FAQ"
           }
         },

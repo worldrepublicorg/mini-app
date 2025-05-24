@@ -431,36 +431,45 @@
             "title": "Token-Rückkaufprogramm",
             "subtitle": "WDD-Wert gemeinsam stärken",
             "sections": {
-              "devRewards": {
-                "title": "Entwickler-Belohnungsprogramm",
-                "startDate": "Gestartet am 1. April 2025",
-                "description": "World erprobt Entwicklerbelohnungen basierend auf der Nutzung der App durch verifizierte Menschen.",
-                "learnMore": "Mehr über das Programm erfahren"
+              "fundingSources": {
+                "title": "Finanzierungsquellen",
+                "devRewards": {
+                  "title": "World Dev Rewards",
+                  "weekProgress": "Woche 7 von 12"
+                },
+                "worldRetro": {
+                  "title": "World Retro Finanzierung"
+                },
+                "optimism": {
+                  "title": "Optimism Retro Finanzierung",
+                  "status": "Beworben"
+                }
               },
               "commitment": {
-                "title": "Unser 50%-Versprechen",
-                "body": "Wir verpflichten uns, mindestens 50% unserer Belohnungen aus dem Programm für WDD-Rückkäufe zu verwenden."
+                "title": "Unser Versprechen",
+                "description": "Wir verpflichten uns, mindestens 50% aller dieser Finanzierungen für WDD-Rückkäufe zu verwenden.",
+                "viewAccount": "Rückkaufkonto anzeigen"
+              },
+              "valueCycle": {
+                "title": "Der positive Wertkreislauf",
+                "steps": {
+                  "step1": "Mehr App-Nutzer & Nutzung",
+                  "step2": "Höhere Belohnungen",
+                  "step3": "Mehr Token-Rückkäufe"
+                }
               },
               "helpSection": {
                 "title": "Wie Sie helfen können",
-                "intro": "Sie können direkt dazu beitragen, den Wert Ihrer WDD-Tokens zu steigern:",
+                "intro": "Sie können direkt zur Wertsteigerung Ihrer WDD-Token beitragen:",
                 "steps": {
                   "invite": {
-                    "title": "Laden Sie andere ein, beizutreten",
-                    "description": "Erweitern Sie unsere Gemeinschaft verifizierter Mitglieder"
+                    "title": "Andere einladen",
+                    "description": "Unsere Community verifizierter Mitglieder vergrößern"
                   },
                   "useApp": {
-                    "title": "Nutzen Sie die App regelmäßig",
-                    "description": "Treiben Sie den positiven Wirtschaftskreislauf an"
+                    "title": "App regelmäßig nutzen",
+                    "description": "Den positiven Wirtschaftskreislauf antreiben"
                   }
-                }
-              },
-              "valueCycle": {
-                "title": "Der positive Wertzyklus",
-                "steps": {
-                  "step1": "Mehr App-Nutzer & -Nutzung",
-                  "step2": "Höhere Entwicklerbelohnungen",
-                  "step3": "Mehr Token-Rückkäufe"
                 }
               }
             },
@@ -692,16 +701,15 @@
       "title": "Menü",
       "sections": {
         "experimental": {
-          "title": "EXPERIMENTELL",
+          "title": "EINSTELLUNGEN",
           "links": {
-            "verification": "Verifizierungsstatus",
             "language": "Sprache"
           }
         },
         "connect": {
           "title": "VERBINDEN",
           "links": {
-            "community": "Gemeinschaft",
+            "community": "Community",
             "announcements": "Ankündigungen",
             "x": "X"
           }
@@ -709,6 +717,7 @@
         "help": {
           "title": "HILFE",
           "links": {
+            "support": "Support",
             "faq": "FAQ"
           }
         },

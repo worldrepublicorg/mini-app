@@ -163,12 +163,6 @@ export default function PartySubsidyPage({
     </div>
   );
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("increasedPartySubsidyVisited", "true");
-    }
-  }, []);
-
   return (
     <div className="pb-safe flex min-h-dvh flex-col px-6">
       <div className="fixed left-0 right-0 top-0 z-10 bg-gray-0 px-6">

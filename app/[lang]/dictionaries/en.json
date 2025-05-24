@@ -422,15 +422,32 @@
             "title": "Token Buyback Program",
             "subtitle": "Strengthen WDD value together",
             "sections": {
-              "devRewards": {
-                "title": "Developer Rewards Program",
-                "startDate": "Started April 1, 2025",
-                "description": "World is piloting developer rewards based on app usage by verified humans.",
-                "learnMore": "Learn more about the program"
+              "fundingSources": {
+                "title": "Funding Sources",
+                "devRewards": {
+                  "title": "World Dev Rewards",
+                  "weekProgress": "Week 7 of 12"
+                },
+                "worldRetro": {
+                  "title": "World Retro Funding"
+                },
+                "optimism": {
+                  "title": "Optimism Retro Funding",
+                  "status": "Applied"
+                }
               },
               "commitment": {
-                "title": "Our 50% pledge",
-                "body": "We pledge to use at least 50% of our rewards from the program for WDD buybacks."
+                "title": "Our Commitment",
+                "description": "We pledge to use at least 50% of all these fundings for WDD buybacks.",
+                "viewAccount": "View buyback account"
+              },
+              "valueCycle": {
+                "title": "The Positive Value Cycle",
+                "steps": {
+                  "step1": "More app users & usage",
+                  "step2": "Higher rewards",
+                  "step3": "More token buybacks"
+                }
               },
               "helpSection": {
                 "title": "How you can help",
@@ -444,14 +461,6 @@
                     "title": "Use the app regularly",
                     "description": "Drive the virtuous economic cycle"
                   }
-                }
-              },
-              "valueCycle": {
-                "title": "The Positive Value Cycle",
-                "steps": {
-                  "step1": "More app users & usage",
-                  "step2": "Higher developer rewards",
-                  "step3": "More token buybacks"
                 }
               }
             },
@@ -684,9 +693,8 @@
       "title": "Menu",
       "sections": {
         "experimental": {
-          "title": "EXPERIMENTAL",
+          "title": "SETTINGS",
           "links": {
-            "verification": "Verification status",
             "language": "Language"
           }
         },
@@ -701,6 +709,7 @@
         "help": {
           "title": "HELP",
           "links": {
+            "support": "Support",
             "faq": "FAQ"
           }
         },

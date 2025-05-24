@@ -428,47 +428,56 @@
             "description": "향후 기능을 테스트하여 WDD 획득"
           },
           "buybackProgram": {
-            "topnav": "토큰 재구매 프로그램",
-            "title": "토큰 재구매 프로그램",
-            "subtitle": "함께 WDD 가치 강화하기",
+            "topnav": "바이백 프로그램",
+            "title": "토큰 바이백 프로그램",
+            "subtitle": "WDD 가치를 함께 강화",
             "sections": {
-              "devRewards": {
-                "title": "개발자 보상 프로그램",
-                "startDate": "2025년 4월 1일 시작",
-                "description": "월드는 인증된 사용자의 앱 사용량을 기반으로 개발자 보상을 시험 중입니다.",
-                "learnMore": "프로그램에 대해 더 알아보기"
-              },
-              "commitment": {
-                "title": "우리의 50% 약속",
-                "body": "프로그램에서 받는 보상의 최소 50%를 WDD 재구매에 사용할 것을 약속합니다."
-              },
-              "helpSection": {
-                "title": "어떻게 도울 수 있나요",
-                "intro": "귀하의 WDD 토큰 가치 증가에 직접 기여할 수 있습니다:",
-                "steps": {
-                  "invite": {
-                    "title": "다른 사람들을 초대하세요",
-                    "description": "인증된 회원 커뮤니티를 확장하세요"
-                  },
-                  "useApp": {
-                    "title": "앱을 정기적으로 사용하세요",
-                    "description": "선순환 경제 사이클을 촉진하세요"
-                  }
+              "fundingSources": {
+                "title": "자금 출처",
+                "devRewards": {
+                  "title": "World 개발자 보상",
+                  "weekProgress": "12주 중 7주차"
+                },
+                "worldRetro": {
+                  "title": "World Retro 자금"
+                },
+                "optimism": {
+                  "title": "Optimism Retro 자금",
+                  "status": "신청됨"
                 }
               },
+              "commitment": {
+                "title": "우리의 약속",
+                "description": "이러한 자금의 최소 50%를 WDD 바이백에 사용할 것을 약속합니다.",
+                "viewAccount": "바이백 계정 보기"
+              },
               "valueCycle": {
-                "title": "긍정적인 가치 사이클",
+                "title": "긍정적인 가치 순환",
                 "steps": {
-                  "step1": "더 많은 앱 사용자 및 사용량",
-                  "step2": "더 높은 개발자 보상",
-                  "step3": "더 많은 토큰 재구매"
+                  "step1": "더 많은 앱 사용자와 사용량",
+                  "step2": "더 높은 보상",
+                  "step3": "더 많은 토큰 바이백"
+                }
+              },
+              "helpSection": {
+                "title": "도움을 주는 방법",
+                "intro": "WDD 토큰의 가치를 직접 높이는 데 기여할 수 있습니다:",
+                "steps": {
+                  "invite": {
+                    "title": "다른 사람 초대하기",
+                    "description": "인증된 회원들의 커뮤니티 성장시키기"
+                  },
+                  "useApp": {
+                    "title": "정기적으로 앱 사용하기",
+                    "description": "선순환 경제 사이클 주도하기"
+                  }
                 }
               }
             },
             "actions": {
               "share": "초대 공유하기"
             },
-            "cta": "미니앱 리워드 보기"
+            "cta": "미니 앱 보상 보기"
           },
           "buybackLink": {
             "title": "바이백 프로그램",
@@ -696,9 +705,8 @@
       "title": "메뉴",
       "sections": {
         "experimental": {
-          "title": "실험 기능",
+          "title": "설정",
           "links": {
-            "verification": "인증 상태",
             "language": "언어"
           }
         },
@@ -713,6 +721,7 @@
         "help": {
           "title": "도움말",
           "links": {
+            "support": "지원",
             "faq": "자주 묻는 질문"
           }
         },
