@@ -78,7 +78,7 @@ export default function BuybackProgramPage({
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      localStorage.setItem("newBuybackProgramVisited", "true");
+      localStorage.setItem("newBuybackVisited", "true");
     }
   }, []);
 
