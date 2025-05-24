@@ -151,7 +151,7 @@ export default function BuybackProgramPage({
               >
                 <div className="my-1 flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
-                    <div className="text-[17px] font-medium text-gray-900">
+                    <div className="text-[16px] font-medium text-gray-900">
                       {(() => {
                         const title =
                           dictionary?.pages?.earn?.tabs?.contribute
@@ -194,7 +194,7 @@ export default function BuybackProgramPage({
               >
                 <div className="my-1 flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
-                    <div className="text-[17px] font-medium text-gray-900">
+                    <div className="text-[16px] font-medium text-gray-900">
                       {(() => {
                         const title =
                           dictionary?.pages?.earn?.tabs?.contribute
@@ -236,7 +236,7 @@ export default function BuybackProgramPage({
               >
                 <div className="my-1 flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
-                    <div className="text-[17px] font-medium text-gray-900">
+                    <div className="text-[16px] font-medium text-gray-900">
                       {(() => {
                         const title =
                           dictionary?.pages?.earn?.tabs?.contribute
@@ -288,7 +288,7 @@ export default function BuybackProgramPage({
                 }
               </Typography>
             </div>
-            <Typography variant="body" level={2} className="text-gray-600 mb-3">
+            <Typography variant="body" level={3} className="text-gray-600 mb-3">
               {
                 dictionary?.pages?.earn?.tabs?.contribute?.buybackProgram
                   ?.sections?.commitment?.description
@@ -382,7 +382,7 @@ export default function BuybackProgramPage({
                 }
               </Typography>
             </div>
-            <Typography variant="body" level={2} className="text-gray-600 mb-4">
+            <Typography variant="body" level={3} className="text-gray-600 mb-4">
               {
                 dictionary?.pages?.earn?.tabs?.contribute?.buybackProgram
                   ?.sections?.helpSection?.intro
