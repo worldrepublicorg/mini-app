@@ -702,9 +702,8 @@
       "title": "القائمة",
       "sections": {
         "experimental": {
-          "title": "تجريبي",
+          "title": "الإعدادات",
           "links": {
-            "verification": "حالة التحقق",
             "language": "اللغة"
           }
         },
@@ -719,6 +718,7 @@
         "help": {
           "title": "مساعدة",
           "links": {
+            "support": "الدعم",
             "faq": "الأسئلة الشائعة"
           }
         },

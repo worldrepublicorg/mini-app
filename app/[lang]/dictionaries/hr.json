@@ -702,9 +702,8 @@
       "title": "Izbornik",
       "sections": {
         "experimental": {
-          "title": "EKSPERIMENTALNO",
+          "title": "POSTAVKE",
           "links": {
-            "verification": "Status provjere",
             "language": "Jezik"
           }
         },
@@ -719,7 +718,8 @@
         "help": {
           "title": "POMOĆ",
           "links": {
-            "faq": "Česta pitanja"
+            "support": "Podrška",
+            "faq": "FAQ"
           }
         },
         "code": {

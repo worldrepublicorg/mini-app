@@ -700,24 +700,24 @@
       "title": "Menu",
       "sections": {
         "experimental": {
-          "title": "NEW THINGS",
+          "title": "SETTINGS",
           "links": {
-            "verification": "Check Your Status",
             "language": "Language"
           }
         },
         "connect": {
-          "title": "JOIN",
+          "title": "CONNECT",
           "links": {
-            "community": "Our People",
-            "announcements": "News",
+            "community": "Community",
+            "announcements": "Announcements",
             "x": "X"
           }
         },
         "help": {
           "title": "HELP",
           "links": {
-            "faq": "Questions Wey People Dey Ask"
+            "support": "Support",
+            "faq": "FAQ"
           }
         },
         "code": {

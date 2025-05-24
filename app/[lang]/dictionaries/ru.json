@@ -701,14 +701,13 @@
       "title": "Меню",
       "sections": {
         "experimental": {
-          "title": "ЭКСПЕРИМЕНТАЛЬНОЕ",
+          "title": "НАСТРОЙКИ",
           "links": {
-            "verification": "Статус верификации",
             "language": "Язык"
           }
         },
         "connect": {
-          "title": "ПОДКЛЮЧЕНИЕ",
+          "title": "СВЯЗЬ",
           "links": {
             "community": "Сообщество",
             "announcements": "Объявления",
@@ -718,7 +717,8 @@
         "help": {
           "title": "ПОМОЩЬ",
           "links": {
-            "faq": "ЧАВО"
+            "support": "Поддержка",
+            "faq": "FAQ"
           }
         },
         "code": {

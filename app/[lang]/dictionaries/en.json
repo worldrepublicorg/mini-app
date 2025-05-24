@@ -693,9 +693,8 @@
       "title": "Menu",
       "sections": {
         "experimental": {
-          "title": "EXPERIMENTAL",
+          "title": "SETTINGS",
           "links": {
-            "verification": "Verification status",
             "language": "Language"
           }
         },
@@ -710,6 +709,7 @@
         "help": {
           "title": "HELP",
           "links": {
+            "support": "Support",
             "faq": "FAQ"
           }
         },

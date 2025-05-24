@@ -700,14 +700,13 @@
       "title": "Menu",
       "sections": {
         "experimental": {
-          "title": "EKSPERIMENTAL",
+          "title": "MGA SETTING",
           "links": {
-            "verification": "Katayuan ng pagpapatunay",
             "language": "Wika"
           }
         },
         "connect": {
-          "title": "KONEKTAHAN",
+          "title": "KUMONEKTA",
           "links": {
             "community": "Komunidad",
             "announcements": "Mga Anunsyo",
@@ -717,6 +716,7 @@
         "help": {
           "title": "TULONG",
           "links": {
+            "support": "Suporta",
             "faq": "FAQ"
           }
         },

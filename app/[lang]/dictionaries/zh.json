@@ -701,9 +701,8 @@
       "title": "菜单",
       "sections": {
         "experimental": {
-          "title": "实验性功能",
+          "title": "设置",
           "links": {
-            "verification": "验证状态",
             "language": "语言"
           }
         },
@@ -718,6 +717,7 @@
         "help": {
           "title": "帮助",
           "links": {
+            "support": "支持",
             "faq": "常见问题"
           }
         },

@@ -702,14 +702,13 @@
       "title": "Menu",
       "sections": {
         "experimental": {
-          "title": "EKSPERIMENTAL",
+          "title": "TETAPAN",
           "links": {
-            "verification": "Status pengesahan",
             "language": "Bahasa"
           }
         },
         "connect": {
-          "title": "HUBUNGAN",
+          "title": "BERHUBUNG",
           "links": {
             "community": "Komuniti",
             "announcements": "Pengumuman",
@@ -719,7 +718,8 @@
         "help": {
           "title": "BANTUAN",
           "links": {
-            "faq": "Soalan Lazim"
+            "support": "Sokongan",
+            "faq": "FAQ"
           }
         },
         "code": {

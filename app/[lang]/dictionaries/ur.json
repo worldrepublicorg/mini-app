@@ -701,16 +701,15 @@
       "title": "منو",
       "sections": {
         "experimental": {
-          "title": "آزمائشی",
+          "title": "ترتیبات",
           "links": {
-            "verification": "ورژن استعمال",
             "language": "زبان"
           }
         },
         "connect": {
-          "title": "سنبھالی",
+          "title": "جوڑیں",
           "links": {
-            "community": "جماعت",
+            "community": "برادری",
             "announcements": "اعلانات",
             "x": "X"
           }
@@ -718,7 +717,8 @@
         "help": {
           "title": "مدد",
           "links": {
-            "faq": "سوال و جواب"
+            "support": "سپورٹ",
+            "faq": "عمومی سوالات"
           }
         },
         "code": {

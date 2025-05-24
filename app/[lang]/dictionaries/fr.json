@@ -702,14 +702,13 @@
       "title": "Menu",
       "sections": {
         "experimental": {
-          "title": "EXPÉRIMENTAL",
+          "title": "PARAMÈTRES",
           "links": {
-            "verification": "État de vérification",
             "language": "Langue"
           }
         },
         "connect": {
-          "title": "CONNEXION",
+          "title": "CONNECTER",
           "links": {
             "community": "Communauté",
             "announcements": "Annonces",
@@ -719,6 +718,7 @@
         "help": {
           "title": "AIDE",
           "links": {
+            "support": "Support",
             "faq": "FAQ"
           }
         },

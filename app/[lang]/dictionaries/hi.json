@@ -702,14 +702,13 @@
       "title": "मेनू",
       "sections": {
         "experimental": {
-          "title": "प्रायोगिक",
+          "title": "सेटिंग्स",
           "links": {
-            "verification": "सत्यापन स्थिति",
             "language": "भाषा"
           }
         },
         "connect": {
-          "title": "जुड़ें",
+          "title": "कनेक्ट",
           "links": {
             "community": "समुदाय",
             "announcements": "घोषणाएं",
@@ -719,6 +718,7 @@
         "help": {
           "title": "सहायता",
           "links": {
+            "support": "सपोर्ट",
             "faq": "सामान्य प्रश्न"
           }
         },

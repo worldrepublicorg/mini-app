@@ -701,16 +701,15 @@
       "title": "Menü",
       "sections": {
         "experimental": {
-          "title": "EXPERIMENTELL",
+          "title": "EINSTELLUNGEN",
           "links": {
-            "verification": "Verifizierungsstatus",
             "language": "Sprache"
           }
         },
         "connect": {
           "title": "VERBINDEN",
           "links": {
-            "community": "Gemeinschaft",
+            "community": "Community",
             "announcements": "Ankündigungen",
             "x": "X"
           }
@@ -718,6 +717,7 @@
         "help": {
           "title": "HILFE",
           "links": {
+            "support": "Support",
             "faq": "FAQ"
           }
         },

@@ -701,9 +701,8 @@
       "title": "Menu",
       "sections": {
         "experimental": {
-          "title": "EKSPERYMENTALNE",
+          "title": "USTAWIENIA",
           "links": {
-            "verification": "Status weryfikacji",
             "language": "Język"
           }
         },
@@ -718,6 +717,7 @@
         "help": {
           "title": "POMOC",
           "links": {
+            "support": "Wsparcie",
             "faq": "FAQ"
           }
         },

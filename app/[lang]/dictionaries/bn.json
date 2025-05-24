@@ -702,14 +702,13 @@
       "title": "মেনু",
       "sections": {
         "experimental": {
-          "title": "পরীক্ষামূলক",
+          "title": "সেটিংস",
           "links": {
-            "verification": "যাচাই অবস্থা",
             "language": "ভাষা"
           }
         },
         "connect": {
-          "title": "সংযোগ",
+          "title": "কানেক্ট",
           "links": {
             "community": "কমিউনিটি",
             "announcements": "ঘোষণা",
@@ -717,9 +716,10 @@
           }
         },
         "help": {
-          "title": "সহায়তা",
+          "title": "সাহায্য",
           "links": {
-            "faq": "সাধারণ জিজ্ঞাসা"
+            "support": "সাপোর্ট",
+            "faq": "সাধারণ প্রশ্ন"
           }
         },
         "code": {

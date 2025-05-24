@@ -705,9 +705,8 @@
       "title": "메뉴",
       "sections": {
         "experimental": {
-          "title": "실험 기능",
+          "title": "설정",
           "links": {
-            "verification": "인증 상태",
             "language": "언어"
           }
         },
@@ -722,6 +721,7 @@
         "help": {
           "title": "도움말",
           "links": {
+            "support": "지원",
             "faq": "자주 묻는 질문"
           }
         },

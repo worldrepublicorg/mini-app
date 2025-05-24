@@ -700,16 +700,15 @@
       "title": "Menu",
       "sections": {
         "experimental": {
-          "title": "EXPERIMENTAL",
+          "title": "MGA SETTING",
           "links": {
-            "verification": "Verification status",
             "language": "Wika"
           }
         },
         "connect": {
           "title": "KUMONEKTA",
           "links": {
-            "community": "Community",
+            "community": "Komunidad",
             "announcements": "Mga Anunsyo",
             "x": "X"
           }
@@ -717,6 +716,7 @@
         "help": {
           "title": "TULONG",
           "links": {
+            "support": "Suporta",
             "faq": "FAQ"
           }
         },

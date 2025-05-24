@@ -701,9 +701,8 @@
       "title": "メニュー",
       "sections": {
         "experimental": {
-          "title": "実験的機能",
+          "title": "設定",
           "links": {
-            "verification": "認証状態",
             "language": "言語"
           }
         },
@@ -718,6 +717,7 @@
         "help": {
           "title": "ヘルプ",
           "links": {
+            "support": "サポート",
             "faq": "よくある質問"
           }
         },

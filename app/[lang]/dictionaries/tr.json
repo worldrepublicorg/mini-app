@@ -702,9 +702,8 @@
       "title": "Menü",
       "sections": {
         "experimental": {
-          "title": "DENEYSEL",
+          "title": "AYARLAR",
           "links": {
-            "verification": "Doğrulama durumu",
             "language": "Dil"
           }
         },
@@ -719,6 +718,7 @@
         "help": {
           "title": "YARDIM",
           "links": {
+            "support": "Destek",
             "faq": "SSS"
           }
         },

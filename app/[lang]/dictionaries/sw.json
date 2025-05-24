@@ -702,9 +702,8 @@
       "title": "Menyu",
       "sections": {
         "experimental": {
-          "title": "MAJARIBIO",
+          "title": "MIPANGILIO",
           "links": {
-            "verification": "Hali ya uthibitishaji",
             "language": "Lugha"
           }
         },
@@ -717,8 +716,9 @@
           }
         },
         "help": {
-          "title": "Msaada",
+          "title": "MSAADA",
           "links": {
+            "support": "Msaada",
             "faq": "Maswali Yanayoulizwa Mara kwa Mara"
           }
         },
