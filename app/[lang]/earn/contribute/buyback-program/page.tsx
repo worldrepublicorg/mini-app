@@ -288,7 +288,11 @@ export default function BuybackProgramPage({
                 }
               </Typography>
             </div>
-            <Typography variant="body" level={3} className="text-gray-600 mb-3">
+            <Typography
+              variant="body"
+              level={3}
+              className="text-gray-600 mb-3 text-[16px]"
+            >
               {
                 dictionary?.pages?.earn?.tabs?.contribute?.buybackProgram
                   ?.sections?.commitment?.description
@@ -382,7 +386,11 @@ export default function BuybackProgramPage({
                 }
               </Typography>
             </div>
-            <Typography variant="body" level={3} className="text-gray-600 mb-4">
+            <Typography
+              variant="body"
+              level={3}
+              className="text-gray-600 mb-4 text-[16px]"
+            >
               {
                 dictionary?.pages?.earn?.tabs?.contribute?.buybackProgram
                   ?.sections?.helpSection?.intro
