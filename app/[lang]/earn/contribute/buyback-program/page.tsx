@@ -330,7 +330,11 @@ export default function BuybackProgramPage({
                 <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gray-200 text-sm font-medium text-gray-700">
                   1
                 </span>
-                <Typography variant="body" level={3} className="mx-2 flex-1">
+                <Typography
+                  variant="body"
+                  level={3}
+                  className="mx-2 flex-1 text-[16px]"
+                >
                   {
                     dictionary?.pages?.earn?.tabs?.contribute?.buybackProgram
                       ?.sections?.valueCycle?.steps?.step1
@@ -344,7 +348,11 @@ export default function BuybackProgramPage({
                 <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gray-200 text-sm font-medium text-gray-700">
                   2
                 </span>
-                <Typography variant="body" level={3} className="mx-2 flex-1">
+                <Typography
+                  variant="body"
+                  level={3}
+                  className="mx-2 flex-1 text-[16px]"
+                >
                   {
                     dictionary?.pages?.earn?.tabs?.contribute?.buybackProgram
                       ?.sections?.valueCycle?.steps?.step2
@@ -358,7 +366,11 @@ export default function BuybackProgramPage({
                 <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gray-200 text-sm font-medium text-gray-700">
                   3
                 </span>
-                <Typography variant="body" level={3} className="mx-2 flex-1">
+                <Typography
+                  variant="body"
+                  level={3}
+                  className="mx-2 flex-1 text-[16px]"
+                >
                   {
                     dictionary?.pages?.earn?.tabs?.contribute?.buybackProgram
                       ?.sections?.valueCycle?.steps?.step3
@@ -406,7 +418,7 @@ export default function BuybackProgramPage({
                   <Typography
                     variant="subtitle"
                     level={2}
-                    className="mb-1 text-gray-900"
+                    className="mb-1 text-[16px] text-gray-900"
                   >
                     {
                       dictionary?.pages?.earn?.tabs?.contribute?.buybackProgram
@@ -434,7 +446,7 @@ export default function BuybackProgramPage({
                   <Typography
                     variant="subtitle"
                     level={2}
-                    className="mb-1 text-gray-900"
+                    className="mb-1 text-[16px] text-gray-900"
                   >
                     {
                       dictionary?.pages?.earn?.tabs?.contribute?.buybackProgram
