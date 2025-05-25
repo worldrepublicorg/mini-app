@@ -7,6 +7,7 @@ import { PollCard } from "@/components/PollCard";
 import { useTranslations } from "@/hooks/useTranslations";
 
 const pollKeys = [
+  "globalAidCuts",
   "coralCrisisAction",
   "aiSafetyTreaty",
   "polarIceProtocol",
@@ -79,6 +80,7 @@ const pollKeys = [
 ];
 
 const pollUrls = {
+  globalAidCuts: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/t1zvwYDI",
   coralCrisisAction: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/jNqEO9XV",
   aiSafetyTreaty: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/b6be3PF1",
   polarIceProtocol: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/afA1jsIQ",

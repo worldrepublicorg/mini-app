@@ -572,6 +572,7 @@
             "title": "Previous Polls",
             "backToGovern": "Back to Govern",
             "polls": {
+              "pandemicPreparednessFund": "Should a permanent global fund be established to ensure continuous and equitable access to resources for future pandemic preparedness and response efforts worldwide?",
               "globalAidCuts": "Should countries reconsider foreign aid reductions that risk reversing decades of progress against diseases like AIDS and malaria?",
               "coralCrisisAction": "Should nations commit to a coordinated global strategy to protect coral reefs amid the worst bleaching event in recorded history?",
               "aiSafetyTreaty": "Should nations agree to an enforceable global AI safety treaty?",
