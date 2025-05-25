@@ -578,7 +578,8 @@
             "title": "Kura za Awali",
             "backToGovern": "Rudi kwa Utawala",
             "polls": {
-              "globalAidCuts": "Je, nchi zinapaswa kufikiria upya kupunguza misaada ya kigeni ambayo inaweza kugeuza maendeleo ya miaka mingi dhidi ya magonjwa kama UKIMWI na malaria?",
+              "pandemicPreparednessFund": "Je, mfuko wa kimataifa wa kudumu unapaswa kuanzishwa ili kuhakikisha upatikanaji wa rasilimali endelevu na wa haki kwa ajili ya maandalizi na majibu ya janga la baadaye ulimwenguni kote?",
+              "globalAidCuts": "Je, nchi zinapaswa kukagua upya kupungua kwa misaada ya kigeni ambayo inaweza kurudisha nyuma maendeleo ya miongo kadhaa dhidi ya magonjwa kama vile UKIMWI na malaria?",
               "coralCrisisAction": "Je, mataifa yanapaswa kujitolea kwa mkakati wa pamoja wa kimataifa kulinda matumbawe ya bahari katika hali ya mabadiliko ya rangi ya matumbawe mbaya zaidi katika historia iliyorekodiwa?",
               "aiSafetyTreaty": "Je, mataifa yanapaswa kukubaliana na mkataba wa kimataifa wa usalama wa AI unaoweza kutekelezwa?",
               "heatAdaptation": "Je, nchi zinapaswa kuanzisha utaratibu wa uratibu wa kimataifa kwa onyo la mapema la joto na juhudi za pamoja za msaada ili kulinda watu walio hatarini wakati wa matukio ya joto kali?",

@@ -578,7 +578,8 @@
             "title": "Votações Anteriores",
             "backToGovern": "Voltar para Governar",
             "polls": {
-              "globalAidCuts": "Os países deveriam reconsiderar os cortes de ajuda externa que arriscam reverter décadas de progresso contra doenças como AIDS e malária?",
+              "pandemicPreparednessFund": "Deve ser estabelecido um fundo global permanente para garantir acesso contínuo e equitativo a recursos para preparação e resposta a futuras pandemias em todo o mundo?",
+              "globalAidCuts": "Os países devem reconsiderar os cortes na ajuda externa que arriscam reverter décadas de progresso contra doenças como AIDS e malária?",
               "coralCrisisAction": "As nações devem se comprometer com uma estratégia global coordenada para proteger os recifes de coral em meio ao pior evento de branqueamento registrado na história?",
               "aiSafetyTreaty": "As nações devem concordar com um tratado global de segurança de IA aplicável?",
               "heatAdaptation": "Os países deveriam estabelecer um mecanismo de coordenação global para alertas precoces de ondas de calor e esforços conjuntos de socorro para proteger populações vulneráveis durante eventos de calor extremo?",
