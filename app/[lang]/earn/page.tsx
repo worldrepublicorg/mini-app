@@ -12,7 +12,6 @@ import {
   PiNotePencilFill,
   PiGlobeFill,
   PiIdentificationCardFill,
-  PiCurrencyCircleDollarFill,
   PiCoinFill,
   PiInfoFill,
 } from "react-icons/pi";
@@ -36,8 +35,7 @@ import { BiLinkExternal } from "react-icons/bi";
 import { IoIosArrowForward } from "react-icons/io";
 import Link from "next/link";
 import { useTranslations } from "@/hooks/useTranslations";
-
-type EarnTabKey = "Basic income" | "Savings" | "Contribute" | "Invite";
+import type { EarnTabKey } from "@/lib/types";
 
 export default function EarnPage({
   params: { lang },

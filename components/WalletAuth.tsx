@@ -7,12 +7,7 @@ import { useWallet } from "@/components/contexts/WalletContext";
 import { useToast } from "./ui/Toast";
 import { useTranslations } from "@/hooks/useTranslations";
 import { useMiniKit } from "./providers/minikit-provider";
-
-interface WalletAuthProps {
-  lang: string;
-  onError?: (error: string) => void;
-  onSuccess?: (walletAddress: string, username: string) => void;
-}
+import type { WalletAuthProps } from "@/lib/types";
 
 async function fetchWithRetry(
   url: string,

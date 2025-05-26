@@ -12,6 +12,7 @@ import { PoliticalPartyList } from "@/components/PoliticalPartyList";
 import { Button } from "@/components/ui/Button";
 import { PiUsersThreeFill, PiScalesFill } from "react-icons/pi";
 import { useSearchParams } from "next/navigation";
+import type { TabKey } from "@/lib/types";
 
 const TAB_KEYS = {
   POLLS: "polls",
@@ -20,8 +21,6 @@ const TAB_KEYS = {
   REFERENDUMS: "referendums",
   POLITICAL_PARTIES: "politicalParties",
 } as const;
-
-type TabKey = (typeof TAB_KEYS)[keyof typeof TAB_KEYS];
 
 export default function GovernPage({
   params: { lang },

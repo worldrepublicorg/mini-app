@@ -5,12 +5,7 @@ import { Drawer, DrawerTrigger } from "@/components/ui/Drawer/Drawer";
 import { Typography } from "@/components/ui/Typography";
 import { ComingSoonDrawer } from "@/components/ComingSoonDrawer";
 import { IoIosArrowForward } from "react-icons/io";
-
-interface DrawerItemProps {
-  title: string;
-  isAddNew?: boolean;
-  lang: string;
-}
+import type { DrawerItemProps } from "@/lib/types";
 
 export function DrawerItem({ title, isAddNew = false, lang }: DrawerItemProps) {
   return (

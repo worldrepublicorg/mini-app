@@ -6,20 +6,8 @@ import { PiTrophy } from "react-icons/pi";
 import { BiChevronLeft } from "react-icons/bi";
 import { FaXTwitter } from "react-icons/fa6";
 import { useTranslations } from "@/hooks/useTranslations";
+import type { WeeklyWinners } from "@/lib/types";
 
-type Winner = {
-  handle: string;
-  engagement: number;
-  postLink: string;
-  place: 1 | 2 | 3;
-};
-
-type WeeklyWinners = {
-  weekOf: string;
-  winners: Winner[];
-};
-
-// Example data - replace with your actual data
 const WINNERS_DATA: WeeklyWinners[] = [
   {
     weekOf: "March 31, 2025",
@@ -43,7 +31,8 @@ const WINNERS_DATA: WeeklyWinners[] = [
         place: 3,
       },
     ],
-  },{
+  },
+  {
     weekOf: "March 24, 2025",
     winners: [
       {

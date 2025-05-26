@@ -6,11 +6,7 @@ import { FaPlus } from "react-icons/fa";
 import { PiInfoFill } from "react-icons/pi";
 import { useParties } from "./contexts/PartiesContext";
 import { Input } from "@worldcoin/mini-apps-ui-kit-react";
-
-interface PartySkeletonCardProps {
-  showPendingNote?: boolean;
-  dictionary?: any;
-}
+import type { PartySkeletonCardProps } from "@/lib/types";
 
 export function PartySkeletonCard({
   showPendingNote = false,

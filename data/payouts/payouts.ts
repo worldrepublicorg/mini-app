@@ -1,4 +1,4 @@
-import { PartyPayout } from "./types";
+import { PartyPayout } from "@/lib/types";
 
 // Helper function to calculate the total from weekly payouts
 const calculateTotal = (weeklyPayouts: any[], key: string): string => {

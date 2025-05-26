@@ -1,18 +1,7 @@
 "use client";
 
 import { Pill } from "@/components/ui/Pill";
-
-interface Tab {
-  key: string;
-  label: string;
-}
-
-interface TabSwiperProps<T extends string> {
-  tabs: Tab[];
-  activeTab: T;
-  onTabChange: (tab: T) => void;
-  tabIndicators?: Record<T, boolean>;
-}
+import type { TabSwiperProps } from "@/lib/types";
 
 export function TabSwiper<T extends string>({
   tabs,
