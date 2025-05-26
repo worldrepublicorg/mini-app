@@ -20,39 +20,12 @@ import {
 import { MiniKit } from "@worldcoin/minikit-js";
 import { parseAbi } from "viem";
 import { useRouter } from "next/navigation";
+import type { PartyDetail } from "@/lib/types";
+import { PartyStatus } from "@/lib/types";
 
 // Contract address
 const POLITICAL_PARTY_REGISTRY_ADDRESS =
   "0x70a993E1D1102F018365F966B5Fc009e8FA9b7dC";
-
-// Party Status
-enum PartyStatus {
-  PENDING = 0,
-  ACTIVE = 1,
-  INACTIVE = 2,
-}
-
-// Party interface
-interface Party {
-  id: number;
-  name: string;
-  shortName: string;
-  description: string;
-  officialLink: string;
-  founder: string;
-  currentLeader: string;
-  leader?: string; // For compatibility with context
-  status: number;
-  memberCount: number;
-  verifiedMemberCount: number;
-  members: { address: string }[];
-  bannedMembers: { address: string }[];
-  isUserMember?: boolean;
-  isUserLeader?: boolean;
-  active?: boolean; // Add for compatibility with context
-  creationTime?: number; // Add for compatibility with context
-  documentVerifiedMemberCount?: number; // Add for compatibility with context
-}
 
 export default function PartyDetailPage({
   params: { lang, id },
@@ -71,7 +44,7 @@ export default function PartyDetailPage({
     setParties,
   } = useParties();
 
-  const [party, setParty] = useState<Party | null>(null);
+  const [party, setParty] = useState<PartyDetail | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
   const [isUserMember, setIsUserMember] = useState(false);
@@ -164,70 +137,69 @@ export default function PartyDetailPage({
     return null;
   };
 
-  // Put the fetchPartyMembers function definition before the fetchData function
-  // Define fetchPartyMembers before the useEffect that calls it
-  const fetchPartyMembers = async (partyId: number) => {
-    try {
-      // GraphQL endpoint
-      const GOLDSKY_SUBGRAPH_URL =
-        "https://api.goldsky.com/api/public/project_cm9oeq0bhalzw01y0hwth80bk/subgraphs/political-party-registry/1.0.0/gn";
-
-      // GraphQL query for members
-      const query = `
-        {
-          parties(where: {id: ${partyId}}) {
-            members(first: 1000, where: {isActive: true}) {
-              address
-            }
-            bannedMembers(first: 1000) {
-              address
-            }
-          }
-        }
-      `;
-
-      // Fetch data
-      const response = await fetch(GOLDSKY_SUBGRAPH_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Subgraph request failed: ${response.statusText}`);
-      }
-
-      const result = await response.json();
-
-      if (result.errors) {
-        throw new Error(
-          `GraphQL errors: ${result.errors.map((e: any) => e.message).join(", ")}`
-        );
-      }
-
-      if (!result.data.parties || result.data.parties.length === 0) {
-        throw new Error("Party members not found");
-      }
-
-      const partyData = result.data.parties[0];
-      setPartyMembers(partyData.members || []);
-      setBannedMembers(partyData.bannedMembers || []);
-
-      // Check if user is a member based on the member list
-      if (walletAddress) {
-        const isMember = partyData.members.some(
-          (member: { address: string }) =>
-            member.address.toLowerCase() === walletAddress.toLowerCase()
-        );
-        setIsUserMember(isMember);
-      }
-    } catch (error) {
-      console.error("Error fetching members:", error);
-    }
-  };
-
   // Fetch party data and leader username
   useEffect(() => {
+    // Move fetchPartyMembers here
+    const fetchPartyMembers = async (partyId: number) => {
+      try {
+        // GraphQL endpoint
+        const GOLDSKY_SUBGRAPH_URL =
+          "https://api.goldsky.com/api/public/project_cm9oeq0bhalzw01y0hwth80bk/subgraphs/political-party-registry/1.0.0/gn";
+
+        // GraphQL query for members
+        const query = `
+          {
+            parties(where: {id: ${partyId}}) {
+              members(first: 1000, where: {isActive: true}) {
+                address
+              }
+              bannedMembers(first: 1000) {
+                address
+              }
+            }
+          }
+        `;
+
+        // Fetch data
+        const response = await fetch(GOLDSKY_SUBGRAPH_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query }),
+        });
+
+        if (!response.ok) {
+          throw new Error(`Subgraph request failed: ${response.statusText}`);
+        }
+
+        const result = await response.json();
+
+        if (result.errors) {
+          throw new Error(
+            `GraphQL errors: ${result.errors.map((e: any) => e.message).join(", ")}`
+          );
+        }
+
+        if (!result.data.parties || result.data.parties.length === 0) {
+          throw new Error("Party members not found");
+        }
+
+        const partyData = result.data.parties[0];
+        setPartyMembers(partyData.members || []);
+        setBannedMembers(partyData.bannedMembers || []);
+
+        // Check if user is a member based on the member list
+        if (walletAddress) {
+          const isMember = partyData.members.some(
+            (member: { address: string }) =>
+              member.address.toLowerCase() === walletAddress.toLowerCase()
+          );
+          setIsUserMember(isMember);
+        }
+      } catch (error) {
+        console.error("Error fetching members:", error);
+      }
+    };
+
     const fetchData = async () => {
       if (!id) return;
 
@@ -240,7 +212,7 @@ export default function PartyDetailPage({
           (p) => p.id === partyId
         );
 
-        let currentParty: Party | null = null;
+        let currentParty: PartyDetail | null = null;
 
         // If found in cache, use it
         if (cachedParty) {

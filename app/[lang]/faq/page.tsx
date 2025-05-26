@@ -6,12 +6,7 @@ import { BiChevronLeft, BiChevronDown, BiChevronUp } from "react-icons/bi";
 import { useSearchParams } from "next/navigation";
 import { useTranslations } from "@/hooks/useTranslations";
 import { useRouter } from "next/navigation";
-
-type FAQItem = {
-  id: string;
-  question: string;
-  answer: string;
-};
+import type { FAQItem } from "@/lib/types";
 
 export default function FAQPage({
   params: { lang },

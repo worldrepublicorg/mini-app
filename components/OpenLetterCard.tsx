@@ -2,14 +2,7 @@ import { Typography } from "@/components/ui/Typography";
 import { BiLinkExternal } from "react-icons/bi";
 import { IoIosArrowForward } from "react-icons/io";
 import { useRouter } from "next/navigation";
-
-interface OpenLetterCardProps {
-  title: string;
-  referenceTitle?: string;
-  referenceUrl?: string;
-  voteUrl: string;
-  isExternal?: boolean;
-}
+import type { OpenLetterCardProps } from "@/lib/types";
 
 export function OpenLetterCard({
   title,

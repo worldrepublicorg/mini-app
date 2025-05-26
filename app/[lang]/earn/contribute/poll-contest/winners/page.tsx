@@ -6,18 +6,7 @@ import { PiTrophy } from "react-icons/pi";
 import { BiChevronLeft } from "react-icons/bi";
 import { FaVoteYea } from "react-icons/fa";
 import { useTranslations } from "@/hooks/useTranslations";
-
-type Winner = {
-  handle: string;
-  engagement: number;
-  postLink: string;
-  place: 1 | 2 | 3;
-};
-
-type WeeklyWinners = {
-  weekOf: string;
-  winners: Winner[];
-};
+import type { WeeklyWinners } from "@/lib/types";
 
 // Example data - replace with your actual data
 const WINNERS_DATA: WeeklyWinners[] = [
@@ -97,7 +86,6 @@ const WINNERS_DATA: WeeklyWinners[] = [
       },
     ],
   },
-  // Add more weeks as needed
 ];
 
 export default function PollContestWinnersPage({

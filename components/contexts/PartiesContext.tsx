@@ -11,43 +11,7 @@ import { useWallet } from "./WalletContext";
 import { useToast } from "@/components/ui/Toast";
 import { parseAbi } from "viem";
 import { viemClient } from "@/lib/viemClient";
-
-// Minimal Party interface
-interface Party {
-  id: number;
-  name: string;
-  shortName: string;
-  description: string;
-  officialLink: string;
-  founder: string;
-  leader: string;
-  memberCount: number;
-  documentVerifiedMemberCount: number;
-  verifiedMemberCount: number;
-  creationTime: number;
-  active: boolean;
-  status: number;
-  isUserMember?: boolean;
-  isUserLeader?: boolean;
-}
-
-interface PartiesContextType {
-  activeParties: Party[];
-  pendingParties: Party[];
-  parties: Party[];
-  activeLoading: boolean;
-  pendingLoading: boolean;
-  userPartyId: number;
-  userPartyData: Party | null;
-  fetchActiveParties: () => Promise<void>;
-  fetchPendingParties: () => Promise<void>;
-  fetchPartyById: (id: number) => Promise<Party | null>;
-  setUserPartyId: (id: number) => void;
-  setParties: (parties: Party[] | ((prevParties: Party[]) => Party[])) => void;
-  getOptimisticPartyId: () => number;
-  storeUserParty: (party: Party) => void;
-  shuffledActiveParties: Party[];
-}
+import type { Party, PartiesContextType } from "@/lib/types";
 
 const PartiesContext = createContext<PartiesContextType>({
   activeParties: [],

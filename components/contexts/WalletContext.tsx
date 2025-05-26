@@ -5,40 +5,12 @@ import React, {
   useState,
   useEffect,
   useContext,
-  ReactNode,
   useCallback,
 } from "react";
 import { parseAbi } from "viem";
 import { viemClient } from "@/lib/viemClient";
 import { MiniKit } from "@worldcoin/minikit-js";
-
-interface WalletContextProps {
-  walletAddress: string | null;
-  username: string | null;
-  tokenBalance: string | null;
-  claimableAmount: string | null;
-  claimableAmountPlus: string | null;
-  basicIncomeActivated: boolean;
-  basicIncomePlusActivated: boolean;
-  canReward: boolean;
-  rewardCount: number;
-  secureDocumentRewardCount: number;
-  hasRewarded: boolean;
-  secureDocumentCanReward: boolean;
-  setWalletAddress: (address: string) => void;
-  setUsername: (username: string) => void;
-  fetchBasicIncomeInfo: () => Promise<void>;
-  fetchBasicIncomePlusInfo: () => Promise<void>;
-  fetchBalance: () => Promise<void>;
-  fetchCanReward: () => Promise<void>;
-  fetchSecureDocumentCanReward: () => Promise<void>;
-  fetchRewardCount: () => Promise<void>;
-  fetchSecureDocumentRewardCount: () => Promise<void>;
-  fetchHasRewarded: () => Promise<void>;
-  setBasicIncomeActivated: (activated: boolean) => void;
-  setBasicIncomePlusActivated: (activated: boolean) => void;
-  setSecureDocumentCanReward: (activated: boolean) => void;
-}
+import type { WalletContextProps, WalletProviderProps } from "@/lib/types";
 
 const WalletContext = createContext<WalletContextProps>({
   walletAddress: null,
@@ -67,10 +39,6 @@ const WalletContext = createContext<WalletContextProps>({
   setBasicIncomePlusActivated: () => {},
   setSecureDocumentCanReward: () => {},
 });
-
-interface WalletProviderProps {
-  children: ReactNode;
-}
 
 export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [walletAddress, setWalletAddress] = useState<string | null>(null);

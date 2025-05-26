@@ -26,41 +26,17 @@ import { useTranslations } from "@/hooks/useTranslations";
 import { TabSwiper } from "@/components/TabSwiper";
 import Link from "next/link";
 import { useParties } from "@/components/contexts/PartiesContext";
+import type {
+  Party,
+  CreatePartyForm,
+  PoliticalPartyListProps,
+} from "@/lib/types";
 
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
   "0x70a993E1D1102F018365F966B5Fc009e8FA9b7dC";
 
 const MAX_STRING_LENGTH = 256;
 const MAX_SHORT_NAME_LENGTH = 16;
-
-interface Party {
-  id: number;
-  name: string;
-  shortName: string;
-  description: string;
-  officialLink: string;
-  founder: string;
-  leader: string;
-  memberCount: number;
-  documentVerifiedMemberCount: number;
-  verifiedMemberCount: number;
-  creationTime: number;
-  active: boolean;
-  status: number; // 0: PENDING, 1: ACTIVE, 2: INACTIVE
-  isUserMember?: boolean;
-  isUserLeader?: boolean;
-}
-
-interface CreatePartyForm {
-  name: string;
-  shortName: string;
-  description: string;
-  officialLink: string;
-}
-
-interface PoliticalPartyListProps {
-  lang: string;
-}
 
 export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const dictionary = useTranslations(lang);
@@ -1451,7 +1427,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   );
 
   // Create a memoized MyPartySection component
-  const MyPartySection = useMemo(() => {
+  function MyPartySection() {
     // If we have optimistic data or real data, show it
     if (userPartyId === -1 || userPartyId > 0) {
       return (
@@ -1517,7 +1493,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         </div>
       </div>
     );
-  }, [userPartyId, walletAddress, showToast, renderPartyCard]);
+  }
 
   if (activeLoading && activeTab !== "pending") {
     return <LoadingSkeleton dictionary={dictionary} />;
@@ -1526,7 +1502,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   return (
     <div className="w-full overflow-x-hidden">
       {/* My Party Section - now memoized */}
-      {MyPartySection}
+      <MyPartySection />
 
       <Typography
         as="h2"
