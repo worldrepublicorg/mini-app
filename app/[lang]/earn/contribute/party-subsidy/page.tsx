@@ -212,12 +212,6 @@ export default function PartySubsidyPage({
                   variant={{ variant: "subtitle", level: 2 }}
                   className="mb-2 text-center text-gray-900"
                 >
-                  <span className="line-through">
-                    {
-                      dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy
-                        ?.weeklyPool?.old
-                    }
-                  </span>{" "}
                   {
                     dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy
                       ?.weeklyPool?.new
