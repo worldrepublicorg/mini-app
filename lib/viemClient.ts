@@ -2,7 +2,7 @@ import { createPublicClient, http, fallback, webSocket } from "viem";
 import { worldchain } from "viem/chains";
 
 const optimizedFallbackConfig = {
-  retryCount: 10,
+  retryCount: 2,
   retryDelay: 100,
 };
 
