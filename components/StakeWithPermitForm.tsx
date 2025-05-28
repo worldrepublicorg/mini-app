@@ -7,7 +7,6 @@ import { parseAbi } from "viem";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { viemClient } from "@/lib/viemClient";
-import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { useToast } from "@/components/ui/Toast";
 import { useTranslations } from "@/hooks/useTranslations";
 
@@ -21,21 +20,6 @@ interface StakeWithPermitFormProps {
 
 const STAKING_CONTRACT_ADDRESS = "0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7";
 const MAIN_TOKEN_ADDRESS = "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B";
-
-async function pollForBalanceUpdate(
-  fetchStakedBalance: () => Promise<void>,
-  fetchAvailableReward: () => Promise<void>,
-  fetchBalance: () => Promise<void>,
-  attempts = 3,
-  delay = 1000
-) {
-  for (let i = 0; i < attempts; i++) {
-    await fetchStakedBalance();
-    await fetchAvailableReward();
-    await fetchBalance();
-    await new Promise((res) => setTimeout(res, delay));
-  }
-}
 
 type TxType = null | "deposit" | "withdraw" | "collect";
 
@@ -58,52 +42,73 @@ export function StakeWithPermitForm({
   const [transactionId, setTransactionId] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const { isSuccess } = useWaitForTransactionReceipt({
-    client: viemClient,
-    appConfig: {
-      app_id: "app_66c83ab8c851fb1e54b1b1b62c6ce39d",
-    },
-    transactionId: transactionId!,
-  });
-
   const dictionary = useTranslations(lang);
 
-  const pollForReceipt = async (
-    txHash: string,
+  // Helper: fetch staked balance value (returns string)
+  const fetchStakedBalanceValue = async (): Promise<string> => {
+    if (!walletAddress) return "0";
+    const result: bigint = await viemClient.readContract({
+      address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
+      abi: parseAbi([
+        "function balanceOf(address account) external view returns (uint256)",
+      ]),
+      functionName: "balanceOf",
+      args: [walletAddress],
+    });
+    return (Number(result) / 1e18).toString();
+  };
+
+  // Helper: fetch available reward value (returns string)
+  const fetchAvailableRewardValue = async (): Promise<string> => {
+    if (!walletAddress) return "0";
+    const result: bigint = await viemClient.readContract({
+      address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
+      abi: parseAbi([
+        "function available(address account) external view returns (uint256)",
+      ]),
+      functionName: "available",
+      args: [walletAddress],
+    });
+    return (Number(result) / 1e18).toString();
+  };
+
+  // Poll for staked balance change
+  const pollForStakedBalanceChange = async (
+    prevStakedBalance: string,
     maxAttempts = 30,
     interval = 2000
   ) => {
     let attempts = 0;
     while (attempts < maxAttempts) {
-      try {
-        const receipt = await viemClient.getTransactionReceipt({
-          hash: txHash as `0x${string}`,
-        });
-        if (receipt && receipt.status === "success") {
-          // Transaction confirmed
-          setIsLoading(false);
-          setTxType(null);
-          setTransactionId(null);
-          return;
-        } else if (receipt && receipt.status === "reverted") {
-          // Transaction failed
-          setIsLoading(false);
-          setTxType(null);
-          setTransactionId(null);
-          showToast(dictionary?.components?.toasts?.wallet?.txFailed, "error");
-          return;
-        }
-      } catch (e) {
-        // Ignore errors, just try again
+      const newStakedBalance = await fetchStakedBalanceValue();
+      if (newStakedBalance !== prevStakedBalance) {
+        await fetchStakedBalance();
+        await fetchAvailableReward();
+        await fetchBalance();
+        break;
       }
       await new Promise((res) => setTimeout(res, interval));
       attempts++;
     }
-    // If we reach here, transaction is still pending after maxAttempts
-    setIsLoading(false);
-    setTxType(null);
-    setTransactionId(null);
-    showToast(dictionary?.components?.toasts?.wallet?.txUnknown, "error");
+  };
+
+  // Poll for available reward change
+  const pollForAvailableRewardChange = async (
+    prevAvailableReward: string,
+    maxAttempts = 30,
+    interval = 2000
+  ) => {
+    let attempts = 0;
+    while (attempts < maxAttempts) {
+      const newAvailableReward = await fetchAvailableRewardValue();
+      if (newAvailableReward !== prevAvailableReward) {
+        await fetchAvailableReward();
+        await fetchBalance();
+        break;
+      }
+      await new Promise((res) => setTimeout(res, interval));
+      attempts++;
+    }
   };
 
   const handleStake = async () => {
@@ -134,6 +139,7 @@ export function StakeWithPermitForm({
     setIsLoading(true);
     setTxType("deposit");
     try {
+      const prevStakedBalance = await fetchStakedBalanceValue();
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -176,7 +182,10 @@ export function StakeWithPermitForm({
         setAmount("");
         localStorage.setItem("savingsRewardBase", "0");
         localStorage.setItem("savingsRewardStartTime", Date.now().toString());
-        pollForReceipt(finalPayload.transaction_id);
+        await pollForStakedBalanceChange(prevStakedBalance);
+        setIsLoading(false);
+        setTxType(null);
+        setTransactionId(null);
       }
     } catch (error: any) {
       setIsLoading(false);
@@ -203,6 +212,7 @@ export function StakeWithPermitForm({
     setIsLoading(true);
     setTxType("withdraw");
     try {
+      const prevStakedBalance = await fetchStakedBalanceValue();
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -227,7 +237,10 @@ export function StakeWithPermitForm({
         setAmount("");
         localStorage.setItem("savingsRewardBase", "0");
         localStorage.setItem("savingsRewardStartTime", Date.now().toString());
-        pollForReceipt(finalPayload.transaction_id);
+        await pollForStakedBalanceChange(prevStakedBalance);
+        setIsLoading(false);
+        setTxType(null);
+        setTransactionId(null);
       }
     } catch (error: any) {
       setIsLoading(false);
@@ -246,6 +259,7 @@ export function StakeWithPermitForm({
     setIsLoading(true);
     setTxType("collect");
     try {
+      const prevAvailableReward = await fetchAvailableRewardValue();
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -267,39 +281,16 @@ export function StakeWithPermitForm({
         setTxType(null);
       } else {
         setTransactionId(finalPayload.transaction_id);
-        pollForReceipt(finalPayload.transaction_id);
+        await pollForAvailableRewardChange(prevAvailableReward);
+        setIsLoading(false);
+        setTxType(null);
+        setTransactionId(null);
       }
     } catch (error: any) {
       setIsLoading(false);
       setTxType(null);
     }
   };
-
-  // Unified post-transaction effect
-  useEffect(() => {
-    if (isSuccess && txType) {
-      let poll: Promise<any> = Promise.resolve();
-      fetchStakedBalance();
-      fetchAvailableReward();
-      fetchBalance();
-      poll = pollForBalanceUpdate(
-        fetchStakedBalance,
-        fetchAvailableReward,
-        fetchBalance
-      );
-      poll.finally(() => {
-        setIsLoading(false);
-        setTxType(null);
-        setTransactionId(null);
-      });
-    }
-  }, [
-    isSuccess,
-    txType,
-    fetchStakedBalance,
-    fetchAvailableReward,
-    fetchBalance,
-  ]);
 
   useEffect(() => {
     if (!walletAddress) return;
