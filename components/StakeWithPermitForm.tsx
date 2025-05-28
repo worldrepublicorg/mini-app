@@ -348,68 +348,8 @@ export function StakeWithPermitForm({
   });
 
   useEffect(() => {
-    if (!walletAddress) return;
-
-    const unwatchStakedWithPermit = viemClient.watchContractEvent({
-      address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
-      abi: parseAbi([
-        "event StakedWithPermit(address indexed user, uint256 amount)",
-      ]),
-      eventName: "StakedWithPermit",
-      args: { user: walletAddress },
-      onLogs: (logs: any) => {
-        if (
-          currentTxRef.current &&
-          logs[0]?.transactionHash === currentTxRef.current
-        ) {
-          finishTx(currentTxRef.current);
-        }
-      },
-    });
-
-    const unwatchWithdrawn = viemClient.watchContractEvent({
-      address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
-      abi: parseAbi(["event Withdrawn(address indexed user, uint256 amount)"]),
-      eventName: "Withdrawn",
-      args: { user: walletAddress },
-      onLogs: (logs: any) => {
-        if (
-          currentTxRef.current &&
-          logs[0]?.transactionHash === currentTxRef.current
-        ) {
-          finishTx(currentTxRef.current);
-        }
-      },
-    });
-
-    const unwatchRedeemed = viemClient.watchContractEvent({
-      address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
-      abi: parseAbi([
-        "event Redeemed(address indexed user, uint256 rewardAmount)",
-      ]),
-      eventName: "Redeemed",
-      args: { user: walletAddress },
-      onLogs: async (logs: any) => {
-        if (
-          currentTxRef.current &&
-          logs[0]?.transactionHash === currentTxRef.current
-        ) {
-          finishTx(currentTxRef.current);
-        }
-      },
-    });
-
-    return () => {
-      unwatchStakedWithPermit();
-      unwatchWithdrawn();
-      unwatchRedeemed();
-      clearFallbackTimer();
-    };
-  }, [walletAddress, fetchAvailableReward, fetchStakedBalance, fetchBalance]);
-
-  useEffect(() => {
     if (isSuccess && txType && transactionId === currentTxRef.current) {
-      // Only finish if not already finished by event or fallback 2
+      // Only finish if not already finished by event or fallback
       if (isLoading) {
         fetchStakedBalance();
         fetchAvailableReward();
