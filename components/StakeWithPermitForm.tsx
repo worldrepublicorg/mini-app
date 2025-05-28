@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { Typography } from "@/components/ui/Typography";
 import { parseAbi } from "viem";
@@ -67,6 +67,44 @@ export function StakeWithPermitForm({
   });
 
   const dictionary = useTranslations(lang);
+
+  const pollForReceipt = async (
+    txHash: string,
+    maxAttempts = 30,
+    interval = 2000
+  ) => {
+    let attempts = 0;
+    while (attempts < maxAttempts) {
+      try {
+        const receipt = await viemClient.getTransactionReceipt({
+          hash: txHash as `0x${string}`,
+        });
+        if (receipt && receipt.status === "success") {
+          // Transaction confirmed
+          setIsLoading(false);
+          setTxType(null);
+          setTransactionId(null);
+          return;
+        } else if (receipt && receipt.status === "reverted") {
+          // Transaction failed
+          setIsLoading(false);
+          setTxType(null);
+          setTransactionId(null);
+          showToast(dictionary?.components?.toasts?.wallet?.txFailed, "error");
+          return;
+        }
+      } catch (e) {
+        // Ignore errors, just try again
+      }
+      await new Promise((res) => setTimeout(res, interval));
+      attempts++;
+    }
+    // If we reach here, transaction is still pending after maxAttempts
+    setIsLoading(false);
+    setTxType(null);
+    setTransactionId(null);
+    showToast(dictionary?.components?.toasts?.wallet?.txUnknown, "error");
+  };
 
   const handleStake = async () => {
     if (!MiniKit.isInstalled()) {
@@ -138,6 +176,7 @@ export function StakeWithPermitForm({
         setAmount("");
         localStorage.setItem("savingsRewardBase", "0");
         localStorage.setItem("savingsRewardStartTime", Date.now().toString());
+        pollForReceipt(finalPayload.transaction_id);
       }
     } catch (error: any) {
       setIsLoading(false);
@@ -188,6 +227,7 @@ export function StakeWithPermitForm({
         setAmount("");
         localStorage.setItem("savingsRewardBase", "0");
         localStorage.setItem("savingsRewardStartTime", Date.now().toString());
+        pollForReceipt(finalPayload.transaction_id);
       }
     } catch (error: any) {
       setIsLoading(false);
@@ -227,6 +267,7 @@ export function StakeWithPermitForm({
         setTxType(null);
       } else {
         setTransactionId(finalPayload.transaction_id);
+        pollForReceipt(finalPayload.transaction_id);
       }
     } catch (error: any) {
       setIsLoading(false);
