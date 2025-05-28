@@ -151,12 +151,15 @@ export function StakeWithPermitForm({
     finishTx();
   };
 
+  const currentTxRef = useRef<string | null>(null);
+
   const handleStake = async () => {
     if (isLoading) return; // Prevent overlapping transactions
     clearFallbackTimer(); // Clean up any previous timers
     setIsLoading(true);
     setTxType("deposit");
-    setTransactionId(null); // Reset before starting
+    setTransactionId(null);
+    currentTxRef.current = null;
     if (!MiniKit.isInstalled()) {
       showToast(
         dictionary?.components?.toasts?.wallet?.connectInWorldApp,
@@ -221,6 +224,7 @@ export function StakeWithPermitForm({
         finishTx();
       } else {
         setTransactionId(finalPayload.transaction_id);
+        currentTxRef.current = finalPayload.transaction_id;
         setAmount("");
         localStorage.setItem("savingsRewardBase", "0");
         localStorage.setItem("savingsRewardStartTime", Date.now().toString());
@@ -276,6 +280,7 @@ export function StakeWithPermitForm({
         finishTx();
       } else {
         setTransactionId(finalPayload.transaction_id);
+        currentTxRef.current = finalPayload.transaction_id;
         setAmount("");
         localStorage.setItem("savingsRewardBase", "0");
         localStorage.setItem("savingsRewardStartTime", Date.now().toString());
@@ -322,6 +327,7 @@ export function StakeWithPermitForm({
         finishTx();
       } else {
         setTransactionId(finalPayload.transaction_id);
+        currentTxRef.current = finalPayload.transaction_id;
         fallbackTimerRef.current = setTimeout(() => {
           if (!fallbackStartedRef.current) {
             startFallbackPollingReward(prevAvailableReward);
@@ -351,11 +357,13 @@ export function StakeWithPermitForm({
       ]),
       eventName: "StakedWithPermit",
       args: { user: walletAddress },
-      onLogs: (logs: unknown) => {
-        console.log("StakedWithPermit event captured:", logs);
-        fetchStakedBalance();
-        fetchBalance();
-        setIsLoading(false);
+      onLogs: (logs: any) => {
+        if (
+          currentTxRef.current &&
+          logs[0]?.transactionHash === currentTxRef.current
+        ) {
+          finishTx(currentTxRef.current);
+        }
       },
     });
 
@@ -364,12 +372,13 @@ export function StakeWithPermitForm({
       abi: parseAbi(["event Withdrawn(address indexed user, uint256 amount)"]),
       eventName: "Withdrawn",
       args: { user: walletAddress },
-      onLogs: (logs: unknown) => {
-        console.log("Withdrawn event captured:", logs);
-        fetchAvailableReward();
-        fetchStakedBalance();
-        fetchBalance();
-        setIsLoading(false);
+      onLogs: (logs: any) => {
+        if (
+          currentTxRef.current &&
+          logs[0]?.transactionHash === currentTxRef.current
+        ) {
+          finishTx(currentTxRef.current);
+        }
       },
     });
 
@@ -380,28 +389,13 @@ export function StakeWithPermitForm({
       ]),
       eventName: "Redeemed",
       args: { user: walletAddress },
-      onLogs: async (logs: unknown) => {
-        console.log("Redeemed event captured:", logs);
-
-        // First fetch the new reward value
-        await fetchAvailableReward();
-
-        // Then update localStorage with the new values
-        const currentReward = await viemClient.readContract({
-          address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
-          abi: parseAbi([
-            "function available(address account) external view returns (uint256)",
-          ]),
-          functionName: "available",
-          args: [walletAddress],
-        });
-
-        const newRewardValue = Number(currentReward) / 1e18;
-        localStorage.setItem("savingsRewardBase", newRewardValue.toString());
-        localStorage.setItem("savingsRewardStartTime", Date.now().toString());
-
-        fetchBalance();
-        setIsLoading(false);
+      onLogs: async (logs: any) => {
+        if (
+          currentTxRef.current &&
+          logs[0]?.transactionHash === currentTxRef.current
+        ) {
+          finishTx(currentTxRef.current);
+        }
       },
     });
 
@@ -414,7 +408,7 @@ export function StakeWithPermitForm({
   }, [walletAddress, fetchAvailableReward, fetchStakedBalance, fetchBalance]);
 
   useEffect(() => {
-    if (isSuccess && txType) {
+    if (isSuccess && txType && transactionId === currentTxRef.current) {
       // Only finish if not already finished by event or fallback 2
       if (isLoading) {
         fetchStakedBalance();
@@ -430,7 +424,7 @@ export function StakeWithPermitForm({
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isSuccess, txType]);
+  }, [isSuccess, txType, transactionId]);
 
   return (
     <div className="w-full">
