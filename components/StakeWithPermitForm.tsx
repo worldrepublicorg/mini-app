@@ -22,6 +22,21 @@ interface StakeWithPermitFormProps {
 const STAKING_CONTRACT_ADDRESS = "0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7";
 const MAIN_TOKEN_ADDRESS = "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B";
 
+async function pollForBalanceUpdate(
+  fetchStakedBalance: () => Promise<void>,
+  fetchAvailableReward: () => Promise<void>,
+  fetchBalance: () => Promise<void>,
+  attempts = 3,
+  delay = 1000
+) {
+  for (let i = 0; i < attempts; i++) {
+    await fetchStakedBalance();
+    await fetchAvailableReward();
+    await fetchBalance();
+    await new Promise((res) => setTimeout(res, delay));
+  }
+}
+
 export function StakeWithPermitForm({
   stakedBalance,
   displayAvailableReward,
@@ -259,22 +274,28 @@ export function StakeWithPermitForm({
   };
 
   useEffect(() => {
-    if (isSuccess) {
-      console.log("Transaction successful");
+    if (isSuccess || isCollectSuccess) {
       fetchStakedBalance();
-      fetchBalance();
-      setTransactionId(null);
-    }
-  }, [isSuccess, fetchStakedBalance, fetchBalance]);
-
-  useEffect(() => {
-    if (isCollectSuccess) {
-      console.log("Transaction successful");
       fetchAvailableReward();
       fetchBalance();
+      pollForBalanceUpdate(
+        fetchStakedBalance,
+        fetchAvailableReward,
+        fetchBalance
+      ).finally(() => {
+        setIsSubmitting(false);
+        setIsCollecting(false);
+      });
+      setTransactionId(null);
       setCollectTx(null);
     }
-  }, [isCollectSuccess, fetchAvailableReward, fetchBalance]);
+  }, [
+    isSuccess,
+    isCollectSuccess,
+    fetchStakedBalance,
+    fetchAvailableReward,
+    fetchBalance,
+  ]);
 
   useEffect(() => {
     if (!walletAddress) return;
