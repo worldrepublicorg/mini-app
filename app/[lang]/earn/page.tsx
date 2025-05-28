@@ -1,7 +1,7 @@
 "use client";
 
 import { Typography } from "@/components/ui/Typography";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import {
   PiHandCoinsFill,
   PiUserPlusFill,
@@ -607,11 +607,64 @@ export default function EarnPage({
     showToast,
   ]);
 
+  // Add refs for current transaction and fallback timer
+  const currentTxRef = useRef<string | null>(null);
+  const fallbackTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const fallbackStartedRef = useRef(false);
+
+  // Helper to clear fallback timer
+  const clearFallbackTimer = () => {
+    if (fallbackTimerRef.current) {
+      clearTimeout(fallbackTimerRef.current);
+      fallbackTimerRef.current = null;
+    }
+    fallbackStartedRef.current = false;
+  };
+
+  // Helper: call this when the UI should be reset after tx
+  const finishTx = (txId?: string) => {
+    if (txId && txId !== currentTxRef.current) return; // Only finish for the current tx
+    setIsSubmitting(false);
+    setIsClaimingBasic(false);
+    setIsClaimingPlus(false);
+    setTxType(null);
+    setTransactionId(null);
+    clearFallbackTimer();
+    currentTxRef.current = null;
+  };
+
+  // Fallback polling for setup/claim
+  const pollForSetupOrClaimChange = async (
+    fetchFn: () => Promise<void>,
+    prevValue: string,
+    getValue: () => string,
+    maxAttempts = 30,
+    interval = 2000
+  ) => {
+    let attempts = 0;
+    while (attempts < maxAttempts) {
+      await fetchFn();
+      const newValue = getValue();
+      if (newValue !== prevValue) {
+        break;
+      }
+      await new Promise((res) => setTimeout(res, interval));
+      attempts++;
+    }
+  };
+
+  // --- SETUP BASIC ---
   const sendSetup = async () => {
     if (!MiniKit.isInstalled()) return;
+    if (isSubmitting) return;
+    clearFallbackTimer();
     setIsSubmitting(true);
     setTxType("setup-basic");
+    setTransactionId(null);
+    currentTxRef.current = null;
     try {
+      // Get previous stake value
+      const prevStake = claimableAmount || "0";
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -629,23 +682,39 @@ export default function EarnPage({
             dictionary?.components?.toasts?.basicIncome?.error;
           showToast(errorMessage, "error");
         }
-        setIsSubmitting(false);
-        setTxType(null);
+        finishTx();
       } else {
         setTransactionId(finalPayload.transaction_id);
+        currentTxRef.current = finalPayload.transaction_id;
+        // Start fallback timer (7s)
+        fallbackTimerRef.current = setTimeout(() => {
+          if (!fallbackStartedRef.current) {
+            fallbackStartedRef.current = true;
+            pollForSetupOrClaimChange(
+              fetchBasicIncomeInfo,
+              prevStake,
+              () => claimableAmount || "0"
+            ).finally(() => finishTx(finalPayload.transaction_id));
+          }
+        }, 7000);
       }
     } catch (error: any) {
       showToast(error.message || "An unexpected error occurred", "error");
-      setIsSubmitting(false);
-      setTxType(null);
+      finishTx();
     }
   };
 
+  // --- SETUP PLUS ---
   const sendSetupPlus = async () => {
     if (!MiniKit.isInstalled()) return;
+    if (isSubmitting) return;
+    clearFallbackTimer();
     setIsSubmitting(true);
     setTxType("setup-plus");
+    setTransactionId(null);
+    currentTxRef.current = null;
     try {
+      const prevStake = claimableAmountPlus || "0";
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -663,23 +732,38 @@ export default function EarnPage({
             dictionary?.components?.toasts?.basicIncome?.errorPlus;
           showToast(errorMessage, "error");
         }
-        setIsSubmitting(false);
-        setTxType(null);
+        finishTx();
       } else {
         setTransactionId(finalPayload.transaction_id);
+        currentTxRef.current = finalPayload.transaction_id;
+        fallbackTimerRef.current = setTimeout(() => {
+          if (!fallbackStartedRef.current) {
+            fallbackStartedRef.current = true;
+            pollForSetupOrClaimChange(
+              fetchBasicIncomePlusInfo,
+              prevStake,
+              () => claimableAmountPlus || "0"
+            ).finally(() => finishTx(finalPayload.transaction_id));
+          }
+        }, 7000);
       }
     } catch (error: any) {
       showToast(error.message || "An unexpected error occurred", "error");
-      setIsSubmitting(false);
-      setTxType(null);
+      finishTx();
     }
   };
 
+  // --- CLAIM BASIC ---
   const sendClaim = async () => {
     if (!MiniKit.isInstalled()) return;
+    if (isClaimingBasic) return;
+    clearFallbackTimer();
     setIsClaimingBasic(true);
     setTxType("claim-basic");
+    setTransactionId(null);
+    currentTxRef.current = null;
     try {
+      const prevClaim = claimableAmount || "0";
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -698,22 +782,37 @@ export default function EarnPage({
             dictionary?.components?.toasts?.transaction?.errorClaim;
           showToast(errorMessage, "error");
         }
-        setIsClaimingBasic(false);
-        setTxType(null);
+        finishTx();
       } else {
         setTransactionId(finalPayload.transaction_id);
+        currentTxRef.current = finalPayload.transaction_id;
+        fallbackTimerRef.current = setTimeout(() => {
+          if (!fallbackStartedRef.current) {
+            fallbackStartedRef.current = true;
+            pollForSetupOrClaimChange(
+              fetchBasicIncomeInfo,
+              prevClaim,
+              () => claimableAmount || "0"
+            ).finally(() => finishTx(finalPayload.transaction_id));
+          }
+        }, 7000);
       }
     } catch (error) {
-      setIsClaimingBasic(false);
-      setTxType(null);
+      finishTx();
     }
   };
 
+  // --- CLAIM PLUS ---
   const sendClaimPlus = async () => {
     if (!MiniKit.isInstalled()) return;
+    if (isClaimingPlus) return;
+    clearFallbackTimer();
     setIsClaimingPlus(true);
     setTxType("claim-plus");
+    setTransactionId(null);
+    currentTxRef.current = null;
     try {
+      const prevClaim = claimableAmountPlus || "0";
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -732,68 +831,95 @@ export default function EarnPage({
             "Error claiming Basic Income Plus";
           showToast(errorMessage, "error");
         }
-        setIsClaimingPlus(false);
-        setTxType(null);
+        finishTx();
       } else {
         setTransactionId(finalPayload.transaction_id);
+        currentTxRef.current = finalPayload.transaction_id;
+        fallbackTimerRef.current = setTimeout(() => {
+          if (!fallbackStartedRef.current) {
+            fallbackStartedRef.current = true;
+            pollForSetupOrClaimChange(
+              fetchBasicIncomePlusInfo,
+              prevClaim,
+              () => claimableAmountPlus || "0"
+            ).finally(() => finishTx(finalPayload.transaction_id));
+          }
+        }, 7000);
       }
     } catch (error) {
-      setIsClaimingPlus(false);
-      setTxType(null);
+      finishTx();
     }
   };
 
-  // Unified post-transaction effect
+  // In event listeners, only finish if the event matches the current tx (if possible)
+  // If not possible to match by tx hash, rely on the state change and call finishTx()
+  // (already present in your event listeners after updating state)
+
+  // In receipt effect, only finish if the transaction matches
   useEffect(() => {
-    if (isSuccess && txType) {
-      let poll: Promise<any> = Promise.resolve();
-      if (txType === "setup-basic") {
-        fetchBasicIncomeInfo();
-        poll = pollForSetupUpdates(fetchBasicIncomeInfo, () =>
-          Promise.resolve()
-        );
-      } else if (txType === "setup-plus") {
-        fetchBasicIncomePlusInfo();
-        poll = pollForSetupUpdates(
-          () => Promise.resolve(),
-          fetchBasicIncomePlusInfo
-        );
-      } else if (txType === "claim-basic") {
-        localStorage.setItem("basicIncomeBase", "0");
-        localStorage.setItem("basicIncomeStartTime", Date.now().toString());
-        fetchBasicIncomeInfo();
-        fetchBalance();
-        poll = pollForClaimUpdates(
-          fetchBasicIncomeInfo,
-          () => Promise.resolve(),
-          fetchBalance
-        );
-      } else if (txType === "claim-plus") {
-        localStorage.setItem("basicIncomePlusBase", "0");
-        localStorage.setItem("basicIncomePlusStartTime", Date.now().toString());
-        fetchBasicIncomePlusInfo();
-        fetchBalance();
-        poll = pollForClaimUpdates(
-          () => Promise.resolve(),
-          fetchBasicIncomePlusInfo,
-          fetchBalance
-        );
+    if (
+      isSuccess &&
+      txType &&
+      transactionId &&
+      transactionId === currentTxRef.current
+    ) {
+      // Only finish if not already finished by event or fallback 2
+      if (isSubmitting || isClaimingBasic || isClaimingPlus) {
+        // Use the same polling as before for extra robustness
+        let poll: Promise<any> = Promise.resolve();
+        if (txType === "setup-basic") {
+          fetchBasicIncomeInfo();
+          poll = pollForSetupOrClaimChange(
+            fetchBasicIncomeInfo,
+            "",
+            () => claimableAmount || "0"
+          );
+        } else if (txType === "setup-plus") {
+          fetchBasicIncomePlusInfo();
+          poll = pollForSetupOrClaimChange(
+            fetchBasicIncomePlusInfo,
+            "",
+            () => claimableAmountPlus || "0"
+          );
+        } else if (txType === "claim-basic") {
+          localStorage.setItem("basicIncomeBase", "0");
+          localStorage.setItem("basicIncomeStartTime", Date.now().toString());
+          fetchBasicIncomeInfo();
+          fetchBalance();
+          poll = pollForSetupOrClaimChange(
+            fetchBasicIncomeInfo,
+            "",
+            () => claimableAmount || "0"
+          );
+        } else if (txType === "claim-plus") {
+          localStorage.setItem("basicIncomePlusBase", "0");
+          localStorage.setItem(
+            "basicIncomePlusStartTime",
+            Date.now().toString()
+          );
+          fetchBasicIncomePlusInfo();
+          fetchBalance();
+          poll = pollForSetupOrClaimChange(
+            fetchBasicIncomePlusInfo,
+            "",
+            () => claimableAmountPlus || "0"
+          );
+        }
+        poll.finally(() => {
+          finishTx(transactionId);
+        });
       }
-      poll.finally(() => {
-        setIsSubmitting(false);
-        setIsClaimingBasic(false);
-        setIsClaimingPlus(false);
-        setTxType(null);
-        setTransactionId(null);
-      });
     }
-  }, [
-    isSuccess,
-    txType,
-    fetchBalance,
-    fetchBasicIncomeInfo,
-    fetchBasicIncomePlusInfo,
-  ]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSuccess, txType, transactionId]);
+
+  // Clean up timers on unmount
+  useEffect(() => {
+    return () => {
+      clearFallbackTimer();
+      currentTxRef.current = null;
+    };
+  }, []);
 
   const handleTabChange = (tab: EarnTabKey) => {
     setActiveTab(tab);
