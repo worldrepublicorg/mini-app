@@ -37,6 +37,8 @@ async function pollForBalanceUpdate(
   }
 }
 
+type TxType = null | "deposit" | "withdraw" | "collect";
+
 export function StakeWithPermitForm({
   stakedBalance,
   displayAvailableReward,
@@ -51,10 +53,10 @@ export function StakeWithPermitForm({
     "deposit"
   );
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isCollecting, setIsCollecting] = useState(false);
+  // Unified transaction state
+  const [txType, setTxType] = useState<TxType>(null);
   const [transactionId, setTransactionId] = useState<string | null>(null);
-  const [collectTx, setCollectTx] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const { isSuccess } = useWaitForTransactionReceipt({
     client: viemClient,
@@ -62,14 +64,6 @@ export function StakeWithPermitForm({
       app_id: "app_66c83ab8c851fb1e54b1b1b62c6ce39d",
     },
     transactionId: transactionId!,
-  });
-
-  const { isSuccess: isCollectSuccess } = useWaitForTransactionReceipt({
-    client: viemClient,
-    appConfig: {
-      app_id: "app_66c83ab8c851fb1e54b1b1b62c6ce39d",
-    },
-    transactionId: collectTx!,
   });
 
   const dictionary = useTranslations(lang);
@@ -82,39 +76,26 @@ export function StakeWithPermitForm({
       );
       return;
     }
-
-    console.log("handleStake called with amount input:", amount);
     let stakeAmount: bigint;
     try {
       stakeAmount = BigInt(Number(amount) * 1e18 - 9999999);
-      console.log("Converted stake amount to BigInt:", stakeAmount);
     } catch (error) {
-      console.error("Error converting input to BigInt:", error);
-      console.error("Please input a valid number (in token units).");
       return;
     }
-
-    if (stakeAmount <= 0n) {
-      console.error("Amount must be > 0");
-      return;
-    }
-
+    if (stakeAmount <= 0n) return;
     const stakeAmountStr = stakeAmount.toString();
     const nonce = Date.now().toString();
     const currentTime = Math.floor(Date.now() / 1000);
-    const deadline = currentTime + 600; // 10 minutes from now
-
+    const deadline = currentTime + 600;
     const permitArg = [
       [MAIN_TOKEN_ADDRESS, stakeAmountStr],
       nonce,
       deadline.toString(),
     ];
-
     const transferDetailsArg = [STAKING_CONTRACT_ADDRESS, stakeAmountStr];
-
-    setIsSubmitting(true);
+    setIsLoading(true);
+    setTxType("deposit");
     try {
-      console.log("Sending stakeWithPermit transaction via MiniKit...");
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -143,27 +124,24 @@ export function StakeWithPermitForm({
           },
         ],
       });
-
-      console.log("Received stake transaction response:", finalPayload);
       if (finalPayload.status === "error") {
-        console.error("Transaction error.");
         if (finalPayload.error_code !== "user_rejected") {
           const errorMessage =
             (finalPayload as any).description ||
             dictionary?.components?.toasts?.wallet?.stakingError;
           showToast(errorMessage, "error");
         }
-        setIsSubmitting(false);
+        setIsLoading(false);
+        setTxType(null);
       } else {
-        console.info("Staking transaction submitted successfully!");
         setTransactionId(finalPayload.transaction_id);
         setAmount("");
         localStorage.setItem("savingsRewardBase", "0");
         localStorage.setItem("savingsRewardStartTime", Date.now().toString());
       }
     } catch (error: any) {
-      console.error("Error:", error.message);
-      setIsSubmitting(false);
+      setIsLoading(false);
+      setTxType(null);
     }
   };
 
@@ -175,27 +153,17 @@ export function StakeWithPermitForm({
       );
       return;
     }
-
-    console.log("handleWithdraw called with amount input:", amount);
     let withdrawAmount: bigint;
     try {
       withdrawAmount = BigInt(Number(amount) * 1e18 - 9999999);
-      console.log("Converted withdraw amount to BigInt:", withdrawAmount);
     } catch (error) {
-      console.error("Error converting input to BigInt:", error);
       return;
     }
-
-    if (withdrawAmount <= 0n) {
-      console.error("Amount must be > 0");
-      return;
-    }
-
+    if (withdrawAmount <= 0n) return;
     const withdrawAmountStr = withdrawAmount.toString();
-
-    setIsSubmitting(true);
+    setIsLoading(true);
+    setTxType("withdraw");
     try {
-      console.log("Sending withdraw transaction via MiniKit...");
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -206,27 +174,24 @@ export function StakeWithPermitForm({
           },
         ],
       });
-
-      console.log("Received withdraw transaction response:", finalPayload);
       if (finalPayload.status === "error") {
-        console.error("Withdraw transaction error. See console for details.");
         if (finalPayload.error_code !== "user_rejected") {
           const errorMessage =
             (finalPayload as any).description ||
             dictionary?.components?.toasts?.wallet?.withdrawError;
           showToast(errorMessage, "error");
         }
-        setIsSubmitting(false);
+        setIsLoading(false);
+        setTxType(null);
       } else {
-        console.info("Withdraw transaction submitted successfully!");
         setTransactionId(finalPayload.transaction_id);
         setAmount("");
         localStorage.setItem("savingsRewardBase", "0");
         localStorage.setItem("savingsRewardStartTime", Date.now().toString());
       }
     } catch (error: any) {
-      console.error("Error:", error.message);
-      setIsSubmitting(false);
+      setIsLoading(false);
+      setTxType(null);
     }
   };
 
@@ -238,11 +203,9 @@ export function StakeWithPermitForm({
       );
       return;
     }
-
-    setIsCollecting(true);
-
+    setIsLoading(true);
+    setTxType("collect");
     try {
-      console.log("Sending redeem transaction via MiniKit...");
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -253,45 +216,45 @@ export function StakeWithPermitForm({
           },
         ],
       });
-
       if (finalPayload.status === "error") {
-        console.error("Redeem transaction error. See console for details.");
         if (finalPayload.error_code !== "user_rejected") {
           const errorMessage =
             (finalPayload as any).description ||
             dictionary?.components?.toasts?.wallet?.collectError;
           showToast(errorMessage, "error");
         }
-        setIsCollecting(false);
+        setIsLoading(false);
+        setTxType(null);
       } else {
-        console.info("Rewards redeemed successfully!");
-        setCollectTx(finalPayload.transaction_id);
+        setTransactionId(finalPayload.transaction_id);
       }
     } catch (error: any) {
-      console.error("Error:", error.message);
-      setIsCollecting(false);
+      setIsLoading(false);
+      setTxType(null);
     }
   };
 
+  // Unified post-transaction effect
   useEffect(() => {
-    if (isSuccess || isCollectSuccess) {
+    if (isSuccess && txType) {
+      let poll: Promise<any> = Promise.resolve();
       fetchStakedBalance();
       fetchAvailableReward();
       fetchBalance();
-      pollForBalanceUpdate(
+      poll = pollForBalanceUpdate(
         fetchStakedBalance,
         fetchAvailableReward,
         fetchBalance
-      ).finally(() => {
-        setIsSubmitting(false);
-        setIsCollecting(false);
+      );
+      poll.finally(() => {
+        setIsLoading(false);
+        setTxType(null);
+        setTransactionId(null);
       });
-      setTransactionId(null);
-      setCollectTx(null);
     }
   }, [
     isSuccess,
-    isCollectSuccess,
+    txType,
     fetchStakedBalance,
     fetchAvailableReward,
     fetchBalance,
@@ -311,7 +274,7 @@ export function StakeWithPermitForm({
         console.log("StakedWithPermit event captured:", logs);
         fetchStakedBalance();
         fetchBalance();
-        setIsSubmitting(false);
+        setIsLoading(false);
       },
     });
 
@@ -325,7 +288,7 @@ export function StakeWithPermitForm({
         fetchAvailableReward();
         fetchStakedBalance();
         fetchBalance();
-        setIsSubmitting(false);
+        setIsLoading(false);
       },
     });
 
@@ -357,7 +320,7 @@ export function StakeWithPermitForm({
         localStorage.setItem("savingsRewardStartTime", Date.now().toString());
 
         fetchBalance();
-        setIsCollecting(false);
+        setIsLoading(false);
       },
     });
 
@@ -470,7 +433,7 @@ export function StakeWithPermitForm({
         <div className="flex items-center gap-2">
           <Button
             onClick={handleCollect}
-            isLoading={isCollecting}
+            isLoading={isLoading}
             variant="primary"
             size="sm"
             className="mr-2 h-9 min-w-20 rounded-full px-4 font-sans"
@@ -488,11 +451,11 @@ export function StakeWithPermitForm({
       </div>
 
       {selectedAction === "deposit" ? (
-        <Button onClick={handleStake} isLoading={isSubmitting} fullWidth>
+        <Button onClick={handleStake} isLoading={isLoading} fullWidth>
           {dictionary?.components?.stakeForm?.depositButton}
         </Button>
       ) : (
-        <Button onClick={handleWithdraw} isLoading={isSubmitting} fullWidth>
+        <Button onClick={handleWithdraw} isLoading={isLoading} fullWidth>
           {dictionary?.components?.stakeForm?.withdrawButton}
         </Button>
       )}

@@ -37,6 +37,41 @@ import Link from "next/link";
 import { useTranslations } from "@/hooks/useTranslations";
 import type { EarnTabKey } from "@/lib/types";
 
+type TxType =
+  | null
+  | "setup-basic"
+  | "setup-plus"
+  | "claim-basic"
+  | "claim-plus";
+
+async function pollForClaimUpdates(
+  fetchBasicIncomeInfo: () => Promise<void>,
+  fetchBasicIncomePlusInfo: () => Promise<void>,
+  fetchBalance: () => Promise<void>,
+  attempts = 3,
+  delay = 1000
+) {
+  for (let i = 0; i < attempts; i++) {
+    await fetchBasicIncomeInfo();
+    await fetchBasicIncomePlusInfo();
+    await fetchBalance();
+    await new Promise((res) => setTimeout(res, delay));
+  }
+}
+
+async function pollForSetupUpdates(
+  fetchBasicIncomeInfo: () => Promise<void>,
+  fetchBasicIncomePlusInfo: () => Promise<void>,
+  attempts = 3,
+  delay = 1000
+) {
+  for (let i = 0; i < attempts; i++) {
+    await fetchBasicIncomeInfo();
+    await fetchBasicIncomePlusInfo();
+    await new Promise((res) => setTimeout(res, delay));
+  }
+}
+
 export default function EarnPage({
   params: { lang },
 }: {
@@ -70,6 +105,18 @@ export default function EarnPage({
 
   // Replace the dictionary state and effect with useTranslations hook
   const dictionary = useTranslations(lang);
+
+  const [txType, setTxType] = useState<TxType>(null);
+  const [transactionId, setTransactionId] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isClaimingBasic, setIsClaimingBasic] = useState(false);
+  const [isClaimingPlus, setIsClaimingPlus] = useState(false);
+
+  const { isSuccess } = useWaitForTransactionReceipt({
+    client: viemClient,
+    appConfig: { app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}` },
+    transactionId: transactionId!,
+  });
 
   // Calculate total reward count
   const totalRewardCount = rewardCount + secureDocumentRewardCount;
@@ -337,18 +384,11 @@ export default function EarnPage({
 
   const [activeTab, setActiveTab] = useState<EarnTabKey>("Basic income");
 
-  const [transactionId, setTransactionId] = useState<string | null>(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isClaimingBasic, setIsClaimingBasic] = useState(false);
-  const [isClaimingPlus, setIsClaimingPlus] = useState(false);
-
-  const { isSuccess } = useWaitForTransactionReceipt({
-    client: viemClient,
-    appConfig: {
-      app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}`,
-    },
-    transactionId: transactionId!,
-  });
+  const [isSendingReward, setIsSendingReward] = useState(false);
+  const [rewardStatus, setRewardStatus] = useState<{
+    success: boolean;
+    message: string;
+  } | null>(null);
 
   // Wrap sendReward in useCallback
   const sendReward = useCallback(
@@ -570,6 +610,7 @@ export default function EarnPage({
   const sendSetup = async () => {
     if (!MiniKit.isInstalled()) return;
     setIsSubmitting(true);
+    setTxType("setup-basic");
     try {
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
@@ -581,10 +622,7 @@ export default function EarnPage({
           },
         ],
       });
-
       if (finalPayload.status === "error") {
-        console.error("Error sending transaction", finalPayload);
-        // Only show error toast if it's not a user rejection
         if (finalPayload.error_code !== "user_rejected") {
           const errorMessage =
             (finalPayload as any).description ||
@@ -592,101 +630,33 @@ export default function EarnPage({
           showToast(errorMessage, "error");
         }
         setIsSubmitting(false);
+        setTxType(null);
       } else {
         setTransactionId(finalPayload.transaction_id);
-        await fetchBasicIncomeInfo();
-        // Update the optimistic UI state if the fetch call works.
-        setBasicIncomeActivated(true);
-        localStorage.setItem("basicIncomeActivated", "true");
       }
     } catch (error: any) {
-      console.error("Error:", error);
-      // For general errors outside the transaction payload
       showToast(error.message || "An unexpected error occurred", "error");
       setIsSubmitting(false);
+      setTxType(null);
     }
   };
-
-  const processPendingReferrerReward = useCallback(async () => {
-    const pendingReferrer = localStorage.getItem("pendingReferrerReward");
-    if (!pendingReferrer || !canReward) return;
-
-    try {
-      const response = await fetch(
-        `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(pendingReferrer.trim())}`
-      );
-
-      if (response.ok) {
-        const data = await response.json();
-        showToast(
-          dictionary?.components?.toasts?.referral?.pendingReward?.replace(
-            "{{username}}",
-            pendingReferrer
-          ),
-          "info"
-        );
-        await sendReward(data.address);
-        showToast(
-          dictionary?.components?.toasts?.referral?.rewardSuccess?.replace(
-            "{{username}}",
-            pendingReferrer
-          ),
-          "success"
-        );
-        localStorage.removeItem("pendingReferrerReward");
-      }
-    } catch (error) {
-      console.error("[AutoReward] Failed to process pending reward:", error);
-    }
-  }, [canReward, sendReward, showToast, dictionary]);
-
-  useEffect(() => {
-    // Only process if wallet is connected AND user can reward
-    if (walletAddress && canReward) {
-      processPendingReferrerReward();
-    }
-  }, [walletAddress, canReward, processPendingReferrerReward]);
 
   const sendSetupPlus = async () => {
     if (!MiniKit.isInstalled()) return;
     setIsSubmitting(true);
-    console.log("[BasicIncomePlus] Setup initiated");
-
-    const storedReferrer = localStorage.getItem("referredBy");
-    const hasReferrer = !!storedReferrer;
-
-    if (hasReferrer) {
-      showToast(
-        dictionary?.components?.toasts?.basicIncome?.setupWithReferrer?.replace(
-          "{{username}}",
-          storedReferrer
-        ),
-        "info"
-      );
-    }
-
+    setTxType("setup-plus");
     try {
-      console.log(
-        "[BasicIncomePlus] Sending transaction to contract: 0x52dfee61180a0bcebe007e5a9cfd466948acca46"
-      );
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
-            address: "0x52dfee61180a0bcebe007e5a9cfd466948acca46", // New contract address
-            abi: parseAbi(["function stake() external"]), // Assuming the same ABI as the original
+            address: "0x52dfee61180a0bcebe007e5a9cfd466948acca46",
+            abi: parseAbi(["function stake() external"]),
             functionName: "stake",
             args: [],
           },
         ],
       });
-
-      console.log("[BasicIncomePlus] Transaction response:", finalPayload);
       if (finalPayload.status === "error") {
-        console.error(
-          "[BasicIncomePlus] Error sending transaction",
-          finalPayload
-        );
-        // Only show error toast if it's not a user rejection
         if (finalPayload.error_code !== "user_rejected") {
           const errorMessage =
             (finalPayload as any).description ||
@@ -694,83 +664,22 @@ export default function EarnPage({
           showToast(errorMessage, "error");
         }
         setIsSubmitting(false);
+        setTxType(null);
       } else {
         setTransactionId(finalPayload.transaction_id);
-        if (storedReferrer) {
-          showToast(
-            dictionary?.components?.toasts?.basicIncome?.setupSuccess?.replace(
-              "{{username}}",
-              storedReferrer
-            ),
-            "success"
-          );
-        }
-        console.log(
-          "[BasicIncomePlus] Transaction ID:",
-          finalPayload.transaction_id
-        );
-        console.log(
-          "[BasicIncomePlus] Fetching updated Basic Income Plus info"
-        );
-        await fetchBasicIncomePlusInfo();
-        // Update the optimistic UI state if the fetch call works.
-        setBasicIncomePlusActivated(true);
-        localStorage.setItem("basicIncomePlusActivated", "true");
-        console.log("[BasicIncomePlus] Setup completed successfully");
-
-        // After successful setup, automatically process referral reward if applicable
-        if (storedReferrer) {
-          // Add a delay before attempting to send the reward
-          setTimeout(async () => {
-            try {
-              const response = await fetch(
-                `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(storedReferrer.trim())}`
-              );
-
-              if (response.ok) {
-                const data = await response.json();
-                showToast(
-                  `Sending 50 WDD reward to ${storedReferrer}...`,
-                  "info"
-                );
-                await sendReward(data.address);
-                showToast(
-                  `Successfully rewarded ${storedReferrer}!`,
-                  "success"
-                );
-              } else {
-                localStorage.setItem("pendingReferrerReward", storedReferrer);
-              }
-            } catch (error) {
-              console.error(
-                "[AutoReward] Failed to process referral reward:",
-                error
-              );
-              localStorage.setItem("pendingReferrerReward", storedReferrer);
-            }
-          }, 5000); // Wait 5 seconds after setup before attempting reward
-        }
       }
     } catch (error: any) {
-      console.error("[BasicIncomePlus] Setup error:", error);
-      console.error("[BasicIncomePlus] Error message:", error.message);
-      console.error("[BasicIncomePlus] Error stack:", error.stack);
-      showToast(
-        error.message || dictionary?.components?.toasts?.transaction?.error,
-        "error"
-      );
+      showToast(error.message || "An unexpected error occurred", "error");
       setIsSubmitting(false);
+      setTxType(null);
     }
   };
 
   const sendClaim = async () => {
     if (!MiniKit.isInstalled()) return;
     setIsClaimingBasic(true);
-    console.log("[ClaimProcess] Starting basic claim process");
-    console.log("[ClaimProcess] Current claimableAmount:", claimableAmount);
+    setTxType("claim-basic");
     try {
-      // Don't reset localStorage here - wait until transaction confirms
-
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -782,10 +691,7 @@ export default function EarnPage({
           },
         ],
       });
-
       if (finalPayload.status === "error") {
-        console.error("Error sending transaction", finalPayload);
-        // Only show error toast if it's not a user rejection
         if (finalPayload.error_code !== "user_rejected") {
           const errorMessage =
             (finalPayload as any).description ||
@@ -793,45 +699,21 @@ export default function EarnPage({
           showToast(errorMessage, "error");
         }
         setIsClaimingBasic(false);
+        setTxType(null);
       } else {
         setTransactionId(finalPayload.transaction_id);
-        console.log(
-          "[ClaimProcess] Claim transaction sent, ID:",
-          finalPayload.transaction_id
-        );
-
-        // Only reset the display after successful transaction submission
-        // This will prevent the flickering by just doing one reset
-        console.log(
-          "[ClaimProcess] Setting display to 0 while waiting for confirmation"
-        );
-
-        // We'll do the localStorage reset in the transaction confirmation handler
       }
     } catch (error) {
-      console.error("Error during claim:", error);
       setIsClaimingBasic(false);
+      setTxType(null);
     }
   };
 
   const sendClaimPlus = async () => {
     if (!MiniKit.isInstalled()) return;
     setIsClaimingPlus(true);
-    console.log("[ClaimProcess] Starting basic income plus claim");
-    console.log(
-      "[ClaimProcess] Current claimableAmountPlus:",
-      claimableAmountPlus
-    );
+    setTxType("claim-plus");
     try {
-      // Don't reset localStorage here - wait until transaction confirms
-
-      console.log(
-        "[BasicIncomePlus] Sending claim transaction to contract: 0x52dfee61180a0bcebe007e5a9cfd466948acca46"
-      );
-      console.log(
-        "[BasicIncomePlus] Current claimable amount:",
-        claimableAmountPlus
-      );
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -843,17 +725,7 @@ export default function EarnPage({
           },
         ],
       });
-
-      console.log(
-        "[BasicIncomePlus] Claim transaction response:",
-        finalPayload
-      );
       if (finalPayload.status === "error") {
-        console.error(
-          "[BasicIncomePlus] Error sending claim transaction",
-          finalPayload
-        );
-        // Only show error toast if it's not a user rejection
         if (finalPayload.error_code !== "user_rejected") {
           const errorMessage =
             (finalPayload as any).description ||
@@ -861,73 +733,66 @@ export default function EarnPage({
           showToast(errorMessage, "error");
         }
         setIsClaimingPlus(false);
+        setTxType(null);
       } else {
         setTransactionId(finalPayload.transaction_id);
-        console.log(
-          "[BasicIncomePlus] Claim transaction ID:",
-          finalPayload.transaction_id
-        );
-
-        // Only reset the display after successful transaction submission
-        // This will prevent the flickering by just doing one reset
-        console.log(
-          "[ClaimProcess] Setting display to 0 while waiting for confirmation"
-        );
-
-        // We'll do the localStorage reset in the transaction confirmation handler
       }
     } catch (error) {
-      console.error("[BasicIncomePlus] Claim error:", error);
-      if (error instanceof Error) {
-        console.error("[BasicIncomePlus] Error message:", error.message);
-        console.error("[BasicIncomePlus] Error stack:", error.stack);
-        showToast(
-          error.message || "An unexpected error occurred while claiming",
-          "error"
-        );
-      }
       setIsClaimingPlus(false);
+      setTxType(null);
     }
   };
 
+  // Unified post-transaction effect
   useEffect(() => {
-    if (isSuccess) {
-      console.log("[Transaction] Transaction successful");
-      console.log("[Transaction] Transaction ID:", transactionId);
-
-      // Reset localStorage values only after successful transaction
-      if (isClaimingBasic) {
-        console.log(
-          "[ClaimProcess] Resetting basicIncome localStorage values after confirmation"
+    if (isSuccess && txType) {
+      let poll: Promise<any> = Promise.resolve();
+      if (txType === "setup-basic") {
+        fetchBasicIncomeInfo();
+        poll = pollForSetupUpdates(fetchBasicIncomeInfo, () =>
+          Promise.resolve()
         );
+      } else if (txType === "setup-plus") {
+        fetchBasicIncomePlusInfo();
+        poll = pollForSetupUpdates(
+          () => Promise.resolve(),
+          fetchBasicIncomePlusInfo
+        );
+      } else if (txType === "claim-basic") {
         localStorage.setItem("basicIncomeBase", "0");
         localStorage.setItem("basicIncomeStartTime", Date.now().toString());
-      }
-
-      if (isClaimingPlus) {
-        console.log(
-          "[ClaimProcess] Resetting basicIncomePlus localStorage values after confirmation"
+        fetchBasicIncomeInfo();
+        fetchBalance();
+        poll = pollForClaimUpdates(
+          fetchBasicIncomeInfo,
+          () => Promise.resolve(),
+          fetchBalance
         );
+      } else if (txType === "claim-plus") {
         localStorage.setItem("basicIncomePlusBase", "0");
         localStorage.setItem("basicIncomePlusStartTime", Date.now().toString());
+        fetchBasicIncomePlusInfo();
+        fetchBalance();
+        poll = pollForClaimUpdates(
+          () => Promise.resolve(),
+          fetchBasicIncomePlusInfo,
+          fetchBalance
+        );
       }
-
-      fetchBasicIncomeInfo();
-      fetchBasicIncomePlusInfo();
-      fetchBalance();
-      setTransactionId(null);
-      setIsSubmitting(false);
-      setIsClaimingBasic(false);
-      setIsClaimingPlus(false);
+      poll.finally(() => {
+        setIsSubmitting(false);
+        setIsClaimingBasic(false);
+        setIsClaimingPlus(false);
+        setTxType(null);
+        setTransactionId(null);
+      });
     }
   }, [
     isSuccess,
+    txType,
     fetchBalance,
     fetchBasicIncomeInfo,
     fetchBasicIncomePlusInfo,
-    transactionId,
-    isClaimingBasic,
-    isClaimingPlus,
   ]);
 
   const handleTabChange = (tab: EarnTabKey) => {
@@ -1038,57 +903,6 @@ export default function EarnPage({
       setIsLookingUp(false);
     }
   };
-
-  const [isSendingReward, setIsSendingReward] = useState(false);
-  const [rewardStatus, setRewardStatus] = useState<{
-    success: boolean;
-    message: string;
-  } | null>(null);
-
-  // First, wrap loadCurrentUsername with useCallback to prevent infinite loop
-  const loadCurrentUsernameCallback = useCallback(async () => {
-    if (!MiniKit.isInstalled() || !walletAddress) return;
-
-    try {
-      // Check if username is already available via MiniKit.user
-      if (MiniKit.user && MiniKit.user.username) {
-        console.log(
-          "[Username] Using MiniKit.user.username:",
-          MiniKit.user.username
-        );
-        setUsername(MiniKit.user.username);
-        return;
-      }
-
-      // If not available directly, try getting user information by address
-      try {
-        const userInfo = await MiniKit.getUserByAddress(walletAddress);
-        if (userInfo && userInfo.username) {
-          console.log(
-            "[Username] Found username via getUserByAddress:",
-            userInfo.username
-          );
-          setUsername(userInfo.username);
-        } else {
-          console.log(
-            "[Username] No username found for address:",
-            walletAddress
-          );
-        }
-      } catch (error) {
-        console.error("[Username] Error getting user by address:", error);
-      }
-    } catch (error) {
-      console.error("[Username] Error loading username:", error);
-    }
-  }, [walletAddress, setUsername]);
-
-  // Then update the effect to use the memoized callback
-  useEffect(() => {
-    if (walletAddress && !username) {
-      loadCurrentUsernameCallback();
-    }
-  }, [walletAddress, username, loadCurrentUsernameCallback]);
 
   // Add this useEffect to check for stored referral information on component mount
   useEffect(() => {
@@ -1642,6 +1456,29 @@ export default function EarnPage({
     setIsAirdropBannerVisible(false);
     localStorage.setItem("airdropBannerClosed", "true");
   };
+
+  // Restore loadCurrentUsernameCallback
+  const loadCurrentUsernameCallback = useCallback(async () => {
+    if (!MiniKit.isInstalled() || !walletAddress) return;
+    try {
+      // Check if username is already available via MiniKit.user
+      if (MiniKit.user && MiniKit.user.username) {
+        setUsername(MiniKit.user.username);
+        return;
+      }
+      // If not available directly, try getting user information by address
+      try {
+        const userInfo = await MiniKit.getUserByAddress(walletAddress);
+        if (userInfo && userInfo.username) {
+          setUsername(userInfo.username);
+        }
+      } catch (error) {
+        // Ignore error
+      }
+    } catch (error) {
+      // Ignore error
+    }
+  }, [walletAddress, setUsername]);
 
   const renderContent = () => {
     switch (activeTab) {
