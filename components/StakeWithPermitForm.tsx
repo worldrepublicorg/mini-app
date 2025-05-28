@@ -59,7 +59,8 @@ export function StakeWithPermitForm({
   };
 
   // Helper: call this when the UI should be reset after tx
-  const finishTx = () => {
+  const finishTx = (txId?: string) => {
+    if (txId && txId !== transactionId) return; // Only finish for the current tx
     setIsLoading(false);
     setTxType(null);
     setTransactionId(null);
@@ -151,6 +152,11 @@ export function StakeWithPermitForm({
   };
 
   const handleStake = async () => {
+    if (isLoading) return; // Prevent overlapping transactions
+    clearFallbackTimer(); // Clean up any previous timers
+    setIsLoading(true);
+    setTxType("deposit");
+    setTransactionId(null); // Reset before starting
     if (!MiniKit.isInstalled()) {
       showToast(
         dictionary?.components?.toasts?.wallet?.connectInWorldApp,
@@ -175,8 +181,6 @@ export function StakeWithPermitForm({
       deadline.toString(),
     ];
     const transferDetailsArg = [STAKING_CONTRACT_ADDRESS, stakeAmountStr];
-    setIsLoading(true);
-    setTxType("deposit");
     try {
       const prevStakedBalance = await fetchStakedBalanceValue();
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
