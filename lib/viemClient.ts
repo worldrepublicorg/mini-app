@@ -2,7 +2,7 @@ import { createPublicClient, http, fallback, webSocket } from "viem";
 import { worldchain } from "viem/chains";
 
 const optimizedFallbackConfig = {
-  retryCount: 10,
+  retryCount: 2,
   retryDelay: 100,
 };
 
@@ -29,6 +29,12 @@ export const viemClient = createPublicClient({
       ),
       webSocket(
         "wss://lb.drpc.org/ogws?network=worldchain&dkey=AgobUm8RhkrUlOLZyf0lrdRm99dUAfUR8ICJfhHoK236"
+      ),
+      http(
+        "https://worldchain-mainnet.g.alchemy.com/v2/_NsuCc68eeT4D5AZNEGdDG5nms3v8gcY"
+      ),
+      webSocket(
+        "wss://worldchain-mainnet.g.alchemy.com/v2/_NsuCc68eeT4D5AZNEGdDG5nms3v8gcY"
       ),
     ],
     optimizedFallbackConfig
