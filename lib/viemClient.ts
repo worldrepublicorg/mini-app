@@ -25,6 +25,12 @@ export const viemClient = createPublicClient({
         "https://node.histori.xyz/worldchain-mainnet/8ry9f6t9dct1se2hlagxnd9n2a"
       ),
       http(
+        "https://lb.drpc.org/ogrpc?network=worldchain&dkey=AgobUm8RhkrUlOLZyf0lrdRm99dUAfUR8ICJfhHoK236"
+      ),
+      webSocket(
+        "wss://lb.drpc.org/ogws?network=worldchain&dkey=AgobUm8RhkrUlOLZyf0lrdRm99dUAfUR8ICJfhHoK236"
+      ),
+      http(
         "https://worldchain-mainnet.g.alchemy.com/v2/_NsuCc68eeT4D5AZNEGdDG5nms3v8gcY"
       ),
       webSocket(
