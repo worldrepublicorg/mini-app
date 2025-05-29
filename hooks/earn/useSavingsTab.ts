@@ -199,23 +199,43 @@ export function useSavingsTab({
     await fetchBalance();
   }, [fetchStakedBalanceValue, fetchAvailableRewardValue, fetchBalance]);
 
-  // Improved polling logic: starts immediately after tx, stops on receipt or balance change
+  // Improved polling logic: after a transaction, poll for all relevant values until each has changed from its previous value, then batch update state.
   const startPolling = useCallback(
-    async (prevStakedBalance: string, prevAvailableReward?: string) => {
+    async (
+      prevStakedBalance: string,
+      prevAvailableReward?: string,
+      prevTokenBalance?: string
+    ) => {
       let attempts = 0;
       const maxAttempts = 30;
+      let stakedChanged = false;
+      let rewardChanged = false;
+      let tokenChanged = false;
+      let lastStaked = prevStakedBalance;
+      let lastReward = prevAvailableReward;
+      let lastToken = prevTokenBalance;
       const poll = async () => {
         if (!pendingTx) return; // Stop if tx is no longer pending
-        let changed = false;
-        if (prevAvailableReward !== undefined) {
-          const newReward = await fetchAvailableRewardValue();
-          if (newReward !== prevAvailableReward) changed = true;
-        } else {
-          const newBalance = await fetchStakedBalanceValue();
-          if (newBalance !== prevStakedBalance) changed = true;
-        }
-        if (changed) {
-          await refetchBalancesSequentially();
+        // Fetch all values
+        const [newStaked, newReward, newToken] = await Promise.all([
+          fetchStakedBalanceValue(),
+          fetchAvailableRewardValue(),
+          fetchBalance().then(() => tokenBalance ?? "0"), // fetchBalance updates context, so we use the latest value
+        ]);
+        if (newStaked !== lastStaked) stakedChanged = true;
+        if (prevAvailableReward !== undefined && newReward !== lastReward)
+          rewardChanged = true;
+        if (prevTokenBalance !== undefined && newToken !== lastToken)
+          tokenChanged = true;
+        // If all relevant values have changed, batch update state
+        if (
+          stakedChanged &&
+          (prevAvailableReward === undefined || rewardChanged) &&
+          (prevTokenBalance === undefined || tokenChanged)
+        ) {
+          setStakedBalance(newStaked);
+          setAvailableReward(newReward);
+          await fetchBalance(); // ensure context is up to date
           setPendingTx(false);
           return;
         }
@@ -223,6 +243,10 @@ export function useSavingsTab({
         if (attempts < maxAttempts) {
           pollingRef.current = setTimeout(poll, 2000);
         } else {
+          // Timeout: update whatever is latest, but batch it
+          setStakedBalance(newStaked);
+          setAvailableReward(newReward);
+          await fetchBalance();
           showToast(
             dictionary?.components?.toasts?.wallet?.pollingTimeout ||
               "Transaction may not have completed. Please refresh.",
@@ -237,7 +261,8 @@ export function useSavingsTab({
       pendingTx,
       fetchStakedBalanceValue,
       fetchAvailableRewardValue,
-      refetchBalancesSequentially,
+      fetchBalance,
+      tokenBalance,
       showToast,
       dictionary,
     ]
@@ -281,8 +306,10 @@ export function useSavingsTab({
     const transferDetailsArg = [STAKING_CONTRACT_ADDRESS, stakeAmountStr];
     try {
       const prevStakedBalance = await fetchStakedBalanceValue();
+      const prevAvailableReward = await fetchAvailableRewardValue();
+      const prevTokenBalance = tokenBalance ?? "0";
       setPendingTx(true);
-      startPolling(prevStakedBalance);
+      startPolling(prevStakedBalance, prevAvailableReward, prevTokenBalance);
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -350,8 +377,10 @@ export function useSavingsTab({
     setTxType("withdraw");
     try {
       const prevStakedBalance = await fetchStakedBalanceValue();
+      const prevAvailableReward = await fetchAvailableRewardValue();
+      const prevTokenBalance = tokenBalance ?? "0";
       setPendingTx(true);
-      startPolling(prevStakedBalance);
+      startPolling(prevStakedBalance, prevAvailableReward, prevTokenBalance);
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -400,9 +429,11 @@ export function useSavingsTab({
     setIsLoading(true);
     setTxType("collect");
     try {
+      const prevStakedBalance = await fetchStakedBalanceValue();
       const prevAvailableReward = await fetchAvailableRewardValue();
+      const prevTokenBalance = tokenBalance ?? "0";
       setPendingTx(true);
-      startPolling("", prevAvailableReward);
+      startPolling(prevStakedBalance, prevAvailableReward, prevTokenBalance);
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
