@@ -144,20 +144,30 @@ export function useSavingsTab({
     return () => clearInterval(fetchInterval);
   }, [walletAddress, fetchAvailableReward, fetchStakedBalance]);
 
+  // Centralized refetch function for all balances
+  const refetchAllBalances = useCallback(async () => {
+    await Promise.all([
+      fetchStakedBalance(),
+      fetchAvailableReward(),
+      fetchBalance(),
+    ]);
+  }, [fetchStakedBalance, fetchAvailableReward, fetchBalance]);
+
+  // Shared pendingTx state and polling ref
+  const [pendingTx, setPendingTx] = useState(false);
+  const pollingRef = useRef<NodeJS.Timeout | null>(null);
+
   // Transaction logic
-  const clearFallbackTimer = () => {
-    if (fallbackTimerRef.current) {
-      clearTimeout(fallbackTimerRef.current);
-      fallbackTimerRef.current = null;
-    }
-    fallbackStartedRef.current = false;
-  };
   const finishTx = (txId?: string) => {
     if (txId && txId !== transactionId) return;
     setIsLoading(false);
     setTxType(null);
     setTransactionId(null);
-    clearFallbackTimer();
+    setPendingTx(false);
+    if (pollingRef.current) {
+      clearTimeout(pollingRef.current);
+      pollingRef.current = null;
+    }
   };
   const fetchStakedBalanceValue = async (): Promise<string> => {
     if (!walletAddress) return "0";
@@ -183,51 +193,51 @@ export function useSavingsTab({
     });
     return fromWei(result);
   };
-  const pollForStakedBalanceChange = async (
-    prevStakedBalance: string,
-    maxAttempts = 30,
-    interval = 2000
-  ) => {
-    let attempts = 0;
-    while (attempts < maxAttempts) {
-      const newStakedBalance = await fetchStakedBalanceValue();
-      if (newStakedBalance !== prevStakedBalance) {
-        await fetchStakedBalance();
-        await fetchAvailableReward();
-        await fetchBalance();
-        break;
-      }
-      await new Promise((res) => setTimeout(res, interval));
-      attempts++;
-    }
-  };
-  const pollForAvailableRewardChange = async (
-    prevAvailableReward: string,
-    maxAttempts = 30,
-    interval = 2000
-  ) => {
-    let attempts = 0;
-    while (attempts < maxAttempts) {
-      const newAvailableReward = await fetchAvailableRewardValue();
-      if (newAvailableReward !== prevAvailableReward) {
-        await fetchAvailableReward();
-        await fetchBalance();
-        break;
-      }
-      await new Promise((res) => setTimeout(res, interval));
-      attempts++;
-    }
-  };
-  const startFallbackPollingStaked = async (prevStakedBalance: string) => {
-    fallbackStartedRef.current = true;
-    await pollForStakedBalanceChange(prevStakedBalance);
-    finishTx();
-  };
-  const startFallbackPollingReward = async (prevAvailableReward: string) => {
-    fallbackStartedRef.current = true;
-    await pollForAvailableRewardChange(prevAvailableReward);
-    finishTx();
-  };
+
+  // Improved polling logic: starts immediately after tx, stops on receipt or balance change
+  const startPolling = useCallback(
+    async (prevStakedBalance: string, prevAvailableReward?: string) => {
+      let attempts = 0;
+      const maxAttempts = 30;
+      const poll = async () => {
+        if (!pendingTx) return; // Stop if tx is no longer pending
+        let changed = false;
+        if (prevAvailableReward !== undefined) {
+          const newReward = await fetchAvailableRewardValue();
+          if (newReward !== prevAvailableReward) changed = true;
+        } else {
+          const newBalance = await fetchStakedBalanceValue();
+          if (newBalance !== prevStakedBalance) changed = true;
+        }
+        if (changed) {
+          await refetchAllBalances();
+          setPendingTx(false);
+          return;
+        }
+        attempts++;
+        if (attempts < maxAttempts) {
+          pollingRef.current = setTimeout(poll, 2000);
+        } else {
+          showToast(
+            dictionary?.components?.toasts?.wallet?.pollingTimeout ||
+              "Transaction may not have completed. Please refresh.",
+            "error"
+          );
+          setPendingTx(false);
+        }
+      };
+      poll();
+    },
+    [
+      pendingTx,
+      fetchStakedBalanceValue,
+      fetchAvailableRewardValue,
+      refetchAllBalances,
+      showToast,
+      dictionary,
+    ]
+  );
+
   const handleStake = async () => {
     const windowKit =
       typeof window !== "undefined" &&
@@ -243,7 +253,6 @@ export function useSavingsTab({
       return;
     }
     if (isLoading) return;
-    clearFallbackTimer();
     setIsLoading(true);
     setTxType("deposit");
     setTransactionId(null);
@@ -267,6 +276,8 @@ export function useSavingsTab({
     const transferDetailsArg = [STAKING_CONTRACT_ADDRESS, stakeAmountStr];
     try {
       const prevStakedBalance = await fetchStakedBalanceValue();
+      setPendingTx(true);
+      startPolling(prevStakedBalance);
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -309,11 +320,7 @@ export function useSavingsTab({
         setAmount("");
         localStorage.setItem("savingsRewardBase", "0");
         localStorage.setItem("savingsRewardStartTime", Date.now().toString());
-        fallbackTimerRef.current = setTimeout(() => {
-          if (!fallbackStartedRef.current) {
-            startFallbackPollingStaked(prevStakedBalance);
-          }
-        }, 7000);
+        // Polling already started above
       }
     } catch (error: any) {
       finishTx();
@@ -338,6 +345,8 @@ export function useSavingsTab({
     setTxType("withdraw");
     try {
       const prevStakedBalance = await fetchStakedBalanceValue();
+      setPendingTx(true);
+      startPolling(prevStakedBalance);
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -362,11 +371,7 @@ export function useSavingsTab({
         setAmount("");
         localStorage.setItem("savingsRewardBase", "0");
         localStorage.setItem("savingsRewardStartTime", Date.now().toString());
-        fallbackTimerRef.current = setTimeout(() => {
-          if (!fallbackStartedRef.current) {
-            startFallbackPollingStaked(prevStakedBalance);
-          }
-        }, 7000);
+        // Polling already started above
       }
     } catch (error: any) {
       finishTx();
@@ -391,6 +396,8 @@ export function useSavingsTab({
     setTxType("collect");
     try {
       const prevAvailableReward = await fetchAvailableRewardValue();
+      setPendingTx(true);
+      startPolling("", prevAvailableReward);
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -412,11 +419,7 @@ export function useSavingsTab({
       } else {
         setTransactionId(finalPayload.transaction_id);
         currentTxRef.current = finalPayload.transaction_id;
-        fallbackTimerRef.current = setTimeout(() => {
-          if (!fallbackStartedRef.current) {
-            startFallbackPollingReward(prevAvailableReward);
-          }
-        }, 7000);
+        // Polling already started above
       }
     } catch (error: any) {
       finishTx();
@@ -430,16 +433,22 @@ export function useSavingsTab({
     transactionId: transactionId || "",
   });
   useEffect(() => {
-    if (isSuccess && txType && transactionId === currentTxRef.current) {
-      if (isLoading) {
-        fetchStakedBalance();
-        fetchAvailableReward();
-        fetchBalance();
-        finishTx();
+    if (
+      isSuccess &&
+      txType &&
+      transactionId === currentTxRef.current &&
+      pendingTx
+    ) {
+      refetchAllBalances();
+      setPendingTx(false);
+      if (pollingRef.current) {
+        clearTimeout(pollingRef.current);
+        pollingRef.current = null;
       }
+      finishTx();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isSuccess, txType, transactionId]);
+  }, [isSuccess, txType, transactionId, pendingTx]);
   return {
     stakedBalance,
     displayAvailableReward,
