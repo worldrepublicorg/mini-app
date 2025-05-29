@@ -144,15 +144,6 @@ export function useSavingsTab({
     return () => clearInterval(fetchInterval);
   }, [walletAddress, fetchAvailableReward, fetchStakedBalance]);
 
-  // Centralized refetch function for all balances
-  const refetchAllBalances = useCallback(async () => {
-    await Promise.all([
-      fetchStakedBalance(),
-      fetchAvailableReward(),
-      fetchBalance(),
-    ]);
-  }, [fetchStakedBalance, fetchAvailableReward, fetchBalance]);
-
   // Shared pendingTx state and polling ref
   const [pendingTx, setPendingTx] = useState(false);
   const pollingRef = useRef<NodeJS.Timeout | null>(null);
@@ -194,6 +185,20 @@ export function useSavingsTab({
     return fromWei(result);
   };
 
+  // Centralized refetch function for all balances (sequential)
+  const refetchBalancesSequentially = useCallback(async () => {
+    // Fetch staked balance first
+    const newStakedBalance = await fetchStakedBalanceValue();
+    setStakedBalance(newStakedBalance);
+
+    // Then fetch reward (which may depend on new staked balance)
+    const newAvailableReward = await fetchAvailableRewardValue();
+    setAvailableReward(newAvailableReward);
+
+    // Then fetch wallet balance
+    await fetchBalance();
+  }, [fetchStakedBalanceValue, fetchAvailableRewardValue, fetchBalance]);
+
   // Improved polling logic: starts immediately after tx, stops on receipt or balance change
   const startPolling = useCallback(
     async (prevStakedBalance: string, prevAvailableReward?: string) => {
@@ -210,7 +215,7 @@ export function useSavingsTab({
           if (newBalance !== prevStakedBalance) changed = true;
         }
         if (changed) {
-          await refetchAllBalances();
+          await refetchBalancesSequentially();
           setPendingTx(false);
           return;
         }
@@ -232,7 +237,7 @@ export function useSavingsTab({
       pendingTx,
       fetchStakedBalanceValue,
       fetchAvailableRewardValue,
-      refetchAllBalances,
+      refetchBalancesSequentially,
       showToast,
       dictionary,
     ]
@@ -439,7 +444,7 @@ export function useSavingsTab({
       transactionId === currentTxRef.current &&
       pendingTx
     ) {
-      refetchAllBalances();
+      refetchBalancesSequentially();
       setPendingTx(false);
       if (pollingRef.current) {
         clearTimeout(pollingRef.current);
