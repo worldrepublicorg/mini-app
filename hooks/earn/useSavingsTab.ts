@@ -25,9 +25,7 @@ export function useSavingsTab({
   const [selectedAction, setSelectedAction] = useState<"deposit" | "withdraw">(
     "deposit"
   );
-  const [isDepositing, setIsDepositing] = useState(false);
-  const [isWithdrawing, setIsWithdrawing] = useState(false);
-  const [isCollecting, setIsCollecting] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [txType, setTxType] = useState<
     null | "deposit" | "withdraw" | "collect"
   >(null);
@@ -156,6 +154,7 @@ export function useSavingsTab({
   };
   const finishTx = (txId?: string) => {
     if (txId && txId !== transactionId) return;
+    setIsLoading(false);
     setTxType(null);
     setTransactionId(null);
     clearFallbackTimer();
@@ -243,8 +242,9 @@ export function useSavingsTab({
       );
       return;
     }
-    if (isDepositing) return;
-    setIsDepositing(true);
+    if (isLoading) return;
+    clearFallbackTimer();
+    setIsLoading(true);
     setTxType("deposit");
     setTransactionId(null);
     currentTxRef.current = null;
@@ -317,8 +317,6 @@ export function useSavingsTab({
       }
     } catch (error: any) {
       finishTx();
-    } finally {
-      setIsDepositing(false);
     }
   };
   const handleWithdraw = async () => {
@@ -335,8 +333,8 @@ export function useSavingsTab({
       );
       return;
     }
-    if (isWithdrawing) return;
-    setIsWithdrawing(true);
+    if (isLoading) return;
+    setIsLoading(true);
     setTxType("withdraw");
     try {
       const prevStakedBalance = await fetchStakedBalanceValue();
@@ -372,8 +370,6 @@ export function useSavingsTab({
       }
     } catch (error: any) {
       finishTx();
-    } finally {
-      setIsWithdrawing(false);
     }
   };
   const handleCollect = async () => {
@@ -390,8 +386,8 @@ export function useSavingsTab({
       );
       return;
     }
-    if (isCollecting) return;
-    setIsCollecting(true);
+    if (isLoading) return;
+    setIsLoading(true);
     setTxType("collect");
     try {
       const prevAvailableReward = await fetchAvailableRewardValue();
@@ -424,8 +420,6 @@ export function useSavingsTab({
       }
     } catch (error: any) {
       finishTx();
-    } finally {
-      setIsCollecting(false);
     }
   };
   const { isSuccess } = useWaitForTransactionReceipt({
@@ -437,10 +431,12 @@ export function useSavingsTab({
   });
   useEffect(() => {
     if (isSuccess && txType && transactionId === currentTxRef.current) {
-      fetchStakedBalance();
-      fetchAvailableReward();
-      fetchBalance();
-      finishTx();
+      if (isLoading) {
+        fetchStakedBalance();
+        fetchAvailableReward();
+        fetchBalance();
+        finishTx();
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess, txType, transactionId]);
@@ -451,9 +447,7 @@ export function useSavingsTab({
     setAmount,
     selectedAction,
     setSelectedAction,
-    isDepositing,
-    isWithdrawing,
-    isCollecting,
+    isLoading,
     handleStake,
     handleWithdraw,
     handleCollect,
