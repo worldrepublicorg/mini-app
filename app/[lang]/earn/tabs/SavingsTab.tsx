@@ -12,7 +12,9 @@ export interface SavingsTabProps {
   setAmount: (value: string) => void;
   selectedAction: "deposit" | "withdraw";
   setSelectedAction: (action: "deposit" | "withdraw") => void;
-  isLoading: boolean;
+  isDepositing: boolean;
+  isWithdrawing: boolean;
+  isCollecting: boolean;
   handleStake: () => void;
   handleWithdraw: () => void;
   handleCollect: () => void;
@@ -27,7 +29,9 @@ export const SavingsTab: React.FC<SavingsTabProps> = ({
   setAmount,
   selectedAction,
   setSelectedAction,
-  isLoading,
+  isDepositing,
+  isWithdrawing,
+  isCollecting,
   handleStake,
   handleWithdraw,
   handleCollect,
@@ -157,7 +161,7 @@ export const SavingsTab: React.FC<SavingsTabProps> = ({
           <div className="flex items-center gap-2">
             <Button
               onClick={handleCollect}
-              isLoading={isLoading}
+              isLoading={isCollecting}
               variant="primary"
               size="sm"
               className="mr-2 h-9 min-w-20 rounded-full px-4 font-sans"
@@ -174,11 +178,11 @@ export const SavingsTab: React.FC<SavingsTabProps> = ({
           </div>
         </div>
         {selectedAction === "deposit" ? (
-          <Button onClick={handleStake} isLoading={isLoading} fullWidth>
+          <Button onClick={handleStake} isLoading={isDepositing} fullWidth>
             {dictionary?.components?.stakeForm?.depositButton}
           </Button>
         ) : (
-          <Button onClick={handleWithdraw} isLoading={isLoading} fullWidth>
+          <Button onClick={handleWithdraw} isLoading={isWithdrawing} fullWidth>
             {dictionary?.components?.stakeForm?.withdrawButton}
           </Button>
         )}
