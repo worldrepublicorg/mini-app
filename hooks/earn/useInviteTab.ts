@@ -1,4 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
+import { useMiniKit } from "@/components/providers/minikit-provider";
+import { MiniKit } from "@worldcoin/minikit-js";
 
 export function useInviteTab({
   lang,
@@ -6,6 +8,7 @@ export function useInviteTab({
   walletContext,
   showToast,
 }: any) {
+  const { isInstalled } = useMiniKit();
   // State
   const [recipientUsername, setRecipientUsername] = useState("");
   const [lookupResult, setLookupResult] = useState<{
@@ -34,7 +37,11 @@ export function useInviteTab({
     setLookupError("");
     setLookupResult(null);
     try {
-      if ((window as any).MiniKit && (window as any).MiniKit.isInstalled()) {
+      const windowKit =
+        typeof window !== "undefined" &&
+        (window as any).MiniKit &&
+        (window as any).MiniKit.isInstalled?.();
+      if (isInstalled || MiniKit.isInstalled() || windowKit) {
         try {
           const response = await fetch(
             `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(recipientUsername.trim())}`

@@ -5,6 +5,7 @@ import { parseAbi } from "viem";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import type { ToastType } from "@/components/ui/Toast";
+import { useMiniKit } from "@/components/providers/minikit-provider";
 
 // Types for hook arguments
 interface UseBasicIncomeTabArgs {
@@ -49,6 +50,8 @@ export function useBasicIncomeTab({ lang, showToast }: UseBasicIncomeTabArgs) {
     appConfig: { app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}` },
     transactionId: transactionId || "",
   });
+
+  const { isInstalled } = useMiniKit();
 
   // Real-time claimable calculation and localStorage sync
   useEffect(() => {
@@ -170,7 +173,21 @@ export function useBasicIncomeTab({ lang, showToast }: UseBasicIncomeTabArgs) {
   };
   // --- SETUP BASIC ---
   const sendSetup = useCallback(async () => {
-    if (!MiniKit.isInstalled()) return;
+    if (
+      !isInstalled &&
+      !MiniKit.isInstalled() &&
+      !(
+        typeof window !== "undefined" &&
+        (window as any).MiniKit &&
+        (window as any).MiniKit.isInstalled?.()
+      )
+    ) {
+      showToast(
+        "Please open this app in the World App to use this feature.",
+        "error"
+      );
+      return;
+    }
     if (isSubmitting) return;
     clearFallbackTimer();
     setIsSubmitting(true);
@@ -209,10 +226,24 @@ export function useBasicIncomeTab({ lang, showToast }: UseBasicIncomeTabArgs) {
     } catch (error) {
       finishTx();
     }
-  }, [isSubmitting, claimableAmount, fetchBasicIncomeInfo]);
+  }, [isSubmitting, claimableAmount, fetchBasicIncomeInfo, isInstalled]);
   // --- SETUP PLUS ---
   const sendSetupPlus = useCallback(async () => {
-    if (!MiniKit.isInstalled()) return;
+    if (
+      !isInstalled &&
+      !MiniKit.isInstalled() &&
+      !(
+        typeof window !== "undefined" &&
+        (window as any).MiniKit &&
+        (window as any).MiniKit.isInstalled?.()
+      )
+    ) {
+      showToast(
+        "Please open this app in the World App to use this feature.",
+        "error"
+      );
+      return;
+    }
     if (isSubmitting) return;
     clearFallbackTimer();
     setIsSubmitting(true);
@@ -251,10 +282,29 @@ export function useBasicIncomeTab({ lang, showToast }: UseBasicIncomeTabArgs) {
     } catch (error) {
       finishTx();
     }
-  }, [isSubmitting, claimableAmountPlus, fetchBasicIncomePlusInfo]);
+  }, [
+    isSubmitting,
+    claimableAmountPlus,
+    fetchBasicIncomePlusInfo,
+    isInstalled,
+  ]);
   // --- CLAIM BASIC ---
   const sendClaim = useCallback(async () => {
-    if (!MiniKit.isInstalled()) return;
+    if (
+      !isInstalled &&
+      !MiniKit.isInstalled() &&
+      !(
+        typeof window !== "undefined" &&
+        (window as any).MiniKit &&
+        (window as any).MiniKit.isInstalled?.()
+      )
+    ) {
+      showToast(
+        "Please open this app in the World App to use this feature.",
+        "error"
+      );
+      return;
+    }
     if (isClaimingBasic) return;
     clearFallbackTimer();
     setIsClaimingBasic(true);
@@ -293,10 +343,24 @@ export function useBasicIncomeTab({ lang, showToast }: UseBasicIncomeTabArgs) {
     } catch (error) {
       finishTx();
     }
-  }, [isClaimingBasic, claimableAmount, fetchBasicIncomeInfo]);
+  }, [isClaimingBasic, claimableAmount, fetchBasicIncomeInfo, isInstalled]);
   // --- CLAIM PLUS ---
   const sendClaimPlus = useCallback(async () => {
-    if (!MiniKit.isInstalled()) return;
+    if (
+      !isInstalled &&
+      !MiniKit.isInstalled() &&
+      !(
+        typeof window !== "undefined" &&
+        (window as any).MiniKit &&
+        (window as any).MiniKit.isInstalled?.()
+      )
+    ) {
+      showToast(
+        "Please open this app in the World App to use this feature.",
+        "error"
+      );
+      return;
+    }
     if (isClaimingPlus) return;
     clearFallbackTimer();
     setIsClaimingPlus(true);
@@ -335,7 +399,12 @@ export function useBasicIncomeTab({ lang, showToast }: UseBasicIncomeTabArgs) {
     } catch (error) {
       finishTx();
     }
-  }, [isClaimingPlus, claimableAmountPlus, fetchBasicIncomePlusInfo]);
+  }, [
+    isClaimingPlus,
+    claimableAmountPlus,
+    fetchBasicIncomePlusInfo,
+    isInstalled,
+  ]);
   // Listen for transaction receipts
   useEffect(() => {
     if (

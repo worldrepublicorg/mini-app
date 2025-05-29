@@ -1,17 +1,10 @@
 "use client";
 
 import { Typography } from "@/components/ui/Typography";
-import { useState, useEffect, useCallback } from "react";
-import {
-  PiWalletFill,
-  PiInfoFill,
-} from "react-icons/pi";
+import { useState, useEffect } from "react";
+import { PiWalletFill, PiInfoFill } from "react-icons/pi";
 import { useWallet } from "@/components/contexts/WalletContext";
-import { viemClient } from "@/lib/viemClient";
-import { parseAbi } from "viem";
-import { getIsUserVerified } from "@worldcoin/minikit-js";
 import { TabSwiper } from "@/components/TabSwiper";
-import { StakeWithPermitForm } from "@/components/StakeWithPermitForm";
 import { useToast } from "@/components/ui/Toast";
 import { BiLinkExternal } from "react-icons/bi";
 import { IoIosArrowForward } from "react-icons/io";
@@ -21,6 +14,8 @@ import type { EarnTabKey } from "@/lib/types";
 import { InviteTab } from "./tabs/InviteTab";
 import { BasicIncomeTab } from "./tabs/BasicIncomeTab";
 import { useBasicIncomeTab } from "@/hooks/earn/useBasicIncomeTab";
+import { SavingsTab } from "./tabs/SavingsTab";
+import { useSavingsTab } from "@/hooks/earn/useSavingsTab";
 
 export default function EarnPage({
   params: { lang },
@@ -232,45 +227,6 @@ export default function EarnPage({
     };
   }, []);
 
-  // Add a state to track if user is verified
-  const [isAddressVerified, setIsAddressVerified] = useState<boolean>(false);
-
-  // Check if address is verified when wallet address changes
-  useEffect(() => {
-    let retryTimeout: NodeJS.Timeout;
-
-    const checkAddressVerification = async () => {
-      if (!walletAddress) {
-        setIsAddressVerified(false);
-        return;
-      }
-
-      try {
-        // Use the getIsUserVerified function from the Address Book
-        const isVerified = await getIsUserVerified(walletAddress);
-        console.log("[AddressVerification] User verified status:", isVerified);
-        setIsAddressVerified(isVerified);
-      } catch (error) {
-        console.error(
-          "[AddressVerification] Error checking verification:",
-          error
-        );
-        setIsAddressVerified(false);
-
-        // Retry after 1 second if there's an error
-        console.log("[AddressVerification] Retrying in 1 second...");
-        retryTimeout = setTimeout(checkAddressVerification, 1000);
-      }
-    };
-
-    checkAddressVerification();
-
-    // Clean up any pending timeouts when component unmounts
-    return () => {
-      if (retryTimeout) clearTimeout(retryTimeout);
-    };
-  }, [walletAddress]);
-
   const [hasSeenNewBuybackProgram, setHasSeenNewBuybackProgram] =
     useState(false);
 
@@ -319,153 +275,6 @@ export default function EarnPage({
     fetchHasRewarded,
   ]);
 
-  // Add the state that we're lifting from StakeWithPermitForm
-  const [stakedBalance, setStakedBalance] = useState<string>("0");
-  const [availableReward, setAvailableReward] = useState<string>("0");
-  const [displayAvailableReward, setDisplayAvailableReward] = useState<
-    string | null
-  >(null);
-
-  // Add the utility function
-  const fromWei = useCallback((value: bigint) => {
-    return (Number(value) / 1e18).toString();
-  }, []);
-
-  // Modify fetchAvailableReward to be simpler
-  const fetchAvailableReward = useCallback(async () => {
-    if (!walletAddress) return;
-
-    try {
-      const availableAbi = parseAbi([
-        "function available(address account) external view returns (uint256)",
-      ]);
-      const result: bigint = await viemClient.readContract({
-        address: "0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7" as `0x${string}`,
-        abi: availableAbi,
-        functionName: "available",
-        args: [walletAddress],
-      });
-
-      const resultAsString = fromWei(result);
-      setAvailableReward(resultAsString);
-
-      // Update localStorage with the latest value from the chain
-      localStorage.setItem("savingsRewardBase", resultAsString);
-      localStorage.setItem("savingsRewardStartTime", Date.now().toString());
-    } catch (error) {
-      console.error("Error fetching available reward", error);
-    }
-  }, [walletAddress, fromWei]);
-
-  // Simplify the reward tracking effect
-  useEffect(() => {
-    if (!stakedBalance || !availableReward) return;
-
-    const interestRate = 1 / (86400 * 529);
-    const stakedBalanceNum = Number(stakedBalance);
-    const baseReward = Number(availableReward);
-
-    let baseValue = baseReward;
-    let startTime = Date.now();
-
-    const storedBase = localStorage.getItem("savingsRewardBase");
-    const storedStartTime = localStorage.getItem("savingsRewardStartTime");
-
-    if (storedBase && storedStartTime) {
-      baseValue = parseFloat(storedBase);
-      startTime = parseInt(storedStartTime, 10);
-
-      // Update if chain data is significantly different
-      if (Math.abs(baseReward - baseValue) > 0.000001) {
-        baseValue = baseReward;
-        startTime = Date.now();
-        localStorage.setItem("savingsRewardBase", baseValue.toString());
-        localStorage.setItem("savingsRewardStartTime", startTime.toString());
-      }
-    }
-
-    const updateDisplay = () => {
-      const elapsedSeconds = (Date.now() - startTime) / 1000;
-      const interestEarned = stakedBalanceNum * interestRate * elapsedSeconds;
-      const totalReward = baseValue + interestEarned;
-
-      // Determine decimal places based on staked balance tiers
-      let decimalPlaces = 11; // Default high precision
-      if (stakedBalanceNum >= 1000000) {
-        decimalPlaces = 3;
-      } else if (stakedBalanceNum >= 100000) {
-        decimalPlaces = 4;
-      } else if (stakedBalanceNum >= 10000) {
-        decimalPlaces = 5;
-      } else if (stakedBalanceNum >= 1000) {
-        decimalPlaces = 6;
-      } else if (stakedBalanceNum >= 100) {
-        decimalPlaces = 7;
-      } else if (stakedBalanceNum >= 10) {
-        decimalPlaces = 8;
-      } else if (stakedBalanceNum >= 1) {
-        decimalPlaces = 9;
-      } else if (stakedBalanceNum >= 0.1) {
-        decimalPlaces = 10;
-      }
-
-      setDisplayAvailableReward(totalReward.toFixed(decimalPlaces));
-    };
-
-    updateDisplay();
-    const interval = setInterval(updateDisplay, 1000);
-
-    return () => clearInterval(interval);
-  }, [stakedBalance, availableReward]);
-
-  const fetchStakedBalance = useCallback(async () => {
-    if (!walletAddress) return;
-    try {
-      const balanceAbi = parseAbi([
-        "function balanceOf(address account) external view returns (uint256)",
-      ]);
-      const result: bigint = await viemClient.readContract({
-        address: "0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7" as `0x${string}`,
-        abi: balanceAbi,
-        functionName: "balanceOf",
-        args: [walletAddress],
-      });
-      const balance = fromWei(result);
-      console.log("Fetched staked balance:", balance);
-      setStakedBalance(balance);
-      localStorage.setItem("stakedBalance", balance);
-    } catch (error) {
-      console.error("Error fetching staked balance", error);
-      setTimeout(fetchStakedBalance, 1000);
-    }
-  }, [walletAddress, fromWei]);
-
-  // Add useEffect to fetch data when the wallet address changes
-  useEffect(() => {
-    if (!walletAddress) {
-      setDisplayAvailableReward(null);
-      return;
-    }
-
-    // Fetch immediately when component mounts or wallet changes
-    fetchAvailableReward();
-    fetchStakedBalance();
-
-    // Then set up a much less frequent interval (every 5 minutes)
-    const fetchInterval = setInterval(
-      () => {
-        console.log(
-          "[RewardTracking] Running periodic refresh (5 min interval)"
-        );
-        fetchAvailableReward();
-        fetchStakedBalance();
-      },
-      5 * 60 * 1000
-    ); // 5 minutes in milliseconds
-
-    return () => clearInterval(fetchInterval);
-  }, [walletAddress, fetchAvailableReward, fetchStakedBalance]);
-
   const [isAirdropBannerVisible, setIsAirdropBannerVisible] = useState(true);
 
   // Add useEffect to load badge state from localStorage
@@ -485,6 +294,9 @@ export default function EarnPage({
 
   // Use the new hook for Basic Income tab
   const basicIncomeTabProps = useBasicIncomeTab({ lang, showToast });
+
+  // Use the new hook for Savings tab
+  const savingsTabProps = useSavingsTab({ lang, dictionary });
 
   const renderContent = () => {
     switch (activeTab) {
@@ -552,36 +364,11 @@ export default function EarnPage({
         );
       case "Savings":
         return (
-          <div className="flex w-full flex-col items-center py-8">
-            <Typography
-              as="h2"
-              variant={{ variant: "heading", level: 1 }}
-              className="text-center"
-            >
-              {dictionary?.pages?.earn?.tabs?.savings?.title}
-            </Typography>
-            <Typography
-              variant={{ variant: "subtitle", level: 1 }}
-              className="mx-auto mb-6 mt-4 text-center text-gray-500"
-            >
-              {dictionary?.pages?.earn?.tabs?.savings?.subtitle}
-              <span className="group relative inline-flex items-center align-baseline">
-                <PiInfoFill className="ml-1 h-4 w-4 translate-y-[2px] cursor-help text-gray-400" />
-                <div className="absolute -right-4 bottom-full mb-2 hidden w-[calc(100dvw/2+24px)] max-w-sm transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
-                  <p className="text-left text-gray-700">
-                    {dictionary?.pages?.earn?.tabs?.savings?.tooltip}
-                  </p>
-                </div>
-              </span>
-            </Typography>
-            <StakeWithPermitForm
-              lang={lang}
-              stakedBalance={stakedBalance}
-              displayAvailableReward={displayAvailableReward}
-              fetchStakedBalance={fetchStakedBalance}
-              fetchAvailableReward={fetchAvailableReward}
-            />
-          </div>
+          <SavingsTab
+            lang={lang}
+            dictionary={dictionary}
+            {...savingsTabProps}
+          />
         );
       case "Contribute":
         return (

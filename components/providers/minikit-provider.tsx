@@ -15,42 +15,41 @@ export default function MiniKitProvider({ children }: { children: ReactNode }) {
   const [isInstalled, setIsInstalled] = useState(false);
 
   useEffect(() => {
-    let retryCount = 0;
-    const maxRetries = 3;
-    const retryDelay = 1000; // 1 second
+    let attempts = 0;
+    const maxAttempts = 20; // 20 × 500ms = 10 seconds
+    const checkInterval = 500;
+    let interval: NodeJS.Timeout | null = null;
 
-    const initializeMiniKit = async () => {
-      try {
-        await MiniKit.install();
-
-        // Add a small delay to ensure complete initialization
-        setTimeout(() => {
-          const installed = MiniKit.isInstalled();
-          console.log("MiniKit installed status:", installed);
-          setIsInstalled(installed);
-          setIsInitializing(false);
-        }, 500);
-      } catch (error) {
-        console.error("Error initializing MiniKit:", error);
-
-        // Retry logic
-        if (retryCount < maxRetries) {
-          retryCount++;
-          console.log(
-            `Retrying MiniKit initialization (${retryCount}/${maxRetries})...`
-          );
-          setTimeout(initializeMiniKit, retryDelay);
-        } else {
-          console.error("Failed to initialize MiniKit after retries");
-          setIsInitializing(false);
-        }
-      }
+    const checkInstalled = () => {
+      const importedInstalled = MiniKit.isInstalled?.() ?? false;
+      const windowInstalled =
+        typeof window !== "undefined" &&
+        (window as any).MiniKit &&
+        (window as any).MiniKit.isInstalled?.();
+      return importedInstalled || windowInstalled;
     };
 
-    initializeMiniKit();
+    const tryInstall = async () => {
+      try {
+        await MiniKit.install();
+      } catch (e) {
+        // Ignore install errors, we'll still poll
+      }
+      interval = setInterval(() => {
+        attempts++;
+        const installed = checkInstalled();
+        if (installed || attempts >= maxAttempts) {
+          setIsInstalled(!!installed);
+          setIsInitializing(false);
+          if (interval) clearInterval(interval);
+        }
+      }, checkInterval);
+    };
+
+    tryInstall();
 
     return () => {
-      // Cleanup if needed
+      if (interval) clearInterval(interval);
     };
   }, []);
 
