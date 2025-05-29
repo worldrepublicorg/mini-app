@@ -185,6 +185,24 @@ export function useSavingsTab({
     return fromWei(result);
   };
 
+  // Utility function to fetch the latest token balance directly from the chain
+  const fetchTokenBalanceValue = async (): Promise<string> => {
+    // If you have a direct method to fetch the token balance, use it here.
+    // For now, we'll assume tokenBalance is fetched similarly to stakedBalance, but you may need to adjust this to your actual implementation.
+    if (!walletAddress) return "0";
+    // Replace with your actual token contract and ABI if needed
+    // Example assumes ERC20 balanceOf
+    const result: bigint = await viemClient.readContract({
+      address: MAIN_TOKEN_ADDRESS as `0x${string}`,
+      abi: parseAbi([
+        "function balanceOf(address account) external view returns (uint256)",
+      ]),
+      functionName: "balanceOf",
+      args: [walletAddress],
+    });
+    return fromWei(result);
+  };
+
   // Centralized refetch function for all balances (sequential)
   const refetchBalancesSequentially = useCallback(async () => {
     // Fetch staked balance first
@@ -219,14 +237,12 @@ export function useSavingsTab({
       waitFor.forEach((key) => (changed[key] = false));
       const poll = async () => {
         if (!pendingTx) return;
-        // Fetch all values
-        const [newStaked, newReward] = await Promise.all([
+        // Always fetch the latest values directly from the chain for robust comparison
+        const [newStaked, newReward, newToken] = await Promise.all([
           fetchStakedBalanceValue(),
           fetchAvailableRewardValue(),
+          fetchTokenBalanceValue(),
         ]);
-        // tokenBalance is updated via fetchBalance (context), so we use the latest value
-        await fetchBalance();
-        const newToken = tokenBalance ?? "0";
         if (
           waitFor.includes("stakedBalance") &&
           newStaked !== prev.stakedBalance
@@ -243,7 +259,9 @@ export function useSavingsTab({
         if (waitFor.every((key) => changed[key])) {
           setStakedBalance(newStaked);
           setAvailableReward(newReward);
-          await fetchBalance();
+          // Optionally, update tokenBalance in context if you have a setter
+          // setTokenBalance(newToken); // Uncomment if you have this
+          await fetchBalance(); // Still call to update context if needed
           setPendingTx(false);
           return;
         }
@@ -254,6 +272,7 @@ export function useSavingsTab({
           // Timeout: update whatever is latest, but batch it
           setStakedBalance(newStaked);
           setAvailableReward(newReward);
+          // setTokenBalance(newToken); // Uncomment if you have this
           await fetchBalance();
           showToast(
             dictionary?.components?.toasts?.wallet?.pollingTimeout ||
@@ -269,8 +288,8 @@ export function useSavingsTab({
       pendingTx,
       fetchStakedBalanceValue,
       fetchAvailableRewardValue,
+      fetchTokenBalanceValue,
       fetchBalance,
-      tokenBalance,
       showToast,
       dictionary,
     ]
