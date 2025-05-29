@@ -15,41 +15,42 @@ export default function MiniKitProvider({ children }: { children: ReactNode }) {
   const [isInstalled, setIsInstalled] = useState(false);
 
   useEffect(() => {
-    let attempts = 0;
-    const maxAttempts = 20; // 20 × 500ms = 10 seconds
-    const checkInterval = 500;
-    let interval: NodeJS.Timeout | null = null;
+    let retryCount = 0;
+    const maxRetries = 3;
+    const retryDelay = 1000; // 1 second
 
-    const checkInstalled = () => {
-      const importedInstalled = MiniKit.isInstalled?.() ?? false;
-      const windowInstalled =
-        typeof window !== "undefined" &&
-        (window as any).MiniKit &&
-        (window as any).MiniKit.isInstalled?.();
-      return importedInstalled || windowInstalled;
-    };
-
-    const tryInstall = async () => {
+    const initializeMiniKit = async () => {
       try {
         await MiniKit.install();
-      } catch (e) {
-        // Ignore install errors, we'll still poll
-      }
-      interval = setInterval(() => {
-        attempts++;
-        const installed = checkInstalled();
-        if (installed || attempts >= maxAttempts) {
-          setIsInstalled(!!installed);
+
+        // Add a small delay to ensure complete initialization
+        setTimeout(() => {
+          const installed = MiniKit.isInstalled();
+          console.log("MiniKit installed status:", installed);
+          setIsInstalled(installed);
           setIsInitializing(false);
-          if (interval) clearInterval(interval);
+        }, 500);
+      } catch (error) {
+        console.error("Error initializing MiniKit:", error);
+
+        // Retry logic
+        if (retryCount < maxRetries) {
+          retryCount++;
+          console.log(
+            `Retrying MiniKit initialization (${retryCount}/${maxRetries})...`
+          );
+          setTimeout(initializeMiniKit, retryDelay);
+        } else {
+          console.error("Failed to initialize MiniKit after retries");
+          setIsInitializing(false);
         }
-      }, checkInterval);
+      }
     };
 
-    tryInstall();
+    initializeMiniKit();
 
     return () => {
-      if (interval) clearInterval(interval);
+      // Cleanup if needed
     };
   }, []);
 
