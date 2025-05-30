@@ -42,6 +42,22 @@ async function pollForChange<T extends any[]>(
   return null;
 }
 
+// Helper to ensure UI state matches the new on-chain value
+async function ensureStateMatches(
+  fetchState: () => Promise<void>,
+  getState: () => string | null,
+  expectedValue: string,
+  maxAttempts = 10,
+  delay = 500
+): Promise<boolean> {
+  for (let i = 0; i < maxAttempts; i++) {
+    await fetchState();
+    if (getState() === expectedValue) return true;
+    await new Promise((res) => setTimeout(res, delay));
+  }
+  return false;
+}
+
 export function StakeWithPermitForm({
   stakedBalance,
   displayAvailableReward,
@@ -62,8 +78,8 @@ export function StakeWithPermitForm({
   const dictionary = useTranslations(lang);
 
   // Local fetchers for polling
-  const fetchTokenBalanceValue = async (): Promise<string | null> => {
-    if (!walletAddress) return null;
+  const fetchTokenBalanceValue = async (): Promise<string> => {
+    if (!walletAddress) return "0";
     const result: bigint = await viemClient.readContract({
       address: MAIN_TOKEN_ADDRESS as `0x${string}`,
       abi: parseAbi([
@@ -75,8 +91,8 @@ export function StakeWithPermitForm({
     return (Number(result) / 1e18).toString();
   };
 
-  const fetchStakedBalanceValue = async (): Promise<string | null> => {
-    if (!walletAddress) return null;
+  const fetchStakedBalanceValue = async (): Promise<string> => {
+    if (!walletAddress) return "0";
     const result: bigint = await viemClient.readContract({
       address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
       abi: parseAbi([
@@ -88,8 +104,8 @@ export function StakeWithPermitForm({
     return (Number(result) / 1e18).toString();
   };
 
-  const fetchAvailableRewardValue = async (): Promise<string | null> => {
-    if (!walletAddress) return null;
+  const fetchAvailableRewardValue = async (): Promise<string> => {
+    if (!walletAddress) return "0";
     const result: bigint = await viemClient.readContract({
       address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
       abi: parseAbi([
@@ -171,15 +187,25 @@ export function StakeWithPermitForm({
         localStorage.setItem("savingsRewardBase", "0");
         localStorage.setItem("savingsRewardStartTime", Date.now().toString());
         // Poll for both tokenBalance and stakedBalance to change
-        await pollForChange(
+        const [newTokenBalance, newStakedBalance] = (await pollForChange(
           [fetchTokenBalanceValue, fetchStakedBalanceValue],
           [prevTokenBalance, prevStakedBalance],
           [(a, b) => String(a) !== String(b), (a, b) => String(a) !== String(b)]
-        );
-        // Final update
-        await fetchStakedBalance();
+        )) || [null, null];
+        // Ensure UI state matches new values
+        if (newTokenBalance)
+          await ensureStateMatches(
+            fetchBalance,
+            () => tokenBalance,
+            newTokenBalance
+          );
+        if (newStakedBalance)
+          await ensureStateMatches(
+            fetchStakedBalance,
+            () => stakedBalance,
+            newStakedBalance
+          );
         await fetchAvailableReward();
-        await fetchBalance();
       }
     } catch (error: any) {
       // Optionally show error
@@ -231,15 +257,25 @@ export function StakeWithPermitForm({
         localStorage.setItem("savingsRewardBase", "0");
         localStorage.setItem("savingsRewardStartTime", Date.now().toString());
         // Poll for both tokenBalance and stakedBalance to change
-        await pollForChange(
+        const [newTokenBalance, newStakedBalance] = (await pollForChange(
           [fetchTokenBalanceValue, fetchStakedBalanceValue],
           [prevTokenBalance, prevStakedBalance],
           [(a, b) => String(a) !== String(b), (a, b) => String(a) !== String(b)]
-        );
-        // Final update
-        await fetchStakedBalance();
+        )) || [null, null];
+        // Ensure UI state matches new values
+        if (newTokenBalance)
+          await ensureStateMatches(
+            fetchBalance,
+            () => tokenBalance,
+            newTokenBalance
+          );
+        if (newStakedBalance)
+          await ensureStateMatches(
+            fetchStakedBalance,
+            () => stakedBalance,
+            newStakedBalance
+          );
         await fetchAvailableReward();
-        await fetchBalance();
       }
     } catch (error: any) {
       // Optionally show error
@@ -282,15 +318,25 @@ export function StakeWithPermitForm({
         localStorage.setItem("savingsRewardBase", "0");
         localStorage.setItem("savingsRewardStartTime", Date.now().toString());
         // Poll for both tokenBalance and displayAvailableReward to change
-        await pollForChange(
+        const [newTokenBalance, newAvailableReward] = (await pollForChange(
           [fetchTokenBalanceValue, fetchAvailableRewardValue],
           [prevTokenBalance, prevAvailableReward],
           [(a, b) => String(a) !== String(b), (a, b) => String(a) !== String(b)]
-        );
-        // Final update
+        )) || [null, null];
+        // Ensure UI state matches new values
+        if (newTokenBalance)
+          await ensureStateMatches(
+            fetchBalance,
+            () => tokenBalance,
+            newTokenBalance
+          );
+        if (newAvailableReward)
+          await ensureStateMatches(
+            fetchAvailableReward,
+            () => displayAvailableReward,
+            newAvailableReward
+          );
         await fetchStakedBalance();
-        await fetchAvailableReward();
-        await fetchBalance();
       }
     } catch (error: any) {
       // Optionally show error
