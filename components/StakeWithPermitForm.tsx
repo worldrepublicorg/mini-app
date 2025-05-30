@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Typography } from "@/components/ui/Typography";
 import { parseAbi } from "viem";
@@ -8,8 +8,6 @@ import { MiniKit } from "@worldcoin/minikit-js";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { useToast } from "@/components/ui/Toast";
 import { useTranslations } from "@/hooks/useTranslations";
-import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
-import { viemClient } from "@/lib/viemClient";
 
 interface StakeWithPermitFormProps {
   stakedBalance: string;
@@ -38,42 +36,11 @@ export function StakeWithPermitForm({
   const [depositLoading, setDepositLoading] = useState(false);
   const [withdrawLoading, setWithdrawLoading] = useState(false);
   const [collectLoading, setCollectLoading] = useState(false);
-  const [transactionId, setTransactionId] = useState<string | null>(null);
-
-  const { isLoading: isConfirming, isSuccess: isConfirmed } =
-    useWaitForTransactionReceipt({
-      client: viemClient,
-      appConfig: { app_id: process.env.NEXT_PUBLIC_APP_ID || "" },
-      transactionId: transactionId || "",
-    });
-
-  useEffect(() => {
-    if (!transactionId || !isConfirmed) return;
-    if (depositLoading) {
-      fetchStakedBalance();
-      fetchAvailableReward();
-      fetchBalance();
-      setDepositLoading(false);
-    } else if (withdrawLoading) {
-      fetchStakedBalance();
-      fetchAvailableReward();
-      fetchBalance();
-      setWithdrawLoading(false);
-    } else if (collectLoading) {
-      fetchAvailableReward();
-      fetchBalance();
-      setCollectLoading(false);
-    }
-    setTransactionId(null);
-  }, [isConfirmed]);
-
-  const isAnyLoading =
-    depositLoading || withdrawLoading || collectLoading || isConfirming;
 
   const dictionary = useTranslations(lang);
 
   const handleStake = async () => {
-    if (isAnyLoading) return;
+    if (depositLoading) return;
     if (!MiniKit.isInstalled()) {
       showToast(
         dictionary?.components?.toasts?.wallet?.connectInWorldApp,
@@ -135,20 +102,23 @@ export function StakeWithPermitForm({
             dictionary?.components?.toasts?.wallet?.stakingError;
           showToast(errorMessage, "error");
         }
-        setDepositLoading(false);
       } else {
         setAmount("");
         localStorage.setItem("savingsRewardBase", "0");
         localStorage.setItem("savingsRewardStartTime", Date.now().toString());
-        setTransactionId(finalPayload.transaction_id || null);
+        await fetchStakedBalance();
+        await fetchAvailableReward();
+        await fetchBalance();
       }
     } catch (error: any) {
+      // Optionally show error
+    } finally {
       setDepositLoading(false);
     }
   };
 
   const handleWithdraw = async () => {
-    if (isAnyLoading) return;
+    if (withdrawLoading) return;
     if (!MiniKit.isInstalled()) {
       showToast(
         dictionary?.components?.toasts?.wallet?.connectInWorldApp,
@@ -183,20 +153,23 @@ export function StakeWithPermitForm({
             dictionary?.components?.toasts?.wallet?.withdrawError;
           showToast(errorMessage, "error");
         }
-        setWithdrawLoading(false);
       } else {
         setAmount("");
         localStorage.setItem("savingsRewardBase", "0");
         localStorage.setItem("savingsRewardStartTime", Date.now().toString());
-        setTransactionId(finalPayload.transaction_id || null);
+        await fetchStakedBalance();
+        await fetchAvailableReward();
+        await fetchBalance();
       }
     } catch (error: any) {
+      // Optionally show error
+    } finally {
       setWithdrawLoading(false);
     }
   };
 
   const handleCollect = async () => {
-    if (isAnyLoading) return;
+    if (collectLoading) return;
     if (!MiniKit.isInstalled()) {
       showToast(
         dictionary?.components?.toasts?.wallet?.connectInWorldApp,
@@ -223,13 +196,16 @@ export function StakeWithPermitForm({
             dictionary?.components?.toasts?.wallet?.collectError;
           showToast(errorMessage, "error");
         }
-        setCollectLoading(false);
       } else {
         localStorage.setItem("savingsRewardBase", "0");
         localStorage.setItem("savingsRewardStartTime", Date.now().toString());
-        setTransactionId(finalPayload.transaction_id || null);
+        await fetchStakedBalance();
+        await fetchAvailableReward();
+        await fetchBalance();
       }
     } catch (error: any) {
+      // Optionally show error
+    } finally {
       setCollectLoading(false);
     }
   };
@@ -336,13 +312,13 @@ export function StakeWithPermitForm({
         <div className="flex items-center gap-2">
           <Button
             onClick={handleCollect}
-            isLoading={collectLoading || isConfirming}
-            disabled={isAnyLoading}
+            isLoading={collectLoading}
+            disabled={collectLoading}
             variant="primary"
             size="sm"
             className="mr-2 h-9 min-w-20 rounded-full px-4 font-sans"
           >
-            {collectLoading || isConfirming
+            {collectLoading
               ? dictionary?.components?.stakeForm?.collecting
               : dictionary?.components?.stakeForm?.collect}
           </Button>
@@ -359,22 +335,22 @@ export function StakeWithPermitForm({
       {selectedAction === "deposit" ? (
         <Button
           onClick={handleStake}
-          isLoading={depositLoading || isConfirming}
-          disabled={isAnyLoading}
+          isLoading={depositLoading}
+          disabled={depositLoading}
           fullWidth
         >
-          {depositLoading || isConfirming
+          {depositLoading
             ? dictionary?.components?.stakeForm?.depositing
             : dictionary?.components?.stakeForm?.depositButton}
         </Button>
       ) : (
         <Button
           onClick={handleWithdraw}
-          isLoading={withdrawLoading || isConfirming}
-          disabled={isAnyLoading}
+          isLoading={withdrawLoading}
+          disabled={withdrawLoading}
           fullWidth
         >
-          {withdrawLoading || isConfirming
+          {withdrawLoading
             ? dictionary?.components?.stakeForm?.withdrawing
             : dictionary?.components?.stakeForm?.withdrawButton}
         </Button>
