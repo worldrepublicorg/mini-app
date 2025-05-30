@@ -6,7 +6,6 @@ import { Button } from "./ui/Button";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { useToast } from "./ui/Toast";
 import { useTranslations } from "@/hooks/useTranslations";
-import { useMiniKit } from "./providers/minikit-provider";
 import type { WalletAuthProps } from "@/lib/types";
 
 async function fetchWithRetry(
@@ -41,7 +40,6 @@ export function WalletAuth({ lang, onError, onSuccess }: WalletAuthProps) {
   const [isLoading, setIsLoading] = useState(false);
   const { setWalletAddress, setUsername } = useWallet();
   const { showToast } = useToast();
-  const { isInstalled, isInitializing } = useMiniKit();
 
   const handleError = (message: string) => {
     console.error("handleError:", message);
@@ -50,7 +48,7 @@ export function WalletAuth({ lang, onError, onSuccess }: WalletAuthProps) {
   };
 
   const signInWithWallet = async () => {
-    if (!isInstalled) {
+    if (!MiniKit.isInstalled()) {
       handleError("MiniKit is not installed");
       showToast(
         "Please open this app in the World App to connect your wallet.",
@@ -192,17 +190,16 @@ export function WalletAuth({ lang, onError, onSuccess }: WalletAuthProps) {
     }
   };
 
-  // Only show the button if MiniKit is ready
-  if (isInitializing || !isInstalled) {
-    return (
-      <Button disabled isLoading fullWidth>
-        {dictionary?.components?.walletAuth?.connect || "Connect Wallet"}
-      </Button>
-    );
-  }
+  // Only show the button if MiniKit is installed
+  const isMiniKitInstalled = MiniKit.isInstalled();
 
   return (
-    <Button onClick={signInWithWallet} isLoading={isLoading} fullWidth>
+    <Button
+      onClick={signInWithWallet}
+      isLoading={isLoading}
+      fullWidth
+      disabled={isLoading || !isMiniKitInstalled}
+    >
       {dictionary?.components?.walletAuth?.connect || "Connect Wallet"}
     </Button>
   );

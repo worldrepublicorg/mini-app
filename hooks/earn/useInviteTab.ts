@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { MiniKit } from "@worldcoin/minikit-js";
 
 export function useInviteTab({
   lang,
@@ -34,7 +35,7 @@ export function useInviteTab({
     setLookupError("");
     setLookupResult(null);
     try {
-      if ((window as any).MiniKit && (window as any).MiniKit.isInstalled()) {
+      if (MiniKit.isInstalled()) {
         try {
           const response = await fetch(
             `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(recipientUsername.trim())}`
@@ -67,7 +68,7 @@ export function useInviteTab({
   // Reward sending
   const sendReward = useCallback(
     async (recipientAddress: string) => {
-      if (!(window as any).MiniKit || !walletContext.walletAddress) {
+      if (!MiniKit.isInstalled() || !walletContext.walletAddress) {
         setRewardStatus({
           success: false,
           message: "Please connect your wallet first",
@@ -77,9 +78,7 @@ export function useInviteTab({
       setIsSendingReward(true);
       setRewardStatus(null);
       try {
-        const { finalPayload } = await (
-          window as any
-        ).MiniKit.commandsAsync.sendTransaction({
+        const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
           transaction: [
             {
               address: "0x372dCA057682994568be074E75a03Ced3dD9E60d",
