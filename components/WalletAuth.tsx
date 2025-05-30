@@ -1,7 +1,7 @@
 "use client";
 
 import { MiniKit } from "@worldcoin/minikit-js";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "./ui/Button";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { useToast } from "./ui/Toast";
@@ -42,29 +42,6 @@ export function WalletAuth({ lang, onError, onSuccess }: WalletAuthProps) {
   const { setWalletAddress, setUsername } = useWallet();
   const { showToast } = useToast();
   const { isInstalled, isInitializing } = useMiniKit();
-  const [miniKitChecked, setMiniKitChecked] = useState(false);
-
-  // Add a retry mechanism for checking MiniKit installation
-  useEffect(() => {
-    if (isInitializing) return;
-
-    let retryCount = 0;
-    const maxRetries = 3;
-    const checkInterval = setInterval(() => {
-      const currentInstalled = MiniKit.isInstalled();
-      console.log(
-        `MiniKit installation check (${retryCount}): ${currentInstalled}`
-      );
-
-      if (currentInstalled || retryCount >= maxRetries) {
-        clearInterval(checkInterval);
-        setMiniKitChecked(true);
-      }
-      retryCount++;
-    }, 1000);
-
-    return () => clearInterval(checkInterval);
-  }, [isInitializing]);
 
   const handleError = (message: string) => {
     console.error("handleError:", message);
@@ -73,11 +50,7 @@ export function WalletAuth({ lang, onError, onSuccess }: WalletAuthProps) {
   };
 
   const signInWithWallet = async () => {
-    console.log("signInWithWallet: Button clicked");
-
-    // Use the context value first, then fall back to direct check
-    if (!isInstalled && !MiniKit.isInstalled()) {
-      console.warn("signInWithWallet: MiniKit is not installed");
+    if (!isInstalled) {
       handleError("MiniKit is not installed");
       showToast(
         "Please open this app in the World App to connect your wallet.",
@@ -85,10 +58,7 @@ export function WalletAuth({ lang, onError, onSuccess }: WalletAuthProps) {
       );
       return;
     }
-
-    console.log("signInWithWallet: MiniKit is installed");
     setIsLoading(true);
-
     try {
       console.log("signInWithWallet: Fetching nonce from /api/nonce");
       const nonceRes = await fetchWithRetry(`/api/nonce`);
@@ -222,8 +192,8 @@ export function WalletAuth({ lang, onError, onSuccess }: WalletAuthProps) {
     }
   };
 
-  // Don't show the button until we've checked MiniKit properly
-  if (isInitializing && !miniKitChecked) {
+  // Only show the button if MiniKit is ready
+  if (isInitializing || !isInstalled) {
     return (
       <Button disabled isLoading fullWidth>
         {dictionary?.components?.walletAuth?.connect || "Connect Wallet"}
