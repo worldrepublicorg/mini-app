@@ -41,7 +41,7 @@ export function WalletAuth({ lang, onError, onSuccess }: WalletAuthProps) {
   const [isLoading, setIsLoading] = useState(false);
   const { setWalletAddress, setUsername } = useWallet();
   const { showToast } = useToast();
-  const { isInstalled, isInitializing, error, retry } = useMiniKit();
+  const { isInstalled, isInitializing } = useMiniKit();
 
   const handleError = (message: string) => {
     console.error("handleError:", message);
@@ -192,8 +192,8 @@ export function WalletAuth({ lang, onError, onSuccess }: WalletAuthProps) {
     }
   };
 
-  // Show loading button if MiniKit is initializing
-  if (isInitializing) {
+  // Only show the button if MiniKit is ready
+  if (isInitializing || !isInstalled) {
     return (
       <Button disabled isLoading fullWidth>
         {dictionary?.components?.walletAuth?.connect || "Connect Wallet"}
@@ -201,19 +201,6 @@ export function WalletAuth({ lang, onError, onSuccess }: WalletAuthProps) {
     );
   }
 
-  // Show error and retry if MiniKit failed to initialize
-  if (error) {
-    return (
-      <div className="flex w-full flex-col items-center gap-2">
-        <div className="text-red-600 w-full text-center text-sm">{error}</div>
-        <Button onClick={retry} fullWidth>
-          {dictionary?.components?.walletAuth?.retry || "Try Again"}
-        </Button>
-      </div>
-    );
-  }
-
-  // Show connect button if MiniKit is ready
   return (
     <Button onClick={signInWithWallet} isLoading={isLoading} fullWidth>
       {dictionary?.components?.walletAuth?.connect || "Connect Wallet"}
