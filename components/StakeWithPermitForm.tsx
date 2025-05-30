@@ -22,6 +22,23 @@ interface StakeWithPermitFormProps {
 const STAKING_CONTRACT_ADDRESS = "0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7";
 const MAIN_TOKEN_ADDRESS = "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B";
 
+// Utility: Poll a fetch function until its value changes from the old value, or until timeout
+async function pollForChange(
+  fetchFn: () => Promise<void>,
+  getValue: () => string,
+  oldValue: string,
+  timeoutMs = 20000,
+  intervalMs = 1000
+) {
+  const start = Date.now();
+  while (Date.now() - start < timeoutMs) {
+    await fetchFn();
+    if (getValue() !== oldValue) return true;
+    await new Promise((res) => setTimeout(res, intervalMs));
+  }
+  return false;
+}
+
 export function StakeWithPermitForm({
   stakedBalance,
   displayAvailableReward,
@@ -49,22 +66,43 @@ export function StakeWithPermitForm({
 
   useEffect(() => {
     if (!transactionId || !isConfirmed) return;
-    if (depositLoading) {
-      fetchStakedBalance();
-      fetchAvailableReward();
-      fetchBalance();
-      setDepositLoading(false);
-    } else if (withdrawLoading) {
-      fetchStakedBalance();
-      fetchAvailableReward();
-      fetchBalance();
-      setWithdrawLoading(false);
-    } else if (collectLoading) {
-      fetchAvailableReward();
-      fetchBalance();
-      setCollectLoading(false);
-    }
-    setTransactionId(null);
+    // Poll for state change after confirmation
+    (async () => {
+      if (depositLoading) {
+        const oldStaked = stakedBalance || "";
+        const oldToken = tokenBalance || "";
+        await pollForChange(
+          fetchStakedBalance,
+          () => stakedBalance || "",
+          oldStaked
+        );
+        await pollForChange(fetchBalance, () => tokenBalance || "", oldToken);
+        await fetchAvailableReward(); // Not polled, just refetched
+        setDepositLoading(false);
+      } else if (withdrawLoading) {
+        const oldStaked = stakedBalance || "";
+        const oldToken = tokenBalance || "";
+        await pollForChange(
+          fetchStakedBalance,
+          () => stakedBalance || "",
+          oldStaked
+        );
+        await pollForChange(fetchBalance, () => tokenBalance || "", oldToken);
+        await fetchAvailableReward();
+        setWithdrawLoading(false);
+      } else if (collectLoading) {
+        const oldReward = displayAvailableReward || "";
+        const oldToken = tokenBalance || "";
+        await pollForChange(
+          fetchAvailableReward,
+          () => displayAvailableReward || "",
+          oldReward
+        );
+        await pollForChange(fetchBalance, () => tokenBalance || "", oldToken);
+        setCollectLoading(false);
+      }
+      setTransactionId(null);
+    })();
   }, [isConfirmed]);
 
   const isAnyLoading =
