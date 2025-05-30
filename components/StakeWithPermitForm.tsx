@@ -1,15 +1,13 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Typography } from "@/components/ui/Typography";
 import { parseAbi } from "viem";
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useWallet } from "@/components/contexts/WalletContext";
-import { viemClient } from "@/lib/viemClient";
 import { useToast } from "@/components/ui/Toast";
 import { useTranslations } from "@/hooks/useTranslations";
-import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 
 interface StakeWithPermitFormProps {
   stakedBalance: string;
@@ -21,8 +19,6 @@ interface StakeWithPermitFormProps {
 
 const STAKING_CONTRACT_ADDRESS = "0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7";
 const MAIN_TOKEN_ADDRESS = "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B";
-
-type TxType = null | "deposit" | "withdraw" | "collect";
 
 export function StakeWithPermitForm({
   stakedBalance,
@@ -37,129 +33,14 @@ export function StakeWithPermitForm({
   const [selectedAction, setSelectedAction] = useState<"deposit" | "withdraw">(
     "deposit"
   );
-
-  // Unified transaction state
-  const [txType, setTxType] = useState<TxType>(null);
-  const [transactionId, setTransactionId] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [depositLoading, setDepositLoading] = useState(false);
+  const [withdrawLoading, setWithdrawLoading] = useState(false);
+  const [collectLoading, setCollectLoading] = useState(false);
 
   const dictionary = useTranslations(lang);
 
-  // Add a ref to track if fallback polling has started, and a ref for the timer
-  const fallbackTimerRef = useRef<NodeJS.Timeout | null>(null);
-  const fallbackStartedRef = useRef(false);
-
-  // Helper to clear fallback timer
-  const clearFallbackTimer = () => {
-    if (fallbackTimerRef.current) {
-      clearTimeout(fallbackTimerRef.current);
-      fallbackTimerRef.current = null;
-    }
-    fallbackStartedRef.current = false;
-  };
-
-  // Helper: call this when the UI should be reset after tx
-  const finishTx = (txId?: string) => {
-    if (txId && txId !== transactionId) return; // Only finish for the current tx
-    setIsLoading(false);
-    setTxType(null);
-    setTransactionId(null);
-    clearFallbackTimer();
-  };
-
-  // Helper: fetch staked balance value (returns string)
-  const fetchStakedBalanceValue = async (): Promise<string> => {
-    if (!walletAddress) return "0";
-    const result: bigint = await viemClient.readContract({
-      address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
-      abi: parseAbi([
-        "function balanceOf(address account) external view returns (uint256)",
-      ]),
-      functionName: "balanceOf",
-      args: [walletAddress],
-    });
-    return (Number(result) / 1e18).toString();
-  };
-
-  // Helper: fetch available reward value (returns string)
-  const fetchAvailableRewardValue = async (): Promise<string> => {
-    if (!walletAddress) return "0";
-    const result: bigint = await viemClient.readContract({
-      address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
-      abi: parseAbi([
-        "function available(address account) external view returns (uint256)",
-      ]),
-      functionName: "available",
-      args: [walletAddress],
-    });
-    return (Number(result) / 1e18).toString();
-  };
-
-  // Poll for staked balance change
-  const pollForStakedBalanceChange = async (
-    prevStakedBalance: string,
-    maxAttempts = 30,
-    interval = 2000
-  ) => {
-    let attempts = 0;
-    while (attempts < maxAttempts) {
-      const newStakedBalance = await fetchStakedBalanceValue();
-      if (newStakedBalance !== prevStakedBalance) {
-        await fetchStakedBalance();
-        await fetchAvailableReward();
-        await fetchBalance();
-        break;
-      }
-      await new Promise((res) => setTimeout(res, interval));
-      attempts++;
-    }
-  };
-
-  // Poll for available reward change
-  const pollForAvailableRewardChange = async (
-    prevAvailableReward: string,
-    maxAttempts = 30,
-    interval = 2000
-  ) => {
-    let attempts = 0;
-    while (attempts < maxAttempts) {
-      const newAvailableReward = await fetchAvailableRewardValue();
-      if (newAvailableReward !== prevAvailableReward) {
-        await fetchAvailableReward();
-        await fetchBalance();
-        break;
-      }
-      await new Promise((res) => setTimeout(res, interval));
-      attempts++;
-    }
-  };
-
-  // Fast path: event listeners (already present in useEffect below)
-  // They should call finishTx() after updating state
-
-  // Fallback polling for stake/withdraw
-  const startFallbackPollingStaked = async (prevStakedBalance: string) => {
-    fallbackStartedRef.current = true;
-    await pollForStakedBalanceChange(prevStakedBalance);
-    finishTx();
-  };
-
-  // Fallback polling for collect
-  const startFallbackPollingReward = async (prevAvailableReward: string) => {
-    fallbackStartedRef.current = true;
-    await pollForAvailableRewardChange(prevAvailableReward);
-    finishTx();
-  };
-
-  const currentTxRef = useRef<string | null>(null);
-
   const handleStake = async () => {
-    if (isLoading) return; // Prevent overlapping transactions
-    clearFallbackTimer(); // Clean up any previous timers
-    setIsLoading(true);
-    setTxType("deposit");
-    setTransactionId(null);
-    currentTxRef.current = null;
+    if (depositLoading) return;
     if (!MiniKit.isInstalled()) {
       showToast(
         dictionary?.components?.toasts?.wallet?.connectInWorldApp,
@@ -185,7 +66,7 @@ export function StakeWithPermitForm({
     ];
     const transferDetailsArg = [STAKING_CONTRACT_ADDRESS, stakeAmountStr];
     try {
-      const prevStakedBalance = await fetchStakedBalanceValue();
+      setDepositLoading(true);
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -221,26 +102,23 @@ export function StakeWithPermitForm({
             dictionary?.components?.toasts?.wallet?.stakingError;
           showToast(errorMessage, "error");
         }
-        finishTx();
       } else {
-        setTransactionId(finalPayload.transaction_id);
-        currentTxRef.current = finalPayload.transaction_id;
         setAmount("");
         localStorage.setItem("savingsRewardBase", "0");
         localStorage.setItem("savingsRewardStartTime", Date.now().toString());
-        // Start fallback timer (7s)
-        fallbackTimerRef.current = setTimeout(() => {
-          if (!fallbackStartedRef.current) {
-            startFallbackPollingStaked(prevStakedBalance);
-          }
-        }, 7000);
+        await fetchStakedBalance();
+        await fetchAvailableReward();
+        await fetchBalance();
       }
     } catch (error: any) {
-      finishTx();
+      // Optionally show error
+    } finally {
+      setDepositLoading(false);
     }
   };
 
   const handleWithdraw = async () => {
+    if (withdrawLoading) return;
     if (!MiniKit.isInstalled()) {
       showToast(
         dictionary?.components?.toasts?.wallet?.connectInWorldApp,
@@ -256,10 +134,8 @@ export function StakeWithPermitForm({
     }
     if (withdrawAmount <= 0n) return;
     const withdrawAmountStr = withdrawAmount.toString();
-    setIsLoading(true);
-    setTxType("withdraw");
     try {
-      const prevStakedBalance = await fetchStakedBalanceValue();
+      setWithdrawLoading(true);
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -277,25 +153,23 @@ export function StakeWithPermitForm({
             dictionary?.components?.toasts?.wallet?.withdrawError;
           showToast(errorMessage, "error");
         }
-        finishTx();
       } else {
-        setTransactionId(finalPayload.transaction_id);
-        currentTxRef.current = finalPayload.transaction_id;
         setAmount("");
         localStorage.setItem("savingsRewardBase", "0");
         localStorage.setItem("savingsRewardStartTime", Date.now().toString());
-        fallbackTimerRef.current = setTimeout(() => {
-          if (!fallbackStartedRef.current) {
-            startFallbackPollingStaked(prevStakedBalance);
-          }
-        }, 7000);
+        await fetchStakedBalance();
+        await fetchAvailableReward();
+        await fetchBalance();
       }
     } catch (error: any) {
-      finishTx();
+      // Optionally show error
+    } finally {
+      setWithdrawLoading(false);
     }
   };
 
   const handleCollect = async () => {
+    if (collectLoading) return;
     if (!MiniKit.isInstalled()) {
       showToast(
         dictionary?.components?.toasts?.wallet?.connectInWorldApp,
@@ -303,10 +177,8 @@ export function StakeWithPermitForm({
       );
       return;
     }
-    setIsLoading(true);
-    setTxType("collect");
     try {
-      const prevAvailableReward = await fetchAvailableRewardValue();
+      setCollectLoading(true);
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -324,107 +196,19 @@ export function StakeWithPermitForm({
             dictionary?.components?.toasts?.wallet?.collectError;
           showToast(errorMessage, "error");
         }
-        finishTx();
       } else {
-        setTransactionId(finalPayload.transaction_id);
-        currentTxRef.current = finalPayload.transaction_id;
-        fallbackTimerRef.current = setTimeout(() => {
-          if (!fallbackStartedRef.current) {
-            startFallbackPollingReward(prevAvailableReward);
-          }
-        }, 7000);
+        localStorage.setItem("savingsRewardBase", "0");
+        localStorage.setItem("savingsRewardStartTime", Date.now().toString());
+        await fetchStakedBalance();
+        await fetchAvailableReward();
+        await fetchBalance();
       }
     } catch (error: any) {
-      finishTx();
+      // Optionally show error
+    } finally {
+      setCollectLoading(false);
     }
   };
-
-  const { isSuccess } = useWaitForTransactionReceipt({
-    client: viemClient,
-    appConfig: {
-      app_id: "app_66c83ab8c851fb1e54b1b1b62c6ce39d",
-    },
-    transactionId: transactionId!,
-  });
-
-  useEffect(() => {
-    if (!walletAddress) return;
-
-    const unwatchStakedWithPermit = viemClient.watchContractEvent({
-      address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
-      abi: parseAbi([
-        "event StakedWithPermit(address indexed user, uint256 amount)",
-      ]),
-      eventName: "StakedWithPermit",
-      args: { user: walletAddress },
-      onLogs: (logs: any) => {
-        if (
-          currentTxRef.current &&
-          logs[0]?.transactionHash === currentTxRef.current
-        ) {
-          finishTx(currentTxRef.current);
-        }
-      },
-    });
-
-    const unwatchWithdrawn = viemClient.watchContractEvent({
-      address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
-      abi: parseAbi(["event Withdrawn(address indexed user, uint256 amount)"]),
-      eventName: "Withdrawn",
-      args: { user: walletAddress },
-      onLogs: (logs: any) => {
-        if (
-          currentTxRef.current &&
-          logs[0]?.transactionHash === currentTxRef.current
-        ) {
-          finishTx(currentTxRef.current);
-        }
-      },
-    });
-
-    const unwatchRedeemed = viemClient.watchContractEvent({
-      address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
-      abi: parseAbi([
-        "event Redeemed(address indexed user, uint256 rewardAmount)",
-      ]),
-      eventName: "Redeemed",
-      args: { user: walletAddress },
-      onLogs: async (logs: any) => {
-        if (
-          currentTxRef.current &&
-          logs[0]?.transactionHash === currentTxRef.current
-        ) {
-          finishTx(currentTxRef.current);
-        }
-      },
-    });
-
-    return () => {
-      unwatchStakedWithPermit();
-      unwatchWithdrawn();
-      unwatchRedeemed();
-      clearFallbackTimer();
-    };
-  }, [walletAddress, fetchAvailableReward, fetchStakedBalance, fetchBalance]);
-
-  useEffect(() => {
-    if (isSuccess && txType && transactionId === currentTxRef.current) {
-      // Only finish if not already finished by event or fallback 2
-      if (isLoading) {
-        fetchStakedBalance();
-        fetchAvailableReward();
-        fetchBalance();
-        pollForBalanceUpdate(
-          fetchStakedBalance,
-          fetchAvailableReward,
-          fetchBalance
-        ).finally(() => {
-          finishTx();
-        });
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isSuccess, txType, transactionId]);
 
   return (
     <div className="w-full">
@@ -528,12 +312,15 @@ export function StakeWithPermitForm({
         <div className="flex items-center gap-2">
           <Button
             onClick={handleCollect}
-            isLoading={isLoading}
+            isLoading={collectLoading}
+            disabled={collectLoading}
             variant="primary"
             size="sm"
             className="mr-2 h-9 min-w-20 rounded-full px-4 font-sans"
           >
-            {dictionary?.components?.stakeForm?.collect}
+            {collectLoading
+              ? dictionary?.components?.stakeForm?.collecting
+              : dictionary?.components?.stakeForm?.collect}
           </Button>
           <Typography
             variant={{ variant: "number", level: 6 }}
@@ -546,29 +333,28 @@ export function StakeWithPermitForm({
       </div>
 
       {selectedAction === "deposit" ? (
-        <Button onClick={handleStake} isLoading={isLoading} fullWidth>
-          {dictionary?.components?.stakeForm?.depositButton}
+        <Button
+          onClick={handleStake}
+          isLoading={depositLoading}
+          disabled={depositLoading}
+          fullWidth
+        >
+          {depositLoading
+            ? dictionary?.components?.stakeForm?.depositing
+            : dictionary?.components?.stakeForm?.depositButton}
         </Button>
       ) : (
-        <Button onClick={handleWithdraw} isLoading={isLoading} fullWidth>
-          {dictionary?.components?.stakeForm?.withdrawButton}
+        <Button
+          onClick={handleWithdraw}
+          isLoading={withdrawLoading}
+          disabled={withdrawLoading}
+          fullWidth
+        >
+          {withdrawLoading
+            ? dictionary?.components?.stakeForm?.withdrawing
+            : dictionary?.components?.stakeForm?.withdrawButton}
         </Button>
       )}
     </div>
   );
-}
-
-async function pollForBalanceUpdate(
-  fetchStakedBalance: () => Promise<void>,
-  fetchAvailableReward: () => Promise<void>,
-  fetchBalance: () => Promise<void>,
-  attempts = 3,
-  delay = 1000
-) {
-  for (let i = 0; i < attempts; i++) {
-    await fetchStakedBalance();
-    await fetchAvailableReward();
-    await fetchBalance();
-    await new Promise((res) => setTimeout(res, delay));
-  }
 }
