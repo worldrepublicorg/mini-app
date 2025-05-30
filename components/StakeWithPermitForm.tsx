@@ -8,6 +8,7 @@ import { MiniKit } from "@worldcoin/minikit-js";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { useToast } from "@/components/ui/Toast";
 import { useTranslations } from "@/hooks/useTranslations";
+import { viemClient } from "@/lib/viemClient";
 
 interface StakeWithPermitFormProps {
   stakedBalance: string;
@@ -19,6 +20,27 @@ interface StakeWithPermitFormProps {
 
 const STAKING_CONTRACT_ADDRESS = "0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7";
 const MAIN_TOKEN_ADDRESS = "0xEdE54d9c024ee80C85ec0a75eD2d8774c7Fbac9B";
+
+// Helper polling function
+type FetchFn<T> = () => Promise<T>;
+type CompareFn<T> = (a: T, b: T) => boolean;
+
+async function pollForChange<T extends any[]>(
+  fetchFns: { [K in keyof T]: FetchFn<T[K]> },
+  prevValues: T,
+  compareFns: { [K in keyof T]: CompareFn<T[K]> },
+  maxAttempts = 20,
+  delay = 1000
+): Promise<T | null> {
+  for (let i = 0; i < maxAttempts; i++) {
+    const results = await Promise.all(fetchFns.map((fn) => fn()));
+    if (results.some((val, idx) => compareFns[idx](val, prevValues[idx]))) {
+      return results as T;
+    }
+    await new Promise((res) => setTimeout(res, delay));
+  }
+  return null;
+}
 
 export function StakeWithPermitForm({
   stakedBalance,
@@ -38,6 +60,46 @@ export function StakeWithPermitForm({
   const [collectLoading, setCollectLoading] = useState(false);
 
   const dictionary = useTranslations(lang);
+
+  // Local fetchers for polling
+  const fetchTokenBalanceValue = async (): Promise<string | null> => {
+    if (!walletAddress) return null;
+    const result: bigint = await viemClient.readContract({
+      address: MAIN_TOKEN_ADDRESS as `0x${string}`,
+      abi: parseAbi([
+        "function balanceOf(address) external view returns (uint256)",
+      ]),
+      functionName: "balanceOf",
+      args: [walletAddress],
+    });
+    return (Number(result) / 1e18).toString();
+  };
+
+  const fetchStakedBalanceValue = async (): Promise<string | null> => {
+    if (!walletAddress) return null;
+    const result: bigint = await viemClient.readContract({
+      address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
+      abi: parseAbi([
+        "function balanceOf(address account) external view returns (uint256)",
+      ]),
+      functionName: "balanceOf",
+      args: [walletAddress],
+    });
+    return (Number(result) / 1e18).toString();
+  };
+
+  const fetchAvailableRewardValue = async (): Promise<string | null> => {
+    if (!walletAddress) return null;
+    const result: bigint = await viemClient.readContract({
+      address: STAKING_CONTRACT_ADDRESS as `0x${string}`,
+      abi: parseAbi([
+        "function available(address account) external view returns (uint256)",
+      ]),
+      functionName: "available",
+      args: [walletAddress],
+    });
+    return (Number(result) / 1e18).toString();
+  };
 
   const handleStake = async () => {
     if (depositLoading) return;
@@ -67,6 +129,8 @@ export function StakeWithPermitForm({
     const transferDetailsArg = [STAKING_CONTRACT_ADDRESS, stakeAmountStr];
     try {
       setDepositLoading(true);
+      const prevTokenBalance = tokenBalance;
+      const prevStakedBalance = stakedBalance;
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -106,6 +170,13 @@ export function StakeWithPermitForm({
         setAmount("");
         localStorage.setItem("savingsRewardBase", "0");
         localStorage.setItem("savingsRewardStartTime", Date.now().toString());
+        // Poll for both tokenBalance and stakedBalance to change
+        await pollForChange(
+          [fetchTokenBalanceValue, fetchStakedBalanceValue],
+          [prevTokenBalance, prevStakedBalance],
+          [(a, b) => String(a) !== String(b), (a, b) => String(a) !== String(b)]
+        );
+        // Final update
         await fetchStakedBalance();
         await fetchAvailableReward();
         await fetchBalance();
@@ -136,6 +207,8 @@ export function StakeWithPermitForm({
     const withdrawAmountStr = withdrawAmount.toString();
     try {
       setWithdrawLoading(true);
+      const prevTokenBalance = tokenBalance;
+      const prevStakedBalance = stakedBalance;
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -157,6 +230,13 @@ export function StakeWithPermitForm({
         setAmount("");
         localStorage.setItem("savingsRewardBase", "0");
         localStorage.setItem("savingsRewardStartTime", Date.now().toString());
+        // Poll for both tokenBalance and stakedBalance to change
+        await pollForChange(
+          [fetchTokenBalanceValue, fetchStakedBalanceValue],
+          [prevTokenBalance, prevStakedBalance],
+          [(a, b) => String(a) !== String(b), (a, b) => String(a) !== String(b)]
+        );
+        // Final update
         await fetchStakedBalance();
         await fetchAvailableReward();
         await fetchBalance();
@@ -179,6 +259,8 @@ export function StakeWithPermitForm({
     }
     try {
       setCollectLoading(true);
+      const prevTokenBalance = tokenBalance;
+      const prevAvailableReward = displayAvailableReward;
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
@@ -199,6 +281,13 @@ export function StakeWithPermitForm({
       } else {
         localStorage.setItem("savingsRewardBase", "0");
         localStorage.setItem("savingsRewardStartTime", Date.now().toString());
+        // Poll for both tokenBalance and displayAvailableReward to change
+        await pollForChange(
+          [fetchTokenBalanceValue, fetchAvailableRewardValue],
+          [prevTokenBalance, prevAvailableReward],
+          [(a, b) => String(a) !== String(b), (a, b) => String(a) !== String(b)]
+        );
+        // Final update
         await fetchStakedBalance();
         await fetchAvailableReward();
         await fetchBalance();
