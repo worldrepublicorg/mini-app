@@ -8,53 +8,73 @@ import React from "react";
 export const MiniKitContext = React.createContext({
   isInstalled: false,
   isInitializing: true,
+  error: null as string | null,
+  retry: () => {},
 });
 
 export default function MiniKitProvider({ children }: { children: ReactNode }) {
   const [isInitializing, setIsInitializing] = useState(true);
   const [isInstalled, setIsInstalled] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
+  // Retry logic
+  const installMiniKit = React.useCallback(() => {
+    setIsInitializing(true);
+    setIsInstalled(false);
+    setError(null);
+
     let cancelled = false;
     let pollCount = 0;
-    const maxPolls = 10; // 10 seconds max
+    const maxPolls = 30; // 30 seconds max
     const pollDelay = 1000;
 
-    const installAndPoll = async () => {
-      try {
-        MiniKit.install();
-        // Poll for installation
-        const poll = () => {
-          if (cancelled) return;
-          const installed = MiniKit.isInstalled();
-          if (installed) {
-            setIsInstalled(true);
-            setIsInitializing(false);
-          } else if (pollCount < maxPolls) {
-            pollCount++;
-            setTimeout(poll, pollDelay);
-          } else {
-            setIsInstalled(false);
-            setIsInitializing(false);
-            console.error("MiniKit failed to install after polling.");
-          }
-        };
-        poll();
-      } catch (error) {
+    const poll = () => {
+      if (cancelled) return;
+      const installed = MiniKit.isInstalled();
+      if (installed) {
+        setIsInstalled(true);
+        setIsInitializing(false);
+        setError(null);
+      } else if (pollCount < maxPolls) {
+        pollCount++;
+        setTimeout(poll, pollDelay);
+      } else {
         setIsInstalled(false);
         setIsInitializing(false);
-        console.error("Error initializing MiniKit:", error);
+        setError(
+          "MiniKit could not be initialized. Please make sure you are using the World App and try again."
+        );
       }
     };
 
-    installAndPoll();
+    try {
+      MiniKit.install();
+      poll();
+    } catch (e) {
+      setIsInstalled(false);
+      setIsInitializing(false);
+      setError("Failed to initialize MiniKit. Please try again.");
+    }
+
     return () => {
       cancelled = true;
     };
   }, []);
 
+  useEffect(() => {
+    const cleanup = installMiniKit();
+    return cleanup;
+  }, [installMiniKit]);
+
   return (
-    <MiniKitContext.Provider value={{ isInstalled, isInitializing }}>
+    <MiniKitContext.Provider
+      value={{
+        isInstalled,
+        isInitializing,
+        error,
+        retry: installMiniKit,
+      }}
+    >
       {children}
     </MiniKitContext.Provider>
   );
