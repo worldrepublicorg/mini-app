@@ -1481,7 +1481,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
     // Only show "no party" message when we're sure user has no party
     return (
-      <div className="mb-4">
+      <div className="mb-6">
         <div className="mb-3 flex items-center justify-between">
           <Typography
             as="h2"
