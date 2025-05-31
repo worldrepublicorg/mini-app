@@ -8,7 +8,8 @@ import { TabSwiper } from "@/components/TabSwiper";
 import { OpenLetterCard } from "@/components/OpenLetterCard";
 import { PollOfTheWeek } from "@/components/PollOfTheWeek";
 import { useTranslations } from "@/hooks/useTranslations";
-import { PoliticalPartyList } from "@/components/PoliticalPartyList";
+import { MyPartySection } from "@/components/MyPartySection";
+import { PartyDiscoveryList } from "@/components/PartyDiscoveryList";
 import { Button } from "@/components/ui/Button";
 import { PiUsersThreeFill, PiScalesFill } from "react-icons/pi";
 import { useSearchParams } from "next/navigation";
@@ -114,7 +115,8 @@ export default function GovernPage({
                   ?.description
               }
             />
-            <PoliticalPartyList lang={lang} />
+            <MyPartySection lang={lang} />
+            <PartyDiscoveryList lang={lang} />
           </>
         );
       case TAB_KEYS.POLLS:
