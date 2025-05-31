@@ -14,11 +14,12 @@ import { useParties } from "@/components/contexts/PartiesContext";
 import { useToast } from "@/components/ui/Toast";
 import { viemClient } from "@/lib/viemClient";
 import { useWallet } from "@/components/contexts/WalletContext";
-import { PiGearBold, PiInfoFill, PiLinkSimpleBold } from "react-icons/pi";
+import { PiInfoFill, PiLinkSimpleBold } from "react-icons/pi";
 import { PiUsersBold } from "react-icons/pi";
 import Link from "next/link";
-import { Dropdown } from "./ui/Dropdown";
 import { Button } from "./ui/Button";
+import { Drawer, DrawerContent, DrawerTitle } from "./ui/Drawer";
+import { DrawerHeader } from "@worldcoin/mini-apps-ui-kit-react";
 
 const POLITICAL_PARTY_REGISTRY_ADDRESS: string =
   "0x70a993E1D1102F018365F966B5Fc009e8FA9b7dC";
@@ -52,7 +53,6 @@ export function PartyDiscoveryList({ lang }: { lang: string }) {
   const [isLeaveConfirmDrawerOpen, setIsLeaveConfirmDrawerOpen] =
     useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
-  const [selectedParty, setSelectedParty] = useState<Party | null>(null);
 
   const fetchPartyFromBlockchain = async (
     partyId: number
@@ -671,6 +671,62 @@ export function PartyDiscoveryList({ lang }: { lang: string }) {
           </>
         )}
       </div>
+
+      {/* Leave Confirmation Drawer */}
+      <Drawer
+        open={isLeaveConfirmDrawerOpen}
+        onOpenChange={setIsLeaveConfirmDrawerOpen}
+      >
+        <DrawerContent>
+          <div className="flex flex-col p-6">
+            <DrawerHeader>
+              <DrawerTitle>
+                {
+                  dictionary?.components?.politicalPartyList?.drawers?.leave
+                    ?.title
+                }
+              </DrawerTitle>
+            </DrawerHeader>
+            <Typography
+              as="p"
+              variant={{ variant: "body", level: 2 }}
+              className="mx-auto mt-4 text-center"
+            >
+              {dictionary?.components?.politicalPartyList?.drawers?.leave?.description.replace(
+                "{{partyName}}",
+                partyToLeaveFrom?.name || ""
+              )}
+              {partyToLeaveFrom?.isUserLeader && (
+                <>
+                  <br />
+                  <br />
+                  <div className="text-error-600">
+                    {
+                      dictionary?.components?.politicalPartyList?.drawers?.leave
+                        ?.leaderWarning
+                    }
+                  </div>
+                </>
+              )}
+            </Typography>
+            <Button
+              variant="primary"
+              fullWidth
+              onClick={handleLeave}
+              disabled={isProcessing}
+              className="mt-10"
+            >
+              {isProcessing
+                ? dictionary?.components?.politicalPartyList?.drawers?.leave
+                    ?.button?.leaving
+                : dictionary?.components?.politicalPartyList?.drawers?.leave?.button?.leave.replace(
+                    "{{partyShortName}}",
+                    partyToLeaveFrom?.shortName || ""
+                  )}
+            </Button>
+          </div>
+        </DrawerContent>
+      </Drawer>
 
       {/* Scroll to top button container - always present */}
       <div
