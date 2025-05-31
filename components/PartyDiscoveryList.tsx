@@ -1,6 +1,6 @@
 "use client";
 
-import { Input } from "@worldcoin/mini-apps-ui-kit-react";
+import { Input } from "@/components/ui/Input";
 import { TabSwiper } from "@/components/TabSwiper";
 import { Typography } from "@/components/ui/Typography";
 import { LoadingSkeleton, PartySkeletonCard } from "./PartySkeletons";
@@ -610,7 +610,7 @@ export function PartyDiscoveryList({ lang }: { lang: string }) {
                 />
               </svg>
             }
-            label="Search parties..."
+            placeholder="Search parties..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
