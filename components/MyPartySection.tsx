@@ -1142,8 +1142,8 @@ export function MyPartySection({ lang }: PoliticalPartyListProps) {
     <div className="mb-4">{children}</div>
   );
 
-  // Create a memoized MyPartySection component
-  function MyPartySection() {
+  // Create a memoized MyPartyCard component
+  function MyPartyCard() {
     // If we have optimistic data or real data, show it
     if (userPartyId === -1 || userPartyId > 0) {
       return (
@@ -1214,7 +1214,7 @@ export function MyPartySection({ lang }: PoliticalPartyListProps) {
   return (
     <div className="w-full overflow-x-hidden">
       {/* My Party Section - now memoized */}
-      <MyPartySection />
+      <MyPartyCard />
 
       {/* Create Party Drawer */}
       <Drawer open={isCreateDrawerOpen} onOpenChange={setIsCreateDrawerOpen}>
