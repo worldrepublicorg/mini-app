@@ -83,8 +83,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x072441e60feb69913228af811449d4c42b66890a584bfc1ed053db72dfaeaed8",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "19.84",
+          transactionHash:
+            "0xaf8b86daaa908843d111bcbaf13e46eb20dccf30a8b4c661529cf5b9669b0aec",
         },
       },
     ],
@@ -161,8 +162,9 @@ export const latestPayouts: PartyPayout[] = [
             "0xe7f036e8740455bab53ecdef621a7d2cc497aeba54ebd4c027b7a2a49573de04",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "4.35",
+          transactionHash:
+            "0xd81f47a764a786178c0bd7ac586137d377ecd765e45452bf27dadf41f82380a5",
         },
       },
     ],
@@ -239,8 +241,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x94d081a0c6c77688601633618f54274bafb02d7da211b65a2343079a95d0b415",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "2.32",
+          transactionHash:
+            "0xd8f09493e27961a39456f59e1de35e6f99fe5e4ba0096872b12d4c663c8f91a1",
         },
       },
     ],
@@ -317,8 +320,9 @@ export const latestPayouts: PartyPayout[] = [
             "0xcf9575c350657eac74865f2cda2ad3d42435af4279a62768a0a5d1451d861273",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "2.25",
+          transactionHash:
+            "0xfdf5ce0eeb5ab55a0163dd37412082267c8aafb5654aac680a503f358f8a16c3",
         },
       },
     ],
@@ -395,8 +399,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x201e7a7238c7b56f39b6234729b27c6df450c0f1c83ecc297ff2833508f22e74",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "2.65",
+          transactionHash:
+            "0x08b9556e34a2280ce60c23b0c3c6f6bf4fa9ffd828ae93af25982fb22b3a66b7",
         },
       },
     ],
@@ -473,8 +478,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x150e8d71c86d27847432efd7dfc74a3805c31cb4eba4cd97c77a306af0524074",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "2.48",
+          transactionHash:
+            "0xe7ea1da392fe44036583a33bdccaeddb799bfe04283bf27a1f606fbe2ce2130d",
         },
       },
     ],
@@ -551,8 +557,9 @@ export const latestPayouts: PartyPayout[] = [
             "0xd87d379ef327f636e8ad5269b9e7565c712c0710c66a3c63eea9090662407e30",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "2.24",
+          transactionHash:
+            "0x503b2f056e0715bff7528d1f5b5a282f571bf76c680d250e0c28f2202b23c778",
         },
       },
     ],
@@ -629,8 +636,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x5ad15f44a2c38546d1753b02bc70e21af6bf09708e60cb369a6fc7bd6e8e7de9",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.95",
+          transactionHash:
+            "0xe9d9a810ddbda8880f60133b4b1320d405163abeab2d325e77102f1677756b41",
         },
       },
     ],
@@ -707,8 +715,9 @@ export const latestPayouts: PartyPayout[] = [
             "0xdec27efeb186052c33b4e69638afc5d24f87561743f149812a4ffbb16a4f4595",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.95",
+          transactionHash:
+            "0xae6d12c7e60aa62aeb5c7d3426cf10ebe1b978e23346c51ca119cc702358c95d",
         },
       },
     ],
@@ -785,8 +794,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x395eba90b076cc27556dcdd82e87d200c304d3d253506a8390704edda991e6a9",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.97",
+          transactionHash:
+            "0xc0ba01d979ee48458e761fbbd68c0baab588ed23c39b8b4cf3b23d5aa6ba648f",
         },
       },
     ],
@@ -863,8 +873,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x7dfa261c0ca63ff6b785996099ff15a12c2614fce7d1c6eb8caf4b79570e450a",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.93",
+          transactionHash:
+            "0x288c3ab4069c7fedc7d8b48314d68dedf2de87b690f928844781727de50e5f20",
         },
       },
     ],
@@ -941,8 +952,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x1306a06075d9ac4ca3129c27978e12f7def8f1e8265288596cf96524ae770777",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.83",
+          transactionHash:
+            "0x0b03ef07b18fa5d1bdefd5b304eb7291e589efbec7dacb7861b0905e90cfb15d",
         },
       },
     ],
@@ -1019,8 +1031,9 @@ export const latestPayouts: PartyPayout[] = [
             "0xf12b7f623a2b7b20878e98abe42a60947b2010d732f590233427bc9084879f67",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.75",
+          transactionHash:
+            "0xa832abdd7bb4b2c500f48baad7340ace7be267ffb8c6fe956fd770a314a8fef4",
         },
       },
     ],
@@ -1097,8 +1110,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x0cbe09789000b52fc7d43665e9d15973f6286217562e7eb577ab22c9a36e704c",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.73",
+          transactionHash:
+            "0x6910663953d1fcbfc8b85006c88051854fdf6a94281592574f94577bffd1a02e",
         },
       },
     ],
@@ -1175,8 +1189,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x1cd0d94e664c8747f367e30e524f0c7aafddcb83d3dc81dcde425cb5dd47cddf",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.75",
+          transactionHash:
+            "0x5e9fa0d2a1f94141132fe510ffad7812af2828c60226a0870de6db5fdc77a561",
         },
       },
     ],
@@ -1253,8 +1268,9 @@ export const latestPayouts: PartyPayout[] = [
             "0xdf30a00439263c71debe200198ca7593017096fe558ee2358651d2c93837c821",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.73",
+          transactionHash:
+            "0x57cc4fd855f65a64f69ed1260775dea333593ad02629b1438e3940dade888cdf",
         },
       },
     ],
@@ -1463,8 +1479,9 @@ export const latestPayouts: PartyPayout[] = [
             "0xe56eb49b29a47345005f627d393f85d89f10d3381ea9152e1781e30c6e53c5ce",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "0.86",
+          transactionHash:
+            "0x8904d494986bc7b09669b9b60945a866ce33e663e4411a722266e922ea785925",
         },
       },
     ],
@@ -2492,8 +2509,9 @@ export const latestPayouts: PartyPayout[] = [
             "0xb7f6a7a70f8673df5a5f70cbf2138f7bdd4f91a785f6b896966d70bb8d9a2d17",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.84",
+          transactionHash:
+            "0xcfb6a94887d714749c2ee5bc54437d696a131591a4c586b16aa925b8849c2378",
         },
       },
     ],
@@ -2611,8 +2629,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x35ef3e0f29fb060ee8e5a33c7e110e99bd171c7739ddeacedf614471859c8e1f",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "3.07",
+          transactionHash:
+            "0xa3fd13b52954a3406b09f24eb39a6c23f11c59adcce6da4363b0f4e8440d2cb7",
         },
       },
     ],
@@ -2676,8 +2695,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x7bef9fb9f5c296fd98fd86950ce821576f52741074eab9dbc520933171809708",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "2.89",
+          transactionHash:
+            "0xfe86817c3986aa9cc122332757e4d46368b561f69c1344821a3f469b8eaf0bdc",
         },
       },
     ],
@@ -2741,8 +2761,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x116bf57a0ca4796130ebd8c0333d1e3e88c95823263c4898bfb72f9bfab7e4a2",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "2.57",
+          transactionHash:
+            "0xb4163bd7db9abca71c90f5103b1e32aa7bd2b3d9c076141fd8698eef9eab07c7",
         },
       },
     ],
@@ -2806,8 +2827,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x009916bca25ff3e01112f84b527daaa202f8067cb09d60753eb831487602ff09",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "2.95",
+          transactionHash:
+            "0xe1d622e74630260b0238720180936b1cd8d1b52ce97cc999b76486bace222232",
         },
       },
     ],
@@ -2871,8 +2893,9 @@ export const latestPayouts: PartyPayout[] = [
             "0xc5b4618e0a4e38a486ce3d576b90df98a31d8fefd8b47cf4249a8582878c17d8",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.77",
+          transactionHash:
+            "0x5f094d3b326c439759e95583f67d75e4244aa0cd894ca9653fc206b5622c85af",
         },
       },
     ],
@@ -2936,8 +2959,9 @@ export const latestPayouts: PartyPayout[] = [
             "0xc3e28bd807536d5d1d6945ac06e37c2dddc0a9f9fcfd3a28c5203f2064ec9b79",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.75",
+          transactionHash:
+            "0x641bd77e1b97d51750f1c2c3958a89dfa99ca4f387620a6027998b2c57bfee76",
         },
       },
     ],
@@ -3001,8 +3025,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x2eac4f1bc92ee5ab76062f4497baa5bf4ad2b1a9c2dba343b4e5eb1598ec54d9",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.76",
+          transactionHash:
+            "0x4e4badc5bfe4c0ac630ef995b17150a24ec1f1c9a8ab43755be27ad8b097be9d",
         },
       },
     ],
@@ -3066,8 +3091,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x7f3def7b5d1c8e414ede6d9a014155c5ad0fa5be5c59ffb1342498abb25331cf",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "0.86",
+          transactionHash:
+            "0x6f832a7b5af494dfc638de67036705dd09167fcb11bbcf2936c2ca340b396e8a",
         },
       },
     ],
@@ -3131,8 +3157,9 @@ export const latestPayouts: PartyPayout[] = [
             "0xcb6ceac680a7c42d361f069f6858308b9a10931443d3d5aff19b98717c87e6fa",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.79",
+          transactionHash:
+            "0xb320ea1744a04e5e447a960514b95552550698e6ac4f6a9357bcbe323d89cd26",
         },
       },
     ],
@@ -3196,8 +3223,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x2fc610835c920d02c984ae6de35eef425c1fff00384d7bfb48f3767fc5af1877",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.73",
+          transactionHash:
+            "0x52bbdf12b28c6a41ddaccdf5b063c19b5c422485d08b4d6bf87659600a743be1",
         },
       },
     ],
@@ -3261,8 +3289,9 @@ export const latestPayouts: PartyPayout[] = [
             "0xce9d72f2ab0ea6b572d34f7d51de344b714b5db1414a3b93315145685cab971c",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.77",
+          transactionHash:
+            "0x5f0f4531449841c05c6618a29d46c2b2c8ac5b1745c5bddeecf857f0511d3c94",
         },
       },
     ],
@@ -3579,8 +3608,9 @@ export const latestPayouts: PartyPayout[] = [
             "0xf50f048a738b9c29e97cfcc5c08af1a49a5120ffa1e6c0d7a3723b43f92bbe7f",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.73",
+          transactionHash:
+            "0xd7528d7c822a16a6ab195b5997d4468075a924d7f7512cc4fa802d5e334f5a39",
         },
       },
     ],
@@ -3712,8 +3742,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x1d09c4cbed64b501abffd4b68e3c325e68584ea22046ee4cb076ab63074043c1",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.99",
+          transactionHash:
+            "0x1e9381a6ad0c5e4b61fc5bfc79ad36f6eb697cda008993c29701fc993403228e",
         },
       },
     ],
@@ -3764,8 +3795,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x02eb7606bf5b8c0e5bcb74824654b2a429cbcafe9031e4ffb1888a0b7e2539fd",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.97",
+          transactionHash:
+            "0xfe431752f7d412682cf47d567d76e4de2147283a9f68b6981e93fb2fd3bec18a",
         },
       },
     ],
@@ -3843,8 +3875,9 @@ export const latestPayouts: PartyPayout[] = [
             "0xcff5c3547ac098f6921207448dd985e29b615c1ffa54ff460a417ce77b353079",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "2.04",
+          transactionHash:
+            "0x9078a857e7b7bdaad623cc893f8000ff0610b132d6c15b691a05b3d5663b3bf2",
         },
       },
     ],
@@ -3895,8 +3928,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x600d2b70b8f426a170a846a1544fd612cc309e451dc2365b2a57f928c21d00e9",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.90",
+          transactionHash:
+            "0xc27f52a53ab27c50c8053146a9a14ac267835e367cf8bde20fa301ab13f9cd5b",
         },
       },
     ],
@@ -3987,8 +4021,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x19544a2373113b1e91731118ad7395a62f143aa288ea3bbd9963596941c3a7dc",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.80",
+          transactionHash:
+            "0xc1fa262ebeaaeb0fcfed694485aa38e0030460172938237c345b7a70237c7b28",
         },
       },
     ],
@@ -4053,8 +4088,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x0a63f0052b2d90e88a18a6cdc3b96a7c49b0e1e7276965da4bc306a156403fd2",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "7.90",
+          transactionHash:
+            "0xb587dd5ca2a02fa6bd8c42e241a3e01341dc9d65c5a2becdcbd913ddc4855f1a",
         },
       },
     ],
@@ -4092,8 +4128,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x2e4bdb7ca03c07fa3537cc8f13a33f635cd468a457fbabfcc4aa8e587eb62e2c",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "2.36",
+          transactionHash:
+            "0x030c08ea5d4583fc59ec26c89dbc39706776e25a0a7adbc3852dded000bcadf3",
         },
       },
     ],
@@ -4131,8 +4168,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x75a269f51201e1e2456ae96168366868f62ad9556b6bbe8aa69c67a966271c22",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "2.16",
+          transactionHash:
+            "0x835eda879c92b159b4acc31aafd990b05146fdcb98b9b4b551bc7cfdeac37a58",
         },
       },
     ],
@@ -4170,8 +4208,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x72fc52d80874e35da67bcde0b3efbdeb7a82d84a738373c3034e82c8c5555824",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "2.17",
+          transactionHash:
+            "0x186834eb0ac79c15e660fcc1c3e8700658fedadd5c002c293cd8b4bcf73c262a",
         },
       },
     ],
@@ -4209,8 +4248,9 @@ export const latestPayouts: PartyPayout[] = [
             "0xf03d60ded5adb8702d87669decef6a235a619902d1e0456f2d1c03a78990c85a",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "2.01",
+          transactionHash:
+            "0x7b357048b708b45a62ebc44bb90fd22c4b254c5d28f058638207c8081ef41a08",
         },
       },
     ],
@@ -4248,8 +4288,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x134707a5f8c512c26682acd02686b9246b4116cfe38316bca7b33fe42252c5cb",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.86",
+          transactionHash:
+            "0xc4492276d57a28212267e2d73a5a063b7107af4f14e1844d484bb8f86627a96b",
         },
       },
     ],
@@ -4287,8 +4328,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x677e7e84f254843eb0e918ac951711e6821aa23649ce644b47ea88048fe7b539",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "2.10",
+          transactionHash:
+            "0x2464f6e4f7d0511b223617bac02d07e8da91c46d5e3e9d3e2f37136fa57aefd1",
         },
       },
     ],
@@ -4326,8 +4368,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x8cdde0f0b8e98881edc362ab1ef9a10d099a39a1cf85750ef5dd6bb5218ee514",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.85",
+          transactionHash:
+            "0x938e43b56c416b2a5e3a7c2c10e299db09fbb5c1a235f1544ad1a79952526626",
         },
       },
     ],
@@ -4365,8 +4408,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x41f5015b21cd1ff705ecd278aeda2f18b6c6362dba04a1a780a0653f811659a3",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.73",
+          transactionHash:
+            "0x47493fc8ee2de14f23f795db2ed75f32c37340109f54c70a7443b0c312d7318c",
         },
       },
     ],
@@ -4391,8 +4435,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x59fa8ec9c8f5e492474bc04b02a58f63e6226c707ade1da50b2461b949916305",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "2.35",
+          transactionHash:
+            "0xa25cc9ee4e5792c85d89feb50185038aa2fcd5fef9b21c8e7e59448ab865e763",
         },
       },
     ],
@@ -4417,8 +4462,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x7d0dc49d6f3993dc78e9f7a1855c02fb07c37f398f176fddc002901cbdb18ecc",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "2.05",
+          transactionHash:
+            "0xf3630ebc34138d7e2dafdb3d50cb877bb8eac0bde280462724751b7fed0f0fe0",
         },
       },
     ],
@@ -4443,8 +4489,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x7185934dcfdd27b8b41e88c0f1568514b48a9aa3a9bfe2cd760542c142c35b57",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.94",
+          transactionHash:
+            "0x0ebef16c311c1998233be321ad8c8c797faeaa6348f579970fa19060d74b62ca",
         },
       },
     ],
@@ -4469,8 +4516,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x9e7e648865649033ecbaec334e0892a733eb5a82128ddab7fcd9bb3205ecd622",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.93",
+          transactionHash:
+            "0xa79f114eebe13eff5cd76c6d0ee65629543ec17ce4869ca65df3d9d39bfe981c",
         },
       },
     ],
@@ -4495,8 +4543,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x7d10ccd221c72690fb5a658cac0bde5af62520dcd7b9d25800e198c6c092ea75",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.92",
+          transactionHash:
+            "0x75c4c0310d78e03381e06b30c685aa302d2236a59a1ddc34bf82663fd306db04",
         },
       },
     ],
@@ -4521,8 +4570,9 @@ export const latestPayouts: PartyPayout[] = [
             "0xfc32f1d877dff81efbc2999422995b6db77e22d9aeb7714c02bc498a1804cde0",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.77",
+          transactionHash:
+            "0x0abaeb7832c426f2b82d005e7da8e4292aba6ad3422c5290ff866414fa123f02",
         },
       },
     ],
@@ -4547,8 +4597,9 @@ export const latestPayouts: PartyPayout[] = [
             "0x95f1474e70bbc41e3045a89942d4b9f542ebfd759898fe2b24ee7bec913418bf",
         },
         wld: {
-          amount: "",
-          transactionHash: "",
+          amount: "1.73",
+          transactionHash:
+            "0xf0a28be7cf5ed6ae90892189633ac462047e96c6ef87faaa125dfea7542e3219",
         },
       },
     ],
