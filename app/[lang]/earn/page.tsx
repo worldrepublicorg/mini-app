@@ -910,19 +910,7 @@ export default function EarnPage({
         });
       }
     }
-  }, [
-    isSuccess,
-    txType,
-    transactionId,
-    claimableAmount,
-    claimableAmountPlus,
-    fetchBasicIncomeInfo,
-    fetchBasicIncomePlusInfo,
-    fetchBalance,
-    isSubmitting,
-    isClaimingBasic,
-    isClaimingPlus,
-  ]);
+  }, [isSuccess, txType, transactionId]);
 
   // Clean up timers on unmount
   useEffect(() => {
