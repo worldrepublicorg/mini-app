@@ -62,26 +62,6 @@ export function PartySkeletonCard({
 
 export const LoadingSkeleton = ({ dictionary }: { dictionary: any }) => (
   <div className="w-full">
-    {/* My Party Section Skeleton with Create Button */}
-    <div className="mb-6">
-      <div className="mb-3 flex items-center justify-between">
-        <Typography
-          as="h2"
-          variant={{ variant: "subtitle", level: 1 }}
-          className="text-[19px] font-semibold"
-        >
-          {dictionary?.components?.politicalPartyList?.myParty}
-        </Typography>
-        <button
-          className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-900"
-          title={dictionary?.components?.politicalPartyList?.createParty}
-        >
-          <FaPlus className="text-gray-500" size={12} />
-        </button>
-      </div>
-      <PartySkeletonCard />
-    </div>
-
     {/* Discover Section Title */}
     <Typography
       as="h2"
