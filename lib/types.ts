@@ -76,7 +76,6 @@ export interface Party {
   founder: string;
   leader: string;
   memberCount: number;
-  
   documentVerifiedMemberCount: number;
   verifiedMemberCount: number;
   creationTime: number;
@@ -106,7 +105,7 @@ export interface PartiesContextType {
   setUserPartyId: (id: number) => void;
   setParties: (parties: Party[] | ((prevParties: Party[]) => Party[])) => void;
   getOptimisticPartyId: () => number;
-  storeUserParty: (party: Party) => void;
+  storeUserParty: (party: Party | null) => void;
   shuffledActiveParties: Party[];
 }
 

@@ -432,7 +432,8 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     }
   };
 
-  const FetchUserParty = ({
+  // Rename FetchUserParty to UserPartyCard for clarity
+  const UserPartyCard = ({
     partyId,
     renderPartyCard,
     walletAddress,
@@ -746,6 +747,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     } catch (error) {
       console.error("Error joining party:", error);
       showToast("Error joining party", "error");
+      // Reset context and localStorage to avoid stale state
+      setUserPartyId(0);
+      storeUserParty(null);
+      localStorage.removeItem("userPartyCache");
+      localStorage.removeItem("optimisticParty");
     }
   };
 
@@ -861,6 +867,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         }
         // Just reset the userPartyId, don't try to store null
         setUserPartyId(0);
+        storeUserParty(null);
+        localStorage.removeItem("userPartyCache");
+        localStorage.removeItem("optimisticParty");
       } else {
         setIsCreateDrawerOpen(false);
         setCreatePartyForm({
@@ -873,8 +882,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     } catch (error) {
       console.error("Error creating party:", error);
       showToast("Error creating party", "error");
-      // Just reset the userPartyId, don't try to store null
+      // Reset context and localStorage to avoid stale state
       setUserPartyId(0);
+      storeUserParty(null);
+      localStorage.removeItem("userPartyCache");
+      localStorage.removeItem("optimisticParty");
     } finally {
       setIsCreating(false);
     }
@@ -1451,7 +1463,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
           {userPartyId > 0 || userPartyId === -1 ? (
             // Always show the party card - either with real ID or temporary (-1) ID
-            <FetchUserParty
+            <UserPartyCard
               partyId={userPartyId}
               renderPartyCard={renderPartyCard}
               walletAddress={walletAddress}

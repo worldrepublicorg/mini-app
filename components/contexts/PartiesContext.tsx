@@ -108,7 +108,7 @@ export const PartiesProvider: React.FC<{ children: React.ReactNode }> = ({
   }, [activeParties, pendingParties]);
 
   // Add a function to store user party data
-  const storeUserParty = useCallback((party: Party) => {
+  const storeUserParty = useCallback((party: Party | null) => {
     setUserPartyData(party);
   }, []);
 
