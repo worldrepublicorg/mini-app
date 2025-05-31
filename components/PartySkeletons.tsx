@@ -44,7 +44,7 @@ export function PartySkeletonCard({
       )}
 
       {/* The skeleton card UI */}
-      <div className="rounded-lg border border-gray-200 p-4">
+      <div className="mb-4 rounded-lg border border-gray-200 p-4">
         <div className="flex items-center justify-between">
           <div className="h-5 w-40 animate-pulse rounded bg-gray-200"></div>
         </div>
