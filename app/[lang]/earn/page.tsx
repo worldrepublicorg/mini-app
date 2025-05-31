@@ -4,18 +4,27 @@ import { Typography } from "@/components/ui/Typography";
 import { useState, useEffect, useCallback, useRef } from "react";
 import {
   PiHandCoinsFill,
+  PiUserPlusFill,
   PiWalletFill,
   PiCoinsFill,
   PiTrendUpFill,
   PiUserCheckFill,
+  PiNotePencilFill,
+  PiGlobeFill,
+  PiIdentificationCardFill,
+  PiCoinFill,
   PiInfoFill,
 } from "react-icons/pi";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/Drawer";
 import { WalletAuth } from "@/components/WalletAuth";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { viemClient } from "@/lib/viemClient";
-import { parseAbi } from "viem";
-import { MiniKit, getIsUserVerified } from "@worldcoin/minikit-js";
+import { parseAbi, decodeAbiParameters } from "viem";
+import {
+  MiniKit,
+  getIsUserVerified,
+  VerificationLevel,
+} from "@worldcoin/minikit-js";
 import { TabSwiper } from "@/components/TabSwiper";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { Button } from "@/components/ui/Button";
@@ -27,7 +36,6 @@ import { IoIosArrowForward } from "react-icons/io";
 import Link from "next/link";
 import { useTranslations } from "@/hooks/useTranslations";
 import type { EarnTabKey } from "@/lib/types";
-import { InviteTab } from "./tabs/InviteTab";
 
 type TxType =
   | null
@@ -35,6 +43,34 @@ type TxType =
   | "setup-plus"
   | "claim-basic"
   | "claim-plus";
+
+async function pollForClaimUpdates(
+  fetchBasicIncomeInfo: () => Promise<void>,
+  fetchBasicIncomePlusInfo: () => Promise<void>,
+  fetchBalance: () => Promise<void>,
+  attempts = 3,
+  delay = 1000
+) {
+  for (let i = 0; i < attempts; i++) {
+    await fetchBasicIncomeInfo();
+    await fetchBasicIncomePlusInfo();
+    await fetchBalance();
+    await new Promise((res) => setTimeout(res, delay));
+  }
+}
+
+async function pollForSetupUpdates(
+  fetchBasicIncomeInfo: () => Promise<void>,
+  fetchBasicIncomePlusInfo: () => Promise<void>,
+  attempts = 3,
+  delay = 1000
+) {
+  for (let i = 0; i < attempts; i++) {
+    await fetchBasicIncomeInfo();
+    await fetchBasicIncomePlusInfo();
+    await new Promise((res) => setTimeout(res, delay));
+  }
+}
 
 export default function EarnPage({
   params: { lang },
@@ -57,9 +93,12 @@ export default function EarnPage({
     fetchBasicIncomeInfo,
     fetchBasicIncomePlusInfo,
     fetchCanReward,
+    fetchSecureDocumentCanReward,
     fetchRewardCount,
     fetchSecureDocumentRewardCount,
     fetchHasRewarded,
+    setBasicIncomeActivated,
+    setBasicIncomePlusActivated,
     username,
     setUsername,
   } = useWallet();
@@ -78,6 +117,9 @@ export default function EarnPage({
     appConfig: { app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}` },
     transactionId: transactionId!,
   });
+
+  // Calculate total reward count
+  const totalRewardCount = rewardCount + secureDocumentRewardCount;
 
   // Add a new loading state for claimable amount
   const [isClaimableLoading, setIsClaimableLoading] = useState<boolean>(true);
@@ -342,12 +384,25 @@ export default function EarnPage({
 
   const [activeTab, setActiveTab] = useState<EarnTabKey>("Basic income");
 
+  const [isSendingReward, setIsSendingReward] = useState(false);
+  const [rewardStatus, setRewardStatus] = useState<{
+    success: boolean;
+    message: string;
+  } | null>(null);
+
   // Wrap sendReward in useCallback
   const sendReward = useCallback(
     async (recipientAddress: string) => {
       if (!MiniKit.isInstalled() || !walletAddress) {
+        setRewardStatus({
+          success: false,
+          message: "Please connect your wallet first",
+        });
         return;
       }
+
+      setIsSendingReward(true);
+      setRewardStatus(null);
 
       // Check if this is the stored referrer
       const storedReferrer = localStorage.getItem("referredBy");
@@ -382,8 +437,23 @@ export default function EarnPage({
             const errorMessage =
               (finalPayload as any).description || "Error sending reward";
             showToast(errorMessage, "error");
+            setRewardStatus({
+              success: false,
+              message: errorMessage,
+            });
+          } else {
+            // Still set reward status but without showing toast
+            setRewardStatus({
+              success: false,
+              message: "Transaction was canceled",
+            });
           }
         } else {
+          setRewardStatus({
+            success: true,
+            message: `Successfully sent reward to ${recipientUsername}!`,
+          });
+
           // After successful reward transaction, update the canReward status
           fetchCanReward();
           fetchHasRewarded();
@@ -394,6 +464,12 @@ export default function EarnPage({
           error.message || "An unexpected error occurred with the reward",
           "error"
         );
+        setRewardStatus({
+          success: false,
+          message: error.message || "Failed to send reward. Please try again.",
+        });
+      } finally {
+        setIsSendingReward(false);
       }
     },
     [
@@ -775,6 +851,11 @@ export default function EarnPage({
     }
   };
 
+  // In event listeners, only finish if the event matches the current tx (if possible)
+  // If not possible to match by tx hash, rely on the state change and call finishTx()
+  // (already present in your event listeners after updating state)
+
+  // In receipt effect, only finish if the transaction matches
   useEffect(() => {
     if (
       isSuccess &&
@@ -897,6 +978,14 @@ export default function EarnPage({
     return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
+  const [lookupResult, setLookupResult] = useState<{
+    username: string;
+    address: string;
+    profile_picture_url: string | null;
+  } | null>(null);
+  const [isLookingUp, setIsLookingUp] = useState(false);
+  const [lookupError, setLookupError] = useState("");
+
   // Add useEffect to set recipient username from localStorage when component mounts
   useEffect(() => {
     const storedReferrer = localStorage.getItem("referredBy");
@@ -904,6 +993,53 @@ export default function EarnPage({
       setRecipientUsername(storedReferrer);
     }
   }, []);
+
+  const lookupUsername = async () => {
+    if (!recipientUsername || !recipientUsername.trim()) {
+      setLookupError("Please enter a username");
+      return;
+    }
+
+    setIsLookingUp(true);
+    setLookupError("");
+    setLookupResult(null);
+
+    try {
+      // Use MiniKit API to look up username (if available)
+      if (MiniKit.isInstalled()) {
+        try {
+          // Try to get address by username first
+          const response = await fetch(
+            `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(recipientUsername.trim())}`
+          );
+
+          if (!response.ok) {
+            if (response.status === 404) {
+              setLookupError("Username not found");
+            } else {
+              setLookupError(
+                `Error: ${response.status} ${response.statusText}`
+              );
+            }
+            return;
+          }
+
+          const data = await response.json();
+          setLookupResult(data);
+        } catch (error) {
+          console.error("[Username] Error looking up username via API:", error);
+          setLookupError("Failed to look up username. Please try again.");
+        }
+      } else {
+        setLookupError("Please install MiniKit to look up usernames");
+      }
+    } catch (error) {
+      setLookupError("Failed to look up username. Please try again.");
+      console.error("[Username] Username lookup error:", error);
+    } finally {
+      setIsLookingUp(false);
+    }
+  };
 
   // Add this useEffect to check for stored referral information on component mount
   useEffect(() => {
@@ -1166,6 +1302,21 @@ export default function EarnPage({
     return (Number(value) / 1e18).toString();
   }, []);
 
+  // Add a state to track if collection is in progress
+  const [isCollectingRewards, setIsCollectingRewards] = useState(false);
+
+  // Add this handler function
+  const handleCollectStart = () => {
+    console.log("[RewardTracking] Collection started, forcing display to 0");
+    setIsCollectingRewards(true);
+    setDisplayAvailableReward("0.0");
+
+    // Set localStorage values to 0
+    localStorage.setItem("savingsRewardBase", "0");
+    localStorage.setItem("savingsRewardStartTime", Date.now().toString());
+    console.log("[RewardTracking] Reset localStorage values for collection");
+  };
+
   // Modify fetchAvailableReward to be simpler
   const fetchAvailableReward = useCallback(async () => {
     if (!walletAddress) return;
@@ -1194,7 +1345,7 @@ export default function EarnPage({
 
   // Simplify the reward tracking effect
   useEffect(() => {
-    if (!stakedBalance || !availableReward) return;
+    if (!stakedBalance || !availableReward || isCollectingRewards) return;
 
     const interestRate = 1 / (86400 * 529);
     const stakedBalanceNum = Number(stakedBalance);
@@ -1220,6 +1371,8 @@ export default function EarnPage({
     }
 
     const updateDisplay = () => {
+      if (isCollectingRewards) return;
+
       const elapsedSeconds = (Date.now() - startTime) / 1000;
       const interestEarned = stakedBalanceNum * interestRate * elapsedSeconds;
       const totalReward = baseValue + interestEarned;
@@ -1251,7 +1404,7 @@ export default function EarnPage({
     const interval = setInterval(updateDisplay, 1000);
 
     return () => clearInterval(interval);
-  }, [stakedBalance, availableReward]);
+  }, [stakedBalance, availableReward, isCollectingRewards]);
 
   const fetchStakedBalance = useCallback(async () => {
     if (!walletAddress) return;
@@ -1303,6 +1456,127 @@ export default function EarnPage({
 
   const searchParams = useSearchParams();
 
+  const [isVerifying, setIsVerifying] = useState(false);
+  const [worldIdVerificationStatus, setWorldIdVerificationStatus] = useState<{
+    success: boolean;
+    message: string;
+  } | null>(null);
+
+  // Add this function to handle World ID verification success
+  const handleWorldIDSuccess = async (
+    response: {
+      merkle_root: string;
+      nullifier_hash: string;
+      proof: string;
+      verification_level: string;
+    },
+    recipientAddress: string
+  ) => {
+    if (!MiniKit.isInstalled() || !walletAddress) {
+      showToast("Please connect your wallet first", "error");
+      return;
+    }
+
+    setIsVerifying(true);
+    setRewardStatus(null);
+
+    try {
+      console.log("[WorldID] Verification successful:", response);
+
+      // Ensure proof is properly formatted as a hex string with 0x prefix
+      const proofHex = response.proof.startsWith("0x")
+        ? response.proof
+        : `0x${response.proof}`;
+
+      // Unpack the proof for the smart contract
+      const unpackedProof = decodeAbiParameters(
+        [{ type: "uint256[8]" }],
+        proofHex as `0x${string}`
+      )[0];
+
+      console.log(`[WorldID] Sending reward to ${recipientAddress}`);
+
+      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
+        transaction: [
+          {
+            // Use your SecureDocumentReferralReward contract address
+            address:
+              "0x012399Ce7108DD3B8C5583758816575f0c2FcD86" as `0x${string}`, // Replace with your actual contract address
+            abi: parseAbi([
+              "function rewardUser(address recipient, uint256 root, uint256 nullifierHash, uint256[8] calldata proof) external",
+            ]),
+            functionName: "rewardUser",
+            args: [
+              recipientAddress,
+              BigInt(response.merkle_root),
+              BigInt(response.nullifier_hash),
+              unpackedProof,
+            ],
+          },
+        ],
+      });
+
+      console.log("[WorldID] Transaction response:", finalPayload);
+
+      if (finalPayload.status === "error") {
+        console.error("[WorldID] Error sending transaction", finalPayload);
+        // Only show error toast if it's not a user rejection
+        if (finalPayload.error_code !== "user_rejected") {
+          const errorMessage =
+            (finalPayload as any).description || "Error sending reward";
+          showToast(errorMessage, "error");
+          setRewardStatus({
+            success: false,
+            message: errorMessage,
+          });
+        } else {
+          // Still set reward status but without showing toast
+          setRewardStatus({
+            success: false,
+            message: "Transaction was canceled",
+          });
+        }
+      } else {
+        setRewardStatus({
+          success: true,
+          message: `Successfully sent reward to ${recipientUsername}!`,
+        });
+
+        // After successful reward transaction, update the canReward status
+        fetchSecureDocumentCanReward();
+      }
+    } catch (error: any) {
+      console.error("[WorldID] Error in reward transaction:", error);
+      showToast(
+        error.message || "An unexpected error occurred with the reward",
+        "error"
+      );
+      setRewardStatus({
+        success: false,
+        message: error.message || "Failed to send reward. Please try again.",
+      });
+    } finally {
+      setIsVerifying(false);
+    }
+  };
+
+  const [isPassportBadgeVisible, setIsPassportBadgeVisible] = useState(true);
+
+  // Add useEffect to load badge state from localStorage
+  useEffect(() => {
+    const badgeState = localStorage.getItem("passportBadgeClosed");
+    if (badgeState === "true") {
+      setIsPassportBadgeVisible(false);
+    }
+  }, []);
+
+  // Function to handle closing the badge
+  const handleCloseBadge = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent triggering the drawer
+    setIsPassportBadgeVisible(false);
+    localStorage.setItem("passportBadgeClosed", "true");
+  };
+
   const [isAirdropBannerVisible, setIsAirdropBannerVisible] = useState(true);
 
   // Add useEffect to load badge state from localStorage
@@ -1319,6 +1593,29 @@ export default function EarnPage({
     setIsAirdropBannerVisible(false);
     localStorage.setItem("airdropBannerClosed", "true");
   };
+
+  // Restore loadCurrentUsernameCallback
+  const loadCurrentUsernameCallback = useCallback(async () => {
+    if (!MiniKit.isInstalled() || !walletAddress) return;
+    try {
+      // Check if username is already available via MiniKit.user
+      if (MiniKit.user && MiniKit.user.username) {
+        setUsername(MiniKit.user.username);
+        return;
+      }
+      // If not available directly, try getting user information by address
+      try {
+        const userInfo = await MiniKit.getUserByAddress(walletAddress);
+        if (userInfo && userInfo.username) {
+          setUsername(userInfo.username);
+        }
+      } catch (error) {
+        // Ignore error
+      }
+    } catch (error) {
+      // Ignore error
+    }
+  }, [walletAddress, setUsername]);
 
   const renderContent = () => {
     switch (activeTab) {
@@ -1786,25 +2083,717 @@ export default function EarnPage({
         );
       case "Invite":
         return (
-          <InviteTab
-            lang={lang}
-            dictionary={dictionary}
-            walletContext={{
-              walletAddress,
-              canReward,
-              rewardCount,
-              secureDocumentRewardCount,
-              hasRewarded,
-              secureDocumentCanReward,
-              fetchCanReward,
-              fetchRewardCount,
-              fetchSecureDocumentRewardCount,
-              fetchHasRewarded,
-              username,
-              setUsername,
-            }}
-            showToast={showToast}
-          />
+          <div className="flex w-full flex-col items-center py-8">
+            <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+              <PiUserPlusFill className="h-10 w-10 text-gray-400" />
+            </div>
+            <Typography
+              as="h2"
+              variant={{ variant: "heading", level: 1 }}
+              className="text-center"
+            >
+              {dictionary?.pages?.earn?.tabs?.invite?.title}
+            </Typography>
+            <Typography
+              variant={{ variant: "subtitle", level: 1 }}
+              className="mx-auto mb-5 mt-4 text-center text-gray-500"
+            >
+              {dictionary?.pages?.earn?.tabs?.invite?.subtitle}
+              <span className="group relative inline-flex items-center align-baseline">
+                <PiInfoFill className="ml-1 h-4 w-4 translate-y-[2px] cursor-help text-gray-400" />
+                <div className="absolute -right-4 bottom-full mb-2 hidden w-[calc(100dvw/2+24px)] max-w-sm transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
+                  <p className="text-left text-gray-700">
+                    {dictionary?.pages?.earn?.tabs?.invite?.tooltip}{" "}
+                    <Link
+                      href={`/${lang}/faq?q=referral-codes`}
+                      className="text-gray-900 underline"
+                    >
+                      {dictionary?.pages?.earn?.tabs?.invite?.learnMore}
+                    </Link>
+                  </p>
+                </div>
+              </span>
+            </Typography>
+
+            <div className="mb-10 w-full rounded-xl border border-gray-200 p-4">
+              <Typography
+                variant={{ variant: "subtitle", level: 2 }}
+                className="mb-4 text-center text-gray-900"
+              >
+                {dictionary?.pages?.earn?.tabs?.invite?.stats?.title}
+              </Typography>
+              <div className="flex justify-around">
+                <div className="text-center">
+                  <Typography
+                    variant={{ variant: "heading", level: 3 }}
+                    className="text-gray-900"
+                  >
+                    {totalRewardCount}
+                  </Typography>
+                  <Typography
+                    variant={{ variant: "body", level: 3 }}
+                    className="text-gray-500"
+                  >
+                    {dictionary?.pages?.earn?.tabs?.invite?.stats?.invites}
+                  </Typography>
+                </div>
+                <div className="text-center">
+                  <Typography
+                    variant={{ variant: "heading", level: 3 }}
+                    className="text-gray-900"
+                  >
+                    {totalRewardCount > 0
+                      ? `${totalRewardCount * 50} WDD`
+                      : "0 WDD"}
+                  </Typography>
+                  <Typography
+                    variant={{ variant: "body", level: 3 }}
+                    className="text-gray-500"
+                  >
+                    {dictionary?.pages?.earn?.tabs?.invite?.stats?.rewards}
+                  </Typography>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative w-full">
+              <Button
+                onClick={async () => {
+                  if (!username) {
+                    showToast(
+                      dictionary?.pages?.earn?.tabs?.invite?.actions
+                        ?.connectWallet,
+                      "error"
+                    );
+                    loadCurrentUsernameCallback();
+                    return;
+                  }
+
+                  const shareUrl = `https://worldcoin.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=%2F%3Fcode%3D${username}`;
+
+                  // Check if Web Share API is supported
+                  if (navigator.share) {
+                    try {
+                      await navigator.share({
+                        title:
+                          dictionary?.pages?.earn?.tabs?.invite?.share?.title,
+                        text: dictionary?.pages?.earn?.tabs?.invite?.share
+                          ?.text,
+                        url: shareUrl,
+                      });
+                    } catch (error) {
+                      // User cancelled or share failed - fallback to clipboard
+                      if (
+                        error instanceof Error &&
+                        error.name !== "AbortError"
+                      ) {
+                        await navigator.clipboard.writeText(shareUrl);
+                        showToast(
+                          dictionary?.pages?.earn?.tabs?.invite?.actions
+                            ?.copied,
+                          "success"
+                        );
+                      }
+                    }
+                  } else {
+                    // Fallback for browsers that don't support Web Share API
+                    await navigator.clipboard.writeText(shareUrl);
+                    showToast(
+                      dictionary?.pages?.earn?.tabs?.invite?.actions?.copied,
+                      "success"
+                    );
+                  }
+                }}
+                fullWidth
+              >
+                {dictionary?.pages?.earn?.tabs?.invite?.actions?.share}
+              </Button>
+            </div>
+
+            {canReward && (
+              <Drawer>
+                <DrawerTrigger asChild>
+                  <Button variant="secondary" fullWidth className="mt-4">
+                    {
+                      dictionary?.pages?.earn?.tabs?.invite?.actions
+                        ?.rewardReferrer
+                    }
+                  </Button>
+                </DrawerTrigger>
+                <DrawerContent>
+                  <div className="flex flex-col items-center p-6 pt-10">
+                    <div className="mb-10 mt-4 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+                      <PiUserPlusFill className="h-10 w-10 text-gray-400" />
+                    </div>
+                    <Typography
+                      as="h2"
+                      variant={{ variant: "heading", level: 1 }}
+                      className="text-center"
+                    >
+                      {dictionary?.pages?.earn?.tabs?.invite?.drawer?.title}
+                    </Typography>
+                    <Typography
+                      variant={{ variant: "subtitle", level: 1 }}
+                      className="mx-auto mt-4 text-center text-gray-500"
+                    >
+                      {dictionary?.pages?.earn?.tabs?.invite?.drawer?.subtitle}
+                    </Typography>
+
+                    {/* Referral Status */}
+                    {localStorage.getItem("referredBy") && (
+                      <div className="bg-success-50 mt-4 w-full rounded-xl border border-success-200 p-4">
+                        <Typography
+                          variant={{ variant: "subtitle", level: 3 }}
+                          className="text-center text-success-700"
+                        >
+                          {(() => {
+                            const referrer = localStorage.getItem("referredBy");
+                            console.log(
+                              `[Referral] Displaying referrer information: ${referrer}`
+                            );
+                            return dictionary?.pages?.earn?.tabs?.invite?.drawer?.invitedBy?.replace(
+                              "{{username}}",
+                              referrer || ""
+                            );
+                          })()}
+                        </Typography>
+                      </div>
+                    )}
+
+                    <div className="w-full">
+                      {!lookupResult ? (
+                        <>
+                          <input
+                            type="text"
+                            placeholder={
+                              dictionary?.pages?.earn?.tabs?.invite?.drawer
+                                ?.input?.placeholder
+                            }
+                            className="mt-4 w-full rounded-xl border border-gray-200 px-4 py-3 font-sans text-base"
+                            value={recipientUsername}
+                            onChange={(e) =>
+                              setRecipientUsername(e.target.value)
+                            }
+                            onKeyPress={(e) =>
+                              e.key === "Enter" && lookupUsername()
+                            }
+                            onFocus={(e) => {
+                              setTimeout(() => {
+                                e.target.scrollIntoView({
+                                  behavior: "smooth",
+                                  block: "center",
+                                });
+                              }, 300);
+                            }}
+                          />
+
+                          {lookupError && (
+                            <div className="mt-4 rounded-xl border border-error-300 bg-error-100 p-4 text-error-700">
+                              {lookupError}
+                            </div>
+                          )}
+
+                          <Button
+                            onClick={lookupUsername}
+                            isLoading={isLookingUp}
+                            variant="secondary"
+                            fullWidth
+                            className="mt-4"
+                          >
+                            {
+                              dictionary?.pages?.earn?.tabs?.invite?.drawer
+                                ?.input?.lookupButton
+                            }
+                          </Button>
+                        </>
+                      ) : (
+                        <div className="space-y-4">
+                          <div className="mt-4 rounded-xl border border-gray-200 bg-gray-50 p-4 text-center">
+                            <Typography
+                              variant={{ variant: "body", level: 3 }}
+                              className="mb-1 text-gray-500"
+                            >
+                              {
+                                dictionary?.pages?.earn?.tabs?.invite?.drawer
+                                  ?.input?.sendingTo
+                              }
+                            </Typography>
+                            <div className="flex items-center justify-center gap-1">
+                              <Typography
+                                variant={{ variant: "subtitle", level: 2 }}
+                                className="text-gray-700"
+                              >
+                                {lookupResult.username}
+                              </Typography>
+                              <button
+                                onClick={() => {
+                                  setLookupResult(null);
+                                  setRewardStatus(null);
+                                }}
+                                className="text-gray-400"
+                                aria-label={
+                                  dictionary?.pages?.earn?.tabs?.invite?.drawer
+                                    ?.input?.editButton
+                                }
+                              >
+                                <PiNotePencilFill className="h-4 w-4" />
+                              </button>
+                            </div>
+                          </div>
+
+                          {rewardStatus && (
+                            <div
+                              className={`mt-3 rounded-xl border p-3 ${
+                                rewardStatus.success
+                                  ? "border-success-300 bg-success-100 text-success-700"
+                                  : "border-error-300 bg-error-100 text-error-700"
+                              }`}
+                            >
+                              {rewardStatus.message}
+                            </div>
+                          )}
+
+                          <div className="my-4">
+                            <Button
+                              onClick={() => sendReward(lookupResult.address)}
+                              isLoading={isSendingReward}
+                              fullWidth
+                            >
+                              {
+                                dictionary?.pages?.earn?.tabs?.invite?.drawer
+                                  ?.input?.sendButton
+                              }
+                            </Button>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </DrawerContent>
+              </Drawer>
+            )}
+
+            {!canReward && !hasRewarded && secureDocumentCanReward && (
+              <Drawer>
+                <DrawerTrigger asChild>
+                  <Button variant="secondary" fullWidth className="mt-4">
+                    {
+                      dictionary?.pages?.earn?.tabs?.invite?.actions
+                        ?.rewardReferrer
+                    }
+                  </Button>
+                </DrawerTrigger>
+                <DrawerContent>
+                  <div className="flex flex-col items-center p-6 pt-10">
+                    <div className="mb-10 mt-4 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+                      <PiUserPlusFill className="h-10 w-10 text-gray-400" />
+                    </div>
+                    <Typography
+                      as="h2"
+                      variant={{ variant: "heading", level: 1 }}
+                      className="text-center"
+                    >
+                      {dictionary?.pages?.earn?.tabs?.invite?.drawer?.title}
+                    </Typography>
+                    <Typography
+                      variant={{ variant: "subtitle", level: 1 }}
+                      className="mx-auto mt-4 text-center text-gray-500"
+                    >
+                      {
+                        dictionary?.pages?.earn?.tabs?.invite?.drawer
+                          ?.passportSubtitle
+                      }
+                    </Typography>
+
+                    {/* Referral Status - same as in first drawer */}
+                    {localStorage.getItem("referredBy") && (
+                      <div className="bg-success-50 mt-4 w-full rounded-xl border border-success-200 p-4">
+                        <Typography
+                          variant={{ variant: "subtitle", level: 3 }}
+                          className="text-center text-success-700"
+                        >
+                          {(() => {
+                            const referrer = localStorage.getItem("referredBy");
+                            console.log(
+                              `[Referral] Displaying referrer information: ${referrer}`
+                            );
+                            return dictionary?.pages?.earn?.tabs?.invite?.drawer?.invitedBy?.replace(
+                              "{{username}}",
+                              referrer || ""
+                            );
+                          })()}
+                        </Typography>
+                      </div>
+                    )}
+
+                    <div className="w-full">
+                      {!lookupResult ? (
+                        <>
+                          <input
+                            type="text"
+                            placeholder={
+                              dictionary?.pages?.earn?.tabs?.invite?.drawer
+                                ?.input?.placeholder
+                            }
+                            className="mt-4 w-full rounded-xl border border-gray-200 px-4 py-3 font-sans text-base"
+                            value={recipientUsername}
+                            onChange={(e) =>
+                              setRecipientUsername(e.target.value)
+                            }
+                            onKeyPress={(e) =>
+                              e.key === "Enter" && lookupUsername()
+                            }
+                            onFocus={(e) => {
+                              setTimeout(() => {
+                                e.target.scrollIntoView({
+                                  behavior: "smooth",
+                                  block: "center",
+                                });
+                              }, 300);
+                            }}
+                          />
+
+                          {lookupError && (
+                            <div className="mt-4 rounded-xl border border-error-300 bg-error-100 p-4 text-error-700">
+                              {lookupError}
+                            </div>
+                          )}
+
+                          <Button
+                            onClick={lookupUsername}
+                            isLoading={isLookingUp}
+                            variant="secondary"
+                            fullWidth
+                            className="mt-4"
+                          >
+                            {
+                              dictionary?.pages?.earn?.tabs?.invite?.drawer
+                                ?.input?.lookupButton
+                            }
+                          </Button>
+                        </>
+                      ) : (
+                        <div className="space-y-4">
+                          <div className="mt-4 rounded-xl border border-gray-200 bg-gray-50 p-4 text-center">
+                            <Typography
+                              variant={{ variant: "body", level: 3 }}
+                              className="mb-1 text-gray-500"
+                            >
+                              {
+                                dictionary?.pages?.earn?.tabs?.invite?.drawer
+                                  ?.input?.sendingTo
+                              }
+                            </Typography>
+                            <div className="flex items-center justify-center gap-1">
+                              <Typography
+                                variant={{ variant: "subtitle", level: 2 }}
+                                className="text-gray-700"
+                              >
+                                {lookupResult.username}
+                              </Typography>
+                              <button
+                                onClick={() => {
+                                  setLookupResult(null);
+                                  setRewardStatus(null);
+                                }}
+                                className="text-gray-400"
+                                aria-label={
+                                  dictionary?.pages?.earn?.tabs?.invite?.drawer
+                                    ?.input?.editButton
+                                }
+                              >
+                                <PiNotePencilFill className="h-4 w-4" />
+                              </button>
+                            </div>
+                          </div>
+
+                          {rewardStatus && (
+                            <div
+                              className={`mt-3 rounded-xl border p-3 ${
+                                rewardStatus.success
+                                  ? "border-success-300 bg-success-100 text-success-700"
+                                  : "border-error-300 bg-error-100 text-error-700"
+                              }`}
+                            >
+                              {rewardStatus.message}
+                            </div>
+                          )}
+
+                          {/* World ID Widget */}
+                          <div className="my-4">
+                            <Button
+                              onClick={async () => {
+                                if (!MiniKit.isInstalled() || !walletAddress) {
+                                  showToast(
+                                    "Please connect your wallet first",
+                                    "error"
+                                  );
+                                  return;
+                                }
+
+                                setIsVerifying(true);
+                                try {
+                                  // Use MiniKit verify command instead of IDKitWidget
+                                  const verifyPayload = {
+                                    action: "verify-secure-document",
+                                    signal: walletAddress || "",
+                                    verification_level:
+                                      VerificationLevel.SecureDocument,
+                                  };
+
+                                  const { finalPayload } =
+                                    await MiniKit.commandsAsync.verify(
+                                      verifyPayload
+                                    );
+
+                                  if (finalPayload.status === "error") {
+                                    console.error(
+                                      "[WorldID] Verification error:",
+                                      finalPayload
+                                    );
+
+                                    // Don't show error toast if user cancelled the action
+                                    if (
+                                      finalPayload.error_code &&
+                                      (finalPayload.error_code as string) ===
+                                        "user_rejected"
+                                    ) {
+                                      setIsVerifying(false);
+                                      return;
+                                    }
+
+                                    showToast(
+                                      (finalPayload as any).description ||
+                                        "Verification failed",
+                                      "error"
+                                    );
+                                    setIsVerifying(false);
+                                    return;
+                                  }
+
+                                  // Process the successful verification
+                                  await handleWorldIDSuccess(
+                                    finalPayload as any,
+                                    lookupResult.address
+                                  );
+                                } catch (error: any) {
+                                  console.error(
+                                    "[WorldID] Error during verification:",
+                                    error
+                                  );
+                                  showToast(
+                                    error.message ||
+                                      "An error occurred during verification",
+                                    "error"
+                                  );
+                                } finally {
+                                  setIsVerifying(false);
+                                }
+                              }}
+                              fullWidth
+                              disabled={isVerifying}
+                              isLoading={isVerifying}
+                            >
+                              {
+                                dictionary?.pages?.earn?.tabs?.invite?.drawer
+                                  ?.input?.proveReward
+                              }
+                            </Button>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </DrawerContent>
+              </Drawer>
+            )}
+
+            {isPassportBadgeVisible && (
+              <Drawer>
+                <DrawerTrigger className="fixed left-0 right-0 top-28 z-50 mx-auto w-full max-w-md px-6">
+                  <div className="mt-2 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-gray-0 py-3 pr-4">
+                    <div className="flex w-full items-center overflow-hidden">
+                      <div className="mx-2 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full">
+                        <PiInfoFill className="h-5 w-5 text-gray-900" />
+                      </div>
+                      <Typography
+                        as="h3"
+                        variant={{ variant: "subtitle", level: 2 }}
+                        className="font-display text-left text-[15px] font-medium tracking-tight text-gray-900"
+                      >
+                        {
+                          dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
+                            ?.trigger?.titleText
+                        }{" "}
+                        <span className="underline">
+                          {
+                            dictionary?.pages?.earn?.tabs?.invite
+                              ?.passportDrawer?.trigger?.titleDetails
+                          }
+                        </span>
+                      </Typography>
+                      <div className="ml-2 flex items-center">
+                        <div className="flex items-center rounded-full">
+                          <button
+                            onClick={handleCloseBadge}
+                            className="text-gray-400 focus:outline-none"
+                            aria-label="Close badge"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              className="h-5 w-5"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </DrawerTrigger>
+
+                <DrawerContent>
+                  <div className="flex flex-col items-center p-6 pt-10">
+                    <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+                      <PiIdentificationCardFill className="h-10 w-10 text-gray-400" />
+                    </div>
+
+                    <Typography
+                      as="h2"
+                      variant={{ variant: "heading", level: 1 }}
+                      className="text-center"
+                    >
+                      {
+                        dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
+                          ?.title
+                      }
+                    </Typography>
+
+                    <Typography
+                      variant={{ variant: "subtitle", level: 1 }}
+                      className="mx-auto mt-4 text-center text-gray-500"
+                    >
+                      {
+                        dictionary?.pages?.earn?.tabs?.invite?.passportDrawer
+                          ?.subtitle
+                      }
+                    </Typography>
+
+                    <div className="mt-4 w-full px-3 py-4">
+                      <ul className="space-y-3">
+                        <li className="flex items-start">
+                          <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                            <PiGlobeFill className="h-3.5 w-3.5 text-gray-400" />
+                          </div>
+                          <Typography
+                            variant={{ variant: "body", level: 3 }}
+                            className="text-gray-600 mt-[3px]"
+                          >
+                            {
+                              dictionary?.pages?.earn?.tabs?.invite
+                                ?.passportDrawer?.features?.countries?.title
+                            }
+                          </Typography>
+                        </li>
+
+                        <li className="flex items-start">
+                          <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                            <PiCoinFill className="h-3.5 w-3.5 text-gray-400" />
+                          </div>
+                          <Typography
+                            variant={{ variant: "body", level: 3 }}
+                            className="text-gray-600 mt-[3px]"
+                          >
+                            {
+                              dictionary?.pages?.earn?.tabs?.invite
+                                ?.passportDrawer?.features?.rewards?.title
+                            }
+                          </Typography>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                            <PiTrendUpFill className="h-3.5 w-3.5 text-gray-400" />
+                          </div>
+                          <Typography
+                            variant={{ variant: "body", level: 3 }}
+                            className="text-gray-600 mt-[3px]"
+                          >
+                            {
+                              dictionary?.pages?.earn?.tabs?.invite
+                                ?.passportDrawer?.features?.basicIncome?.title
+                            }
+                          </Typography>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="relative w-full">
+                      <Button
+                        onClick={async () => {
+                          if (!username) {
+                            showToast(
+                              dictionary?.pages?.earn?.tabs?.invite?.actions
+                                ?.connectWallet,
+                              "error"
+                            );
+                            loadCurrentUsernameCallback();
+                            return;
+                          }
+
+                          const shareUrl = `https://worldcoin.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=%2F%3Fcode%3D${username}`;
+
+                          // Check if Web Share API is supported
+                          if (navigator.share) {
+                            try {
+                              await navigator.share({
+                                title:
+                                  dictionary?.pages?.earn?.tabs?.invite?.share
+                                    ?.title,
+                                text: dictionary?.pages?.earn?.tabs?.invite
+                                  ?.share?.text,
+                                url: shareUrl,
+                              });
+                            } catch (error) {
+                              // User cancelled or share failed - fallback to clipboard
+                              if (
+                                error instanceof Error &&
+                                error.name !== "AbortError"
+                              ) {
+                                await navigator.clipboard.writeText(shareUrl);
+                                showToast(
+                                  dictionary?.pages?.earn?.tabs?.invite?.actions
+                                    ?.copied,
+                                  "success"
+                                );
+                              }
+                            }
+                          } else {
+                            // Fallback for browsers that don't support Web Share API
+                            await navigator.clipboard.writeText(shareUrl);
+                            showToast(
+                              dictionary?.pages?.earn?.tabs?.invite?.actions
+                                ?.copied,
+                              "success"
+                            );
+                          }
+                        }}
+                        fullWidth
+                        className="mt-6"
+                      >
+                        {dictionary?.pages?.earn?.tabs?.invite?.actions?.share}
+                      </Button>
+                    </div>
+                  </div>
+                </DrawerContent>
+              </Drawer>
+            )}
+          </div>
         );
       default:
         return null;

@@ -1,7 +1,7 @@
 "use client";
 
 import { MiniKit } from "@worldcoin/minikit-js";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "./ui/Button";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { useToast } from "./ui/Toast";
@@ -56,7 +56,10 @@ export function WalletAuth({ lang, onError, onSuccess }: WalletAuthProps) {
       );
       return;
     }
+
+    console.log("signInWithWallet: MiniKit is installed");
     setIsLoading(true);
+
     try {
       console.log("signInWithWallet: Fetching nonce from /api/nonce");
       const nonceRes = await fetchWithRetry(`/api/nonce`);
