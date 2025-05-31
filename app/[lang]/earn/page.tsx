@@ -910,7 +910,6 @@ export default function EarnPage({
         });
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess, txType, transactionId]);
 
   // Clean up timers on unmount
