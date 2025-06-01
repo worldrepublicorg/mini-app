@@ -76,11 +76,11 @@ export const ToastProvider: React.FC<{ children: ReactNode }> = ({
             >
               <div className="flex items-center">
                 {toast.type === "success" ? (
-                  <PiCheckCircleFill className="text-gray-600 mr-3 h-5 w-5" />
+                  <PiCheckCircleFill className="text-gray-600 mr-3 h-5 w-5 flex-shrink-0" />
                 ) : toast.type === "error" ? (
-                  <PiWarningCircleFill className="text-error-700 mr-3 h-5 w-5" />
+                  <PiWarningCircleFill className="mr-3 h-5 w-5 flex-shrink-0 text-error-700" />
                 ) : (
-                  <PiInfoFill className="text-gray-600 mr-3 h-5 w-5" />
+                  <PiInfoFill className="text-gray-600 mr-3 h-5 w-5 flex-shrink-0" />
                 )}
                 <Typography
                   className={`font-sans text-sm ${
