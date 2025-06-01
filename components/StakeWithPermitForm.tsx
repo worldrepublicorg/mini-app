@@ -156,10 +156,6 @@ export function StakeWithPermitForm({
   const handleStake = async () => {
     if (isLoading) return; // Prevent overlapping transactions
     clearFallbackTimer(); // Clean up any previous timers
-    setIsLoading(true);
-    setTxType("deposit");
-    setTransactionId(null);
-    currentTxRef.current = null;
     if (!MiniKit.isInstalled()) {
       showToast(
         dictionary?.components?.toasts?.wallet?.connectInWorldApp,
@@ -167,6 +163,10 @@ export function StakeWithPermitForm({
       );
       return;
     }
+    setIsLoading(true);
+    setTxType("deposit");
+    setTransactionId(null);
+    currentTxRef.current = null;
     let stakeAmount: bigint;
     try {
       stakeAmount = BigInt(Number(amount) * 1e18 - 9999999);
