@@ -15,8 +15,8 @@ const polls: Poll[] = [
     url: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/n0Zl8mul",
   },
   {
-    key: "polarIceProtocol",
-    url: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/afA1jsIQ",
+    key: "nuclearDisarmamentTalks",
+    url: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/gV4RQAsj",
   },
   {
     key: "aiSafetyTreaty",
