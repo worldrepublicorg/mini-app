@@ -193,15 +193,12 @@ export function WalletAuth({ lang, onError, onSuccess }: WalletAuthProps) {
     }
   };
 
-  // Only show the button if MiniKit is installed
-  const isMiniKitInstalled = MiniKit.isInstalled();
-
   return (
     <Button
       onClick={signInWithWallet}
       isLoading={isLoading}
       fullWidth
-      disabled={isLoading || !isMiniKitInstalled}
+      disabled={isLoading}
     >
       {dictionary?.components?.walletAuth?.connect || "Connect Wallet"}
     </Button>
