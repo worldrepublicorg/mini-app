@@ -42,6 +42,7 @@ export default function PartyDetailPage({
     pendingParties,
     setUserPartyId,
     setParties,
+    userPartyId,
   } = useParties();
 
   const [party, setParty] = useState<PartyDetail | null>(null);
@@ -292,6 +293,14 @@ export default function PartyDetailPage({
 
     if (!party) {
       showToast("Party not found", "error");
+      return;
+    }
+
+    if (userPartyId > 0) {
+      showToast(
+        "You are already a member of another party. You must leave your current party before joining this one.",
+        "error"
+      );
       return;
     }
 
