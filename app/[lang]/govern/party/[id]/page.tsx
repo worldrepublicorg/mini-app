@@ -298,7 +298,7 @@ export default function PartyDetailPage({
 
     if (userPartyId > 0) {
       showToast(
-        "You are already a member of another party. You must leave your current party before joining this one.",
+        "Please leave your current party before joining this one",
         "error"
       );
       return;
