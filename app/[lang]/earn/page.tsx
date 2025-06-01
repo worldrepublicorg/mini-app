@@ -44,34 +44,6 @@ type TxType =
   | "claim-basic"
   | "claim-plus";
 
-async function pollForClaimUpdates(
-  fetchBasicIncomeInfo: () => Promise<void>,
-  fetchBasicIncomePlusInfo: () => Promise<void>,
-  fetchBalance: () => Promise<void>,
-  attempts = 3,
-  delay = 1000
-) {
-  for (let i = 0; i < attempts; i++) {
-    await fetchBasicIncomeInfo();
-    await fetchBasicIncomePlusInfo();
-    await fetchBalance();
-    await new Promise((res) => setTimeout(res, delay));
-  }
-}
-
-async function pollForSetupUpdates(
-  fetchBasicIncomeInfo: () => Promise<void>,
-  fetchBasicIncomePlusInfo: () => Promise<void>,
-  attempts = 3,
-  delay = 1000
-) {
-  for (let i = 0; i < attempts; i++) {
-    await fetchBasicIncomeInfo();
-    await fetchBasicIncomePlusInfo();
-    await new Promise((res) => setTimeout(res, delay));
-  }
-}
-
 export default function EarnPage({
   params: { lang },
 }: {
@@ -97,8 +69,6 @@ export default function EarnPage({
     fetchRewardCount,
     fetchSecureDocumentRewardCount,
     fetchHasRewarded,
-    setBasicIncomeActivated,
-    setBasicIncomePlusActivated,
     username,
     setUsername,
   } = useWallet();
@@ -1604,6 +1574,12 @@ export default function EarnPage({
       // Ignore error
     }
   }, [walletAddress, setUsername]);
+
+  useEffect(() => {
+    if (MiniKit.isInstalled() && walletAddress && !username) {
+      loadCurrentUsernameCallback();
+    }
+  }, [walletAddress, username, loadCurrentUsernameCallback]);
 
   const renderContent = () => {
     switch (activeTab) {
