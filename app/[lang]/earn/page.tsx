@@ -1605,6 +1605,12 @@ export default function EarnPage({
     }
   }, [walletAddress, setUsername]);
 
+  useEffect(() => {
+    if (MiniKit.isInstalled() && walletAddress && !username) {
+      loadCurrentUsernameCallback();
+    }
+  }, [walletAddress, username, loadCurrentUsernameCallback]);
+
   const renderContent = () => {
     switch (activeTab) {
       case "Basic income":
