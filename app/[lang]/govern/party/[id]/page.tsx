@@ -42,7 +42,6 @@ export default function PartyDetailPage({
     pendingParties,
     setUserPartyId,
     setParties,
-    userPartyId,
   } = useParties();
 
   const [party, setParty] = useState<PartyDetail | null>(null);
@@ -54,8 +53,6 @@ export default function PartyDetailPage({
   const [leaderUsername, setLeaderUsername] = useState<string | null>(null);
   const [partyMembers, setPartyMembers] = useState<{ address: string }[]>([]);
   const [bannedMembers, setBannedMembers] = useState<{ address: string }[]>([]);
-  const [showLeaveConfirm, setShowLeaveConfirm] = useState(false);
-  const [isLeaving, setIsLeaving] = useState(false);
 
   // Format number with commas
   const formatNumber = (num: number): string => {
@@ -286,75 +283,43 @@ export default function PartyDetailPage({
     pendingParties,
   ]);
 
-  // Leave party function
-  const leaveParty = async (partyId: number) => {
+  // Join party function
+  const joinParty = async () => {
     if (!MiniKit.isInstalled()) {
       showToast("Please connect your wallet first", "error");
       return;
     }
-    try {
-      setIsLeaving(true);
-      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
-        transaction: [
-          {
-            address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
-            abi: parseAbi(["function leaveParty(uint256 _partyId) external"]),
-            functionName: "leaveParty",
-            args: [BigInt(partyId)],
-          },
-        ],
-      });
-      if (finalPayload.status !== "error") {
-        setParties((prevParties: any) =>
-          prevParties.map((p: any) =>
-            p.id === partyId
-              ? {
-                  ...p,
-                  isUserMember: false,
-                  memberCount: p.memberCount > 0 ? p.memberCount - 1 : 0,
-                }
-              : p
-          )
-        );
-        setUserPartyId(0);
-        localStorage.removeItem("userPartyCache");
-      }
-    } catch (error) {
-      console.error("Error leaving party:", error);
-      showToast("Error leaving party", "error");
-    } finally {
-      setIsLeaving(false);
-    }
-  };
 
-  // Join new party function
-  const joinNewParty = async (partyId: number) => {
-    if (!MiniKit.isInstalled()) {
-      showToast("Please connect your wallet first", "error");
-      return;
-    }
     if (!party) {
       showToast("Party not found", "error");
       return;
     }
+
     try {
       setIsJoining(true);
+
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
           {
             address: POLITICAL_PARTY_REGISTRY_ADDRESS as `0x${string}`,
             abi: parseAbi(["function joinParty(uint256 _partyId) external"]),
             functionName: "joinParty",
-            args: [BigInt(partyId)],
+            args: [BigInt(party.id)],
           },
         ],
       });
+
       if (finalPayload.status !== "error") {
+        // Update local state
         setIsUserMember(true);
-        setUserPartyId(partyId);
+
+        // Update the context
+        setUserPartyId(party.id);
+
+        // Update the parties array in context
         setParties((prevParties: any) =>
           prevParties.map((p: any) =>
-            p.id === partyId
+            p.id === party.id
               ? {
                   ...p,
                   isUserMember: true,
@@ -363,15 +328,18 @@ export default function PartyDetailPage({
               : p
           )
         );
+
+        // Update user party cache in localStorage
         localStorage.setItem(
           "userPartyCache",
           JSON.stringify({
-            partyId: partyId,
+            partyId: party.id,
             isLeader: false,
             partyStatus: party.status,
             timestamp: Date.now(),
           })
         );
+
         showToast("Successfully joined the party", "success");
       } else if (finalPayload.error_code !== "user_rejected") {
         showToast("Failed to join party", "error");
@@ -381,26 +349,6 @@ export default function PartyDetailPage({
       showToast("Error joining party", "error");
     } finally {
       setIsJoining(false);
-    }
-  };
-
-  // Join party handler
-  const handleJoinParty = async () => {
-    if (!party) return;
-    if (userPartyId > 0) {
-      setShowLeaveConfirm(true);
-      return;
-    }
-    await joinNewParty(party.id);
-  };
-
-  // Handle leave and join flow
-  const handleLeaveAndJoin = async () => {
-    if (!party) return;
-    if (userPartyId > 0) {
-      await leaveParty(userPartyId);
-      await joinNewParty(party.id);
-      setShowLeaveConfirm(false);
     }
   };
 
@@ -847,61 +795,8 @@ export default function PartyDetailPage({
                     {dictionary?.components?.politicalPartyList?.backToParties}
                   </Button>
                 </Link>
-              ) : userPartyId > 0 ? (
-                <>
-                  <Button
-                    fullWidth
-                    onClick={() => setShowLeaveConfirm(true)}
-                    disabled={isJoining || isLeaving}
-                  >
-                    {isJoining || isLeaving
-                      ? dictionary?.components?.politicalPartyList?.joining ||
-                        "Joining..."
-                      : dictionary?.components?.politicalPartyList?.joinParty}
-                  </Button>
-                  {showLeaveConfirm && (
-                    <div className="bg-black fixed inset-0 z-50 flex items-center justify-center bg-opacity-40">
-                      <div className="bg-white w-full max-w-sm rounded-lg p-6 shadow-lg">
-                        <Typography
-                          variant={{ variant: "body", level: 2 }}
-                          className="mb-4 text-center"
-                        >
-                          {
-                            "You are already a member of another party. You must leave your current party before joining this one."
-                          }
-                        </Typography>
-                        <div className="flex gap-2">
-                          <Button
-                            fullWidth
-                            variant="secondary"
-                            onClick={() => setShowLeaveConfirm(false)}
-                            disabled={isLeaving || isJoining}
-                          >
-                            {dictionary?.components?.politicalPartyList
-                              ?.backToParties || "Cancel"}
-                          </Button>
-                          <Button
-                            fullWidth
-                            onClick={handleLeaveAndJoin}
-                            disabled={isLeaving || isJoining}
-                          >
-                            {isLeaving
-                              ? dictionary?.components?.politicalPartyList
-                                  ?.joining || "Leaving..."
-                              : dictionary?.components?.politicalPartyList
-                                  ?.joinParty || "Leave and Join"}
-                          </Button>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </>
               ) : (
-                <Button
-                  fullWidth
-                  onClick={handleJoinParty}
-                  disabled={isJoining}
-                >
+                <Button fullWidth onClick={joinParty} disabled={isJoining}>
                   {isJoining
                     ? dictionary?.components?.politicalPartyList?.joining
                     : dictionary?.components?.politicalPartyList?.joinParty}
