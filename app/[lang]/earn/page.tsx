@@ -1535,21 +1535,21 @@ export default function EarnPage({
     localStorage.setItem("passportBadgeClosed", "true");
   };
 
-  const [isAirdropBannerVisible, setIsAirdropBannerVisible] = useState(true);
+  const [isSAMABannerVisible, setIsSAMABannerVisible] = useState(true);
 
   // Add useEffect to load badge state from localStorage
   useEffect(() => {
-    const badgeState = localStorage.getItem("airdropBannerClosed");
+    const badgeState = localStorage.getItem("samaBannerClosed");
     if (badgeState === "true") {
-      setIsAirdropBannerVisible(false);
+      setIsSAMABannerVisible(false);
     }
   }, []);
 
   // Function to handle closing the badge
-  const handleCloseAirdropBanner = (e: React.MouseEvent) => {
+  const handleCloseSAMABanner = (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent triggering the drawer
-    setIsAirdropBannerVisible(false);
-    localStorage.setItem("airdropBannerClosed", "true");
+    setIsSAMABannerVisible(false);
+    localStorage.setItem("samaBannerClosed", "true");
   };
 
   // Restore loadCurrentUsernameCallback
@@ -1586,7 +1586,7 @@ export default function EarnPage({
       case "Basic income":
         return (
           <>
-            {isAirdropBannerVisible && (
+            {isSAMABannerVisible && (
               <div className="fixed left-0 right-0 top-28 z-50 mx-auto w-full max-w-md px-6">
                 <div className="mt-2 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-gray-0 py-3 pr-4">
                   <div className="flex w-full items-center overflow-hidden">
@@ -1615,7 +1615,7 @@ export default function EarnPage({
                     <div className="ml-2 flex items-center">
                       <div className="flex items-center rounded-full">
                         <button
-                          onClick={handleCloseAirdropBanner}
+                          onClick={handleCloseSAMABanner}
                           className="text-gray-400 focus:outline-none"
                           aria-label="Close banner"
                         >
