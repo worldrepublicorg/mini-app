@@ -88,6 +88,19 @@ export const latestPayouts: PartyPayout[] = [
             "0xaf8b86daaa908843d111bcbaf13e46eb20dccf30a8b4c661529cf5b9669b0aec",
         },
       },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "36398",
+          transactionHash:
+            "0x96ed50ee201101dc35ad98079516654b3b946d82e36d8942147fdd488abc5146",
+        },
+        wld: {
+          amount: "18.55",
+          transactionHash:
+            "0xfa0faac1fccf50e5b05a802080c95be16d77c98d8622dbc84f2e71e6b89da741",
+        },
+      },
     ],
   },
   {
@@ -167,11 +180,24 @@ export const latestPayouts: PartyPayout[] = [
             "0xd81f47a764a786178c0bd7ac586137d377ecd765e45452bf27dadf41f82380a5",
         },
       },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "7968",
+          transactionHash:
+            "0x60fc42202685e10a59ce9e636be8e6c35fbef229a627a874774dd5838630e9a3",
+        },
+        wld: {
+          amount: "4.06",
+          transactionHash:
+            "0x59b4fddb080b2ce718229b62c9273730518ae83b4c917f508a3f474cfc85f7ad",
+        },
+      },
     ],
   },
   {
     id: 829,
-    name: "Free 100.000 coin",
+    name: "Free coin",
     leaderAddress: "0x8A4850de2694882736C3Ffa09A22B171575020B6",
     leaderUsername: "rijal_123.9991",
     get totalWdd() {
@@ -246,11 +272,24 @@ export const latestPayouts: PartyPayout[] = [
             "0xd8f09493e27961a39456f59e1de35e6f99fe5e4ba0096872b12d4c663c8f91a1",
         },
       },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "4372",
+          transactionHash:
+            "0xbd7b0caa9881ebefb240ccef653469d4c128609d2566e6edaab481ba9ae161ba",
+        },
+        wld: {
+          amount: "2.23",
+          transactionHash:
+            "0x83345a3ff75ac0ebfb1a46772213d7b97b95287d274db42568a71e51628ede77",
+        },
+      },
     ],
   },
   {
     id: 1294,
-    name: "Pengen kaya 100.000 World Coin😎",
+    name: "Apoyando la idea de Pablo Emilio Escobar Gaviria 😎",
     leaderAddress: "0x311f3a8Fe9d5e8927d5C24426de7ee83F2AFF279",
     leaderUsername: "mate_orc.9403",
     get totalWdd() {
@@ -323,6 +362,19 @@ export const latestPayouts: PartyPayout[] = [
           amount: "2.25",
           transactionHash:
             "0xfdf5ce0eeb5ab55a0163dd37412082267c8aafb5654aac680a503f358f8a16c3",
+        },
+      },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "4256",
+          transactionHash:
+            "0x94e0e51cd70d4ee671a3f3ad24826ae44d340cda9305f67e1621861e8477ab34",
+        },
+        wld: {
+          amount: "2.17",
+          transactionHash:
+            "0x8c97dd3a7d65a06b434922f2d2afded393dfc3f2ec366b32f5c92337ccc40df0",
         },
       },
     ],
@@ -404,6 +456,19 @@ export const latestPayouts: PartyPayout[] = [
             "0x08b9556e34a2280ce60c23b0c3c6f6bf4fa9ffd828ae93af25982fb22b3a66b7",
         },
       },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "5067",
+          transactionHash:
+            "0x596e1ff915a81000f297188069ec465d3cddc500eed3b6bb62efdf5524254bf2",
+        },
+        wld: {
+          amount: "2.58",
+          transactionHash:
+            "0xeaa1b02dcdca495d7095e0ccecdcc47fb7fd462815469a19c13b852a4dc57147",
+        },
+      },
     ],
   },
   {
@@ -481,6 +546,19 @@ export const latestPayouts: PartyPayout[] = [
           amount: "2.48",
           transactionHash:
             "0xe7ea1da392fe44036583a33bdccaeddb799bfe04283bf27a1f606fbe2ce2130d",
+        },
+      },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "4765",
+          transactionHash:
+            "0xc151bbb5abc8ec72001006e0d766840fdf67206afda8fe2602615c6738072ae6",
+        },
+        wld: {
+          amount: "2.43",
+          transactionHash:
+            "0x5d068b77014c9aaaf6c71f8e8b4957a4780b2525a5e5f1392a08b0007b4337bb",
         },
       },
     ],
@@ -562,11 +640,24 @@ export const latestPayouts: PartyPayout[] = [
             "0x503b2f056e0715bff7528d1f5b5a282f571bf76c680d250e0c28f2202b23c778",
         },
       },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "4706",
+          transactionHash:
+            "0x098f22247f459dd1e42f0695578a807cf1934b85bbdc0a4733b13caa17c7a2a8",
+        },
+        wld: {
+          amount: "2.40",
+          transactionHash:
+            "0xdd63ef5991aed1205c7527208630233185527c320f98f219b233ba637fc91e5f",
+        },
+      },
     ],
   },
   {
     id: 1090,
-    name: "WORLD OWNER PARTY",
+    name: "REPUBLIC WORLD COIN",
     leaderAddress: "0x4e63A0E60B55A90b09F298d7b608A2871e46F79a",
     leaderUsername: "maraz06.6754",
     get totalWdd() {
@@ -639,6 +730,19 @@ export const latestPayouts: PartyPayout[] = [
           amount: "1.95",
           transactionHash:
             "0xe9d9a810ddbda8880f60133b4b1320d405163abeab2d325e77102f1677756b41",
+        },
+      },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3699",
+          transactionHash:
+            "0x8b1280359b0ab883bcaf2a9defcd170497a1b4715bd872c8f4ea136d24ec72ba",
+        },
+        wld: {
+          amount: "1.88",
+          transactionHash:
+            "0xfd37ffe58a59a6a946e6439f3d035ca42ba0cc50801c7f4daaa16a87ee6220f4",
         },
       },
     ],
@@ -720,6 +824,19 @@ export const latestPayouts: PartyPayout[] = [
             "0xae6d12c7e60aa62aeb5c7d3426cf10ebe1b978e23346c51ca119cc702358c95d",
         },
       },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3725",
+          transactionHash:
+            "0xbc8a9258165726f91d8616a7a5124f2e62c727a5d3c80e56d80dfdb26e95f646",
+        },
+        wld: {
+          amount: "1.90",
+          transactionHash:
+            "0xbcd655a453ce7620dd08ea0b8da74121b77f7a0de23721f1cd94679705a660f3",
+        },
+      },
     ],
   },
   {
@@ -797,6 +914,19 @@ export const latestPayouts: PartyPayout[] = [
           amount: "1.97",
           transactionHash:
             "0xc0ba01d979ee48458e761fbbd68c0baab588ed23c39b8b4cf3b23d5aa6ba648f",
+        },
+      },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3731",
+          transactionHash:
+            "0x6bbeba7125c430b19aab12e0674489f85d7c2500049977dacce7f690adac70b1",
+        },
+        wld: {
+          amount: "1.90",
+          transactionHash:
+            "0x8d922755f5a7b886fa43c1c7d8e41b758d9fafa0b3313071f7b5927911fb1c4c",
         },
       },
     ],
@@ -878,6 +1008,19 @@ export const latestPayouts: PartyPayout[] = [
             "0x288c3ab4069c7fedc7d8b48314d68dedf2de87b690f928844781727de50e5f20",
         },
       },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3693",
+          transactionHash:
+            "0xdae2908b3e4007fcee1c245ec2731f32096a2840d800a937527a3f70532762fc",
+        },
+        wld: {
+          amount: "1.88",
+          transactionHash:
+            "0x854def1dd2cb1b4e24690a653bec28ac9ea8bb8c7895c886720aacb2beb2be85",
+        },
+      },
     ],
   },
   {
@@ -955,6 +1098,19 @@ export const latestPayouts: PartyPayout[] = [
           amount: "1.83",
           transactionHash:
             "0x0b03ef07b18fa5d1bdefd5b304eb7291e589efbec7dacb7861b0905e90cfb15d",
+        },
+      },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3492",
+          transactionHash:
+            "0xa8f35129473918f4459f0f1dbf2fa9e16ea280bf19ec69b2a38b8b7d6e103fcd",
+        },
+        wld: {
+          amount: "1.78",
+          transactionHash:
+            "0xdda90eb95ea0fe353e10693b8d8b5602663b75f2c0e355760dfbf6010cc140de",
         },
       },
     ],
@@ -2514,6 +2670,19 @@ export const latestPayouts: PartyPayout[] = [
             "0xcfb6a94887d714749c2ee5bc54437d696a131591a4c586b16aa925b8849c2378",
         },
       },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3460",
+          transactionHash:
+            "0x17efb25aa1380cb3a8b74b1baa3379d3123094774c67711fbfa00ded77d872a0",
+        },
+        wld: {
+          amount: "1.76",
+          transactionHash:
+            "0xa672a9f939d1d9876e28dbee4b48176e4ebc7f460fc9a9fba2ded48076a92a4d",
+        },
+      },
     ],
   },
   {
@@ -2539,6 +2708,19 @@ export const latestPayouts: PartyPayout[] = [
           amount: "4.05",
           transactionHash:
             "0xb38f4787ae124803efede79e175b282f1423ac4ab61a3456194a4966f007c9e7",
+        },
+      },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3465",
+          transactionHash:
+            "0x2b4ae4b6c7b4dc6337497605d3f0047466102ce26e851f454ed305d5f4752a3f",
+        },
+        wld: {
+          amount: "1.77",
+          transactionHash:
+            "0xe464efca94e46129ad7cc844c8c43b3034f6f9ee18c487118ef2f3cb5ee187fe",
         },
       },
     ],
@@ -2572,7 +2754,7 @@ export const latestPayouts: PartyPayout[] = [
   },
   {
     id: 3979,
-    name: "100.000 World Coin",
+    name: "EggsVault Party",
     leaderAddress: "0x72218bbd0cc41469154ded707a96226a67ba6b0b",
     leaderUsername: "rahmattaufik.5405",
     get totalWdd() {
@@ -2634,11 +2816,24 @@ export const latestPayouts: PartyPayout[] = [
             "0xa3fd13b52954a3406b09f24eb39a6c23f11c59adcce6da4363b0f4e8440d2cb7",
         },
       },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "5656",
+          transactionHash:
+            "0xfb2961239837b42557fccf4467ce4f9cb835953d9f0b6cd7479871c6174b3aab",
+        },
+        wld: {
+          amount: "2.88",
+          transactionHash:
+            "0xbcc36f33562023794d8b5abfa1654a46480024d57ccdf08e454285982a51956a",
+        },
+      },
     ],
   },
   {
     id: 3149,
-    name: "FREE 5 WORLD COIN ONLY",
+    name: "FREE 5 WORLD COINS",
     leaderAddress: "0xf25abcfbf2cad2fed5f0f8e47e193d235ac0b7f3",
     leaderUsername: "onlinebanking",
     get totalWdd() {
@@ -2698,6 +2893,19 @@ export const latestPayouts: PartyPayout[] = [
           amount: "2.89",
           transactionHash:
             "0xfe86817c3986aa9cc122332757e4d46368b561f69c1344821a3f469b8eaf0bdc",
+        },
+      },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "5491",
+          transactionHash:
+            "0x50b277b76b3771d5fb8dd04d4ca9026e62f6d2a1208b1af8167a86c78416e0f3",
+        },
+        wld: {
+          amount: "2.80",
+          transactionHash:
+            "0x7251e56bb4dbb8bb5ac0bd6d524be4a4bb38d00061869ea0053b3a81c95ce6ab",
         },
       },
     ],
@@ -2766,6 +2974,19 @@ export const latestPayouts: PartyPayout[] = [
             "0xb4163bd7db9abca71c90f5103b1e32aa7bd2b3d9c076141fd8698eef9eab07c7",
         },
       },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "4871",
+          transactionHash:
+            "0x65a6ddadc1224208025b6ba3fad5bffcb07e559046998c78cc6a392c070ea35f",
+        },
+        wld: {
+          amount: "2.48",
+          transactionHash:
+            "0x696f4dd06e34befdfd57b5df1f904674c421728e4085a8a4ef2d9310dfb724bf",
+        },
+      },
     ],
   },
   {
@@ -2832,6 +3053,19 @@ export const latestPayouts: PartyPayout[] = [
             "0xe1d622e74630260b0238720180936b1cd8d1b52ce97cc999b76486bace222232",
         },
       },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "5624",
+          transactionHash:
+            "0xa33109921fd55478cb4830cb824c909885c08e96c185e863f2207f63ed14d5dd",
+        },
+        wld: {
+          amount: "2.87",
+          transactionHash:
+            "0x7ddb3bf6bc1183d5912958ec648b126e9159ff52f7701751c6a8b74046e8bdf0",
+        },
+      },
     ],
   },
   {
@@ -2896,6 +3130,18 @@ export const latestPayouts: PartyPayout[] = [
           amount: "1.77",
           transactionHash:
             "0x5f094d3b326c439759e95583f67d75e4244aa0cd894ca9653fc206b5622c85af",
+        },
+      },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3391",
+          transactionHash:
+            "0xaf54c192f269f7b47abb107708f48e5f25a13b3e55a6df0a09466310bd863e69",
+        },
+        wld: {
+          amount: "1.73",
+          transactionHash: "0x6cb48bda1076f5d23f1272208479f7f286a4e35091f845ab87293a4ba1d6a7ea",
         },
       },
     ],
@@ -3100,7 +3346,7 @@ export const latestPayouts: PartyPayout[] = [
   },
   {
     id: 3415,
-    name: "World Republic Community",
+    name: "PRA x WDD x WLD 250.000",
     leaderAddress: "0xa11928d9a92a2e1ca5877d32a2f70b7dabd51b0c",
     leaderUsername: "ondel.8888",
     get totalWdd() {
@@ -3160,6 +3406,19 @@ export const latestPayouts: PartyPayout[] = [
           amount: "1.79",
           transactionHash:
             "0xb320ea1744a04e5e447a960514b95552550698e6ac4f6a9357bcbe323d89cd26",
+        },
+      },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3471",
+          transactionHash:
+            "0x98c7408c7f590a6184bae397057f643ac632b5c8b6e0d0ee2ba8e5646f9cb59e",
+        },
+        wld: {
+          amount: "1.77",
+          transactionHash:
+            "0x27d68d42eab02e80f263ada3f05014a796d96bacf8bd829584b96d49bff4397b",
         },
       },
     ],
@@ -3292,6 +3551,18 @@ export const latestPayouts: PartyPayout[] = [
           amount: "1.77",
           transactionHash:
             "0x5f0f4531449841c05c6618a29d46c2b2c8ac5b1745c5bddeecf857f0511d3c94",
+        },
+      },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3386",
+          transactionHash:
+            "0x4ac7dc21a721e621ef1d8d2ec5ef3f48d7865e86b3440ac4d7051e8d21c8cf90",
+        },
+        wld: {
+          amount: "1.73",
+          transactionHash: "0x4584945a5d366cf7ff8687910354c2acf7046320d951cea79575b354c3a59e3e",
         },
       },
     ],
@@ -3698,7 +3969,7 @@ export const latestPayouts: PartyPayout[] = [
   },
   {
     id: 5054,
-    name: "FREE 250.000 WLD EVERY WEEK",
+    name: "FREE EXTRA 250.000 WLD EVERY WEEK",
     leaderAddress: "0xade52d5293d83c6d05a9af2d5f0a9bc6d9bd3051",
     leaderUsername: "thekoem.3775",
     get totalWdd() {
@@ -3745,6 +4016,19 @@ export const latestPayouts: PartyPayout[] = [
           amount: "1.99",
           transactionHash:
             "0x1e9381a6ad0c5e4b61fc5bfc79ad36f6eb697cda008993c29701fc993403228e",
+        },
+      },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3768",
+          transactionHash:
+            "0xef8890d28dc5a5caf2484b5d4f2fa3edab3aef679eb10231621707b6c1b1705a",
+        },
+        wld: {
+          amount: "1.92",
+          transactionHash:
+            "0xbafeffcd916ad8eaad72aebdb3d64d7ad212fa0f0d01c59ddd9acde46a56a95f",
         },
       },
     ],
@@ -3798,6 +4082,19 @@ export const latestPayouts: PartyPayout[] = [
           amount: "1.97",
           transactionHash:
             "0xfe431752f7d412682cf47d567d76e4de2147283a9f68b6981e93fb2fd3bec18a",
+        },
+      },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3731",
+          transactionHash:
+            "0x8fad36ede05f90f19d353b4f26c2c0efc706ccdf76ff06b1801ad4bcb6b8cfb9",
+        },
+        wld: {
+          amount: "1.90",
+          transactionHash:
+            "0xaa81afb24eebfa7a06acbb7d20096d5954a6dfd02d1f04a11b562026c936aef9",
         },
       },
     ],
@@ -3880,6 +4177,19 @@ export const latestPayouts: PartyPayout[] = [
             "0x9078a857e7b7bdaad623cc893f8000ff0610b132d6c15b691a05b3d5663b3bf2",
         },
       },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3842",
+          transactionHash:
+            "0x6c4cf7d5829211298bbb9ab629ebf4891dc55320b16cf615e3a3665a854bf070",
+        },
+        wld: {
+          amount: "1.96",
+          transactionHash:
+            "0x794469bca3768cd0ec14ec0b80becef2e12a274ee799ea9413c10385f0fc8e14",
+        },
+      },
     ],
   },
   {
@@ -3933,11 +4243,24 @@ export const latestPayouts: PartyPayout[] = [
             "0xc27f52a53ab27c50c8053146a9a14ac267835e367cf8bde20fa301ab13f9cd5b",
         },
       },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3593",
+          transactionHash:
+            "0x353987e5c3349fa15b9511600321002e26ef74c8fc63bce3fa945b0cab9ef390",
+        },
+        wld: {
+          amount: "1.83",
+          transactionHash:
+            "0x8bc45235a1404c23e73011e003c8744f68a88fcbe89703b69e006d945ce908b1",
+        },
+      },
     ],
   },
   {
-    id: 5924,
-    name: "FREE 250.0000 WDD SETIAP MINGGU",
+    id: 7195,
+    name: "Gratis 1.000.000 WLD setiap hari🪙☑️",
     leaderAddress: "0x3fc9a16b697157c3693844d7fabcefa5658330e3",
     leaderUsername: "kasiada.7939",
     get totalWdd() {
@@ -3971,6 +4294,19 @@ export const latestPayouts: PartyPayout[] = [
           amount: "2.08",
           transactionHash:
             "0x5ad2ec3df92ac48e53b578896f8dd4db414e74aa277d9f36ff12816049694a64",
+        },
+      },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3571",
+          transactionHash:
+            "0xb82a96ebc871a14feabbc00d49d53163ecaf5dd4163d5b94f4ea5b4dd4d52ea9",
+        },
+        wld: {
+          amount: "1.82",
+          transactionHash:
+            "0x75682b1ed371cf736a0ebd0fae3efcae0d191981b121aac7ef2bfc0568ab46ec",
         },
       },
     ],
@@ -4024,6 +4360,19 @@ export const latestPayouts: PartyPayout[] = [
           amount: "1.80",
           transactionHash:
             "0xc1fa262ebeaaeb0fcfed694485aa38e0030460172938237c345b7a70237c7b28",
+        },
+      },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3471",
+          transactionHash:
+            "0x4880cf3cdb326511739c42cbc74bc214ed731603aa945978d0b9634a99328f37",
+        },
+        wld: {
+          amount: "1.77",
+          transactionHash:
+            "0xa3d520b0d8fa7859bd49b2582c286e37a8875c2f3a8cb2f2b55b256c84500a8b",
         },
       },
     ],
@@ -4093,6 +4442,19 @@ export const latestPayouts: PartyPayout[] = [
             "0xb587dd5ca2a02fa6bd8c42e241a3e01341dc9d65c5a2becdcbd913ddc4855f1a",
         },
       },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "18810",
+          transactionHash:
+            "0x760b6632f5714487e8a8e4a40ff10882f6371555e27ea10c63b1332511b5c5ce",
+        },
+        wld: {
+          amount: "9.59",
+          transactionHash:
+            "0xebdbbbd2ec178abd3b74c93249df6cbbe14e9d582d38d1cfacd7192f07805bcf",
+        },
+      },
     ],
   },
   {
@@ -4131,6 +4493,19 @@ export const latestPayouts: PartyPayout[] = [
           amount: "2.36",
           transactionHash:
             "0x030c08ea5d4583fc59ec26c89dbc39706776e25a0a7adbc3852dded000bcadf3",
+        },
+      },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "4367",
+          transactionHash:
+            "0x6ba7cb429dfb65e1f22097063b30dc7d110942a0518fc8405952b7a57fef5c44",
+        },
+        wld: {
+          amount: "2.23",
+          transactionHash:
+            "0x687cf748929a21199f3cf279acf54f9856135d33abc20660de74a798ae8e8586",
         },
       },
     ],
@@ -4173,6 +4548,19 @@ export const latestPayouts: PartyPayout[] = [
             "0x835eda879c92b159b4acc31aafd990b05146fdcb98b9b4b551bc7cfdeac37a58",
         },
       },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "4001",
+          transactionHash:
+            "0x64eb5a31375b0dbf55a5f2378b2c9517d540a224c6a5302951e15579f1cb2da4",
+        },
+        wld: {
+          amount: "2.04",
+          transactionHash:
+            "0xfa94ccb973076b2203cc694ed94171a6b303df45fc1f74c5cc99582a68df519f",
+        },
+      },
     ],
   },
   {
@@ -4213,11 +4601,24 @@ export const latestPayouts: PartyPayout[] = [
             "0x186834eb0ac79c15e660fcc1c3e8700658fedadd5c002c293cd8b4bcf73c262a",
         },
       },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "4097",
+          transactionHash:
+            "0x5d59ef9e70a36c067e3431fa2ba13f33ba031c0a98220b88eddb52c83ab68e55",
+        },
+        wld: {
+          amount: "2.09",
+          transactionHash:
+            "0x13d10047bc6c4170182e0234f03fa098f55ceec873c5a96534bae3c737815115",
+        },
+      },
     ],
   },
   {
     id: 5320,
-    name: "FREE 250.000 WDD🪙EVERY WEEK.JOIN TO DRC PARTY🏦",
+    name: "Free Sushi Party",
     leaderAddress: "0x57f7d8a11ea627395c999958a0b6ef96c6058606",
     leaderUsername: "republicwdd",
     get totalWdd() {
@@ -4253,11 +4654,24 @@ export const latestPayouts: PartyPayout[] = [
             "0x7b357048b708b45a62ebc44bb90fd22c4b254c5d28f058638207c8081ef41a08",
         },
       },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3794",
+          transactionHash:
+            "0xae3959537b09035ef6a94f560f37767ea0443585f65fa3b3c5a0d66243ad025b",
+        },
+        wld: {
+          amount: "1.93",
+          transactionHash:
+            "0x2e322f8e12f4912bf12f22ce3bae6a55b26b56b88c22115a506a6747f20e017d",
+        },
+      },
     ],
   },
   {
     id: 6263,
-    name: "FREE 250 WLD COIN KENYA",
+    name: "FREE 250 WLD COIN KENYAN &ASIA",
     leaderAddress: "0xc5c35a03772140e4b7c74bbe132b8dc537080988",
     leaderUsername: "juniorond",
     get totalWdd() {
@@ -4291,6 +4705,19 @@ export const latestPayouts: PartyPayout[] = [
           amount: "1.86",
           transactionHash:
             "0xc4492276d57a28212267e2d73a5a063b7107af4f14e1844d484bb8f86627a96b",
+        },
+      },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3518",
+          transactionHash:
+            "0x180cc82af334f3db6d83d3fc1acd95a32451a756182b182b21d776cbeb36e551",
+        },
+        wld: {
+          amount: "1.79",
+          transactionHash:
+            "0xc7beb476c68b5957d6bd324d110d412721d08a41ed95f6867d8e0a7e678e9598",
         },
       },
     ],
@@ -4333,6 +4760,19 @@ export const latestPayouts: PartyPayout[] = [
             "0x2464f6e4f7d0511b223617bac02d07e8da91c46d5e3e9d3e2f37136fa57aefd1",
         },
       },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3911",
+          transactionHash:
+            "0xddc653d00795b2a7e5b54c93aaa7b9c75d01af02cef94d4fd1688f585c27389d",
+        },
+        wld: {
+          amount: "1.99",
+          transactionHash:
+            "0x1e6c2ba1d3c1b04d62b206e595de903d03ae7e70a548557042be0281fd4703eb",
+        },
+      },
     ],
   },
   {
@@ -4371,6 +4811,19 @@ export const latestPayouts: PartyPayout[] = [
           amount: "1.85",
           transactionHash:
             "0x938e43b56c416b2a5e3a7c2c10e299db09fbb5c1a235f1544ad1a79952526626",
+        },
+      },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3487",
+          transactionHash:
+            "0x7671306aa0ba0b91febd837fa533fe82c69b5c4b2b2f979c489908defabee417",
+        },
+        wld: {
+          amount: "1.78",
+          transactionHash:
+            "0xa37dda7e51bb9f6f139533e4648b28cda47fbb130c38720bf8c6ea7598da8859",
         },
       },
     ],
@@ -4413,11 +4866,24 @@ export const latestPayouts: PartyPayout[] = [
             "0x47493fc8ee2de14f23f795db2ed75f32c37340109f54c70a7443b0c312d7318c",
         },
       },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3423",
+          transactionHash:
+            "0x45718e925797604a1eb97cebd9772b7a9c31f44d8024677f715da445bac06013",
+        },
+        wld: {
+          amount: "1.74",
+          transactionHash:
+            "0x758ccffc9b237a77be631c1ea7932493bb677bf5e3b50c240570c1c7c03f8cb8",
+        },
+      },
     ],
   },
   {
     id: 7399,
-    name: "FREE 250.000 WDD🪙EVERY WEEK.JOIN TO DRC PARTY🏦",
+    name: "Everyone can be rich here, earn 1,000,000,000,000 WLD coins just for joining this party💰💵🤑",
     leaderAddress: "0x2d354b611376c2327a0a34e9ce63c7eb2aa40cd1",
     leaderUsername: "febri.2619",
     get totalWdd() {
@@ -4438,6 +4904,19 @@ export const latestPayouts: PartyPayout[] = [
           amount: "2.35",
           transactionHash:
             "0xa25cc9ee4e5792c85d89feb50185038aa2fcd5fef9b21c8e7e59448ab865e763",
+        },
+      },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "4340",
+          transactionHash:
+            "0xa5bdae54bd1393d8796cf41abe96849c057bd842a8910d24f846788eda2bd382",
+        },
+        wld: {
+          amount: "2.21",
+          transactionHash:
+            "0xba2e45d020899bfe0c7c2dbb5898f7333a7f273ac481eec6ca88f39f92470409",
         },
       },
     ],
@@ -4467,6 +4946,19 @@ export const latestPayouts: PartyPayout[] = [
             "0xf3630ebc34138d7e2dafdb3d50cb877bb8eac0bde280462724751b7fed0f0fe0",
         },
       },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "4118",
+          transactionHash:
+            "0x8a7a1f165d5fdbcd6206d83d0d7c3ebeef114ab12eb2401e5a46873dc84b8552",
+        },
+        wld: {
+          amount: "2.10",
+          transactionHash:
+            "0xe6b4887001d8f6c1ede200294d05261d57c5f23fa1f88c9ac132ef6fdc18a6a4",
+        },
+      },
     ],
   },
   {
@@ -4492,6 +4984,19 @@ export const latestPayouts: PartyPayout[] = [
           amount: "1.94",
           transactionHash:
             "0x0ebef16c311c1998233be321ad8c8c797faeaa6348f579970fa19060d74b62ca",
+        },
+      },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3662",
+          transactionHash:
+            "0xccb1ae717ccd38cb3d2298d93d31a3077a1622e8a514cbf2d27bed85aef2cb26",
+        },
+        wld: {
+          amount: "1.87",
+          transactionHash:
+            "0x06c80cd49d06cf25a7363bd07201b1483d12cb23d9b84a4ebee503c4b802f900",
         },
       },
     ],
@@ -4521,13 +5026,26 @@ export const latestPayouts: PartyPayout[] = [
             "0xa79f114eebe13eff5cd76c6d0ee65629543ec17ce4869ca65df3d9d39bfe981c",
         },
       },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3640",
+          transactionHash:
+            "0xd350226b502d0f48f178d9608b6635abeba8df58ab676ea7d5a51244b72ecb7e",
+        },
+        wld: {
+          amount: "1.86",
+          transactionHash:
+            "0xfab2dbb9d50f5c6749569f6efbd70232dcab9f3335a04947b76c193c06b0b01a",
+        },
+      },
     ],
   },
   {
-    id: 7195,
-    name: "Gratis 1.000.000 WLD setiap hari🪙☑️",
+    id: 8088,
+    name: "Gratis 999.999 WLD💰🪙✅",
     leaderAddress: "0xd6b5d77bd14ce9f21959cb64c24eeeab6f4aac34",
-    leaderUsername: "kasiada.7939",
+    leaderUsername: "nabary.2834",
     get totalWdd() {
       return calculateTotal(this.weeklyPayouts, "wdd");
     },
@@ -4546,6 +5064,19 @@ export const latestPayouts: PartyPayout[] = [
           amount: "1.92",
           transactionHash:
             "0x75c4c0310d78e03381e06b30c685aa302d2236a59a1ddc34bf82663fd306db04",
+        },
+      },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3863",
+          transactionHash:
+            "0x133f98a756894b5002fae35573420add2190bcf55684e95145c392f8a27475e6",
+        },
+        wld: {
+          amount: "1.97",
+          transactionHash:
+            "0x58378e0aa079090334dcd110493b8f4e2dfc003a394618b76eed9f2e8b408984",
         },
       },
     ],
@@ -4575,6 +5106,18 @@ export const latestPayouts: PartyPayout[] = [
             "0x0abaeb7832c426f2b82d005e7da8e4292aba6ad3422c5290ff866414fa123f02",
         },
       },
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3375",
+          transactionHash:
+            "0x2fe5a12a8c98660f11277eb5d1fa5b4e22b7c9d54e7bcc7f59cc58b7e9a5fccf",
+        },
+        wld: {
+          amount: "1.72",
+          transactionHash: "0x7d9be1ee8ffd556418cc3f394e8bd23a282bdb5fb37e25e7ec5085eb8408ad3d",
+        },
+      },
     ],
   },
   {
@@ -4600,6 +5143,222 @@ export const latestPayouts: PartyPayout[] = [
           amount: "1.73",
           transactionHash:
             "0xf0a28be7cf5ed6ae90892189633ac462047e96c6ef87faaa125dfea7542e3219",
+        },
+      },
+    ],
+  },
+  {
+    id: 7898,
+    name: "💰 Claim Gratis 870.000 WLD 💷🎁✅",
+    leaderAddress: "0x2763957a15d4dea7fc6f9c421d8e41b6ba7205c8",
+    leaderUsername: "ashleyyy69",
+    get totalWdd() {
+      return calculateTotal(this.weeklyPayouts, "wdd");
+    },
+    get totalWld() {
+      return calculateTotal(this.weeklyPayouts, "wld");
+    },
+    weeklyPayouts: [
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "5767",
+          transactionHash:
+            "0xf97724592094605cac709ee1bb66384cd0236eefa214780a121df46629faef63",
+        },
+        wld: {
+          amount: "2.94",
+          transactionHash:
+            "0xbfe7a9bfcc48c06415f094c4d79990ea1ef22a8b0744b20204e6880ab8dae444",
+        },
+      },
+    ],
+  },
+  {
+    id: 7735,
+    name: "🇵🇸PARTAI KEADILAN☮️",
+    leaderAddress: "0x87536a0ee32a6f5c9f50cf4ec4f8dbbe2e2ef213",
+    leaderUsername: "alfian17",
+    get totalWdd() {
+      return calculateTotal(this.weeklyPayouts, "wdd");
+    },
+    get totalWld() {
+      return calculateTotal(this.weeklyPayouts, "wld");
+    },
+    weeklyPayouts: [
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3980",
+          transactionHash:
+            "0x5d4a133b5094140cd44324d4463310d94c99d07c33756e97c858068e04cbb326",
+        },
+        wld: {
+          amount: "2.03",
+          transactionHash:
+            "0x8a63d158648c2a6b5f72436ef06a026bee48139700e76dd20a5573178245ae87",
+        },
+      },
+    ],
+  },
+  {
+    id: 7703,
+    name: "💰AIR DROP +50$WLD ✅ 50.000 FREE $CDT🤑",
+    leaderAddress: "0x04ee1c4a93e7d63114147dcf700ad7bd62f178e4",
+    leaderUsername: "bares.1996",
+    get totalWdd() {
+      return calculateTotal(this.weeklyPayouts, "wdd");
+    },
+    get totalWld() {
+      return calculateTotal(this.weeklyPayouts, "wld");
+    },
+    weeklyPayouts: [
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3704",
+          transactionHash:
+            "0x0cad03024ff63c41e2ca4b709824fe673c7c6c3e30bd1d98bb06fdff5371031e",
+        },
+        wld: {
+          amount: "1.89",
+          transactionHash:
+            "0x1d9c782ea21a39c319e42400bc6b4ebc1faf186693d9ae57b19ccab5109b88bf",
+        },
+      },
+    ],
+  },
+  {
+    id: 8010,
+    name: "Gratis 250.000 WLD✅💰🪙",
+    leaderAddress: "0x23e56889205f6a0a48abfe28a6038a07b10d33d9",
+    leaderUsername: "zagoanzzz.6234",
+    get totalWdd() {
+      return calculateTotal(this.weeklyPayouts, "wdd");
+    },
+    get totalWld() {
+      return calculateTotal(this.weeklyPayouts, "wld");
+    },
+    weeklyPayouts: [
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3577",
+          transactionHash:
+            "0x9bf357529fa3e18bd6d36fc5fac3f19d52e1b5d77d784009821874da785e6909",
+        },
+        wld: {
+          amount: "1.82",
+          transactionHash:
+            "0xd11a862c5b6e06642abb0a0a84fcd4de5d5a43f08bbc68f152b142ce7e226ff0",
+        },
+      },
+    ],
+  },
+  {
+    id: 8056,
+    name: "Klaim Gratis 1.000.000.000 WLD Setiap Minggu💰🎁🪙",
+    leaderAddress: "0x73a37e0074ea209cf39dd3cc800ffe83c30b7635",
+    leaderUsername: "bela.3427",
+    get totalWdd() {
+      return calculateTotal(this.weeklyPayouts, "wdd");
+    },
+    get totalWld() {
+      return calculateTotal(this.weeklyPayouts, "wld");
+    },
+    weeklyPayouts: [
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3487",
+          transactionHash:
+            "0x683fb0652dfbf28702f6d351ec066e7348e0abc1d89214f394ac8c5651552b78",
+        },
+        wld: {
+          amount: "1.78",
+          transactionHash:
+            "0xee4474701900ceb8224589664af306e3c70b092d2278517bd3afd873b2d1d0db",
+        },
+      },
+    ],
+  },
+  {
+    id: 7568,
+    name: "🔹250.000 WLD ++ GRATIS",
+    leaderAddress: "0x022c83c4ecc5b7a1edbaa6c4aaa901d37fb31ca8",
+    leaderUsername: "eldizer.8331",
+    get totalWdd() {
+      return calculateTotal(this.weeklyPayouts, "wdd");
+    },
+    get totalWld() {
+      return calculateTotal(this.weeklyPayouts, "wld");
+    },
+    weeklyPayouts: [
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3481",
+          transactionHash:
+            "0xac53a2c4a6c2825abefa98e7dabbbf6b4c2204e5450d2733bd42d4b225729817",
+        },
+        wld: {
+          amount: "1.77",
+          transactionHash:
+            "0x35c37cd2d12e7491655f802ee7828a37a8fd05af9943ccafb3af0b597529f782",
+        },
+      },
+    ],
+  },
+  {
+    id: 7980,
+    name: "💰AIR DROP +50$WLD ✅ 10.000 FREE $ORO🤑",
+    leaderAddress: "0x4e9dd0dbef7ceb170ac707fe980b860d292f7e55",
+    leaderUsername: "deshini",
+    get totalWdd() {
+      return calculateTotal(this.weeklyPayouts, "wdd");
+    },
+    get totalWld() {
+      return calculateTotal(this.weeklyPayouts, "wld");
+    },
+    weeklyPayouts: [
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3476",
+          transactionHash:
+            "0x1be6e07808ddbb68c7f190f5752505a353b739e2ec9ca65212e89ef43cd0545d",
+        },
+        wld: {
+          amount: "1.77",
+          transactionHash:
+            "0x105813dc3f94066eae21b234d45c3a6adb710c65c585645993f8225b8b4f5531",
+        },
+      },
+    ],
+  },
+  {
+    id: 7812,
+    name: "FREE 250.000 WDD🪙EVERY WEEK.JOIN TO CREW PARTY🤜🏻🤛",
+    leaderAddress: "0x63d572b8bd80a8c0a99f1ce94201fa097bd33eda",
+    leaderUsername: "a2627j",
+    get totalWdd() {
+      return calculateTotal(this.weeklyPayouts, "wdd");
+    },
+    get totalWld() {
+      return calculateTotal(this.weeklyPayouts, "wld");
+    },
+    weeklyPayouts: [
+      {
+        weekNumber: 6,
+        wdd: {
+          amount: "3460",
+          transactionHash:
+            "0x862822fc1c9734144902d83c91ada58d5a0b962e1c0167d98ff39659f004d5b4",
+        },
+        wld: {
+          amount: "1.76",
+          transactionHash:
+            "0x5d3022cfd6ed12110dcef8e8a65d653dfb94a9100d188e10bc37c35f1dcf2ce7",
         },
       },
     ],
