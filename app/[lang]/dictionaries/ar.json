@@ -445,6 +445,9 @@
                 "optimism": {
                   "title": "تمويل Optimism Retro",
                   "status": "تم التقديم"
+                },
+                "affiliate": {
+                  "title": "عمولات الشركاء"
                 }
               },
               "commitment": {

@@ -445,6 +445,9 @@
                 "optimism": {
                   "title": "Optimism Retro 자금",
                   "status": "신청됨"
+                },
+                "affiliate": {
+                  "title": "제휴 수수료"
                 }
               },
               "commitment": {

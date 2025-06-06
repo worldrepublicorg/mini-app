@@ -227,6 +227,48 @@ export default function BuybackProgramPage({
                 </div>
               </a>
 
+              {/* Affiliate Commissions */}
+              <a
+                href="https://www.bitget.com/affiliates"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block rounded-lg bg-gray-50 p-3 transition-all hover:bg-gray-100"
+              >
+                <div className="my-1 flex items-center justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <div className="text-[16px] font-medium text-gray-900">
+                      {(() => {
+                        const title =
+                          dictionary?.pages?.earn?.tabs?.contribute
+                            ?.buybackProgram?.sections?.fundingSources
+                            ?.affiliate?.title || "";
+                        const words = title.split(" ");
+                        const lastWord = words.pop();
+                        return (
+                          <>
+                            {words.join(" ")}
+                            {lastWord && (
+                              <>
+                                {" "}
+                                <span className="inline-flex items-center">
+                                  {lastWord}
+                                  <FiExternalLink className="mb-[1px] ml-1.5 inline-block h-3.5 w-3.5 align-baseline" />
+                                </span>
+                              </>
+                            )}
+                          </>
+                        );
+                      })()}
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-end whitespace-nowrap">
+                    <span className="bg-yellow-100 text-yellow-800 rounded-full py-0.5 pl-2.5 text-sm font-medium">
+                      0 USDT
+                    </span>
+                  </div>
+                </div>
+              </a>
+
               {/* Optimism Funding */}
               <a
                 href="https://atlas.optimism.io/missions/retro-funding-onchain-builders"
@@ -263,7 +305,11 @@ export default function BuybackProgramPage({
                   </div>
                   <div className="flex flex-col items-end whitespace-nowrap">
                     <span className="bg-yellow-100 text-yellow-800 rounded-full py-0.5 pl-2.5 text-sm font-medium">
-                      Applied
+                      {
+                        dictionary?.pages?.earn?.tabs?.contribute
+                          ?.buybackProgram?.sections?.fundingSources?.optimism
+                          ?.status
+                      }
                     </span>
                   </div>
                 </div>

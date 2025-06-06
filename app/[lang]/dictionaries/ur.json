@@ -445,6 +445,9 @@
                 "optimism": {
                   "title": "آپٹیمزم ریٹرو فنڈنگ",
                   "status": "درخواست دی گئی"
+                },
+                "affiliate": {
+                  "title": "الحاق کمیشن"
                 }
               },
               "commitment": {

@@ -445,6 +445,9 @@
                 "optimism": {
                   "title": "Pembiayaan Optimism Retro",
                   "status": "Telah Dipohon"
+                },
+                "affiliate": {
+                  "title": "Komisen Afiliasi"
                 }
               },
               "commitment": {

@@ -444,6 +444,9 @@
                 "optimism": {
                   "title": "Optimism Retro資金",
                   "status": "申請済み"
+                },
+                "affiliate": {
+                  "title": "アフィリエイト報酬"
                 }
               },
               "commitment": {

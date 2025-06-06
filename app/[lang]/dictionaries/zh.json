@@ -445,6 +445,9 @@
                 "optimism": {
                   "title": "Optimism Retro资金",
                   "status": "已申请"
+                },
+                "affiliate": {
+                  "title": "联盟佣金"
                 }
               },
               "commitment": {

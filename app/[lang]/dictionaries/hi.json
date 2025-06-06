@@ -445,6 +445,9 @@
                 "optimism": {
                   "title": "ऑप्टिमिज्म रेट्रो फंडिंग",
                   "status": "आवेदन किया गया"
+                },
+                "affiliate": {
+                  "title": "एफिलिएट कमीशन"
                 }
               },
               "commitment": {

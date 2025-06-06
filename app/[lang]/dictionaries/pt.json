@@ -445,6 +445,9 @@
                 "optimism": {
                   "title": "Financiamento Optimism Retro",
                   "status": "Aplicado"
+                },
+                "affiliate": {
+                  "title": "Comissões de Afiliados"
                 }
               },
               "commitment": {

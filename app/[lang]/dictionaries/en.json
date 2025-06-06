@@ -432,6 +432,9 @@
                 "worldRetro": {
                   "title": "World Retro Funding"
                 },
+                "affiliate": {
+                  "title": "Affiliate Commissions"
+                },
                 "optimism": {
                   "title": "Optimism Retro Funding",
                   "status": "Applied"

@@ -445,6 +445,9 @@
                 "optimism": {
                   "title": "Optimism Retro Financiranje",
                   "status": "Primijenjeno"
+                },
+                "affiliate": {
+                  "title": "Partnerske provizije"
                 }
               },
               "commitment": {
