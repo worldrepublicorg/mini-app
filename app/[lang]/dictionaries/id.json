@@ -4,9 +4,10 @@
       "connect": "Hubungkan Dompet"
     },
     "banners": {
-      "holdstation": {
-        "message": "SAMA gratis di Holdstation Wallet untuk pemegang WDD teratas.",
-        "collect": "Kumpulkan"
+      "bitget": {
+        "title": "Trading lebih cerdas di Bitget",
+        "subtitle": "Salin trader elit, dapatkan diskon biaya 10% + bonus sambutan hingga 6200 USDT.",
+        "unlockOffer": "Buka penawaran"
       }
     },
     "verifyButton": {
@@ -444,6 +445,9 @@
                 "optimism": {
                   "title": "Pendanaan Optimism Retro",
                   "status": "Diajukan"
+                },
+                "affiliate": {
+                  "title": "Komisi Afiliasi"
                 }
               },
               "commitment": {

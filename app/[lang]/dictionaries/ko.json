@@ -4,9 +4,10 @@
       "connect": "지갑 연결"
     },
     "banners": {
-      "holdstation": {
-        "message": "상위 WDD 보유자를 위한 Holdstation 지갑에서 무료 SAMA.",
-        "collect": "수집"
+      "bitget": {
+        "title": "Bitget에서 더 스마트하게 거래하세요",
+        "subtitle": "엘리트 트레이더를 복사하고, 수수료 10% 할인 + 최대 6200 USDT 웰컴 보너스를 받으세요.",
+        "unlockOffer": "오퍼 열기"
       }
     },
     "verifyButton": {
@@ -444,6 +445,9 @@
                 "optimism": {
                   "title": "Optimism Retro 자금",
                   "status": "신청됨"
+                },
+                "affiliate": {
+                  "title": "제휴 수수료"
                 }
               },
               "commitment": {

@@ -4,9 +4,10 @@
       "connect": "ربط المحفظة"
     },
     "banners": {
-      "holdstation": {
-        "message": "SAMA مجاني في محفظة Holdstation لحاملي WDD الأوائل.",
-        "collect": "جمع"
+      "bitget": {
+        "title": "تداول بذكاء على Bitget",
+        "subtitle": "انسخ المتداولين المحترفين، واحصل على خصم 10% على الرسوم + حتى 6200 USDT مكافأة ترحيبية.",
+        "unlockOffer": "افتح العرض"
       }
     },
     "verifyButton": {
@@ -444,6 +445,9 @@
                 "optimism": {
                   "title": "تمويل Optimism Retro",
                   "status": "تم التقديم"
+                },
+                "affiliate": {
+                  "title": "عمولات الشركاء"
                 }
               },
               "commitment": {

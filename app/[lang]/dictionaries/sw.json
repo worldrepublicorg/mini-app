@@ -4,9 +4,10 @@
       "connect": "Unganisha Pochi"
     },
     "banners": {
-      "holdstation": {
-        "message": "SAMA ya bure kwenye Pochi ya Holdstation kwa wamiliki wa WDD wa juu.",
-        "collect": "Kusanya"
+      "bitget": {
+        "title": "Fanya biashara kwa werevu zaidi kwenye Bitget",
+        "subtitle": "Nakili wafanyabiashara mahiri, pata punguzo la 10% kwenye ada + hadi 6200 USDT bonasi ya kukaribishwa.",
+        "unlockOffer": "Fungua ofa"
       }
     },
     "verifyButton": {
@@ -444,6 +445,9 @@
                 "optimism": {
                   "title": "Fedha za Nyuma ya Optimism",
                   "status": "Imetumika"
+                },
+                "affiliate": {
+                  "title": "Tume za Ushirika"
                 }
               },
               "commitment": {

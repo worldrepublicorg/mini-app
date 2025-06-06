@@ -4,9 +4,10 @@
       "connect": "连接钱包"
     },
     "banners": {
-      "holdstation": {
-        "message": "顶级WDD持有者可在Holdstation钱包获得免费SAMA。",
-        "collect": "领取"
+      "bitget": {
+        "title": "在 Bitget 更聪明地交易",
+        "subtitle": "复制精英交易员，享受 10% 手续费优惠 + 最高 6200 USDT 新手奖励。",
+        "unlockOffer": "解锁优惠"
       }
     },
     "verifyButton": {
@@ -444,6 +445,9 @@
                 "optimism": {
                   "title": "Optimism Retro资金",
                   "status": "已申请"
+                },
+                "affiliate": {
+                  "title": "联盟佣金"
                 }
               },
               "commitment": {

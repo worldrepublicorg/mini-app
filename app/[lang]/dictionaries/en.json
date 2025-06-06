@@ -4,9 +4,10 @@
       "connect": "Connect Wallet"
     },
     "banners": {
-      "holdstation": {
-        "message": "Free SAMA on Holdstation Wallet for top WDD holders.",
-        "collect": "Collect"
+      "bitget": {
+        "title": "Trade smarter on Bitget",
+        "subtitle": "Copy elite traders, get 10% off fees + up to 6200 USDT welcome bonus.",
+        "unlockOffer": "Unlock offer"
       }
     },
     "verifyButton": {
@@ -430,6 +431,9 @@
                 },
                 "worldRetro": {
                   "title": "World Retro Funding"
+                },
+                "affiliate": {
+                  "title": "Affiliate Commissions"
                 },
                 "optimism": {
                   "title": "Optimism Retro Funding",

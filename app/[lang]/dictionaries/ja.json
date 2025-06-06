@@ -4,9 +4,10 @@
       "connect": "ウォレットを接続"
     },
     "banners": {
-      "holdstation": {
-        "message": "トップWDD保有者向けHoldstationウォレットで無料SAMA。",
-        "collect": "受け取る"
+      "bitget": {
+        "title": "Bitgetで賢く取引",
+        "subtitle": "エリートトレーダーをコピーして、手数料10%オフ＋最大6200 USDTのウェルカムボーナスを獲得。",
+        "unlockOffer": "オファーをアンロック"
       }
     },
     "verifyButton": {
@@ -443,6 +444,9 @@
                 "optimism": {
                   "title": "Optimism Retro資金",
                   "status": "申請済み"
+                },
+                "affiliate": {
+                  "title": "アフィリエイト報酬"
                 }
               },
               "commitment": {

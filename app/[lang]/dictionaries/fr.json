@@ -4,9 +4,10 @@
       "connect": "Connecter le portefeuille"
     },
     "banners": {
-      "holdstation": {
-        "message": "SAMA gratuit sur Holdstation Wallet pour les principaux détenteurs de WDD.",
-        "collect": "Collecter"
+      "bitget": {
+        "title": "Tradez plus intelligemment sur Bitget",
+        "subtitle": "Copiez les traders d'élite, obtenez 10% de réduction sur les frais + jusqu'à 6200 USDT de bonus de bienvenue.",
+        "unlockOffer": "Débloquer l'offre"
       }
     },
     "verifyButton": {
@@ -444,6 +445,9 @@
                 "optimism": {
                   "title": "Financement Optimism Retro",
                   "status": "Demande soumise"
+                },
+                "affiliate": {
+                  "title": "Commissions d'affiliation"
                 }
               },
               "commitment": {

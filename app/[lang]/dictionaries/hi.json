@@ -4,9 +4,10 @@
       "connect": "वॉलेट कनेक्ट करें"
     },
     "banners": {
-      "holdstation": {
-        "message": "शीर्ष WDD धारकों के लिए Holdstation वॉलेट पर मुफ्त SAMA।",
-        "collect": "एकत्र करें"
+      "bitget": {
+        "title": "Bitget पर स्मार्ट ट्रेड करें",
+        "subtitle": "एलीट ट्रेडर्स की नकल करें, 10% फीस छूट + 6200 USDT तक वेलकम बोनस पाएं।",
+        "unlockOffer": "ऑफ़र अनलॉक करें"
       }
     },
     "verifyButton": {
@@ -444,6 +445,9 @@
                 "optimism": {
                   "title": "ऑप्टिमिज्म रेट्रो फंडिंग",
                   "status": "आवेदन किया गया"
+                },
+                "affiliate": {
+                  "title": "एफिलिएट कमीशन"
                 }
               },
               "commitment": {

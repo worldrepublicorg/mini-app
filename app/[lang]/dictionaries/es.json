@@ -7,9 +7,10 @@
       "error": "Error de Conexión"
     },
     "banners": {
-      "holdstation": {
-        "message": "SAMA gratis en Holdstation Wallet para los principales tenedores de WDD.",
-        "collect": "Recolectar"
+      "bitget": {
+        "title": "Opera de forma más inteligente en Bitget",
+        "subtitle": "Copia a traders de élite, obtén 10% de descuento en comisiones + hasta 6200 USDT de bono de bienvenida.",
+        "unlockOffer": "Desbloquear oferta"
       }
     },
     "verifyButton": {
@@ -452,6 +453,9 @@
                 "optimism": {
                   "title": "Financiamiento Optimism Retro",
                   "status": "Aplicado"
+                },
+                "affiliate": {
+                  "title": "Comisiones de Afiliados"
                 }
               },
               "commitment": {
