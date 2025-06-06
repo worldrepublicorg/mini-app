@@ -4,9 +4,10 @@
       "connect": "Sambung Dompet"
     },
     "banners": {
-      "holdstation": {
-        "message": "SAMA percuma di Holdstation Wallet untuk pemegang WDD teratas.",
-        "collect": "Kutip"
+      "bitget": {
+        "title": "Berdagang lebih bijak di Bitget",
+        "subtitle": "Salin pedagang elit, dapatkan diskaun yuran 10% + sehingga 6200 USDT bonus alu-aluan.",
+        "unlockOffer": "Buka tawaran"
       }
     },
     "verifyButton": {

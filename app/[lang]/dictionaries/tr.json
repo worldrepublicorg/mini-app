@@ -4,9 +4,10 @@
       "connect": "Cüzdanı Bağla"
     },
     "banners": {
-      "holdstation": {
-        "message": "En üst düzey WDD sahipleri için Holdstation Cüzdanında ücretsiz SAMA.",
-        "collect": "Topla"
+      "bitget": {
+        "title": "Bitget'te daha akıllıca işlem yapın",
+        "subtitle": "Elit traderları kopyalayın, ücretlerde %10 indirim + 6200 USDT'ye kadar hoş geldin bonusu kazanın.",
+        "unlockOffer": "Teklifi aç"
       }
     },
     "verifyButton": {

@@ -4,9 +4,10 @@
       "connect": "Połącz Portfel"
     },
     "banners": {
-      "holdstation": {
-        "message": "Darmowe SAMA w portfelu Holdstation dla największych posiadaczy WDD.",
-        "collect": "Zbierz"
+      "bitget": {
+        "title": "Handluj mądrzej na Bitget",
+        "subtitle": "Kopiuj elitarnych traderów, zyskaj 10% zniżki na opłaty + do 6200 USDT bonusu powitalnego.",
+        "unlockOffer": "Odblokuj ofertę"
       }
     },
     "verifyButton": {

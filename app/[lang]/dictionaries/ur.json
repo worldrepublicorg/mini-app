@@ -4,9 +4,10 @@
       "connect": "والٹ سے رابطہ کریں"
     },
     "banners": {
-      "holdstation": {
-        "message": "اعلی درجے کے WDD ہولڈرز کے لیے Holdstation والٹ پر مفت SAMA۔",
-        "collect": "جمع کریں"
+      "bitget": {
+        "title": "Bitget پر اسمارٹ ٹریڈ کریں",
+        "subtitle": "ایلیٹ ٹریڈرز کی نقل کریں، فیس پر 10% رعایت + 6200 USDT تک خوش آمدیدی بونس حاصل کریں۔",
+        "unlockOffer": "آفر ان لاک کریں"
       }
     },
     "verifyButton": {

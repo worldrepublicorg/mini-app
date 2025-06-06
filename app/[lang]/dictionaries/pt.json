@@ -4,9 +4,10 @@
       "connect": "Conectar Carteira"
     },
     "banners": {
-      "holdstation": {
-        "message": "SAMA grátis na Holdstation Wallet para os principais detentores de WDD.",
-        "collect": "Coletar"
+      "bitget": {
+        "title": "Negocie de forma mais inteligente na Bitget",
+        "subtitle": "Copie traders de elite, ganhe 10% de desconto em taxas + até 6200 USDT de bônus de boas-vindas.",
+        "unlockOffer": "Desbloquear oferta"
       }
     },
     "verifyButton": {

@@ -4,9 +4,10 @@
       "connect": "Ikonekta ang Wallet"
     },
     "banners": {
-      "holdstation": {
-        "message": "Libreng SAMA sa Holdstation Wallet para sa mga nangungunang may-ari ng WDD.",
-        "collect": "Ipunin"
+      "bitget": {
+        "title": "Mas Matalinong Trading sa Bitget",
+        "subtitle": "Kopyahin ang mga elite trader, makakuha ng 10% off sa fees + hanggang 6200 USDT welcome bonus.",
+        "unlockOffer": "I-unlock ang offer"
       }
     },
     "verifyButton": {

@@ -4,9 +4,10 @@
       "connect": "Wallet verbinden"
     },
     "banners": {
-      "holdstation": {
-        "message": "Kostenloses SAMA auf Holdstation Wallet für Top-WDD-Inhaber.",
-        "collect": "Sammeln"
+      "bitget": {
+        "title": "Cleverer handeln auf Bitget",
+        "subtitle": "Kopiere Elite-Trader, erhalte 10% Rabatt auf Gebühren + bis zu 6200 USDT Willkommensbonus.",
+        "unlockOffer": "Angebot freischalten"
       }
     },
     "verifyButton": {

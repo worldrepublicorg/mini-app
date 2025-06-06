@@ -4,9 +4,10 @@
       "connect": "ওয়ালেট সংযোগ করুন"
     },
     "banners": {
-      "holdstation": {
-        "message": "শীর্ষ WDD ধারকদের জন্য Holdstation ওয়ালেটে বিনামূল্যে SAMA।",
-        "collect": "সংগ্রহ করুন"
+      "bitget": {
+        "title": "Bitget-এ আরও স্মার্ট ট্রেড করুন",
+        "subtitle": "এলিট ট্রেডারদের কপি করুন, ১০% ফি ছাড় + সর্বোচ্চ ৬২০০ USDT ওয়েলকাম বোনাস পান।",
+        "unlockOffer": "অফার আনলক করুন"
       }
     },
     "verifyButton": {

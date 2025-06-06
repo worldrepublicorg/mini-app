@@ -4,9 +4,10 @@
       "connect": "Poveži novčanik"
     },
     "banners": {
-      "holdstation": {
-        "message": "Besplatni SAMA na Holdstation novčaniku za vrhunske WDD posjednike.",
-        "collect": "Prikupi"
+      "bitget": {
+        "title": "Pametnije trgujte na Bitgetu",
+        "subtitle": "Kopirajte elitne tradere, ostvarite 10% popusta na naknade + do 6200 USDT dobrodošlice.",
+        "unlockOffer": "Otključaj ponudu"
       }
     },
     "verifyButton": {
