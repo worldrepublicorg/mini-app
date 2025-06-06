@@ -93,7 +93,11 @@ export default function BuybackProgramPage({
           >
             <BiChevronLeft className="size-6 text-gray-500" />
           </button>
-          <Typography as="h2" variant={{ variant: "heading", level: 3 }}>
+          <Typography
+            as="h2"
+            variant={{ variant: "heading", level: 3 }}
+            className="mx-12 text-center"
+          >
             {dictionary?.pages?.earn?.tabs?.contribute?.buybackProgram?.topnav}
           </Typography>
         </div>
