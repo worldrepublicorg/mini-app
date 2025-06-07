@@ -586,7 +586,7 @@
             "title": "Önceki Anketler",
             "backToGovern": "Yönetişim'e Dön",
             "polls": {
-              "nuclearDisarmamentTalks": "Son zamanlarda artan nükleer madde üretimiyle ilgili raporlar göz önüne alındığında, küresel güçler kapsamlı silahsızlanma müzakerelerine yeniden başlamalı mı?",
+              "nuclearDisarmamentTalks": "Son zamanlarda nükleer madde üretimindeki artışa ilişkin raporlar göz önüne alındığında, dünya güçleri kapsamlı silahsızlanma müzakerelerine yeniden başlamalı mı?",
               "pandemicPreparednessFund": "Gelecekteki pandemi hazırlık ve müdahale çalışmaları için dünya çapında kaynaklara sürekli ve adil erişimi sağlamak amacıyla kalıcı bir küresel fon kurulmalı mı?",
               "globalAidCuts": "Ülkeler, AIDS ve sıtma gibi hastalıklara karşı on yılların ilerlemesini tersine çevirme riski taşıyan dış yardım kesintilerini yeniden değerlendirmeli mi?",
               "coralCrisisAction": "Ülkeler, kayıtlı tarihte en kötü mercan beyazlaması olayı sırasında mercan resiflerini korumak için koordineli bir küresel stratejiye bağlı kalmalı mıdır?",
@@ -657,7 +657,8 @@
               "sovereignDebtRestructuring": "Sürdürülemez borç seviyelerine sahip ülkelere zamanında yardım sağlamak için uluslararası koordineli bir egemen borç yeniden yapılandırma mekanizması olmalı mı?",
               "wildlifeTrafficking": "Uluslar, böcekler ve diğer türlerin ortaya çıkan biyokorsanlığı da dahil olmak üzere yasadışı yaban hayatı kaçakçılığıyla mücadele için özel bir uluslararası çerçevede işbirliği yapmalı mı?",
               "criticalMineralsExport": "Tedarik zinciri şoklarını ve jeopolitik baskıyı önlemek için nadir toprak elementleri ve stratejik metaller gibi kritik minerallerin ihracat kontrolleri için uluslararası koordineli bir çerçeve olmalı mı?",
-              "tradePolicyStability": "Uluslar, küresel ticarette öngörülebilirliği ve istikrarı artırmak için tarife politikaları konusunda koordineli bir uluslararası davranış kuralları benimsemeli mi?"
+              "tradePolicyStability": "Uluslar, küresel ticarette öngörülebilirliği ve istikrarı artırmak için tarife politikaları konusunda koordineli bir uluslararası davranış kuralları benimsemeli mi?",
+              "cyberResilienceProtocol": "Ülkeler, yapay zeka destekli siber saldırıların dünya çapında kritik altyapıyı bozmasını önlemek için koordineli küresel bir siber güvenlik müdahale protokolü oluşturmalı mı?"
             }
           }
         },

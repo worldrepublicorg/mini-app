@@ -582,7 +582,7 @@
             "title": "Undian Sebelumnya",
             "backToGovern": "Kembali ke Tadbir",
             "polls": {
-              "nuclearDisarmamentTalks": "Memandangkan laporan terkini mengenai peningkatan pengeluaran bahan nuklear, patutkah kuasa dunia memulakan semula rundingan pelucutan senjata secara menyeluruh?",
+              "nuclearDisarmamentTalks": "Memandangkan laporan terkini mengenai peningkatan pengeluaran bahan nuklear, patutkah kuasa dunia memulakan semula rundingan perlucutan senjata nuklear yang menyeluruh?",
               "pandemicPreparednessFund": "Adakah dana global kekal harus ditubuhkan untuk memastikan akses berterusan dan saksama kepada sumber untuk kesediaan dan tindak balas pandemik masa hadapan di seluruh dunia?",
               "globalAidCuts": "Adakah negara-negara harus mempertimbangkan semula pengurangan bantuan asing yang berisiko membalikkan kemajuan selama beberapa dekad terhadap penyakit seperti AIDS dan malaria?",
               "coralCrisisAction": "Haruskah negara-negara komited kepada strategi global yang terkoordinasi untuk melindungi terumbu karang di tengah-tengah peristiwa pemutihan karang terburuk dalam sejarah yang direkodkan?",
@@ -653,7 +653,8 @@
               "sovereignDebtRestructuring": "Haruskah terdapat mekanisme penstrukturan semula hutang kerajaan yang diselaraskan secara antarabangsa untuk memberikan bantuan tepat pada masanya kepada negara-negara yang menghadapi tahap hutang yang tidak mampan?",
               "wildlifeTrafficking": "Perlukah negara-negara bekerjasama dalam rangka kerja antarabangsa khusus untuk memerangi pemerdagangan hidupan liar yang menyalahi undang-undang, termasuk biopirasi serangga dan spesies lain yang sedang berkembang?",
               "criticalMineralsExport": "Patutkah terdapat rangka kerja yang diselaraskan secara antarabangsa untuk kawalan eksport mineral kritikal—seperti logam nadir bumi dan logam strategik—untuk mencegah kejutan rantaian bekalan dan paksaan geopolitik?",
-              "tradePolicyStability": "Perlukah negara-negara mengamalkan kod etika antarabangsa yang terkoordinasi untuk dasar tarif bagi meningkatkan kebolehramalan dan kestabilan dalam perdagangan global?"
+              "tradePolicyStability": "Perlukah negara-negara mengamalkan kod etika antarabangsa yang terkoordinasi untuk dasar tarif bagi meningkatkan kebolehramalan dan kestabilan dalam perdagangan global?",
+              "cyberResilienceProtocol": "Patutkah negara-negara mewujudkan protokol tindak balas keselamatan siber global yang diselaraskan untuk mempertahankan daripada serangan siber berkuasa AI yang boleh mengganggu infrastruktur kritikal di seluruh dunia?"
             }
           }
         },

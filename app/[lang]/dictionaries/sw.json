@@ -582,7 +582,7 @@
             "title": "Kura za Awali",
             "backToGovern": "Rudi kwa Utawala",
             "polls": {
-              "nuclearDisarmamentTalks": "Kwa kuzingatia ripoti za hivi karibuni za ongezeko la uzalishaji wa nyenzo za nyuklia, je, mataifa makubwa duniani yanapaswa kuanzisha tena mazungumzo ya kina ya upokonyaji silaha?",
+              "nuclearDisarmamentTalks": "Kwa kuzingatia ripoti za hivi karibuni za ongezeko la uzalishaji wa nyenzo za nyuklia, je, mataifa makubwa yanapaswa kuanzisha tena mazungumzo ya upokonyaji silaha za nyuklia?",
               "pandemicPreparednessFund": "Je, mfuko wa kimataifa wa kudumu unapaswa kuanzishwa ili kuhakikisha upatikanaji wa rasilimali endelevu na wa haki kwa ajili ya maandalizi na majibu ya janga la baadaye ulimwenguni kote?",
               "globalAidCuts": "Je, nchi zinapaswa kukagua upya kupungua kwa misaada ya kigeni ambayo inaweza kurudisha nyuma maendeleo ya miongo kadhaa dhidi ya magonjwa kama vile UKIMWI na malaria?",
               "coralCrisisAction": "Je, mataifa yanapaswa kujitolea kwa mkakati wa pamoja wa kimataifa kulinda matumbawe ya bahari katika hali ya mabadiliko ya rangi ya matumbawe mbaya zaidi katika historia iliyorekodiwa?",
@@ -653,7 +653,8 @@
               "globalDigitalServicesTax": "Je, mataifa yanapaswa kupitisha ushuru wa huduma za kidijitali ulioundaliwa kulenga mapato ya majukwaa makubwa ya teknolojia ili kuhakikisha ushuru wa kimataifa ulio wa haki na unaoweza kutabirika?",
               "wildlifeTrafficking": "Je, mataifa yanapaswa kushirikiana katika mfumo maalum wa kimataifa wa kupambana na biashara haramu ya wanyamapori, ikijumuisha uharamia wa kibiolojia unaojitokeza wa wadudu na aina nyingine?",
               "criticalMineralsExport": "Je, kunapaswa kuwa na mfumo ulioratibiwa kimataifa wa kudhibiti usafirishaji wa madini muhimu—kama vile ardhi adimu na metali za kimkakati—ili kuzuia migogoro katika mnyororo wa usambazaji na kulazimishwa kijiografia?",
-              "tradePolicyStability": "Je, mataifa yapaswe kupitisha kanuni za maadili za kimataifa zinazoratibiwa kwa sera za ushuru ili kuboresha utabirifu na utulivu katika biashara ya kimataifa?"
+              "tradePolicyStability": "Je, mataifa yapaswe kupitisha kanuni za maadili za kimataifa zinazoratibiwa kwa sera za ushuru ili kuboresha utabirifu na utulivu katika biashara ya kimataifa?",
+              "cyberResilienceProtocol": "Je, mataifa yanapaswa kuanzisha itifaki ya pamoja ya kimataifa ya usalama wa mtandao ili kujilinda dhidi ya mashambulizi ya mtandao yanayoendeshwa na AI ambayo yanaweza kuvuruga miundombinu muhimu duniani kote?"
             }
           }
         },
