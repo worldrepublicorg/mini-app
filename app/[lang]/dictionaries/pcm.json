@@ -269,7 +269,7 @@
               "subtitle": "Extra money for verified users",
               "features": {
                 "rate": {
-                  "title": "Extra 2.8 WDD every day"
+                  "title": "Extra 2.65 WDD every day"
                 },
                 "verification": {
                   "title": "Na only for people wey don verify with Orb so e go fair for everybody"
@@ -581,7 +581,7 @@
             "title": "Old Polls",
             "backToGovern": "Back to Govern",
             "polls": {
-              "nuclearDisarmamentTalks": "As dem dey talk say dem dey produce more nuclear material now, make world powers start to dey do disarmament talk again?",
+              "nuclearDisarmamentTalks": "Bicos of di tori wey dey say dem dey produce more nuclear material, make world powers start nuclear disarmament talk again?",
               "pandemicPreparednessFund": "Dem suppose create one permanent global fund wey go make sure say resources dey available and equal for future pandemic preparation and response efforts for all over di world?",
               "globalAidCuts": "Dem suppose reconsider di cuts for foreign aid wey fit reverse decades of progress against diseases like AIDS and malaria?",
               "coralCrisisAction": "Shey kontris suppose commit to one coordinated global strategy to protect coral reefs for dis worst coral bleaching wey don ever happen for history?",
@@ -651,7 +651,8 @@
               "sovereignDebtRestructuring": "Make we get international way wey go dey coordinate how to restructure country debt so dem fit give quick relief to countries wey dey face debt levels wey no fit work?",
               "wildlifeTrafficking": "Shey kontris dem suppose work togeda for one special international framework to fight illegal wildlife trafficking, including de emerging biopiracy of insects and oda species?",
               "criticalMineralsExport": "E suppose get international framework wey dem go dey coordinate for export controls of critical minerals—like rare earths and strategic metals—to prevent supply-chain wahala and geopolitical pressure?",
-              "tradePolicyStability": "E good make kontries adopt one coordinated international code of conduct for tariff policies wey go improve predictability and stability for world trade?"
+              "tradePolicyStability": "E good make kontries adopt one coordinated international code of conduct for tariff policies wey go improve predictability and stability for world trade?",
+              "cyberResilienceProtocol": "Make di kontri dem join body do global cybersecurity plan wey go help stop AI cyberattack we fit scatter important infrastructure for di world?"
             }
           }
         },
@@ -748,7 +749,7 @@
         },
         "basicIncomePlus": {
           "question": "How I go take start Basic Income Plus?",
-          "answer": "Basic Income Plus dey give extra 2.8 WDD every day, but na only people wey don do Orb verification fit get am. After you don start normal Basic Income, you go see option to start Basic Income Plus for de Earn page."
+          "answer": "Basic Income Plus dey give extra 2.65 WDD every day, but na only people wey don do Orb verification fit get am. After you don start normal Basic Income, you go see option to start Basic Income Plus for de Earn page."
         },
         "savings": {
           "question": "How de Savings Account dey work?",

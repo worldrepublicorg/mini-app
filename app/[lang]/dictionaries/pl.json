@@ -270,7 +270,7 @@
               "subtitle": "Dodatkowy dochód dla zweryfikowanych użytkowników",
               "features": {
                 "rate": {
-                  "title": "Dodatkowe 2,8 WDD dziennie"
+                  "title": "Dodatkowe 2,65 WDD dziennie"
                 },
                 "verification": {
                   "title": "Dostępne wyłącznie dla użytkowników zweryfikowanych przez Orb, aby zapewnić sprawiedliwą dystrybucję"
@@ -652,7 +652,8 @@
               "sovereignDebtRestructuring": "Czy powinien istnieć międzynarodowo skoordynowany mechanizm restrukturyzacji długu państwowego, zapewniający terminową pomoc krajom borykającym się z niezrównoważonym poziomem zadłużenia?",
               "wildlifeTrafficking": "Czy państwa powinny współpracować w ramach dedykowanych międzynarodowych ram w celu zwalczania nielegalnego handlu dziką fauną i florą, w tym pojawiającego się biopiractwa owadów i innych gatunków?",
               "criticalMineralsExport": "Czy powinny istnieć międzynarodowo skoordynowane ramy kontroli eksportu surowców krytycznych—takich jak metale ziem rzadkich i metale strategiczne—aby zapobiec wstrząsom w łańcuchu dostaw i przymusowi geopolitycznemu?",
-              "tradePolicyStability": "Czy narody powinny przyjąć skoordynowany międzynarodowy kodeks postępowania w zakresie polityki taryfowej, aby zwiększyć przewidywalność i stabilność w handlu światowym?"
+              "tradePolicyStability": "Czy narody powinny przyjąć skoordynowany międzynarodowy kodeks postępowania w zakresie polityki taryfowej, aby zwiększyć przewidywalność i stabilność w handlu światowym?",
+              "cyberResilienceProtocol": "Czy państwa powinny ustanowić skoordynowany globalny protokół reagowania na cyberzagrożenia, aby bronić się przed cyberatakami zasilanymi przez AI, które mogą zakłócić kluczową infrastrukturę na całym świecie?"
             }
           }
         },
@@ -749,7 +750,7 @@
         },
         "basicIncomePlus": {
           "question": "Jak aktywować Dochód Podstawowy Plus?",
-          "answer": "Dochód Podstawowy Plus zapewnia dodatkowe 2,8 WDD dziennie i jest dostępny wyłącznie dla użytkowników zweryfikowanych przez Orb. Po aktywacji Dochodu Podstawowego zobaczysz opcję aktywacji Dochodu Podstawowego Plus na stronie Zarabiaj."
+          "answer": "Dochód Podstawowy Plus zapewnia dodatkowe 2,65 WDD dziennie i jest dostępny wyłącznie dla użytkowników zweryfikowanych przez Orb. Po aktywacji Dochodu Podstawowego zobaczysz opcję aktywacji Dochodu Podstawowego Plus na stronie Zarabiaj."
         },
         "savings": {
           "question": "Jak działa Konto Oszczędnościowe?",

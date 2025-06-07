@@ -270,7 +270,7 @@
               "subtitle": "Renda extra para usuários verificados",
               "features": {
                 "rate": {
-                  "title": "Mais 2,8 WDD por dia"
+                  "title": "Mais 2,65 WDD por dia"
                 },
                 "verification": {
                   "title": "Exclusivo para usuários verificados pelo Orb para garantir distribuição justa"
@@ -582,7 +582,7 @@
             "title": "Votações Anteriores",
             "backToGovern": "Voltar para Governar",
             "polls": {
-              "nuclearDisarmamentTalks": "Diante de relatos recentes sobre o aumento da produção de material nuclear, as potências globais devem reiniciar negociações abrangentes de desarmamento?",
+              "nuclearDisarmamentTalks": "Diante de relatos recentes sobre o aumento da produção de material nuclear, as potências globais deveriam reiniciar as negociações de desarmamento nuclear?",
               "pandemicPreparednessFund": "Deve ser estabelecido um fundo global permanente para garantir acesso contínuo e equitativo a recursos para preparação e resposta a futuras pandemias em todo o mundo?",
               "globalAidCuts": "Os países devem reconsiderar os cortes na ajuda externa que arriscam reverter décadas de progresso contra doenças como AIDS e malária?",
               "coralCrisisAction": "As nações devem se comprometer com uma estratégia global coordenada para proteger os recifes de coral em meio ao pior evento de branqueamento registrado na história?",
@@ -653,7 +653,8 @@
               "sovereignDebtRestructuring": "Deveria haver um mecanismo de reestruturação da dívida soberana coordenado internacionalmente para proporcionar alívio oportuno aos países que enfrentam níveis de dívida insustentáveis?",
               "wildlifeTrafficking": "As nações deveriam colaborar em um quadro internacional dedicado ao combate ao tráfico ilegal de vida selvagem, incluindo a biopirataria emergente de insetos e outras espécies?",
               "criticalMineralsExport": "Deveria existir uma estrutura coordenada internacionalmente para controles de exportação de minerais críticos—como terras raras e metais estratégicos—para evitar choques na cadeia de suprimentos e coerção geopolítica?",
-              "tradePolicyStability": "As nações deveriam adotar um código de conduta internacional coordenado para políticas tarifárias para melhorar a previsibilidade e estabilidade no comércio global?"
+              "tradePolicyStability": "As nações deveriam adotar um código de conduta internacional coordenado para políticas tarifárias para melhorar a previsibilidade e estabilidade no comércio global?",
+              "cyberResilienceProtocol": "Os países devem estabelecer um protocolo global coordenado de resposta à cibersegurança para se defender contra ataques cibernéticos impulsionados por IA que possam interromper infraestruturas críticas em todo o mundo?"
             }
           }
         },
@@ -750,7 +751,7 @@
         },
         "basicIncomePlus": {
           "question": "Como ativo a Renda Básica Plus?",
-          "answer": "A Renda Básica Plus fornece 2,8 WDD adicionais por dia e está disponível exclusivamente para usuários verificados pelo Orb. Após ativar a Renda Básica, você verá uma opção para ativar a Renda Básica Plus na página Ganhar."
+          "answer": "A Renda Básica Plus fornece 2,65 WDD adicionais por dia e está disponível exclusivamente para usuários verificados pelo Orb. Após ativar a Renda Básica, você verá uma opção para ativar a Renda Básica Plus na página Ganhar."
         },
         "savings": {
           "question": "Como funciona a Conta Poupança?",

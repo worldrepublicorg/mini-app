@@ -270,7 +270,7 @@
               "subtitle": "Revenu supplémentaire pour les utilisateurs vérifiés",
               "features": {
                 "rate": {
-                  "title": "2,8 WDD supplémentaires par jour"
+                  "title": "2,65 WDD supplémentaires par jour"
                 },
                 "verification": {
                   "title": "Exclusif aux utilisateurs vérifiés par Orb pour assurer une distribution équitable"
@@ -582,7 +582,7 @@
             "title": "Sondages précédents",
             "backToGovern": "Retour à Gouverner",
             "polls": {
-              "nuclearDisarmamentTalks": "Étant donné les récents rapports sur l'augmentation de la production de matières nucléaires, les grandes puissances devraient-elles relancer des négociations globales de désarmement ?",
+              "nuclearDisarmamentTalks": "Compte tenu des récents rapports sur l'augmentation de la production de matières nucléaires, les grandes puissances devraient-elles relancer les négociations sur le désarmement nucléaire ?",
               "pandemicPreparednessFund": "Un fonds mondial permanent devrait-il être créé pour assurer un accès continu et équitable aux ressources pour la préparation et la réponse aux futures pandémies dans le monde entier ?",
               "globalAidCuts": "Les pays devraient-ils reconsidérer les réductions de l'aide étrangère qui risquent d'inverser des décennies de progrès contre des maladies comme le SIDA et le paludisme ?",
               "coralCrisisAction": "Les nations devraient-elles s'engager dans une stratégie mondiale coordonnée pour protéger les récifs coralliens au milieu du pire épisode de blanchissement jamais enregistré dans l'histoire ?",
@@ -653,7 +653,8 @@
               "sovereignDebtRestructuring": "Devrait-il y avoir un mécanisme de restructuration de la dette souveraine coordonné au niveau international pour fournir un allègement rapide aux pays confrontés à des niveaux d'endettement insoutenables?",
               "wildlifeTrafficking": "Les nations devraient-elles collaborer sur un cadre international dédié pour lutter contre le trafic illégal d'espèces sauvages, y compris la biopiraterie émergente d'insectes et d'autres espèces?",
               "criticalMineralsExport": "Devrait-il y avoir un cadre coordonné au niveau international pour les contrôles à l'exportation de minéraux critiques – tels que les terres rares et les métaux stratégiques – afin de prévenir les chocs dans la chaîne d'approvisionnement et la coercition géopolitique ?",
-              "tradePolicyStability": "Les nations devraient-elles adopter un code de conduite international coordonné pour les politiques tarifaires afin d'améliorer la prévisibilité et la stabilité du commerce mondial ?"
+              "tradePolicyStability": "Les nations devraient-elles adopter un code de conduite international coordonné pour les politiques tarifaires afin d'améliorer la prévisibilité et la stabilité du commerce mondial ?",
+              "cyberResilienceProtocol": "Les nations devraient-elles établir un protocole mondial coordonné de réponse en cybersécurité pour se défendre contre les cyberattaques alimentées par l'IA susceptibles de perturber les infrastructures critiques à l'échelle mondiale ?"
             }
           }
         },
@@ -750,7 +751,7 @@
         },
         "basicIncomePlus": {
           "question": "Comment activer le Revenu de Base Plus ?",
-          "answer": "Le Revenu de Base Plus fournit 2,8 WDD supplémentaires par jour et est exclusivement disponible pour les utilisateurs vérifiés par Orb. Après avoir activé le Revenu de Base, vous verrez une option pour activer le Revenu de Base Plus sur la page Gagner."
+          "answer": "Le Revenu de Base Plus fournit 2,65 WDD supplémentaires par jour et est exclusivement disponible pour les utilisateurs vérifiés par Orb. Après avoir activé le Revenu de Base, vous verrez une option pour activer le Revenu de Base Plus sur la page Gagner."
         },
         "savings": {
           "question": "Comment fonctionne le Compte d'Épargne ?",

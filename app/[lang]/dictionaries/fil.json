@@ -268,7 +268,7 @@
               "subtitle": "Dagdag na kita para sa mga verified na user",
               "features": {
                 "rate": {
-                  "title": "Dagdag na 2.8 WDD bawat araw"
+                  "title": "Dagdag na 2.65 WDD bawat araw"
                 },
                 "verification": {
                   "title": "Eksklusibo para sa mga Orb-verified na user para matiyak ang patas na pamamahagi"
@@ -580,7 +580,7 @@
             "title": "Mga Nakaraang Botohan",
             "backToGovern": "Bumalik sa Namamahala",
             "polls": {
-              "nuclearDisarmamentTalks": "Dahil sa mga ulat kamakailan ng pagtaas ng produksyon ng nuclear material, dapat bang muling simulan ng mga makapangyarihang bansa ang komprehensibong negosasyon sa disarmament?",
+              "nuclearDisarmamentTalks": "Dahil sa mga ulat ng pagtaas ng produksyon ng nuclear material, dapat bang muling simulan ng mga pandaigdigang kapangyarihan ang komprehensibong negosasyon sa nuclear disarmament?",
               "pandemicPreparednessFund": "Dapat bang magtatag ng permanenteng pandaigdigang pondo upang matiyak ang tuloy-tuloy at patas na pag-access sa mga mapagkukunan para sa hinaharap na paghahanda at pagtugon sa pandemya sa buong mundo?",
               "globalAidCuts": "Dapat bang muling suriin ng mga bansa ang mga pagbawas sa dayuhang tulong na maaaring baligtarin ang mga dekada ng pag-unlad laban sa mga sakit tulad ng AIDS at malaria?",
               "coralCrisisAction": "Dapat bang mangako ang mga bansa sa isang coordinated global strategy upang protektahan ang coral reefs sa gitna ng pinakamasamang bleaching event sa naitalang kasaysayan?",
@@ -651,7 +651,8 @@
               "globalDigitalServicesTax": "Dapat bang magpatibay ang mga bansa ng isang koordinadong buwis sa digital na serbisyo na nakatuon sa kita ng malalaking tech platform upang matiyak ang patas at mahuhulaan na pandaigdigang pagbubuwis?",
               "wildlifeTrafficking": "Dapat bang magtulungan ang mga bansa sa isang nakalaang internasyonal na balangkas upang labanan ang ilegal na kalakalan ng wildlife, kabilang ang umuusbong na biopiracy ng mga insekto at iba pang mga species?",
               "criticalMineralsExport": "Dapat ba mayroong isang internasyonal na koordinadong balangkas para sa mga kontrol sa pag-export ng kritikal na mga mineral—tulad ng rare earths at strategic metals—upang maiwasan ang mga shock sa supply-chain at geopolitical coercion?",
-              "tradePolicyStability": "Dapat bang magpatibay ang mga bansa ng isang coordinated na international code of conduct para sa mga patakaran sa taripa upang mapahusay ang predictability at stability sa global trade?"
+              "tradePolicyStability": "Dapat bang magpatibay ang mga bansa ng isang coordinated na international code of conduct para sa mga patakaran sa taripa upang mapahusay ang predictability at stability sa global trade?",
+              "cyberResilienceProtocol": "Dapat bang magtatag ang mga bansa ng isang magkakaugnay na pandaigdigang cybersecurity protocol upang ipagtanggol laban sa mga AI-powered na cyberattack na maaaring magdulot ng pagkaantala sa mahahalagang imprastraktura sa buong mundo?"
             }
           }
         },
@@ -748,7 +749,7 @@
         },
         "basicIncomePlus": {
           "question": "Paano ko i-activate ang Basic Income Plus?",
-          "answer": "Ang Basic Income Plus ay nagbibigay ng dagdag na 2.8 WDD bawat araw at available lamang sa mga Orb-verified na user. Pagkatapos i-activate ang Basic Income, makakakita ka ng opsyon para i-activate ang Basic Income Plus sa Earn page."
+          "answer": "Ang Basic Income Plus ay nagbibigay ng dagdag na 2.65 WDD bawat araw at available lamang sa mga Orb-verified na user. Pagkatapos i-activate ang Basic Income, makakakita ka ng opsyon para i-activate ang Basic Income Plus sa Earn page."
         },
         "savings": {
           "question": "Paano gumagana ang Savings Account?",

@@ -19,8 +19,8 @@ const polls: Poll[] = [
     url: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/gV4RQAsj",
   },
   {
-    key: "aiSafetyTreaty",
-    url: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/b6be3PF1",
+    key: "cyberResilienceProtocol",
+    url: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/2QOSYgip",
   },
   {
     key: "coralCrisisAction",

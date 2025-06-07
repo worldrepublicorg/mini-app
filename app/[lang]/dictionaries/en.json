@@ -270,7 +270,7 @@
               "subtitle": "Extra income for verified users",
               "features": {
                 "rate": {
-                  "title": "An additional 2.8 WDD per day"
+                  "title": "An additional 2.65 WDD per day"
                 },
                 "verification": {
                   "title": "Exclusive to Orb-verified users to ensure fair distribution"
@@ -576,6 +576,7 @@
             "title": "Previous Polls",
             "backToGovern": "Back to Govern",
             "polls": {
+              "cyberResilienceProtocol": "Should nations establish a coordinated global cybersecurity response protocol to defend against AI-powered cyberattacks that could disrupt critical infrastructure worldwide?",
               "nuclearDisarmamentTalks": "Given recent reports of increased nuclear material production, should global powers restart comprehensive disarmament negotiations?",
               "pandemicPreparednessFund": "Should a permanent global fund be established to ensure continuous and equitable access to resources for future pandemic preparedness and response efforts worldwide?",
               "globalAidCuts": "Should countries reconsider foreign aid reductions that risk reversing decades of progress against diseases like AIDS and malaria?",
@@ -741,7 +742,7 @@
         },
         "basicIncomePlus": {
           "question": "How do I activate Basic Income Plus?",
-          "answer": "Basic Income Plus provides an additional 2.8 WDD per day and is available exclusively to Orb-verified users. After activating Basic Income, you'll see an option to activate Basic Income Plus on the Earn page."
+          "answer": "Basic Income Plus provides an additional 2.65 WDD per day and is available exclusively to Orb-verified users. After activating Basic Income, you'll see an option to activate Basic Income Plus on the Earn page."
         },
         "savings": {
           "question": "How does the Savings Account work?",

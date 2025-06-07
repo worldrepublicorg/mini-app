@@ -270,7 +270,7 @@
               "subtitle": "Pendapatan tambahan untuk pengguna terverifikasi",
               "features": {
                 "rate": {
-                  "title": "Tambahan 2.8 WDD per hari"
+                  "title": "Tambahan 2.65 WDD per hari"
                 },
                 "verification": {
                   "title": "Eksklusif untuk pengguna terverifikasi Orb untuk memastikan distribusi yang adil"
@@ -582,7 +582,7 @@
             "title": "Polling Sebelumnya",
             "backToGovern": "Kembali ke Kelola",
             "polls": {
-              "nuclearDisarmamentTalks": "Mengingat laporan terbaru tentang peningkatan produksi bahan nuklir, haruskah kekuatan global memulai kembali negosiasi perlucutan senjata yang komprehensif?",
+              "nuclearDisarmamentTalks": "Mengingat laporan terbaru tentang peningkatan produksi bahan nuklir, haruskah kekuatan dunia memulai kembali negosiasi perlucutan senjata nuklir yang komprehensif?",
               "pandemicPreparednessFund": "Apakah dana global permanen harus didirikan untuk memastikan akses berkelanjutan dan adil terhadap sumber daya untuk kesiapsiagaan dan respons pandemi di masa depan di seluruh dunia?",
               "globalAidCuts": "Apakah negara-negara harus mempertimbangkan kembali pengurangan bantuan luar negeri yang berisiko membalikkan kemajuan puluhan tahun melawan penyakit seperti AIDS dan malaria?",
               "coralCrisisAction": "Haruskah negara-negara berkomitmen pada strategi global terkoordinasi untuk melindungi terumbu karang di tengah peristiwa pemutihan karang terburuk dalam sejarah yang tercatat?",
@@ -653,7 +653,8 @@
               "sovereignDebtRestructuring": "Haruskah ada mekanisme restrukturisasi utang negara yang dikoordinasikan secara internasional untuk memberikan bantuan tepat waktu kepada negara-negara yang menghadapi tingkat utang yang tidak berkelanjutan?",
               "wildlifeTrafficking": "Haruskah negara-negara berkolaborasi dalam kerangka internasional khusus untuk memerangi perdagangan satwa liar ilegal, termasuk pembajakan hayati serangga dan spesies lain yang sedang berkembang?",
               "criticalMineralsExport": "Haruskah ada kerangka kerja yang terkoordinasi secara internasional untuk pengendalian ekspor mineral kritis—seperti logam tanah jarang dan logam strategis—untuk mencegah guncangan rantai pasokan dan pemaksaan geopolitik?",
-              "tradePolicyStability": "Haruskah negara-negara mengadopsi kode etik internasional yang terkoordinasi untuk kebijakan tarif guna meningkatkan prediktabilitas dan stabilitas dalam perdagangan global?"
+              "tradePolicyStability": "Haruskah negara-negara mengadopsi kode etik internasional yang terkoordinasi untuk kebijakan tarif guna meningkatkan prediktabilitas dan stabilitas dalam perdagangan global?",
+              "cyberResilienceProtocol": "Haruskah negara-negara membentuk protokol respons keamanan siber global yang terkoordinasi untuk melindungi dari serangan siber berbasis AI yang dapat mengganggu infrastruktur penting di seluruh dunia?"
             }
           }
         },
@@ -750,7 +751,7 @@
         },
         "basicIncomePlus": {
           "question": "Bagaimana cara mengaktifkan Pendapatan Dasar Plus?",
-          "answer": "Pendapatan Dasar Plus memberikan tambahan 2.8 WDD per hari dan tersedia secara eksklusif untuk pengguna terverifikasi Orb. Setelah mengaktifkan Pendapatan Dasar, Anda akan melihat opsi untuk mengaktifkan Pendapatan Dasar Plus di halaman Dapatkan."
+          "answer": "Pendapatan Dasar Plus memberikan tambahan 2.65 WDD per hari dan tersedia secara eksklusif untuk pengguna terverifikasi Orb. Setelah mengaktifkan Pendapatan Dasar, Anda akan melihat opsi untuk mengaktifkan Pendapatan Dasar Plus di halaman Dapatkan."
         },
         "savings": {
           "question": "Bagaimana cara kerja Akun Tabungan?",
