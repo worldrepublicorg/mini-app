@@ -270,7 +270,7 @@
               "subtitle": "Revenu supplémentaire pour les utilisateurs vérifiés",
               "features": {
                 "rate": {
-                  "title": "2,8 WDD supplémentaires par jour"
+                  "title": "2,65 WDD supplémentaires par jour"
                 },
                 "verification": {
                   "title": "Exclusif aux utilisateurs vérifiés par Orb pour assurer une distribution équitable"
@@ -751,7 +751,7 @@
         },
         "basicIncomePlus": {
           "question": "Comment activer le Revenu de Base Plus ?",
-          "answer": "Le Revenu de Base Plus fournit 2,8 WDD supplémentaires par jour et est exclusivement disponible pour les utilisateurs vérifiés par Orb. Après avoir activé le Revenu de Base, vous verrez une option pour activer le Revenu de Base Plus sur la page Gagner."
+          "answer": "Le Revenu de Base Plus fournit 2,65 WDD supplémentaires par jour et est exclusivement disponible pour les utilisateurs vérifiés par Orb. Après avoir activé le Revenu de Base, vous verrez une option pour activer le Revenu de Base Plus sur la page Gagner."
         },
         "savings": {
           "question": "Comment fonctionne le Compte d'Épargne ?",
