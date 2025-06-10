@@ -31,11 +31,11 @@ import { Button } from "@/components/ui/Button";
 import { StakeWithPermitForm } from "@/components/StakeWithPermitForm";
 import { useToast } from "@/components/ui/Toast";
 import { useSearchParams } from "next/navigation";
-import { BiLinkExternal } from "react-icons/bi";
 import { IoIosArrowForward } from "react-icons/io";
 import Link from "next/link";
 import { useTranslations } from "@/hooks/useTranslations";
 import type { EarnTabKey } from "@/lib/types";
+import { FaFlask } from "react-icons/fa";
 
 type TxType =
   | null
@@ -1997,6 +1997,10 @@ export default function EarnPage({
                           ?.title
                       }
                     </Typography>
+                    <FaFlask
+                      className="ml-1 h-[15px] w-[15px] text-gray-400"
+                      title="Experimental"
+                    />
                   </div>
                   <Typography
                     as="p"
@@ -2014,43 +2018,6 @@ export default function EarnPage({
                 <IoIosArrowForward className="size-[14px] text-gray-400" />
               </div>
             </Link>
-
-            <div className="mb-6 w-full">
-              <a
-                href="https://t.me/worldrepubliccommunity"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border border-gray-200 p-4"
-              >
-                <div className="flex items-center gap-3">
-                  <div>
-                    <Typography
-                      as="h3"
-                      variant={{ variant: "subtitle", level: 2 }}
-                      className="mb-1.5 line-clamp-1"
-                    >
-                      {
-                        dictionary?.pages?.earn?.tabs?.contribute?.earlyAccess
-                          ?.title
-                      }
-                    </Typography>
-                    <Typography
-                      as="p"
-                      variant={{ variant: "body", level: 3 }}
-                      className="text-gray-500"
-                    >
-                      {
-                        dictionary?.pages?.earn?.tabs?.contribute?.earlyAccess
-                          ?.description
-                      }
-                    </Typography>
-                  </div>
-                </div>
-                <div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5">
-                  <BiLinkExternal className="size-[14px] text-gray-400" />
-                </div>
-              </a>
-            </div>
           </div>
         );
       case "Invite":
