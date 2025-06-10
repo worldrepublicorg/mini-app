@@ -30,12 +30,6 @@ export const viemClient = createPublicClient({
       webSocket(
         "wss://lb.drpc.org/ogws?network=worldchain&dkey=AgobUm8RhkrUlOLZyf0lrdRm99dUAfUR8ICJfhHoK236"
       ),
-      http(
-        "https://worldchain-mainnet.g.alchemy.com/v2/_NsuCc68eeT4D5AZNEGdDG5nms3v8gcY"
-      ),
-      webSocket(
-        "wss://worldchain-mainnet.g.alchemy.com/v2/_NsuCc68eeT4D5AZNEGdDG5nms3v8gcY"
-      ),
     ],
     optimizedFallbackConfig
   ),
