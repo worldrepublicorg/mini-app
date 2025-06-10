@@ -14,6 +14,7 @@ import { useTranslations } from "@/hooks/useTranslations";
 import { useEffect, useState } from "react";
 import { latestPayouts } from "@/data/payouts/payouts";
 import { useRouter } from "next/navigation";
+import { FaFlask } from "react-icons/fa";
 
 export default function PartySubsidyPage({
   params: { lang },
@@ -190,12 +191,18 @@ export default function PartySubsidyPage({
           <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
             <PiUsersThreeFill className="h-10 w-10 text-gray-400" />
           </div>
-          <Typography
-            variant={{ variant: "heading", level: 2 }}
-            className="mx-auto mb-2 text-center text-gray-900"
-          >
-            {dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy?.title}
-          </Typography>
+          <div className="mx-auto mb-2 flex items-center justify-center">
+            <Typography
+              variant={{ variant: "heading", level: 2 }}
+              className="text-center text-gray-900"
+            >
+              {dictionary?.pages?.earn?.tabs?.contribute?.partySubsidy?.title}
+            </Typography>
+            <FaFlask
+              className="ml-1.5 h-5 w-5 text-gray-400"
+              title="Experimental"
+            />
+          </div>
           <Typography
             variant={{ variant: "body", level: 2 }}
             className="text-center text-gray-500"
