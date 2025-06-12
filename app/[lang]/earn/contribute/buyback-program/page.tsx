@@ -182,9 +182,9 @@ export default function BuybackProgramPage({
                   </div>
                   <div className="flex flex-col items-end whitespace-nowrap">
                     <span className="bg-green-100 text-green-800 rounded-full py-0.5 pl-2.5 text-sm font-medium">
-                      24,777 WLD
+                      26,532 WLD
                     </span>
-                    <span className="text-xs text-gray-500">Week 9 of 12</span>
+                    <span className="text-xs text-gray-500">Week 10 of 12</span>
                   </div>
                 </div>
               </a>
