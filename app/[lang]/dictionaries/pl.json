@@ -6,8 +6,13 @@
     "banners": {
       "bitget": {
         "title": "Zwiększ swoje zyski z Bitget",
-        "subtitle": "Rozpocznij copy trading, zyskaj 10% zniżki na opłaty + do 6200 USDT bonusu powitalnego.",
-        "unlockOffer": "Odblokuj ofertę"
+        "description": "Rozpocznij copy trading, zyskaj 10% zniżki na opłaty + do 6200 USDT bonusu powitalnego.",
+        "cta": "Odblokuj ofertę"
+      },
+      "bybit": {
+        "title": "Bybit Blitz dla Nowicjuszy",
+        "description": "Dołącz, aby wygrać MacBooka, iPhone'a 16, popularne tokeny i więcej!",
+        "cta": "Zarejestruj się teraz"
       }
     },
     "verifyButton": {
