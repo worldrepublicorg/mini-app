@@ -1598,7 +1598,7 @@ export default function EarnPage({
                       />
                     </div>
                     <a
-                      href="https://www.bybit.com/en/promo/campaign/BybitNewcomerBlitz/?affiliate_id=131095&group_id=1320363&group_type=1&ref_code=REPUBLIC"
+                      href="https://partner.bybit.com/b/REPUBLIC"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
