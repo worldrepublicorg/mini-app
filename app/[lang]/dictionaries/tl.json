@@ -6,8 +6,13 @@
     "banners": {
       "bitget": {
         "title": "Palakihin ang iyong kita sa Bitget",
-        "subtitle": "Simulan ang copy trading, makakuha ng 10% off sa fees + hanggang 6200 USDT welcome bonus.",
-        "unlockOffer": "I-unlock ang offer"
+        "description": "Simulan ang copy trading, makakuha ng 10% off sa fees + hanggang 6200 USDT welcome bonus.",
+        "cta": "I-unlock ang offer"
+      },
+      "bybit": {
+        "title": "Bybit Newcomer Blitz",
+        "description": "Sumali para manalo ng MacBook, iPhone 16, mga trending na token, at higit pa!",
+        "cta": "Magrehistro ngayon"
       }
     },
     "verifyButton": {

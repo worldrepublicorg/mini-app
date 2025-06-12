@@ -6,8 +6,13 @@
     "banners": {
       "bitget": {
         "title": "Tingkatkan pendapatan anda dengan Bitget",
-        "subtitle": "Mulakan copy trading, dapatkan 10% diskaun yuran + sehingga 6200 USDT bonus alu-aluan.",
-        "unlockOffer": "Buka tawaran"
+        "description": "Mulakan copy trading, dapatkan 10% diskaun yuran + sehingga 6200 USDT bonus alu-aluan.",
+        "cta": "Buka tawaran"
+      },
+      "bybit": {
+        "title": "Blitz Pendatang Baru Bybit",
+        "description": "Sertai untuk memenangi MacBook, iPhone 16, token sohor kini dan banyak lagi!",
+        "cta": "Daftar sekarang"
       }
     },
     "verifyButton": {

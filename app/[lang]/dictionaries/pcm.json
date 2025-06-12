@@ -6,8 +6,13 @@
     "banners": {
       "bitget": {
         "title": "Make your moni beta with Bitget",
-        "subtitle": "Start copy trading, get 10% off for fees + up to 6200 USDT welcome bonus.",
-        "unlockOffer": "Unlock offer"
+        "description": "Start copy trading, get 10% off for fees + up to 6200 USDT welcome bonus.",
+        "cta": "Unlock offer"
+      },
+      "bybit": {
+        "title": "Bybit Newcomer Blitz",
+        "description": "Join to win MacBook, iPhone 16, trending tokens, and more!",
+        "cta": "Register now"
       }
     },
     "verifyButton": {

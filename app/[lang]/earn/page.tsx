@@ -1535,21 +1535,21 @@ export default function EarnPage({
     localStorage.setItem("passportBadgeClosed", "true");
   };
 
-  const [isBitgetBannerVisible, setIsBitgetBannerVisible] = useState(true);
+  const [isBybitBannerVisible, setIsBybitBannerVisible] = useState(true);
 
   // Add useEffect to load badge state from localStorage
   useEffect(() => {
-    const badgeState = localStorage.getItem("bitgetBannerClosed");
+    const badgeState = localStorage.getItem("bybitBannerClosed");
     if (badgeState === "true") {
-      setIsBitgetBannerVisible(false);
+      setIsBybitBannerVisible(false);
     }
   }, []);
 
   // Function to handle closing the badge
-  const handleCloseBitgetBanner = (e: React.MouseEvent) => {
+  const handleCloseBybitBanner = (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent triggering the drawer
-    setIsBitgetBannerVisible(false);
-    localStorage.setItem("bitgetBannerClosed", "true");
+    setIsBybitBannerVisible(false);
+    localStorage.setItem("bybitBannerClosed", "true");
   };
 
   // Restore loadCurrentUsernameCallback
@@ -1586,19 +1586,19 @@ export default function EarnPage({
       case "Basic income":
         return (
           <>
-            {isBitgetBannerVisible && (
+            {isBybitBannerVisible && (
               <div className="fixed left-0 right-0 top-28 z-50 mx-auto w-full max-w-md px-6">
-                <div className="mt-2 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-gray-0 py-3 pr-4">
+                <div className="mt-2 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-gray-0 py-3 pr-4 shadow-sm">
                   <div className="flex w-full items-center overflow-hidden">
                     <div className="bg-white mx-2 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full">
                       <img
-                        src="/bitget-logo.png" // or .svg if that's your file
-                        alt="Bitget Logo"
+                        src="/bybit-logo.jpg"
+                        alt="Bybit Logo"
                         className="h-7 w-7 rounded-full object-cover"
                       />
                     </div>
                     <a
-                      href="https://bonus.bitget.com/Y0TYFK"
+                      href="https://www.bybit.com/en/promo/campaign/BybitNewcomerBlitz/?affiliate_id=131095&group_id=1320363&group_type=1&ref_code=REPUBLIC"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -1607,23 +1607,23 @@ export default function EarnPage({
                         variant={{ variant: "subtitle", level: 2 }}
                         className="font-display mb-1 text-left text-[16px] font-semibold tracking-tight text-gray-900"
                       >
-                        {dictionary?.components?.banners?.bitget?.title}
+                        {dictionary?.components?.banners?.bybit?.title}
                       </Typography>
                       <Typography
                         as="h3"
                         variant={{ variant: "subtitle", level: 2 }}
                         className="font-display text-left text-[15px] font-medium tracking-tight text-gray-900"
                       >
-                        {dictionary?.components?.banners?.bitget?.subtitle}{" "}
+                        {dictionary?.components?.banners?.bybit?.description}{" "}
                         <span className="underline">
-                          {dictionary?.components?.banners?.bitget?.unlockOffer}
+                          {dictionary?.components?.banners?.bybit?.cta}
                         </span>
                       </Typography>
                     </a>
                     <div className="ml-2 flex items-center">
                       <div className="flex items-center rounded-full">
                         <button
-                          onClick={handleCloseBitgetBanner}
+                          onClick={handleCloseBybitBanner}
                           className="text-gray-400 focus:outline-none"
                           aria-label="Close banner"
                         >

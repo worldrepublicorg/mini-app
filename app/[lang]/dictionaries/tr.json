@@ -6,8 +6,13 @@
     "banners": {
       "bitget": {
         "title": "Bitget ile kazancını artır",
-        "subtitle": "Copy trading'e başla, ücretlerde %10 indirim + 6200 USDT'ye kadar hoş geldin bonusu kazan.",
-        "unlockOffer": "Teklifi aç"
+        "description": "Copy trading'e başla, ücretlerde %10 indirim + 6200 USDT'ye kadar hoş geldin bonusu kazan.",
+        "cta": "Teklifi aç"
+      },
+      "bybit": {
+        "title": "Bybit Yeni Gelenler İçin Blitz",
+        "description": "MacBook, iPhone 16, trend olan tokenlar ve daha fazlasını kazanmak için katılın!",
+        "cta": "Şimdi kaydolun"
       }
     },
     "verifyButton": {

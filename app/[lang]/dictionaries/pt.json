@@ -6,8 +6,13 @@
     "banners": {
       "bitget": {
         "title": "Aumente seus ganhos com a Bitget",
-        "subtitle": "Comece o copy trading, ganhe 10% de desconto nas taxas + até 6200 USDT de bônus de boas-vindas.",
-        "unlockOffer": "Desbloquear oferta"
+        "description": "Comece o copy trading, ganhe 10% de desconto nas taxas + até 6200 USDT de bônus de boas-vindas.",
+        "cta": "Desbloquear oferta"
+      },
+      "bybit": {
+        "title": "Blitz para Recém-Chegados da Bybit",
+        "description": "Participe para ganhar um MacBook, iPhone 16, tokens em alta e mais!",
+        "cta": "Registre-se agora"
       }
     },
     "verifyButton": {

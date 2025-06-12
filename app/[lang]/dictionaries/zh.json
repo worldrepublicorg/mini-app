@@ -6,8 +6,13 @@
     "banners": {
       "bitget": {
         "title": "用 Bitget 提升你的收益",
-        "subtitle": "开始 copy trading，享受 10% 手续费优惠 + 最高 6200 USDT 新手奖励。",
-        "unlockOffer": "解锁优惠"
+        "description": "开始 copy trading，享受 10% 手续费优惠 + 最高 6200 USDT 新手奖励。",
+        "cta": "解锁优惠"
+      },
+      "bybit": {
+        "title": "Bybit 新手闪电战",
+        "description": "加入赢取 MacBook、iPhone 16、热门代币等！",
+        "cta": "立即注册"
       }
     },
     "verifyButton": {
