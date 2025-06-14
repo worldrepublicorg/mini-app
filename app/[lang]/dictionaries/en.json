@@ -580,6 +580,7 @@
             "title": "Previous Polls",
             "backToGovern": "Back to Govern",
             "polls": {
+              "middleEastEscalation": "Should an independent consortium of nations support a neutral de-escalation initiative in the Middle East to reduce the risk of regional conflict?",
               "cyberResilienceProtocol": "Should nations establish a coordinated global cybersecurity response protocol to defend against AI-powered cyberattacks that could disrupt critical infrastructure worldwide?",
               "nuclearDisarmamentTalks": "Given recent reports of increased nuclear material production, should global powers restart comprehensive disarmament negotiations?",
               "pandemicPreparednessFund": "Should a permanent global fund be established to ensure continuous and equitable access to resources for future pandemic preparedness and response efforts worldwide?",

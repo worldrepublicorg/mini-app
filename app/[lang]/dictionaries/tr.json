@@ -590,6 +590,7 @@
             "title": "Önceki Anketler",
             "backToGovern": "Yönetişim'e Dön",
             "polls": {
+              "middleEastEscalation": "Bağımsız bir uluslar konsorsiyumu, bölgesel çatışma riskini azaltmak için Orta Doğu'da tarafsız bir gerilimi düşürme girişimini desteklemeli midir?",
               "nuclearDisarmamentTalks": "Son zamanlarda nükleer madde üretimindeki artışa ilişkin raporlar göz önüne alındığında, dünya güçleri kapsamlı silahsızlanma müzakerelerine yeniden başlamalı mı?",
               "pandemicPreparednessFund": "Gelecekteki pandemi hazırlık ve müdahale çalışmaları için dünya çapında kaynaklara sürekli ve adil erişimi sağlamak amacıyla kalıcı bir küresel fon kurulmalı mı?",
               "globalAidCuts": "Ülkeler, AIDS ve sıtma gibi hastalıklara karşı on yılların ilerlemesini tersine çevirme riski taşıyan dış yardım kesintilerini yeniden değerlendirmeli mi?",

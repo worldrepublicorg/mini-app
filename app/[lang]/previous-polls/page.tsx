@@ -7,6 +7,7 @@ import { PollCard } from "@/components/PollCard";
 import { useTranslations } from "@/hooks/useTranslations";
 
 const pollKeys = [
+  "cyberResilienceProtocol",
   "nuclearDisarmamentTalks",
   "pandemicPreparednessFund",
   "globalAidCuts",
@@ -82,6 +83,8 @@ const pollKeys = [
 ];
 
 const pollUrls = {
+  cyberResilienceProtocol:
+    "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/2QOSYgip",
   nuclearDisarmamentTalks:
     "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/gV4RQAsj",
   pandemicPreparednessFund:

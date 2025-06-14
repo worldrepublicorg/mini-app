@@ -621,7 +621,7 @@
               "maternalHealth": "Sollte eine dedizierte globale Hilfsreserve für medizinische Hilfe eingerichtet werden, um die Geburts- und Kindesgesundheit während internationaler Hilfsfrost zu schützen?",
               "marsMission": "Unterstützen Sie Nationen daran, zusammenarbeitend auf einer gemeinsamen tiefen Raummission zu Mars zu arbeiten?",
               "globalRecession": "Denken Sie, dass die aktuellen globalen Wirtschaftstrends ein Risiko für eine synchronisierte Rezession unter den großen Wirtschaftsgebieten darstellen?",
-              "aidCorridors": "Sollten alle Konfliktgebiete mit zivilen Menschenhilfsbedürfnissen automatisch international koordinierte Hilfskorridore auslösen?",
+              "aidCorridors": "Sollten alle Konfliktgebiete mit zivilen Menschenhilfsbedürfnissen automatisch internation koordinierte Hilfskorridore auslösen?",
               "nationalSovereignty": "Unterstützen Sie globale Regelungsrahmen, die das Nationale Souveränitätssystem mit koordinierten Antworten auf gemeinsame Herausforderungen abwägen?",
               "climateDisasters": "Sollten Länder, die extreme Wetterkatastrophen erleiden (z.B. Feuer, Überschwemmungen), Prioritätsfinanzhilfe von einer globalen Klimafund erhalten?",
               "aiSafety": "Sollten globale AI-Entwickler verpflichtet werden, Modelle mehr als derzeitige Systeme zu pausieren, bis internationale Sicherheitsabkommen eingegangen sind?",
@@ -655,9 +655,10 @@
               "globalMiningStandards": "Sollte ein internationales Protokoll eingerichtet werden, um umwelt- und sozialverträglichen Abbau kritischer Mineralien für saubere Energietechnologien zu gewährleisten?",
               "sovereignDebtRestructuring": "Sollte es einen international koordinierten Mechanismus zur Umstrukturierung von Staatsschulden geben, um Ländern mit unhaltbaren Schuldenniveaus zeitnahe Entlastung zu bieten?",
               "wildlifeTrafficking": "Sollten Nationen an einem gezielten internationalen Rahmenwerk zur Bekämpfung des illegalen Wildtierhandels zusammenarbeiten, einschließlich der aufkommenden Biopiraterie von Insekten und anderen Arten?",
-              "criticalMineralsExport": "Sollte es einen international koordinierten Rahmen für Exportkontrollen für kritische Mineralien - wie seltene Erden und strategische Metalle - geben, um Lieferkettenunterbrechungen und geopolitische Zwangsmaßnahmen zu verhindern?",
+              "criticalMineralsExport": "Sollte es einen international koordinierten Rahmen für Exportkontrollen für kritische Mineralien - wie seltenen Erden und strategischen Metallen - geben, um Lieferkettenunterbrechungen und geopolitische Zwangsmaßnahmen zu verhindern?",
               "tradePolicyStability": "Sollten Nationen einen koordinierten internationalen Verhaltenskodex für Zollpolitik einführen, um die Vorhersehbarkeit und Stabilität im globalen Handel zu verbessern?",
-              "cyberResilienceProtocol": "Sollten Staaten ein koordiniertes globales Cybersecurity-Protokoll einführen, um sich gegen KI-gestützte Cyberangriffe zu verteidigen, die weltweit kritische Infrastrukturen lahmlegen könnten?"
+              "cyberResilienceProtocol": "Sollten Staaten ein koordiniertes globales Cybersecurity-Protokoll einführen, um sich gegen KI-gestützte Cyberangriffe zu verteidigen, die weltweit kritische Infrastrukturen lahmlegen könnten?",
+              "middleEastEscalation": "Sollte die internationale Gemeinschaft eine Deeskalation im Nahen Osten priorisieren, auch wenn dies bedeutet, bei anderen Zielen Kompromisse einzugehen?"
             }
           }
         },

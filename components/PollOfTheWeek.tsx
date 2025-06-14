@@ -23,8 +23,8 @@ const polls: Poll[] = [
     url: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/2QOSYgip",
   },
   {
-    key: "coralCrisisAction",
-    url: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/jNqEO9XV",
+    key: "middleEastEscalation",
+    url: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/RKrASNCV",
   },
   {
     key: "globalAidCuts",
