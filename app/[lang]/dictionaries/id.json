@@ -275,7 +275,7 @@
               "subtitle": "Pendapatan tambahan untuk pengguna terverifikasi",
               "features": {
                 "rate": {
-                  "title": "Tambahan 2.45 WDD per hari"
+                  "title": "Tambahan 2.20 WDD per hari"
                 },
                 "verification": {
                   "title": "Eksklusif untuk pengguna terverifikasi Orb untuk memastikan distribusi yang adil"
@@ -752,11 +752,11 @@
         },
         "basicIncome": {
           "question": "Apa itu Pendapatan Dasar?",
-          "answer": "Pendapatan Dasar kami adalah subsidi harian sebesar 0.05 WDD (drachma dunia) yang diberikan kepada semua warga Republik Dunia. Ini terakumulasi secara real-time dan dapat diklaim kapan saja melalui aplikasi."
+          "answer": "Pendapatan Dasar kami adalah subsidi harian sebesar 0.04 WDD (drachma dunia) yang diberikan kepada semua warga Republik Dunia. Ini terakumulasi secara real-time dan dapat diklaim kapan saja melalui aplikasi."
         },
         "basicIncomePlus": {
           "question": "Bagaimana cara mengaktifkan Pendapatan Dasar Plus?",
-          "answer": "Pendapatan Dasar Plus memberikan tambahan 2.45 WDD per hari dan tersedia secara eksklusif untuk pengguna terverifikasi Orb. Setelah mengaktifkan Pendapatan Dasar, Anda akan melihat opsi untuk mengaktifkan Pendapatan Dasar Plus di halaman Dapatkan."
+          "answer": "Pendapatan Dasar Plus memberikan tambahan 2.20 WDD per hari dan tersedia secara eksklusif untuk pengguna terverifikasi Orb. Setelah mengaktifkan Pendapatan Dasar, Anda akan melihat opsi untuk mengaktifkan Pendapatan Dasar Plus di halaman Dapatkan."
         },
         "savings": {
           "question": "Bagaimana cara kerja Akun Tabungan?",
