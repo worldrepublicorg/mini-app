@@ -371,12 +371,12 @@
                   "description": "Simulan ang iyong pulitikal na kilusan sa World Republic app"
                 },
                 "growMembership": {
-                  "title": "Palaguin ang iyong membership",
-                  "description": "Mag-recruit ng mga miyembro at bumuo ng iyong komunidad"
+                  "title": "Mapasama sa balota",
+                  "description": "Palakihin ang inyong membership para maging kuwalipikado sa lingguhang halalan"
                 },
                 "earnRewards": {
-                  "title": "Kumita ng rewards",
-                  "description": "Tumanggap ng lingguhang subsidyo sa pamamagitan ng pagpapanatili ng top 50 party ranking"
+                  "title": "Makatanggap ng pondo",
+                  "description": "Kumita ng mga subsidy na katumbas ng mga botong natatanggap ng inyong partido"
                 }
               }
             },

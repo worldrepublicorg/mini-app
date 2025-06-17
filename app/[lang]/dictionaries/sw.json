@@ -439,12 +439,12 @@
                   "description": "Anza harakati yako ya kisiasa katika programu ya World Republic"
                 },
                 "growMembership": {
-                  "title": "Kuza uanachama wako",
-                  "description": "Ajiri wanachama na jenga jumuiya yako"
+                  "title": "Ingia kwenye kura",
+                  "description": "Ongeza uanachama wako ili uhitimu kwa ajili ya uchaguzi wa kila wiki"
                 },
                 "earnRewards": {
-                  "title": "Pata zawadi",
-                  "description": "Pokea ruzuku za kila wiki kwa kudumisha nafasi kati ya vyama 50 bora"
+                  "title": "Pata ufadhili",
+                  "description": "Pata ruzuku kulingana na kura ambazo chama chako kinapokea"
                 }
               }
             },

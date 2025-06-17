@@ -439,12 +439,12 @@
                   "description": "Pokrenite svoj politički pokret u aplikaciji World Republic"
                 },
                 "growMembership": {
-                  "title": "Povećajte članstvo",
-                  "description": "Regrutirajte članove i izgradite svoju zajednicu"
+                  "title": "Dospite na glasački listić",
+                  "description": "Povećajte svoje članstvo kako biste se kvalificirali za tjedne izbore"
                 },
                 "earnRewards": {
-                  "title": "Zaradite nagrade",
-                  "description": "Primite tjedne subvencije održavanjem ranga među 50 najboljih stranaka"
+                  "title": "Primite financiranje",
+                  "description": "Zaradite subvencije proporcionalne glasovima koje vaša stranka dobije"
                 }
               }
             },

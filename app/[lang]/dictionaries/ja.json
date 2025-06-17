@@ -438,12 +438,12 @@
                   "description": "World Republicアプリで政治運動を始める"
                 },
                 "growMembership": {
-                  "title": "メンバーシップを拡大する",
-                  "description": "メンバーを募集しコミュニティを構築する"
+                  "title": "投票用紙に載る",
+                  "description": "メンバーシップを拡大して、週ごとの選挙の資格を得る"
                 },
                 "earnRewards": {
-                  "title": "報酬を獲得",
-                  "description": "トップ50の党ランキングを維持することで毎週補助金を受け取る"
+                  "title": "資金を受け取る",
+                  "description": "あなたの党が受け取る票に比例した補助金を獲得する"
                 }
               }
             },

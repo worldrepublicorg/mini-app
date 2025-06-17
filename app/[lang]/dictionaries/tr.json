@@ -439,12 +439,12 @@
                   "description": "World Republic uygulamasında siyasi hareketinizi başlatın"
                 },
                 "growMembership": {
-                  "title": "Üyeliğinizi büyütün",
-                  "description": "Üye toplayın ve topluluğunuzu oluşturun"
+                  "title": "Oy pusulasına girin",
+                  "description": "Haftalık seçimlere katılmaya hak kazanmak için üyeliğinizi büyütün"
                 },
                 "earnRewards": {
-                  "title": "Ödüller kazanın",
-                  "description": "İlk 50 parti sıralamasını koruyarak haftalık sübvansiyonlar alın"
+                  "title": "Finansman alın",
+                  "description": "Partinizin aldığı oylarla orantılı sübvansiyonlar kazanın"
                 }
               }
             },

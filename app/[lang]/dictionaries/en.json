@@ -435,12 +435,12 @@
                   "description": "Start your political movement in the World Republic app"
                 },
                 "growMembership": {
-                  "title": "Grow your membership",
-                  "description": "Recruit members and build your community"
+                  "title": "Get on the ballot",
+                  "description": "Grow your membership to qualify for the weekly elections"
                 },
                 "earnRewards": {
-                  "title": "Earn rewards",
-                  "description": "Receive weekly subsidies by maintaining a top 50 party ranking"
+                  "title": "Receive funding",
+                  "description": "Earn subsidies proportional to the votes your party receives"
                 }
               }
             },

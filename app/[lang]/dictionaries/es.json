@@ -449,12 +449,12 @@
                   "description": "Inicia tu movimiento político en la app de la República Mundial"
                 },
                 "growMembership": {
-                  "title": "Aumenta tu membresía",
-                  "description": "Recluta miembros y construye tu comunidad"
+                  "title": "Clasifica para las elecciones",
+                  "description": "Aumenta tu membresía para clasificar a las elecciones semanales"
                 },
                 "earnRewards": {
-                  "title": "Gana recompensas",
-                  "description": "Recibe subsidios semanales manteniendo un ranking entre los 50 mejores partidos"
+                  "title": "Recibe financiación",
+                  "description": "Gana subsidios proporcionales a los votos que reciba tu partido"
                 }
               }
             },

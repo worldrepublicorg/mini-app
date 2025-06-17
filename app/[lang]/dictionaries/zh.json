@@ -439,12 +439,12 @@
                   "description": "在World Republic应用程序中开始您的政治运动"
                 },
                 "growMembership": {
-                  "title": "增加您的会员",
-                  "description": "招募成员并建立您的社区"
+                  "title": "进入选票",
+                  "description": "发展您的会员资格，以获得每周选举的资格"
                 },
                 "earnRewards": {
-                  "title": "获得奖励",
-                  "description": "通过保持前50名政党排名获得每周补贴"
+                  "title": "获得资金",
+                  "description": "根据您的政党获得的选票比例赚取补贴"
                 }
               }
             },
