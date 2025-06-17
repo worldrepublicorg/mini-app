@@ -1,7 +1,7 @@
 {
   "components": {
     "walletAuth": {
-      "connect": "Connect Wallet"
+      "connect": "Connect wallet"
     },
     "banners": {
       "bitget": {
@@ -15,12 +15,9 @@
         "cta": "Register now"
       }
     },
-    "verifyButton": {
-      "verify": "Verify to Claim"
-    },
     "pollOfTheWeek": {
-      "previousPolls": "Previous Polls",
-      "vote": "Vote Now"
+      "previousPolls": "Previous polls",
+      "vote": "Vote now"
     },
     "stakeForm": {
       "deposit": "Deposit",
@@ -31,8 +28,8 @@
       "max": "Max",
       "interest": "Interest:",
       "collect": "Collect",
-      "depositButton": "Deposit Drachma",
-      "withdrawButton": "Withdraw Drachma"
+      "depositButton": "Deposit drachma",
+      "withdrawButton": "Withdraw drachma"
     },
     "toasts": {
       "wallet": {
@@ -71,27 +68,26 @@
       }
     },
     "politicalPartyList": {
-      "loadingIssue": "We're aware of some party loading issues. Please be patient while we're working to fix them.",
       "myParty": "My party",
       "createParty": "Create New Party",
       "noParty": "You haven't created or joined a party yet.",
       "discover": "Discover",
       "partyDetails": "Party Details",
       "description": "Description",
-      "partyInfo": "Party Info",
+      "partyInfo": "Party info",
       "leader": "Leader",
       "website": "Website",
       "members": "Members",
       "noMembers": "No members yet",
       "approvalNote": "Parties with a working official link and/or growing membership are prioritized for approval.",
-      "bannedMembers": "Banned Members",
+      "bannedMembers": "Banned members",
       "errorLoading": "Error Loading Party",
       "partyNotFound": "Party Not Found",
       "partyNotFoundDescription": "The party you're looking for doesn't exist or has been removed.",
       "backToParties": "Back to Parties",
       "joining": "Joining...",
-      "joinParty": "Join Party",
-      "shareParty": "Share Party",
+      "joinParty": "Join party",
+      "shareParty": "Share party",
       "copied": "Link copied to clipboard",
       "status": {
         "pending": "Pending",
@@ -113,9 +109,9 @@
         "deleted": "Deleted",
         "members": "members",
         "actions": {
-          "leaveParty": "Leave Party",
-          "joinParty": "Join Party",
-          "joinPendingParty": "Join Pending Party"
+          "leaveParty": "Leave party",
+          "joinParty": "Join party",
+          "joinPendingParty": "Join pending party"
         },
         "management": {
           "title": "Party Management",
@@ -153,14 +149,14 @@
           },
           "button": {
             "creating": "Creating...",
-            "create": "Create Party"
+            "create": "Create party"
           }
         },
         "update": {
           "title": "Update Party Details",
           "button": {
             "update": "Update",
-            "updateDescription": "Update Description"
+            "updateDescription": "Update description"
           }
         },
         "transferLeadership": {
@@ -184,7 +180,7 @@
           },
           "button": {
             "processing": "Processing...",
-            "transfer": "Transfer Leadership"
+            "transfer": "Transfer leadership"
           }
         },
         "leave": {
@@ -211,8 +207,8 @@
           "confirm": "Are you sure you want to delete this party?",
           "button": {
             "processing": "Processing...",
-            "deletePending": "Delete Pending Party",
-            "delete": "Delete Party"
+            "deletePending": "Delete ending party",
+            "delete": "Delete party"
           }
         },
         "memberManagement": {
@@ -227,21 +223,21 @@
             "description": "Enter the wallet address of the member you want to remove or look up by username.",
             "button": {
               "processing": "Processing...",
-              "remove": "Remove Member"
+              "remove": "Remove member"
             }
           },
           "ban": {
             "description": "Enter the username or wallet address of the member you want to ban from the party.",
             "button": {
               "processing": "Processing...",
-              "ban": "Ban Member"
+              "ban": "Ban member"
             }
           },
           "unban": {
             "description": "Enter the username or wallet address of the banned member you want to allow back to the party.",
             "button": {
               "processing": "Processing...",
-              "unban": "Unban Member"
+              "unban": "Unban member"
             }
           }
         }
@@ -299,16 +295,16 @@
           "tooltip": "Friends must be verified via Orb or passport.",
           "learnMore": "Learn more",
           "stats": {
-            "title": "Your Referral Stats",
+            "title": "Your referral stats",
             "invites": "Invites accepted",
             "rewards": "Total rewards"
           },
           "actions": {
-            "copyLink": "Copy Referral Link",
+            "copyLink": "Copy referral link",
             "copied": "Referral link copied to clipboard!",
             "connectWallet": "Please connect your wallet to generate your referral link",
-            "rewardReferrer": "Reward Referrer",
-            "share": "Share Invite"
+            "rewardReferrer": "Reward referrer",
+            "share": "Share invite"
           },
           "drawer": {
             "title": "Reward a Referrer",
@@ -317,11 +313,11 @@
             "invitedBy": "You were invited by: {{username}}",
             "input": {
               "placeholder": "Enter username (e.g. username.0000)",
-              "lookupButton": "Lookup User",
+              "lookupButton": "Lookup user",
               "sendingTo": "Sending reward to:",
               "editButton": "Edit",
-              "sendButton": "Send Reward",
-              "proveReward": "Prove and Reward"
+              "sendButton": "Send reward",
+              "proveReward": "Prove and reward"
             },
             "errors": {
               "enterUsername": "Please enter a username",
@@ -362,74 +358,13 @@
         "contribute": {
           "title": "Contribute",
           "subtitle": "Get involved, get rewarded",
-          "contests": {
-            "ended": "Ended",
-            "weekly": "Weekly",
-            "topPrize": "Top prize",
-            "xPost": {
-              "title": "X Post Contest",
-              "description": "Write engaging posts, win prizes"
-            },
-            "poll": {
-              "title": "Poll Contest",
-              "description": "Gather community feedback and earn"
-            },
-            "pollContest": {
-              "title": "Poll Contest",
-              "weeklyTitle": "Weekly Poll Contest",
-              "description": "Gather community feedback and earn",
-              "prizes": {
-                "title": "Prizes",
-                "viewWinners": "View past winners",
-                "wdd": "WDD"
-              },
-              "howTo": {
-                "title": "How it works",
-                "steps": {
-                  "step1": {
-                    "number": "1",
-                    "text": "Create a poll related to the World Republic or global governance in general"
-                  },
-                  "step2": {
-                    "number": "2",
-                    "text": "Set it up so only verified humans can vote"
-                  },
-                  "step3": {
-                    "number": "3",
-                    "text": "Share your poll in our",
-                    "link": {
-                      "text": "Poll Contest Telegram channel",
-                      "url": "https://t.me/worldrepubliccommunity/32368"
-                    }
-                  }
-                }
-              },
-              "rules": {
-                "title": "Contest rules",
-                "list": {
-                  "rule1": "Only polls started in the current week are eligible",
-                  "rule2": "Contest ends every Sunday at 11:59 PM UTC",
-                  "rule3": "Winners are selected based on total votes and contacted on Telegram within 24 hours"
-                }
-              },
-              "cta": {
-                "create": "Create Your Poll",
-                "submit": "Submit Your Poll"
-              },
-              "winners": {
-                "title": "Contest Winners",
-                "weekOf": "Week of",
-                "votes": "votes"
-              }
-            }
-          },
           "buybackProgram": {
             "topnav": "Buyback Program",
             "title": "Token Buyback Program",
             "subtitle": "Strengthen WDD value together",
             "sections": {
               "fundingSources": {
-                "title": "Funding Sources",
+                "title": "Funding sources",
                 "devRewards": {
                   "title": "World Dev Rewards",
                   "weekProgress": "Week 7 of 12"
@@ -438,14 +373,14 @@
                   "title": "World Retro Funding"
                 },
                 "affiliate": {
-                  "title": "Affiliate Commissions"
+                  "title": "Affiliate commissions"
                 },
                 "optimism": {
                   "title": "Optimism Retro Funding"
                 }
               },
               "commitment": {
-                "title": "Our Commitment",
+                "title": "Our commitment",
                 "description": "We pledge to use at least 50% of all these fundings for WDD buybacks.",
                 "viewAccount": "View buyback account"
               },
@@ -473,47 +408,9 @@
               }
             },
             "actions": {
-              "share": "Share Invite"
+              "share": "Share invite"
             },
-            "cta": "View Mini App Rewards"
-          },
-          "earlyAccess": {
-            "title": "Early Access Program",
-            "description": "Earn WDD by testing our upcoming features"
-          },
-          "xContest": {
-            "title": "X Post Contest",
-            "weeklyTitle": "Weekly X Post Contest",
-            "description": "Write engaging posts, win prizes",
-            "prizes": {
-              "title": "Prizes",
-              "viewWinners": "View past winners",
-              "wdd": "WDD"
-            },
-            "howTo": {
-              "title": "How to participate",
-              "step1": "Write an X post about the World Republic",
-              "step2": "Tag @WorldRepublicEN",
-              "step3": {
-                "prefix": "Share the link to your post in our",
-                "link": "X Post Contest Telegram channel"
-              }
-            },
-            "rules": {
-              "title": "Contest rules",
-              "rule1": "Only posts published in the current week are eligible",
-              "rule2": "Contest ends every Sunday at 11:59 PM UTC",
-              "rule3": "Winners are selected based on total organic engagement (likes + reposts + comments) and contacted on Telegram within 24 hours"
-            },
-            "cta": {
-              "post": "Start Posting Now",
-              "submit": "Submit Your Post"
-            },
-            "winners": {
-              "title": "Contest Winners",
-              "weekOf": "Week of",
-              "engagements": "engagements"
-            }
+            "cta": "View mini app rewards"
           },
           "partySubsidy": {
             "topnav": "Subsidy Program",
@@ -531,30 +428,30 @@
               "checkOutRewards": "Check out rewards"
             },
             "howItWorks": {
-              "title": "How It Works",
+              "title": "How it works",
               "steps": {
                 "createParty": {
-                  "title": "Create a Party",
+                  "title": "Create a party",
                   "description": "Start your political movement in the World Republic app"
                 },
                 "growMembership": {
-                  "title": "Grow Your Membership",
+                  "title": "Grow your membership",
                   "description": "Recruit members and build your community"
                 },
                 "earnRewards": {
-                  "title": "Earn Rewards",
+                  "title": "Earn rewards",
                   "description": "Receive weekly subsidies by maintaining a top 50 party ranking"
                 }
               }
             },
             "cta": {
-              "createJoin": "Create or Join a Party",
-              "leaderGroup": "Join Party Leader Group"
+              "createJoin": "Create or join a party",
+              "leaderGroup": "Join party leader group"
             },
             "payouts": {
               "title": "Payouts",
               "week": "Week",
-              "showAll": "Show All"
+              "showAll": "Show all"
             }
           }
         }
@@ -676,7 +573,7 @@
               "referenceTitle": "Future of Life Institute"
             },
             "longView": {
-              "title": "Open letter calling on world leaders to show long-view leadership on existential threats",
+              "title": "Open Letter Calling on World Leaders to Show Long-View Leadership on Existential Threats",
               "referenceTitle": "Future of Life Institute"
             }
           }
@@ -687,7 +584,7 @@
           "worldConstituent": {
             "title": "World Constituent Assembly Election",
             "description": "Select representatives for the first democratically elected global parliament.",
-            "button": "Coming Soon"
+            "button": "Coming soon"
           }
         },
         "referendums": {
@@ -696,7 +593,7 @@
           "worldConstitutional": {
             "title": "World Constitutional Referendum",
             "description": "Participate in a historic vote on principles that will guide humanity's collective future.",
-            "button": "Coming Soon"
+            "button": "Coming soon"
           }
         }
       }
@@ -776,26 +673,6 @@
       "options": {
         "english": "English",
         "spanish": "Español"
-      }
-    },
-    "verification": {
-      "title": "Verification Status",
-      "levels": {
-        "document": {
-          "title": "Document Verification",
-          "description": "Check document verification status",
-          "buttonText": "Check Status"
-        },
-        "secureDocument": {
-          "title": "Secure Document Verification",
-          "description": "Check secure document verification status",
-          "buttonText": "Check Status"
-        },
-        "orb": {
-          "title": "Orb Verification",
-          "description": "Check Orb verification status",
-          "buttonText": "Check Status"
-        }
       }
     }
   }

@@ -1,7 +1,7 @@
 {
   "components": {
     "walletAuth": {
-      "connect": "Sambung Dompet"
+      "connect": "Sambung dompet"
     },
     "banners": {
       "bitget": {
@@ -15,12 +15,9 @@
         "cta": "Daftar sekarang"
       }
     },
-    "verifyButton": {
-      "verify": "Sahkan untuk Tuntut"
-    },
     "pollOfTheWeek": {
-      "previousPolls": "Undian Sebelumnya",
-      "vote": "Undi Sekarang"
+      "previousPolls": "Undian sebelumnya",
+      "vote": "Undi sekarang"
     },
     "stakeForm": {
       "deposit": "Simpan",
@@ -31,8 +28,8 @@
       "max": "Maksimum",
       "interest": "Faedah:",
       "collect": "Kutip",
-      "depositButton": "Simpan Drachma",
-      "withdrawButton": "Tarik Drachma"
+      "depositButton": "Simpan drachma",
+      "withdrawButton": "Tarik drachma"
     },
     "toasts": {
       "wallet": {
@@ -65,33 +62,32 @@
       "tabs": {
         "politicalParties": "Parti",
         "polls": "Undian",
-        "openLetters": "Surat Terbuka",
-        "elections": "Pilihan Raya",
+        "openLetters": "Surat terbuka",
+        "elections": "Pilihan raya",
         "referendums": "Referendum"
       }
     },
     "politicalPartyList": {
-      "loadingIssue": "Kami sedar tentang beberapa masalah pemuatan parti. Harap bersabar semasa kami berusaha untuk memperbaikinya.",
       "myParty": "Parti saya",
       "createParty": "Cipta Parti Baharu",
       "noParty": "Anda belum mencipta atau menyertai parti.",
       "discover": "Terokai",
       "partyDetails": "Butiran Parti",
       "description": "Penerangan",
-      "partyInfo": "Maklumat Parti",
+      "partyInfo": "Maklumat parti",
       "leader": "Ketua",
-      "website": "Laman Web",
+      "website": "Laman web",
       "members": "Ahli",
       "noMembers": "Belum ada ahli",
       "approvalNote": "Parti dengan pautan rasmi yang berfungsi dan/atau keahlian yang berkembang diberi keutamaan untuk kelulusan.",
-      "bannedMembers": "Ahli yang Diharamkan",
+      "bannedMembers": "Ahli yang diharamkan",
       "errorLoading": "Ralat Memuatkan Parti",
       "partyNotFound": "Parti Tidak Dijumpai",
       "partyNotFoundDescription": "Parti yang anda cari tidak wujud atau telah dikeluarkan.",
       "backToParties": "Kembali ke Parti",
       "joining": "Menyertai...",
-      "joinParty": "Sertai Parti",
-      "shareParty": "Kongsi Parti",
+      "joinParty": "Sertai parti",
+      "shareParty": "Kongsi parti",
       "copied": "Pautan disalin ke papan klip",
       "status": {
         "pending": "Tertunda",
@@ -113,9 +109,9 @@
         "deleted": "Dipadam",
         "members": "ahli",
         "actions": {
-          "leaveParty": "Tinggalkan Parti",
-          "joinParty": "Sertai Parti",
-          "joinPendingParty": "Sertai Parti Menunggu"
+          "leaveParty": "Tinggalkan parti",
+          "joinParty": "Sertai parti",
+          "joinPendingParty": "Sertai parti menunggu"
         },
         "management": {
           "title": "Pengurusan Parti",
@@ -153,14 +149,14 @@
           },
           "button": {
             "creating": "Mencipta...",
-            "create": "Cipta Parti"
+            "create": "Cipta parti"
           }
         },
         "update": {
           "title": "Kemas Kini Butiran Parti",
           "button": {
             "update": "Kemas kini",
-            "updateDescription": "Kemas kini Penerangan"
+            "updateDescription": "Kemas kini penerangan"
           }
         },
         "transferLeadership": {
@@ -184,7 +180,7 @@
           },
           "button": {
             "processing": "Memproses...",
-            "transfer": "Pindahkan Kepimpinan"
+            "transfer": "Pindahkan kepimpinan"
           }
         },
         "leave": {
@@ -211,8 +207,8 @@
           "confirm": "Adakah anda pasti mahu memadam parti ini?",
           "button": {
             "processing": "Memproses...",
-            "deletePending": "Padam Parti Menunggu",
-            "delete": "Padam Parti"
+            "deletePending": "Padam parti menunggu",
+            "delete": "Padam parti"
           }
         },
         "memberManagement": {
@@ -227,21 +223,21 @@
             "description": "Masukkan alamat dompet ahli yang ingin anda keluarkan atau cari mengikut nama pengguna.",
             "button": {
               "processing": "Memproses...",
-              "remove": "Keluarkan Ahli"
+              "remove": "Keluarkan ahli"
             }
           },
           "ban": {
             "description": "Masukkan nama pengguna atau alamat dompet ahli yang ingin anda sekat daripada parti.",
             "button": {
               "processing": "Memproses...",
-              "ban": "Sekat Ahli"
+              "ban": "Sekat ahli"
             }
           },
           "unban": {
             "description": "Masukkan nama pengguna atau alamat dompet ahli yang disekat yang ingin anda benarkan kembali ke parti.",
             "button": {
               "processing": "Memproses...",
-              "unban": "Nyahsekat Ahli"
+              "unban": "Nyahsekat ahli"
             }
           }
         }
@@ -299,16 +295,16 @@
           "tooltip": "Rakan perlu disahkan melalui Orb atau pasport.",
           "learnMore": "Ketahui lebih lanjut",
           "stats": {
-            "title": "Statistik Rujukan Anda",
+            "title": "Statistik rujukan anda",
             "invites": "Jemputan diterima",
             "rewards": "Jumlah ganjaran"
           },
           "actions": {
-            "copyLink": "Salin Pautan Rujukan",
+            "copyLink": "Salin pautan rujukan",
             "copied": "Pautan rujukan disalin ke clipboard!",
             "connectWallet": "Sila sambungkan dompet anda untuk menjana pautan rujukan",
-            "rewardReferrer": "Hadiahkan Pemberi Rujukan",
-            "share": "Kongsi Pautan Jemputan"
+            "rewardReferrer": "Hadiahkan pemberi rujukan",
+            "share": "Kongsi pautan jemputan"
           },
           "drawer": {
             "title": "Ganjarkan Pemberi Rujukan",
@@ -317,11 +313,11 @@
             "invitedBy": "Anda dijemput oleh: {{username}}",
             "input": {
               "placeholder": "Masukkan nama pengguna (cth. username.0000)",
-              "lookupButton": "Cari Pengguna",
+              "lookupButton": "Cari pengguna",
               "sendingTo": "Menghantar ganjaran kepada:",
               "editButton": "Sunting",
-              "sendButton": "Hantar Ganjaran",
-              "proveReward": "Buktikan dan Ganjarkan"
+              "sendButton": "Hantar ganjaran",
+              "proveReward": "Buktikan dan ganjarkan"
             },
             "errors": {
               "enterUsername": "Sila masukkan nama pengguna",
@@ -362,84 +358,13 @@
         "contribute": {
           "title": "Sumbangan",
           "subtitle": "Terlibat, dapatkan ganjaran",
-          "contests": {
-            "ended": "Tamat",
-            "weekly": "Mingguan",
-            "topPrize": "Hadiah utama",
-            "xPost": {
-              "title": "Pertandingan Catatan X",
-              "description": "Tulis catatan menarik, menangi hadiah"
-            },
-            "poll": {
-              "title": "Pertandingan Undian",
-              "description": "Kumpul maklum balas komuniti dan perolehi"
-            },
-            "pollContest": {
-              "title": "Pertandingan Undian",
-              "weeklyTitle": "Pertandingan Undian Mingguan",
-              "description": "Kumpul maklum balas komuniti dan menangi hadiah",
-              "prizes": {
-                "title": "Hadiah",
-                "viewWinners": "Lihat pemenang sebelumnya",
-                "wdd": "WDD"
-              },
-              "howTo": {
-                "title": "Cara Menyertai",
-                "steps": {
-                  "step1": {
-                    "number": "1",
-                    "text": "Cipta undian berkaitan dengan Republik Dunia atau tadbir urus global secara amnya"
-                  },
-                  "step2": {
-                    "number": "2",
-                    "text": "Tetapkan supaya hanya pengguna yang disahkan boleh mengundi"
-                  },
-                  "step3": {
-                    "number": "3",
-                    "text": "Kongsi undian anda dalam",
-                    "link": {
-                      "text": "Saluran Telegram Pertandingan Undian kami",
-                      "url": "https://t.me/worldrepubliccommunity/32368"
-                    }
-                  }
-                }
-              },
-              "rules": {
-                "title": "Peraturan Pertandingan",
-                "list": {
-                  "rule1": "Hanya undian yang dimulakan pada minggu semasa layak",
-                  "rule2": "Pertandingan berakhir setiap Ahad pada 11:59 PM UTC",
-                  "rule3": "Pemenang dipilih berdasarkan jumlah undi dan dihubungi melalui Telegram dalam masa 24 jam"
-                }
-              },
-              "cta": {
-                "create": "Buat Undian",
-                "submit": "Hantar Undian"
-              },
-              "winners": {
-                "title": "Pemenang Pertandingan",
-                "weekOf": "Minggu",
-                "votes": "undi"
-              }
-            },
-            "testing": {
-              "title": "Ujian Ciri Baharu",
-              "description": "Terbuka untuk ahli yang disahkan dengan pasport tetapi tidak melalui Orb"
-            },
-            "oneOff": "Sekali sahaja",
-            "limited": "50 tempat"
-          },
-          "earlyAccess": {
-            "title": "Program Akses Awal",
-            "description": "Dapatkan WDD dengan menguji ciri-ciri kami yang akan datang"
-          },
           "buybackProgram": {
             "topnav": "Program Pembelian Semula",
             "title": "Program Pembelian Semula Token",
             "subtitle": "Perkukuh nilai WDD bersama",
             "sections": {
               "fundingSources": {
-                "title": "Sumber Pembiayaan",
+                "title": "Sumber pembiayaan",
                 "devRewards": {
                   "title": "Ganjaran Pembangun World",
                   "weekProgress": "Minggu 7 daripada 12"
@@ -451,11 +376,11 @@
                   "title": "Pembiayaan Optimism Retro"
                 },
                 "affiliate": {
-                  "title": "Komisen Afiliasi"
+                  "title": "Komisen afiliasi"
                 }
               },
               "commitment": {
-                "title": "Komitmen Kami",
+                "title": "Komitmen kami",
                 "description": "Kami berjanji untuk menggunakan sekurang-kurangnya 50% daripada semua pembiayaan ini untuk pembelian semula WDD.",
                 "viewAccount": "Lihat Akaun Pembelian Semula"
               },
@@ -468,7 +393,7 @@
                 }
               },
               "helpSection": {
-                "title": "Cara Anda Boleh Membantu",
+                "title": "Cara anda boleh membantu",
                 "intro": "Anda boleh menyumbang secara langsung untuk meningkatkan nilai token WDD anda:",
                 "steps": {
                   "invite": {
@@ -483,47 +408,13 @@
               }
             },
             "actions": {
-              "share": "Kongsi Jemputan"
+              "share": "Kongsi jemputan"
             },
-            "cta": "Lihat Ganjaran Mini App"
+            "cta": "Lihat ganjaran mini app"
           },
           "buybackLink": {
             "title": "Program Pembelian Semula",
             "description": "Pertumbuhan nilai WDD digerakkan oleh komuniti"
-          },
-          "xContest": {
-            "title": "Pertandingan Catatan X",
-            "weeklyTitle": "Pertandingan Catatan X Mingguan",
-            "description": "Tulis catatan menarik, menangi hadiah",
-            "prizes": {
-              "title": "Hadiah",
-              "viewWinners": "Lihat pemenang terdahulu",
-              "wdd": "WDD"
-            },
-            "howTo": {
-              "title": "Cara menyertai",
-              "step1": "Tulis catatan X tentang Republik Dunia",
-              "step2": "Tag @WorldRepublicEN",
-              "step3": {
-                "prefix": "Kongsi pautan ke catatan anda dalam",
-                "link": "Saluran Telegram Pertandingan Catatan X"
-              }
-            },
-            "rules": {
-              "title": "Peraturan pertandingan",
-              "rule1": "Hanya catatan yang diterbitkan pada minggu semasa layak",
-              "rule2": "Pemenang dipilih berdasarkan jumlah penglibatan organik (suka + kongsi semula + komen)",
-              "rule3": "Pertandingan berakhir setiap Ahad pada 11:59 PM UTC"
-            },
-            "cta": {
-              "post": "Mula Menulis Sekarang",
-              "submit": "Hantar Catatan Anda"
-            },
-            "winners": {
-              "title": "Pemenang Pertandingan",
-              "weekOf": "Minggu",
-              "engagements": "penglibatan"
-            }
           },
           "partySubsidy": {
             "topnav": "Program Subsidi",
@@ -541,30 +432,30 @@
               "checkOutRewards": "Lihat ganjaran"
             },
             "howItWorks": {
-              "title": "Cara Ia Berfungsi",
+              "title": "Cara ia berfungsi",
               "steps": {
                 "createParty": {
-                  "title": "Cipta Parti",
+                  "title": "Cipta parti",
                   "description": "Mulakan pergerakan politik anda dalam aplikasi World Republic"
                 },
                 "growMembership": {
-                  "title": "Tingkatkan Keahlian Anda",
+                  "title": "Tingkatkan keahlian anda",
                   "description": "Rekrut ahli dan bina komuniti anda"
                 },
                 "earnRewards": {
-                  "title": "Dapatkan Ganjaran",
+                  "title": "Dapatkan ganjaran",
                   "description": "Terima subsidi mingguan dengan mengekalkan kedudukan parti 50 teratas"
                 }
               }
             },
             "cta": {
-              "createJoin": "Cipta atau Sertai Parti",
-              "leaderGroup": "Sertai Kumpulan Pemimpin Parti"
+              "createJoin": "Cipta atau sertai parti",
+              "leaderGroup": "Sertai kumpulan pemimpin parti"
             },
             "payouts": {
               "title": "Pembayaran",
               "week": "Minggu",
-              "showAll": "Tunjukkan Semua"
+              "showAll": "Tunjukkan semua"
             }
           }
         }
@@ -681,7 +572,7 @@
               "referenceTitle": "Institut Masa Depan Kehidupan"
             },
             "longView": {
-              "title": "Surat terbuka memanggil pemimpin dunia untuk menunjukkan kepimpinan pandangan panjang mengenai ancaman kewujudan",
+              "title": "Surat Terbuka Memanggil Pemimpin Dunia untuk Menunjukkan Kepimpinan Pandangan Panjang mengenai Ancaman Kewujudan",
               "referenceTitle": "Institut Masa Depan Kehidupan"
             }
           }
@@ -692,7 +583,7 @@
           "worldConstituent": {
             "title": "Pilihan Raya Perhimpunan Perlembagaan Dunia",
             "description": "Pilih wakil-wakil untuk parlimen global pertama yang dipilih secara demokratik.",
-            "button": "Akan Datang"
+            "button": "Akan datang"
           }
         },
         "referendums": {
@@ -701,7 +592,7 @@
           "worldConstitutional": {
             "title": "Referendum Perlembagaan Dunia",
             "description": "Sertai undian bersejarah mengenai prinsip-prinsip yang akan memandu masa depan kolektif manusia.",
-            "button": "Akan Datang"
+            "button": "Akan datang"
           }
         },
         "politicalParties": {
@@ -785,26 +676,6 @@
       "options": {
         "english": "English",
         "spanish": "Español"
-      }
-    },
-    "verification": {
-      "title": "Status Pengesahan",
-      "levels": {
-        "document": {
-          "title": "Pengesahan Dokumen",
-          "description": "Semak status pengesahan dokumen",
-          "buttonText": "Semak Status"
-        },
-        "secureDocument": {
-          "title": "Pengesahan Dokumen Selamat",
-          "description": "Semak status pengesahan dokumen selamat",
-          "buttonText": "Semak Status"
-        },
-        "orb": {
-          "title": "Pengesahan Orb",
-          "description": "Semak status pengesahan Orb",
-          "buttonText": "Semak Status"
-        }
       }
     }
   }

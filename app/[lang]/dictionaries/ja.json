@@ -15,9 +15,6 @@
         "cta": "今すぐ登録"
       }
     },
-    "verifyButton": {
-      "verify": "請求するには確認"
-    },
     "pollOfTheWeek": {
       "previousPolls": "過去の投票",
       "vote": "投票する"
@@ -71,7 +68,6 @@
       }
     },
     "politicalPartyList": {
-      "loadingIssue": "一部の政党の読み込みに問題が発生していることを認識しています。修正に取り組んでいますので、しばらくお待ちください。",
       "myParty": "私の政党",
       "createParty": "新しい政党を作成",
       "noParty": "まだ政党を作成したり参加したりしていません。",
@@ -361,77 +357,6 @@
         "contribute": {
           "title": "貢献",
           "subtitle": "参加して報酬を獲得",
-          "contests": {
-            "ended": "終了",
-            "weekly": "週間",
-            "topPrize": "最高賞",
-            "xPost": {
-              "title": "X投稿コンテスト",
-              "description": "魅力的な投稿を書いて賞品を獲得"
-            },
-            "poll": {
-              "title": "投票コンテスト",
-              "description": "コミュニティのフィードバックを集めて報酬を獲得"
-            },
-            "pollContest": {
-              "title": "投票コンテスト",
-              "weeklyTitle": "週間投票コンテスト",
-              "description": "コミュニティのフィードバックを集めて賞品を獲得",
-              "prizes": {
-                "title": "賞品",
-                "viewWinners": "過去の受賞者を見る",
-                "wdd": "WDD"
-              },
-              "howTo": {
-                "title": "参加方法",
-                "steps": {
-                  "step1": {
-                    "number": "1",
-                    "text": "世界共和国やグローバルガバナンスに関する投票を作成"
-                  },
-                  "step2": {
-                    "number": "2",
-                    "text": "認証済みユーザーのみが投票できるように設定"
-                  },
-                  "step3": {
-                    "number": "3",
-                    "text": "投票を",
-                    "link": {
-                      "text": "投票コンテストTelegramチャンネル",
-                      "url": "https://t.me/worldrepubliccommunity/32368"
-                    }
-                  }
-                }
-              },
-              "rules": {
-                "title": "コンテストルール",
-                "list": {
-                  "rule1": "当週開始の投票のみ参加可能",
-                  "rule2": "コンテストは毎週日曜日23:59 UTCまで",
-                  "rule3": "総投票数に基づいて受賞者を選出し、24時間以内にTelegramで連絡"
-                }
-              },
-              "cta": {
-                "create": "投票を作成",
-                "submit": "投票を提出"
-              },
-              "winners": {
-                "title": "コンテスト受賞者",
-                "weekOf": "週",
-                "votes": "票"
-              }
-            },
-            "testing": {
-              "title": "新機能テスト",
-              "description": "パスポート認証済みでOrbによる認証がないメンバー向け。"
-            },
-            "oneOff": "一回限り",
-            "limited": "50枠限定"
-          },
-          "earlyAccess": {
-            "title": "アーリーアクセスプログラム",
-            "description": "今後の機能をテストしてWDDを獲得"
-          },
           "buybackProgram": {
             "topnav": "バイバックプログラム",
             "title": "トークンバイバックプログラム",
@@ -489,40 +414,6 @@
           "buybackLink": {
             "title": "バイバックプログラム",
             "description": "コミュニティ主導のWDD価値成長"
-          },
-          "xContest": {
-            "title": "X投稿コンテスト",
-            "weeklyTitle": "週間X投稿コンテスト",
-            "description": "魅力的な投稿を書いて賞品を獲得",
-            "prizes": {
-              "title": "賞品",
-              "viewWinners": "過去の受賞者を見る",
-              "wdd": "WDD"
-            },
-            "howTo": {
-              "title": "参加方法",
-              "step1": "ワールドリパブリックについてXに投稿",
-              "step2": "@WorldRepublicENをタグ付け",
-              "step3": {
-                "prefix": "投稿のリンクを",
-                "link": "X投稿コンテストTelegramチャンネル"
-              }
-            },
-            "rules": {
-              "title": "コンテストルール",
-              "rule1": "現在の週に公開された投稿のみが対象",
-              "rule2": "コンテストは毎週日曜日UTC 23:59に終了",
-              "rule3": "受賞者は総オーガニックエンゲージメント（いいね+リポスト+コメント）に基づいて選出され、24時間以内にTelegramで連絡"
-            },
-            "cta": {
-              "post": "今すぐ投稿を開始",
-              "submit": "投稿を提出"
-            },
-            "winners": {
-              "title": "コンテスト受賞者",
-              "weekOf": "週",
-              "engagements": "エンゲージメント"
-            }
           },
           "partySubsidy": {
             "topnav": "補助金プログラム",
@@ -784,26 +675,6 @@
       "options": {
         "english": "English",
         "spanish": "Español"
-      }
-    },
-    "verification": {
-      "title": "認証状態",
-      "levels": {
-        "document": {
-          "title": "書類認証",
-          "description": "書類の認証状態を確認",
-          "buttonText": "状態を確認"
-        },
-        "secureDocument": {
-          "title": "セキュア書類認証",
-          "description": "セキュア書類の認証状態を確認",
-          "buttonText": "状態を確認"
-        },
-        "orb": {
-          "title": "Orb認証",
-          "description": "Orbの認証状態を確認",
-          "buttonText": "状態を確認"
-        }
       }
     }
   }

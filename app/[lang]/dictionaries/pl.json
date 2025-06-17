@@ -1,7 +1,7 @@
 {
   "components": {
     "walletAuth": {
-      "connect": "Połącz Portfel"
+      "connect": "Połącz portfel"
     },
     "banners": {
       "bitget": {
@@ -15,12 +15,9 @@
         "cta": "Zarejestruj się teraz"
       }
     },
-    "verifyButton": {
-      "verify": "Zweryfikuj, aby Odebrać"
-    },
     "pollOfTheWeek": {
-      "previousPolls": "Poprzednie Ankiety",
-      "vote": "Zagłosuj Teraz"
+      "previousPolls": "Poprzednie ankiety",
+      "vote": "Zagłosuj teraz"
     },
     "stakeForm": {
       "deposit": "Wpłać",
@@ -31,8 +28,8 @@
       "max": "Maksimum",
       "interest": "Odsetki:",
       "collect": "Odbierz",
-      "depositButton": "Wpłać Drachmy",
-      "withdrawButton": "Wypłać Drachmy"
+      "depositButton": "Wpłać drachmy",
+      "withdrawButton": "Wypłać drachmy"
     },
     "toasts": {
       "wallet": {
@@ -71,7 +68,6 @@
       }
     },
     "politicalPartyList": {
-      "loadingIssue": "Jesteśmy świadomi problemów z ładowaniem partii. Prosimy o cierpliwość podczas pracy nad ich naprawą.",
       "myParty": "Moja partia",
       "createParty": "Utwórz nową partię",
       "noParty": "Nie utworzyłeś ani nie dołączyłeś jeszcze do żadnej partii.",
@@ -299,16 +295,16 @@
           "tooltip": "Znajomi muszą zostać zweryfikowani przez Orb lub paszport.",
           "learnMore": "Dowiedz się więcej",
           "stats": {
-            "title": "Twoje Statystyki Polecania",
+            "title": "Twoje statystyki polecania",
             "invites": "Przyjęte zaproszenia",
             "rewards": "Łączne nagrody"
           },
           "actions": {
-            "copyLink": "Kopiuj Link Polecający",
+            "copyLink": "Kopiuj link polecający",
             "copied": "Link polecający skopiowany do schowka!",
             "connectWallet": "Proszę połącz portfel, aby wygenerować link polecający",
-            "rewardReferrer": "Nagródź Polecającego",
-            "share": "Udostępnij Link Zaproszenia"
+            "rewardReferrer": "Nagrodź polecającego",
+            "share": "Udostępnij link zaproszenia"
           },
           "drawer": {
             "title": "Nagródź Polecającego",
@@ -317,11 +313,11 @@
             "invitedBy": "Zostałeś zaproszony przez: {{username}}",
             "input": {
               "placeholder": "Wprowadź nazwę użytkownika (np. username.0000)",
-              "lookupButton": "Wyszukaj Użytkownika",
+              "lookupButton": "Wyszukaj użytkownika",
               "sendingTo": "Wysyłanie nagrody do:",
               "editButton": "Edytuj",
-              "sendButton": "Wyślij Nagrodę",
-              "proveReward": "Udowodnij i Nagródź"
+              "sendButton": "Wyślij nagrodę",
+              "proveReward": "Udowodnij i nagrodź"
             },
             "errors": {
               "enterUsername": "Wprowadź nazwę użytkownika",
@@ -362,84 +358,13 @@
         "contribute": {
           "title": "Współtwórz",
           "subtitle": "Zaangażuj się, otrzymuj nagrody",
-          "contests": {
-            "ended": "Zakończony",
-            "weekly": "Tygodniowy",
-            "topPrize": "Główna nagroda",
-            "xPost": {
-              "title": "Konkurs Postów X",
-              "description": "Pisz angażujące posty, wygrywaj nagrody"
-            },
-            "poll": {
-              "title": "Konkurs Ankiet",
-              "description": "Zbieraj opinie społeczności i zarabiaj"
-            },
-            "pollContest": {
-              "title": "Konkurs Ankiet",
-              "weeklyTitle": "Tygodniowy Konkurs Ankiet",
-              "description": "Zbieraj opinie społeczności i wygrywaj nagrody",
-              "prizes": {
-                "title": "Nagrody",
-                "viewWinners": "Zobacz poprzednich zwycięzców",
-                "wdd": "WDD"
-              },
-              "howTo": {
-                "title": "Jak Wziąć Udział",
-                "steps": {
-                  "step1": {
-                    "number": "1",
-                    "text": "Stwórz ankietę związaną z Republiką Świata lub ogólnie z zarządzaniem globalnym"
-                  },
-                  "step2": {
-                    "number": "2",
-                    "text": "Ustaw ją tak, aby tylko zweryfikowani użytkownicy mogli głosować"
-                  },
-                  "step3": {
-                    "number": "3",
-                    "text": "Udostępnij swoją ankietę na naszym",
-                    "link": {
-                      "text": "Kanale Telegram Konkursu Ankiet",
-                      "url": "https://t.me/worldrepubliccommunity/32368"
-                    }
-                  }
-                }
-              },
-              "rules": {
-                "title": "Zasady Konkursu",
-                "list": {
-                  "rule1": "Tylko ankiety rozpoczęte w bieżącym tygodniu są kwalifikowane",
-                  "rule2": "Konkurs kończy się w każdą niedzielę o 23:59 UTC",
-                  "rule3": "Zwycięzcy są wybierani na podstawie całkowitej liczby głosów i kontaktowani przez Telegram w ciągu 24 godzin"
-                }
-              },
-              "cta": {
-                "create": "Utwórz Ankietę",
-                "submit": "Wyślij Ankietę"
-              },
-              "winners": {
-                "title": "Zwycięzcy Konkursu",
-                "weekOf": "Tydzień od",
-                "votes": "głosów"
-              }
-            },
-            "testing": {
-              "title": "Testowanie Nowej Funkcji",
-              "description": "Otwarte dla członków zweryfikowanych paszportem, ale nie przez Orb"
-            },
-            "oneOff": "Jednorazowo",
-            "limited": "50 miejsc"
-          },
-          "earlyAccess": {
-            "title": "Program Wczesnego Dostępu",
-            "description": "Zarabiaj WDD testując nasze nadchodzące funkcje"
-          },
           "buybackProgram": {
             "topnav": "Program Wykupu",
             "title": "Program Wykupu Tokenów",
             "subtitle": "Wzmocnijmy wartość WDD razem",
             "sections": {
               "fundingSources": {
-                "title": "Źródła Finansowania",
+                "title": "Źródła finansowania",
                 "devRewards": {
                   "title": "Nagrody dla Deweloperów World",
                   "weekProgress": "Tydzień 7 z 12"
@@ -451,11 +376,11 @@
                   "title": "Finansowanie Optimism Retro"
                 },
                 "affiliate": {
-                  "title": "Prowizje partnerskie"
+                  "title": "Prowizje afiliacyjne"
                 }
               },
               "commitment": {
-                "title": "Nasze Zobowiązanie",
+                "title": "Nasze zobowiązanie",
                 "description": "Zobowiązujemy się do wykorzystania co najmniej 50% wszystkich tych środków na wykup WDD.",
                 "viewAccount": "Zobacz konto wykupu"
               },
@@ -483,47 +408,13 @@
               }
             },
             "actions": {
-              "share": "Udostępnij Zaproszenie"
+              "share": "Udostępnij zaproszenie"
             },
-            "cta": "Zobacz Nagrody Mini App"
+            "cta": "Zobacz nagrody mini app"
           },
           "buybackLink": {
             "title": "Program Odkupu",
             "description": "Wzrost wartości WDD napędzany przez społeczność"
-          },
-          "xContest": {
-            "title": "Konkurs Postów X",
-            "weeklyTitle": "Tygodniowy Konkurs Postów X",
-            "description": "Pisz angażujące posty, wygrywaj nagrody",
-            "prizes": {
-              "title": "Nagrody",
-              "viewWinners": "Zobacz poprzednich zwycięzców",
-              "wdd": "WDD"
-            },
-            "howTo": {
-              "title": "Jak wziąć udział",
-              "step1": "Napisz post na X o Republice Świata",
-              "step2": "Oznacz @WorldRepublicEN",
-              "step3": {
-                "prefix": "Udostępnij link do swojego posta w naszym",
-                "link": "kanale Telegram Konkursu Postów X"
-              }
-            },
-            "rules": {
-              "title": "Zasady konkursu",
-              "rule1": "Kwalifikują się tylko posty opublikowane w bieżącym tygodniu",
-              "rule2": "Konkurs kończy się w każdą niedzielę o 23:59 UTC",
-              "rule3": "Zwycięzcy są wybierani na podstawie łącznego organicznego zaangażowania (polubienia + udostępnienia + komentarze) i kontaktowani przez Telegram w ciągu 24 godzin"
-            },
-            "cta": {
-              "post": "Zacznij Publikować Teraz",
-              "submit": "Zgłoś Swój Post"
-            },
-            "winners": {
-              "title": "Zwycięzcy Konkursu",
-              "weekOf": "Tydzień",
-              "engagements": "zaangażowań"
-            }
           },
           "partySubsidy": {
             "topnav": "Program Dotacji",
@@ -544,22 +435,22 @@
               "title": "Jak to działa",
               "steps": {
                 "createParty": {
-                  "title": "Utwórz Partię",
+                  "title": "Utwórz partię",
                   "description": "Rozpocznij swój ruch polityczny w aplikacji World Republic"
                 },
                 "growMembership": {
-                  "title": "Rozwijaj Członkostwo",
+                  "title": "Rozwijaj członkostwo",
                   "description": "Rekrutuj członków i buduj swoją społeczność"
                 },
                 "earnRewards": {
-                  "title": "Zdobywaj Nagrody",
+                  "title": "Zdobywaj nagrody",
                   "description": "Otrzymuj cotygodniowe dotacje utrzymując pozycję w rankingu 50 najlepszych partii"
                 }
               }
             },
             "cta": {
-              "createJoin": "Utwórz lub Dołącz do Partii",
-              "leaderGroup": "Dołącz do Grupy Liderów Partii"
+              "createJoin": "Utwórz lub dołącz do partii",
+              "leaderGroup": "Dołącz do grupy liderów partii"
             },
             "payouts": {
               "title": "Wypłaty",
@@ -680,7 +571,7 @@
               "referenceTitle": "Instytut Przyszłości Życia"
             },
             "longView": {
-              "title": "List otwarty wzywający światowych przywódców do wykazania się długoterminowym przywództwem w sprawie zagrożeń egzystencjalnych",
+              "title": "List Otwarty Wzywający Światowych Przywódców do Wykazania Się Długoterminowym Przywództwem w Sprawie Zagrożeń Egzystencjalnych",
               "referenceTitle": "Instytut Przyszłości Życia"
             }
           }
@@ -784,26 +675,6 @@
       "options": {
         "english": "English",
         "spanish": "Español"
-      }
-    },
-    "verification": {
-      "title": "Status Weryfikacji",
-      "levels": {
-        "document": {
-          "title": "Weryfikacja Dokumentu",
-          "description": "Sprawdź status weryfikacji dokumentu",
-          "buttonText": "Sprawdź Status"
-        },
-        "secureDocument": {
-          "title": "Bezpieczna Weryfikacja Dokumentu",
-          "description": "Sprawdź status bezpiecznej weryfikacji dokumentu",
-          "buttonText": "Sprawdź Status"
-        },
-        "orb": {
-          "title": "Weryfikacja Orb",
-          "description": "Sprawdź status weryfikacji Orb",
-          "buttonText": "Sprawdź Status"
-        }
       }
     }
   }

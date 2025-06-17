@@ -1,7 +1,7 @@
 {
   "components": {
     "walletAuth": {
-      "connect": "Connect Wallet"
+      "connect": "Connect wallet"
     },
     "banners": {
       "bitget": {
@@ -15,12 +15,9 @@
         "cta": "Register now"
       }
     },
-    "verifyButton": {
-      "verify": "Verify to Collect"
-    },
     "pollOfTheWeek": {
-      "previousPolls": "Previous Polls",
-      "vote": "Vote Now"
+      "previousPolls": "Previous polls",
+      "vote": "Vote now"
     },
     "stakeForm": {
       "deposit": "Deposit",
@@ -31,8 +28,8 @@
       "max": "Max",
       "interest": "Interest:",
       "collect": "Collect",
-      "depositButton": "Deposit Drachma",
-      "withdrawButton": "Withdraw Drachma"
+      "depositButton": "Deposit drachma",
+      "withdrawButton": "Withdraw drachma"
     },
     "toasts": {
       "wallet": {
@@ -71,27 +68,26 @@
       }
     },
     "politicalPartyList": {
-      "loadingIssue": "We know say some party loading problems dey. Abeg make you patient as we dey work to fix am.",
       "myParty": "My party",
       "createParty": "Create New Party",
       "noParty": "You never create or join any party.",
       "discover": "Discover",
       "partyDetails": "Party Details",
       "description": "Description",
-      "partyInfo": "Party Info",
+      "partyInfo": "Party info",
       "leader": "Leader",
       "website": "Website",
       "members": "Members",
       "noMembers": "No members yet",
       "approvalNote": "Parties wey get working official link and/or growing membership dey get priority for approval.",
-      "bannedMembers": "Banned Members",
+      "bannedMembers": "Banned members",
       "errorLoading": "Error Loading Party",
       "partyNotFound": "Party No Dey Found",
       "partyNotFoundDescription": "The party wey you dey find no exist or dem don remove am.",
       "backToParties": "Back to Parties",
       "joining": "Joining...",
-      "joinParty": "Join Party",
-      "shareParty": "Share Party",
+      "joinParty": "Join party",
+      "shareParty": "Share party",
       "copied": "Link don copy to clipboard",
       "status": {
         "pending": "Pending",
@@ -112,9 +108,9 @@
         "pending": "Dey Process",
         "deleted": "Dem don Delete am",
         "actions": {
-          "leaveParty": "Comot for Party",
-          "joinParty": "Join Party",
-          "joinPendingParty": "Join Party wey dey Process"
+          "leaveParty": "Comot for party",
+          "joinParty": "Join party",
+          "joinPendingParty": "Join party wey dey process"
         },
         "management": {
           "title": "Party Management",
@@ -152,14 +148,14 @@
           },
           "button": {
             "creating": "Dey Create...",
-            "create": "Create Party"
+            "create": "Create party"
           }
         },
         "update": {
           "title": "Update Party Details",
           "button": {
             "update": "Update",
-            "updateDescription": "Update Description"
+            "updateDescription": "Update description"
           }
         },
         "transferLeadership": {
@@ -183,7 +179,7 @@
           },
           "button": {
             "processing": "Dey Process...",
-            "transfer": "Transfer Leadership"
+            "transfer": "Transfer leadership"
           }
         },
         "leave": {
@@ -210,8 +206,8 @@
           "confirm": "You sure say you wan delete this party?",
           "button": {
             "processing": "Dey Process...",
-            "deletePending": "Delete Pending Party",
-            "delete": "Delete Party"
+            "deletePending": "Delete pending party",
+            "delete": "Delete party"
           }
         },
         "memberManagement": {
@@ -225,22 +221,22 @@
           "remove": {
             "description": "Enter the wallet address of the member wey you wan remove or look am up by username.",
             "button": {
-              "processing": "Dey Process...",
-              "remove": "Remove Member"
+              "processing": "Dey process...",
+              "remove": "Remove member"
             }
           },
           "ban": {
             "description": "Enter the username or wallet address of the member wey you wan ban from the party.",
             "button": {
-              "processing": "Dey Process...",
-              "ban": "Ban Member"
+              "processing": "Dey process...",
+              "ban": "Ban member"
             }
           },
           "unban": {
             "description": "Enter the username or wallet address of the banned member wey you wan allow back to the party.",
             "button": {
-              "processing": "Dey Process...",
-              "unban": "Unban Member"
+              "processing": "Dey process...",
+              "unban": "Unban member"
             }
           }
         }
@@ -298,16 +294,16 @@
           "tooltip": "Friends must verify through Orb or passport.",
           "learnMore": "Learn more",
           "stats": {
-            "title": "Your Referral Stats",
+            "title": "Your referral stats",
             "invites": "People wey don accept",
             "rewards": "Total rewards"
           },
           "actions": {
-            "copyLink": "Copy Your Invite Link",
+            "copyLink": "Copy your invite link",
             "copied": "We don copy your invite link!",
             "connectWallet": "Abeg connect your wallet first make you get your invite link",
-            "rewardReferrer": "Give Person Wey Invite You Money",
-            "share": "Share Your Invite"
+            "rewardReferrer": "Give person wey invite you money",
+            "share": "Share your invite"
           },
           "drawer": {
             "title": "Give Person Wey Invite You Money",
@@ -316,11 +312,11 @@
             "invitedBy": "Na {{username}} invite you",
             "input": {
               "placeholder": "Put username (example: username.0000)",
-              "lookupButton": "Find Person",
+              "lookupButton": "Find person",
               "sendingTo": "We dey send money to:",
               "editButton": "Change am",
-              "sendButton": "Send Money",
-              "proveReward": "Show Proof and Give Money"
+              "sendButton": "Send money",
+              "proveReward": "Show proof and give money"
             },
             "errors": {
               "enterUsername": "Abeg put username",
@@ -361,84 +357,13 @@
         "contribute": {
           "title": "Contribute",
           "subtitle": "Join hand, collect money",
-          "contests": {
-            "ended": "Don End",
-            "weekly": "Every Week",
-            "topPrize": "Biggest Prize",
-            "xPost": {
-              "title": "X Post Competition",
-              "description": "Write better posts, win money"
-            },
-            "poll": {
-              "title": "Poll Competition",
-              "description": "Ask people wetin dem think, earn money"
-            },
-            "pollContest": {
-              "title": "Poll Competition",
-              "weeklyTitle": "Weekly Poll Competition",
-              "description": "Gather community feedback and win prizes",
-              "prizes": {
-                "title": "Prizes",
-                "viewWinners": "See previous winners",
-                "wdd": "WDD"
-              },
-              "howTo": {
-                "title": "How to Enter",
-                "steps": {
-                  "step1": {
-                    "number": "1",
-                    "text": "Create poll about World Republic or global governance in general"
-                  },
-                  "step2": {
-                    "number": "2",
-                    "text": "Set am make only verified people fit vote"
-                  },
-                  "step3": {
-                    "number": "3",
-                    "text": "Share your poll for our",
-                    "link": {
-                      "text": "Poll Competition Telegram Channel",
-                      "url": "https://t.me/worldrepubliccommunity/32368"
-                    }
-                  }
-                }
-              },
-              "rules": {
-                "title": "Competition Rules",
-                "list": {
-                  "rule1": "Only polls wey start for this week dey qualify",
-                  "rule2": "Competition dey end every Sunday by 11:59 PM UTC",
-                  "rule3": "Winners dey choose based on total votes and we go use Telegram contact dem within 24 hours"
-                }
-              },
-              "cta": {
-                "create": "Create Poll",
-                "submit": "Submit Poll"
-              },
-              "winners": {
-                "title": "Competition Winners",
-                "weekOf": "Week of",
-                "votes": "votes"
-              }
-            },
-            "testing": {
-              "title": "New Feature Testing",
-              "description": "Open to members verified with passport but not through Orb"
-            },
-            "oneOff": "One time",
-            "limited": "50 slots"
-          },
-          "earlyAccess": {
-            "title": "Early Access Program",
-            "description": "Earn WDD as you dey test our upcoming features"
-          },
           "buybackProgram": {
             "topnav": "Buyback Program",
             "title": "Token Buyback Program",
             "subtitle": "Make WDD value strong together",
             "sections": {
               "fundingSources": {
-                "title": "Funding Sources",
+                "title": "Funding sources",
                 "devRewards": {
                   "title": "World Dev Rewards",
                   "weekProgress": "Week 7 of 12"
@@ -450,11 +375,11 @@
                   "title": "Optimism Retro Funding"
                 },
                 "affiliate": {
-                  "title": "Affiliate Commission"
+                  "title": "Affiliate commission"
                 }
               },
               "commitment": {
-                "title": "Our Promise",
+                "title": "Our promise",
                 "description": "We promise to use at least 50% of all this funding for WDD buyback.",
                 "viewAccount": "See buyback account"
               },
@@ -482,47 +407,13 @@
               }
             },
             "actions": {
-              "share": "Share Invite"
+              "share": "Share invite"
             },
-            "cta": "See Mini App Rewards"
+            "cta": "See mini app rewards"
           },
           "buybackLink": {
             "title": "Buyback Program",
             "description": "Community-powered WDD value growth"
-          },
-          "xContest": {
-            "title": "X Post Competition",
-            "weeklyTitle": "Weekly X Post Competition",
-            "description": "Write better posts, win money",
-            "prizes": {
-              "title": "Prizes",
-              "viewWinners": "See people wey don win before",
-              "wdd": "WDD"
-            },
-            "howTo": {
-              "title": "How e dey work",
-              "step1": "Write post about World Republic for X",
-              "step2": "Tag @WorldRepublicEN",
-              "step3": {
-                "prefix": "Share your post link for our",
-                "link": "X Post Competition Telegram channel"
-              }
-            },
-            "rules": {
-              "title": "Competition rules",
-              "rule1": "Na only posts wey start dis week fit enter",
-              "rule2": "Competition dey end every Sunday by 11:59 PM UTC",
-              "rule3": "De person wey get most organic engagement (likes + reposts + comments) na im go win and we go use Telegram contact dem within 24 hours"
-            },
-            "cta": {
-              "post": "Start To Post Now",
-              "submit": "Submit Your Post"
-            },
-            "winners": {
-              "title": "People Wey Win",
-              "weekOf": "For week of",
-              "engagements": "engagements"
-            }
           },
           "partySubsidy": {
             "topnav": "Subsidy Program",
@@ -540,30 +431,30 @@
               "checkOutRewards": "Check out rewards"
             },
             "howItWorks": {
-              "title": "How E Work",
+              "title": "How e dey work",
               "steps": {
                 "createParty": {
-                  "title": "Create Party",
+                  "title": "Create party",
                   "description": "Start your political movement for World Republic app"
                 },
                 "growMembership": {
-                  "title": "Grow Your Membership",
+                  "title": "Grow your membership",
                   "description": "Recruit members and build your community"
                 },
                 "earnRewards": {
-                  "title": "Collect Rewards",
+                  "title": "Collect rewards",
                   "description": "Receive weekly money support as you maintain top 50 party ranking"
                 }
               }
             },
             "cta": {
-              "createJoin": "Create or Join Party",
-              "leaderGroup": "Join Party Leader Group"
+              "createJoin": "Create or join party",
+              "leaderGroup": "Join party leader group"
             },
             "payouts": {
               "title": "Payments",
               "week": "Week",
-              "showAll": "Show All"
+              "showAll": "Show all"
             }
           }
         }
@@ -679,7 +570,7 @@
               "referenceTitle": "Future of Life Institute"
             },
             "longView": {
-              "title": "Letter wey dey tell world leaders make dem think far about big wahala wey fit finish world",
+              "title": "Letter Wey Dey Tell World Leaders Make Dem Think Far About Big Wahala Wey Fit Finish World",
               "referenceTitle": "Future of Life Institute"
             }
           }
@@ -690,7 +581,7 @@
           "worldConstituent": {
             "title": "World Constituent Assembly Election",
             "description": "Select representatives for di first democratically elected global parliament.",
-            "button": "Coming Soon"
+            "button": "Coming soon"
           }
         },
         "referendums": {
@@ -699,7 +590,7 @@
           "worldConstitutional": {
             "title": "World Constitutional Referendum",
             "description": "Participate for historic vote on principles wey go guide humanity collective future.",
-            "button": "Coming Soon"
+            "button": "Coming soon"
           }
         },
         "politicalParties": {
@@ -783,26 +674,6 @@
       "options": {
         "english": "English",
         "spanish": "Español"
-      }
-    },
-    "verification": {
-      "title": "Check Your Status",
-      "levels": {
-        "document": {
-          "title": "Document Check",
-          "description": "Check if your document don verify",
-          "buttonText": "Check Am"
-        },
-        "secureDocument": {
-          "title": "Secure Document Check",
-          "description": "Check if your secure document don verify",
-          "buttonText": "Check Am"
-        },
-        "orb": {
-          "title": "Orb Check",
-          "description": "Check if your Orb don verify",
-          "buttonText": "Check Am"
-        }
       }
     }
   }

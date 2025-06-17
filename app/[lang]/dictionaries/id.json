@@ -1,7 +1,7 @@
 {
   "components": {
     "walletAuth": {
-      "connect": "Hubungkan Dompet"
+      "connect": "Hubungkan dompet"
     },
     "banners": {
       "bitget": {
@@ -15,12 +15,9 @@
         "cta": "Daftar sekarang"
       }
     },
-    "verifyButton": {
-      "verify": "Verifikasi untuk Klaim"
-    },
     "pollOfTheWeek": {
-      "previousPolls": "Jajak Pendapat Sebelumnya",
-      "vote": "Pilih Sekarang"
+      "previousPolls": "Jajak pendapat sebelumnya",
+      "vote": "Pilih sekarang"
     },
     "stakeForm": {
       "deposit": "Setor",
@@ -31,8 +28,8 @@
       "max": "Maksimal",
       "interest": "Bunga:",
       "collect": "Kumpulkan",
-      "depositButton": "Setor Drachma",
-      "withdrawButton": "Tarik Drachma"
+      "depositButton": "Setor drachma",
+      "withdrawButton": "Tarik drachma"
     },
     "toasts": {
       "wallet": {
@@ -64,34 +61,33 @@
     "tabSwiper": {
       "tabs": {
         "politicalParties": "Partai",
-        "polls": "Jajak Pendapat",
-        "openLetters": "Surat Terbuka",
+        "polls": "Jajak pendapat",
+        "openLetters": "Surat terbuka",
         "elections": "Pemilu",
         "referendums": "Referendum"
       }
     },
     "politicalPartyList": {
-      "loadingIssue": "Kami menyadari adanya masalah pemuatan partai. Harap bersabar sementara kami bekerja untuk memperbaikinya.",
       "myParty": "Partai saya",
       "createParty": "Buat Partai Baru",
       "noParty": "Anda belum membuat atau bergabung dengan partai.",
       "discover": "Jelajahi",
       "partyDetails": "Detail Partai",
       "description": "Deskripsi",
-      "partyInfo": "Informasi Partai",
+      "partyInfo": "Informasi partai",
       "leader": "Pemimpin",
-      "website": "Situs Web",
+      "website": "Situs web",
       "members": "Anggota",
       "noMembers": "Belum ada anggota",
       "approvalNote": "Partai dengan tautan resmi yang berfungsi dan/atau keanggotaan yang berkembang diprioritaskan untuk persetujuan.",
-      "bannedMembers": "Anggota yang Diblokir",
+      "bannedMembers": "Anggota yang diblokir",
       "errorLoading": "Kesalahan Memuat Partai",
       "partyNotFound": "Partai Tidak Ditemukan",
       "partyNotFoundDescription": "Partai yang Anda cari tidak ada atau telah dihapus.",
       "backToParties": "Kembali ke Partai",
       "joining": "Bergabung...",
-      "joinParty": "Bergabung dengan Partai",
-      "shareParty": "Bagikan Partai",
+      "joinParty": "Bergabung dengan partai",
+      "shareParty": "Bagikan partai",
       "copied": "Tautan disalin ke clipboard",
       "status": {
         "pending": "Tertunda",
@@ -113,9 +109,9 @@
         "deleted": "Dihapus",
         "members": "anggota",
         "actions": {
-          "leaveParty": "Tinggalkan Partai",
-          "joinParty": "Bergabung dengan Partai",
-          "joinPendingParty": "Bergabung dengan Partai Tertunda"
+          "leaveParty": "Tinggalkan partai",
+          "joinParty": "Bergabung dengan partai",
+          "joinPendingParty": "Bergabung dengan partai tertunda"
         },
         "management": {
           "title": "Manajemen Partai",
@@ -153,14 +149,14 @@
           },
           "button": {
             "creating": "Membuat...",
-            "create": "Buat Partai"
+            "create": "Buat partai"
           }
         },
         "update": {
           "title": "Perbarui Detail Partai",
           "button": {
             "update": "Perbarui",
-            "updateDescription": "Perbarui Deskripsi"
+            "updateDescription": "Perbarui deskripsi"
           }
         },
         "transferLeadership": {
@@ -184,7 +180,7 @@
           },
           "button": {
             "processing": "Memproses...",
-            "transfer": "Transfer Kepemimpinan"
+            "transfer": "Transfer kepemimpinan"
           }
         },
         "leave": {
@@ -211,8 +207,8 @@
           "confirm": "Apakah Anda yakin ingin menghapus partai ini?",
           "button": {
             "processing": "Memproses...",
-            "deletePending": "Hapus Partai Tertunda",
-            "delete": "Hapus Partai"
+            "deletePending": "Hapus partai tertunda",
+            "delete": "Hapus partai"
           }
         },
         "memberManagement": {
@@ -221,27 +217,27 @@
           "tabs": {
             "remove": "Hapus",
             "ban": "Blokir",
-            "unban": "Batalkan Blokir"
+            "unban": "Batalkan blokir"
           },
           "remove": {
             "description": "Masukkan alamat dompet anggota yang ingin Anda hapus atau cari berdasarkan nama pengguna.",
             "button": {
               "processing": "Memproses...",
-              "remove": "Hapus Anggota"
+              "remove": "Hapus anggota"
             }
           },
           "ban": {
             "description": "Masukkan nama pengguna atau alamat dompet anggota yang ingin Anda blokir dari partai.",
             "button": {
               "processing": "Memproses...",
-              "ban": "Blokir Anggota"
+              "ban": "Blokir anggota"
             }
           },
           "unban": {
             "description": "Masukkan nama pengguna atau alamat dompet anggota yang diblokir yang ingin Anda izinkan kembali ke partai.",
             "button": {
               "processing": "Memproses...",
-              "unban": "Batalkan Blokir Anggota"
+              "unban": "Batalkan blokir anggota"
             }
           }
         }
@@ -299,16 +295,16 @@
           "tooltip": "Teman harus diverifikasi melalui Orb atau paspor.",
           "learnMore": "Pelajari lebih lanjut",
           "stats": {
-            "title": "Statistik Referral Anda",
+            "title": "Statistik referral Anda",
             "invites": "Undangan diterima",
             "rewards": "Total hadiah"
           },
           "actions": {
-            "copyLink": "Salin Tautan Referral",
+            "copyLink": "Salin tautan referral",
             "copied": "Tautan referral disalin ke clipboard!",
             "connectWallet": "Silakan hubungkan dompet Anda untuk menghasilkan tautan referral",
-            "rewardReferrer": "Hadiahkan Referrer",
-            "share": "Bagikan Tautan Undangan"
+            "rewardReferrer": "Hadiahkan referrer",
+            "share": "Bagikan tautan undangan"
           },
           "drawer": {
             "title": "Beri Hadiah Pereferral",
@@ -317,11 +313,11 @@
             "invitedBy": "Anda diundang oleh: {{username}}",
             "input": {
               "placeholder": "Masukkan username (contoh: username.0000)",
-              "lookupButton": "Cari Pengguna",
+              "lookupButton": "Cari pengguna",
               "sendingTo": "Mengirim hadiah ke:",
               "editButton": "Edit",
-              "sendButton": "Kirim Hadiah",
-              "proveReward": "Buktikan dan Beri Hadiah"
+              "sendButton": "Kirim hadiah",
+              "proveReward": "Buktikan dan beri hadiah"
             },
             "errors": {
               "enterUsername": "Silakan masukkan username",
@@ -362,84 +358,13 @@
         "contribute": {
           "title": "Berkontribusi",
           "subtitle": "Ikut terlibat, dapatkan hadiah",
-          "contests": {
-            "ended": "Selesai",
-            "weekly": "Mingguan",
-            "topPrize": "Hadiah utama",
-            "xPost": {
-              "title": "Kontes Posting X",
-              "description": "Tulis posting menarik, menangkan hadiah"
-            },
-            "poll": {
-              "title": "Kontes Polling",
-              "description": "Kumpulkan umpan balik komunitas dan dapatkan hadiah"
-            },
-            "pollContest": {
-              "title": "Kontes Jajak Pendapat",
-              "weeklyTitle": "Kontes Jajak Pendapat Mingguan",
-              "description": "Kumpulkan umpan balik komunitas dan menangkan hadiah",
-              "prizes": {
-                "title": "Hadiah",
-                "viewWinners": "Lihat pemenang sebelumnya",
-                "wdd": "WDD"
-              },
-              "howTo": {
-                "title": "Cara Berpartisipasi",
-                "steps": {
-                  "step1": {
-                    "number": "1",
-                    "text": "Buat jajak pendapat terkait Republik Dunia atau tata kelola global secara umum"
-                  },
-                  "step2": {
-                    "number": "2",
-                    "text": "Atur agar hanya pengguna terverifikasi yang dapat memilih"
-                  },
-                  "step3": {
-                    "number": "3",
-                    "text": "Bagikan jajak pendapat Anda di",
-                    "link": {
-                      "text": "saluran Telegram Kontes Jajak Pendapat",
-                      "url": "https://t.me/worldrepubliccommunity/32368"
-                    }
-                  }
-                }
-              },
-              "rules": {
-                "title": "Aturan Kontes",
-                "list": {
-                  "rule1": "Hanya jajak pendapat yang dimulai minggu ini yang berhak berpartisipasi",
-                  "rule2": "Kontes berakhir setiap Minggu pukul 11:59 PM UTC",
-                  "rule3": "Pemenang dipilih berdasarkan total suara dan dihubungi melalui Telegram dalam waktu 24 jam"
-                }
-              },
-              "cta": {
-                "create": "Buat Jajak Pendapat",
-                "submit": "Kirim Jajak Pendapat"
-              },
-              "winners": {
-                "title": "Pemenang Kontes",
-                "weekOf": "Minggu",
-                "votes": "suara"
-              }
-            },
-            "testing": {
-              "title": "Pengujian Fitur Baru",
-              "description": "Terbuka untuk anggota yang terverifikasi dengan paspor tetapi tidak oleh Orb."
-            },
-            "oneOff": "Satu kali",
-            "limited": "50 tempat"
-          },
-          "earlyAccess": {
-            "title": "Program Akses Awal",
-            "description": "Dapatkan WDD dengan menguji fitur-fitur kami yang akan datang"
-          },
           "buybackProgram": {
             "topnav": "Program Pembelian Kembali",
             "title": "Program Pembelian Kembali Token",
             "subtitle": "Perkuat nilai WDD bersama",
             "sections": {
               "fundingSources": {
-                "title": "Sumber Pendanaan",
+                "title": "Sumber pendanaan",
                 "devRewards": {
                   "title": "Hadiah Pengembang World",
                   "weekProgress": "Minggu 7 dari 12"
@@ -451,11 +376,11 @@
                   "title": "Pendanaan Optimism Retro"
                 },
                 "affiliate": {
-                  "title": "Komisi Afiliasi"
+                  "title": "Komisi afiliasi"
                 }
               },
               "commitment": {
-                "title": "Komitmen Kami",
+                "title": "Komitmen kami",
                 "description": "Kami berkomitmen untuk menggunakan setidaknya 50% dari semua pendanaan ini untuk pembelian kembali WDD.",
                 "viewAccount": "Lihat akun pembelian kembali"
               },
@@ -483,47 +408,13 @@
               }
             },
             "actions": {
-              "share": "Bagikan Undangan"
+              "share": "Bagikan undangan"
             },
-            "cta": "Lihat Hadiah Mini App"
+            "cta": "Lihat hadiah mini app"
           },
           "buybackLink": {
             "title": "Program Buyback",
             "description": "Pertumbuhan nilai WDD yang didukung komunitas"
-          },
-          "xContest": {
-            "title": "Kontes Posting X",
-            "weeklyTitle": "Kontes Posting X Mingguan",
-            "description": "Tulis posting menarik, menangkan hadiah",
-            "prizes": {
-              "title": "Hadiah",
-              "viewWinners": "Lihat pemenang sebelumnya",
-              "wdd": "WDD"
-            },
-            "howTo": {
-              "title": "Cara berpartisipasi",
-              "step1": "Tulis posting X tentang Republik Dunia",
-              "step2": "Tag @WorldRepublicEN",
-              "step3": {
-                "prefix": "Bagikan tautan posting Anda di",
-                "link": "Saluran Telegram Kontes Posting X"
-              }
-            },
-            "rules": {
-              "title": "Aturan kontes",
-              "rule1": "Hanya posting yang diterbitkan pada minggu ini yang memenuhi syarat",
-              "rule2": "Pemenang dipilih berdasarkan total keterlibatan organik (suka + repost + komentar)",
-              "rule3": "Kontes berakhir setiap hari Minggu pukul 11:59 PM UTC"
-            },
-            "cta": {
-              "post": "Mulai Posting Sekarang",
-              "submit": "Kirim Posting Anda"
-            },
-            "winners": {
-              "title": "Pemenang Kontes",
-              "weekOf": "Minggu",
-              "engagements": "keterlibatan"
-            }
           },
           "partySubsidy": {
             "topnav": "Program Subsidi",
@@ -541,30 +432,30 @@
               "checkOutRewards": "Lihat reward"
             },
             "howItWorks": {
-              "title": "Cara Kerjanya",
+              "title": "Cara kerjanya",
               "steps": {
                 "createParty": {
-                  "title": "Buat Partai",
+                  "title": "Buat partai",
                   "description": "Mulai gerakan politik Anda di aplikasi World Republic"
                 },
                 "growMembership": {
-                  "title": "Kembangkan Keanggotaan Anda",
+                  "title": "Kembangkan keanggotaan Anda",
                   "description": "Rekrut anggota dan bangun komunitas Anda"
                 },
                 "earnRewards": {
-                  "title": "Dapatkan Imbalan",
+                  "title": "Dapatkan imbalan",
                   "description": "Terima subsidi mingguan dengan mempertahankan peringkat partai 50 teratas"
                 }
               }
             },
             "cta": {
-              "createJoin": "Buat atau Gabung Partai",
-              "leaderGroup": "Gabung Grup Pemimpin Partai"
+              "createJoin": "Buat atau gabung partai",
+              "leaderGroup": "Gabung grup pemimpin partai"
             },
             "payouts": {
               "title": "Pembayaran",
               "week": "Minggu",
-              "showAll": "Tampilkan Semua"
+              "showAll": "Tampilkan semua"
             }
           }
         }
@@ -681,7 +572,7 @@
               "referenceTitle": "Institut Masa Depan Kehidupan"
             },
             "longView": {
-              "title": "Surat terbuka yang meminta pemimpin dunia untuk menunjukkan kepemimpinan jangka panjang tentang ancaman eksistensial",
+              "title": "Surat Terbuka yang Meminta Pemimpin Dunia untuk Menunjukkan Kepemimpinan Jangka Panjang tentang Ancaman Eksistensial",
               "referenceTitle": "Institut Masa Depan Kehidupan"
             }
           }
@@ -692,7 +583,7 @@
           "worldConstituent": {
             "title": "Pemilihan Majelis Konstituen Dunia",
             "description": "Pilih perwakilan untuk parlemen global pertama yang dipilih secara demokratis.",
-            "button": "Segera Hadir"
+            "button": "Segera hadir"
           }
         },
         "referendums": {
@@ -701,7 +592,7 @@
           "worldConstitutional": {
             "title": "Referendum Konstitusional Dunia",
             "description": "Berpartisipasilah dalam pemungutan suara bersejarah tentang prinsip-prinsip yang akan memandu masa depan kolektif umat manusia.",
-            "button": "Segera Hadir"
+            "button": "Segera hadir"
           }
         },
         "politicalParties": {
@@ -785,26 +676,6 @@
       "options": {
         "english": "English",
         "spanish": "Español"
-      }
-    },
-    "verification": {
-      "title": "Status Verifikasi",
-      "levels": {
-        "document": {
-          "title": "Verifikasi Dokumen",
-          "description": "Periksa status verifikasi dokumen",
-          "buttonText": "Periksa Status"
-        },
-        "secureDocument": {
-          "title": "Verifikasi Dokumen Aman",
-          "description": "Periksa status verifikasi dokumen aman",
-          "buttonText": "Periksa Status"
-        },
-        "orb": {
-          "title": "Verifikasi Orb",
-          "description": "Periksa status verifikasi Orb",
-          "buttonText": "Periksa Status"
-        }
       }
     }
   }

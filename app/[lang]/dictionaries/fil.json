@@ -1,7 +1,7 @@
 {
   "components": {
     "walletAuth": {
-      "connect": "Ikonekta ang Wallet"
+      "connect": "Ikonekta ang wallet"
     },
     "banners": {
       "bitget": {
@@ -15,12 +15,9 @@
         "cta": "Magrehistro ngayon"
       }
     },
-    "verifyButton": {
-      "verify": "I-verify para sa Claim"
-    },
     "pollOfTheWeek": {
-      "previousPolls": "Mga Nakaraang Botohan",
-      "vote": "Bumoto Ngayon"
+      "previousPolls": "Mga nakaraang botohan",
+      "vote": "Bumoto ngayon"
     },
     "stakeForm": {
       "deposit": "Mag-deposit",
@@ -31,8 +28,8 @@
       "max": "Max",
       "interest": "Interes:",
       "collect": "Kolektahin",
-      "depositButton": "I-deposit ang Drachma",
-      "withdrawButton": "I-withdraw ang Drachma"
+      "depositButton": "I-deposit ang drachma",
+      "withdrawButton": "I-withdraw ang drachma"
     },
     "toasts": {
       "wallet": {
@@ -63,35 +60,34 @@
     },
     "tabSwiper": {
       "tabs": {
-        "politicalParties": "Mga Partido",
-        "polls": "Mga Botohan",
-        "openLetters": "Mga Bukas na Liham",
-        "elections": "Mga Halalan",
-        "referendums": "Mga Reperendum"
+        "politicalParties": "Mga partido",
+        "polls": "Mga botohan",
+        "openLetters": "Mga bukas na liham",
+        "elections": "Mga halalan",
+        "referendums": "Mga reperendum"
       }
     },
     "politicalPartyList": {
-      "loadingIssue": "Alam namin ang ilang mga isyu sa paglo-load ng party. Mangyaring maging matiyaga habang nagtatrabaho kami para ayusin ang mga ito.",
       "myParty": "Aking partido",
       "createParty": "Gumawa ng Bagong Partido",
       "noParty": "Hindi ka pa nakakagawa o sumali sa isang partido.",
       "discover": "Tuklasin",
       "partyDetails": "Mga Detalye ng Partido",
       "description": "Paglalarawan",
-      "partyInfo": "Impormasyon ng Partido",
+      "partyInfo": "Impormasyon ng partido",
       "leader": "Pinuno",
       "website": "Website",
-      "members": "Mga Miyembro",
+      "members": "Mga miyembro",
       "noMembers": "Wala pang miyembro",
       "approvalNote": "Ang mga partido na may gumaganang opisyal na link at/o lumalaking membership ay binibigyan ng priyoridad para sa pag-apruba.",
-      "bannedMembers": "Mga Banned na Miyembro",
+      "bannedMembers": "Mga banned na miyembro",
       "errorLoading": "May Error sa Paglo-load ng Partido",
       "partyNotFound": "Hindi Nahanap ang Partido",
       "partyNotFoundDescription": "Ang partido na hinahanap mo ay hindi umiiral o inalis na.",
       "backToParties": "Bumalik sa Mga Partido",
       "joining": "Sumasali...",
-      "joinParty": "Sumali sa Partido",
-      "shareParty": "Ibahagi ang Partido",
+      "joinParty": "Sumali sa partido",
+      "shareParty": "Ibahagi ang partido",
       "copied": "Nakopya ang link sa clipboard",
       "status": {
         "pending": "Nakabinbin",
@@ -112,9 +108,9 @@
         "pending": "Nakabinbin",
         "deleted": "Nabura",
         "actions": {
-          "leaveParty": "Umalis sa Partido",
-          "joinParty": "Sumali sa Partido",
-          "joinPendingParty": "Sumali sa Nakabinbing Partido"
+          "leaveParty": "Umalis sa partido",
+          "joinParty": "Sumali sa partido",
+          "joinPendingParty": "Sumali sa nakabinbing partido"
         },
         "management": {
           "title": "Pamamahala ng Partido",
@@ -152,14 +148,14 @@
           },
           "button": {
             "creating": "Gumagawa...",
-            "create": "Gawin ang Partido"
+            "create": "Gawin ang partido"
           }
         },
         "update": {
           "title": "I-update ang Mga Detalye ng Partido",
           "button": {
             "update": "I-update",
-            "updateDescription": "I-update ang Paglalarawan"
+            "updateDescription": "I-update ang paglalarawan"
           }
         },
         "transferLeadership": {
@@ -183,7 +179,7 @@
           },
           "button": {
             "processing": "Pinoproseso...",
-            "transfer": "Ilipat ang Pamumuno"
+            "transfer": "Ilipat ang pamumuno"
           }
         },
         "leave": {
@@ -210,8 +206,8 @@
           "confirm": "Sigurado ka bang gusto mong burahin ang partidong ito?",
           "button": {
             "processing": "Pinoproseso...",
-            "deletePending": "Burahin ang Nakabinbing Partido",
-            "delete": "Burahin ang Partido"
+            "deletePending": "Burahin ang nakabinbing partido",
+            "delete": "Burahin ang partido"
           }
         },
         "memberManagement": {
@@ -225,21 +221,21 @@
             "description": "Ilagay ang wallet address ng miyembro na gusto mong alisin o hanapin gamit ang username.",
             "button": {
               "processing": "Pinoproseso...",
-              "remove": "Alisin ang Miyembro"
+              "remove": "Alisin ang miyembro"
             }
           },
           "ban": {
             "description": "Ilagay ang username o wallet address ng miyembro na gusto mong i-ban mula sa partido.",
             "button": {
               "processing": "Pinoproseso...",
-              "ban": "I-ban ang Miyembro"
+              "ban": "I-ban ang miyembro"
             }
           },
           "unban": {
             "description": "Ilagay ang username o wallet address ng na-ban na miyembro na gusto mong payagang bumalik sa partido.",
             "button": {
               "processing": "Pinoproseso...",
-              "unban": "I-unban ang Miyembro"
+              "unban": "I-unban ang miyembro"
             }
           }
         }
@@ -294,84 +290,13 @@
         "contribute": {
           "title": "Mag-ambag",
           "subtitle": "Makiisa, kumuha ng gantimpala",
-          "contests": {
-            "ended": "Natapos na",
-            "weekly": "Weekly",
-            "topPrize": "Pinakamataas na premyo",
-            "xPost": {
-              "title": "X Post Contest",
-              "description": "Sumulat ng mga nakakaengganyong post, manalo ng premyo"
-            },
-            "poll": {
-              "title": "Poll Contest",
-              "description": "Magtipon ng feedback ng komunidad at kumita"
-            },
-            "pollContest": {
-              "title": "Paligsahan sa Botohan",
-              "weeklyTitle": "Pang-araw-araw na Paligsahan sa Botohan",
-              "description": "Mangolekta ng feedback mula sa komunidad at manalo ng mga premyo",
-              "prizes": {
-                "title": "Mga Premyo",
-                "viewWinners": "Tingnan ang mga nakaraang nagwagi",
-                "wdd": "WDD"
-              },
-              "howTo": {
-                "title": "Paano Sumali",
-                "steps": {
-                  "step1": {
-                    "number": "1",
-                    "text": "Gumawa ng botohan na may kaugnayan sa World Republic o pandaigdigang pamamahala sa pangkalahatan"
-                  },
-                  "step2": {
-                    "number": "2",
-                    "text": "I-set up ito para sa mga verified na tao lamang ang makakaboto"
-                  },
-                  "step3": {
-                    "number": "3",
-                    "text": "Ibahagi ang iyong botohan sa aming",
-                    "link": {
-                      "text": "Paligsahan sa Botohan Telegram Channel",
-                      "url": "https://t.me/worldrepubliccommunity/32368"
-                    }
-                  }
-                }
-              },
-              "rules": {
-                "title": "Mga Patakaran ng Paligsahan",
-                "list": {
-                  "rule1": "Ang mga botohan na sinimulan sa kasalukuyang linggo lamang ang maaaring sumali",
-                  "rule2": "Nagtatapos ang paligsahan tuwing Linggo sa 11:59 PM UTC",
-                  "rule3": "Ang mga nagwagi ay pinipili batay sa kabuuang boto at kinokontact sa pamamagitan ng Telegram sa loob ng 24 na oras"
-                }
-              },
-              "cta": {
-                "create": "Gumawa ng Botohan",
-                "submit": "Ipadala ang Botohan"
-              },
-              "winners": {
-                "title": "Mga Nagwagi sa Paligsahan",
-                "weekOf": "Linggo ng",
-                "votes": "boto"
-              }
-            },
-            "testing": {
-              "title": "Pagsubok ng Bagong Feature",
-              "description": "Bukas sa mga miyembrong na-verify ng passport ngunit hindi sa pamamagitan ng Orb."
-            },
-            "oneOff": "Isang beses lang",
-            "limited": "50 slots"
-          },
-          "earlyAccess": {
-            "title": "Early Access Program",
-            "description": "Kumita ng WDD sa pamamagitan ng pagsusuri ng aming mga darating na feature"
-          },
           "buybackProgram": {
             "topnav": "Programa ng Muling Pagbili",
             "title": "Programa ng Muling Pagbili ng Token",
             "subtitle": "Palakasin ang halaga ng WDD nang sama-sama",
             "sections": {
               "fundingSources": {
-                "title": "Mga Pinagmumulan ng Pondo",
+                "title": "Mga pinagmumulan ng pondo",
                 "devRewards": {
                   "title": "World Dev Rewards",
                   "weekProgress": "Linggo 7 ng 12"
@@ -383,7 +308,7 @@
                   "title": "Optimism Retro Funding"
                 },
                 "affiliate": {
-                  "title": "Komisyon ng Affiliate"
+                  "title": "Komisyon ng affiliate"
                 }
               },
               "commitment": {
@@ -415,47 +340,13 @@
               }
             },
             "actions": {
-              "share": "Ibahagi ang Imbitasyon"
+              "share": "Ibahagi ang imbitasyon"
             },
-            "cta": "Tingnan ang Mga Gantimpala ng Mini App"
+            "cta": "Tingnan ang mga gantimpala ng mini app"
           },
           "buybackLink": {
             "title": "Programa ng Buyback",
             "description": "Paglago ng halaga ng WDD na pinalakas ng komunidad"
-          },
-          "xContest": {
-            "title": "X Post Contest",
-            "weeklyTitle": "Weekly X Post Contest",
-            "description": "Sumulat ng mga nakakaengganyong post, manalo ng premyo",
-            "prizes": {
-              "title": "Mga Premyo",
-              "viewWinners": "Tingnan ang mga nakaraang nanalo",
-              "wdd": "WDD"
-            },
-            "howTo": {
-              "title": "Paano sumali",
-              "step1": "Sumulat ng X post tungkol sa World Republic",
-              "step2": "I-tag si @WorldRepublicEN",
-              "step3": {
-                "prefix": "Ibahagi ang link ng iyong post sa aming",
-                "link": "X Post Contest Telegram channel"
-              }
-            },
-            "rules": {
-              "title": "Mga patakaran ng paligsahan",
-              "rule1": "Mga post na na-publish sa kasalukuyang linggo lang ang eligible",
-              "rule2": "Nagtatapos ang paligsahan tuwing Linggo sa 11:59 PM UTC",
-              "rule3": "Ang mga nanalo ay pinipili batay sa kabuuang organic engagement (likes + reposts + comments) at kinokontact sa pamamagitan ng Telegram sa loob ng 24 na oras"
-            },
-            "cta": {
-              "post": "Simulan ang Pagpo-post Ngayon",
-              "submit": "I-submit ang Iyong Post"
-            },
-            "winners": {
-              "title": "Mga Nanalo sa Paligsahan",
-              "weekOf": "Linggo ng",
-              "engagements": "mga engagement"
-            }
           },
           "partySubsidy": {
             "topnav": "Programa ng Subsidiya",
@@ -473,30 +364,30 @@
               "checkOutRewards": "Tingnan ang mga gantimpala"
             },
             "howItWorks": {
-              "title": "Paano Ito Gumagana",
+              "title": "Paano ito gumagana",
               "steps": {
                 "createParty": {
-                  "title": "Gumawa ng Partido",
+                  "title": "Gumawa ng partido",
                   "description": "Simulan ang iyong pulitikal na kilusan sa World Republic app"
                 },
                 "growMembership": {
-                  "title": "Palaguin ang Iyong Membership",
+                  "title": "Palaguin ang iyong membership",
                   "description": "Mag-recruit ng mga miyembro at bumuo ng iyong komunidad"
                 },
                 "earnRewards": {
-                  "title": "Kumita ng Rewards",
+                  "title": "Kumita ng rewards",
                   "description": "Tumanggap ng lingguhang subsidyo sa pamamagitan ng pagpapanatili ng top 50 party ranking"
                 }
               }
             },
             "cta": {
-              "createJoin": "Gumawa o Sumali sa isang Partido",
-              "leaderGroup": "Sumali sa Party Leader Group"
+              "createJoin": "Gumawa o sumali sa isang partido",
+              "leaderGroup": "Sumali sa party leader group"
             },
             "payouts": {
               "title": "Mga Bayad",
               "week": "Linggo",
-              "showAll": "Ipakita Lahat"
+              "showAll": "Ipakita lahat"
             }
           }
         },
@@ -506,16 +397,16 @@
           "tooltip": "Ang mga kaibigan ay dapat na-verify sa pamamagitan ng Orb o pasaporte.",
           "learnMore": "Matuto nang higit pa",
           "stats": {
-            "title": "Mga Stats ng Iyong Referral",
+            "title": "Mga stats ng iyong referral",
             "invites": "Tinanggap na mga imbitasyon",
             "rewards": "Kabuuang gantimpala"
           },
           "actions": {
-            "copyLink": "Kopyahin ang Link ng Referral",
+            "copyLink": "Kopyahin ang link ng referral",
             "copied": "Na-kopya ang link ng referral sa clipboard!",
             "connectWallet": "Mangyaring i-connect ang wallet para makabuo ng referral link",
-            "rewardReferrer": "Gantimpalaan ang Referrer",
-            "share": "Ibahagi ang Link ng Imbitasyon"
+            "rewardReferrer": "Gantimpalaan ang referidor",
+            "share": "Ibahagi ang link ng imbitasyon"
           },
           "drawer": {
             "title": "Gantimpalaan ang Referrer",
@@ -524,11 +415,11 @@
             "invitedBy": "Ikaw ay inimbita ni: {{username}}",
             "input": {
               "placeholder": "Ilagay ang username (hal. username.0000)",
-              "lookupButton": "Hanapin ang User",
+              "lookupButton": "Hanapin ang user",
               "sendingTo": "Nagpapadala ng gantimpala kay:",
               "editButton": "I-edit",
-              "sendButton": "Ipadala ang Gantimpala",
-              "proveReward": "Patunayan at Gantimpalaan"
+              "sendButton": "Ipadala ang gantimpala",
+              "proveReward": "Patunayan at gantimpalaan"
             },
             "errors": {
               "enterUsername": "Mangyaring maglagay ng username",
@@ -562,7 +453,7 @@
             },
             "trigger": {
               "titleText": "Ngayon ay available din pagkatapos ng mga kaibigan na na-verify sa passport!",
-              "titleDetails": "Mga Detalye"
+              "titleDetails": "Mga detalye"
             }
           }
         }
@@ -679,7 +570,7 @@
               "referenceTitle": "Future of Life Institute"
             },
             "longView": {
-              "title": "Open Letter na nanawagan sa global leaders na magpakita ng long-term leadership sa existential threats",
+              "title": "Open Letter na Nanawagan sa Global Leaders na Magpakita ng Long-term Leadership sa Existential Threats",
               "referenceTitle": "Future of Life Institute"
             }
           }
@@ -690,7 +581,7 @@
           "worldConstituent": {
             "title": "Eleksyon sa World Constituent Assembly",
             "description": "Pumili ng mga kinatawan para sa unang demokratikong hinalal na pandaigdigang parlamento.",
-            "button": "Malapit Na"
+            "button": "Malapit na"
           }
         },
         "referendums": {
@@ -699,7 +590,7 @@
           "worldConstitutional": {
             "title": "World Constitutional Referendum",
             "description": "Lumahok sa isang makasaysayang pagboto sa mga prinsipyo na gagabay sa kolektibong kinabukasan ng sangkatauhan.",
-            "button": "Malapit Na"
+            "button": "Malapit na"
           }
         },
         "politicalParties": {
@@ -721,7 +612,7 @@
           "title": "KUMONEKTA",
           "links": {
             "community": "Komunidad",
-            "announcements": "Mga Anunsyo",
+            "announcements": "Mga anunsyo",
             "x": "X"
           }
         },
@@ -783,26 +674,6 @@
       "options": {
         "english": "English",
         "spanish": "Español"
-      }
-    },
-    "verification": {
-      "title": "Katayuan ng Pagpapatunay",
-      "levels": {
-        "document": {
-          "title": "Pagpapatunay ng Dokumento",
-          "description": "Suriin ang katayuan ng pagpapatunay ng dokumento",
-          "buttonText": "Suriin ang Katayuan"
-        },
-        "secureDocument": {
-          "title": "Ligtas na Pagpapatunay ng Dokumento",
-          "description": "Suriin ang katayuan ng ligtas na pagpapatunay ng dokumento",
-          "buttonText": "Suriin ang Katayuan"
-        },
-        "orb": {
-          "title": "Pagpapatunay ng Orb",
-          "description": "Suriin ang katayuan ng pagpapatunay ng Orb",
-          "buttonText": "Suriin ang Katayuan"
-        }
       }
     }
   }
