@@ -207,7 +207,7 @@
           "confirm": "Are you sure you want to delete this party?",
           "button": {
             "processing": "Processing...",
-            "deletePending": "Delete ending party",
+            "deletePending": "Delete pending party",
             "delete": "Delete party"
           }
         },
