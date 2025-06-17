@@ -287,7 +287,7 @@
           "tabTitle": "Oszczędności",
           "title": "Konto Oszczędnościowe",
           "subtitle": "Zarabiaj odsetki co sekundę",
-          "tooltip": "Podstawowa stopa 69% APY. Zbieraj i reinwestuj odsetki, aby osiągnąć blisko 100% efektywnego zwrotu rocznie. Wypłać w dowolnym momencie."
+          "tooltip": "Podstawowa stopa 69% APY. Zbieraj i reinwestuj odsetki, aby osiągnąć blisko 100% efektywnego zwrotu rocznego. Wypłać w dowolnym momencie."
         },
         "invite": {
           "title": "Zaproś",
@@ -662,11 +662,11 @@
         },
         "topWallets": {
           "question": "Kto kontroluje największe konta?",
-          "answer": "Trzy największe konta to <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>Skarbiec Republiki Świata</a>, <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Fundusz Dochodu Podstawowego</a> i <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Fundusz Dochodu Podstawowego Plus</a>. Obecnie są one kontrolowane przez założyciela projektu, ale kontrola zostanie przekazana społeczności po ratyfikacji naszej konstytucji. Inne kluczowe adresy to <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>kontrakt Konta Oszczędnościowego</a>, <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>dystrybutor Nagród za Polecenia</a> i pule płynności: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a> i <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
+          "answer": "Trzy największe konta to <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>Skarbiec Republiki Świata</a>, <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Fundusz Dochodu Podstawowego</a> oraz <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Fundusz Dochodu Podstawowego Plus</a>. Są one obecnie zarządzane przez założyciela projektu w celu zapewnienia stabilności, podczas gdy stopniowo przekazujemy kontrolę społeczności. Inne kluczowe adresy to <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>umowa konta oszczędnościowego</a>, <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>dystrybutor nagród za polecenia</a> oraz pule płynności: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a> i <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
         },
         "voteRequirements": {
-          "question": "Jakie są wymagania do proponowania głosowań?",
-          "answer": "Obecne ankiety i listy otwarte są tylko pokazem. Nasza społeczność wspólnie zdecyduje o naszym systemie zarządzania poprzez proces projektowania konstytucji prowadzony przez Zgromadzenie Konstytucyjne wybrane w II kwartale 2025 roku."
+          "question": "Jak mogę uczestniczyć w zarządzaniu?",
+          "answer": "Możesz uczestniczyć, dołączając do partii politycznej lub tworząc ją. Chociaż obecne głosowania mają charakter poglądowy, partie są fundamentem naszego modelu zarządzania. W miarę profesjonalizacji partii, będą one odblokowywać coraz ważniejsze obszary kontroli demokratycznej, dając ci głos w naszych wspólnych decyzjach."
         }
       }
     },
