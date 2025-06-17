@@ -439,12 +439,12 @@
                   "description": "Mulai gerakan politik Anda di aplikasi World Republic"
                 },
                 "growMembership": {
-                  "title": "Kembangkan keanggotaan Anda",
-                  "description": "Rekrut anggota dan bangun komunitas Anda"
+                  "title": "Masuk ke surat suara",
+                  "description": "Tingkatkan keanggotaan Anda untuk memenuhi syarat pemilihan mingguan"
                 },
                 "earnRewards": {
-                  "title": "Dapatkan imbalan",
-                  "description": "Terima subsidi mingguan dengan mempertahankan peringkat partai 50 teratas"
+                  "title": "Menerima pendanaan",
+                  "description": "Dapatkan subsidi sebanding dengan suara yang diterima partai Anda"
                 }
               }
             },

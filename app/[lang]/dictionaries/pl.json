@@ -439,12 +439,12 @@
                   "description": "Rozpocznij swój ruch polityczny w aplikacji World Republic"
                 },
                 "growMembership": {
-                  "title": "Rozwijaj członkostwo",
-                  "description": "Rekrutuj członków i buduj swoją społeczność"
+                  "title": "Zdobądź miejsce na liście wyborczej",
+                  "description": "Zwiększ liczbę członków, aby zakwalifikować się do cotygodniowych wyborów"
                 },
                 "earnRewards": {
-                  "title": "Zdobywaj nagrody",
-                  "description": "Otrzymuj cotygodniowe dotacje utrzymując pozycję w rankingu 50 najlepszych partii"
+                  "title": "Otrzymuj finansowanie",
+                  "description": "Zdobywaj dotacje proporcjonalne do liczby głosów otrzymanych przez twoją partię"
                 }
               }
             },

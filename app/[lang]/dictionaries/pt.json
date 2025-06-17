@@ -439,12 +439,12 @@
                   "description": "Inicie seu movimento político no aplicativo World Republic"
                 },
                 "growMembership": {
-                  "title": "Aumente sua filiação",
-                  "description": "Recrute membros e construa sua comunidade"
+                  "title": "Entre na cédula de votação",
+                  "description": "Aumente sua filiação para se qualificar para as eleições semanais"
                 },
                 "earnRewards": {
-                  "title": "Ganhe recompensas",
-                  "description": "Receba subsídios semanais mantendo uma classificação entre os 50 melhores partidos"
+                  "title": "Receba financiamento",
+                  "description": "Ganhe subsídios proporcionais aos votos que seu partido recebe"
                 }
               }
             },

@@ -439,12 +439,12 @@
                   "description": "World Republic 앱에서 정치 운동을 시작하세요"
                 },
                 "growMembership": {
-                  "title": "회원 수 늘리기",
-                  "description": "구성원을 모집하고 커뮤니티를 구축하세요"
+                  "title": "투표용지에 오르기",
+                  "description": "주간 선거에 참여할 자격을 얻기 위해 회원 수를 늘리세요"
                 },
                 "earnRewards": {
-                  "title": "보상 획득하기",
-                  "description": "상위 50위 정당 랭킹을 유지하며 주간 보조금 받기"
+                  "title": "자금 지원 받기",
+                  "description": "정당이 받은 득표수에 비례하여 보조금을 획득하세요"
                 }
               }
             },

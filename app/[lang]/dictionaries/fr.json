@@ -439,12 +439,12 @@
                   "description": "Lancez votre mouvement politique dans l'application République Mondiale"
                 },
                 "growMembership": {
-                  "title": "Développez votre adhésion",
-                  "description": "Recrutez des membres et construisez votre communauté"
+                  "title": "Inscrivez-vous sur le bulletin de vote",
+                  "description": "Augmentez le nombre de vos membres pour vous qualifier pour les élections hebdomadaires"
                 },
                 "earnRewards": {
-                  "title": "Gagnez des récompenses",
-                  "description": "Recevez des subventions hebdomadaires en maintenant un classement parmi les 50 meilleurs partis"
+                  "title": "Recevoir un financement",
+                  "description": "Gagnez des subventions proportionnelles aux votes que votre parti reçoit"
                 }
               }
             },
