@@ -275,7 +275,7 @@
               "subtitle": "Pendapatan tambahan untuk pengguna yang disahkan",
               "features": {
                 "rate": {
-                  "title": "Tambahan 2.45 WDD sehari"
+                  "title": "Tambahan 2.20 WDD sehari"
                 },
                 "verification": {
                   "title": "Eksklusif untuk pengguna yang disahkan Orb untuk memastikan pengagihan yang adil"
@@ -752,11 +752,11 @@
         },
         "basicIncome": {
           "question": "Apakah Pendapatan Asas?",
-          "answer": "Pendapatan Asas kami ialah subsidi harian 0.05 WDD (drachma dunia) yang disediakan kepada semua warganegara Republik Dunia. Ia terkumpul secara masa nyata dan boleh dituntut pada bila-bila masa melalui aplikasi."
+          "answer": "Pendapatan Asas kami ialah subsidi harian 0.04 WDD (drachma dunia) yang disediakan kepada semua warganegara Republik Dunia. Ia terkumpul secara masa nyata dan boleh dituntut pada bila-bila masa melalui aplikasi."
         },
         "basicIncomePlus": {
           "question": "Bagaimana saya mengaktifkan Pendapatan Asas Plus?",
-          "answer": "Pendapatan Asas Plus menyediakan tambahan 2.45 WDD sehari dan tersedia secara eksklusif untuk pengguna yang disahkan Orb. Selepas mengaktifkan Pendapatan Asas, anda akan melihat pilihan untuk mengaktifkan Pendapatan Asas Plus pada halaman Perolehan."
+          "answer": "Pendapatan Asas Plus menyediakan tambahan 2.20 WDD sehari dan tersedia secara eksklusif untuk pengguna yang disahkan Orb. Selepas mengaktifkan Pendapatan Asas, anda akan melihat pilihan untuk mengaktifkan Pendapatan Asas Plus pada halaman Perolehan."
         },
         "savings": {
           "question": "Bagaimana Akaun Simpanan berfungsi?",
