@@ -15,9 +15,6 @@
         "cta": "지금 등록"
       }
     },
-    "verifyButton": {
-      "verify": "청구하려면 확인"
-    },
     "pollOfTheWeek": {
       "previousPolls": "이전 투표",
       "vote": "투표하기"
@@ -71,7 +68,6 @@
       }
     },
     "politicalPartyList": {
-      "loadingIssue": "정당 로딩에 일부 문제가 있다는 것을 알고 있습니다. 해결을 위해 노력하는 동안 잠시만 기다려 주세요.",
       "myParty": "내 정당",
       "createParty": "새 정당 만들기",
       "noParty": "아직 정당을 만들거나 가입하지 않았습니다.",
@@ -362,77 +358,6 @@
         "contribute": {
           "title": "기여",
           "subtitle": "참여하고 보상받기",
-          "contests": {
-            "ended": "종료됨",
-            "weekly": "주간",
-            "topPrize": "최고 상금",
-            "xPost": {
-              "title": "X 포스트 콘테스트",
-              "description": "매력적인 게시물을 작성하고 상금을 받으세요"
-            },
-            "poll": {
-              "title": "투표 콘테스트",
-              "description": "커뮤니티 의견을 수집하고 보상받기"
-            },
-            "pollContest": {
-              "title": "투표 콘테스트",
-              "weeklyTitle": "주간 투표 콘테스트",
-              "description": "커뮤니티 피드백을 수집하고 상금을 획득",
-              "prizes": {
-                "title": "상금",
-                "viewWinners": "이전 우승자 보기",
-                "wdd": "WDD"
-              },
-              "howTo": {
-                "title": "참여 방법",
-                "steps": {
-                  "step1": {
-                    "number": "1",
-                    "text": "세계 공화국이나 글로벌 거버넌스와 관련된 투표 만들기"
-                  },
-                  "step2": {
-                    "number": "2",
-                    "text": "인증된 사용자만 투표할 수 있도록 설정"
-                  },
-                  "step3": {
-                    "number": "3",
-                    "text": "투표를",
-                    "link": {
-                      "text": "투표 콘테스트 텔레그램 채널",
-                      "url": "https://t.me/worldrepubliccommunity/32368"
-                    }
-                  }
-                }
-              },
-              "rules": {
-                "title": "콘테스트 규칙",
-                "list": {
-                  "rule1": "당주 시작된 투표만 참여 가능",
-                  "rule2": "콘테스트는 매주 일요일 11:59 PM UTC까지",
-                  "rule3": "총 투표수에 따라 우승자 선정하고 24시간 이내에 텔레그램으로 연락"
-                }
-              },
-              "cta": {
-                "create": "투표 만들기",
-                "submit": "투표 제출"
-              },
-              "winners": {
-                "title": "콘테스트 우승자",
-                "weekOf": "주",
-                "votes": "표"
-              }
-            },
-            "testing": {
-              "title": "새로운 기능 테스트",
-              "description": "여권으로 인증되었지만 Orb로 인증되지 않은 회원 대상."
-            },
-            "oneOff": "일회성",
-            "limited": "50자리 한정"
-          },
-          "earlyAccess": {
-            "title": "얼리 액세스 프로그램",
-            "description": "향후 기능을 테스트하여 WDD 획득"
-          },
           "buybackProgram": {
             "topnav": "바이백 프로그램",
             "title": "토큰 바이백 프로그램",
@@ -490,40 +415,6 @@
           "buybackLink": {
             "title": "바이백 프로그램",
             "description": "커뮤니티 주도의 WDD 가치 성장"
-          },
-          "xContest": {
-            "title": "X 포스트 콘테스트",
-            "weeklyTitle": "주간 X 포스트 콘테스트",
-            "description": "매력적인 게시물을 작성하고 상금을 받으세요",
-            "prizes": {
-              "title": "상금",
-              "viewWinners": "지난 우승자 보기",
-              "wdd": "WDD"
-            },
-            "howTo": {
-              "title": "참여 방법",
-              "step1": "월드 리퍼블릭에 대한 X 포스트 작성하기",
-              "step2": "@WorldRepublicEN 태그하기",
-              "step3": {
-                "prefix": "게시물 링크를 우리의",
-                "link": "X 포스트 콘테스트 텔레그램 채널에 공유하기"
-              }
-            },
-            "rules": {
-              "title": "콘테스트 규칙",
-              "rule1": "해당 주에 게시된 포스트만 참여 가능",
-              "rule2": "매주 일요일 오후 11시 59분(UTC) 종료",
-              "rule3": "총 유기적 참여도(좋아요 + 리포스트 + 댓글)에 따라 우승자 선정하고 24시간 이내에 텔레그램으로 연락"
-            },
-            "cta": {
-              "post": "지금 포스팅 시작하기",
-              "submit": "포스트 제출하기"
-            },
-            "winners": {
-              "title": "콘테스트 우승자",
-              "weekOf": "해당 주",
-              "engagements": "참여도"
-            }
           },
           "partySubsidy": {
             "topnav": "보조금 프로그램",
@@ -788,26 +679,6 @@
       "options": {
         "english": "English",
         "spanish": "Español"
-      }
-    },
-    "verification": {
-      "title": "인증 상태",
-      "levels": {
-        "document": {
-          "title": "문서 인증",
-          "description": "문서 인증 상태 확인",
-          "buttonText": "상태 확인"
-        },
-        "secureDocument": {
-          "title": "보안 문서 인증",
-          "description": "보안 문서 인증 상태 확인",
-          "buttonText": "상태 확인"
-        },
-        "orb": {
-          "title": "Orb 인증",
-          "description": "Orb 인증 상태 확인",
-          "buttonText": "상태 확인"
-        }
       }
     }
   }

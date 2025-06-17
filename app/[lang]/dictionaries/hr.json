@@ -15,9 +15,6 @@
         "cta": "Registrirajte se sada"
       }
     },
-    "verifyButton": {
-      "verify": "Potvrdi za preuzimanje"
-    },
     "pollOfTheWeek": {
       "previousPolls": "Prethodne ankete",
       "vote": "Glasaj sada"
@@ -71,7 +68,6 @@
       }
     },
     "politicalPartyList": {
-      "loadingIssue": "Svjesni smo nekih problema s učitavanjem stranaka. Molimo budite strpljivi dok radimo na njihovom rješavanju.",
       "myParty": "Moja stranka",
       "createParty": "Stvori novu stranku",
       "noParty": "Još niste stvorili niti se pridružili stranci.",
@@ -304,11 +300,11 @@
             "rewards": "Ukupne nagrade"
           },
           "actions": {
-            "copyLink": "Kopiraj Referentni Link",
+            "copyLink": "Kopiraj referentni link",
             "copied": "Referentni link kopiran u međuspremnik!",
             "connectWallet": "Molimo povežite novčanik za generiranje referentnog linka",
-            "rewardReferrer": "Nagradi Referenta",
-            "share": "Podijeli Link Pozivnice"
+            "rewardReferrer": "Nagradi referenta",
+            "share": "Podijeli link pozivnice"
           },
           "drawer": {
             "title": "Nagradi preporučitelja",
@@ -362,84 +358,13 @@
         "contribute": {
           "title": "Doprinesi",
           "subtitle": "Uključi se, budi nagrađen",
-          "contests": {
-            "ended": "Završeno",
-            "weekly": "Tjedno",
-            "topPrize": "Glavna nagrada",
-            "xPost": {
-              "title": "X Post natječaj",
-              "description": "Piši zanimljive objave, osvoji nagrade"
-            },
-            "poll": {
-              "title": "Natječaj anketa",
-              "description": "Prikupi povratne informacije zajednice i zaradi"
-            },
-            "pollContest": {
-              "title": "Natjecanje u Anketama",
-              "weeklyTitle": "Tjedno Natjecanje u Anketama",
-              "description": "Prikupljajte povratne informacije od zajednice i osvajajte nagrade",
-              "prizes": {
-                "title": "Nagrade",
-                "viewWinners": "Pogledajte prethodne pobjednike",
-                "wdd": "WDD"
-              },
-              "howTo": {
-                "title": "Kako Sudjelovati",
-                "steps": {
-                  "step1": {
-                    "number": "1",
-                    "text": "Kreirajte anketu vezanu uz Svjetsku Republiku ili globalno upravljanje općenito"
-                  },
-                  "step2": {
-                    "number": "2",
-                    "text": "Postavite je tako da samo verificirani korisnici mogu glasovati"
-                  },
-                  "step3": {
-                    "number": "3",
-                    "text": "Podijelite svoju anketu u našem",
-                    "link": {
-                      "text": "Telegram kanalu za Natjecanje u Anketama",
-                      "url": "https://t.me/worldrepubliccommunity/32368"
-                    }
-                  }
-                }
-              },
-              "rules": {
-                "title": "Pravila Natjecanja",
-                "list": {
-                  "rule1": "Samo ankete pokrenute u trenutnom tjednu su prihvatljive",
-                  "rule2": "Natjecanje završava svake nedjelje u 11:59 PM UTC",
-                  "rule3": "Pobjednici se biraju prema ukupnom broju glasova i kontaktiraju se putem Telegrama unutar 24 sata"
-                }
-              },
-              "cta": {
-                "create": "Kreiraj Anketu",
-                "submit": "Pošalji Anketu"
-              },
-              "winners": {
-                "title": "Pobjednici Natjecanja",
-                "weekOf": "Tjedan od",
-                "votes": "glasova"
-              }
-            },
-            "testing": {
-              "title": "Testiranje Nove Značajke",
-              "description": "Otvoreno za članove verificirane putovnicom, ali ne kroz Orb"
-            },
-            "oneOff": "Jednokratno",
-            "limited": "50 mjesta"
-          },
-          "earlyAccess": {
-            "title": "Program ranog pristupa",
-            "description": "Zaradite WDD testiranjem naših nadolazećih značajki"
-          },
           "buybackProgram": {
             "topnav": "Program Otkupa",
             "title": "Program Otkupa Tokena",
             "subtitle": "Zajedno ojačajmo vrijednost WDD-a",
             "sections": {
               "fundingSources": {
-                "title": "Izvori Financiranja",
+                "title": "Izvori financiranja",
                 "devRewards": {
                   "title": "World Dev Nagrade",
                   "weekProgress": "Tjedan 7 od 12"
@@ -483,47 +408,13 @@
               }
             },
             "actions": {
-              "share": "Podijelite Pozivnicu"
+              "share": "Podijelite pozivnicu"
             },
-            "cta": "Pogledajte Nagrade Mini Aplikacije"
+            "cta": "Pogledajte nagrade mini aplikacije"
           },
           "buybackLink": {
             "title": "Program otkupa",
             "description": "Rast vrijednosti WDD-a pokretan zajednicom"
-          },
-          "xContest": {
-            "title": "X Post natječaj",
-            "weeklyTitle": "Tjedni X Post natječaj",
-            "description": "Pišite zanimljive objave, osvojite nagrade",
-            "prizes": {
-              "title": "Nagrade",
-              "viewWinners": "Pogledaj prethodne pobjednike",
-              "wdd": "WDD"
-            },
-            "howTo": {
-              "title": "Kako sudjelovati",
-              "step1": "Napišite X objavu o Svjetskoj Republici",
-              "step2": "Označite @WorldRepublicEN",
-              "step3": {
-                "prefix": "Podijelite poveznicu na vašu objavu u našem",
-                "link": "X Post Telegram kanalu za natječaj"
-              }
-            },
-            "rules": {
-              "title": "Pravila natječaja",
-              "rule1": "Samo objave objavljene u trenutnom tjednu su prihvatljive",
-              "rule2": "Natječaj završava svake nedjelje u 11:59 PM UTC",
-              "rule3": "Pobjednici se biraju na temelju ukupnog organskog uključivanja (lajkova + repostova + komentara) i kontaktiraju se putem Telegrama unutar 24 sata"
-            },
-            "cta": {
-              "post": "Započnite objavljivanje sada",
-              "submit": "Predajte svoju objavu"
-            },
-            "winners": {
-              "title": "Pobjednici natječaja",
-              "weekOf": "Tjedan",
-              "engagements": "uključivanja"
-            }
           },
           "partySubsidy": {
             "topnav": "Program subvencija",
@@ -786,26 +677,6 @@
         "english": "English",
         "spanish": "Español",
         "croatian": "Hrvatski"
-      }
-    },
-    "verification": {
-      "title": "Status Provjere",
-      "levels": {
-        "document": {
-          "title": "Provjera Dokumenta",
-          "description": "Provjeri status provjere dokumenta",
-          "buttonText": "Provjeri Status"
-        },
-        "secureDocument": {
-          "title": "Sigurna Provjera Dokumenta",
-          "description": "Provjeri status sigurne provjere dokumenta",
-          "buttonText": "Provjeri Status"
-        },
-        "orb": {
-          "title": "Provjera Orb",
-          "description": "Provjeri status provjere Orb",
-          "buttonText": "Provjeri Status"
-        }
       }
     }
   }

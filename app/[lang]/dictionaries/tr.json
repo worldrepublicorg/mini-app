@@ -1,7 +1,7 @@
 {
   "components": {
     "walletAuth": {
-      "connect": "Cüzdanı Bağla"
+      "connect": "Cüzdanı bağla"
     },
     "banners": {
       "bitget": {
@@ -15,12 +15,9 @@
         "cta": "Şimdi kaydolun"
       }
     },
-    "verifyButton": {
-      "verify": "Talep etmek için doğrula"
-    },
     "pollOfTheWeek": {
-      "previousPolls": "Önceki Anketler",
-      "vote": "Şimdi Oyla"
+      "previousPolls": "Önceki anketler",
+      "vote": "Şimdi oyla"
     },
     "stakeForm": {
       "deposit": "Yatır",
@@ -31,8 +28,8 @@
       "max": "Maksimum",
       "interest": "Faiz:",
       "collect": "Topla",
-      "depositButton": "Drahmi Yatır",
-      "withdrawButton": "Drahmi Çek"
+      "depositButton": "Drahmi yatır",
+      "withdrawButton": "Drahmi çek"
     },
     "toasts": {
       "wallet": {
@@ -65,33 +62,32 @@
       "tabs": {
         "politicalParties": "Partiler",
         "polls": "Anketler",
-        "openLetters": "Açık Mektuplar",
+        "openLetters": "Açık mektuplar",
         "elections": "Seçimler",
         "referendums": "Referandumlar"
       }
     },
     "politicalPartyList": {
-      "loadingIssue": "Bazı parti yükleme sorunlarının farkındayız. Bunları düzeltmek için çalışırken lütfen sabırlı olun.",
       "myParty": "Partim",
       "createParty": "Yeni Parti Oluştur",
       "noParty": "Henüz bir parti oluşturmadınız veya katılmadınız.",
       "discover": "Keşfet",
       "partyDetails": "Parti Detayları",
       "description": "Açıklama",
-      "partyInfo": "Parti Bilgisi",
+      "partyInfo": "Parti bilgisi",
       "leader": "Lider",
-      "website": "Web Sitesi",
+      "website": "Web sitesi",
       "members": "Üyeler",
       "noMembers": "Henüz üye yok",
       "approvalNote": "Çalışan resmi bağlantısı ve/veya büyüyen üyeliği olan partiler onay için önceliklendirilir.",
-      "bannedMembers": "Yasaklı Üyeler",
+      "bannedMembers": "Yasaklı üyeler",
       "errorLoading": "Parti Yüklenirken Hata",
       "partyNotFound": "Parti Bulunamadı",
       "partyNotFoundDescription": "Aradığınız parti mevcut değil veya kaldırılmış.",
       "backToParties": "Partilere Geri Dön",
       "joining": "Katılıyor...",
-      "joinParty": "Partiye Katıl",
-      "shareParty": "Partiyi Paylaş",
+      "joinParty": "Partiye katıl",
+      "shareParty": "Partiyi paylaş",
       "copied": "Bağlantı panoya kopyalandı",
       "status": {
         "pending": "Beklemede",
@@ -113,9 +109,9 @@
         "deleted": "Silindi",
         "members": "üye",
         "actions": {
-          "leaveParty": "Partiden Ayrıl",
-          "joinParty": "Partiye Katıl",
-          "joinPendingParty": "Bekleyen Partiye Katıl"
+          "leaveParty": "Partiden ayrıl",
+          "joinParty": "Partiye katıl",
+          "joinPendingParty": "Bekleyen partiye katıl"
         },
         "management": {
           "title": "Parti Yönetimi",
@@ -153,14 +149,14 @@
           },
           "button": {
             "creating": "Oluşturuluyor...",
-            "create": "Parti Oluştur"
+            "create": "Parti oluştur"
           }
         },
         "update": {
           "title": "Parti Detaylarını Güncelle",
           "button": {
             "update": "Güncelle",
-            "updateDescription": "Açıklamayı Güncelle"
+            "updateDescription": "Açıklamayı güncelle"
           }
         },
         "transferLeadership": {
@@ -184,7 +180,7 @@
           },
           "button": {
             "processing": "İşleniyor...",
-            "transfer": "Liderliği Devret"
+            "transfer": "Liderliği devret"
           }
         },
         "leave": {
@@ -211,8 +207,8 @@
           "confirm": "Bu partiyi silmek istediğinizden emin misiniz?",
           "button": {
             "processing": "İşleniyor...",
-            "deletePending": "Bekleyen Partiyi Sil",
-            "delete": "Partiyi Sil"
+            "deletePending": "Bekleyen partiyi sil",
+            "delete": "Partiyi sil"
           }
         },
         "memberManagement": {
@@ -221,27 +217,27 @@
           "tabs": {
             "remove": "Çıkar",
             "ban": "Yasakla",
-            "unban": "Yasağı Kaldır"
+            "unban": "Yasağı kaldır"
           },
           "remove": {
             "description": "Çıkarmak istediğiniz üyenin cüzdan adresini girin veya kullanıcı adına göre arayın.",
             "button": {
               "processing": "İşleniyor...",
-              "remove": "Üyeyi Çıkar"
+              "remove": "Üyeyi çıkar"
             }
           },
           "ban": {
             "description": "Partiden yasaklamak istediğiniz üyenin kullanıcı adını veya cüzdan adresini girin.",
             "button": {
               "processing": "İşleniyor...",
-              "ban": "Üyeyi Yasakla"
+              "ban": "Üyeyi yasakla"
             }
           },
           "unban": {
             "description": "Partiye geri dönmesine izin vermek istediğiniz yasaklanmış üyenin kullanıcı adını veya cüzdan adresini girin.",
             "button": {
               "processing": "İşleniyor...",
-              "unban": "Üyenin Yasağını Kaldır"
+              "unban": "Üyenin yasağını kaldır"
             }
           }
         }
@@ -299,16 +295,16 @@
           "tooltip": "Arkadaşlar Orb veya pasaport ile doğrulanmalıdır.",
           "learnMore": "Daha fazla bilgi",
           "stats": {
-            "title": "Davet İstatistikleriniz",
+            "title": "Davet istatistikleriniz",
             "invites": "Kabul edilen davetler",
             "rewards": "Toplam ödüller"
           },
           "actions": {
-            "copyLink": "Davet Bağlantısını Kopyala",
+            "copyLink": "Davet bağlantısını kopyala",
             "copied": "Davet bağlantısı panoya kopyalandı!",
             "connectWallet": "Davet bağlantınızı oluşturmak için lütfen cüzdanınızı bağlayın",
-            "rewardReferrer": "Davet Edeni Ödüllendir",
-            "share": "Daveti Paylaş"
+            "rewardReferrer": "Davet edeni ödüllendir",
+            "share": "Daveti paylaş"
           },
           "drawer": {
             "title": "Davet Edeni Ödüllendir",
@@ -317,11 +313,11 @@
             "invitedBy": "Sizi davet eden: {{username}}",
             "input": {
               "placeholder": "Kullanıcı adı girin (örn. kullanici.0000)",
-              "lookupButton": "Kullanıcı Ara",
+              "lookupButton": "Kullanıcı ara",
               "sendingTo": "Ödül gönderiliyor:",
               "editButton": "Düzenle",
-              "sendButton": "Ödül Gönder",
-              "proveReward": "Kanıtla ve Ödüllendir"
+              "sendButton": "Ödül gönder",
+              "proveReward": "Kanıtla ve ödüllendir"
             },
             "errors": {
               "enterUsername": "Lütfen bir kullanıcı adı girin",
@@ -362,84 +358,13 @@
         "contribute": {
           "title": "Katkıda Bulun",
           "subtitle": "Katılın, ödül kazanın",
-          "contests": {
-            "ended": "Sona erdi",
-            "weekly": "Haftalık",
-            "topPrize": "En yüksek ödül",
-            "xPost": {
-              "title": "X Gönderi Yarışması",
-              "description": "İlgi çekici gönderiler yazın, ödüller kazanın"
-            },
-            "poll": {
-              "title": "Anket Yarışması",
-              "description": "Topluluk geri bildirimi toplayın ve kazanın"
-            },
-            "pollContest": {
-              "title": "Anket Yarışması",
-              "weeklyTitle": "Haftalık Anket Yarışması",
-              "description": "Topluluk geri bildirimlerini toplayın ve ödüller kazanın",
-              "prizes": {
-                "title": "Ödüller",
-                "viewWinners": "Önceki kazananları görüntüle",
-                "wdd": "WDD"
-              },
-              "howTo": {
-                "title": "Nasıl Katılınır",
-                "steps": {
-                  "step1": {
-                    "number": "1",
-                    "text": "Dünya Cumhuriyeti veya genel olarak küresel yönetimle ilgili bir anket oluşturun"
-                  },
-                  "step2": {
-                    "number": "2",
-                    "text": "Sadece doğrulanmış kişilerin oy kullanabilmesi için ayarlayın"
-                  },
-                  "step3": {
-                    "number": "3",
-                    "text": "Anketinizi",
-                    "link": {
-                      "text": "Anket Yarışması Telegram Kanalımızda",
-                      "url": "https://t.me/worldrepubliccommunity/32368"
-                    }
-                  }
-                }
-              },
-              "rules": {
-                "title": "Yarışma Kuralları",
-                "list": {
-                  "rule1": "Sadece mevcut haftada başlatılan anketler uygun olacaktır",
-                  "rule2": "Yarışma her Pazar 23:59 UTC'de sona erer",
-                  "rule3": "Kazananlar toplam oy sayısına göre seçilir ve 24 saat içinde Telegram üzerinden iletişime geçilir"
-                }
-              },
-              "cta": {
-                "create": "Anket Oluştur",
-                "submit": "Anket Gönder"
-              },
-              "winners": {
-                "title": "Yarışma Kazananları",
-                "weekOf": "Haftası",
-                "votes": "oy"
-              }
-            },
-            "testing": {
-              "title": "Yeni Özellik Testi",
-              "description": "Orb üzerinden değil, pasaport ile doğrulanmış üyeler için açık"
-            },
-            "oneOff": "Tek seferlik",
-            "limited": "50 kişilik"
-          },
-          "earlyAccess": {
-            "title": "Erken Erişim Programı",
-            "description": "Gelecek özelliklerimizi test ederek WDD kazanın"
-          },
           "buybackProgram": {
             "topnav": "Geri Satın Alma Programı",
             "title": "Token Geri Satın Alma Programı",
             "subtitle": "WDD değerini birlikte güçlendirelim",
             "sections": {
               "fundingSources": {
-                "title": "Finansman Kaynakları",
+                "title": "Finansman kaynakları",
                 "devRewards": {
                   "title": "World Geliştirici Ödülleri",
                   "weekProgress": "12 Haftanın 7'si"
@@ -451,7 +376,7 @@
                   "title": "Optimism Retro Finansmanı"
                 },
                 "affiliate": {
-                  "title": "Ortaklık Komisyonları"
+                  "title": "Ortaklık komisyonları"
                 }
               },
               "commitment": {
@@ -483,47 +408,13 @@
               }
             },
             "actions": {
-              "share": "Daveti Paylaş"
+              "share": "Daveti paylaş"
             },
-            "cta": "Mini Uygulama Ödüllerini Görüntüle"
+            "cta": "Mini uygulama ödüllerini görüntüle"
           },
           "buybackLink": {
             "title": "Geri Alım Programı",
             "description": "Topluluk destekli WDD değer artışı"
-          },
-          "xContest": {
-            "title": "X Gönderi Yarışması",
-            "weeklyTitle": "Haftalık X Gönderi Yarışması",
-            "description": "İlgi çekici gönderiler yazın, ödüller kazanın",
-            "prizes": {
-              "title": "Ödüller",
-              "viewWinners": "Geçmiş kazananları görüntüle",
-              "wdd": "WDD"
-            },
-            "howTo": {
-              "title": "Nasıl katılınır",
-              "step1": "Dünya Cumhuriyeti hakkında bir X gönderisi yazın",
-              "step2": "@WorldRepublicEN etiketleyin",
-              "step3": {
-                "prefix": "Gönderinizin bağlantısını bizim",
-                "link": "X Gönderi Yarışması Telegram kanalımızda paylaşın"
-              }
-            },
-            "rules": {
-              "title": "Yarışma kuralları",
-              "rule1": "Sadece mevcut haftada yayınlanan gönderiler uygun",
-              "rule2": "Yarışma her Pazar UTC 23:59'da sona erer",
-              "rule3": "Kazananlar toplam organik etkileşime göre seçilir (beğeni + yeniden paylaşım + yorum) ve 24 saat içinde Telegram üzerinden iletişime geçilir"
-            },
-            "cta": {
-              "post": "Şimdi Paylaşmaya Başlayın",
-              "submit": "Gönderinizi Gönderin"
-            },
-            "winners": {
-              "title": "Yarışma Kazananları",
-              "weekOf": "Hafta",
-              "engagements": "etkileşim"
-            }
           },
           "partySubsidy": {
             "topnav": "Sübvansiyon Programı",
@@ -541,30 +432,30 @@
               "checkOutRewards": "Ödülleri kontrol et"
             },
             "howItWorks": {
-              "title": "Nasıl Çalışır",
+              "title": "Nasıl çalışır",
               "steps": {
                 "createParty": {
-                  "title": "Parti Oluştur",
+                  "title": "Parti oluştur",
                   "description": "World Republic uygulamasında siyasi hareketinizi başlatın"
                 },
                 "growMembership": {
-                  "title": "Üyeliğinizi Büyütün",
+                  "title": "Üyeliğinizi büyütün",
                   "description": "Üye toplayın ve topluluğunuzu oluşturun"
                 },
                 "earnRewards": {
-                  "title": "Ödüller Kazanın",
+                  "title": "Ödüller kazanın",
                   "description": "İlk 50 parti sıralamasını koruyarak haftalık sübvansiyonlar alın"
                 }
               }
             },
             "cta": {
-              "createJoin": "Parti Oluştur veya Katıl",
-              "leaderGroup": "Parti Lider Grubuna Katıl"
+              "createJoin": "Parti oluştur veya katıl",
+              "leaderGroup": "Parti lider grubuna katıl"
             },
             "payouts": {
               "title": "Ödemeler",
               "week": "Hafta",
-              "showAll": "Tümünü Göster"
+              "showAll": "Tümünü göster"
             }
           }
         }
@@ -685,7 +576,7 @@
               "referenceTitle": "Yaşamın Geleceği Enstitüsü"
             },
             "longView": {
-              "title": "Dünya liderlerini varoluşsal tehditler konusunda uzun vadeli liderlik göstermeye çağıran açık mektup",
+              "title": "Dünya Liderlerini Varoluşsal Tehditler Konusunda Uzun Vadeli Liderlik Göstermeye Çağıran Açık Mektup",
               "referenceTitle": "Yaşamın Geleceği Enstitüsü"
             }
           }
@@ -785,26 +676,6 @@
       "options": {
         "english": "İngilizce",
         "spanish": "İspanyolca"
-      }
-    },
-    "verification": {
-      "title": "Doğrulama Durumu",
-      "levels": {
-        "document": {
-          "title": "Belge Doğrulama",
-          "description": "Belge doğrulama durumunu kontrol edin",
-          "buttonText": "Durumu Kontrol Et"
-        },
-        "secureDocument": {
-          "title": "Güvenli Belge Doğrulama",
-          "description": "Güvenli belge doğrulama durumunu kontrol edin",
-          "buttonText": "Durumu Kontrol Et"
-        },
-        "orb": {
-          "title": "Orb Doğrulama",
-          "description": "Orb doğrulama durumunu kontrol edin",
-          "buttonText": "Durumu Kontrol Et"
-        }
       }
     }
   }

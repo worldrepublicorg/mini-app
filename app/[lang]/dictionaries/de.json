@@ -15,9 +15,6 @@
         "cta": "Jetzt registrieren"
       }
     },
-    "verifyButton": {
-      "verify": "Verifizieren zum Einlösen"
-    },
     "pollOfTheWeek": {
       "previousPolls": "Vorherige Umfragen",
       "vote": "Jetzt abstimmen"
@@ -71,7 +68,6 @@
       }
     },
     "politicalPartyList": {
-      "loadingIssue": "Wir sind uns einiger Probleme beim Laden von Parteien bewusst. Bitte haben Sie Geduld, während wir daran arbeiten, diese zu beheben.",
       "myParty": "Meine Partei",
       "createParty": "Neue Partei erstellen",
       "noParty": "Sie haben noch keine Partei erstellt oder sind keiner beigetreten.",
@@ -361,77 +357,6 @@
         "contribute": {
           "title": "Mitwirken",
           "subtitle": "Mitwirken, Belohnungen verdienen",
-          "contests": {
-            "ended": "Beendet",
-            "weekly": "Wöchentlich",
-            "topPrize": "Top Preis",
-            "xPost": {
-              "title": "X Post Contest",
-              "description": "Engagierende Posts schreiben, Preise gewinnen"
-            },
-            "poll": {
-              "title": "Umfrage Contest",
-              "description": "Gemeinschaftsfeedback sammeln und verdienen"
-            },
-            "pollContest": {
-              "title": "Umfrage-Wettbewerb",
-              "weeklyTitle": "Wöchentlicher Umfrage-Wettbewerb",
-              "description": "Gemeinschaftsfeedback sammeln und verdienen",
-              "prizes": {
-                "title": "Preise",
-                "viewWinners": "Frühere Gewinner anzeigen",
-                "wdd": "WDD"
-              },
-              "howTo": {
-                "title": "Wie es funktioniert",
-                "steps": {
-                  "step1": {
-                    "number": "1",
-                    "text": "Eine Umfrage erstellen, die sich auf die Weltrepublik oder die globale Regierung bezieht"
-                  },
-                  "step2": {
-                    "number": "2",
-                    "text": "Richten Sie sie so ein, dass nur verifizierte Menschen abstimmen können"
-                  },
-                  "step3": {
-                    "number": "3",
-                    "text": "Teilen Sie Ihre Umfrage in unserem",
-                    "link": {
-                      "text": "Umfrage-Wettbewerb Telegram-Kanal",
-                      "url": "https://t.me/worldrepubliccommunity/32368"
-                    }
-                  }
-                }
-              },
-              "rules": {
-                "title": "Wettbewerbsregeln",
-                "list": {
-                  "rule1": "Nur Umfragen, die in der aktuellen Woche gestartet wurden, sind teilnahmeberechtigt",
-                  "rule2": "Der Wettbewerb endet jeden Sonntag um 23:59 Uhr UTC",
-                  "rule3": "Die Gewinner werden anhand der Gesamtstimmen ausgewählt und innerhalb von 24 Stunden über Telegram kontaktiert"
-                }
-              },
-              "cta": {
-                "create": "Umfrage erstellen",
-                "submit": "Umfrage einreichen"
-              },
-              "winners": {
-                "title": "Wettbewerbsgewinner",
-                "weekOf": "Woche vom",
-                "votes": "Stimmen"
-              }
-            },
-            "testing": {
-              "title": "Test Neuer Funktionen",
-              "description": "Offen für Mitglieder mit Passverifizierung, aber nicht durch Orb."
-            },
-            "oneOff": "Einmalig",
-            "limited": "50 Plätze"
-          },
-          "earlyAccess": {
-            "title": "Früher Zugang Programm",
-            "description": "Verdiene WDD durch das Testen unserer kommenden Funktionen"
-          },
           "buybackProgram": {
             "topnav": "Rückkaufprogramm",
             "title": "Token-Rückkaufprogramm",
@@ -489,40 +414,6 @@
           "buybackLink": {
             "title": "Rückkaufprogramm",
             "description": "Gemeinschaftsgetriebenes WDD-Wertwachstum"
-          },
-          "xContest": {
-            "title": "X Post Contest",
-            "weeklyTitle": "Wöchentliche X Post Contest",
-            "description": "Engagierende Posts schreiben, Preise gewinnen",
-            "prizes": {
-              "title": "Preise",
-              "viewWinners": "Vorherige Gewinner anzeigen",
-              "wdd": "WDD"
-            },
-            "howTo": {
-              "title": "Wie man teilnimmt",
-              "step1": "Einen X Post über die Weltrepublik schreiben",
-              "step2": "@WorldRepublicEN taggen",
-              "step3": {
-                "prefix": "Teilen Sie den Link zu Ihrem Post in unserem",
-                "link": "X Post Contest Telegram Channel"
-              }
-            },
-            "rules": {
-              "title": "Wettbewerbsregeln",
-              "rule1": "Nur Beiträge, die in der aktuellen Woche veröffentlicht wurden, sind teilnahmeberechtigt",
-              "rule2": "Der Wettbewerb endet jeden Sonntag um 23:59 Uhr UTC",
-              "rule3": "Die Gewinner werden anhand des gesamten organischen Engagements (Likes + Reposts + Kommentare) ausgewählt und innerhalb von 24 Stunden über Telegram kontaktiert"
-            },
-            "cta": {
-              "post": "Jetzt Posten",
-              "submit": "Ihren Post einreichen"
-            },
-            "winners": {
-              "title": "Wettbewerbsgewinner",
-              "weekOf": "Woche von",
-              "engagements": "Eingaben"
-            }
           },
           "partySubsidy": {
             "topnav": "Subventionsprogramm",
@@ -784,26 +675,6 @@
       "options": {
         "english": "English",
         "spanish": "Español"
-      }
-    },
-    "verification": {
-      "title": "Verifizierungsstatus",
-      "levels": {
-        "document": {
-          "title": "Dokumentenverifizierung",
-          "description": "Verifizierungsstatus des Dokuments prüfen",
-          "buttonText": "Status prüfen"
-        },
-        "secureDocument": {
-          "title": "Sichere Dokumentenverifizierung",
-          "description": "Verifizierungsstatus des sicheren Dokuments prüfen",
-          "buttonText": "Status prüfen"
-        },
-        "orb": {
-          "title": "Orb-Verifizierung",
-          "description": "Verifizierungsstatus des Orb prüfen",
-          "buttonText": "Status prüfen"
-        }
       }
     }
   }

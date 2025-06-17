@@ -15,9 +15,6 @@
         "cta": "Inscrivez-vous maintenant"
       }
     },
-    "verifyButton": {
-      "verify": "Vérifier pour réclamer"
-    },
     "pollOfTheWeek": {
       "previousPolls": "Sondages précédents",
       "vote": "Voter maintenant"
@@ -31,8 +28,8 @@
       "max": "Max",
       "interest": "Intérêts :",
       "collect": "Collecter",
-      "depositButton": "Déposer des Drachmes",
-      "withdrawButton": "Retirer des Drachmes"
+      "depositButton": "Déposer des drachmes",
+      "withdrawButton": "Retirer des drachmes"
     },
     "toasts": {
       "wallet": {
@@ -71,27 +68,26 @@
       }
     },
     "politicalPartyList": {
-      "loadingIssue": "Nous sommes conscients de certains problèmes de chargement des partis. Veuillez patienter pendant que nous travaillons à les résoudre.",
       "myParty": "Mon parti",
       "createParty": "Créer un Nouveau Parti",
       "noParty": "Vous n'avez pas encore créé ou rejoint de parti.",
       "discover": "Découvrir",
       "partyDetails": "Détails du Parti",
       "description": "Description",
-      "partyInfo": "Informations du Parti",
+      "partyInfo": "Informations du parti",
       "leader": "Leader",
-      "website": "Site Web",
+      "website": "Site web",
       "members": "Membres",
       "noMembers": "Pas encore de membres",
       "approvalNote": "Les partis avec un lien officiel fonctionnel et/ou une adhésion croissante sont priorisés pour l'approbation.",
-      "bannedMembers": "Membres Bannis",
+      "bannedMembers": "Membres bannis",
       "errorLoading": "Erreur de Chargement du Parti",
       "partyNotFound": "Parti Non Trouvé",
       "partyNotFoundDescription": "Le parti que vous recherchez n'existe pas ou a été supprimé.",
       "backToParties": "Retour aux Partis",
       "joining": "Adhésion en cours...",
-      "joinParty": "Rejoindre le Parti",
-      "shareParty": "Partager le Parti",
+      "joinParty": "Rejoindre le parti",
+      "shareParty": "Partager le parti",
       "copied": "Lien copié dans le presse-papiers",
       "status": {
         "pending": "En attente",
@@ -113,9 +109,9 @@
         "deleted": "Supprimé",
         "members": "membres",
         "actions": {
-          "leaveParty": "Quitter le Parti",
-          "joinParty": "Rejoindre le Parti",
-          "joinPendingParty": "Rejoindre le Parti en Attente"
+          "leaveParty": "Quitter le parti",
+          "joinParty": "Rejoindre le parti",
+          "joinPendingParty": "Rejoindre le parti en attente"
         },
         "management": {
           "title": "Gestion du Parti",
@@ -153,14 +149,14 @@
           },
           "button": {
             "creating": "Création en cours...",
-            "create": "Créer le Parti"
+            "create": "Créer le parti"
           }
         },
         "update": {
           "title": "Mettre à Jour les Détails du Parti",
           "button": {
             "update": "Mettre à jour",
-            "updateDescription": "Mettre à jour la Description"
+            "updateDescription": "Mettre à jour la description"
           }
         },
         "transferLeadership": {
@@ -184,7 +180,7 @@
           },
           "button": {
             "processing": "Traitement en cours...",
-            "transfer": "Transférer le Leadership"
+            "transfer": "Transférer le leadership"
           }
         },
         "leave": {
@@ -211,8 +207,8 @@
           "confirm": "Êtes-vous sûr de vouloir supprimer ce parti ?",
           "button": {
             "processing": "Traitement en cours...",
-            "deletePending": "Supprimer le Parti en Attente",
-            "delete": "Supprimer le Parti"
+            "deletePending": "Supprimer le parti en attente",
+            "delete": "Supprimer le parti"
           }
         },
         "memberManagement": {
@@ -227,21 +223,21 @@
             "description": "Entrez l'adresse de portefeuille du membre que vous souhaitez retirer ou recherchez par nom d'utilisateur.",
             "button": {
               "processing": "Traitement en cours...",
-              "remove": "Retirer le Membre"
+              "remove": "Retirer le membre"
             }
           },
           "ban": {
             "description": "Entrez le nom d'utilisateur ou l'adresse de portefeuille du membre que vous souhaitez bannir du parti.",
             "button": {
               "processing": "Traitement en cours...",
-              "ban": "Bannir le Membre"
+              "ban": "Bannir le membre"
             }
           },
           "unban": {
             "description": "Entrez le nom d'utilisateur ou l'adresse de portefeuille du membre banni que vous souhaitez autoriser à revenir dans le parti.",
             "button": {
               "processing": "Traitement en cours...",
-              "unban": "Débannir le Membre"
+              "unban": "Débannir le membre"
             }
           }
         }
@@ -299,16 +295,16 @@
           "tooltip": "Les amis doivent être vérifiés via Orb ou passeport.",
           "learnMore": "En savoir plus",
           "stats": {
-            "title": "Vos Statistiques de Parrainage",
+            "title": "Vos statistiques de parrainage",
             "invites": "Invitations acceptées",
             "rewards": "Récompenses totales"
           },
           "actions": {
-            "copyLink": "Copier le Lien de Parrainage",
+            "copyLink": "Copier le lien de parrainage",
             "copied": "Lien de parrainage copié dans le presse-papiers !",
             "connectWallet": "Veuillez connecter votre portefeuille pour générer votre lien de parrainage",
-            "rewardReferrer": "Récompenser le Parrain",
-            "share": "Partager le Lien d'Invitation"
+            "rewardReferrer": "Récompenser le parrain",
+            "share": "Partager le lien d'invitation"
           },
           "drawer": {
             "title": "Récompenser un Parrain",
@@ -317,11 +313,11 @@
             "invitedBy": "Vous avez été invité par : {{username}}",
             "input": {
               "placeholder": "Entrez le nom d'utilisateur (ex : username.0000)",
-              "lookupButton": "Rechercher l'Utilisateur",
+              "lookupButton": "Rechercher l'utilisateur",
               "sendingTo": "Envoi de la récompense à :",
               "editButton": "Modifier",
-              "sendButton": "Envoyer la Récompense",
-              "proveReward": "Confirmer et Récompenser"
+              "sendButton": "Envoyer la récompense",
+              "proveReward": "Confirmer et récompenser"
             },
             "errors": {
               "enterUsername": "Veuillez entrer un nom d'utilisateur",
@@ -362,84 +358,13 @@
         "contribute": {
           "title": "Contribuer",
           "subtitle": "Participez, soyez récompensé",
-          "contests": {
-            "ended": "Terminé",
-            "weekly": "Hebdomadaire",
-            "topPrize": "Premier prix",
-            "xPost": {
-              "title": "Concours de Publications X",
-              "description": "Rédigez des publications engageantes, gagnez des prix"
-            },
-            "poll": {
-              "title": "Concours de Sondages",
-              "description": "Recueillez l'avis de la communauté et gagnez"
-            },
-            "pollContest": {
-              "title": "Concours de Sondages",
-              "weeklyTitle": "Concours Hebdomadaire de Sondages",
-              "description": "Recueillez les avis de la communauté et gagnez",
-              "prizes": {
-                "title": "Prix",
-                "viewWinners": "Voir les gagnants précédents",
-                "wdd": "WDD"
-              },
-              "howTo": {
-                "title": "Comment ça marche",
-                "steps": {
-                  "step1": {
-                    "number": "1",
-                    "text": "Créez un sondage lié à la République Mondiale ou à la gouvernance mondiale en général"
-                  },
-                  "step2": {
-                    "number": "2",
-                    "text": "Configurez-le pour que seuls les humains vérifiés puissent voter"
-                  },
-                  "step3": {
-                    "number": "3",
-                    "text": "Partagez votre sondage dans notre",
-                    "link": {
-                      "text": "canal Telegram du Concours de Sondages",
-                      "url": "https://t.me/worldrepubliccommunity/32368"
-                    }
-                  }
-                }
-              },
-              "rules": {
-                "title": "Règles du concours",
-                "list": {
-                  "rule1": "Seuls les sondages commencés dans la semaine en cours sont éligibles",
-                  "rule2": "Le concours se termine chaque dimanche à 23h59 UTC",
-                  "rule3": "Les gagnants sont sélectionnés selon le nombre total de votes et contactés sur Telegram dans les 24 heures"
-                }
-              },
-              "cta": {
-                "create": "Créer Votre Sondage",
-                "submit": "Soumettre Votre Sondage"
-              },
-              "winners": {
-                "title": "Gagnants du Concours",
-                "weekOf": "Semaine du",
-                "votes": "votes"
-              }
-            },
-            "testing": {
-              "title": "Test de Nouvelles Fonctionnalités",
-              "description": "Ouvert aux membres vérifiés par passeport mais pas par Orb."
-            },
-            "oneOff": "Unique",
-            "limited": "50 places"
-          },
-          "earlyAccess": {
-            "title": "Programme d'Accès Anticipé",
-            "description": "Gagnez des WDD en testant nos futures fonctionnalités"
-          },
           "buybackProgram": {
             "topnav": "Programme de Rachat",
             "title": "Programme de Rachat de Tokens",
             "subtitle": "Renforcer la valeur de WDD ensemble",
             "sections": {
               "fundingSources": {
-                "title": "Sources de Financement",
+                "title": "Sources de financement",
                 "devRewards": {
                   "title": "Récompenses Développeurs World",
                   "weekProgress": "Semaine 7 sur 12"
@@ -455,7 +380,7 @@
                 }
               },
               "commitment": {
-                "title": "Notre Engagement",
+                "title": "Notre engagement",
                 "description": "Nous nous engageons à utiliser au moins 50% de tous ces financements pour des rachats de WDD.",
                 "viewAccount": "Voir le compte de rachat"
               },
@@ -483,47 +408,13 @@
               }
             },
             "actions": {
-              "share": "Partager l'Invitation"
+              "share": "Partager l'invitation"
             },
-            "cta": "Voir les Récompenses Mini App"
+            "cta": "Voir les récompenses mini app"
           },
           "buybackLink": {
             "title": "Programme de Rachat",
             "description": "Croissance de la valeur de WDD pilotée par la communauté"
-          },
-          "xContest": {
-            "title": "Concours de Publications X",
-            "weeklyTitle": "Concours Hebdomadaire de Publications X",
-            "description": "Rédigez des publications engageantes, gagnez des prix",
-            "prizes": {
-              "title": "Prix",
-              "viewWinners": "Voir les anciens gagnants",
-              "wdd": "WDD"
-            },
-            "howTo": {
-              "title": "Comment participer",
-              "step1": "Rédigez une publication X sur la République Mondiale",
-              "step2": "Mentionnez @WorldRepublicEN",
-              "step3": {
-                "prefix": "Partagez le lien de votre publication dans notre",
-                "link": "canal Telegram des Concours X"
-              }
-            },
-            "rules": {
-              "title": "Règles du concours",
-              "rule1": "Seules les publications de la semaine en cours sont éligibles",
-              "rule2": "Le concours se termine chaque dimanche à 23h59 UTC",
-              "rule3": "Les gagnants sont sélectionnés selon l'engagement total organique (j'aime + partages + commentaires) et contactés sur Telegram dans les 24 heures"
-            },
-            "cta": {
-              "post": "Commencer à Publier",
-              "submit": "Soumettre Votre Publication"
-            },
-            "winners": {
-              "title": "Gagnants du Concours",
-              "weekOf": "Semaine du",
-              "engagements": "engagements"
-            }
           },
           "partySubsidy": {
             "topnav": "Programme de Subvention",
@@ -541,25 +432,25 @@
               "checkOutRewards": "Voir les récompenses"
             },
             "howItWorks": {
-              "title": "Comment Ça Marche",
+              "title": "Comment ça marche",
               "steps": {
                 "createParty": {
-                  "title": "Créez un Parti",
+                  "title": "Créez un parti",
                   "description": "Lancez votre mouvement politique dans l'application République Mondiale"
                 },
                 "growMembership": {
-                  "title": "Développez votre Adhésion",
+                  "title": "Développez votre adhésion",
                   "description": "Recrutez des membres et construisez votre communauté"
                 },
                 "earnRewards": {
-                  "title": "Gagnez des Récompenses",
+                  "title": "Gagnez des récompenses",
                   "description": "Recevez des subventions hebdomadaires en maintenant un classement parmi les 50 meilleurs partis"
                 }
               }
             },
             "cta": {
-              "createJoin": "Créer ou Rejoindre un Parti",
-              "leaderGroup": "Rejoindre le Groupe des Leaders de Parti"
+              "createJoin": "Créer ou rejoindre un parti",
+              "leaderGroup": "Rejoindre le groupe des leaders de parti"
             },
             "payouts": {
               "title": "Paiements",
@@ -681,7 +572,7 @@
               "referenceTitle": "Institut pour l'Avenir de la Vie"
             },
             "longView": {
-              "title": "Lettre ouverte appelant les dirigeants mondiaux à faire preuve de leadership à long terme face aux menaces existentielles",
+              "title": "Lettre Ouverte Appelant les Dirigeants Mondiaux à Faire Preuve de Leadership à Long Terme face aux Menaces Existentielles",
               "referenceTitle": "Institut pour l'Avenir de la Vie"
             }
           }
@@ -785,26 +676,6 @@
       "options": {
         "english": "English",
         "spanish": "Español"
-      }
-    },
-    "verification": {
-      "title": "État de Vérification",
-      "levels": {
-        "document": {
-          "title": "Vérification de Document",
-          "description": "Vérifier l'état de vérification de document",
-          "buttonText": "Vérifier l'État"
-        },
-        "secureDocument": {
-          "title": "Vérification Sécurisée de Document",
-          "description": "Vérifier l'état de vérification sécurisée de document",
-          "buttonText": "Vérifier l'État"
-        },
-        "orb": {
-          "title": "Vérification Orb",
-          "description": "Vérifier l'état de vérification Orb",
-          "buttonText": "Vérifier l'État"
-        }
       }
     }
   }

@@ -1,7 +1,7 @@
 {
   "components": {
     "walletAuth": {
-      "connect": "Unganisha Pochi"
+      "connect": "Unganisha pochi"
     },
     "banners": {
       "bitget": {
@@ -15,12 +15,9 @@
         "cta": "Jisajili sasa"
       }
     },
-    "verifyButton": {
-      "verify": "Thibitisha Kupokea"
-    },
     "pollOfTheWeek": {
-      "previousPolls": "Kura za Awali",
-      "vote": "Piga Kura Sasa"
+      "previousPolls": "Kura za awali",
+      "vote": "Piga kura sasa"
     },
     "stakeForm": {
       "deposit": "Weka",
@@ -31,8 +28,8 @@
       "max": "Kiwango cha juu",
       "interest": "Riba:",
       "collect": "Chukua",
-      "depositButton": "Weka Drachma",
-      "withdrawButton": "Toa Drachma"
+      "depositButton": "Weka drachma",
+      "withdrawButton": "Toa drachma"
     },
     "toasts": {
       "wallet": {
@@ -71,27 +68,26 @@
       }
     },
     "politicalPartyList": {
-      "loadingIssue": "Tunatambua kuwa kuna matatizo ya kupakia vyama. Tafadhali kuwa mvumilivu tunapoifanyia kazi kurekebisha.",
       "myParty": "Chama changu",
       "createParty": "Unda Chama Kipya",
       "noParty": "Bado hujaunda au kujiunga na chama.",
       "discover": "Gundua",
       "partyDetails": "Maelezo ya Chama",
       "description": "Maelezo",
-      "partyInfo": "Habari za Chama",
+      "partyInfo": "Habari za chama",
       "leader": "Kiongozi",
       "website": "Tovuti",
       "members": "Wanachama",
       "noMembers": "Bado hakuna wanachama",
       "approvalNote": "Vyama vya siasa vyenye kiungo rasmi kinachofanya kazi na/au uanachama unaokua vinapendelewa kwa idhini.",
-      "bannedMembers": "Wanachama Waliozuiwa",
+      "bannedMembers": "Wanachama waliozuiwa",
       "errorLoading": "Hitilafu Kupakia Chama",
       "partyNotFound": "Chama Hakijapatikana",
       "partyNotFoundDescription": "Chama unachokitafuta hakipo au kimeondolewa.",
       "backToParties": "Rudi kwa Vyama",
       "joining": "Inajiunga...",
-      "joinParty": "Jiunge na Chama",
-      "shareParty": "Shiriki Chama",
+      "joinParty": "Jiunge na chama",
+      "shareParty": "Shiriki chama",
       "copied": "Kiungo kimenakiliwa kwenye ubao wa kunakili",
       "status": {
         "pending": "Inasubiri",
@@ -113,9 +109,9 @@
         "deleted": "Imefutwa",
         "members": "wanachama",
         "actions": {
-          "leaveParty": "Ondoka Kwenye Chama",
-          "joinParty": "Jiunge na Chama",
-          "joinPendingParty": "Jiunge na Chama Kinachosubiri"
+          "leaveParty": "Ondoka kwenye chama",
+          "joinParty": "Jiunge na chama",
+          "joinPendingParty": "Jiunge na chama kinachosubiri"
         },
         "management": {
           "title": "Usimamizi wa Chama",
@@ -153,14 +149,14 @@
           },
           "button": {
             "creating": "Inaunda...",
-            "create": "Unda Chama"
+            "create": "Unda chama"
           }
         },
         "update": {
           "title": "Sasisha Maelezo ya Chama",
           "button": {
             "update": "Sasisha",
-            "updateDescription": "Sasisha Maelezo"
+            "updateDescription": "Sasisha maelezo"
           }
         },
         "transferLeadership": {
@@ -184,7 +180,7 @@
           },
           "button": {
             "processing": "Inachakata...",
-            "transfer": "Hamisha Uongozi"
+            "transfer": "Hamisha uongozi"
           }
         },
         "leave": {
@@ -211,8 +207,8 @@
           "confirm": "Una uhakika unataka kufuta chama hiki?",
           "button": {
             "processing": "Inachakata...",
-            "deletePending": "Futa Chama Kinachosubiri",
-            "delete": "Futa Chama"
+            "deletePending": "Futa chama kinachosubiri",
+            "delete": "Futa chama"
           }
         },
         "memberManagement": {
@@ -221,27 +217,27 @@
           "tabs": {
             "remove": "Ondoa",
             "ban": "Zuia",
-            "unban": "Ondoa Kizuizi"
+            "unban": "Ondoa kizuizi"
           },
           "remove": {
             "description": "Ingiza anwani ya mkoba ya mwanachama unayetaka kuondoa au tafuta kwa jina la mtumiaji.",
             "button": {
               "processing": "Inachakata...",
-              "remove": "Ondoa Mwanachama"
+              "remove": "Ondoa mwanachama"
             }
           },
           "ban": {
             "description": "Ingiza jina la mtumiaji au anwani ya mkoba ya mwanachama unayetaka kumzuia kutoka kwenye chama.",
             "button": {
               "processing": "Inachakata...",
-              "ban": "Zuia Mwanachama"
+              "ban": "Zuia mwanachama"
             }
           },
           "unban": {
             "description": "Ingiza jina la mtumiaji au anwani ya mkoba ya mwanachama aliyezuiwa ambaye unataka kumruhusu kurudi kwenye chama.",
             "button": {
               "processing": "Inachakata...",
-              "unban": "Ondoa Kizuizi cha Mwanachama"
+              "unban": "Ondoa kizuizi cha mwanachama"
             }
           }
         }
@@ -299,16 +295,16 @@
           "tooltip": "Marafiki lazima wathibitishwe kupitia Orb au pasipoti.",
           "learnMore": "Jifunze zaidi",
           "stats": {
-            "title": "Takwimu zako za Urafiki",
+            "title": "Takwimu zako za urafiki",
             "invites": "Mialiko iliyokubaliwa",
             "rewards": "Jumla ya malipo"
           },
           "actions": {
-            "copyLink": "Nakili Kiungo cha Urafiki",
+            "copyLink": "Nakili kiungo cha urafiki",
             "copied": "Kiungo cha urafiki kimenakiliwa kwenye clipboard!",
             "connectWallet": "Tafadhali unganisha pochi yako ili kuzalisha kiungo chako cha urafiki",
-            "rewardReferrer": "Mpa Malipo Mrafiki",
-            "share": "Shiriki Mialiko"
+            "rewardReferrer": "Mpa malipo mrafiki",
+            "share": "Shiriki mialiko"
           },
           "drawer": {
             "title": "Mpa Malipo Mrafiki",
@@ -317,11 +313,11 @@
             "invitedBy": "Uliakaribishwa na: {{username}}",
             "input": {
               "placeholder": "Ingiza jina la mtumiaji (mfano: username.0000)",
-              "lookupButton": "Tafuta Mtumiaji",
+              "lookupButton": "Tafuta mtumiaji",
               "sendingTo": "Inatuma malipo kwa:",
               "editButton": "Hariri",
-              "sendButton": "Tuma Malipo",
-              "proveReward": "Thibitisha na Toa Malipo"
+              "sendButton": "Tuma malipo",
+              "proveReward": "Thibitisha na toa malipo"
             },
             "errors": {
               "enterUsername": "Tafadhali ingiza jina la mtumiaji",
@@ -362,84 +358,13 @@
         "contribute": {
           "title": "Changia",
           "subtitle": "Shiriki, pata malipo",
-          "contests": {
-            "ended": "Imeisha",
-            "weekly": "Kila wiki",
-            "topPrize": "Tuzo kuu",
-            "xPost": {
-              "title": "Shindano la Chapisho X",
-              "description": "Andika machapisho mazuri, pata tuzo"
-            },
-            "poll": {
-              "title": "Shindano la Kura",
-              "description": "Pata maoni ya jamii na pata malipo"
-            },
-            "pollContest": {
-              "title": "Shindano la Kura",
-              "weeklyTitle": "Shindano la Kura la Wiki",
-              "description": "Kusanya maoni ya jamii na kushinda zawadi",
-              "prizes": {
-                "title": "Zawadi",
-                "viewWinners": "Angalia washindi wa awali",
-                "wdd": "WDD"
-              },
-              "howTo": {
-                "title": "Jinsi ya Kushiriki",
-                "steps": {
-                  "step1": {
-                    "number": "1",
-                    "text": "Unda kura inayohusiana na Jamhuri ya Dunia au utawala wa kimataifa kwa ujumla"
-                  },
-                  "step2": {
-                    "number": "2",
-                    "text": "Iwekeze ili watumiaji waliohakikiwa tu wapate kupiga kura"
-                  },
-                  "step3": {
-                    "number": "3",
-                    "text": "Shiriki kura yako kwenye",
-                    "link": {
-                      "text": "Kituo cha Telegram cha Shindano la Kura",
-                      "url": "https://t.me/worldrepubliccommunity/32368"
-                    }
-                  }
-                }
-              },
-              "rules": {
-                "title": "Sheria za Shindano",
-                "list": {
-                  "rule1": "Kura zilizoanza wiki hii tu ndizo zinazostahili",
-                  "rule2": "Shindano linamalizika kila Jumapili saa 11:59 PM UTC",
-                  "rule3": "Washindi huchaguliwa kulingana na jumla ya kura na kuwasiliana nao kupitia Telegram ndani ya masaa 24"
-                }
-              },
-              "cta": {
-                "create": "Unda Kura",
-                "submit": "Wasilisha Kura"
-              },
-              "winners": {
-                "title": "Washindi wa Shindano",
-                "weekOf": "Wiki ya",
-                "votes": "kura"
-              }
-            },
-            "testing": {
-              "title": "Kujaribia Kipengele Kipya",
-              "description": "Wazi kwa wanachama waliohakikiwa na pasipoti lakini si kupitia Orb"
-            },
-            "oneOff": "Mara moja",
-            "limited": "Nafasi 50"
-          },
-          "earlyAccess": {
-            "title": "Programu ya Ufikiaji wa Mapema",
-            "description": "Pata WDD kwa kupima vipengele vyetu vinavyokuja"
-          },
           "buybackProgram": {
             "topnav": "Programu ya Ununuzi",
             "title": "Programu ya Ununuzi wa Tokeni",
             "subtitle": "Kuimarisha thamani ya WDD pamoja",
             "sections": {
               "fundingSources": {
-                "title": "Vyanzo vya Fedha",
+                "title": "Vyanzo vya fedha",
                 "devRewards": {
                   "title": "Tuzo za Waendelezaji wa World",
                   "weekProgress": "Wiki 7 kati ya 12"
@@ -451,11 +376,11 @@
                   "title": "Fedha za Nyuma ya Optimism"
                 },
                 "affiliate": {
-                  "title": "Tume za Ushirika"
+                  "title": "Tume za ushirika"
                 }
               },
               "commitment": {
-                "title": "Ahadi Yetu",
+                "title": "Ahadi yetu",
                 "description": "Tunaahidi kutumia angalau 50% ya fedha zote hizi kwa ununuzi wa WDD.",
                 "viewAccount": "Tazama akaunti ya ununuzi"
               },
@@ -483,47 +408,13 @@
               }
             },
             "actions": {
-              "share": "Shiriki Mwaliko"
+              "share": "Shiriki mwaliko"
             },
-            "cta": "Angalia Zawadi za Programu Ndogo"
+            "cta": "Angalia zawadi za programu ndogo"
           },
           "buybackLink": {
             "title": "Programu ya Ununuzi",
             "description": "Ukuaji wa thamani ya WDD unaosukumwa na jamii"
-          },
-          "xContest": {
-            "title": "Shindano la Chapisho X",
-            "weeklyTitle": "Shindano la Chapisho X la Wiki",
-            "description": "Andika machapisho mazuri, pata tuzo",
-            "prizes": {
-              "title": "Tuzo",
-              "viewWinners": "Tazama washindi wa awali",
-              "wdd": "WDD"
-            },
-            "howTo": {
-              "title": "Jinsi ya kushiriki",
-              "step1": "Andika chapisho la X kuhusu Jamhuri ya Dunia",
-              "step2": "Taja @WorldRepublicEN",
-              "step3": {
-                "prefix": "Shiriki kiungo cha chapisho lako katika",
-                "link": "Kituo cha Shindano la Chapisho X cha Telegram"
-              }
-            },
-            "rules": {
-              "title": "Sheria za shindano",
-              "rule1": "Tu machapisho yaliyochapishwa katika wiki ya sasa yanaweza kushiriki",
-              "rule2": "Shindano linamalizika kila Jumapili saa 11:59 PM UTC",
-              "rule3": "Washindi huchaguliwa kulingana na jumla ya ushiriki wa asili (pendeleo + ushiriki tena + maoni) na kuwasiliana nao kupitia Telegram ndani ya masaa 24"
-            },
-            "cta": {
-              "post": "Anza Kuchapisha Sasa",
-              "submit": "Wasilisha Chapisho Lako"
-            },
-            "winners": {
-              "title": "Washindi wa Shindano",
-              "weekOf": "Wiki ya",
-              "engagements": "ushiriki"
-            }
           },
           "partySubsidy": {
             "topnav": "Programu ya Ruzuku",
@@ -541,30 +432,30 @@
               "checkOutRewards": "Angalia tuzo"
             },
             "howItWorks": {
-              "title": "Jinsi Inavyofanya Kazi",
+              "title": "Jinsi navyofanya kazi",
               "steps": {
                 "createParty": {
-                  "title": "Unda Chama",
+                  "title": "Unda chama",
                   "description": "Anza harakati yako ya kisiasa katika programu ya World Republic"
                 },
                 "growMembership": {
-                  "title": "Kuza Uanachama Wako",
+                  "title": "Kuza uanachama wako",
                   "description": "Ajiri wanachama na jenga jumuiya yako"
                 },
                 "earnRewards": {
-                  "title": "Pata Zawadi",
+                  "title": "Pata zawadi",
                   "description": "Pokea ruzuku za kila wiki kwa kudumisha nafasi kati ya vyama 50 bora"
                 }
               }
             },
             "cta": {
-              "createJoin": "Unda au Jiunge na Chama",
-              "leaderGroup": "Jiunge na Kikundi cha Viongozi wa Chama"
+              "createJoin": "Unda au jiunge na chama",
+              "leaderGroup": "Jiunge na kikundi cha viongozi wa chama"
             },
             "payouts": {
               "title": "Malipo",
               "week": "Wiki",
-              "showAll": "Onyesha Zote"
+              "showAll": "Onyesha zote"
             }
           }
         }
@@ -681,7 +572,7 @@
               "referenceTitle": "Taasisi ya Mustakabali wa Maisha"
             },
             "longView": {
-              "title": "Barua wazi inayowataka viongozi wa ulimwengu kuonyesha uongozi wa mtazamo mrefu kuhusu vitisho vya kuwepo",
+              "title": "Barua Wazi Inayowataka Viongozi wa Ulimwengu Kuonyesha Uongozi wa Mtazamo Mrefu kuhusu Vitisho vya Kuwepo",
               "referenceTitle": "Taasisi ya Mustakabali wa Maisha"
             }
           }
@@ -692,7 +583,7 @@
           "worldConstituent": {
             "title": "Uchaguzi wa Mkutano wa Kikatiba wa Dunia",
             "description": "Chagua wawakilishi kwa bunge la kwanza la ulimwengu lililochaguliwa kidemokrasia.",
-            "button": "Inakuja Hivi Karibuni"
+            "button": "Inakuja hivi karibuni"
           }
         },
         "referendums": {
@@ -701,7 +592,7 @@
           "worldConstitutional": {
             "title": "Kura ya Maoni ya Kikatiba ya Dunia",
             "description": "Shiriki katika upigaji kura wa kihistoria kuhusu kanuni zitakazoongoza mustakabali wa pamoja wa binadamu.",
-            "button": "Inakuja Hivi Karibuni"
+            "button": "Inakuja hivi karibuni"
           }
         },
         "politicalParties": {
@@ -731,7 +622,7 @@
           "title": "MSAADA",
           "links": {
             "support": "Msaada",
-            "faq": "Maswali Yanayoulizwa Mara kwa Mara"
+            "faq": "Maswali yanayoulizwa mara kwa mara"
           }
         },
         "code": {
@@ -785,26 +676,6 @@
       "options": {
         "english": "Kiingereza",
         "spanish": "Kihispania"
-      }
-    },
-    "verification": {
-      "title": "Hali ya Uthibitishaji",
-      "levels": {
-        "document": {
-          "title": "Uthibitishaji wa Nyaraka",
-          "description": "Angalia hali ya uthibitishaji wa nyaraka",
-          "buttonText": "Angalia Hali"
-        },
-        "secureDocument": {
-          "title": "Uthibitishaji Salama wa Nyaraka",
-          "description": "Angalia hali ya uthibitishaji salama wa nyaraka",
-          "buttonText": "Angalia Hali"
-        },
-        "orb": {
-          "title": "Uthibitishaji wa Orb",
-          "description": "Angalia hali ya uthibitishaji wa Orb",
-          "buttonText": "Angalia Hali"
-        }
       }
     }
   }

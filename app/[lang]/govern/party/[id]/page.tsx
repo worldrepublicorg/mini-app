@@ -713,8 +713,10 @@ export default function PartyDetailPage({
                         onClick={() => setShowAllMembers(true)}
                         className="h-12 text-sm font-medium"
                       >
-                        {dictionary?.components?.politicalPartyList?.showAll ||
-                          "Show All"}
+                        {
+                          dictionary?.pages?.earn?.tabs?.contribute
+                            ?.partySubsidy?.payouts?.showAll
+                        }
                       </Button>
                     </div>
                   )}

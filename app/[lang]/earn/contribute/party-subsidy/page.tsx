@@ -11,7 +11,7 @@ import {
 } from "react-icons/pi";
 import { BiChevronLeft, BiChevronUp, BiLinkExternal } from "react-icons/bi";
 import { useTranslations } from "@/hooks/useTranslations";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { latestPayouts } from "@/data/payouts/payouts";
 import { useRouter } from "next/navigation";
 import { FaFlask } from "react-icons/fa";
