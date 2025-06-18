@@ -5,12 +5,12 @@
     },
     "banners": {
       "bitget": {
-        "title": "Povećaj svoju zaradu uz Bitget",
+        "title": "Povećaj Svoju Zaradu Uz Bitget",
         "description": "Započni copy trading, ostvari 10% popusta na naknade + do 6200 USDT dobrodošlice.",
         "cta": "Otključaj ponudu"
       },
       "bybit": {
-        "title": "Bybit Blitz za nove članove",
+        "title": "Bybit Blitz Za Nove Članove",
         "description": "Pridružite se i osvojite MacBook, iPhone 16, popularne tokene i još mnogo toga!",
         "cta": "Registrirajte se sada"
       }
@@ -69,7 +69,7 @@
     },
     "politicalPartyList": {
       "myParty": "Moja stranka",
-      "createParty": "Stvori novu stranku",
+      "createParty": "Stvori Novu Stranku",
       "noParty": "Još niste stvorili niti se pridružili stranci.",
       "discover": "Otkrij",
       "partyDetails": "Detalji stranke",
@@ -114,7 +114,7 @@
           "joinPendingParty": "Pridruži se stranci na čekanju"
         },
         "management": {
-          "title": "Upravljanje strankom",
+          "title": "Upravljanje Strankom",
           "manageMembers": "Upravljanje članovima",
           "updateInfo": "Ažuriraj informacije",
           "transferLeadership": "Prijenos vodstva",
@@ -123,7 +123,7 @@
       },
       "drawers": {
         "create": {
-          "title": "Stvori novu stranku",
+          "title": "Stvori Novu Stranku",
           "name": {
             "label": "Ime stranke",
             "placeholder": "Unesite ime stranke",
@@ -153,14 +153,14 @@
           }
         },
         "update": {
-          "title": "Ažuriraj informacije o stranci",
+          "title": "Ažuriraj Informacije o Stranci",
           "button": {
             "update": "Ažuriraj",
             "updateDescription": "Ažuriraj opis"
           }
         },
         "transferLeadership": {
-          "title": "Prijenos vodstva",
+          "title": "Prijenos Vodstva",
           "description": "Unesite adresu lisnice novog vođe ili pretražite po korisničkom imenu. Adresa mora biti postojećeg člana stranke.",
           "lookup": {
             "label": "Pretraži po korisničkom imenu",
@@ -184,7 +184,7 @@
           }
         },
         "leave": {
-          "title": "Napusti trenutnu stranku",
+          "title": "Napusti Trenutnu Stranku",
           "description": "Već ste član stranke {{partyName}}. Morate napustiti vašu trenutnu stranku prije nego što se pridružite novoj.",
           "leaderWarning": "Napomena: Trenutno ste vođa ove stranke. Ako napustite, vodstvo će biti izgubljeno ili ponovno dodijeljeno sistemom.",
           "button": {
@@ -193,7 +193,7 @@
           }
         },
         "createConfirm": {
-          "title": "Napusti trenutnu stranku",
+          "title": "Napusti Trenutnu Stranku",
           "description": "Već ste član stranke {{partyName}}. Morate napustiti vašu trenutnu stranku prije nego što stvorite novu.",
           "leaderWarning": "Napomena: Trenutno ste vođa ove stranke. Ako napustite, vodstvo će biti izgubljeno ili ponovno dodijeljeno sistemom.",
           "button": {
@@ -202,7 +202,7 @@
           }
         },
         "delete": {
-          "title": "Izbriši stranku",
+          "title": "Izbriši Stranku",
           "confirmPending": "Jeste li sigurni da želite izbrisati ovu stranku na čekanju?",
           "confirm": "Jeste li sigurni da želite izbrisati ovu stranku?",
           "button": {
@@ -212,7 +212,7 @@
           }
         },
         "memberManagement": {
-          "title": "Upravljanje članovima",
+          "title": "Upravljanje Članovima",
           "label": "Adresa člana",
           "tabs": {
             "remove": "Ukloni",
@@ -250,7 +250,7 @@
       "tabs": {
         "basicIncome": {
           "tabTitle": "Temeljni dohodak",
-          "title": "Temeljni dohodak",
+          "title": "Temeljni Dohodak",
           "subtitle": "Prijavite se za preuzimanje temeljnog dohotka",
           "setupSubtitle": "Postavite svoj temeljni dohodak",
           "claimableSubtitle": "Dostupne drahme",
@@ -262,12 +262,12 @@
           "activateButton": "Aktiviraj Temeljni Dohodak",
           "claimButton": "Preuzmi",
           "plus": {
-            "title": "Temeljni dohodak Plus",
+            "title": "Temeljni Dohodak Plus",
             "newBadge": "Novo",
-            "drawerTrigger": "Predstavljamo Temeljni dohodak Plus",
+            "drawerTrigger": "Predstavljamo Temeljni Dohodak Plus",
             "subtitle": "Dodatni prihod za verificirane korisnike",
             "drawer": {
-              "title": "Temeljni dohodak Plus",
+              "title": "Temeljni Dohodak Plus",
               "subtitle": "Dodatni prihod za verificirane korisnike",
               "features": {
                 "rate": {
@@ -277,15 +277,15 @@
                   "title": "Ekskluzivno za Orb-verificirane korisnike radi osiguranja pravedne distribucije"
                 }
               },
-              "activateButton": "Aktiviraj Temeljni dohodak Plus",
-              "claimButton": "Preuzmi Temeljni dohodak Plus",
-              "claimBasicButton": "Preuzmi Temeljni dohodak"
+              "activateButton": "Aktiviraj Temeljni Dohodak Plus",
+              "claimButton": "Preuzmi Temeljni Dohodak Plus",
+              "claimBasicButton": "Preuzmi Temeljni Dohodak"
             }
           }
         },
         "savings": {
           "tabTitle": "Štednja",
-          "title": "Štedni račun",
+          "title": "Štedni Račun",
           "subtitle": "Zaradite kamatu svake sekunde",
           "tooltip": "Osnovna stopa od 69% GPR. Prikupljajte i reinvestirajte kamatu za postizanje blizu 100% efektivnog godišnjeg prinosa. Povucite sredstva bilo kada."
         },
@@ -307,7 +307,7 @@
             "share": "Podijeli link pozivnice"
           },
           "drawer": {
-            "title": "Nagradi preporučitelja",
+            "title": "Nagradi Preporučitelja",
             "subtitle": "Aktiviraj besplatnu nagradu od 50 WDD za svog preporučitelja",
             "passportSubtitle": "Dokažite svoju verifikaciju putovnice i aktivirajte besplatnu nagradu od 50 WDD za svog preporučitelja",
             "invitedBy": "Pozvao vas je: {{username}}",
@@ -336,7 +336,7 @@
             "text": "Koristite moju pozivnicu da se pridružite Svjetskoj Republici i zajedno zaradite nagrade!"
           },
           "passportDrawer": {
-            "title": "Program preporuka verificiran putovnicom",
+            "title": "Program Preporuka Verificiran Putovnicom",
             "subtitle": "Pozovite vlasnike putovnica i zaradite 50 WDD",
             "features": {
               "countries": {
@@ -417,8 +417,8 @@
             "description": "Rast vrijednosti WDD-a pokretan zajednicom"
           },
           "partySubsidy": {
-            "topnav": "Program subvencija",
-            "title": "Program subvencija za stranke",
+            "topnav": "Program Subvencija",
+            "title": "Program Subvencija za Stranke",
             "subtitle": "Izgradite svoj politički pokret i zaradite",
             "weeklyPool": {
               "old": "100.000",
@@ -471,7 +471,7 @@
       },
       "sections": {
         "polls": {
-          "title": "Anketa tjedna",
+          "title": "Anketa Tjedna",
           "description": "Brza glasovanja o aktualnim temama",
           "previous": {
             "title": "Prethodne Ankete",
@@ -555,24 +555,24 @@
           }
         },
         "openLetters": {
-          "title": "Otvorena pisma",
+          "title": "Otvorena Pisma",
           "description": "Javne izjave donositeljima odluka",
           "addNew": "Dodaj svoje otvoreno pismo",
           "statements": {
             "aiRisk": {
-              "title": "Izjava o UI riziku",
+              "title": "Izjava o UI Riziku",
               "referenceTitle": "Centar za UI sigurnost"
             },
             "nuclear": {
-              "title": "UN-ovo otvoreno pismo o zabrani nuklearnog oružja",
+              "title": "UN-ovo Otvoreno Pismo o Zabrani Nuklearnog Oružja",
               "referenceTitle": "Institut za budućnost života"
             },
             "autonomousWeapons": {
-              "title": "Zavjet o smrtonosnom autonomnom oružju",
+              "title": "Zavjet o Smrtonosnom Autonomnom Oružju",
               "referenceTitle": "Institut za budućnost života"
             },
             "longView": {
-              "title": "Otvoreno pismo koje poziva svjetske čelnike da pokažu dugoročno vodstvo o egzistencijalnim prijetnjama",
+              "title": "Otvoreno Pismo koje poziva svjetske čelnike da pokažu Dugoročno Vodstvo o Egzistencijalnim Prijetnjama",
               "referenceTitle": "Institut za budućnost života"
             }
           }
@@ -580,9 +580,9 @@
         "elections": {
           "title": "Izbori",
           "description": "Izaberite svoje predstavnike",
-          "worldConstituent": {
-            "title": "Izbori za Svjetsku ustavotvornu skupštinu",
-            "description": "Odaberite predstavnike za prvi demokratski izabrani globalni parlament.",
+          "mockElections": {
+            "title": "Tjedni Lažni Izbori",
+            "description": "Pomozite nam distribuirati stranačke subvencije i poboljšati naš sustav upravljanja",
             "button": "Uskoro"
           }
         },
@@ -590,13 +590,13 @@
           "title": "Referendumi",
           "description": "Izravna glasanja o važnim pitanjima",
           "worldConstitutional": {
-            "title": "Svjetski ustavni referendum",
-            "description": "Sudjelujte u povijesnom glasanju o načelima koja će voditi kolektivnu budućnost čovječanstva.",
+            "title": "Svjetski Ustavni Referendum",
+            "description": "Sudjelujte u povijesnom glasanju o načelima koja će voditi kolektivnu budućnost čovječanstva",
             "button": "Uskoro"
           }
         },
         "politicalParties": {
-          "title": "Političke stranke",
+          "title": "Političke Stranke",
           "description": "Ujedinite se globalno oko zajedničkih vrijednosti"
         }
       }
@@ -635,7 +635,7 @@
       }
     },
     "faq": {
-      "title": "Česta pitanja",
+      "title": "Česta Pitanja",
       "items": {
         "appPurpose": {
           "question": "Što je Svjetska Republika?",

@@ -15,11 +15,11 @@ import { useSearchParams } from "next/navigation";
 import type { TabKey } from "@/lib/types";
 
 const TAB_KEYS = {
+  ELECTIONS: "elections",
+  POLITICAL_PARTIES: "politicalParties",
   POLLS: "polls",
   OPEN_LETTERS: "openLetters",
-  ELECTIONS: "elections",
   REFERENDUMS: "referendums",
-  POLITICAL_PARTIES: "politicalParties",
 } as const;
 
 export default function GovernPage({
@@ -29,9 +29,7 @@ export default function GovernPage({
 }) {
   const dictionary = useTranslations(lang);
   const searchParams = useSearchParams();
-  const [activeTab, setActiveTab] = useState<TabKey>(
-    TAB_KEYS.POLITICAL_PARTIES
-  );
+  const [activeTab, setActiveTab] = useState<TabKey>(TAB_KEYS.ELECTIONS);
 
   // Handle initial URL tab parameter
   useEffect(() => {
@@ -53,7 +51,7 @@ export default function GovernPage({
         setActiveTab(tabParam as TabKey);
       } else {
         // Default to political parties if no valid tab is in the URL
-        setActiveTab(TAB_KEYS.POLITICAL_PARTIES);
+        setActiveTab(TAB_KEYS.ELECTIONS);
       }
     };
 
@@ -67,6 +65,10 @@ export default function GovernPage({
 
   const tabs = [
     {
+      key: TAB_KEYS.ELECTIONS,
+      label: dictionary?.components?.tabSwiper?.tabs?.elections,
+    },
+    {
       key: TAB_KEYS.POLITICAL_PARTIES,
       label: dictionary?.components?.tabSwiper?.tabs?.politicalParties,
     },
@@ -77,10 +79,6 @@ export default function GovernPage({
     {
       key: TAB_KEYS.OPEN_LETTERS,
       label: dictionary?.components?.tabSwiper?.tabs?.openLetters,
-    },
-    {
-      key: TAB_KEYS.ELECTIONS,
-      label: dictionary?.components?.tabSwiper?.tabs?.elections,
     },
     {
       key: TAB_KEYS.REFERENDUMS,
@@ -102,6 +100,41 @@ export default function GovernPage({
 
   const renderContent = () => {
     switch (activeTab) {
+      case TAB_KEYS.ELECTIONS:
+        return (
+          <>
+            <div className="flex w-full flex-col items-center justify-center">
+              <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+                <PiUsersThreeFill className="h-10 w-10 text-gray-400" />
+              </div>
+              <Typography
+                as="h2"
+                variant={{ variant: "heading", level: 1 }}
+                className="mb-4 text-center"
+              >
+                {
+                  dictionary?.pages?.govern?.sections?.elections
+                    ?.mockElections?.title
+                }
+              </Typography>
+              <Typography
+                variant={{ variant: "subtitle", level: 1 }}
+                className="mb-10 text-center text-gray-500"
+              >
+                {
+                  dictionary?.pages?.govern?.sections?.elections
+                    ?.mockElections?.description
+                }
+              </Typography>
+              <Button variant="primary" fullWidth disabled>
+                {
+                  dictionary?.pages?.govern?.sections?.elections
+                    ?.mockElections?.button
+                }
+              </Button>
+            </div>
+          </>
+        );
       case TAB_KEYS.POLITICAL_PARTIES:
         return (
           <>
@@ -191,41 +224,6 @@ export default function GovernPage({
               isAddNew
               lang={lang}
             />
-          </>
-        );
-      case TAB_KEYS.ELECTIONS:
-        return (
-          <>
-            <div className="flex w-full flex-col items-center justify-center">
-              <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
-                <PiUsersThreeFill className="h-10 w-10 text-gray-400" />
-              </div>
-              <Typography
-                as="h2"
-                variant={{ variant: "heading", level: 1 }}
-                className="mb-4 text-center"
-              >
-                {
-                  dictionary?.pages?.govern?.sections?.elections
-                    ?.worldConstituent?.title
-                }
-              </Typography>
-              <Typography
-                variant={{ variant: "subtitle", level: 1 }}
-                className="mb-10 text-center text-gray-500"
-              >
-                {
-                  dictionary?.pages?.govern?.sections?.elections
-                    ?.worldConstituent?.description
-                }
-              </Typography>
-              <Button variant="primary" fullWidth disabled>
-                {
-                  dictionary?.pages?.govern?.sections?.elections
-                    ?.worldConstituent?.button
-                }
-              </Button>
-            </div>
           </>
         );
       case TAB_KEYS.REFERENDUMS:

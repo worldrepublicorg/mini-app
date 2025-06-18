@@ -584,9 +584,9 @@
         "elections": {
           "title": "Seçimler",
           "description": "Temsilcilerinizi seçin",
-          "worldConstituent": {
-            "title": "Dünya Kurucu Meclis Seçimi",
-            "description": "Demokratik olarak seçilen ilk küresel parlamento için temsilcileri seçin.",
+          "mockElections": {
+            "title": "Haftalık Sahte Seçimler",
+            "description": "Parti sübvansiyonlarını dağıtmamıza ve yönetim sistemimizi geliştirmemize yardımcı olun",
             "button": "Yakında"
           }
         },
@@ -595,7 +595,7 @@
           "description": "Önemli konularda doğrudan oylamalar",
           "worldConstitutional": {
             "title": "Dünya Anayasa Referandumu",
-            "description": "İnsanlığın kolektif geleceğine yön verecek ilkeler üzerine tarihi bir oylamaya katılın.",
+            "description": "İnsanlığın kolektif geleceğine yön verecek ilkeler üzerine tarihi bir oylamaya katılın",
             "button": "Yakında"
           }
         }

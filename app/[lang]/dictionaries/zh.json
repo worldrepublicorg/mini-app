@@ -579,9 +579,9 @@
         "elections": {
           "title": "选举",
           "description": "选择您的代表",
-          "worldConstituent": {
-            "title": "世界制宪大会选举",
-            "description": "为第一个民主选举产生的全球议会选择代表。",
+          "mockElections": {
+            "title": "每周模拟选举",
+            "description": "帮助我们分配政党补贴并改善我们的治理体系",
             "button": "即将推出"
           }
         },
@@ -590,7 +590,7 @@
           "description": "对重要议题直接投票",
           "worldConstitutional": {
             "title": "世界宪法公投",
-            "description": "参与历史性投票，决定将指导人类集体未来的原则。",
+            "description": "参与历史性投票，决定将指导人类集体未来的原则",
             "button": "即将推出"
           }
         },

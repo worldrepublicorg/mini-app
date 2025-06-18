@@ -578,10 +578,10 @@
         },
         "elections": {
           "title": "選挙",
-          "description": "代表を選ぶ",
-          "worldConstituent": {
-            "title": "世界制憲議会選挙",
-            "description": "最初の民主的に選ばれたグローバル議会の代表を選出します。",
+          "description": "あなたの代表者を選んでください",
+          "mockElections": {
+            "title": "週刊模擬選挙",
+            "description": "党の補助金を分配し、私たちの統治システムを改善するのを手伝ってください",
             "button": "近日公開"
           }
         },
@@ -590,7 +590,7 @@
           "description": "重要な問題に関する直接投票",
           "worldConstitutional": {
             "title": "世界憲法国民投票",
-            "description": "人類の共同の未来を導く原則に関する歴史的な投票に参加しましょう。",
+            "description": "人類の共同の未来を導く原則に関する歴史的な投票に参加しましょう",
             "button": "近日公開"
           }
         },

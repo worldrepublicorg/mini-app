@@ -579,9 +579,9 @@
         "elections": {
           "title": "Wahlen",
           "description": "Wählen Sie Ihre Vertreter",
-          "worldConstituent": {
-            "title": "Wahl zur Weltversammlung",
-            "description": "Wählen Sie Vertreter für das erste demokratisch gewählte globale Parlament.",
+          "mockElections": {
+            "title": "Wöchentliche Scheinwahlen",
+            "description": "Helfen Sie uns, Parteisubventionen zu verteilen und unser Regierungssystem zu verbessern",
             "button": "Demnächst verfügbar"
           }
         },
@@ -590,7 +590,7 @@
           "description": "Direkte Abstimmungen zu wichtigen Themen",
           "worldConstitutional": {
             "title": "Weltweites Verfassungsreferendum",
-            "description": "Nehmen Sie an einer historischen Abstimmung über Prinzipien teil, die die gemeinsame Zukunft der Menschheit leiten werden.",
+            "description": "Nehmen Sie an einer historischen Abstimmung über Prinzipien teil, die die gemeinsame Zukunft der Menschheit leiten werden",
             "button": "Demnächst verfügbar"
           }
         },
