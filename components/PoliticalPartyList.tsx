@@ -1277,21 +1277,18 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   };
 
   const handleInputFocus = (e: ReactFocusEvent) => {
-    e.preventDefault();
+    const target = e.target as HTMLElement;
 
-    if (
-      e.target &&
-      (e.target instanceof HTMLInputElement ||
-        e.target instanceof HTMLTextAreaElement ||
-        e.target instanceof HTMLSelectElement)
-    ) {
-      setTimeout(() => {
-        (e.target as HTMLElement).scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-        });
-      }, 300);
-    }
+    // The timeout is a common workaround to ensure the virtual keyboard has
+    // appeared on mobile devices before we scroll the input into view. Without
+    // it, the scroll might happen before the keyboard-induced layout shift,
+    // resulting in the input being hidden or not properly centered.
+    setTimeout(() => {
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }, 200); // Using 200ms as a balance between waiting for the keyboard and responsiveness.
   };
 
   const DrawerHeader = ({ children }: { children: React.ReactNode }) => (
