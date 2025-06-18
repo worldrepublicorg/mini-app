@@ -1654,7 +1654,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       {/* Create Party Drawer */}
       <Drawer open={isCreateDrawerOpen} onOpenChange={setIsCreateDrawerOpen}>
         <DrawerContent>
-          <div className="overflow-y-auto p-6" style={{ maxHeight: "80dvh" }}>
+          <div className="overflow-y-auto p-6">
             <DrawerHeader>
               <DrawerTitle>
                 {
@@ -1916,7 +1916,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         <DrawerContent>
           <div
             className="flex flex-col gap-4 overflow-y-auto p-6"
-            style={{ maxHeight: "80dvh" }}
           >
             <DrawerHeader>
               <DrawerTitle>
@@ -2446,7 +2445,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         <DrawerContent>
           <div
             className="flex flex-col gap-4 overflow-y-auto p-6"
-            style={{ maxHeight: "80dvh" }}
           >
             <DrawerHeader>
               <DrawerTitle>
@@ -2754,7 +2752,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         <DrawerContent>
           <div
             className="flex flex-col gap-4 overflow-y-auto p-6"
-            style={{ maxHeight: "80dvh" }}
           >
             <DrawerHeader>
               <DrawerTitle>
