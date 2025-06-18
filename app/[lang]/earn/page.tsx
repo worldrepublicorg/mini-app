@@ -1812,7 +1812,7 @@ export default function EarnPage({
                         </div>
                       </DrawerTrigger>
                       <DrawerContent>
-                        <div className="flex flex-col items-center p-6 pt-10">
+                        <div className="flex flex-col items-center overflow-y-auto p-6 pt-10">
                           <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
                             <PiCoinsFill className="h-10 w-10 text-gray-400" />
                           </div>
@@ -2160,7 +2160,7 @@ export default function EarnPage({
                   </Button>
                 </DrawerTrigger>
                 <DrawerContent>
-                  <div className="flex flex-col items-center p-6 pt-10">
+                  <div className="flex flex-col items-center overflow-y-auto p-6 pt-10">
                     <div className="mb-10 mt-4 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
                       <PiUserPlusFill className="h-10 w-10 text-gray-400" />
                     </div>
@@ -2323,7 +2323,7 @@ export default function EarnPage({
                   </Button>
                 </DrawerTrigger>
                 <DrawerContent>
-                  <div className="flex flex-col items-center p-6 pt-10">
+                  <div className="flex flex-col items-center overflow-y-auto p-6 pt-10">
                     <div className="mb-10 mt-4 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
                       <PiUserPlusFill className="h-10 w-10 text-gray-400" />
                     </div>
@@ -2598,7 +2598,7 @@ export default function EarnPage({
                 </DrawerTrigger>
 
                 <DrawerContent>
-                  <div className="flex flex-col items-center p-6 pt-10">
+                  <div className="flex flex-col items-center overflow-y-auto p-6 pt-10">
                     <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
                       <PiIdentificationCardFill className="h-10 w-10 text-gray-400" />
                     </div>
