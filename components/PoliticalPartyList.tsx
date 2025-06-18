@@ -62,6 +62,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     setParties,
     storeUserParty,
     shuffledActiveParties, // Get the shuffled parties from context
+    userPartyData,
   } = useParties();
 
   const { walletAddress } = useWallet();
@@ -452,8 +453,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     // Remember the height to prevent layout shifts during transitions
     const [containerHeight, setContainerHeight] = useState<number | null>(null);
 
-    // Create a flag to prevent refetching after the first fetch
-    const hasLoadedRef = useRef(false);
     // Track the previous party ID for smoother transitions
     const prevPartyIdRef = useRef<number | null>(null);
 
@@ -476,13 +475,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
           ...party,
           id: partyId,
         });
-        hasLoadedRef.current = true;
         return;
-      }
-
-      // Regular case: only reset loading state if not in transition
-      if (partyId !== -1 && !(party && party.id === -1 && partyId > 0)) {
-        hasLoadedRef.current = false;
       }
 
       // Update the ref to track transitions
@@ -490,51 +483,88 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     }, [partyId, party]);
 
     useEffect(() => {
+      // This effect should only run when partyId changes.
+      if (partyId <= 0) {
+        setParty(null);
+        setLoading(false);
+        return;
+      }
+
+      // Handle optimistic party case (temporary ID of -1)
+      if (partyId === -1 && userPartyData) {
+        setParty(userPartyData);
+        setLoading(false);
+        return;
+      }
+
+      let isCancelled = false;
+
       const loadParty = async () => {
-        // Skip if we already have data in local state or if we already loaded once
-        if (party || hasLoadedRef.current) {
-          return;
-        }
+        // Don't show skeleton if we are just updating in the background
+        let hasDisplayedData = false;
 
-        // Check if this is a temporary optimistic update
-        if (partyId === -1 && userPartyData) {
-          setParty(userPartyData);
-          setLoading(false);
-          hasLoadedRef.current = true;
-          return;
-        }
-
-        // Check if we have the data in context first
-        if (userPartyData && userPartyData.id === partyId) {
-          setParty(userPartyData);
-          setLoading(false);
-          hasLoadedRef.current = true;
-          return;
-        }
-
-        setLoading(true);
+        // Step 1: Try to load from cache for instant display
         try {
-          const partyData = await fetchPartyById(partyId);
-          if (partyData) {
-            const partyWithMemberFlag = { ...partyData, isUserMember: true };
-            setParty(partyWithMemberFlag);
-            // Store in context for future use
-            storeUserParty(partyWithMemberFlag);
-            // Mark as loaded
-            hasLoadedRef.current = true;
+          const cachedPartyJson = localStorage.getItem(
+            `user_party_details_${partyId}`
+          );
+          if (cachedPartyJson && !isCancelled) {
+            setParty(JSON.parse(cachedPartyJson));
+            setLoading(false);
+            hasDisplayedData = true;
+          } else if (!isCancelled) {
+            setLoading(true); // No cache, show loading skeleton
+          }
+        } catch (e) {
+          console.error("Failed to parse cached party data", e);
+          if (!isCancelled) setLoading(true);
+        }
+
+        // Step 2: Fetch fresh data from network
+        try {
+          const freshPartyData = await fetchPartyById(partyId);
+
+          if (!isCancelled && freshPartyData) {
+            const partyWithMemberFlag = {
+              ...freshPartyData,
+              isUserMember: true,
+            };
+
+            // Update state and cache only if data is different
+            setParty((currentParty) => {
+              if (
+                JSON.stringify(currentParty) !==
+                JSON.stringify(partyWithMemberFlag)
+              ) {
+                localStorage.setItem(
+                  `user_party_details_${partyId}`,
+                  JSON.stringify(partyWithMemberFlag)
+                );
+                storeUserParty(partyWithMemberFlag);
+                return partyWithMemberFlag;
+              }
+              return currentParty;
+            });
           }
         } catch (error) {
           console.error("Error fetching user party:", error);
-          showToast("Failed to load your party", "error");
+          if (!hasDisplayedData) {
+            showToast("Failed to load your party", "error");
+          }
         } finally {
-          setLoading(false);
+          if (!isCancelled) {
+            setLoading(false);
+          }
         }
       };
 
-      if (partyId > 0 || partyId === -1) {
-        loadParty();
-      }
-      // Only depend on partyId which should remain stable
+      loadParty();
+
+      return () => {
+        isCancelled = true;
+      };
+      // We only want this to re-run when the partyId changes.
+      // Functions from context are stable. userPartyData is for optimistic updates.
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [partyId]);
 
@@ -577,7 +607,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         try {
           // Try to get address by username first
           const response = await fetch(
-            `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(username.trim())}`
+            `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(
+              username.trim()
+            )}`
           );
 
           if (!response.ok) {
@@ -729,6 +761,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             memberCount: partyToJoin.memberCount + 1,
           };
           storeUserParty(partyWithMemberFlag);
+          localStorage.setItem(
+            `user_party_details_${partyId}`,
+            JSON.stringify(partyWithMemberFlag)
+          );
         }
 
         setUserPartyId(partyId);
@@ -752,6 +788,9 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       storeUserParty(null);
       localStorage.removeItem("userPartyCache");
       localStorage.removeItem("optimisticParty");
+      if (partyId) {
+        localStorage.removeItem(`user_party_details_${partyId}`);
+      }
     }
   };
 
@@ -791,6 +830,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
         // Clear user party cache
         localStorage.removeItem("userPartyCache");
+        localStorage.removeItem(`user_party_details_${partyId}`);
       }
     } catch (error) {
       console.error("Error leaving party:", error);
@@ -1145,17 +1185,23 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
         setIsDeleteDrawerOpen(false);
         showToast(
-          `Party ${selectedParty.status !== 2 ? "deleted" : "reactivated"} successfully`,
+          `Party ${
+            selectedParty.status !== 2 ? "deleted" : "reactivated"
+          } successfully`,
           "success"
         );
       }
     } catch (error) {
       console.error(
-        `Error ${selectedParty.status !== 2 ? "deleting" : "reactivating"} party:`,
+        `Error ${
+          selectedParty.status !== 2 ? "deleting" : "reactivating"
+        } party:`,
         error
       );
       showToast(
-        `Error ${selectedParty.status !== 2 ? "deleting" : "reactivating"} party`,
+        `Error ${
+          selectedParty.status !== 2 ? "deleting" : "reactivating"
+        } party`,
         "error"
       );
     } finally {
@@ -1663,7 +1709,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 {createPartyForm.name.length >= MAX_STRING_LENGTH * 0.9 && (
                   <Typography
                     variant={{ variant: "caption", level: 2 }}
-                    className={`mt-[7px] px-2 text-xs ${createPartyForm.name.length >= MAX_STRING_LENGTH ? "text-error-600" : "text-gray-500"}`}
+                    className={`mt-[7px] px-2 text-xs ${
+                      createPartyForm.name.length >= MAX_STRING_LENGTH
+                        ? "text-error-600"
+                        : "text-gray-500"
+                    }`}
                   >
                     {createPartyForm.name.length >= MAX_STRING_LENGTH
                       ? dictionary?.components?.politicalPartyList?.drawers
@@ -1717,7 +1767,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   MAX_SHORT_NAME_LENGTH * 0.8 && (
                   <Typography
                     variant={{ variant: "caption", level: 2 }}
-                    className={`mt-[7px] px-2 text-xs ${createPartyForm.shortName.length >= MAX_SHORT_NAME_LENGTH ? "text-error-600" : "text-gray-500"}`}
+                    className={`mt-[7px] px-2 text-xs ${
+                      createPartyForm.shortName.length >= MAX_SHORT_NAME_LENGTH
+                        ? "text-error-600"
+                        : "text-gray-500"
+                    }`}
                   >
                     {createPartyForm.shortName.length >= MAX_SHORT_NAME_LENGTH
                       ? dictionary?.components?.politicalPartyList?.drawers
@@ -1772,7 +1826,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   MAX_STRING_LENGTH * 0.9 && (
                   <Typography
                     variant={{ variant: "caption", level: 2 }}
-                    className={`mt-[7px] px-2 text-xs ${createPartyForm.description.length >= MAX_STRING_LENGTH ? "text-error-600" : "text-gray-500"}`}
+                    className={`mt-[7px] px-2 text-xs ${
+                      createPartyForm.description.length >= MAX_STRING_LENGTH
+                        ? "text-error-600"
+                        : "text-gray-500"
+                    }`}
                   >
                     {createPartyForm.description.length >= MAX_STRING_LENGTH
                       ? dictionary?.components?.politicalPartyList?.drawers
@@ -1819,7 +1877,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   MAX_STRING_LENGTH * 0.9 && (
                   <Typography
                     variant={{ variant: "caption", level: 2 }}
-                    className={`mt-[7px] px-2 text-xs ${createPartyForm.officialLink.length >= MAX_STRING_LENGTH ? "text-error-600" : "text-gray-500"}`}
+                    className={`mt-[7px] px-2 text-xs ${
+                      createPartyForm.officialLink.length >= MAX_STRING_LENGTH
+                        ? "text-error-600"
+                        : "text-gray-500"
+                    }`}
                   >
                     {createPartyForm.officialLink.length >= MAX_STRING_LENGTH
                       ? dictionary?.components?.politicalPartyList?.drawers
@@ -1965,7 +2027,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 {updatePartyForm.name.length >= MAX_STRING_LENGTH * 0.9 && (
                   <Typography
                     variant={{ variant: "caption", level: 2 }}
-                    className={`mt-[7px] px-2 text-xs ${updatePartyForm.name.length >= MAX_STRING_LENGTH ? "text-error-600" : "text-gray-500"}`}
+                    className={`mt-[7px] px-2 text-xs ${
+                      updatePartyForm.name.length >= MAX_STRING_LENGTH
+                        ? "text-error-600"
+                        : "text-gray-500"
+                    }`}
                   >
                     {updatePartyForm.name.length >= MAX_STRING_LENGTH
                       ? dictionary?.components?.politicalPartyList?.drawers
@@ -2090,7 +2156,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   MAX_SHORT_NAME_LENGTH * 0.8 && (
                   <Typography
                     variant={{ variant: "caption", level: 2 }}
-                    className={`mt-[7px] px-2 text-xs ${updatePartyForm.shortName.length >= MAX_SHORT_NAME_LENGTH ? "text-error-600" : "text-gray-500"}`}
+                    className={`mt-[7px] px-2 text-xs ${
+                      updatePartyForm.shortName.length >= MAX_SHORT_NAME_LENGTH
+                        ? "text-error-600"
+                        : "text-gray-500"
+                    }`}
                   >
                     {updatePartyForm.shortName.length >= MAX_SHORT_NAME_LENGTH
                       ? dictionary?.components?.politicalPartyList?.drawers
@@ -2216,7 +2286,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   MAX_STRING_LENGTH * 0.9 && (
                   <Typography
                     variant={{ variant: "caption", level: 2 }}
-                    className={`mt-[7px] px-2 text-xs ${updatePartyForm.description.length >= MAX_STRING_LENGTH ? "text-error-600" : "text-gray-500"}`}
+                    className={`mt-[7px] px-2 text-xs ${
+                      updatePartyForm.description.length >= MAX_STRING_LENGTH
+                        ? "text-error-600"
+                        : "text-gray-500"
+                    }`}
                   >
                     {updatePartyForm.description.length >= MAX_STRING_LENGTH
                       ? dictionary?.components?.politicalPartyList?.drawers
@@ -2340,7 +2414,11 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   MAX_STRING_LENGTH * 0.9 && (
                   <Typography
                     variant={{ variant: "caption", level: 2 }}
-                    className={`mt-[7px] px-2 text-xs ${updatePartyForm.officialLink.length >= MAX_STRING_LENGTH ? "text-error-600" : "text-gray-500"}`}
+                    className={`mt-[7px] px-2 text-xs ${
+                      updatePartyForm.officialLink.length >= MAX_STRING_LENGTH
+                        ? "text-error-600"
+                        : "text-gray-500"
+                    }`}
                   >
                     {updatePartyForm.officialLink.length >= MAX_STRING_LENGTH
                       ? dictionary?.components?.politicalPartyList?.drawers
