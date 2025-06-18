@@ -54,6 +54,20 @@ export const PartiesProvider: React.FC<{ children: React.ReactNode }> = ({
   const { walletAddress } = useWallet();
   const { showToast } = useToast();
 
+  // Add a function to store user party data in state and localStorage
+  const storeUserParty = useCallback((party: Party | null) => {
+    setUserPartyData(party);
+    if (typeof window !== "undefined") {
+      if (party) {
+        // Cache the new party details
+        localStorage.setItem(
+          `user_party_details_${party.id}`,
+          JSON.stringify(party)
+        );
+      }
+    }
+  }, []);
+
   // Function to set parties and maintain combined array for backward compatibility
   const setParties = useCallback(
     (partiesOrFn: Party[] | ((prevParties: Party[]) => Party[])) => {
@@ -63,18 +77,28 @@ export const PartiesProvider: React.FC<{ children: React.ReactNode }> = ({
   );
 
   // Function to set userPartyId with localStorage persistence
-  const setUserPartyId = useCallback((id: number) => {
-    setUserPartyIdState(id);
+  const setUserPartyId = useCallback(
+    (id: number) => {
+      setUserPartyIdState((prevId) => {
+        if (prevId > 0 && id === 0) {
+          // If user is leaving a party, clear the cached details
+          localStorage.removeItem(`user_party_details_${prevId}`);
+          storeUserParty(null);
+        }
+        return id;
+      });
 
-    // Persist to localStorage
-    if (typeof window !== "undefined") {
-      if (id > 0) {
-        localStorage.setItem("userPartyId", id.toString());
-      } else {
-        localStorage.removeItem("userPartyId");
+      // Persist to localStorage
+      if (typeof window !== "undefined") {
+        if (id > 0) {
+          localStorage.setItem("userPartyId", id.toString());
+        } else {
+          localStorage.removeItem("userPartyId");
+        }
       }
-    }
-  }, []);
+    },
+    [storeUserParty]
+  );
 
   // Generate a safe optimistic ID for new parties
   const getOptimisticPartyId = useCallback(() => {
@@ -92,12 +116,30 @@ export const PartiesProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   }, [activeParties, pendingParties, highestKnownPartyId]);
 
-  // Restore userPartyId from localStorage on mount
+  // Restore userPartyId and cached party data from localStorage on mount
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const savedUserPartyId = localStorage.getItem("userPartyId");
-      if (savedUserPartyId && parseInt(savedUserPartyId) > 0) {
-        setUserPartyIdState(parseInt(savedUserPartyId));
+      const savedUserPartyIdStr = localStorage.getItem("userPartyId");
+      if (savedUserPartyIdStr) {
+        const savedUserPartyId = parseInt(savedUserPartyIdStr, 10);
+        if (savedUserPartyId > 0) {
+          setUserPartyIdState(savedUserPartyId);
+
+          // Now, try to load the party details from cache
+          const cachedPartyJson = localStorage.getItem(
+            `user_party_details_${savedUserPartyId}`
+          );
+          if (cachedPartyJson) {
+            try {
+              const cachedParty = JSON.parse(cachedPartyJson);
+              setUserPartyData(cachedParty);
+            } catch (e) {
+              console.error("Failed to parse cached party data", e);
+              // If parsing fails, remove the corrupted data
+              localStorage.removeItem(`user_party_details_${savedUserPartyId}`);
+            }
+          }
+        }
       }
     }
   }, []);
@@ -106,11 +148,6 @@ export const PartiesProvider: React.FC<{ children: React.ReactNode }> = ({
   useEffect(() => {
     setPartiesState([...activeParties, ...pendingParties]);
   }, [activeParties, pendingParties]);
-
-  // Add a function to store user party data
-  const storeUserParty = useCallback((party: Party | null) => {
-    setUserPartyData(party);
-  }, []);
 
   // Fetch a specific party by ID
   const fetchPartyById = useCallback(
@@ -165,7 +202,7 @@ export const PartiesProvider: React.FC<{ children: React.ReactNode }> = ({
 
         // If this is the user's party, cache it
         if (partyId === userPartyId) {
-          setUserPartyData(party);
+          storeUserParty(party);
         }
 
         return party;
@@ -183,6 +220,7 @@ export const PartiesProvider: React.FC<{ children: React.ReactNode }> = ({
       highestKnownPartyId,
       showToast,
       userPartyData,
+      storeUserParty,
     ]
   );
 
