@@ -59,10 +59,6 @@ export const PartiesProvider: React.FC<{ children: React.ReactNode }> = ({
     setUserPartyData(party);
     if (typeof window !== "undefined") {
       if (party) {
-        console.log(
-          `[PartiesContext] Caching user party details for party ID: ${party.id}`,
-          party
-        );
         // Cache the new party details
         localStorage.setItem(
           `user_party_details_${party.id}`,
@@ -85,9 +81,6 @@ export const PartiesProvider: React.FC<{ children: React.ReactNode }> = ({
     (id: number) => {
       setUserPartyIdState((prevId) => {
         if (prevId > 0 && id === 0) {
-          console.log(
-            `[PartiesContext] User left party. Clearing cached details for party ID: ${prevId}`
-          );
           // If user is leaving a party, clear the cached details
           localStorage.removeItem(`user_party_details_${prevId}`);
           storeUserParty(null);
@@ -139,10 +132,6 @@ export const PartiesProvider: React.FC<{ children: React.ReactNode }> = ({
           if (cachedPartyJson) {
             try {
               const cachedParty = JSON.parse(cachedPartyJson);
-              console.log(
-                `[PartiesContext] Restored user party details from localStorage for party ID: ${savedUserPartyId}`,
-                cachedParty
-              );
               setUserPartyData(cachedParty);
             } catch (e) {
               console.error("Failed to parse cached party data", e);
