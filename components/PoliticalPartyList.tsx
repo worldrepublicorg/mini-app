@@ -491,78 +491,52 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
     useEffect(() => {
       const loadParty = async () => {
-        // Step 1: Try to load from cache for instant display
-        if (partyId > 0) {
-          try {
-            const cachedPartyJson = localStorage.getItem(
-              `user_party_details_${partyId}`
-            );
-            if (cachedPartyJson) {
-              const cachedParty = JSON.parse(cachedPartyJson);
-              setParty(cachedParty);
-              setLoading(false); // We have something to show
-            } else {
-              setLoading(true); // No cache, show loading skeleton
-            }
-          } catch (e) {
-            console.error("Failed to parse cached party data", e);
-            setLoading(true);
-          }
+        // Skip if we already have data in local state or if we already loaded once
+        if (party || hasLoadedRef.current) {
+          return;
         }
 
-        // Step 2: Handle optimistic party creation
+        // Check if this is a temporary optimistic update
         if (partyId === -1 && userPartyData) {
           setParty(userPartyData);
           setLoading(false);
-          return; // Don't fetch for optimistic party
+          hasLoadedRef.current = true;
+          return;
         }
 
-        // Step 3: Fetch fresh data from context or network
-        if (partyId > 0) {
-          try {
-            // This function will either return from context cache or fetch from blockchain
-            const freshPartyData = await fetchPartyById(partyId);
+        // Check if we have the data in context first
+        if (userPartyData && userPartyData.id === partyId) {
+          setParty(userPartyData);
+          setLoading(false);
+          hasLoadedRef.current = true;
+          return;
+        }
 
-            if (freshPartyData) {
-              const partyWithMemberFlag = {
-                ...freshPartyData,
-                isUserMember: true,
-              };
-
-              // Step 4: Compare and update if data has changed
-              if (
-                JSON.stringify(party) !== JSON.stringify(partyWithMemberFlag)
-              ) {
-                setParty(partyWithMemberFlag);
-                storeUserParty(partyWithMemberFlag); // Update context
-                // Update localStorage with fresh data
-                localStorage.setItem(
-                  `user_party_details_${partyId}`,
-                  JSON.stringify(partyWithMemberFlag)
-                );
-              }
-            }
-          } catch (error) {
-            console.error("Error fetching user party:", error);
-            if (!party) {
-              // Only show toast if we couldn't show anything
-              showToast("Failed to load your party", "error");
-            }
-          } finally {
-            // Ensure loading is false after fetch completes
-            setLoading(false);
+        setLoading(true);
+        try {
+          const partyData = await fetchPartyById(partyId);
+          if (partyData) {
+            const partyWithMemberFlag = { ...partyData, isUserMember: true };
+            setParty(partyWithMemberFlag);
+            // Store in context for future use
+            storeUserParty(partyWithMemberFlag);
+            // Mark as loaded
+            hasLoadedRef.current = true;
           }
+        } catch (error) {
+          console.error("Error fetching user party:", error);
+          showToast("Failed to load your party", "error");
+        } finally {
+          setLoading(false);
         }
       };
 
-      loadParty();
-      // We'll manage dependencies carefully.
-      // We don't want to re-run this on every `party` change.
-      // But we need to react to `partyId` changes.
-      // `userPartyData` is for optimistic updates.
-      // The other functions are stable.
+      if (partyId > 0 || partyId === -1) {
+        loadParty();
+      }
+      // Only depend on partyId which should remain stable
       // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [partyId, userPartyData]);
+    }, [partyId]);
 
     // Stable height container to prevent layout shifts
     return (
@@ -755,10 +729,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             memberCount: partyToJoin.memberCount + 1,
           };
           storeUserParty(partyWithMemberFlag);
-          localStorage.setItem(
-            `user_party_details_${partyId}`,
-            JSON.stringify(partyWithMemberFlag)
-          );
         }
 
         setUserPartyId(partyId);
@@ -782,9 +752,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       storeUserParty(null);
       localStorage.removeItem("userPartyCache");
       localStorage.removeItem("optimisticParty");
-      if (partyId) {
-        localStorage.removeItem(`user_party_details_${partyId}`);
-      }
     }
   };
 
@@ -824,7 +791,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
         // Clear user party cache
         localStorage.removeItem("userPartyCache");
-        localStorage.removeItem(`user_party_details_${partyId}`);
       }
     } catch (error) {
       console.error("Error leaving party:", error);
