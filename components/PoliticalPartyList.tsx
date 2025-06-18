@@ -536,6 +536,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 JSON.stringify(currentParty) !==
                 JSON.stringify(partyWithMemberFlag)
               ) {
+                localStorage.setItem(
+                  `user_party_details_${partyId}`,
+                  JSON.stringify(partyWithMemberFlag)
+                );
                 storeUserParty(partyWithMemberFlag);
                 return partyWithMemberFlag;
               }
@@ -757,6 +761,10 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             memberCount: partyToJoin.memberCount + 1,
           };
           storeUserParty(partyWithMemberFlag);
+          localStorage.setItem(
+            `user_party_details_${partyId}`,
+            JSON.stringify(partyWithMemberFlag)
+          );
         }
 
         setUserPartyId(partyId);
@@ -822,6 +830,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
 
         // Clear user party cache
         localStorage.removeItem("userPartyCache");
+        localStorage.removeItem(`user_party_details_${partyId}`);
       }
     } catch (error) {
       console.error("Error leaving party:", error);
