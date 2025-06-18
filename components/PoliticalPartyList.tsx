@@ -1553,7 +1553,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     );
   }
 
-  if (activeLoading) {
+  if (activeLoading && activeTab !== "pending") {
     return <LoadingSkeleton dictionary={dictionary} />;
   }
 
