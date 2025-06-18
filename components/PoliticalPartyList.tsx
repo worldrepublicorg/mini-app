@@ -1277,8 +1277,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   };
 
   const handleInputFocus = (e: ReactFocusEvent) => {
-    e.preventDefault();
-
     if (
       e.target &&
       (e.target instanceof HTMLInputElement ||
@@ -1288,7 +1286,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       setTimeout(() => {
         (e.target as HTMLElement).scrollIntoView({
           behavior: "smooth",
-          block: "center",
+          block: "nearest",
         });
       }, 300);
     }
