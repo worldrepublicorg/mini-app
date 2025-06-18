@@ -55,7 +55,7 @@
       }
     },
     "comingSoonDrawer": {
-      "title": "E Dey Come Soon",
+      "title": "E Go Soon Come",
       "description": "Dis feature dey under development currently. Stay tuned!"
     },
     "tabSwiper": {
@@ -577,11 +577,11 @@
         },
         "elections": {
           "title": "Elections",
-          "description": "Choose your representatives",
-          "worldConstituent": {
-            "title": "World Constituent Assembly Election",
-            "description": "Select representatives for di first democratically elected global parliament.",
-            "button": "Coming soon"
+          "description": "Choose your people wey go represent you",
+          "mockElections": {
+            "title": "Weekly Practice Election",
+            "description": "Help us share party money and make our government system better",
+            "button": "E go soon come"
           }
         },
         "referendums": {
@@ -589,8 +589,8 @@
           "description": "Direct votes on important issues",
           "worldConstitutional": {
             "title": "World Constitutional Referendum",
-            "description": "Participate for historic vote on principles wey go guide humanity collective future.",
-            "button": "Coming soon"
+            "description": "Participate for historic vote on principles wey go guide humanity collective future",
+            "button": "E go soon come"
           }
         },
         "politicalParties": {

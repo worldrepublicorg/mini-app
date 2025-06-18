@@ -580,9 +580,9 @@
         "elections": {
           "title": "Eleições",
           "description": "Escolha seus representantes",
-          "worldConstituent": {
-            "title": "Eleição da Assembleia Constituinte Mundial",
-            "description": "Selecione representantes para o primeiro parlamento global eleito democraticamente.",
+          "mockElections": {
+            "title": "Eleições Simuladas Semanais",
+            "description": "Ajude-nos a distribuir os subsídios partidários e a melhorar nosso sistema de governança",
             "button": "Em breve"
           }
         },
@@ -591,7 +591,7 @@
           "description": "Votos diretos em questões importantes",
           "worldConstitutional": {
             "title": "Referendo Constitucional Mundial",
-            "description": "Participe de uma votação histórica sobre os princípios que guiarão o futuro coletivo da humanidade.",
+            "description": "Participe de uma votação histórica sobre os princípios que guiarão o futuro coletivo da humanidade",
             "button": "Em breve"
           }
         },

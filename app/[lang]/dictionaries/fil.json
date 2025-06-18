@@ -578,9 +578,9 @@
         "elections": {
           "title": "Mga Eleksyon",
           "description": "Piliin ang iyong mga kinatawan",
-          "worldConstituent": {
-            "title": "Eleksyon sa World Constituent Assembly",
-            "description": "Pumili ng mga kinatawan para sa unang demokratikong hinalal na pandaigdigang parlamento.",
+          "mockElections": {
+            "title": "Lingguhang Mock Elections",
+            "description": "Tulungan kaming ipamahagi ang mga subsidiya ng partido at pagbutihin ang aming sistema ng pamamahala",
             "button": "Malapit na"
           }
         },
@@ -589,7 +589,7 @@
           "description": "Direktang mga boto sa mahalagang mga isyu",
           "worldConstitutional": {
             "title": "World Constitutional Referendum",
-            "description": "Lumahok sa isang makasaysayang pagboto sa mga prinsipyo na gagabay sa kolektibong kinabukasan ng sangkatauhan.",
+            "description": "Lumahok sa isang makasaysayang pagboto sa mga prinsipyo na gagabay sa kolektibong kinabukasan ng sangkatauhan",
             "button": "Malapit na"
           }
         },

@@ -580,9 +580,9 @@
         "elections": {
           "title": "Uchaguzi",
           "description": "Chagua wawakilishi wako",
-          "worldConstituent": {
-            "title": "Uchaguzi wa Mkutano wa Kikatiba wa Dunia",
-            "description": "Chagua wawakilishi kwa bunge la kwanza la ulimwengu lililochaguliwa kidemokrasia.",
+          "mockElections": {
+            "title": "Uchaguzi wa Majaribio wa Kila Wiki",
+            "description": "Tusaidie kusambaza ruzuku za vyama na kuboresha mfumo wetu wa utawala",
             "button": "Inakuja hivi karibuni"
           }
         },
@@ -591,7 +591,7 @@
           "description": "Kura za moja kwa moja kuhusu masuala muhimu",
           "worldConstitutional": {
             "title": "Kura ya Maoni ya Kikatiba ya Dunia",
-            "description": "Shiriki katika upigaji kura wa kihistoria kuhusu kanuni zitakazoongoza mustakabali wa pamoja wa binadamu.",
+            "description": "Shiriki katika upigaji kura wa kihistoria kuhusu kanuni zitakazoongoza mustakabali wa pamoja wa binadamu",
             "button": "Inakuja hivi karibuni"
           }
         },
