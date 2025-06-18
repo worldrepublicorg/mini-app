@@ -1286,7 +1286,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       setTimeout(() => {
         (e.target as HTMLElement).scrollIntoView({
           behavior: "smooth",
-          block: "nearest",
+          block: "center",
         });
       }, 300);
     }
@@ -1654,7 +1654,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       {/* Create Party Drawer */}
       <Drawer open={isCreateDrawerOpen} onOpenChange={setIsCreateDrawerOpen}>
         <DrawerContent>
-          <div className="overflow-y-auto p-6">
+          <div className="overflow-y-auto p-6" style={{ maxHeight: "100dvh" }}>
             <DrawerHeader>
               <DrawerTitle>
                 {
@@ -1916,6 +1916,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         <DrawerContent>
           <div
             className="flex flex-col gap-4 overflow-y-auto p-6"
+            style={{ maxHeight: "100dvh" }}
           >
             <DrawerHeader>
               <DrawerTitle>
@@ -2445,6 +2446,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         <DrawerContent>
           <div
             className="flex flex-col gap-4 overflow-y-auto p-6"
+            style={{ maxHeight: "100dvh" }}
           >
             <DrawerHeader>
               <DrawerTitle>
@@ -2752,6 +2754,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         <DrawerContent>
           <div
             className="flex flex-col gap-4 overflow-y-auto p-6"
+            style={{ maxHeight: "100dvh" }}
           >
             <DrawerHeader>
               <DrawerTitle>
