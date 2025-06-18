@@ -1297,22 +1297,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
     }
   };
 
-  const handleInputFocus = (e: ReactFocusEvent) => {
-    if (
-      e.target &&
-      (e.target instanceof HTMLInputElement ||
-        e.target instanceof HTMLTextAreaElement ||
-        e.target instanceof HTMLSelectElement)
-    ) {
-      setTimeout(() => {
-        (e.target as HTMLElement).scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-        });
-      }, 300);
-    }
-  };
-
   const DrawerHeader = ({ children }: { children: React.ReactNode }) => (
     <div className="mb-4">{children}</div>
   );
@@ -1612,7 +1596,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
             label="Search parties..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            onFocus={handleInputFocus}
           />
         </div>
       </div>
@@ -1720,7 +1703,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         name: e.target.value,
                       }))
                     }
-                    onFocus={handleInputFocus}
                     required
                     maxLength={MAX_STRING_LENGTH}
                   />
@@ -1777,7 +1759,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         shortName: e.target.value,
                       }))
                     }
-                    onFocus={handleInputFocus}
                     maxLength={MAX_SHORT_NAME_LENGTH}
                     required
                   />
@@ -1835,7 +1816,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         description: e.target.value,
                       }))
                     }
-                    onFocus={handleInputFocus}
                     rows={4}
                     required
                     maxLength={MAX_STRING_LENGTH}
@@ -1894,7 +1874,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         officialLink: e.target.value,
                       }))
                     }
-                    onFocus={handleInputFocus}
                     maxLength={MAX_STRING_LENGTH}
                   />
                 </Form.Control>
@@ -1983,7 +1962,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         name: e.target.value,
                       }))
                     }
-                    onFocus={handleInputFocus}
                     className="flex-1"
                     maxLength={MAX_STRING_LENGTH}
                   />
@@ -2102,7 +2080,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         shortName: e.target.value,
                       }))
                     }
-                    onFocus={handleInputFocus}
                     className="flex-1"
                     maxLength={MAX_SHORT_NAME_LENGTH}
                   />
@@ -2231,7 +2208,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         description: e.target.value,
                       }))
                     }
-                    onFocus={handleInputFocus}
                     rows={4}
                     maxLength={MAX_STRING_LENGTH}
                   />
@@ -2361,7 +2337,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         officialLink: e.target.value,
                       }))
                     }
-                    onFocus={handleInputFocus}
                     className="flex-1"
                     maxLength={MAX_STRING_LENGTH}
                   />
@@ -2516,7 +2491,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                   }
                   value={leaderUsername}
                   onChange={(e) => setLeaderUsername(e.target.value)}
-                  onFocus={handleInputFocus}
                   className="flex-1"
                 />
                 <Button
@@ -2592,7 +2566,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                     }
                     value={newLeaderAddress}
                     onChange={(e) => setNewLeaderAddress(e.target.value)}
-                    onFocus={handleInputFocus}
                     required
                     pattern="^0x[a-fA-F0-9]{40}$"
                   />
@@ -2867,7 +2840,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       }
                       value={memberUsername}
                       onChange={(e) => setMemberUsername(e.target.value)}
-                      onFocus={handleInputFocus}
                       className="flex-1"
                     />
                     <Button
@@ -2943,7 +2915,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         }
                         value={memberToRemove}
                         onChange={(e) => setMemberToRemove(e.target.value)}
-                        onFocus={handleInputFocus}
                         required
                         pattern="^0x[a-fA-F0-9]{40}$"
                       />
@@ -3004,7 +2975,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       }
                       value={memberToBanUsername}
                       onChange={(e) => setMemberToBanUsername(e.target.value)}
-                      onFocus={handleInputFocus}
                       className="flex-1"
                     />
                     <Button
@@ -3082,7 +3052,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         }
                         value={memberToBan}
                         onChange={(e) => setMemberToBan(e.target.value)}
-                        onFocus={handleInputFocus}
                         required
                         pattern="^0x[a-fA-F0-9]{40}$"
                       />
@@ -3143,7 +3112,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                       }
                       value={bannedMemberUsername}
                       onChange={(e) => setBannedMemberUsername(e.target.value)}
-                      onFocus={handleInputFocus}
                       className="flex-1"
                     />
                     <Button
@@ -3221,7 +3189,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                         }
                         value={bannedMemberToUnban}
                         onChange={(e) => setBannedMemberToUnban(e.target.value)}
-                        onFocus={handleInputFocus}
                         required
                         pattern="^0x[a-fA-F0-9]{40}$"
                       />
