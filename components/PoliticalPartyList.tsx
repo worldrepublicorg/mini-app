@@ -2619,7 +2619,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <>
                   <br />
                   <br />
-                  <div className="text-error-600">
+                  <div className="rounded-lg border border-error-300 bg-error-100 px-4 py-3 text-error-700">
                     {
                       dictionary?.components?.politicalPartyList?.drawers?.leave
                         ?.leaderWarning
@@ -2675,7 +2675,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
                 <>
                   <br />
                   <br />
-                  <div className="text-error-600">
+                  <div className="rounded-lg border border-error-300 bg-error-100 px-4 py-3 text-error-700">
                     {
                       dictionary?.components?.politicalPartyList?.drawers
                         ?.createConfirm?.leaderWarning
