@@ -122,27 +122,6 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
   const [memberLookupResult, setMemberLookupResult] = useState<any>(null);
   const [isLeaderLookingUp, setIsLeaderLookingUp] = useState(false);
   const [isMemberLookingUp, setIsMemberLookingUp] = useState(false);
-  const [bottomPadding, setBottomPadding] = useState(0);
-
-  useEffect(() => {
-    const visualViewport = window.visualViewport;
-    if (!visualViewport) {
-      return;
-    }
-
-    const handleResize = () => {
-      // Calculate the height of the keyboard by finding the difference
-      const keyboardHeight = window.innerHeight - visualViewport.height;
-      // Only set padding if the keyboard is likely open (height difference is significant)
-      setBottomPadding(keyboardHeight > 100 ? keyboardHeight : 0);
-    };
-
-    visualViewport.addEventListener("resize", handleResize);
-    // Initial check in case keyboard is already open
-    handleResize();
-
-    return () => visualViewport.removeEventListener("resize", handleResize);
-  }, []);
 
   useEffect(() => {
     // Mark govern section as visited when this component loads
@@ -1675,13 +1654,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
       {/* Create Party Drawer */}
       <Drawer open={isCreateDrawerOpen} onOpenChange={setIsCreateDrawerOpen}>
         <DrawerContent>
-          <div
-            className="overflow-y-auto p-6"
-            style={{
-              maxHeight: "80dvh",
-              paddingBottom: `calc(1.5rem + ${bottomPadding}px)`,
-            }}
-          >
+          <div className="overflow-y-auto p-6" style={{ maxHeight: "80dvh" }}>
             <DrawerHeader>
               <DrawerTitle>
                 {
@@ -1943,10 +1916,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         <DrawerContent>
           <div
             className="flex flex-col gap-4 overflow-y-auto p-6"
-            style={{
-              maxHeight: "80dvh",
-              paddingBottom: `calc(1.5rem + ${bottomPadding}px)`,
-            }}
+            style={{ maxHeight: "80dvh" }}
           >
             <DrawerHeader>
               <DrawerTitle>
@@ -2476,10 +2446,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         <DrawerContent>
           <div
             className="flex flex-col gap-4 overflow-y-auto p-6"
-            style={{
-              maxHeight: "80dvh",
-              paddingBottom: `calc(1.5rem + ${bottomPadding}px)`,
-            }}
+            style={{ maxHeight: "80dvh" }}
           >
             <DrawerHeader>
               <DrawerTitle>
@@ -2787,10 +2754,7 @@ export function PoliticalPartyList({ lang }: PoliticalPartyListProps) {
         <DrawerContent>
           <div
             className="flex flex-col gap-4 overflow-y-auto p-6"
-            style={{
-              maxHeight: "80dvh",
-              paddingBottom: `calc(1.5rem + ${bottomPadding}px)`,
-            }}
+            style={{ maxHeight: "80dvh" }}
           >
             <DrawerHeader>
               <DrawerTitle>
