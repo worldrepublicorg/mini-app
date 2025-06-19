@@ -201,8 +201,7 @@ export default function CurrentElectionPage({
                 variant={{ variant: "subtitle", level: 1 }}
                 className="mt-2 text-gray-500"
               >
-                Help us distribute party subsidies and improve our system of
-                governance
+                Help us test our voting system
               </Typography>
             </div>
 
@@ -218,9 +217,8 @@ export default function CurrentElectionPage({
                 <PiInfoFill className="mb-0.5 ml-1 h-4 w-4 cursor-help text-gray-400" />
                 <div className="absolute bottom-full left-0 z-10 mb-2 hidden w-[calc(100dvw/2+24px)] max-w-sm transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
                   <p className="text-left text-gray-700">
-                    Parties are on the ballot if their membership was over 0.05%
-                    of the electorate (Basic Income Plus recipients) at the end
-                    of last week.
+                    Parties with membership over 0.05% of the electorate (Basic
+                    Income Plus recipients) are on the ballot.
                   </p>
                 </div>
               </span>
