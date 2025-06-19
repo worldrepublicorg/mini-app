@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/Button";
 import { PiUsersThreeFill, PiScalesFill } from "react-icons/pi";
 import { useSearchParams } from "next/navigation";
 import type { TabKey } from "@/lib/types";
+import Link from "next/link";
 
 const TAB_KEYS = {
   ELECTIONS: "elections",
@@ -113,8 +114,8 @@ export default function GovernPage({
                 className="mb-4 text-center"
               >
                 {
-                  dictionary?.pages?.govern?.sections?.elections
-                    ?.mockElections?.title
+                  dictionary?.pages?.govern?.sections?.elections?.mockElections
+                    ?.title
                 }
               </Typography>
               <Typography
@@ -122,16 +123,15 @@ export default function GovernPage({
                 className="mb-10 text-center text-gray-500"
               >
                 {
-                  dictionary?.pages?.govern?.sections?.elections
-                    ?.mockElections?.description
+                  dictionary?.pages?.govern?.sections?.elections?.mockElections
+                    ?.description
                 }
               </Typography>
-              <Button variant="primary" fullWidth disabled>
-                {
-                  dictionary?.pages?.govern?.sections?.elections
-                    ?.mockElections?.button
-                }
-              </Button>
+              <Link href={`/${lang}/govern/election`} className="w-full">
+                <Button variant="primary" fullWidth>
+                  Open test election
+                </Button>
+              </Link>
             </div>
           </>
         );
