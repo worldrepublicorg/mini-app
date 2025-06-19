@@ -3,7 +3,7 @@
 import { Typography } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/Button";
 import { elections } from "@/data/elections";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import type { FocusEvent as ReactFocusEvent } from "react";
 import { useTranslations } from "@/hooks/useTranslations";
 import { PiInfoFill } from "react-icons/pi";
@@ -11,6 +11,20 @@ import Link from "next/link";
 import { BiChevronLeft } from "react-icons/bi";
 import { useRouter } from "next/navigation";
 import { Input } from "@worldcoin/mini-apps-ui-kit-react";
+import { useWallet } from "@/components/contexts/WalletContext";
+import { useToast } from "@/components/ui/Toast";
+import { MiniKit } from "@worldcoin/minikit-js";
+import { viemClient } from "@/lib/viemClient";
+import { parseAbi } from "viem";
+
+const ELECTIONS_CONTRACT_ADDRESS = "0xae1EBe19Fa1e9A2FaF48429e22516adcD05022cC";
+
+const electionsAbi = parseAbi([
+  "function vote(uint256 _partyId)",
+  "function removeVote()",
+  "function userVotes(uint256 electionId, address user) view returns (uint256)",
+  "function currentElectionId() view returns (uint256)",
+]);
 
 export default function CurrentElectionPage({
   params: { lang },
@@ -20,6 +34,13 @@ export default function CurrentElectionPage({
   const dictionary = useTranslations(lang);
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
+  const { walletAddress } = useWallet();
+  const { showToast } = useToast();
+  const [votedForPartyId, setVotedForPartyId] = useState<number | null>(null);
+  const [isVoting, setIsVoting] = useState<number | null>(null);
+  const [currentElectionId, setCurrentElectionId] = useState<bigint | null>(
+    null
+  );
 
   const currentElection = useMemo(
     () => elections.find((e) => e.status === "active"),
@@ -43,6 +64,94 @@ export default function CurrentElectionPage({
       party.name.toLowerCase().includes(searchLower)
     );
   }, [shuffledParties, searchTerm]);
+
+  useEffect(() => {
+    const fetchVoterStatus = async () => {
+      if (!walletAddress || !currentElection) return;
+
+      try {
+        const electionId = await viemClient.readContract({
+          address: ELECTIONS_CONTRACT_ADDRESS as `0x${string}`,
+          abi: electionsAbi,
+          functionName: "currentElectionId",
+        });
+        setCurrentElectionId(electionId);
+
+        if (electionId) {
+          const userVote = await viemClient.readContract({
+            address: ELECTIONS_CONTRACT_ADDRESS as `0x${string}`,
+            abi: electionsAbi,
+            functionName: "userVotes",
+            args: [electionId, walletAddress as `0x${string}`],
+          });
+          const votedParty = Number(userVote);
+          if (votedParty > 0) {
+            setVotedForPartyId(votedParty);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching voter status:", error);
+        showToast("Failed to fetch voting status. Please try again.", "error");
+      }
+    };
+
+    fetchVoterStatus();
+  }, [walletAddress, currentElection]);
+
+  const handleVote = async (partyId: number) => {
+    if (!MiniKit.isInstalled()) {
+      showToast("Please open this app in the World App to vote.", "error");
+      return;
+    }
+    if (!walletAddress) {
+      showToast("Please connect your wallet first.", "error");
+      return;
+    }
+
+    if (currentElectionId === null) {
+      showToast("Could not determine the current election.", "error");
+      return;
+    }
+
+    setIsVoting(partyId);
+
+    const isRemovingVote = votedForPartyId === partyId;
+    const oldVotedPartyId = votedForPartyId;
+
+    // Optimistic update
+    setVotedForPartyId(isRemovingVote ? null : partyId);
+
+    try {
+      const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
+        transaction: [
+          {
+            address: ELECTIONS_CONTRACT_ADDRESS as `0x${string}`,
+            abi: electionsAbi,
+            functionName: isRemovingVote ? "removeVote" : "vote",
+            args: isRemovingVote ? [] : [BigInt(partyId)],
+          },
+        ],
+      });
+
+      if (finalPayload.status === "error") {
+        showToast("Transaction failed or was rejected.", "error");
+        // Revert optimistic update
+        setVotedForPartyId(oldVotedPartyId);
+      } else {
+        showToast(
+          isRemovingVote ? "Vote removed successfully" : "Voted successfully!",
+          "success"
+        );
+      }
+    } catch (error) {
+      console.error("Error casting vote:", error);
+      showToast("An error occurred while casting your vote.", "error");
+      // Revert optimistic update
+      setVotedForPartyId(oldVotedPartyId);
+    } finally {
+      setIsVoting(null);
+    }
+  };
 
   const handleInputFocus = (e: ReactFocusEvent) => {
     if (
@@ -169,9 +278,19 @@ export default function CurrentElectionPage({
                   <Button
                     size="sm"
                     className="ml-2 shrink-0 px-4"
-                    onClick={() => alert(`Voted for ${party.name}`)}
+                    onClick={() => handleVote(Number(party.id))}
+                    variant={
+                      votedForPartyId === Number(party.id)
+                        ? "secondary"
+                        : "primary"
+                    }
+                    disabled={isVoting !== null}
                   >
-                    Vote
+                    {isVoting === Number(party.id)
+                      ? "Processing..."
+                      : votedForPartyId === Number(party.id)
+                        ? "Voted"
+                        : "Vote"}
                   </Button>
                 </div>
               ))}
@@ -179,16 +298,25 @@ export default function CurrentElectionPage({
           </>
         ) : (
           <div className="flex flex-1 flex-col items-center justify-center text-center">
-            <PiInfoFill className="mb-4 h-12 w-12 text-gray-300" />
-            <Typography as="h2" variant={{ variant: "heading", level: 2 }}>
+            <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
+              <PiInfoFill className="h-10 w-10 text-gray-400" />
+            </div>
+            <Typography
+              as="h2"
+              variant={{ variant: "heading", level: 1 }}
+              className="mb-4 text-center"
+            >
               No Active Election
             </Typography>
-            <Typography className="mt-2 text-gray-500">
-              There is no election currently running. Please check back later.
+            <Typography
+              variant={{ variant: "subtitle", level: 1 }}
+              className="mb-10 text-center text-gray-500"
+            >
+              There is no election currently running
             </Typography>
-            <Link href={`/${lang}/govern`}>
-              <Button variant="secondary" className="mt-6">
-                Back to Govern
+            <Link href={`/${lang}/govern`} className="w-full">
+              <Button variant="secondary" fullWidth>
+                Back to overview
               </Button>
             </Link>
           </div>
