@@ -10,7 +10,15 @@ import { PiInfoFill } from "react-icons/pi";
 import Link from "next/link";
 import { BiChevronLeft } from "react-icons/bi";
 import { useRouter } from "next/navigation";
-import { Input } from "@worldcoin/mini-apps-ui-kit-react";
+import {
+  Input,
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@worldcoin/mini-apps-ui-kit-react";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { useToast } from "@/components/ui/Toast";
 import { MiniKit } from "@worldcoin/minikit-js";
@@ -37,10 +45,21 @@ export default function CurrentElectionPage({
   const { walletAddress } = useWallet();
   const { showToast } = useToast();
   const [votedForPartyId, setVotedForPartyId] = useState<number | null>(null);
-  const [isVoting, setIsVoting] = useState<number | null>(null);
+  const [processingPartyId, setProcessingPartyId] = useState<number | null>(
+    null
+  );
   const [currentElectionId, setCurrentElectionId] = useState<bigint | null>(
     null
   );
+  const [confirmationDetails, setConfirmationDetails] = useState<{
+    isOpen: boolean;
+    party: { id: number; name: string } | null;
+    action: "vote" | "change" | "remove" | null;
+  }>({
+    isOpen: false,
+    party: null,
+    action: null,
+  });
 
   const currentElection = useMemo(
     () => elections.find((e) => e.status === "active"),
@@ -98,7 +117,43 @@ export default function CurrentElectionPage({
     fetchVoterStatus();
   }, [walletAddress, currentElection]);
 
-  const handleVote = async (partyId: number) => {
+  const getConfirmationText = () => {
+    if (!confirmationDetails.action || !confirmationDetails.party) {
+      return { title: "", description: "", confirmText: "" };
+    }
+
+    const partyName = confirmationDetails.party.name;
+
+    switch (confirmationDetails.action) {
+      case "vote":
+        return {
+          title: "Confirm Your Vote",
+          description: `You are about to cast your vote for ${partyName}. This action will be recorded on the blockchain.`,
+          confirmText: "Confirm vote",
+        };
+      case "change":
+        const previousParty = currentElection?.eligibleParties.find(
+          (p) => Number(p.id) === votedForPartyId
+        );
+        return {
+          title: "Change Your Vote",
+          description: `Are you sure you want to change your vote from ${previousParty?.name} to ${partyName}?`,
+          confirmText: "Confirm change",
+        };
+      case "remove":
+        return {
+          title: "Remove Your Vote",
+          description: `Are you sure you want to remove your vote for ${partyName}? You will not be voting for any party.`,
+          confirmText: "Yes, remove vote",
+        };
+      default:
+        return { title: "", description: "", confirmText: "" };
+    }
+  };
+
+  const handleVoteClick = (party: { id: number; name: string }) => {
+    if (processingPartyId) return;
+
     if (!MiniKit.isInstalled()) {
       showToast("Please open this app in the World App to vote.", "error");
       return;
@@ -107,17 +162,40 @@ export default function CurrentElectionPage({
       showToast("Please connect your wallet first.", "error");
       return;
     }
-
     if (currentElectionId === null) {
       showToast("Could not determine the current election.", "error");
       return;
     }
 
-    setIsVoting(partyId);
+    const partyId = party.id;
+    let action: "vote" | "change" | "remove";
 
-    const isRemovingVote = votedForPartyId === partyId;
+    if (votedForPartyId === partyId) {
+      action = "remove";
+    } else if (votedForPartyId !== null) {
+      action = "change";
+    } else {
+      action = "vote";
+    }
+
+    setConfirmationDetails({
+      isOpen: true,
+      party: party,
+      action: action,
+    });
+  };
+
+  const handleConfirmAction = async () => {
+    if (!confirmationDetails.party || !confirmationDetails.action) return;
+
+    const { id: partyId, name: partyName } = confirmationDetails.party;
+    const isRemovingVote = confirmationDetails.action === "remove";
+
+    // Close the dialog first
+    setConfirmationDetails({ isOpen: false, party: null, action: null });
+    setProcessingPartyId(partyId);
+
     const oldVotedPartyId = votedForPartyId;
-
     // Optimistic update
     setVotedForPartyId(isRemovingVote ? null : partyId);
 
@@ -139,7 +217,9 @@ export default function CurrentElectionPage({
         setVotedForPartyId(oldVotedPartyId);
       } else {
         showToast(
-          isRemovingVote ? "Vote removed successfully" : "Voted successfully!",
+          isRemovingVote
+            ? "Vote removed successfully"
+            : `Successfully voted for ${partyName}!`,
           "success"
         );
       }
@@ -149,7 +229,7 @@ export default function CurrentElectionPage({
       // Revert optimistic update
       setVotedForPartyId(oldVotedPartyId);
     } finally {
-      setIsVoting(null);
+      setProcessingPartyId(null);
     }
   };
 
@@ -169,8 +249,58 @@ export default function CurrentElectionPage({
     }
   };
 
+  const confirmationContent = getConfirmationText();
+
   return (
     <div className="pb-safe flex min-h-dvh flex-col px-6">
+      <AlertDialog
+        open={confirmationDetails.isOpen}
+        onOpenChange={(isOpen) => {
+          if (!isOpen) {
+            setConfirmationDetails({
+              isOpen: false,
+              party: null,
+              action: null,
+            });
+          }
+        }}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>{confirmationContent.title}</AlertDialogTitle>
+          </AlertDialogHeader>
+          <AlertDialogDescription>
+            {confirmationContent.description}
+          </AlertDialogDescription>
+          <AlertDialogFooter>
+            <Button
+              variant="secondary"
+              size="lg"
+              onClick={() =>
+                setConfirmationDetails({
+                  isOpen: false,
+                  party: null,
+                  action: null,
+                })
+              }
+              className="w-full"
+              disabled={processingPartyId !== null}
+            >
+              Cancel
+            </Button>
+            <Button
+              size="lg"
+              onClick={handleConfirmAction}
+              className="w-full"
+              disabled={processingPartyId !== null}
+            >
+              {processingPartyId !== null
+                ? "Processing..."
+                : confirmationContent.confirmText}
+            </Button>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
       <div className="fixed left-0 right-0 top-0 z-10 bg-gray-0 px-6">
         <div className="relative flex items-center justify-center py-6">
           <button
@@ -276,15 +406,20 @@ export default function CurrentElectionPage({
                   <Button
                     size="sm"
                     className="ml-2 shrink-0 px-4"
-                    onClick={() => handleVote(Number(party.id))}
+                    onClick={() =>
+                      handleVoteClick({
+                        id: Number(party.id),
+                        name: party.name,
+                      })
+                    }
                     variant={
                       votedForPartyId === Number(party.id)
                         ? "secondary"
                         : "primary"
                     }
-                    disabled={isVoting !== null}
+                    disabled={processingPartyId !== null}
                   >
-                    {isVoting === Number(party.id)
+                    {processingPartyId === Number(party.id)
                       ? "Processing..."
                       : votedForPartyId === Number(party.id)
                         ? "Voted"
