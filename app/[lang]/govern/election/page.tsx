@@ -42,7 +42,8 @@ export default function CurrentElectionPage({
   const dictionary = useTranslations(lang);
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [searchTerm, setSearchTerm] = useState("");
+  const initialSearchTerm = searchParams.get("q") || "";
+  const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const { walletAddress } = useWallet();
   const { showToast } = useToast();
   const [votedForPartyId, setVotedForPartyId] = useState<number | null>(null);
@@ -65,11 +66,9 @@ export default function CurrentElectionPage({
   });
 
   useEffect(() => {
-    const query = searchParams.get("q");
-    if (query) {
-      setSearchTerm(query);
-    }
-  }, [searchParams]);
+    // When the initial search term from the URL changes, update the state
+    setSearchTerm(initialSearchTerm);
+  }, [initialSearchTerm]);
 
   const currentElection = useMemo(
     () => elections.find((e) => e.status === "active"),
@@ -457,6 +456,7 @@ export default function CurrentElectionPage({
 
             <div className="relative mb-6 h-[3.125rem]">
               <Input
+                key={initialSearchTerm}
                 type="text"
                 startAdornment={
                   <svg
