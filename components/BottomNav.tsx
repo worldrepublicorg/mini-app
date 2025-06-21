@@ -18,13 +18,14 @@ const BottomNav = () => {
   ];
 
   useEffect(() => {
-    // Check if user has visited the govern page
-    const governVisited = localStorage.getItem("governVisited") === "true";
-    setHasWeeklyElectionsVisited(governVisited);
+    // Check if user has visited the weekly elections page
+    const weeklyElectionsVisited =
+      localStorage.getItem("weeklyElectionsVisited") === "true";
+    setHasWeeklyElectionsVisited(weeklyElectionsVisited);
 
-    // Mark as visited if currently on the govern page
+    // Mark as visited if currently on the weekly elections page
     if (pathname.includes("/govern")) {
-      localStorage.setItem("governVisited", "true");
+      localStorage.setItem("weeklyElectionsVisited", "true");
       setHasWeeklyElectionsVisited(true);
     }
   }, [pathname]);
