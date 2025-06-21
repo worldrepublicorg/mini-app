@@ -584,10 +584,90 @@
         "elections": {
           "title": "Seçimler",
           "description": "Temsilcilerinizi seçin",
-          "mockElections": {
-            "title": "Haftalık Sahte Seçimler",
+          "weeklyElections": {
+            "title": "Haftalık Seçimler",
             "description": "Parti sübvansiyonlarını dağıtmamıza ve yönetim sistemimizi geliştirmemize yardımcı olun",
-            "button": "Yakında"
+            "button": "Test seçimini aç"
+          },
+          "currentElectionPage": {
+            "title": "Mevcut Seçim",
+            "testElectionTitle": "Test Seçimi",
+            "testElectionSubtitle": "Oylama sistemimizi test etmemize yardımcı olun",
+            "testElectionTooltip1": "Daha fazla bilgi için lütfen ",
+            "testElectionTooltip2": "seçim SSS'sini",
+            "testElectionTooltip3": " okuyun.",
+            "politicalParties": "Siyasi partiler",
+            "searchPlaceholder": "Parti ara...",
+            "leaderPrefix": "Lider: ",
+            "noActiveElection": "Aktif Seçim Yok",
+            "noActiveElectionDescription": "Şu anda devam eden bir seçim yok",
+            "backToOverview": "Genel bakışa dön",
+            "buttons": {
+              "voted": "Oy Verildi",
+              "vote": "Oy Ver",
+              "processing": "İşleniyor...",
+              "cancel": "İptal"
+            },
+            "confirmation": {
+              "vote": {
+                "title": "Oyunuzu Onaylayın",
+                "description": "{{partyName}} için oyunuzu kullanmak üzeresiniz. Bu işlem blok zincirine kaydedilecektir.",
+                "confirmText": "Oyu onayla"
+              },
+              "change": {
+                "title": "Oyunuzu Değiştirin",
+                "description": "Oyunuzu {{previousPartyName}}'den {{partyName}}'e değiştirmek istediğinizden emin misiniz?",
+                "confirmText": "Değişikliği onayla"
+              },
+              "remove": {
+                "title": "Oyunuzu Kaldırın",
+                "description": "{{partyName}} için verdiğiniz oyu kaldırmak istediğinizden emin misiniz? Hiçbir partiye oy vermemiş olacaksınız.",
+                "confirmText": "Evet, oyu kaldır"
+              }
+            },
+            "toasts": {
+              "connectInWorldApp": "Oy vermek için lütfen bu uygulamayı World App'te açın.",
+              "connectWallet": "Lütfen önce cüzdanınızı bağlayın.",
+              "noCurrentElection": "Mevcut seçim belirlenemedi.",
+              "fetchStatusError": "Oy durumu alınamadı. Lütfen tekrar deneyin.",
+              "transactionFailed": "İşlem başarısız oldu veya reddedildi.",
+              "voteRemovedSuccess": "Oy başarıyla kaldırıldı",
+              "voteSuccess": "{{partyName}} için oy başarıyla kullanıldı!",
+              "voteError": "Oyunuzu kullanırken bir hata oluştu."
+            },
+            "electionFaqPage": {
+              "title": "Seçim SSS",
+              "items": {
+                "electionPurpose": {
+                  "question": "Bu seçimlerin amacı nedir?",
+                  "answer": "Bu seçimler, yönetim modelimizin temel bir parçasıdır. Başlangıçta, aldıkları desteğe göre partileri ödüllendirerek parti sübvansiyonlarının nasıl dağıtılacağını belirlerler. Sistemimiz olgunlaştıkça, seçim sonuçları partilere daha önemli sorumluluklar verecektir. Bu, öğrenmemize ve gelişmemize yardımcı olacak yinelemeli bir süreçtir."
+                },
+                "ballotQualification": {
+                  "question": "Bir parti oy pusulasına nasıl girer?",
+                  "answer": "Oy pusulasında yer alabilmek için bir partinin, Temel Gelir Artı alıcılarının toplam sayısının en az %0,05'ine eşit üyesi olması gerekir. Bu, partilerin aktif, doğrulanmış üyelerden temel düzeyde destek almasını sağlar."
+                },
+                "howToVote": {
+                  "question": "Nasıl oy kullanırım?",
+                  "answer": "Seçim sayfasında, uygun siyasi partilerin bir listesini görebilirsiniz. Desteklemek istediğiniz partinin yanındaki 'Oy Ver' düğmesine dokunmanız yeterlidir. Cüzdanınız aracılığıyla oyunuzu onaylamanız istenecektir."
+                },
+                "canIChangeVote": {
+                  "question": "Oyumu değiştirebilir miyim?",
+                  "answer": "Evet, seçim aktif olduğu sürece oyunuzu istediğiniz zaman değiştirebilirsiniz. Sadece farklı bir partiye oy verin, önceki oyunuz değiştirilecektir. Ayrıca oyunuzu tamamen kaldırabilirsiniz."
+                },
+                "electionDeadline": {
+                  "question": "Seçimler ne zaman bitiyor?",
+                  "answer": "Haftalık seçimler Pazar, 23:59:59 UTC'ye kadar devam eder. Oyların mevcut haftanın seçimi için sayılabilmesi için bu süreden önce kullanılması gerekir."
+                },
+                "isVoteAnonymous": {
+                  "question": "Oyum anonim mi?",
+                  "answer": "Oylama takma adla yapılır. Oyunuz şeffaflık için blok zincirindeki cüzdan adresinize bağlı olsa da, gerçek dünya kimliğiniz doğrudan ona bağlı değildir."
+                },
+                "whatArePartySubsidies": {
+                  "question": "Parti sübvansiyonları nedir?",
+                  "answer": "Parti sübvansiyonları, aldıkları oylara göre siyasi partilere dağıtılan ödüllerdir. Bu program, parti faaliyetlerini finanse eder ve büyümelerine yardımcı olur. <a href=\"/{{lang}}/earn/contribute/party-subsidy\" class=\"font-medium text-gray-900 underline\">Parti Sübvansiyon Programı</a> hakkında daha fazla bilgi edinebilirsiniz."
+                }
+              }
+            }
           }
         },
         "referendums": {

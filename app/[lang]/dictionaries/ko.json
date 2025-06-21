@@ -583,14 +583,94 @@
         "elections": {
           "title": "선거",
           "description": "대표를 선택하세요",
-          "mockElections": {
-            "title": "주간 모의 선거",
-            "description": "정당 보조금을 분배하고 거버넌스 시스템을 개선하는 데 도움을 주세요",
-            "button": "곧 출시 예정"
+          "weeklyElections": {
+            "title": "주간 선거",
+            "description": "정당 보조금을 분배하고 거버넌스 시스템을 개선하도록 도와주세요",
+            "button": "테스트 선거 열기"
+          },
+          "currentElectionPage": {
+            "title": "현재 선거",
+            "testElectionTitle": "테스트 선거",
+            "testElectionSubtitle": "투표 시스템 테스트를 도와주세요",
+            "testElectionTooltip1": "자세한 내용은 ",
+            "testElectionTooltip2": "선거 FAQ",
+            "testElectionTooltip3": "를 참조하십시오.",
+            "politicalParties": "정당",
+            "searchPlaceholder": "정당 검색...",
+            "leaderPrefix": "대표: ",
+            "noActiveElection": "진행 중인 선거 없음",
+            "noActiveElectionDescription": "현재 진행 중인 선거가 없습니다",
+            "backToOverview": "개요로 돌아가기",
+            "buttons": {
+              "voted": "투표함",
+              "vote": "투표하기",
+              "processing": "처리 중...",
+              "cancel": "취소"
+            },
+            "confirmation": {
+              "vote": {
+                "title": "투표 확인",
+                "description": "{{partyName}}에 투표하려고 합니다. 이 작업은 블록체인에 기록됩니다.",
+                "confirmText": "투표 확인"
+              },
+              "change": {
+                "title": "투표 변경",
+                "description": "{{previousPartyName}}에서 {{partyName}}으로 투표를 변경하시겠습니까?",
+                "confirmText": "변경 확인"
+              },
+              "remove": {
+                "title": "투표 철회",
+                "description": "{{partyName}}에 대한 투표를 철회하시겠습니까? 어떤 정당에도 투표하지 않게 됩니다.",
+                "confirmText": "예, 투표 철회"
+              }
+            },
+            "toasts": {
+              "connectInWorldApp": "투표하려면 World App에서 이 앱을여십시오.",
+              "connectWallet": "먼저 지갑을 연결하십시오.",
+              "noCurrentElection": "현재 선거를 확인할 수 없습니다.",
+              "fetchStatusError": "투표 상태를 가져 오는 데 실패했습니다. 다시 시도하십시오.",
+              "transactionFailed": "거래가 실패했거나 거부되었습니다.",
+              "voteRemovedSuccess": "투표가 성공적으로 철회되었습니다",
+              "voteSuccess": "{{partyName}}에 성공적으로 투표했습니다!",
+              "voteError": "투표하는 동안 오류가 발생했습니다."
+            },
+            "electionFaqPage": {
+              "title": "선거 FAQ",
+              "items": {
+                "electionPurpose": {
+                  "question": "이 선거의 목적은 무엇입니까?",
+                  "answer": "이 선거는 우리 거버넌스 모델의 핵심 부분입니다. 처음에는 정당 보조금이 어떻게 분배되는지를 결정하여 정당이받는 지원에 따라 보상합니다. 우리 시스템이 성숙 해짐에 따라 선거 결과는 정당에 더 중요한 책임을 부여 할 것입니다. 이것은 우리가 배우고 개선하는 데 도움이되는 반복적 인 과정입니다."
+                },
+                "ballotQualification": {
+                  "question": "정당은 어떻게 투표 용지에 오르게됩니까?",
+                  "answer": "투표 용지에 오르려면 정당은 기본 소득 플러스 수령인 총 수의 0.05 % 이상에 해당하는 회원을 보유해야합니다. 이것은 정당이 활동적이고 검증 된 회원으로부터 기본적인 수준의 지원을 받도록 보장합니다."
+                },
+                "howToVote": {
+                  "question": "어떻게 투표합니까?",
+                  "answer": "선거 페이지에서 자격있는 정당 목록을 볼 수 있습니다. 지원하려는 정당 옆의 '투표하기'버튼을 누르기 만하면됩니다. 지갑을 통해 투표를 확인하라는 메시지가 표시됩니다."
+                },
+                "canIChangeVote": {
+                  "question": "투표를 변경할 수 있습니까?",
+                  "answer": "예, 선거가 활성화되어있는 동안 언제든지 투표를 변경할 수 있습니다. 다른 정당에 투표하기 만하면 이전 투표가 대체됩니다. 투표를 완전히 철회 할 수도 있습니다."
+                },
+                "electionDeadline": {
+                  "question": "선거는 언제 끝납니 까?",
+                  "answer": "주간 선거는 일요일 23:59:59 UTC까지 진행됩니다. 현재주의 선거에 포함 되려면이 시간 이전에 투표해야합니다."
+                },
+                "isVoteAnonymous": {
+                  "question": "내 투표는 익명입니까?",
+                  "answer": "투표는 가명입니다. 귀하의 투표는 투명성을 위해 블록 체인의 지갑 주소에 연결되어 있지만 실제 신원은 직접 연결되어 있지 않습니다."
+                },
+                "whatArePartySubsidies": {
+                  "question": "정당 보조금은 무엇입니까?",
+                  "answer": "정당 보조금은받는 투표에 따라 정당에 분배되는 보상입니다. 이 프로그램은 정당 활동에 자금을 지원하고 성장을 돕습니다. <a href=\"/{{lang}}/earn/contribute/party-subsidy\" class=\"font-medium text-gray-900 underline\">정당 보조금 프로그램</a>에 대해 자세히 알아볼 수 있습니다."
+                }
+              }
+            }
           }
         },
         "referendums": {
-          "title": "국민투표",
+          "title": "국민 투표",
           "description": "중요한 이슈에 대한 직접 투표",
           "worldConstitutional": {
             "title": "세계 헌법 국민투표",

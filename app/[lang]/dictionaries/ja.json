@@ -579,10 +579,90 @@
         "elections": {
           "title": "選挙",
           "description": "あなたの代表者を選んでください",
-          "mockElections": {
-            "title": "週刊模擬選挙",
-            "description": "党の補助金を分配し、私たちの統治システムを改善するのを手伝ってください",
-            "button": "近日公開"
+          "weeklyElections": {
+            "title": "週間選挙",
+            "description": "党の助成金を分配し、統治システムを改善するのを手伝ってください",
+            "button": "テスト選挙を開く"
+          },
+          "currentElectionPage": {
+            "title": "現在の選挙",
+            "testElectionTitle": "テスト選挙",
+            "testElectionSubtitle": "投票システムのテストにご協力ください",
+            "testElectionTooltip1": "詳細については、",
+            "testElectionTooltip2": "選挙に関するよくある質問",
+            "testElectionTooltip3": "をお読みください。",
+            "politicalParties": "政党",
+            "searchPlaceholder": "政党を検索...",
+            "leaderPrefix": "リーダー：",
+            "noActiveElection": "有効な選挙はありません",
+            "noActiveElectionDescription": "現在、選挙は行われていません",
+            "backToOverview": "概要に戻る",
+            "buttons": {
+              "voted": "投票済み",
+              "vote": "投票",
+              "processing": "処理中...",
+              "cancel": "キャンセル"
+            },
+            "confirmation": {
+              "vote": {
+                "title": "投票を確認",
+                "description": "{{partyName}}に投票しようとしています。この操作はブロックチェーンに記録されます。",
+                "confirmText": "投票を確認"
+              },
+              "change": {
+                "title": "投票を変更",
+                "description": "投票を{{previousPartyName}}から{{partyName}}に変更してもよろしいですか？",
+                "confirmText": "変更を確認"
+              },
+              "remove": {
+                "title": "投票を削除",
+                "description": "{{partyName}}への投票を削除してもよろしいですか？どの政党にも投票しないことになります。",
+                "confirmText": "はい、投票を削除します"
+              }
+            },
+            "toasts": {
+              "connectInWorldApp": "投票するには、このアプリをWorld Appで開いてください。",
+              "connectWallet": "最初にウォレットを接続してください。",
+              "noCurrentElection": "現在の選挙を特定できませんでした。",
+              "fetchStatusError": "投票状況の取得に失敗しました。もう一度お試しください。",
+              "transactionFailed": "トランザクションが失敗したか、拒否されました。",
+              "voteRemovedSuccess": "投票が正常に削除されました",
+              "voteSuccess": "{{partyName}}に正常に投票しました！",
+              "voteError": "投票中にエラーが発生しました。"
+            },
+            "electionFaqPage": {
+              "title": "選挙に関するよくある質問",
+              "items": {
+                "electionPurpose": {
+                  "question": "これらの選挙の目的は何ですか？",
+                  "answer": "これらの選挙は、私たちのガバナンスモデルの中核部分です。当初、彼らは党の助成金がどのように分配されるかを決定し、受け取った支援に基づいて党に報酬を与えます。私たちのシステムが成熟するにつれて、選挙結果は党にさらに重要な責任を与えることになります。これは、私たちが学び、改善するのを助けるための反復的なプロセスです。"
+                },
+                "ballotQualification": {
+                  "question": "党はどのようにして投票用紙に載るのですか？",
+                  "answer": "投票用紙に載るためには、党はベーシックインカムプラス受給者の総数の少なくとも0.05％に相当するメンバーを持っている必要があります。これにより、党がアクティブで検証済みのメンバーからの基本的なレベルのサポートを確保できます。"
+                },
+                "howToVote": {
+                  "question": "どのように投票しますか？",
+                  "answer": "選挙ページでは、資格のある政党のリストを見ることができます。支持したい政党の横にある「投票」ボタンをタップするだけです。ウォレットを介して投票を確認するように求められます。"
+                },
+                "canIChangeVote": {
+                  "question": "投票を変更できますか？",
+                  "answer": "はい、選挙が有効である限り、いつでも投票を変更できます。別の政党に投票するだけで、以前の投票は置き換えられます。投票を完全に削除することもできます。"
+                },
+                "electionDeadline": {
+                  "question": "選挙はいつ終了しますか？",
+                  "answer": "週間選挙は、日曜日の23:59:59 UTCまで実施されます。現在の週の選挙でカウントされるためには、この時間までに投票する必要があります。"
+                },
+                "isVoteAnonymous": {
+                  "question": "私の投票は匿名ですか？",
+                  "answer": "投票は偽名です。あなたの投票は透明性のためにブロックチェーン上のあなたのウォレットアドレスにリンクされていますが、あなたの現実世界の身元は直接それに関連付けられていません。"
+                },
+                "whatArePartySubsidies": {
+                  "question": "党の助成金とは何ですか？",
+                  "answer": "党の助成金は、受け取った票に基づいて政党に分配される報酬です。このプログラムは、党の活動に資金を提供し、彼らが成長するのを助けます。<a href=\"/{{lang}}/earn/contribute/party-subsidy\" class=\"font-medium text-gray-900 underline\">党助成金プログラム</a>について詳しく知ることができます。"
+                }
+              }
+            }
           }
         },
         "referendums": {

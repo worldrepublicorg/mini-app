@@ -590,10 +590,90 @@
         "elections": {
           "title": "Elecciones",
           "description": "Elige a tus representantes",
-          "mockElections": {
-            "title": "Elecciones simuladas semanales",
+          "weeklyElections": {
+            "title": "Elecciones Semanales",
             "description": "Ayúdanos a distribuir los subsidios de los partidos y a mejorar nuestro sistema de gobierno",
-            "button": "Próximamente"
+            "button": "Abrir elección de prueba"
+          },
+          "currentElectionPage": {
+            "title": "Elección Actual",
+            "testElectionTitle": "Elección de Prueba",
+            "testElectionSubtitle": "Ayúdanos a probar nuestro sistema de votación",
+            "testElectionTooltip1": "Para más información, por favor lee las ",
+            "testElectionTooltip2": "FAQ de la elección",
+            "testElectionTooltip3": ".",
+            "politicalParties": "Partidos políticos",
+            "searchPlaceholder": "Buscar partidos...",
+            "leaderPrefix": "Líder: ",
+            "noActiveElection": "No hay Elecciones Activas",
+            "noActiveElectionDescription": "No hay ninguna elección en curso actualmente",
+            "backToOverview": "Volver a la descripción general",
+            "buttons": {
+              "voted": "Votado",
+              "vote": "Votar",
+              "processing": "Procesando...",
+              "cancel": "Cancelar"
+            },
+            "confirmation": {
+              "vote": {
+                "title": "Confirma tu Voto",
+                "description": "Estás a punto de emitir tu voto por {{partyName}}. Esta acción se registrará en la cadena de bloques.",
+                "confirmText": "Confirmar voto"
+              },
+              "change": {
+                "title": "Cambia tu Voto",
+                "description": "¿Estás seguro de que quieres cambiar tu voto de {{previousPartyName}} a {{partyName}}?",
+                "confirmText": "Confirmar cambio"
+              },
+              "remove": {
+                "title": "Elimina tu Voto",
+                "description": "¿Estás seguro de que quieres eliminar tu voto por {{partyName}}? No votarás por ningún partido.",
+                "confirmText": "Sí, eliminar voto"
+              }
+            },
+            "toasts": {
+              "connectInWorldApp": "Por favor, abre esta aplicación en la World App para votar.",
+              "connectWallet": "Por favor, conecta tu billetera primero.",
+              "noCurrentElection": "No se pudo determinar la elección actual.",
+              "fetchStatusError": "Error al obtener el estado de la votación. Por favor, inténtalo de nuevo.",
+              "transactionFailed": "La transacción falló o fue rechazada.",
+              "voteRemovedSuccess": "Voto eliminado con éxito",
+              "voteSuccess": "¡Votaste con éxito por {{partyName}}!",
+              "voteError": "Ocurrió un error al emitir tu voto."
+            },
+            "electionFaqPage": {
+              "title": "FAQ de la Elección",
+              "items": {
+                "electionPurpose": {
+                  "question": "¿Cuál es el propósito de estas elecciones?",
+                  "answer": "Estas elecciones son una parte fundamental de nuestro modelo de gobernanza. Inicialmente, determinan cómo se distribuyen los subsidios de los partidos, recompensando a los partidos en función del apoyo que reciben. A medida que nuestro sistema madure, los resultados de las elecciones otorgarán a los partidos responsabilidades más significativas. Este es un proceso iterativo para ayudarnos a aprender y mejorar."
+                },
+                "ballotQualification": {
+                  "question": "¿Cómo entra un partido en la boleta electoral?",
+                  "answer": "Para estar en la boleta, un partido debe tener miembros que equivalgan al menos al 0,05% del número total de receptores de Ingreso Básico Plus. Esto asegura que los partidos tengan un nivel fundamental de apoyo de miembros activos y verificados."
+                },
+                "howToVote": {
+                  "question": "¿Cómo voto?",
+                  "answer": "En la página de elecciones, puedes ver una lista de los partidos políticos elegibles. Simplemente toca el botón 'Votar' junto al partido que quieres apoyar. Se te pedirá que confirmes tu voto a través de tu billetera."
+                },
+                "canIChangeVote": {
+                  "question": "¿Puedo cambiar mi voto?",
+                  "answer": "Sí, puedes cambiar tu voto en cualquier momento mientras la elección esté activa. Simplemente vota por un partido diferente, y tu voto anterior será reemplazado. También puedes eliminar tu voto por completo."
+                },
+                "electionDeadline": {
+                  "question": "¿Cuándo terminan las elecciones?",
+                  "answer": "Las elecciones semanales se llevan a cabo hasta el domingo a las 23:59:59 UTC. Los votos deben emitirse antes de este tiempo para ser contados para la elección de la semana en curso."
+                },
+                "isVoteAnonymous": {
+                  "question": "¿Mi voto es anónimo?",
+                  "answer": "La votación es seudónima. Si bien tu voto está vinculado a la dirección de tu billetera en la cadena de bloques para mayor transparencia, tu identidad del mundo real no está directamente vinculada a ella."
+                },
+                "whatArePartySubsidies": {
+                  "question": "¿Qué son los subsidios para partidos?",
+                  "answer": "Los subsidios para partidos son recompensas que se distribuyen a los partidos políticos en función de los votos que reciben. Este programa financia las actividades de los partidos y les ayuda a crecer. Puedes obtener más información sobre el <a href=\"/{{lang}}/earn/contribute/party-subsidy\" class=\"font-medium text-gray-900 underline\">Programa de Subsidios para Partidos</a>."
+                }
+              }
+            }
           }
         },
         "referendums": {

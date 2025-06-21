@@ -10,9 +10,10 @@ import { PollOfTheWeek } from "@/components/PollOfTheWeek";
 import { useTranslations } from "@/hooks/useTranslations";
 import { PoliticalPartyList } from "@/components/PoliticalPartyList";
 import { Button } from "@/components/ui/Button";
-import { PiUsersThreeFill, PiScalesFill } from "react-icons/pi";
+import { PiUsersThreeFill, PiScalesFill, PiInfoFill } from "react-icons/pi";
 import { useSearchParams } from "next/navigation";
 import type { TabKey } from "@/lib/types";
+import Link from "next/link";
 
 const TAB_KEYS = {
   ELECTIONS: "elections",
@@ -114,7 +115,7 @@ export default function GovernPage({
               >
                 {
                   dictionary?.pages?.govern?.sections?.elections
-                    ?.mockElections?.title
+                    ?.weeklyElections?.title
                 }
               </Typography>
               <Typography
@@ -123,15 +124,41 @@ export default function GovernPage({
               >
                 {
                   dictionary?.pages?.govern?.sections?.elections
-                    ?.mockElections?.description
+                    ?.weeklyElections?.description
                 }
+                <span className="group relative ml-1 inline-flex items-center align-baseline">
+                  <PiInfoFill className="h-4 w-4 translate-y-[2px] cursor-help text-gray-400" />
+                  <div className="absolute -right-4 bottom-full z-10 mb-2 hidden w-[calc(100dvw/2+24px)] max-w-sm transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
+                    <p className="text-left text-gray-700">
+                      {
+                        dictionary?.pages?.govern?.sections?.elections
+                          ?.currentElectionPage?.testElectionTooltip1
+                      }
+                      <Link
+                        href={`/${lang}/govern/election/faq`}
+                        className="text-gray-900 underline"
+                      >
+                        {
+                          dictionary?.pages?.govern?.sections?.elections
+                            ?.currentElectionPage?.testElectionTooltip2
+                        }
+                      </Link>
+                      {
+                        dictionary?.pages?.govern?.sections?.elections
+                          ?.currentElectionPage?.testElectionTooltip3
+                      }
+                    </p>
+                  </div>
+                </span>
               </Typography>
-              <Button variant="primary" fullWidth disabled>
-                {
-                  dictionary?.pages?.govern?.sections?.elections
-                    ?.mockElections?.button
-                }
-              </Button>
+              <Link href={`/${lang}/govern/election`} className="w-full">
+                <Button variant="primary" fullWidth>
+                  {
+                    dictionary?.pages?.govern?.sections?.elections
+                      ?.weeklyElections?.button
+                  }
+                </Button>
+              </Link>
             </div>
           </>
         );

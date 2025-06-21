@@ -579,10 +579,90 @@
         "elections": {
           "title": "选举",
           "description": "选择您的代表",
-          "mockElections": {
-            "title": "每周模拟选举",
+          "weeklyElections": {
+            "title": "每周选举",
             "description": "帮助我们分配政党补贴并改善我们的治理体系",
-            "button": "即将推出"
+            "button": "打开测试选举"
+          },
+          "currentElectionPage": {
+            "title": "当前选举",
+            "testElectionTitle": "测试选举",
+            "testElectionSubtitle": "帮助我们测试投票系统",
+            "testElectionTooltip1": "有关更多信息，请阅读",
+            "testElectionTooltip2": "选举常见问题解答",
+            "testElectionTooltip3": "。",
+            "politicalParties": "政党",
+            "searchPlaceholder": "搜索政党...",
+            "leaderPrefix": "领导人：",
+            "noActiveElection": "无有效选举",
+            "noActiveElectionDescription": "当前没有正在进行的选举",
+            "backToOverview": "返回概览",
+            "buttons": {
+              "voted": "已投票",
+              "vote": "投票",
+              "processing": "处理中...",
+              "cancel": "取消"
+            },
+            "confirmation": {
+              "vote": {
+                "title": "确认您的投票",
+                "description": "您即将为{{partyName}}投票。此操作将记录在区块链上。",
+                "confirmText": "确认投票"
+              },
+              "change": {
+                "title": "更改您的投票",
+                "description": "您确定要将您的投票从{{previousPartyName}}更改为{{partyName}}吗？",
+                "confirmText": "确认更改"
+              },
+              "remove": {
+                "title": "移除您的投票",
+                "description": "您确定要移除您对{{partyName}}的投票吗？您将不会为任何政党投票。",
+                "confirmText": "是的，移除投票"
+              }
+            },
+            "toasts": {
+              "connectInWorldApp": "请在World App中打开此应用程序进行投票。",
+              "connectWallet": "请先连接您的钱包。",
+              "noCurrentElection": "无法确定当前选举。",
+              "fetchStatusError": "获取投票状态失败。请重试。",
+              "transactionFailed": "交易失败或被拒绝。",
+              "voteRemovedSuccess": "投票已成功移除",
+              "voteSuccess": "成功为{{partyName}}投票！",
+              "voteError": "投票时发生错误。"
+            },
+            "electionFaqPage": {
+              "title": "选举常见问题解答",
+              "items": {
+                "electionPurpose": {
+                  "question": "这些选举的目的是什么？",
+                  "answer": "这些选举是我们治理模式的核心部分。最初，它们根据政党获得的支持来决定如何分配政党补贴，从而奖励政党。随着我们系统的成熟，选举结果将赋予政党更重大的责任。这是一个迭代过程，以帮助我们学习和改进。"
+                },
+                "ballotQualification": {
+                  "question": "一个政党如何进入选票？",
+                  "answer": "要进入选票，一个政党必须拥有至少相当于基本收入增强版总接收者人数0.05%的成员。这确保了政党拥有来自活跃、已验证成员的基本支持水平。"
+                },
+                "howToVote": {
+                  "question": "我如何投票？",
+                  "answer": "在选举页面上，您可以看到合格政党的列表。只需点击您想支持的政党旁边的'投票'按钮。您将被提示通过您的钱包确认您的投票。"
+                },
+                "canIChangeVote": {
+                  "question": "我可以更改我的投票吗？",
+                  "answer": "是的，您可以在选举进行期间随时更改您的投票。只需为另一个政党投票，您之前的投票就会被替换。您也可以完全撤销您的投票。"
+                },
+                "electionDeadline": {
+                  "question": "选举何时结束？",
+                  "answer": "每周选举持续到世界标准时间周日23:59:59。必须在此时间之前投票，才能计入当周的选举。"
+                },
+                "isVoteAnonymous": {
+                  "question": "我的投票是匿名的吗？",
+                  "answer": "投票是假名的。虽然您的投票为了透明度与您在区块链上的钱包地址相关联，但您的真实世界身份并不会直接与之关联。"
+                },
+                "whatArePartySubsidies": {
+                  "question": "什么是政党补贴？",
+                  "answer": "政党补贴是根据政党获得的选票分配给政党的奖励。该计划资助政党活动并帮助其发展。您可以了解更多关于<a href=\"/{{lang}}/earn/contribute/party-subsidy\" class=\"font-medium text-gray-900 underline\">政党补贴计划</a>的信息。"
+                }
+              }
+            }
           }
         },
         "referendums": {
@@ -596,7 +676,8 @@
         },
         "politicalParties": {
           "title": "政党",
-          "description": "围绕共同价值观全球团结"
+          "description": "政党在世界共和国的治理中扮演着至关重要的角色。了解更多关于不同政党及其纲领的信息。",
+          "searchPlaceholder": "搜索政党"
         }
       }
     },

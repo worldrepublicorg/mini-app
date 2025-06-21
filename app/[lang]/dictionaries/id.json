@@ -580,10 +580,90 @@
         "elections": {
           "title": "Pemilu",
           "description": "Pilih perwakilan Anda",
-          "mockElections": {
-            "title": "Pemilu Uji Coba Mingguan",
-            "description": "Bantu kami mendistribusikan subsidi partai dan meningkatkan sistem tata kelola kami",
-            "button": "Segera hadir"
+          "weeklyElections": {
+            "title": "Pemilu Mingguan",
+            "description": "Bantu kami mendistribusikan subsidi partai dan meningkatkan sistem pemerintahan kami",
+            "button": "Buka pemilu percobaan"
+          },
+          "currentElectionPage": {
+            "title": "Pemilu Saat Ini",
+            "testElectionTitle": "Pemilu Percobaan",
+            "testElectionSubtitle": "Bantu kami menguji sistem pemungutan suara kami",
+            "testElectionTooltip1": "Untuk informasi lebih lanjut, silakan baca ",
+            "testElectionTooltip2": "FAQ pemilu",
+            "testElectionTooltip3": ".",
+            "politicalParties": "Partai politik",
+            "searchPlaceholder": "Cari partai...",
+            "leaderPrefix": "Pemimpin: ",
+            "noActiveElection": "Tidak Ada Pemilu Aktif",
+            "noActiveElectionDescription": "Saat ini tidak ada pemilu yang sedang berlangsung",
+            "backToOverview": "Kembali ke ringkasan",
+            "buttons": {
+              "voted": "Telah Memilih",
+              "vote": "Pilih",
+              "processing": "Memproses...",
+              "cancel": "Batal"
+            },
+            "confirmation": {
+              "vote": {
+                "title": "Konfirmasi Pilihan Anda",
+                "description": "Anda akan memberikan suara Anda untuk {{partyName}}. Tindakan ini akan dicatat di blockchain.",
+                "confirmText": "Konfirmasi pilihan"
+              },
+              "change": {
+                "title": "Ubah Pilihan Anda",
+                "description": "Apakah Anda yakin ingin mengubah suara Anda dari {{previousPartyName}} menjadi {{partyName}}?",
+                "confirmText": "Konfirmasi perubahan"
+              },
+              "remove": {
+                "title": "Hapus Pilihan Anda",
+                "description": "Apakah Anda yakin ingin menghapus suara Anda untuk {{partyName}}? Anda tidak akan memilih partai manapun.",
+                "confirmText": "Ya, hapus pilihan"
+              }
+            },
+            "toasts": {
+              "connectInWorldApp": "Silakan buka aplikasi ini di World App untuk memilih.",
+              "connectWallet": "Silakan hubungkan dompet Anda terlebih dahulu.",
+              "noCurrentElection": "Tidak dapat menentukan pemilu saat ini.",
+              "fetchStatusError": "Gagal mengambil status pemungutan suara. Silakan coba lagi.",
+              "transactionFailed": "Transaksi gagal atau ditolak.",
+              "voteRemovedSuccess": "Pilihan berhasil dihapus",
+              "voteSuccess": "Berhasil memilih {{partyName}}!",
+              "voteError": "Terjadi kesalahan saat memberikan suara Anda."
+            },
+            "electionFaqPage": {
+              "title": "FAQ Pemilu",
+              "items": {
+                "electionPurpose": {
+                  "question": "Apa tujuan dari pemilu ini?",
+                  "answer": "Pemilu ini adalah bagian inti dari model tata kelola kami. Awalnya, mereka menentukan bagaimana subsidi partai didistribusikan, memberikan penghargaan kepada partai berdasarkan dukungan yang mereka terima. Seiring sistem kami matang, hasil pemilu akan memberikan tanggung jawab yang lebih signifikan kepada partai. Ini adalah proses berulang untuk membantu kami belajar dan berkembang."
+                },
+                "ballotQualification": {
+                  "question": "Bagaimana sebuah partai bisa masuk ke surat suara?",
+                  "answer": "Untuk bisa masuk ke surat suara, sebuah partai harus memiliki anggota yang setara dengan setidaknya 0,05% dari jumlah total penerima Basic Income Plus. Ini memastikan bahwa partai memiliki tingkat dukungan dasar dari anggota yang aktif dan terverifikasi."
+                },
+                "howToVote": {
+                  "question": "Bagaimana cara saya memilih?",
+                  "answer": "Di halaman pemilu, Anda dapat melihat daftar partai politik yang memenuhi syarat. Cukup ketuk tombol 'Pilih' di sebelah partai yang ingin Anda dukung. Anda akan diminta untuk mengkonfirmasi suara Anda melalui dompet Anda."
+                },
+                "canIChangeVote": {
+                  "question": "Bisakah saya mengubah suara saya?",
+                  "answer": "Ya, Anda dapat mengubah suara Anda kapan saja selama pemilu aktif. Cukup pilih partai yang berbeda, dan suara Anda sebelumnya akan diganti. Anda juga dapat menghapus suara Anda sepenuhnya."
+                },
+                "electionDeadline": {
+                  "question": "Kapan pemilu berakhir?",
+                  "answer": "Pemilu mingguan berlangsung hingga hari Minggu pukul 23:59:59 UTC. Suara harus diberikan sebelum waktu ini untuk dihitung dalam pemilu minggu ini."
+                },
+                "isVoteAnonymous": {
+                  "question": "Apakah suara saya anonim?",
+                  "answer": "Pemungutan suara bersifat pseudonim. Meskipun suara Anda terhubung ke alamat dompet Anda di blockchain untuk transparansi, identitas dunia nyata Anda tidak terikat langsung padanya."
+                },
+                "whatArePartySubsidies": {
+                  "question": "Apa itu subsidi partai?",
+                  "answer": "Subsidi partai adalah imbalan yang didistribusikan kepada partai politik berdasarkan suara yang mereka terima. Program ini mendanai kegiatan partai dan membantu mereka tumbuh. Anda dapat mempelajari lebih lanjut tentang <a href=\"/{{lang}}/earn/contribute/party-subsidy\" class=\"font-medium text-gray-900 underline\">Program Subsidi Partai</a>."
+                }
+              }
+            }
           }
         },
         "referendums": {

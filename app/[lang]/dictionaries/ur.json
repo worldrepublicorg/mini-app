@@ -581,12 +581,92 @@
           }
         },
         "elections": {
-          "title": "انتخابات",
-          "description": "اپنے نمائندوں کا انتخاب کریں",
-          "mockElections": {
-            "title": "ہفتہ وار فرضی انتخابات",
-            "description": "پارٹی سبسڈی تقسیم کرنے اور ہمارے نظام حکومت کو بہتر بنانے میں ہماری مدد کریں",
-            "button": "جلد آرہا ہے۔"
+          "title": "الیکشنز",
+          "description": "اپنے نمائندوں کا انتخاب کریں۔",
+          "weeklyElections": {
+            "title": "ہفتہ وار انتخابات",
+            "description": "پارٹی سبسڈی تقسیم کرنے اور ہمارے نظام حکومت کو بہتر بنانے میں ہماری مدد کریں۔",
+            "button": "ٹیسٹ الیکشن کھولیں۔"
+          },
+          "currentElectionPage": {
+            "title": "موجودہ الیکشن",
+            "testElectionTitle": "ٹیسٹ الیکشن",
+            "testElectionSubtitle": "ہمارے ووٹنگ سسٹم کو جانچنے میں ہماری مدد کریں۔",
+            "testElectionTooltip1": "مزید معلومات کے لیے، براہ کرم ",
+            "testElectionTooltip2": "الیکشن کے عمومی سوالات",
+            "testElectionTooltip3": " پڑھیں۔",
+            "politicalParties": "سیاسی جماعتیں",
+            "searchPlaceholder": "پارٹیاں تلاش کریں...",
+            "leaderPrefix": "لیڈر: ",
+            "noActiveElection": "کوئی فعال الیکشن نہیں",
+            "noActiveElectionDescription": "فی الحال کوئی الیکشن نہیں چل رہا ہے۔",
+            "backToOverview": "جائزہ پر واپس",
+            "buttons": {
+              "voted": "ووٹ دے دیا",
+              "vote": "ووٹ دیں",
+              "processing": "پروسیسنگ...",
+              "cancel": "منسوخ کریں"
+            },
+            "confirmation": {
+              "vote": {
+                "title": "اپنے ووٹ کی تصدیق کریں",
+                "description": "آپ {{partyName}} کے لیے اپنا ووٹ ڈالنے والے ہیں۔ یہ کارروائی بلاک چین پر ریکارڈ کی جائے گی۔",
+                "confirmText": "ووٹ کی تصدیق کریں"
+              },
+              "change": {
+                "title": "اپنا ووٹ تبدیل کریں",
+                "description": "کیا آپ واقعی اپنا ووٹ {{previousPartyName}} سے {{partyName}} میں تبدیل کرنا چاہتے ہیں؟",
+                "confirmText": "تبدیلی کی تصدیق کریں"
+              },
+              "remove": {
+                "title": "اپنا ووٹ ہٹائیں",
+                "description": "کیا آپ واقعی {{partyName}} کے لیے اپنا ووٹ ہٹانا چاہتے ہیں؟ آپ کسی بھی پارٹی کے لیے ووٹ نہیں دے رہے ہوں گے۔",
+                "confirmText": "ہاں، ووٹ ہٹائیں"
+              }
+            },
+            "toasts": {
+              "connectInWorldApp": "ووٹ دینے کے لیے براہ کرم اس ایپ کو ورلڈ ایپ میں کھولیں۔",
+              "connectWallet": "براہ کرم پہلے اپنا پرس جوڑیں۔",
+              "noCurrentElection": "موجودہ الیکشن کا تعین نہیں ہو سکا۔",
+              "fetchStatusError": "ووٹنگ کی حیثیت حاصل کرنے میں ناکام۔ براہ کرم دوبارہ کوشش کریں۔",
+              "transactionFailed": "لین دین ناکام ہو گیا یا مسترد کر دیا گیا۔",
+              "voteRemovedSuccess": "ووٹ کامیابی سے ہٹا دیا گیا۔",
+              "voteSuccess": "{{partyName}} کے لیے کامیابی سے ووٹ دیا گیا!",
+              "voteError": "آپ کا ووٹ ڈالتے وقت ایک خرابی پیش آئی۔"
+            },
+            "electionFaqPage": {
+              "title": "الیکشن عمومی سوالات",
+              "items": {
+                "electionPurpose": {
+                  "question": "ان انتخابات کا مقصد کیا ہے؟",
+                  "answer": "یہ انتخابات ہمارے حکومتی ماڈل کا ایک اہم حصہ ہیں۔ ابتدائی طور پر، وہ اس بات کا تعین کرتے ہیں کہ پارٹی سبسڈی کیسے تقسیم کی جاتی ہے، پارٹیوں کو ان کی حمایت کی بنیاد پر انعام دیا جاتا ہے۔ جیسے جیسے ہمارا نظام پختہ ہوتا جائے گا، انتخابات کے نتائج پارٹیوں کو زیادہ اہم ذمہ داریاں دیں گے۔ یہ سیکھنے اور بہتر بنانے میں ہماری مدد کرنے کا ایک تکراری عمل ہے۔"
+                },
+                "ballotQualification": {
+                  "question": "ایک پارٹی بیلٹ پر کیسے آتی ہے؟",
+                  "answer": "بیلٹ پر آنے کے لیے، ایک پارٹی کے ممبران کی تعداد بنیادی انکم پلس وصول کنندگان کی کل تعداد کا کم از کم 0.05% ہونا چاہیے۔ یہ یقینی بناتا ہے کہ پارٹیوں کو فعال، تصدیق شدہ ممبران کی طرف سے بنیادی سطح کی حمایت حاصل ہے۔"
+                },
+                "howToVote": {
+                  "question": "میں ووٹ کیسے دوں؟",
+                  "answer": "الیکشن کے صفحے پر، آپ اہل سیاسی جماعتوں کی فہرست دیکھ سکتے ہیں۔ جس پارٹی کی آپ حمایت کرنا چاہتے ہیں اس کے آگے 'ووٹ' کے بٹن پر ٹیپ کریں۔ آپ سے اپنے پرس کے ذریعے اپنے ووٹ کی تصدیق کرنے کہا جائے گا۔"
+                },
+                "canIChangeVote": {
+                  "question": "کیا میں اپنا ووٹ تبدیل کر سکتا ہوں؟",
+                  "answer": "ہاں، آپ الیکشن فعال ہونے کے دوران کسی بھی وقت اپنا ووٹ تبدیل کر سکتے ہیں۔ بس ایک مختلف پارٹی کے لیے ووٹ دیں، اور آپ کا پچھلا ووٹ بدل دیا جائے گا۔ آپ اپنا ووٹ مکمل طور پر ہٹا بھی سکتے ہیں۔"
+                },
+                "electionDeadline": {
+                  "question": "انتخابات کب ختم ہوتے ہیں؟",
+                  "answer": "ہفتہ وار انتخابات اتوار کو 23:59:59 UTC تک چلتے ہیں۔ موجودہ ہفتے کے الیکشن کے لیے ووٹوں کا شمار ہونے کے لیے اس وقت سے پہلے ڈالنا ضروری ہے۔"
+                },
+                "isVoteAnonymous": {
+                  "question": "کیا میرا ووٹ گمنام ہے؟",
+                  "answer": "ووٹنگ سیوڈونیمس ہے۔ اگرچہ آپ کا ووٹ شفافیت کے لیے بلاک چین پر آپ کے پرس کے پتے سے منسلک ہے، لیکن آپ کی حقیقی دنیا کی شناخت براہ راست اس سے منسلک نہیں ہے۔"
+                },
+                "whatArePartySubsidies": {
+                  "question": "پارٹی سبسڈی کیا ہیں؟",
+                  "answer": "پارٹی سبسڈی سیاسی جماعتوں کو ان کے حاصل کردہ ووٹوں کی بنیاد پر تقسیم کیے جانے والے انعامات ہیں۔ یہ پروگرام پارٹی کی سرگرمیوں کو فنڈ دیتا ہے اور انہیں بڑھنے میں مدد کرتا ہے۔ آپ <a href=\"/{{lang}}/earn/contribute/party-subsidy\" class=\"font-medium text-gray-900 underline\">پارٹی سبسڈی پروگرام</a> کے بارے میں مزید جان سکتے ہیں۔"
+                }
+              }
+            }
           }
         },
         "referendums": {
@@ -642,7 +722,7 @@
         },
         "basicIncome": {
           "question": "بنیادی آمدنی کیا ہے؟",
-          "answer": "ہماری بنیادی آمدنی روزانہ 0.04 WDD (ورلڈ دراخما) کی سبسڈی ہے جو ورلڈ ریپبلک کے تمام شہریوں کو فراہم کی جاتی ہے۔ یہ حقیقی وقت میں جمع ہوتی ہے اور ایپ کے ذریعے کسی بھی وقت دعویٰ کیا جا سکتا ہے۔"
+          "answer": "ہماری بنیادی آمدنی روزانہ 0.04 WDD (ورلڈ دراخما) کی سبسڈی ہے جو ورلڈ ریپبلک کے تمام شہریوں کو فراہم کی جاتی ہے۔ یہ حقیقی وقت میں جمع ہوتی ہے اور ایپ کے ذریعہ کسی بھی وقت دعویٰ کیا جا سکتا ہے۔"
         },
         "basicIncomePlus": {
           "question": "میں بنیادی آمدنی پلس کو کیسے فعال کروں؟",
@@ -654,7 +734,7 @@
         },
         "referralCodes": {
           "question": "حوالہ کوڈز کیسے کام کرتے ہیں؟",
-          "answer": "عالمی جمہوریہ کے شہری کے طور پر، آپ ہمارے حوالہ پروگرام کے ذریعہ انعامات حاصل کر سکتے ہیں۔ اپنے منفرد حوالہ لنک کو دوستوں کے ساتھ شیئر کریں، اور آپ ہر اس شخص کے لیے 50 WDD حاصل کریں گے جو شامل ہوتا ہے اور Orb یا پاسپورٹ کے ذریعے تصدیق شدہ ہوتا ہے۔ آپ کو اپنا انعام نہیں ملا؟ آپ کے دوست کو اپنے حوالہ سیکشن میں 'حوالہ دہندہ کو انعام دیں' کا آپشن منتخب کر کے اسے دستی طور پر فعال کرنے کی ضرورت پڑ سکتی ہے۔"
+          "answer": "عالمی جمہوریہ کے شہری کے طور پر، آپ ہمارے حوالہ پروگرام کے ذریعہ انعامات حاصل کر سکتے ہیں۔ اپنے منفرد حوالہ لنک کو دوستوں کے ساتھ شیئر کریں، اور آپ ہر اس شخص کے لیے 50 WDD حاصل کریں گے جو شامل ہوتا ہے اور Orb یا پاسپورٹ کے ذریعہ تصدیق شدہ ہوتا ہے۔ آپ کو اپنا انعام نہیں ملا؟ آپ کے دوست کو اپنے حوالہ سیکشن میں 'حوالہ دہندہ کو انعام دیں' کا آپشن منتخب کر کے اسے دستی طور پر فعال کرنے کی ضرورت پڑ سکتی ہے۔"
         },
         "drachmaValue": {
           "question": "دراخما کو اس کی قیمت کہاں سے ملتی ہے؟",
@@ -662,7 +742,7 @@
         },
         "topWallets": {
           "question": "سب سے بڑے اکاؤنٹس کو کون کنٹرول کرتا ہے؟",
-          "answer": "تین سب سے بڑے اکاؤنٹس <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>ورلڈ ریپبلک ٹریژری</a>، <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>بنیادی انکم فنڈ</a>، اور <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>بنیادی انکم پلس فنڈ</a> ہیں۔ یہ فی الحال پروجیکٹ کے بانی کے زیر انتظام ہیں تاکہ استحکام کو یقینی بنایا جا سکے جب کہ ہم آہستہ آہستہ کنٹرول کمیونٹی کو منتقل کر رہے ہیں۔ دیگر اہم پتوں میں <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>سیونگز اکاؤنٹ کنٹریکٹ</a>، <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>ریفرل ریوارڈز ڈسٹری بیوٹر</a>، اور لیکویڈیٹی پولز شامل ہیں: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, and <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
+          "answer": "تین سب سے بڑے اکاؤنٹس <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>ورلڈ ریپبلک ٹریژری</a>، <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>بنیادی انکم فنڈ</a>، اور <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>بنیادی انکم پلس فنڈ</a> ہیں۔ یہ فی الحال پروجیکٹ کے بانی کے زیر انتظام ہیں تاکہ استحکام کو یقینی بنایا جا سکے جب کہ ہم آہستہ آہستہ کنٹرول کمیونٹی کو منتقل کر رہے ہیں۔ دیگر اہم پتوں میں <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>سیوینگز اکاؤنٹ کنٹریکٹ</a>، <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>ریفرل ریوارڈز ڈسٹری بیوٹر</a>، اور لیکویڈیٹی پولز شامل ہیں: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, and <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
         },
         "voteRequirements": {
           "question": "میں گورننس میں کیسے حصہ لے سکتا ہوں؟",

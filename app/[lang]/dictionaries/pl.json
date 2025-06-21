@@ -579,10 +579,90 @@
         "elections": {
           "title": "Wybory",
           "description": "Wybierz swoich przedstawicieli",
-          "mockElections": {
-            "title": "Cotygodniowe Wybory Próbne",
+          "weeklyElections": {
+            "title": "Cotygodniowe Wybory",
             "description": "Pomóż nam rozdzielać dotacje dla partii i ulepszać nasz system rządzenia",
-            "button": "Wkrótce"
+            "button": "Otwórz wybory testowe"
+          },
+          "currentElectionPage": {
+            "title": "Aktualne Wybory",
+            "testElectionTitle": "Wybory Testowe",
+            "testElectionSubtitle": "Pomóż nam przetestować nasz system głosowania",
+            "testElectionTooltip1": "Aby uzyskać więcej informacji, przeczytaj ",
+            "testElectionTooltip2": "FAQ wyborcze",
+            "testElectionTooltip3": ".",
+            "politicalParties": "Partie polityczne",
+            "searchPlaceholder": "Szukaj partii...",
+            "leaderPrefix": "Lider: ",
+            "noActiveElection": "Brak Aktywnych Wyborów",
+            "noActiveElectionDescription": "Obecnie nie trwają żadne wybory",
+            "backToOverview": "Powrót do przeglądu",
+            "buttons": {
+              "voted": "Zagłosowano",
+              "vote": "Głosuj",
+              "processing": "Przetwarzanie...",
+              "cancel": "Anuluj"
+            },
+            "confirmation": {
+              "vote": {
+                "title": "Potwierdź Swój Głos",
+                "description": "Zamierzasz oddać swój głos na {{partyName}}. Ta akcja zostanie zapisana na blockchainie.",
+                "confirmText": "Potwierdź głos"
+              },
+              "change": {
+                "title": "Zmień Swój Głos",
+                "description": "Czy na pewno chcesz zmienić swój głos z {{previousPartyName}} na {{partyName}}?",
+                "confirmText": "Potwierdź zmianę"
+              },
+              "remove": {
+                "title": "Usuń Swój Głos",
+                "description": "Czy na pewno chcesz usunąć swój głos na {{partyName}}? Nie będziesz głosować na żadną partię.",
+                "confirmText": "Tak, usuń głos"
+              }
+            },
+            "toasts": {
+              "connectInWorldApp": "Otwórz tę aplikację w World App, aby zagłosować.",
+              "connectWallet": "Najpierw podłącz swój portfel.",
+              "noCurrentElection": "Nie można ustalić bieżących wyborów.",
+              "fetchStatusError": "Nie udało się pobrać statusu głosowania. Spróbuj ponownie.",
+              "transactionFailed": "Transakcja nie powiodła się lub została odrzucona.",
+              "voteRemovedSuccess": "Głos usunięty pomyślnie",
+              "voteSuccess": "Pomyślnie oddano głos na {{partyName}}!",
+              "voteError": "Wystąpił błąd podczas oddawania głosu."
+            },
+            "electionFaqPage": {
+              "title": "FAQ Wyborcze",
+              "items": {
+                "electionPurpose": {
+                  "question": "Jaki jest cel tych wyborów?",
+                  "answer": "Te wybory są kluczowym elementem naszego modelu zarządzania. Początkowo decydują o podziale dotacji dla partii, nagradzając je na podstawie otrzymanego wsparcia. W miarę dojrzewania naszego systemu, wyniki wyborów będą przyznawać partiom coraz większe obowiązki. To proces iteracyjny, który pomoże nam się uczyć i doskonalić."
+                },
+                "ballotQualification": {
+                  "question": "Jak partia trafia na listę wyborczą?",
+                  "answer": "Aby znaleźć się na liście wyborczej, partia musi mieć członków stanowiących co najmniej 0,05% całkowitej liczby odbiorców Dochodu Podstawowego Plus. Zapewnia to, że partie mają podstawowy poziom wsparcia od aktywnych, zweryfikowanych członków."
+                },
+                "howToVote": {
+                  "question": "Jak głosować?",
+                  "answer": "Na stronie wyborów można zobaczyć listę uprawnionych partii politycznych. Wystarczy dotknąć przycisku 'Głosuj' obok partii, którą chcesz poprzeć. Zostaniesz poproszony o potwierdzenie głosu za pośrednictwem portfela."
+                },
+                "canIChangeVote": {
+                  "question": "Czy mogę zmienić swój głos?",
+                  "answer": "Tak, możesz zmienić swój głos w dowolnym momencie, gdy wybory są aktywne. Po prostu zagłosuj na inną partię, a Twój poprzedni głos zostanie zastąpiony. Możesz również całkowicie usunąć swój głos."
+                },
+                "electionDeadline": {
+                  "question": "Kiedy kończą się wybory?",
+                  "answer": "Cotygodniowe wybory trwają do niedzieli do 23:59:59 UTC. Głosy muszą zostać oddane przed tym czasem, aby zostały zaliczone do wyborów w bieżącym tygodniu."
+                },
+                "isVoteAnonymous": {
+                  "question": "Czy mój głos jest anonimowy?",
+                  "answer": "Głosowanie jest pseudonimowe. Chociaż Twój głos jest powiązany z adresem portfela na blockchainie w celu zapewnienia przejrzystości, Twoja tożsamość w świecie rzeczywistym nie jest z nim bezpośrednio powiązana."
+                },
+                "whatArePartySubsidies": {
+                  "question": "Czym są dotacje dla partii?",
+                  "answer": "Dotacje dla partii to nagrody przyznawane partiom politycznym na podstawie liczby otrzymanych głosów. Program ten finansuje działalność partii i pomaga im się rozwijać. Możesz dowiedzieć się więcej o <a href=\"/{{lang}}/earn/contribute/party-subsidy\" class=\"font-medium text-gray-900 underline\">Programie Dotacji dla Partii</a>."
+                }
+              }
+            }
           }
         },
         "referendums": {

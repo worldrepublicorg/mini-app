@@ -580,10 +580,90 @@
         "elections": {
           "title": "Eleições",
           "description": "Escolha seus representantes",
-          "mockElections": {
-            "title": "Eleições Simuladas Semanais",
+          "weeklyElections": {
+            "title": "Eleições Semanais",
             "description": "Ajude-nos a distribuir os subsídios partidários e a melhorar nosso sistema de governança",
-            "button": "Em breve"
+            "button": "Abrir eleição de teste"
+          },
+          "currentElectionPage": {
+            "title": "Eleição Atual",
+            "testElectionTitle": "Eleição de Teste",
+            "testElectionSubtitle": "Ajude-nos a testar nosso sistema de votação",
+            "testElectionTooltip1": "Para mais informações, por favor, leia o ",
+            "testElectionTooltip2": "FAQ da eleição",
+            "testElectionTooltip3": ".",
+            "politicalParties": "Partidos políticos",
+            "searchPlaceholder": "Buscar partidos...",
+            "leaderPrefix": "Líder: ",
+            "noActiveElection": "Nenhuma Eleição Ativa",
+            "noActiveElectionDescription": "Não há nenhuma eleição em andamento no momento",
+            "backToOverview": "Voltar à visão geral",
+            "buttons": {
+              "voted": "Votado",
+              "vote": "Votar",
+              "processing": "Processando...",
+              "cancel": "Cancelar"
+            },
+            "confirmation": {
+              "vote": {
+                "title": "Confirmar Seu Voto",
+                "description": "Você está prestes a registrar seu voto para {{partyName}}. Esta ação será registrada na blockchain.",
+                "confirmText": "Confirmar voto"
+              },
+              "change": {
+                "title": "Mudar Seu Voto",
+                "description": "Tem certeza de que deseja mudar seu voto de {{previousPartyName}} para {{partyName}}?",
+                "confirmText": "Confirmar mudança"
+              },
+              "remove": {
+                "title": "Remover Seu Voto",
+                "description": "Tem certeza de que deseja remover seu voto para {{partyName}}? Você não estará votando em nenhum partido.",
+                "confirmText": "Sim, remover voto"
+              }
+            },
+            "toasts": {
+              "connectInWorldApp": "Por favor, abra este aplicativo no World App para votar.",
+              "connectWallet": "Por favor, conecte sua carteira primeiro.",
+              "noCurrentElection": "Não foi possível determinar a eleição atual.",
+              "fetchStatusError": "Falha ao buscar o status da votação. Por favor, tente novamente.",
+              "transactionFailed": "A transação falhou ou foi rejeitada.",
+              "voteRemovedSuccess": "Voto removido com sucesso",
+              "voteSuccess": "Voto para {{partyName}} registrado com sucesso!",
+              "voteError": "Ocorreu um erro ao registrar seu voto."
+            },
+            "electionFaqPage": {
+              "title": "FAQ da Eleição",
+              "items": {
+                "electionPurpose": {
+                  "question": "Qual é o propósito destas eleições?",
+                  "answer": "Estas eleições são uma parte central do nosso modelo de governança. Inicialmente, elas determinam como os subsídios para os partidos são distribuídos, recompensando os partidos com base no apoio que recebem. À medida que nosso sistema amadurece, os resultados das eleições concederão responsabilidades mais significativas aos partidos. Este é um processo iterativo para nos ajudar a aprender e melhorar."
+                },
+                "ballotQualification": {
+                  "question": "Como um partido entra na cédula de votação?",
+                  "answer": "Para estar na cédula, um partido deve ter membros equivalentes a pelo menos 0,05% do número total de beneficiários da Renda Básica Plus. Isso garante que os partidos tenham um nível fundamental de apoio de membros ativos e verificados."
+                },
+                "howToVote": {
+                  "question": "Como eu voto?",
+                  "answer": "Na página da eleição, você pode ver uma lista de partidos políticos elegíveis. Basta tocar no botão 'Votar' ao lado do partido que deseja apoiar. Você será solicitado a confirmar seu voto através de sua carteira."
+                },
+                "canIChangeVote": {
+                  "question": "Posso mudar meu voto?",
+                  "answer": "Sim, você pode mudar seu voto a qualquer momento enquanto a eleição estiver ativa. Basta votar em um partido diferente, e seu voto anterior será substituído. Você também pode remover seu voto completamente."
+                },
+                "electionDeadline": {
+                  "question": "Quando as eleições terminam?",
+                  "answer": "As eleições semanais ocorrem até domingo às 23:59:59 UTC. Os votos devem ser registrados antes deste horário para serem contados para a eleição da semana atual."
+                },
+                "isVoteAnonymous": {
+                  "question": "Meu voto é anônimo?",
+                  "answer": "A votação é pseudônima. Embora seu voto esteja vinculado ao endereço da sua carteira na blockchain para transparência, sua identidade do mundo real não está diretamente ligada a ele."
+                },
+                "whatArePartySubsidies": {
+                  "question": "O que são os subsídios para partidos?",
+                  "answer": "Os subsídios para partidos são recompensas distribuídas aos partidos políticos com base nos votos que recebem. Este programa financia as atividades dos partidos e os ajuda a crescer. Você pode saber mais sobre o <a href=\"/{{lang}}/earn/contribute/party-subsidy\" class=\"font-medium text-gray-900 underline\">Programa de Subsídio para Partidos</a>."
+                }
+              }
+            }
           }
         },
         "referendums": {

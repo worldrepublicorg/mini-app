@@ -581,9 +581,89 @@
           "title": "Pilihan Raya",
           "description": "Pilih wakil anda",
           "mockElections": {
-            "title": "Pilihan Raya Olok-olokan Mingguan",
-            "description": "Bantu kami mengagihkan subsidi parti dan menambah baik sistem tadbir urus kami",
-            "button": "Akan datang"
+            "title": "Pilihan Raya Mingguan",
+            "description": "Bantu kami mengagihkan subsidi parti dan memperbaiki sistem tadbir urus kami",
+            "button": "Buka pilihan raya ujian"
+          },
+          "currentElectionPage": {
+            "title": "Pilihan Raya Semasa",
+            "testElectionTitle": "Pilihan Raya Ujian",
+            "testElectionSubtitle": "Bantu kami menguji sistem pengundian kami",
+            "testElectionTooltip1": "Untuk maklumat lanjut, sila baca ",
+            "testElectionTooltip2": "Soalan Lazim pilihan raya",
+            "testElectionTooltip3": ".",
+            "politicalParties": "Parti-parti politik",
+            "searchPlaceholder": "Cari parti...",
+            "leaderPrefix": "Ketua: ",
+            "noActiveElection": "Tiada Pilihan Raya Aktif",
+            "noActiveElectionDescription": "Tiada pilihan raya yang sedang berjalan pada masa ini",
+            "backToOverview": "Kembali ke gambaran keseluruhan",
+            "buttons": {
+              "voted": "Telah Mengundi",
+              "vote": "Undi",
+              "processing": "Memproses...",
+              "cancel": "Batal"
+            },
+            "confirmation": {
+              "vote": {
+                "title": "Sahkan Undi Anda",
+                "description": "Anda akan memberikan undi anda untuk {{partyName}}. Tindakan ini akan direkodkan pada blockchain.",
+                "confirmText": "Sahkan undi"
+              },
+              "change": {
+                "title": "Tukar Undi Anda",
+                "description": "Adakah anda pasti mahu menukar undi anda dari {{previousPartyName}} kepada {{partyName}}?",
+                "confirmText": "Sahkan perubahan"
+              },
+              "remove": {
+                "title": "Buang Undi Anda",
+                "description": "Adakah anda pasti mahu membuang undi anda untuk {{partyName}}? Anda tidak akan mengundi mana-mana parti.",
+                "confirmText": "Ya, buang undi"
+              }
+            },
+            "toasts": {
+              "connectInWorldApp": "Sila buka aplikasi ini dalam Aplikasi Dunia untuk mengundi.",
+              "connectWallet": "Sila sambungkan dompet anda terlebih dahulu.",
+              "noCurrentElection": "Tidak dapat menentukan pilihan raya semasa.",
+              "fetchStatusError": "Gagal mendapatkan status pengundian. Sila cuba lagi.",
+              "transactionFailed": "Transaksi gagal atau ditolak.",
+              "voteRemovedSuccess": "Undi berjaya dibuang",
+              "voteSuccess": "Berjaya mengundi untuk {{partyName}}!",
+              "voteError": "Ralat berlaku semasa membuang undi anda."
+            },
+            "electionFaqPage": {
+              "title": "Soalan Lazim Pilihan Raya",
+              "items": {
+                "electionPurpose": {
+                  "question": "Apakah tujuan pilihan raya ini?",
+                  "answer": "Pilihan raya ini adalah bahagian teras model tadbir urus kami. Pada mulanya, mereka menentukan bagaimana subsidi parti diagihkan, memberi ganjaran kepada parti berdasarkan sokongan yang mereka terima. Apabila sistem kami matang, keputusan pilihan raya akan memberikan tanggungjawab yang lebih besar kepada parti. Ini adalah proses berulang untuk membantu kami belajar dan memperbaiki."
+                },
+                "ballotQualification": {
+                  "question": "Bagaimanakah sesebuah parti boleh masuk ke dalam kertas undi?",
+                  "answer": "Untuk berada di atas kertas undi, sesebuah parti mesti mempunyai ahli yang sama dengan sekurang-kurangnya 0.05% daripada jumlah penerima Pendapatan Asas Plus. Ini memastikan bahawa parti mempunyai tahap sokongan asas daripada ahli yang aktif dan disahkan."
+                },
+                "howToVote": {
+                  "question": "Bagaimana cara saya mengundi?",
+                  "answer": "Di halaman pilihan raya, anda boleh melihat senarai parti politik yang layak. Hanya ketik butang 'Undi' di sebelah parti yang ingin anda sokong. Anda akan diminta untuk mengesahkan undi anda melalui dompet anda."
+                },
+                "canIChangeVote": {
+                  "question": "Bolehkah saya menukar undi saya?",
+                  "answer": "Ya, anda boleh menukar undi anda pada bila-bila masa semasa pilihan raya aktif. Hanya undi parti yang berbeza, dan undi anda sebelum ini akan digantikan. Anda juga boleh membuang undi anda sepenuhnya."
+                },
+                "electionDeadline": {
+                  "question": "Bilakah pilihan raya berakhir?",
+                  "answer": "Pilihan raya mingguan berjalan sehingga Ahad jam 23:59:59 UTC. Undi mesti diberikan sebelum masa ini untuk dikira untuk pilihan raya minggu semasa."
+                },
+                "isVoteAnonymous": {
+                  "question": "Adakah undi saya tanpa nama?",
+                  "answer": "Pengundian adalah nama samaran. Walaupun undi anda dipautkan ke alamat dompet anda di blockchain untuk ketelusan, identiti dunia nyata anda tidak terikat secara langsung dengannya."
+                },
+                "whatArePartySubsidies": {
+                  "question": "Apakah subsidi parti?",
+                  "answer": "Subsidi parti adalah ganjaran yang diagihkan kepada parti politik berdasarkan undi yang mereka terima. Program ini membiayai aktiviti parti dan membantu mereka berkembang. Anda boleh mengetahui lebih lanjut mengenai <a href=\"/{{lang}}/earn/contribute/party-subsidy\" class=\"font-medium text-gray-900 underline\">Program Subsidi Parti</a>."
+                }
+              }
+            }
           }
         },
         "referendums": {

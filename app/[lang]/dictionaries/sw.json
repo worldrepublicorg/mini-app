@@ -580,10 +580,90 @@
         "elections": {
           "title": "Uchaguzi",
           "description": "Chagua wawakilishi wako",
-          "mockElections": {
-            "title": "Uchaguzi wa Majaribio wa Kila Wiki",
+          "weeklyElections": {
+            "title": "Uchaguzi wa Kila Wiki",
             "description": "Tusaidie kusambaza ruzuku za vyama na kuboresha mfumo wetu wa utawala",
-            "button": "Inakuja hivi karibuni"
+            "button": "Fungua uchaguzi wa majaribio"
+          },
+          "currentElectionPage": {
+            "title": "Uchaguzi wa Sasa",
+            "testElectionTitle": "Uchaguzi wa Majaribio",
+            "testElectionSubtitle": "Tusaidie kupima mfumo wetu wa upigaji kura",
+            "testElectionTooltip1": "Kwa habari zaidi, tafadhali soma ",
+            "testElectionTooltip2": "Maswali Yanayoulizwa Mara kwa Mara kuhusu uchaguzi",
+            "testElectionTooltip3": ".",
+            "politicalParties": "Vyama vya siasa",
+            "searchPlaceholder": "Tafuta vyama...",
+            "leaderPrefix": "Kiongozi: ",
+            "noActiveElection": "Hakuna Uchaguzi Unaoendelea",
+            "noActiveElectionDescription": "Hakuna uchaguzi unaoendelea kwa sasa",
+            "backToOverview": "Rudi kwenye muhtasari",
+            "buttons": {
+              "voted": "Umepiga kura",
+              "vote": "Piga kura",
+              "processing": "Inachakata...",
+              "cancel": "Ghairi"
+            },
+            "confirmation": {
+              "vote": {
+                "title": "Thibitisha Kura Yako",
+                "description": "Unakaribia kupiga kura yako kwa {{partyName}}. Kitendo hiki kitarekodiwa kwenye blockchain.",
+                "confirmText": "Thibitisha kura"
+              },
+              "change": {
+                "title": "Badilisha Kura Yako",
+                "description": "Una uhakika unataka kubadilisha kura yako kutoka kwa {{previousPartyName}} kwenda kwa {{partyName}}?",
+                "confirmText": "Thibitisha mabadiliko"
+              },
+              "remove": {
+                "title": "Ondoa Kura Yako",
+                "description": "Una uhakika unataka kuondoa kura yako kwa {{partyName}}? Hutakuwa unapigia kura chama chochote.",
+                "confirmText": "Ndio, ondoa kura"
+              }
+            },
+            "toasts": {
+              "connectInWorldApp": "Tafadhali fungua programu hii katika World App ili kupiga kura.",
+              "connectWallet": "Tafadhali unganisha mkoba wako kwanza.",
+              "noCurrentElection": "Haikuweza kubaini uchaguzi wa sasa.",
+              "fetchStatusError": "Imeshindwa kupata hali ya upigaji kura. Tafadhali jaribu tena.",
+              "transactionFailed": "Muamala umeshindwa au umekataliwa.",
+              "voteRemovedSuccess": "Kura imeondolewa kwa mafanikio",
+              "voteSuccess": "Umefanikiwa kupiga kura kwa {{partyName}}!",
+              "voteError": "Hitilafu imetokea wakati wa kupiga kura yako."
+            },
+            "electionFaqPage": {
+              "title": "Maswali Yanayoulizwa Mara kwa Mara Kuhusu Uchaguzi",
+              "items": {
+                "electionPurpose": {
+                  "question": "Madhumuni ya uchaguzi huu ni nini?",
+                  "answer": "Uchaguzi huu ni sehemu muhimu ya mfumo wetu wa utawala. Awali, unaamua jinsi ruzuku za vyama zinavyogawanywa, ukivipa vyama zawadi kulingana na uungwaji mkono wanaopokea. Mfumo wetu unapoendelea kukomaa, matokeo ya uchaguzi yatavipa vyama majukumu makubwa zaidi. Huu ni mchakato wa kujirudia ili kutusaidia kujifunza na kuboresha."
+                },
+                "ballotQualification": {
+                  "question": "Chama kinaingiaje kwenye kura?",
+                  "answer": "Ili kuwa kwenye kura, chama lazima kiwe na wanachama sawa na angalau 0.05% ya jumla ya wapokeaji wa Mapato ya Msingi Plus. Hii inahakikisha kwamba vyama vina kiwango cha msingi cha uungwaji mkono kutoka kwa wanachama hai, waliothibitishwa."
+                },
+                "howToVote": {
+                  "question": "Ninapigaje kura?",
+                  "answer": "Kwenye ukurasa wa uchaguzi, unaweza kuona orodha ya vyama vya siasa vinavyostahili. Gusa tu kitufe cha 'Piga kura' karibu na chama unachotaka kuunga mkono. Utaulizwa kuthibitisha kura yako kupitia mkoba wako."
+                },
+                "canIChangeVote": {
+                  "question": "Ninaweza kubadilisha kura yangu?",
+                  "answer": "Ndio, unaweza kubadilisha kura yako wakati wowote uchaguzi unapokuwa unaendelea. Piga kura tu kwa chama tofauti, na kura yako ya awali itabadilishwa. Unaweza pia kuondoa kura yako kabisa."
+                },
+                "electionDeadline": {
+                  "question": "Uchaguzi unaisha lini?",
+                  "answer": "Uchaguzi wa kila wiki unaendelea hadi Jumapili saa 23:59:59 UTC. Kura lazima zipigwe kabla ya wakati huu ili kuhesabiwa kwa uchaguzi wa wiki hiyo."
+                },
+                "isVoteAnonymous": {
+                  "question": "Je, kura yangu ni ya siri?",
+                  "answer": "Upigaji kura ni wa kificho. Ingawa kura yako imeunganishwa na anwani yako ya mkoba kwenye blockchain kwa uwazi, utambulisho wako halisi hauhusiani nayo moja kwa moja."
+                },
+                "whatArePartySubsidies": {
+                  "question": "Ruzuku za vyama ni nini?",
+                  "answer": "Ruzuku za vyama ni zawadi zinazosambazwa kwa vyama vya siasa kulingana na kura wanazopokea. Mpango huu unafadhili shughuli za vyama na kuwasaidia kukua. Unaweza kujifunza zaidi kuhusu <a href=\"/{{lang}}/earn/contribute/party-subsidy\" class=\"font-medium text-gray-900 underline\">Programu ya Ruzuku ya Chama</a>."
+                }
+              }
+            }
           }
         },
         "referendums": {

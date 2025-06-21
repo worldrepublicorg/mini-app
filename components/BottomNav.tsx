@@ -8,7 +8,8 @@ const BottomNav = () => {
   const pathname = usePathname();
   const router = useRouter();
   const lang = pathname.split("/")[1]; // Get language from URL
-  const [hasGovernVisited, setHasGovernVisited] = useState(true);
+  const [hasWeeklyElectionsVisited, setHasWeeklyElectionsVisited] =
+    useState(true);
 
   const navItems = [
     { path: "/earn", label: "earn", icon: FaDollarSign },
@@ -19,12 +20,12 @@ const BottomNav = () => {
   useEffect(() => {
     // Check if user has visited the govern page
     const governVisited = localStorage.getItem("governVisited") === "true";
-    setHasGovernVisited(governVisited);
+    setHasWeeklyElectionsVisited(governVisited);
 
     // Mark as visited if currently on the govern page
     if (pathname.includes("/govern")) {
       localStorage.setItem("governVisited", "true");
-      setHasGovernVisited(true);
+      setHasWeeklyElectionsVisited(true);
     }
   }, [pathname]);
 
@@ -68,7 +69,7 @@ const BottomNav = () => {
           >
             <div className="relative">
               <Icon className="h-6 w-6" />
-              {path === "/govern" && !hasGovernVisited && (
+              {path === "/govern" && !hasWeeklyElectionsVisited && (
                 <div className="absolute -right-2 -top-1 h-2 w-2 rounded-full bg-error-600" />
               )}
             </div>
