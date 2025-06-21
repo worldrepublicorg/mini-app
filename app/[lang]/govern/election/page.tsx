@@ -435,7 +435,7 @@ export default function CurrentElectionPage({
                     <p className="text-left text-gray-700">
                       {electionDict?.testElectionTooltip1}
                       <Link
-                        href={`/${lang}/faq`}
+                        href={`/${lang}/govern/election/faq`}
                         className="text-gray-900 underline"
                       >
                         {electionDict?.testElectionTooltip2}

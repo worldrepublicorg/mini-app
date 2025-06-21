@@ -590,9 +590,9 @@
             "title": "Current Election",
             "testElectionTitle": "Test Election",
             "testElectionSubtitle": "Help us test our voting system",
-            "testElectionTooltip1": "This is a test election to showcase the voting mechanism. Votes cast here are for ",
-            "testElectionTooltip2": "demonstration purposes",
-            "testElectionTooltip3": " only and do not affect real-world outcomes.",
+            "testElectionTooltip1": "For more information, please read the ",
+            "testElectionTooltip2": "election FAQ",
+            "testElectionTooltip3": ".",
             "politicalParties": "Political parties",
             "searchPlaceholder": "Search parties...",
             "leaderPrefix": "Leader: ",
@@ -631,6 +631,39 @@
               "voteRemovedSuccess": "Vote removed successfully",
               "voteSuccess": "Successfully voted for {{partyName}}!",
               "voteError": "An error occurred while casting your vote."
+            },
+            "electionFaqPage": {
+              "title": "Election FAQ",
+              "items": {
+                "electionPurpose": {
+                  "question": "What is the purpose of these elections?",
+                  "answer": "These elections are a core part of our governance model. Initially, they determine how party subsidies are distributed, rewarding parties based on the support they receive. As our system matures, election results will grant parties more significant responsibilities. This is an iterative process to help us learn and improve."
+                },
+                "ballotQualification": {
+                  "question": "How does a party get on the ballot?",
+                  "answer": "To be on the ballot, a party must have members equal to at least 0.05% of the total number of Basic Income Plus recipients. This ensures that parties have a foundational level of support from active, verified members."
+                },
+                "howToVote": {
+                  "question": "How do I vote?",
+                  "answer": "On the election page, you can see a list of eligible political parties. Simply tap the 'Vote' button next to the party you want to support. You will be asked to confirm your vote through your wallet."
+                },
+                "canIChangeVote": {
+                  "question": "Can I change my vote?",
+                  "answer": "Yes, you can change your vote at any time while the election is active. Simply vote for a different party, and your previous vote will be replaced. You can also remove your vote entirely."
+                },
+                "electionDeadline": {
+                  "question": "When do the elections end?",
+                  "answer": "The weekly elections run until Sunday at 23:59:59 UTC. Votes must be cast before this time to be counted for the current week's election."
+                },
+                "isVoteAnonymous": {
+                  "question": "Is my vote anonymous?",
+                  "answer": "Voting is pseudonymous. While your vote is linked to your wallet address on the blockchain for transparency, your real-world identity is not directly tied to it."
+                },
+                "whatArePartySubsidies": {
+                  "question": "What are the party subsidies?",
+                  "answer": "Party subsidies are rewards distributed to political parties based on the votes they receive. This program funds party activities and helps them grow. You can learn more about the <a href=\"/{{lang}}/earn/contribute/party-subsidy\" class=\"font-medium text-gray-900 underline\">Party Subsidy Program</a>."
+                }
+              }
             }
           }
         },
