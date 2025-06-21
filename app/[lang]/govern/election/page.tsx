@@ -9,7 +9,7 @@ import { useTranslations } from "@/hooks/useTranslations";
 import { PiInfoFill } from "react-icons/pi";
 import Link from "next/link";
 import { BiChevronLeft, BiShareAlt } from "react-icons/bi";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   Input,
   AlertDialog,
@@ -41,6 +41,7 @@ export default function CurrentElectionPage({
 }) {
   const dictionary = useTranslations(lang);
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [searchTerm, setSearchTerm] = useState("");
   const { walletAddress } = useWallet();
   const { showToast } = useToast();
@@ -64,15 +65,11 @@ export default function CurrentElectionPage({
   });
 
   useEffect(() => {
-    // Check for search query param on mount to prefill search bar
-    if (typeof window !== "undefined") {
-      const params = new URLSearchParams(window.location.search);
-      const query = params.get("q");
-      if (query) {
-        setSearchTerm(query);
-      }
+    const query = searchParams.get("q");
+    if (query) {
+      setSearchTerm(query);
     }
-  }, []);
+  }, [searchParams]);
 
   const currentElection = useMemo(
     () => elections.find((e) => e.status === "active"),
