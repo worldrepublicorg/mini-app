@@ -63,6 +63,17 @@ export default function CurrentElectionPage({
     action: null,
   });
 
+  useEffect(() => {
+    // Check for search query param on mount to prefill search bar
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const query = params.get("q");
+      if (query) {
+        setSearchTerm(query);
+      }
+    }
+  }, []);
+
   const currentElection = useMemo(
     () => elections.find((e) => e.status === "active"),
     []
@@ -381,7 +392,12 @@ export default function CurrentElectionPage({
           {currentElection && (
             <button
               onClick={async () => {
-                const shareUrl = `https://world.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=%2Fgovern%2Felection`;
+                const path = searchTerm
+                  ? `/govern/election?q=${encodeURIComponent(searchTerm)}`
+                  : "/govern/election";
+                const shareUrl = `https://world.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=${encodeURIComponent(
+                  path
+                )}`;
                 const shareTitle =
                   electionDict?.testElectionTitle || "Current Election";
                 const copiedMessage =
