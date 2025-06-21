@@ -9,7 +9,7 @@ import { useTranslations } from "@/hooks/useTranslations";
 import { PiInfoFill } from "react-icons/pi";
 import Link from "next/link";
 import { BiChevronLeft, BiShareAlt } from "react-icons/bi";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import {
   Input,
   AlertDialog,
@@ -41,9 +41,7 @@ export default function CurrentElectionPage({
 }) {
   const dictionary = useTranslations(lang);
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const initialSearchTerm = searchParams.get("q") || "";
-  const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
+  const [searchTerm, setSearchTerm] = useState("");
   const { walletAddress } = useWallet();
   const { showToast } = useToast();
   const [votedForPartyId, setVotedForPartyId] = useState<number | null>(null);
@@ -64,23 +62,6 @@ export default function CurrentElectionPage({
     party: null,
     action: null,
   });
-
-  useEffect(() => {
-    const setQueryFromUrl = () => {
-      if (typeof window !== "undefined") {
-        const params = new URLSearchParams(window.location.search);
-        const query = params.get("q");
-        if (query) {
-          setSearchTerm(query);
-        }
-      }
-    };
-
-    setQueryFromUrl();
-    const delayedCheck = setTimeout(setQueryFromUrl, 500);
-
-    return () => clearTimeout(delayedCheck);
-  }, []);
 
   const currentElection = useMemo(
     () => elections.find((e) => e.status === "active"),
@@ -400,12 +381,7 @@ export default function CurrentElectionPage({
           {currentElection && (
             <button
               onClick={async () => {
-                const path = searchTerm
-                  ? `/govern/election?q=${encodeURIComponent(searchTerm)}`
-                  : "/govern/election";
-                const shareUrl = `https://world.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=${encodeURIComponent(
-                  path
-                )}`;
+                const shareUrl = `https://world.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=%2Fgovern%2Felection`;
                 const shareTitle =
                   electionDict?.testElectionTitle || "Current Election";
                 const copiedMessage =
@@ -468,7 +444,6 @@ export default function CurrentElectionPage({
 
             <div className="relative mb-6 h-[3.125rem]">
               <Input
-                key={initialSearchTerm}
                 type="text"
                 startAdornment={
                   <svg
