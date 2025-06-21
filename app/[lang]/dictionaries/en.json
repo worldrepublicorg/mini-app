@@ -581,7 +581,7 @@
         "elections": {
           "title": "Elections",
           "description": "Choose your representatives",
-          "mockElections": {
+          "weeklyElections": {
             "title": "Weekly Elections",
             "description": "Help us distribute party subsidies and improve our system of governance",
             "button": "Open test election"

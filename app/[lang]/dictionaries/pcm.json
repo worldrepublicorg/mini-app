@@ -578,10 +578,90 @@
         "elections": {
           "title": "Elections",
           "description": "Choose your people wey go represent you",
-          "mockElections": {
-            "title": "Weekly Practice Election",
+          "weeklyElections": {
+            "title": "Weekly Elections",
             "description": "Help us share party money and make our government system better",
-            "button": "E go soon come"
+            "button": "Open test election"
+          },
+          "currentElectionPage": {
+            "title": "Current Election",
+            "testElectionTitle": "Test Election",
+            "testElectionSubtitle": "Help us test our voting system",
+            "testElectionTooltip1": "For more information, abeg read the ",
+            "testElectionTooltip2": "election FAQ",
+            "testElectionTooltip3": ".",
+            "politicalParties": "Political parties",
+            "searchPlaceholder": "Search parties...",
+            "leaderPrefix": "Leader: ",
+            "noActiveElection": "No Active Election",
+            "noActiveElectionDescription": "No election dey currently run",
+            "backToOverview": "Back to overview",
+            "buttons": {
+              "voted": "Voted",
+              "vote": "Vote",
+              "processing": "Dey process...",
+              "cancel": "Cancel"
+            },
+            "confirmation": {
+              "vote": {
+                "title": "Confirm Your Vote",
+                "description": "You dey about to cast your vote for {{partyName}}. This action go dey recorded on the blockchain.",
+                "confirmText": "Confirm vote"
+              },
+              "change": {
+                "title": "Change Your Vote",
+                "description": "You sure say you wan change your vote from {{previousPartyName}} to {{partyName}}?",
+                "confirmText": "Confirm change"
+              },
+              "remove": {
+                "title": "Remove Your Vote",
+                "description": "You sure say you wan remove your vote for {{partyName}}? You no go dey vote for any party.",
+                "confirmText": "Yes, remove vote"
+              }
+            },
+            "toasts": {
+              "connectInWorldApp": "Abeg open this app for World App to vote.",
+              "connectWallet": "Abeg connect your wallet first.",
+              "noCurrentElection": "Could not determine the current election.",
+              "fetchStatusError": "Failed to fetch voting status. Abeg try again.",
+              "transactionFailed": "Transaction fail or dem reject am.",
+              "voteRemovedSuccess": "Vote remove successfully",
+              "voteSuccess": "Successfully vote for {{partyName}}!",
+              "voteError": "One error happen while you dey cast your vote."
+            },
+            "electionFaqPage": {
+              "title": "Election FAQ",
+              "items": {
+                "electionPurpose": {
+                  "question": "Wetin be di purpose of dis elections?",
+                  "answer": "Dis elections na core part of our governance model. For start, dem dey determine how dem go share party subsidies, dey reward parties based on di support wey dem receive. As our system dey mature, election results go grant parties more significant responsibilities. Dis na iterative process to help us learn and improve."
+                },
+                "ballotQualification": {
+                  "question": "How party dey get on di ballot?",
+                  "answer": "To dey on di ballot, party must get members wey equal to at least 0.05% of di total number of Basic Income Plus recipients. Dis dey ensure say parties get foundational level of support from active, verified members."
+                },
+                "howToVote": {
+                  "question": "How I go vote?",
+                  "answer": "For di election page, you fit see list of eligible political parties. Just tap di 'Vote' button next to di party wey you wan support. Dem go ask you to confirm your vote through your wallet."
+                },
+                "canIChangeVote": {
+                  "question": "I fit change my vote?",
+                  "answer": "Yes, you fit change your vote anytime while di election dey active. Just vote for different party, and your previous vote go dey replaced. You fit also remove your vote entirely."
+                },
+                "electionDeadline": {
+                  "question": "When di elections dey end?",
+                  "answer": "Di weekly elections dey run until Sunday at 23:59:59 UTC. Votes must dey cast before dis time to count for di current week's election."
+                },
+                "isVoteAnonymous": {
+                  "question": "My vote dey anonymous?",
+                  "answer": "Voting na pseudonymous. While your vote dey linked to your wallet address on di blockchain for transparency, your real-world identity no dey directly tied to am."
+                },
+                "whatArePartySubsidies": {
+                  "question": "Wetin be di party subsidies?",
+                  "answer": "Party subsidies na rewards wey dem dey distribute to political parties based on di votes wey dem receive. Dis program dey fund party activities and help dem grow. You fit learn more about di <a href=\"/{{lang}}/earn/contribute/party-subsidy\" class=\"font-medium text-gray-900 underline\">Party Subsidy Program</a>."
+                }
+              }
+            }
           }
         },
         "referendums": {

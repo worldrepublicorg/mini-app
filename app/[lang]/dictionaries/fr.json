@@ -580,10 +580,90 @@
         "elections": {
           "title": "Élections",
           "description": "Choisissez vos représentants",
-          "mockElections": {
-            "title": "Élections Simulées Hebdomadaires",
+          "weeklyElections": {
+            "title": "Élections hebdomadaires",
             "description": "Aidez-nous à distribuer les subventions des partis et à améliorer notre système de gouvernance",
-            "button": "Bientôt disponible"
+            "button": "Ouvrir l'élection test"
+          },
+          "currentElectionPage": {
+            "title": "Élection en cours",
+            "testElectionTitle": "Élection test",
+            "testElectionSubtitle": "Aidez-nous à tester notre système de vote",
+            "testElectionTooltip1": "Pour plus d'informations, veuillez lire la ",
+            "testElectionTooltip2": "FAQ sur les élections",
+            "testElectionTooltip3": ".",
+            "politicalParties": "Partis politiques",
+            "searchPlaceholder": "Rechercher des partis...",
+            "leaderPrefix": "Chef : ",
+            "noActiveElection": "Aucune élection active",
+            "noActiveElectionDescription": "Aucune élection n'est en cours",
+            "backToOverview": "Retour à l'aperçu",
+            "buttons": {
+              "voted": "Voté",
+              "vote": "Voter",
+              "processing": "En cours de traitement...",
+              "cancel": "Annuler"
+            },
+            "confirmation": {
+              "vote": {
+                "title": "Confirmez votre vote",
+                "description": "Vous êtes sur le point de voter pour {{partyName}}. Cette action sera enregistrée sur la blockchain.",
+                "confirmText": "Confirmer le vote"
+              },
+              "change": {
+                "title": "Changez votre vote",
+                "description": "Êtes-vous sûr de vouloir changer votre vote de {{previousPartyName}} à {{partyName}} ?",
+                "confirmText": "Confirmer le changement"
+              },
+              "remove": {
+                "title": "Retirez votre vote",
+                "description": "Êtes-vous sûr de vouloir retirer votre vote pour {{partyName}} ? Vous ne voterez pour aucun parti.",
+                "confirmText": "Oui, retirer le vote"
+              }
+            },
+            "toasts": {
+              "connectInWorldApp": "Veuillez ouvrir cette application dans l'application World pour voter.",
+              "connectWallet": "Veuillez d'abord connecter votre portefeuille.",
+              "noCurrentElection": "Impossible de déterminer l'élection en cours.",
+              "fetchStatusError": "Échec de la récupération du statut du vote. Veuillez réessayer.",
+              "transactionFailed": "La transaction a échoué ou a été rejetée.",
+              "voteRemovedSuccess": "Vote retiré avec succès",
+              "voteSuccess": "Vote pour {{partyName}} réussi !",
+              "voteError": "Une erreur s'est produite lors de l'émission de votre vote."
+            },
+            "electionFaqPage": {
+              "title": "FAQ sur les élections",
+              "items": {
+                "electionPurpose": {
+                  "question": "Quel est le but de ces élections ?",
+                  "answer": "Ces élections sont un élément central de notre modèle de gouvernance. Initialement, elles déterminent la manière dont les subventions des partis sont distribuées, récompensant les partis en fonction du soutien qu'ils reçoivent. À mesure que notre système mûrira, les résultats des élections conféreront aux partis des responsabilités plus importantes. Il s'agit d'un processus itératif pour nous aider à apprendre et à nous améliorer."
+                },
+                "ballotQualification": {
+                  "question": "Comment un parti se retrouve-t-il sur le bulletin de vote ?",
+                  "answer": "Pour figurer sur le bulletin de vote, un parti doit avoir des membres équivalant à au moins 0,05 % du nombre total de bénéficiaires du revenu de base plus. Cela garantit que les partis disposent d'un niveau de soutien fondamental de la part de membres actifs et vérifiés."
+                },
+                "howToVote": {
+                  "question": "Comment voter ?",
+                  "answer": "Sur la page des élections, vous pouvez voir une liste des partis politiques éligibles. Appuyez simplement sur le bouton « Voter » à côté du parti que vous souhaitez soutenir. Il vous sera demandé de confirmer votre vote via votre portefeuille."
+                },
+                "canIChangeVote": {
+                  "question": "Puis-je changer mon vote ?",
+                  "answer": "Oui, vous pouvez changer votre vote à tout moment pendant que l'élection est active. Il vous suffit de voter pour un autre parti, et votre vote précédent sera remplacé. Vous pouvez également retirer complètement votre vote."
+                },
+                "electionDeadline": {
+                  "question": "Quand les élections se terminent-elles ?",
+                  "answer": "Les élections hebdomadaires se déroulent jusqu'au dimanche à 23:59:59 UTC. Les votes doivent être exprimés avant cette heure pour être comptabilisés pour l'élection de la semaine en cours."
+                },
+                "isVoteAnonymous": {
+                  "question": "Mon vote est-il anonyme ?",
+                  "answer": "Le vote est pseudonyme. Bien que votre vote soit lié à l'adresse de votre portefeuille sur la blockchain pour des raisons de transparence, votre identité réelle n'y est pas directement liée."
+                },
+                "whatArePartySubsidies": {
+                  "question": "Que sont les subventions des partis ?",
+                  "answer": "Les subventions des partis sont des récompenses distribuées aux partis politiques en fonction des votes qu'ils reçoivent. Ce programme finance les activités des partis et les aide à se développer. Vous pouvez en savoir plus sur le <a href=\"/{{lang}}/earn/contribute/party-subsidy\" class=\"font-medium text-gray-900 underline\">Programme de subventions des partis</a>."
+                }
+              }
+            }
           }
         },
         "referendums": {

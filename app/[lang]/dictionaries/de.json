@@ -579,10 +579,90 @@
         "elections": {
           "title": "Wahlen",
           "description": "Wählen Sie Ihre Vertreter",
-          "mockElections": {
-            "title": "Wöchentliche Scheinwahlen",
-            "description": "Helfen Sie uns, Parteisubventionen zu verteilen und unser Regierungssystem zu verbessern",
-            "button": "Demnächst verfügbar"
+          "weeklyElections": {
+            "title": "Wöchentliche Wahlen",
+            "description": "Helfen Sie uns, Parteienförderungen zu verteilen und unser Regierungssystem zu verbessern",
+            "button": "Testwahl öffnen"
+          },
+          "currentElectionPage": {
+            "title": "Aktuelle Wahl",
+            "testElectionTitle": "Testwahl",
+            "testElectionSubtitle": "Helfen Sie uns, unser Wahlsystem zu testen",
+            "testElectionTooltip1": "Für weitere Informationen lesen Sie bitte die ",
+            "testElectionTooltip2": "Wahl-FAQ",
+            "testElectionTooltip3": ".",
+            "politicalParties": "Politische Parteien",
+            "searchPlaceholder": "Parteien suchen...",
+            "leaderPrefix": "Anführer: ",
+            "noActiveElection": "Keine aktive Wahl",
+            "noActiveElectionDescription": "Derzeit läuft keine Wahl",
+            "backToOverview": "Zurück zur Übersicht",
+            "buttons": {
+              "voted": "Abgestimmt",
+              "vote": "Wählen",
+              "processing": "Verarbeitung...",
+              "cancel": "Abbrechen"
+            },
+            "confirmation": {
+              "vote": {
+                "title": "Bestätigen Sie Ihre Stimme",
+                "description": "Sie sind dabei, Ihre Stimme für {{partyName}} abzugeben. Diese Aktion wird in der Blockchain aufgezeichnet.",
+                "confirmText": "Stimme bestätigen"
+              },
+              "change": {
+                "title": "Ändern Sie Ihre Stimme",
+                "description": "Sind Sie sicher, dass Sie Ihre Stimme von {{previousPartyName}} auf {{partyName}} ändern möchten?",
+                "confirmText": "Änderung bestätigen"
+              },
+              "remove": {
+                "title": "Entfernen Sie Ihre Stimme",
+                "description": "Sind Sie sicher, dass Sie Ihre Stimme für {{partyName}} entfernen möchten? Sie werden für keine Partei stimmen.",
+                "confirmText": "Ja, Stimme entfernen"
+              }
+            },
+            "toasts": {
+              "connectInWorldApp": "Bitte öffnen Sie diese App in der World App, um abzustimmen.",
+              "connectWallet": "Bitte verbinden Sie zuerst Ihr Wallet.",
+              "noCurrentElection": "Die aktuelle Wahl konnte nicht ermittelt werden.",
+              "fetchStatusError": "Fehler beim Abrufen des Abstimmungsstatus. Bitte versuchen Sie es erneut.",
+              "transactionFailed": "Transaktion fehlgeschlagen oder abgelehnt.",
+              "voteRemovedSuccess": "Stimme erfolgreich entfernt",
+              "voteSuccess": "Erfolgreich für {{partyName}} abgestimmt!",
+              "voteError": "Beim Abgeben Ihrer Stimme ist ein Fehler aufgetreten."
+            },
+            "electionFaqPage": {
+              "title": "Wahl-FAQ",
+              "items": {
+                "electionPurpose": {
+                  "question": "Was ist der Zweck dieser Wahlen?",
+                  "answer": "Diese Wahlen sind ein zentraler Bestandteil unseres Regierungsmodells. Zunächst bestimmen sie, wie Parteienförderungen verteilt werden, wobei Parteien basierend auf der erhaltenen Unterstützung belohnt werden. Mit der Reifung unseres Systems werden die Wahlergebnisse den Parteien größere Verantwortung übertragen. Dies ist ein iterativer Prozess, der uns hilft zu lernen und uns zu verbessern."
+                },
+                "ballotQualification": {
+                  "question": "Wie kommt eine Partei auf den Stimmzettel?",
+                  "answer": "Um auf dem Stimmzettel zu stehen, muss eine Partei Mitglieder haben, die mindestens 0,05 % der Gesamtzahl der Empfänger von Grundeinkommen Plus ausmachen. Dies stellt sicher, dass die Parteien eine grundlegende Unterstützung von aktiven, verifizierten Mitgliedern haben."
+                },
+                "howToVote": {
+                  "question": "Wie wähle ich?",
+                  "answer": "Auf der Wahlseite sehen Sie eine Liste der wählbaren politischen Parteien. Tippen Sie einfach auf die Schaltfläche 'Wählen' neben der Partei, die Sie unterstützen möchten. Sie werden gebeten, Ihre Stimme über Ihr Wallet zu bestätigen."
+                },
+                "canIChangeVote": {
+                  "question": "Kann ich meine Stimme ändern?",
+                  "answer": "Ja, Sie können Ihre Stimme jederzeit ändern, während die Wahl aktiv ist. Stimmen Sie einfach für eine andere Partei ab, und Ihre vorherige Stimme wird ersetzt. Sie können Ihre Stimme auch vollständig entfernen."
+                },
+                "electionDeadline": {
+                  "question": "Wann enden die Wahlen?",
+                  "answer": "Die wöchentlichen Wahlen laufen bis Sonntag um 23:59:59 UTC. Die Stimmen müssen vor dieser Zeit abgegeben werden, um für die Wahl der aktuellen Woche gezählt zu werden."
+                },
+                "isVoteAnonymous": {
+                  "question": "Ist meine Stimme anonym?",
+                  "answer": "Die Abstimmung ist pseudonym. Ihre Stimme ist zur Transparenz mit Ihrer Wallet-Adresse in der Blockchain verknüpft, Ihre reale Identität ist jedoch nicht direkt damit verbunden."
+                },
+                "whatArePartySubsidies": {
+                  "question": "Was sind die Parteienförderungen?",
+                  "answer": "Parteienförderungen sind Belohnungen, die an politische Parteien basierend auf den erhaltenen Stimmen verteilt werden. Dieses Programm finanziert Parteiaktivitäten und hilft ihnen zu wachsen. Erfahren Sie mehr über das <a href=\"/{{lang}}/earn/contribute/party-subsidy\" class=\"font-medium text-gray-900 underline\">Parteienförderungsprogramm</a>."
+                }
+              }
+            }
           }
         },
         "referendums": {

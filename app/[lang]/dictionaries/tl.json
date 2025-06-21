@@ -576,12 +576,92 @@
           }
         },
         "elections": {
-          "title": "Mga Eleksyon",
+          "title": "Halalan",
           "description": "Piliin ang iyong mga kinatawan",
-          "mockElections": {
-            "title": "Lingguhang Mock Elections",
+          "weeklyElections": {
+            "title": "Lingguhang Halalan",
             "description": "Tulungan kaming ipamahagi ang mga subsidiya ng partido at pagbutihin ang aming sistema ng pamamahala",
-            "button": "Malapit na"
+            "button": "Buksan ang pagsubok na halalan"
+          },
+          "currentElectionPage": {
+            "title": "Kasalukuyang Halalan",
+            "testElectionTitle": "Pagsubok na Halalan",
+            "testElectionSubtitle": "Tulungan kaming subukan ang aming sistema ng pagboto",
+            "testElectionTooltip1": "Para sa karagdagang impormasyon, pakibasa ang ",
+            "testElectionTooltip2": "FAQ ng halalan",
+            "testElectionTooltip3": ".",
+            "politicalParties": "Mga partido pulitikal",
+            "searchPlaceholder": "Maghanap ng mga partido...",
+            "leaderPrefix": "Pinuno: ",
+            "noActiveElection": "Walang Aktibong Halalan",
+            "noActiveElectionDescription": "Kasalukuyang walang halalan na isinasagawa",
+            "backToOverview": "Bumalik sa pangkalahatang-ideya",
+            "buttons": {
+              "voted": "Nakaboto na",
+              "vote": "Bumoto",
+              "processing": "Pinoproseso...",
+              "cancel": "Kanselahin"
+            },
+            "confirmation": {
+              "vote": {
+                "title": "Kumpirmahin ang Iyong Boto",
+                "description": "Malapit mo nang irehistro ang iyong boto para sa {{partyName}}. Ang aksyon na ito ay itatala sa blockchain.",
+                "confirmText": "Kumpirmahin ang boto"
+              },
+              "change": {
+                "title": "Palitan ang Iyong Boto",
+                "description": "Sigurado ka bang gusto mong palitan ang iyong boto mula sa {{previousPartyName}} patungo sa {{partyName}}?",
+                "confirmText": "Kumpirmahin ang pagbabago"
+              },
+              "remove": {
+                "title": "Alisin ang Iyong Boto",
+                "description": "Sigurado ka bang gusto mong alisin ang iyong boto para sa {{partyName}}? Hindi ka na boboto para sa anumang partido.",
+                "confirmText": "Oo, alisin ang boto"
+              }
+            },
+            "toasts": {
+              "connectInWorldApp": "Pakibuksan ang app na ito sa World App para bumoto.",
+              "connectWallet": "Pakikonekta muna ang iyong wallet.",
+              "noCurrentElection": "Hindi matukoy ang kasalukuyang halalan.",
+              "fetchStatusError": "Nabigo ang pagkuha ng katayuan ng boto. Pakisubukang muli.",
+              "transactionFailed": "Nabigo o tinanggihan ang transaksyon.",
+              "voteRemovedSuccess": "Matagumpay na naalis ang boto",
+              "voteSuccess": "Matagumpay na nairehistro ang boto para sa {{partyName}}!",
+              "voteError": "May naganap na error habang inirerehistro ang iyong boto."
+            },
+            "electionFaqPage": {
+              "title": "FAQ ng Halalan",
+              "items": {
+                "electionPurpose": {
+                  "question": "Ano ang layunin ng mga halalan na ito?",
+                  "answer": "Ang mga halalan na ito ay isang pangunahing bahagi ng aming modelo ng pamamahala. Sa simula, tinutukoy nila kung paano ipapamahagi ang mga subsidiya ng partido, na nagbibigay ng gantimpala sa mga partido batay sa suportang natatanggap nila. Habang umuunlad ang aming sistema, ang mga resulta ng halalan ay magbibigay ng mas makabuluhang mga responsibilidad sa mga partido. Ito ay isang paulit-ulit na proseso upang matulungan kaming matuto at mag-improve."
+                },
+                "ballotQualification": {
+                  "question": "Paano nakakasama sa balota ang isang partido?",
+                  "answer": "Upang mapasama sa balota, ang isang partido ay dapat magkaroon ng mga miyembro na katumbas ng hindi bababa sa 0.05% ng kabuuang bilang ng mga tumatanggap ng Basic Income Plus. Tinitiyak nito na ang mga partido ay may pangunahing antas ng suporta mula sa mga aktibo at na-verify na miyembro."
+                },
+                "howToVote": {
+                  "question": "Paano ako boboto?",
+                  "answer": "Sa pahina ng halalan, makikita mo ang isang listahan ng mga karapat-dapat na partido pulitikal. I-tap lamang ang pindutan ng 'Bumoto' sa tabi ng partido na gusto mong suportahan. Sasabihan kang kumpirmahin ang iyong boto sa pamamagitan ng iyong wallet."
+                },
+                "canIChangeVote": {
+                  "question": "Maaari ko bang palitan ang aking boto?",
+                  "answer": "Oo, maaari mong palitan ang iyong boto anumang oras habang aktibo ang halalan. Bumoto lamang para sa ibang partido, at ang iyong nakaraang boto ay papalitan. Maaari mo ring alisin nang tuluyan ang iyong boto."
+                },
+                "electionDeadline": {
+                  "question": "Kailan nagtatapos ang mga halalan?",
+                  "answer": "Ang lingguhang halalan ay tumatakbo hanggang Linggo, 23:59:59 UTC. Ang mga boto ay dapat isumite bago ang oras na ito upang mabilang para sa kasalukuyang linggong halalan."
+                },
+                "isVoteAnonymous": {
+                  "question": "Anonymous ba ang aking boto?",
+                  "answer": "Ang pagboto ay pseudonymous. Habang ang iyong boto ay naka-link sa iyong wallet address sa blockchain para sa transparency, ang iyong tunay na pagkakakilanlan ay hindi direktarg nakakonekta dito."
+                },
+                "whatArePartySubsidies": {
+                  "question": "Ano ang mga subsidiya ng partido?",
+                  "answer": "Ang mga subsidiya ng partido ay mga gantimpala na ipinamamahagi sa mga partido pulitikal batay sa mga botong natatanggap nila. Ang programang ito ay nagpopondo sa mga aktibidad ng partido at tumutulong sa kanila na lumago. Maaari kang matuto nang higit pa tungkol sa <a href=\"/{{lang}}/earn/contribute/party-subsidy\" class=\"font-medium text-gray-900 underline\">Programa ng Subsidiya ng Partido</a>."
+                }
+              }
+            }
           }
         },
         "referendums": {

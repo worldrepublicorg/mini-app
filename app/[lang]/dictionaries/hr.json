@@ -579,11 +579,91 @@
         },
         "elections": {
           "title": "Izbori",
-          "description": "Izaberite svoje predstavnike",
-          "mockElections": {
-            "title": "Tjedni Lažni Izbori",
+          "description": "Odaberite svoje predstavnike",
+          "weeklyElections": {
+            "title": "Tjedni izbori",
             "description": "Pomozite nam distribuirati stranačke subvencije i poboljšati naš sustav upravljanja",
-            "button": "Uskoro"
+            "button": "Otvori testne izbore"
+          },
+          "currentElectionPage": {
+            "title": "Trenutni izbori",
+            "testElectionTitle": "Testni izbori",
+            "testElectionSubtitle": "Pomozite nam testirati naš sustav glasanja",
+            "testElectionTooltip1": "Za više informacija, pročitajte ",
+            "testElectionTooltip2": "FAQ o izborima",
+            "testElectionTooltip3": ".",
+            "politicalParties": "Političke stranke",
+            "searchPlaceholder": "Pretražite stranke...",
+            "leaderPrefix": "Vođa: ",
+            "noActiveElection": "Nema aktivnih izbora",
+            "noActiveElectionDescription": "Trenutno nema aktivnih izbora",
+            "backToOverview": "Povratak na pregled",
+            "buttons": {
+              "voted": "Glasano",
+              "vote": "Glasaj",
+              "processing": "Obrađuje se...",
+              "cancel": "Otkaži"
+            },
+            "confirmation": {
+              "vote": {
+                "title": "Potvrdite svoj glas",
+                "description": "Upravo ćete dati svoj glas za {{partyName}}. Ova će radnja biti zabilježena na blockchainu.",
+                "confirmText": "Potvrdi glas"
+              },
+              "change": {
+                "title": "Promijenite svoj glas",
+                "description": "Jeste li sigurni da želite promijeniti svoj glas s {{previousPartyName}} na {{partyName}}?",
+                "confirmText": "Potvrdi promjenu"
+              },
+              "remove": {
+                "title": "Uklonite svoj glas",
+                "description": "Jeste li sigurni da želite ukloniti svoj glas za {{partyName}}? Nećete glasati ni za jednu stranku.",
+                "confirmText": "Da, ukloni glas"
+              }
+            },
+            "toasts": {
+              "connectInWorldApp": "Molimo otvorite ovu aplikaciju u aplikaciji World kako biste glasali.",
+              "connectWallet": "Molimo prvo povežite svoj novčanik.",
+              "noCurrentElection": "Nije moguće utvrditi trenutne izbore.",
+              "fetchStatusError": "Dohvaćanje statusa glasanja nije uspjelo. Molimo pokušajte ponovo.",
+              "transactionFailed": "Transakcija nije uspjela ili je odbijena.",
+              "voteRemovedSuccess": "Glas je uspješno uklonjen",
+              "voteSuccess": "Uspješno ste glasali za {{partyName}}!",
+              "voteError": "Došlo je do pogreške prilikom davanja vašeg glasa."
+            },
+            "electionFaqPage": {
+              "title": "FAQ o izborima",
+              "items": {
+                "electionPurpose": {
+                  "question": "Koja je svrha ovih izbora?",
+                  "answer": "Ovi izbori su ključni dio našeg modela upravljanja. U početku određuju kako se distribuiraju stranačke subvencije, nagrađujući stranke na temelju podrške koju dobiju. Kako naš sustav sazrijeva, rezultati izbora davat će strankama značajnije odgovornosti. Ovo je iterativni proces koji nam pomaže da učimo i napredujemo."
+                },
+                "ballotQualification": {
+                  "question": "Kako stranka dospije na glasački listić?",
+                  "answer": "Da bi bila na glasačkom listiću, stranka mora imati članove koji čine najmanje 0,05% ukupnog broja primatelja Basic Income Plus. To osigurava da stranke imaju temeljnu razinu podrške od aktivnih, provjerenih članova."
+                },
+                "howToVote": {
+                  "question": "Kako glasati?",
+                  "answer": "Na stranici za izbore možete vidjeti popis političkih stranaka koje ispunjavaju uvjete. Jednostavno dodirnite gumb 'Glasaj' pored stranke koju želite podržati. Od vas će se tražiti da potvrdite svoj glas putem svog novčanika."
+                },
+                "canIChangeVote": {
+                  "question": "Mogu li promijeniti svoj glas?",
+                  "answer": "Da, možete promijeniti svoj glas u bilo kojem trenutku dok su izbori aktivni. Jednostavno glasajte za drugu stranku i vaš prethodni glas bit će zamijenjen. Također možete u potpunosti ukloniti svoj glas."
+                },
+                "electionDeadline": {
+                  "question": "Kada završavaju izbori?",
+                  "answer": "Tjedni izbori traju do nedjelje u 23:59:59 UTC. Glasovi se moraju dati prije tog vremena kako bi se ubrojili za izbore tekućeg tjedna."
+                },
+                "isVoteAnonymous": {
+                  "question": "Je li moj glas anoniman?",
+                  "answer": "Glasanje je pseudonimno. Iako je vaš glas povezan s adresom vašeg novčanika na blockchainu radi transparentnosti, vaš stvarni identitet nije izravno vezan uz njega."
+                },
+                "whatArePartySubsidies": {
+                  "question": "Što su stranačke subvencije?",
+                  "answer": "Stranačke subvencije su nagrade koje se distribuiraju političkim strankama na temelju glasova koje dobiju. Ovaj program financira stranačke aktivnosti i pomaže im u rastu. Možete saznati više o <a href=\"/{{lang}}/earn/contribute/party-subsidy\" class=\"font-medium text-gray-900 underline\">Programu stranačkih subvencija</a>."
+                }
+              }
+            }
           }
         },
         "referendums": {

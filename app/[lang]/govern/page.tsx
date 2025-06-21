@@ -114,7 +114,7 @@ export default function GovernPage({
                 className="mb-4 text-center"
               >
                 {
-                  dictionary?.pages?.govern?.sections?.elections?.mockElections
+                  dictionary?.pages?.govern?.sections?.elections?.weeklyElections
                     ?.title
                 }
               </Typography>
@@ -123,7 +123,7 @@ export default function GovernPage({
                 className="mb-10 text-center text-gray-500"
               >
                 {
-                  dictionary?.pages?.govern?.sections?.elections?.mockElections
+                  dictionary?.pages?.govern?.sections?.elections?.weeklyElections
                     ?.description
                 }
               </Typography>
@@ -131,7 +131,7 @@ export default function GovernPage({
                 <Button variant="primary" fullWidth>
                   {
                     dictionary?.pages?.govern?.sections?.elections
-                      ?.mockElections?.button
+                      ?.weeklyElections?.button
                   }
                 </Button>
               </Link>
