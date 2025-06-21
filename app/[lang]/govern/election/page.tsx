@@ -429,6 +429,21 @@ export default function CurrentElectionPage({
                 className="mt-2 text-gray-500"
               >
                 {electionDict?.testElectionSubtitle}
+                <span className="group relative ml-1 inline-flex items-center align-baseline">
+                  <PiInfoFill className="h-4 w-4 translate-y-[2px] cursor-help text-gray-400" />
+                  <div className="absolute -right-4 bottom-full z-10 mb-2 hidden w-[calc(100dvw/2+24px)] max-w-sm transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
+                    <p className="text-left text-gray-700">
+                      {electionDict?.testElectionTooltip1}
+                      <Link
+                        href={`/${lang}/faq`}
+                        className="text-gray-900 underline"
+                      >
+                        {electionDict?.testElectionTooltip2}
+                      </Link>
+                      {electionDict?.testElectionTooltip3}
+                    </p>
+                  </div>
+                </span>
               </Typography>
             </div>
 
@@ -440,14 +455,6 @@ export default function CurrentElectionPage({
               >
                 {electionDict?.politicalParties}
               </Typography>
-              <span className="group relative inline-flex items-center align-baseline">
-                <PiInfoFill className="mb-0.5 ml-1 h-4 w-4 cursor-help text-gray-400" />
-                <div className="absolute bottom-full left-0 z-10 mb-2 hidden w-[calc(100dvw/2+24px)] max-w-sm transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
-                  <p className="text-left text-gray-700">
-                    {electionDict?.partiesOnBallotInfo}
-                  </p>
-                </div>
-              </span>
             </div>
 
             <div className="relative mb-6 h-[3.125rem]">
