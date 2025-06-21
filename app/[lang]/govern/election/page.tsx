@@ -66,9 +66,21 @@ export default function CurrentElectionPage({
   });
 
   useEffect(() => {
-    // When the initial search term from the URL changes, update the state
-    setSearchTerm(initialSearchTerm);
-  }, [initialSearchTerm]);
+    const setQueryFromUrl = () => {
+      if (typeof window !== "undefined") {
+        const params = new URLSearchParams(window.location.search);
+        const query = params.get("q");
+        if (query) {
+          setSearchTerm(query);
+        }
+      }
+    };
+
+    setQueryFromUrl();
+    const delayedCheck = setTimeout(setQueryFromUrl, 500);
+
+    return () => clearTimeout(delayedCheck);
+  }, []);
 
   const currentElection = useMemo(
     () => elections.find((e) => e.status === "active"),
