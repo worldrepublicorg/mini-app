@@ -582,9 +582,54 @@
           "title": "Elections",
           "description": "Choose your representatives",
           "mockElections": {
-            "title": "Weekly Mock Elections",
+            "title": "Weekly Elections",
             "description": "Help us distribute party subsidies and improve our system of governance",
-            "button": "Coming soon"
+            "button": "Open test election"
+          },
+          "currentElectionPage": {
+            "title": "Current Election",
+            "testElectionTitle": "Test Election",
+            "testElectionSubtitle": "Help us test our voting system",
+            "politicalParties": "Political parties",
+            "partiesOnBallotInfo": "Parties with membership over 0.05% of the electorate (Basic Income Plus recipients) are on the ballot.",
+            "searchPlaceholder": "Search parties...",
+            "leaderPrefix": "Leader: ",
+            "noActiveElection": "No Active Election",
+            "noActiveElectionDescription": "There is no election currently running",
+            "backToOverview": "Back to overview",
+            "buttons": {
+              "voted": "Voted",
+              "vote": "Vote",
+              "processing": "Processing...",
+              "cancel": "Cancel"
+            },
+            "confirmation": {
+              "vote": {
+                "title": "Confirm Your Vote",
+                "description": "You are about to cast your vote for {{partyName}}. This action will be recorded on the blockchain.",
+                "confirmText": "Confirm vote"
+              },
+              "change": {
+                "title": "Change Your Vote",
+                "description": "Are you sure you want to change your vote from {{previousPartyName}} to {{partyName}}?",
+                "confirmText": "Confirm change"
+              },
+              "remove": {
+                "title": "Remove Your Vote",
+                "description": "Are you sure you want to remove your vote for {{partyName}}? You will not be voting for any party.",
+                "confirmText": "Yes, remove vote"
+              }
+            },
+            "toasts": {
+              "connectInWorldApp": "Please open this app in the World App to vote.",
+              "connectWallet": "Please connect your wallet first.",
+              "noCurrentElection": "Could not determine the current election.",
+              "fetchStatusError": "Failed to fetch voting status. Please try again.",
+              "transactionFailed": "Transaction failed or was rejected.",
+              "voteRemovedSuccess": "Vote removed successfully",
+              "voteSuccess": "Successfully voted for {{partyName}}!",
+              "voteError": "An error occurred while casting your vote."
+            }
           }
         },
         "referendums": {

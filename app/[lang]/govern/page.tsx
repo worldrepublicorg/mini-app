@@ -129,7 +129,10 @@ export default function GovernPage({
               </Typography>
               <Link href={`/${lang}/govern/election`} className="w-full">
                 <Button variant="primary" fullWidth>
-                  Open test election
+                  {
+                    dictionary?.pages?.govern?.sections?.elections
+                      ?.mockElections?.button
+                  }
                 </Button>
               </Link>
             </div>

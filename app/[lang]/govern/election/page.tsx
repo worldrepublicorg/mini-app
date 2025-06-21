@@ -8,7 +8,7 @@ import type { FocusEvent as ReactFocusEvent } from "react";
 import { useTranslations } from "@/hooks/useTranslations";
 import { PiInfoFill } from "react-icons/pi";
 import Link from "next/link";
-import { BiChevronLeft } from "react-icons/bi";
+import { BiChevronLeft, BiShareAlt } from "react-icons/bi";
 import { useRouter } from "next/navigation";
 import {
   Input,
@@ -51,6 +51,8 @@ export default function CurrentElectionPage({
   const [currentElectionId, setCurrentElectionId] = useState<bigint | null>(
     null
   );
+  const [showScrollToTop, setShowScrollToTop] = useState(false);
+  const [isButtonReady, setIsButtonReady] = useState(true);
   const [confirmationDetails, setConfirmationDetails] = useState<{
     isOpen: boolean;
     party: { id: number; name: string } | null;
@@ -85,6 +87,34 @@ export default function CurrentElectionPage({
   }, [shuffledParties, searchTerm]);
 
   useEffect(() => {
+    const handleScroll = () => {
+      const shouldShow = window.scrollY > 300;
+      setShowScrollToTop(shouldShow);
+
+      if (!shouldShow) {
+        setIsButtonReady(true);
+      } else if (shouldShow && !isButtonReady) {
+        const readyTimer = setTimeout(() => {
+          setIsButtonReady(true);
+        }, 300);
+        return () => clearTimeout(readyTimer);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isButtonReady]);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
     const fetchVoterStatus = async () => {
       if (!walletAddress || !currentElection) return;
 
@@ -110,7 +140,11 @@ export default function CurrentElectionPage({
         }
       } catch (error) {
         console.error("Error fetching voter status:", error);
-        showToast("Failed to fetch voting status. Please try again.", "error");
+        showToast(
+          dictionary?.pages?.govern?.sections?.elections?.currentElectionPage
+            ?.toasts?.fetchStatusError,
+          "error"
+        );
       }
     };
 
@@ -123,28 +157,38 @@ export default function CurrentElectionPage({
     }
 
     const partyName = confirmationDetails.party.name;
+    const { confirmation } =
+      dictionary?.pages?.govern?.sections?.elections?.currentElectionPage;
 
     switch (confirmationDetails.action) {
       case "vote":
         return {
-          title: "Confirm Your Vote",
-          description: `You are about to cast your vote for ${partyName}. This action will be recorded on the blockchain.`,
-          confirmText: "Confirm vote",
+          title: confirmation.vote?.title,
+          description: confirmation.vote?.description.replace(
+            "{{partyName}}",
+            partyName
+          ),
+          confirmText: confirmation.vote?.confirmText,
         };
       case "change":
         const previousParty = currentElection?.eligibleParties.find(
           (p) => Number(p.id) === votedForPartyId
         );
         return {
-          title: "Change Your Vote",
-          description: `Are you sure you want to change your vote from ${previousParty?.name} to ${partyName}?`,
-          confirmText: "Confirm change",
+          title: confirmation.change?.title,
+          description: confirmation.change?.description
+            .replace("{{previousPartyName}}", previousParty?.name ?? "")
+            .replace("{{partyName}}", partyName),
+          confirmText: confirmation.change?.confirmText,
         };
       case "remove":
         return {
-          title: "Remove Your Vote",
-          description: `Are you sure you want to remove your vote for ${partyName}? You will not be voting for any party.`,
-          confirmText: "Yes, remove vote",
+          title: confirmation.remove?.title,
+          description: confirmation.remove?.description.replace(
+            "{{partyName}}",
+            partyName
+          ),
+          confirmText: confirmation.remove?.confirmText,
         };
       default:
         return { title: "", description: "", confirmText: "" };
@@ -155,15 +199,27 @@ export default function CurrentElectionPage({
     if (processingPartyId) return;
 
     if (!MiniKit.isInstalled()) {
-      showToast("Please open this app in the World App to vote.", "error");
+      showToast(
+        dictionary?.pages?.govern?.sections?.elections?.currentElectionPage
+          ?.toasts?.connectInWorldApp,
+        "error"
+      );
       return;
     }
     if (!walletAddress) {
-      showToast("Please connect your wallet first.", "error");
+      showToast(
+        dictionary?.pages?.govern?.sections?.elections?.currentElectionPage
+          ?.toasts?.connectWallet,
+        "error"
+      );
       return;
     }
     if (currentElectionId === null) {
-      showToast("Could not determine the current election.", "error");
+      showToast(
+        dictionary?.pages?.govern?.sections?.elections?.currentElectionPage
+          ?.toasts?.noCurrentElection,
+        "error"
+      );
       return;
     }
 
@@ -199,6 +255,9 @@ export default function CurrentElectionPage({
     // Optimistic update
     setVotedForPartyId(isRemovingVote ? null : partyId);
 
+    const { toasts } =
+      dictionary?.pages?.govern?.sections?.elections?.currentElectionPage;
+
     try {
       const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
         transaction: [
@@ -212,20 +271,20 @@ export default function CurrentElectionPage({
       });
 
       if (finalPayload.status === "error") {
-        showToast("Transaction failed or was rejected.", "error");
+        showToast(toasts.transactionFailed, "error");
         // Revert optimistic update
         setVotedForPartyId(oldVotedPartyId);
       } else {
         showToast(
           isRemovingVote
-            ? "Vote removed successfully"
-            : `Successfully voted for ${partyName}!`,
+            ? toasts.voteRemovedSuccess
+            : toasts.voteSuccess.replace("{{partyName}}", partyName),
           "success"
         );
       }
     } catch (error) {
       console.error("Error casting vote:", error);
-      showToast("An error occurred while casting your vote.", "error");
+      showToast(toasts.voteError, "error");
       // Revert optimistic update
       setVotedForPartyId(oldVotedPartyId);
     } finally {
@@ -250,6 +309,8 @@ export default function CurrentElectionPage({
   };
 
   const confirmationContent = getConfirmationText();
+  const electionDict =
+    dictionary?.pages?.govern?.sections?.elections?.currentElectionPage;
 
   return (
     <div className="pb-safe flex min-h-dvh flex-col px-6">
@@ -286,7 +347,7 @@ export default function CurrentElectionPage({
               className="w-full"
               disabled={processingPartyId !== null}
             >
-              Cancel
+              {electionDict?.buttons?.cancel}
             </Button>
             <Button
               size="lg"
@@ -295,7 +356,7 @@ export default function CurrentElectionPage({
               disabled={processingPartyId !== null}
             >
               {processingPartyId !== null
-                ? "Processing..."
+                ? electionDict?.buttons?.processing
                 : confirmationContent.confirmText}
             </Button>
           </AlertDialogFooter>
@@ -315,8 +376,44 @@ export default function CurrentElectionPage({
             variant={{ variant: "heading", level: 3 }}
             className="mx-12 truncate text-center"
           >
-            Current Election
+            {electionDict?.title}
           </Typography>
+          {currentElection && (
+            <button
+              onClick={async () => {
+                const shareUrl = `https://world.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=%2Fgovern%2Felection`;
+                const shareTitle =
+                  electionDict?.testElectionTitle || "Current Election";
+                const copiedMessage =
+                  dictionary?.components?.politicalPartyList?.copied ||
+                  "Link copied!";
+
+                if (navigator.share) {
+                  try {
+                    await navigator.share({
+                      title: shareTitle,
+                      url: shareUrl,
+                    });
+                  } catch (error) {
+                    if (error instanceof Error && error.name !== "AbortError") {
+                      await navigator.clipboard.writeText(shareUrl);
+                      showToast(copiedMessage, "success");
+                    }
+                  }
+                } else {
+                  await navigator.clipboard.writeText(shareUrl);
+                  showToast(copiedMessage, "success");
+                }
+              }}
+              className="absolute right-0 flex size-10 items-center justify-center rounded-full bg-gray-100"
+              aria-label={
+                dictionary?.components?.politicalPartyList?.shareParty ||
+                "Share"
+              }
+            >
+              <BiShareAlt className="size-5 text-gray-500" />
+            </button>
+          )}
         </div>
       </div>
 
@@ -325,13 +422,13 @@ export default function CurrentElectionPage({
           <>
             <div className="mb-10 text-center">
               <Typography as="h1" variant={{ variant: "heading", level: 1 }}>
-                Test Election
+                {electionDict?.testElectionTitle}
               </Typography>
               <Typography
                 variant={{ variant: "subtitle", level: 1 }}
                 className="mt-2 text-gray-500"
               >
-                Help us test our voting system
+                {electionDict?.testElectionSubtitle}
               </Typography>
             </div>
 
@@ -341,14 +438,13 @@ export default function CurrentElectionPage({
                 variant={{ variant: "subtitle", level: 1 }}
                 className="text-[19px] font-semibold"
               >
-                Political parties
+                {electionDict?.politicalParties}
               </Typography>
               <span className="group relative inline-flex items-center align-baseline">
                 <PiInfoFill className="mb-0.5 ml-1 h-4 w-4 cursor-help text-gray-400" />
                 <div className="absolute bottom-full left-0 z-10 mb-2 hidden w-[calc(100dvw/2+24px)] max-w-sm transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
                   <p className="text-left text-gray-700">
-                    Parties with membership over 0.05% of the electorate (Basic
-                    Income Plus recipients) are on the ballot.
+                    {electionDict?.partiesOnBallotInfo}
                   </p>
                 </div>
               </span>
@@ -372,7 +468,7 @@ export default function CurrentElectionPage({
                     />
                   </svg>
                 }
-                label="Search parties..."
+                label={electionDict?.searchPlaceholder}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 onFocus={handleInputFocus}
@@ -400,7 +496,8 @@ export default function CurrentElectionPage({
                       variant={{ variant: "body", level: 3 }}
                       className="mt-0.5 text-gray-500"
                     >
-                      Leader: {party.leader}
+                      {electionDict?.leaderPrefix}
+                      {party.leader}
                     </Typography>
                   </Link>
                   <Button
@@ -420,10 +517,10 @@ export default function CurrentElectionPage({
                     disabled={processingPartyId !== null}
                   >
                     {processingPartyId === Number(party.id)
-                      ? "Processing..."
+                      ? electionDict?.buttons?.processing
                       : votedForPartyId === Number(party.id)
-                        ? "Voted"
-                        : "Vote"}
+                        ? electionDict?.buttons?.voted
+                        : electionDict?.buttons?.vote}
                   </Button>
                 </div>
               ))}
@@ -439,21 +536,59 @@ export default function CurrentElectionPage({
               variant={{ variant: "heading", level: 1 }}
               className="mb-4 text-center"
             >
-              No Active Election
+              {electionDict?.noActiveElection}
             </Typography>
             <Typography
               variant={{ variant: "subtitle", level: 1 }}
               className="mb-10 text-center text-gray-500"
             >
-              There is no election currently running
+              {electionDict?.noActiveElectionDescription}
             </Typography>
             <Link href={`/${lang}/govern`} className="w-full">
               <Button variant="secondary" fullWidth>
-                Back to overview
+                {electionDict?.backToOverview}
               </Button>
             </Link>
           </div>
         )}
+      </div>
+      {/* Scroll to top button */}
+      <div
+        className="mb-safe fixed right-4 z-50 h-12 w-12"
+        style={{ bottom: "16px" }}
+      >
+        <button
+          onClick={scrollToTop}
+          onTouchStart={() => {
+            if (isButtonReady) {
+              scrollToTop();
+            }
+          }}
+          className={`flex h-full w-full items-center justify-center rounded-full bg-gray-100 shadow-lg transition-opacity duration-300 ${
+            showScrollToTop && isButtonReady
+              ? "opacity-100"
+              : "pointer-events-none opacity-0"
+          }`}
+          aria-label={
+            dictionary?.components?.politicalPartyList?.scrollToTop ||
+            "Scroll to top"
+          }
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="text-gray-500"
+          >
+            <path d="m18 15-6-6-6 6" />
+          </svg>
+        </button>
       </div>
     </div>
   );
