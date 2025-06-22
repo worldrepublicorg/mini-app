@@ -1,12 +1,10 @@
 "use client";
 
 import { Typography } from "@/components/ui/Typography";
-import Link from "next/link";
 import { useTranslations } from "@/hooks/useTranslations";
 import { BiChevronLeft } from "react-icons/bi";
 import { FiExternalLink } from "react-icons/fi";
 import {
-  PiCode,
   PiCoins,
   PiHandHeart,
   PiHandshake,
@@ -182,9 +180,9 @@ export default function BuybackProgramPage({
                   </div>
                   <div className="flex flex-col items-end whitespace-nowrap">
                     <span className="bg-green-100 text-green-800 rounded-full py-0.5 pl-2.5 text-sm font-medium">
-                      26,532 WLD
+                      28,314 WLD
                     </span>
-                    <span className="text-xs text-gray-500">Week 10 of 12</span>
+                    <span className="text-xs text-gray-500">Week 11 of 12</span>
                   </div>
                 </div>
               </a>
