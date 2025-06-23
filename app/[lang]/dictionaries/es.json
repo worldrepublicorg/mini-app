@@ -281,7 +281,7 @@
               "subtitle": "Ingresos extra para usuarios verificados",
               "features": {
                 "rate": {
-                  "title": "1,96 WDD adicionales por día"
+                  "title": "1,76 WDD adicionales por día"
                 },
                 "verification": {
                   "title": "Exclusivo para usuarios verificados con Orb para asegurar una distribución justa"
@@ -738,7 +738,7 @@
         },
         "basicIncomePlus": {
           "question": "¿Cómo activo la Renta Básica Plus?",
-          "answer": "La Renta Básica Plus proporciona 1,96 WDD adicionales por día y está disponible exclusivamente para usuarios verificados con Orb. Después de activar la Renta Básica, verás una opción para activar la Renta Básica Plus en la página Ganar."
+          "answer": "La Renta Básica Plus proporciona 1,76 WDD adicionales por día y está disponible exclusivamente para usuarios verificados con Orb. Después de activar la Renta Básica, verás una opción para activar la Renta Básica Plus en la página Ganar."
         },
         "savings": {
           "question": "¿Cómo funciona la Cuenta de Ahorro?",
