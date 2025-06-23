@@ -3,7 +3,7 @@ import { parties } from "./parties";
 export const elections = [
   {
     id: "1",
-    status: "active",
+    status: "past",
     eligibleParties: parties.filter((party) =>
       [
         "18",
