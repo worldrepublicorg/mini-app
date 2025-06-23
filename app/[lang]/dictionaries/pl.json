@@ -271,7 +271,7 @@
               "subtitle": "Dodatkowy dochód dla zweryfikowanych użytkowników",
               "features": {
                 "rate": {
-                  "title": "Dodatkowe 1,96 WDD dziennie"
+                  "title": "Dodatkowe 1,76 WDD dziennie"
                 },
                 "verification": {
                   "title": "Dostępne wyłącznie dla użytkowników zweryfikowanych przez Orb, aby zapewnić sprawiedliwą dystrybucję"
@@ -727,7 +727,7 @@
         },
         "basicIncomePlus": {
           "question": "Jak aktywować Dochód Podstawowy Plus?",
-          "answer": "Dochód Podstawowy Plus zapewnia dodatkowe 1,96 WDD dziennie i jest dostępny wyłącznie dla użytkowników zweryfikowanych przez Orb. Po aktywacji Dochodu Podstawowego zobaczysz opcję aktywacji Dochodu Podstawowego Plus na stronie Zarabiaj."
+          "answer": "Dochód Podstawowy Plus zapewnia dodatkowe 1,76 WDD dziennie i jest dostępny wyłącznie dla użytkowników zweryfikowanych przez Orb. Po aktywacji Dochodu Podstawowego zobaczysz opcję aktywacji Dochodu Podstawowego Plus na stronie Zarabiaj."
         },
         "savings": {
           "question": "Jak działa Konto Oszczędnościowe?",

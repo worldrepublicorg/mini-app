@@ -270,7 +270,7 @@
               "subtitle": "Zusätzliches Einkommen für verifizierte Nutzer",
               "features": {
                 "rate": {
-                  "title": "Zusätzliche 1,96 WDD pro Tag"
+                  "title": "Zusätzliche 1,76 WDD pro Tag"
                 },
                 "verification": {
                   "title": "Exklusiv für Orb-verifizierte Nutzer zur Sicherstellung einer fairen Verteilung"
@@ -727,7 +727,7 @@
         },
         "basicIncomePlus": {
           "question": "Wie aktiviere ich Grundeinkommen Plus?",
-          "answer": "Grundeinkommen Plus bietet zusätzliche 1,96 WDD pro Tag und ist ausschließlich den Orb-verifizierten Nutzern verfügbar. Nach der Aktivierung von Grundeinkommen sehen Sie eine Option, Grundeinkommen Plus auf der Verdienen-Seite zu aktivieren."
+          "answer": "Grundeinkommen Plus bietet zusätzliche 1,76 WDD pro Tag und ist ausschließlich den Orb-verifizierten Nutzern verfügbar. Nach der Aktivierung von Grundeinkommen sehen Sie eine Option, Grundeinkommen Plus auf der Verdienen-Seite zu aktivieren."
         },
         "savings": {
           "question": "Wie funktioniert der Sparen Account?",
