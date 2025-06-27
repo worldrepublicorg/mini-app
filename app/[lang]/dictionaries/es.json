@@ -319,7 +319,6 @@
           "drawer": {
             "title": "Recompensar a un Referidor",
             "subtitle": "Activa una recompensa gratuita de 50 WDD para tu referidor",
-            "passportSubtitle": "Comprueba tu verificación de pasaporte y activa una recompensa gratuita de 50 WDD para tu referidor",
             "invitedBy": "Fuiste invitado por: {{username}}",
             "input": {
               "placeholder": "Ingresa usuario (ej. usuario.0000)",
@@ -344,25 +343,6 @@
           "share": {
             "title": "Únete a la República Mundial",
             "text": "¡Usa mi enlace de invitación para unirte a la República Mundial y ganar recompensas juntos!"
-          },
-          "passportDrawer": {
-            "title": "Programa de Referidos Verificados por Pasaporte",
-            "subtitle": "Invita a titulares de pasaporte y gana 50 WDD",
-            "features": {
-              "countries": {
-                "title": "La verificación por pasaporte está actualmente disponible en Argentina, Australia, Chile, Colombia, Croacia, Japón, Filipinas, Portugal, Corea del Sur y Estados Unidos"
-              },
-              "rewards": {
-                "title": "Los amigos reciben WLD por verificar su pasaporte en World App"
-              },
-              "basicIncome": {
-                "title": "Pronto llegará ingreso básico adicional para personas verificadas por pasaporte"
-              }
-            },
-            "trigger": {
-              "titleText": "¡Ahora también disponible después de amigos verificados por pasaporte!",
-              "titleDetails": "Detalles"
-            }
           }
         },
         "contribute": {

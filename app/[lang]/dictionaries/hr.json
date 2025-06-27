@@ -309,7 +309,6 @@
           "drawer": {
             "title": "Nagradi Preporučitelja",
             "subtitle": "Aktiviraj besplatnu nagradu od 50 WDD za svog preporučitelja",
-            "passportSubtitle": "Dokažite svoju verifikaciju putovnice i aktivirajte besplatnu nagradu od 50 WDD za svog preporučitelja",
             "invitedBy": "Pozvao vas je: {{username}}",
             "input": {
               "placeholder": "Unesite korisničko ime (npr. username.0000)",
@@ -334,25 +333,6 @@
           "share": {
             "title": "Pridružite se Svjetskoj Republici",
             "text": "Koristite moju pozivnicu da se pridružite Svjetskoj Republici i zajedno zaradite nagrade!"
-          },
-          "passportDrawer": {
-            "title": "Program Preporuka Verificiran Putovnicom",
-            "subtitle": "Pozovite vlasnike putovnica i zaradite 50 WDD",
-            "features": {
-              "countries": {
-                "title": "Potvrda putovnice trenutno je dostupna u Argentini, Australiji, Čileu, Kolumbiji, Hrvatskoj, Japanu, Filipinima, Portugalu, Južnoj Koreji i Sjedinjenim Državama"
-              },
-              "rewards": {
-                "title": "Prijatelji primaju WLD za potvrdu svoje putovnice u World aplikaciji"
-              },
-              "basicIncome": {
-                "title": "Dodatni osnovni dohodak za osobe s potvrđenom putovnicom uskoro stiže"
-              }
-            },
-            "trigger": {
-              "titleText": "Sada dostupno i nakon prijatelja verificiranih putovnicom!",
-              "titleDetails": "Detalji"
-            }
           }
         },
         "contribute": {

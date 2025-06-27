@@ -307,7 +307,6 @@
           "drawer": {
             "title": "Reward ang Referrer",
             "subtitle": "Mag-trigger ng libreng 50 WDD reward para sa iyong referrer",
-            "passportSubtitle": "Patunayan ang iyong passport verification at mag-trigger ng libreng 50 WDD reward para sa iyong referrer",
             "invitedBy": "Inimbita ka ni: {{username}}",
             "input": {
               "placeholder": "Ilagay ang username (hal. username.0000)",
@@ -332,25 +331,6 @@
           "share": {
             "title": "Sumali ka sa World Republic",
             "text": "Gamitin ang aking invite link para sumali sa World Republic at magkasamang kumita ng rewards!"
-          },
-          "passportDrawer": {
-            "title": "Programa ng Referral na Beripikado sa Pasaporte",
-            "subtitle": "Mag-imbita ng mga may hawak ng pasaporte at kumita ng 50 WDD",
-            "features": {
-              "countries": {
-                "title": "Ang pag-verify ng pasaporte ay kasalukuyang available sa Argentina, Australia, Chile, Colombia, Croatia, Japan, Philippines, Portugal, South Korea, at United States"
-              },
-              "rewards": {
-                "title": "Ang mga kaibigan ay nakakakuha ng WLD sa pag-verify ng kanilang pasaporte sa World App"
-              },
-              "basicIncome": {
-                "title": "Ang karagdagang basic income para sa mga taong na-verify sa pamamagitan ng pasaporte ay malapit nang dumating"
-              }
-            },
-            "trigger": {
-              "titleText": "Ngayon ay available din pagkatapos ng mga kaibigan na na-verify sa pasaporte!",
-              "titleDetails": "Mga detalye"
-            }
           }
         },
         "contribute": {

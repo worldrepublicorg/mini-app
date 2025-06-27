@@ -309,7 +309,6 @@
           "drawer": {
             "title": "Mpa Malipo Mrafiki",
             "subtitle": "Toa malipo ya WDD 50 bila malipo kwa mrafiki wako",
-            "passportSubtitle": "Thibitisha uthibitisho wa pasipoti yako na toa malipo ya WDD 50 bila malipo kwa mrafiki wako",
             "invitedBy": "Uliakaribishwa na: {{username}}",
             "input": {
               "placeholder": "Ingiza jina la mtumiaji (mfano: username.0000)",
@@ -334,25 +333,6 @@
           "share": {
             "title": "Jiunge na Jamhuri ya Dunia",
             "text": "Tumia kiungo changu cha mwaliko kujiunga na Jamhuri ya Dunia na kupata zawadi pamoja!"
-          },
-          "passportDrawer": {
-            "title": "Programu ya Rufaa Iliyothibitishwa kwa Pasipoti",
-            "subtitle": "Alika wenye pasipoti na upate WDD 50",
-            "features": {
-              "countries": {
-                "title": "Uthibitishaji wa pasipoti kwa sasa unapatikana nchini Argentina, Australia, Chile, Colombia, Croatia, Japan, Philippines, Portugal, South Korea, na United States"
-              },
-              "rewards": {
-                "title": "Marafiki wanapokea WLD kwa kuthibitisha pasipoti zao katika Programu ya World"
-              },
-              "basicIncome": {
-                "title": "Mapato ya msingi ya ziada kwa watu waliothibitishwa kwa pasipoti yanakuja hivi karibuni"
-              }
-            },
-            "trigger": {
-              "titleText": "Sasa pia inapatikana baada ya marafiki waliothibitishwa kwa pasipoti!",
-              "titleDetails": "Maelezo zaidi"
-            }
           }
         },
         "contribute": {

@@ -308,7 +308,6 @@
           "drawer": {
             "title": "紹介者に報酬を送る",
             "subtitle": "紹介者に無料で50 WDDの報酬を送信",
-            "passportSubtitle": "パスポート認証を証明し、紹介者に無料で50 WDDの報酬を送信",
             "invitedBy": "あなたは{{username}}に招待されました",
             "input": {
               "placeholder": "ユーザー名を入力（例：username.0000）",
@@ -333,25 +332,6 @@
           "share": {
             "title": "世界共和国に参加しましょう",
             "text": "私の招待リンクを使って世界共和国に参加し、一緒に報酬を獲得しましょう！"
-          },
-          "passportDrawer": {
-            "title": "パスポート認証紹介プログラム",
-            "subtitle": "パスポート所持者を招待して50 WDDを獲得",
-            "features": {
-              "countries": {
-                "title": "パスポート認証は現在、アルゼンチン、オーストラリア、チリ、コロンビア、クロアチア、日本、フィリピン、ポルトガル、韓国、およびアメリカ合衆国で利用可能です"
-              },
-              "rewards": {
-                "title": "友達はWorld Appでパスポートを認証することでWLDを受け取ります"
-              },
-              "basicIncome": {
-                "title": "パスポート認証済みの人々向けの追加ベーシックインカムがまもなく登場します"
-              }
-            },
-            "trigger": {
-              "titleText": "パスポート認証済みの友人の後でも利用可能になりました！",
-              "titleDetails": "詳細"
-            }
           }
         },
         "contribute": {

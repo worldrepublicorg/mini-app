@@ -23,21 +23,16 @@ const WalletContext = createContext<WalletContextProps>({
   canReward: false,
   rewardCount: 0,
   secureDocumentRewardCount: 0,
-  hasRewarded: false,
-  secureDocumentCanReward: false,
   setWalletAddress: () => {},
   setUsername: () => {},
   fetchBasicIncomeInfo: async () => {},
   fetchBasicIncomePlusInfo: async () => {},
   fetchBalance: async () => {},
   fetchCanReward: async () => {},
-  fetchSecureDocumentCanReward: async () => {},
   fetchRewardCount: async () => {},
   fetchSecureDocumentRewardCount: async () => {},
-  fetchHasRewarded: async () => {},
   setBasicIncomeActivated: () => {},
   setBasicIncomePlusActivated: () => {},
-  setSecureDocumentCanReward: () => {},
 });
 
 export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
@@ -57,8 +52,6 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [canReward, setCanReward] = useState(false);
   const [rewardCount, setRewardCount] = useState(0);
   const [secureDocumentRewardCount, setSecureDocumentRewardCount] = useState(0);
-  const [hasRewarded, setHasRewarded] = useState(false);
-  const [secureDocumentCanReward, setSecureDocumentCanReward] = useState(false);
 
   const setBasicIncomeActivated = useCallback((activated: boolean) => {
     setBasicIncomeActivatedState(activated);
@@ -279,63 +272,6 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     }
   }, [walletAddress]);
 
-  const fetchSecureDocumentCanReward = useCallback(async () => {
-    if (!walletAddress) return;
-
-    try {
-      console.log("[Referral] Checking if user can reward on new contract...");
-      try {
-        const referralABI = [
-          {
-            inputs: [
-              {
-                internalType: "address",
-                name: "user",
-                type: "address",
-              },
-            ],
-            name: "canReward",
-            outputs: [
-              {
-                internalType: "bool",
-                name: "",
-                type: "bool",
-              },
-            ],
-            stateMutability: "view",
-            type: "function",
-          },
-        ] as const;
-
-        const canRewardStatus = await viemClient.readContract({
-          address:
-            "0x012399Ce7108DD3B8C5583758816575f0c2FcD86" as `0x${string}`, // Update with real contract address
-          abi: referralABI,
-          functionName: "canReward",
-          args: [walletAddress as `0x${string}`],
-        });
-
-        console.log(
-          `[Referral] User ${walletAddress} secure document canReward status: ${canRewardStatus}`
-        );
-        setSecureDocumentCanReward(!!canRewardStatus);
-      } catch (error) {
-        console.error(
-          "[Referral] Error calling secure document canReward function:",
-          error
-        );
-        setSecureDocumentCanReward(false);
-      }
-    } catch (error) {
-      console.error(
-        "[Referral] Error checking secure document canReward status:",
-        error
-      );
-      setSecureDocumentCanReward(false);
-      setTimeout(fetchSecureDocumentCanReward, 1000);
-    }
-  }, [walletAddress]);
-
   const fetchRewardCount = useCallback(async () => {
     if (!walletAddress) return;
 
@@ -447,79 +383,15 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     }
   }, [walletAddress]);
 
-  const fetchHasRewarded = useCallback(async () => {
-    if (!walletAddress) return;
-
-    try {
-      console.log(
-        "[Referral] Checking if user has already rewarded someone..."
-      );
-      try {
-        const referralABI = [
-          {
-            inputs: [
-              {
-                internalType: "address",
-                name: "sender",
-                type: "address",
-              },
-            ],
-            name: "checkReward",
-            outputs: [
-              {
-                internalType: "bool",
-                name: "hasRewarded",
-                type: "bool",
-              },
-              {
-                internalType: "address",
-                name: "recipient",
-                type: "address",
-              },
-            ],
-            stateMutability: "view",
-            type: "function",
-          },
-        ] as const;
-
-        const result = await viemClient.readContract({
-          address:
-            "0x372dCA057682994568be074E75a03Ced3dD9E60d" as `0x${string}`,
-          abi: referralABI,
-          functionName: "checkReward",
-          args: [walletAddress as `0x${string}`],
-        });
-
-        if (Array.isArray(result) && result.length === 2) {
-          const userHasRewarded = result[0];
-          console.log(
-            `[Referral] User ${walletAddress} hasRewarded status: ${userHasRewarded}`
-          );
-          setHasRewarded(!!userHasRewarded);
-        }
-      } catch (error) {
-        console.error("[Referral] Error calling checkReward function:", error);
-        setTimeout(fetchHasRewarded, 1000);
-      }
-    } catch (error) {
-      console.error("[Referral] Error checking hasRewarded status:", error);
-      setTimeout(fetchHasRewarded, 1000);
-    }
-  }, [walletAddress]);
-
   useEffect(() => {
     if (walletAddress) {
       fetchCanReward();
-      fetchSecureDocumentCanReward();
-      fetchHasRewarded();
       fetchRewardCount();
       fetchSecureDocumentRewardCount();
     }
   }, [
     walletAddress,
     fetchCanReward,
-    fetchHasRewarded,
-    fetchSecureDocumentCanReward,
     fetchRewardCount,
     fetchSecureDocumentRewardCount,
   ]);
@@ -720,21 +592,16 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         canReward,
         rewardCount,
         secureDocumentRewardCount,
-        hasRewarded,
-        secureDocumentCanReward,
         setWalletAddress,
         setUsername,
         fetchBasicIncomeInfo,
         fetchBasicIncomePlusInfo,
         fetchBalance,
         fetchCanReward,
-        fetchSecureDocumentCanReward,
         fetchRewardCount,
         fetchSecureDocumentRewardCount,
-        fetchHasRewarded,
         setBasicIncomeActivated,
         setBasicIncomePlusActivated,
-        setSecureDocumentCanReward,
       }}
     >
       {children}
