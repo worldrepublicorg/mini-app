@@ -309,7 +309,6 @@
           "drawer": {
             "title": "Reward a Referrer",
             "subtitle": "Trigger a free 50 WDD reward for your referrer",
-            "passportSubtitle": "Prove your passport verification and trigger a free 50 WDD reward for your referrer",
             "invitedBy": "You were invited by: {{username}}",
             "input": {
               "placeholder": "Enter username (e.g. username.0000)",
@@ -334,25 +333,6 @@
           "share": {
             "title": "Join me in the World Republic",
             "text": "Use my invite link to join the World Republic and earn rewards together!"
-          },
-          "passportDrawer": {
-            "title": "Passport-Verified Referral Program",
-            "subtitle": "Invite passport holders and earn 50 WDD",
-            "features": {
-              "countries": {
-                "title": "Passport-verification is currently available in Argentina, Australia, Chile, Colombia, Croatia, Japan, Philippines, Portugal, South Korea, and the United States"
-              },
-              "rewards": {
-                "title": "Friends receive WLD for verifying their passport in World App"
-              },
-              "basicIncome": {
-                "title": "Extra basic income for passport-verified people is coming soon"
-              }
-            },
-            "trigger": {
-              "titleText": "Now also available after passport-verified friends!",
-              "titleDetails": "Details"
-            }
           }
         },
         "contribute": {

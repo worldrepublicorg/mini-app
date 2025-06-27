@@ -309,7 +309,6 @@
           "drawer": {
             "title": "Recompensar um Indicador",
             "subtitle": "Ative uma recompensa gratuita de 50 WDD para seu indicador",
-            "passportSubtitle": "Comprove sua verificação de passaporte e ative uma recompensa gratuita de 50 WDD para seu indicador",
             "invitedBy": "Você foi convidado por: {{username}}",
             "input": {
               "placeholder": "Digite o nome de usuário (ex: usuario.0000)",
@@ -334,25 +333,6 @@
           "share": {
             "title": "Junte-se à República Mundial",
             "text": "Use meu link de convite para se juntar à República Mundial e ganhar recompensas juntos!"
-          },
-          "passportDrawer": {
-            "title": "Programa de Indicação Verificado por Passaporte",
-            "subtitle": "Convide portadores de passaporte e ganhe 50 WDD",
-            "features": {
-              "countries": {
-                "title": "A verificação por passaporte está atualmente disponível na Argentina, Austrália, Chile, Colômbia, Croácia, Japão, Filipinas, Portugal, Coreia do Sul e Estados Unidos"
-              },
-              "rewards": {
-                "title": "Amigos recebem WLD ao verificar seu passaporte no World App"
-              },
-              "basicIncome": {
-                "title": "Renda básica extra para pessoas verificadas por passaporte chegará em breve"
-              }
-            },
-            "trigger": {
-              "titleText": "Agora também disponível após amigos verificados por passaporte!",
-              "titleDetails": "Detalhes"
-            }
           }
         },
         "contribute": {

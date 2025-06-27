@@ -308,7 +308,6 @@
           "drawer": {
             "title": "Belohnung einem Referrer gewähren",
             "subtitle": "Freien 50 WDD Belohnung für Ihren Referrer auslösen",
-            "passportSubtitle": "Überprüfen Sie Ihre Passverifizierung und lösen Sie eine kostenlose 50 WDD Belohnung für Ihren Referrer aus",
             "invitedBy": "Sie wurden von: {{username}} eingeladen",
             "input": {
               "placeholder": "Benutzername eingeben (z.B. username.0000)",
@@ -333,25 +332,6 @@
           "share": {
             "title": "Tritt der Weltrepublik bei",
             "text": "Nutze meinen Einladungslink, um der Weltrepublik beizutreten und gemeinsam Belohnungen zu verdienen!"
-          },
-          "passportDrawer": {
-            "title": "Pass-verifiziertes Empfehlungsprogramm",
-            "subtitle": "Lade Passinhaber ein und verdiene 50 WDD",
-            "features": {
-              "countries": {
-                "title": "Pass-Verifizierung ist derzeit in Argentinien, Australien, Chile, Kolumbien, Kroatien, Japan, Philippinen, Portugal, Südkorea und den Vereinigten Staaten verfügbar"
-              },
-              "rewards": {
-                "title": "Freunde erhalten WLD für die Verifizierung ihres Passes in der World App"
-              },
-              "basicIncome": {
-                "title": "Zusätzliches Grundeinkommen für pass-verifizierte Personen kommt bald"
-              }
-            },
-            "trigger": {
-              "titleText": "Jetzt auch nach Pass-verifizierten Freunden verfügbar!",
-              "titleDetails": "Einzelheiten"
-            }
           }
         },
         "contribute": {

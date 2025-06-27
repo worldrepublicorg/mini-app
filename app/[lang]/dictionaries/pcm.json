@@ -308,7 +308,6 @@
           "drawer": {
             "title": "Give Person Wey Invite You Money",
             "subtitle": "Give person wey invite you free 50 WDD",
-            "passportSubtitle": "Show proof say your passport don verify and give person wey invite you free 50 WDD",
             "invitedBy": "Na {{username}} invite you",
             "input": {
               "placeholder": "Put username (example: username.0000)",
@@ -333,25 +332,6 @@
           "share": {
             "title": "Make you join me for World Republic",
             "text": "Use my invite link join World Republic make we dey earn money together!"
-          },
-          "passportDrawer": {
-            "title": "Passport-Verified Referral Program",
-            "subtitle": "Invite pipol wey get passport and earn 50 WDD",
-            "features": {
-              "countries": {
-                "title": "Passport verification dey available for Argentina, Australia, Chile, Colombia, Croatia, Japan, Philippines, Portugal, South Korea, and United States"
-              },
-              "rewards": {
-                "title": "Your friends go receive WLD when dem verify their passport for World App"
-              },
-              "basicIncome": {
-                "title": "Extra money for people wey verify with passport dey come soon"
-              }
-            },
-            "trigger": {
-              "titleText": "Now e don also dey available afta friends wey passport verify!",
-              "titleDetails": "Details"
-            }
           }
         },
         "contribute": {

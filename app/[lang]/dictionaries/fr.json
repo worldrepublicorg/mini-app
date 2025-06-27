@@ -309,7 +309,6 @@
           "drawer": {
             "title": "Récompenser un Parrain",
             "subtitle": "Déclencher une récompense gratuite de 50 WDD pour votre parrain",
-            "passportSubtitle": "Confirmez votre vérification de passeport et déclenchez une récompense gratuite de 50 WDD pour votre parrain",
             "invitedBy": "Vous avez été invité par : {{username}}",
             "input": {
               "placeholder": "Entrez le nom d'utilisateur (ex : username.0000)",
@@ -334,25 +333,6 @@
           "share": {
             "title": "Rejoignez-moi dans la République Mondiale",
             "text": "Utilisez mon lien d'invitation pour rejoindre la République Mondiale et gagner des récompenses ensemble !"
-          },
-          "passportDrawer": {
-            "title": "Programme de Parrainage Vérifié par Passeport",
-            "subtitle": "Invitez les détenteurs de passeport et gagnez 50 WDD",
-            "features": {
-              "countries": {
-                "title": "La vérification par passeport est actuellement disponible en Argentine, Australie, Chili, Colombie, Croatie, Japon, Philippines, Portugal, Corée du Sud et États-Unis"
-              },
-              "rewards": {
-                "title": "Les amis reçoivent des WLD en vérifiant leur passeport dans l'application World"
-              },
-              "basicIncome": {
-                "title": "Un revenu de base supplémentaire pour les personnes vérifiées par passeport arrive bientôt"
-              }
-            },
-            "trigger": {
-              "titleText": "Maintenant également disponible après vérification du passeport de vos amis !",
-              "titleDetails": "Détails"
-            }
           }
         },
         "contribute": {

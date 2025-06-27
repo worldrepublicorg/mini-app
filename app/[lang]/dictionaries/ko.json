@@ -309,7 +309,6 @@
           "drawer": {
             "title": "추천인 보상",
             "subtitle": "추천인에게 50 WDD 무료 리워드 지급",
-            "passportSubtitle": "패스포트 인증을 증명하고 추천인에게 50 WDD 무료 리워드 지급",
             "invitedBy": "추천인: {{username}}",
             "input": {
               "placeholder": "사용자 이름 입력 (예: username.0000)",
@@ -334,25 +333,6 @@
           "share": {
             "title": "세계 공화국에 참여하세요",
             "text": "제 초대 링크를 사용하여 세계 공화국에 가입하고 함께 보상을 받으세요!"
-          },
-          "passportDrawer": {
-            "title": "여권 인증 추천 프로그램",
-            "subtitle": "여권 소지자를 초대하고 50 WDD를 획득하세요",
-            "features": {
-              "countries": {
-                "title": "여권 인증은 현재 아르헨티나, 호주, 칠레, 콜롬비아, 크로아티아, 일본, 필리핀, 포르투갈, 한국, 미국에서 이용 가능합니다"
-              },
-              "rewards": {
-                "title": "친구들은 World 앱에서 여권을 인증함으로써 WLD를 받습니다"
-              },
-              "basicIncome": {
-                "title": "여권 인증된 사람들을 위한 추가 기본 소득이 곧 제공됩니다"
-              }
-            },
-            "trigger": {
-              "titleText": "이제 여권 인증된 친구 이후에도 사용 가능합니다!",
-              "titleDetails": "상세 정보"
-            }
           }
         },
         "contribute": {

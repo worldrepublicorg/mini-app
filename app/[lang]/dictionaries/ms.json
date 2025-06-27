@@ -309,7 +309,6 @@
           "drawer": {
             "title": "Ganjarkan Pemberi Rujukan",
             "subtitle": "Cetuskan ganjaran 50 WDD percuma untuk pemberi rujukan anda",
-            "passportSubtitle": "Buktikan pengesahan pasport anda dan cetuskan ganjaran 50 WDD percuma untuk pemberi rujukan anda",
             "invitedBy": "Anda dijemput oleh: {{username}}",
             "input": {
               "placeholder": "Masukkan nama pengguna (cth. username.0000)",
@@ -334,25 +333,6 @@
           "share": {
             "title": "Sertai Republik Dunia",
             "text": "Gunakan pautan jemputan saya untuk menyertai Republik Dunia dan memperoleh ganjaran bersama!"
-          },
-          "passportDrawer": {
-            "title": "Program Rujukan Disahkan-Pasport",
-            "subtitle": "Jemput pemegang pasport dan dapatkan 50 WDD",
-            "features": {
-              "countries": {
-                "title": "Pengesahan pasport kini tersedia di Argentina, Australia, Chile, Colombia, Croatia, Japan, Philippines, Portugal, South Korea, dan United States"
-              },
-              "rewards": {
-                "title": "Rakan menerima WLD untuk mengesahkan pasport mereka dalam Aplikasi World"
-              },
-              "basicIncome": {
-                "title": "Pendapatan asas tambahan untuk orang yang disahkan pasport akan datang tidak lama lagi"
-              }
-            },
-            "trigger": {
-              "titleText": "Kini juga tersedia selepas rakan-rakan yang disahkan pasport!",
-              "titleDetails": "Butiran"
-            }
           }
         },
         "contribute": {

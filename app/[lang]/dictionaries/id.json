@@ -309,7 +309,6 @@
           "drawer": {
             "title": "Beri Hadiah Pereferral",
             "subtitle": "Berikan hadiah 50 WDD gratis untuk pereferral Anda",
-            "passportSubtitle": "Buktikan verifikasi paspor Anda dan berikan hadiah 50 WDD gratis untuk pereferral Anda",
             "invitedBy": "Anda diundang oleh: {{username}}",
             "input": {
               "placeholder": "Masukkan username (contoh: username.0000)",
@@ -334,25 +333,6 @@
           "share": {
             "title": "Bergabunglah dengan Republik Dunia",
             "text": "Gunakan tautan undangan saya untuk bergabung dengan Republik Dunia dan mendapatkan hadiah bersama!"
-          },
-          "passportDrawer": {
-            "title": "Program Referral Terverifikasi Paspor",
-            "subtitle": "Undang pemegang paspor dan dapatkan 50 WDD",
-            "features": {
-              "countries": {
-                "title": "Verifikasi paspor saat ini tersedia di Argentina, Australia, Chili, Kolombia, Kroasia, Jepang, Filipina, Portugal, Korea Selatan, dan Amerika Serikat"
-              },
-              "rewards": {
-                "title": "Teman menerima WLD untuk memverifikasi paspor mereka di Aplikasi World"
-              },
-              "basicIncome": {
-                "title": "Pendapatan dasar tambahan untuk orang-orang yang terverifikasi paspor akan segera hadir"
-              }
-            },
-            "trigger": {
-              "titleText": "Sekarang juga tersedia setelah teman-teman terverifikasi paspor!",
-              "titleDetails": "Detail"
-            }
           }
         },
         "contribute": {

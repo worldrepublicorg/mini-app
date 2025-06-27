@@ -309,7 +309,6 @@
           "drawer": {
             "title": "Davet Edeni Ödüllendir",
             "subtitle": "Davet edeniniz için ücretsiz 50 WDD ödülü tetikleyin",
-            "passportSubtitle": "Pasaport doğrulamanızı kanıtlayın ve davet edeniniz için ücretsiz 50 WDD ödülü tetikleyin",
             "invitedBy": "Sizi davet eden: {{username}}",
             "input": {
               "placeholder": "Kullanıcı adı girin (örn. kullanici.0000)",
@@ -334,25 +333,6 @@
           "share": {
             "title": "Dünya Cumhuriyeti'ne Katılın",
             "text": "Dünya Cumhuriyeti'ne katılmak ve birlikte ödüller kazanmak için davet linkimi kullanın!"
-          },
-          "passportDrawer": {
-            "title": "Pasaport Doğrulamalı Referans Programı",
-            "subtitle": "Pasaport sahiplerini davet edin ve 50 WDD kazanın",
-            "features": {
-              "countries": {
-                "title": "Pasaport doğrulaması şu anda Arjantin, Avustralya, Şili, Kolombiya, Hırvatistan, Japonya, Filipinler, Portekiz, Güney Kore ve Amerika Birleşik Devletleri'nde mevcuttur"
-              },
-              "rewards": {
-                "title": "Arkadaşlarınız, World uygulamasında pasaportlarını doğrulayarak WLD kazanır"
-              },
-              "basicIncome": {
-                "title": "Pasaport doğrulaması yapılmış kişiler için ek temel gelir yakında geliyor"
-              }
-            },
-            "trigger": {
-              "titleText": "Şimdi pasaport doğrulamalı arkadaşlardan sonra da kullanılabilir!",
-              "titleDetails": "Detaylar"
-            }
           }
         },
         "contribute": {
