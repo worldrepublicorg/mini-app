@@ -419,11 +419,11 @@
             "weeklyPool": {
               "old": "100,000",
               "new": "250,000 WDD",
-              "subtitle": "Fixed weekly pool"
+              "subtitle": "Fixed pool"
             },
             "devRewards": {
               "title": "10% of our Dev Rewards",
-              "subtitle": "Variable reward pool",
+              "subtitle": "Variable pool",
               "tooltip": "World is distributing developer rewards based on app usage by verified humans.",
               "checkOutRewards": "Check out rewards"
             },
@@ -436,7 +436,7 @@
                 },
                 "growMembership": {
                   "title": "Get on the ballot",
-                  "description": "Grow your membership to qualify for the weekly elections"
+                  "description": "Grow your membership to qualify for the test elections"
                 },
                 "earnRewards": {
                   "title": "Receive funding",
@@ -582,8 +582,8 @@
         "elections": {
           "title": "Elections",
           "description": "Choose your representatives",
-          "weeklyElections": {
-            "title": "Weekly Elections",
+          "testElections": {
+            "title": "Test Elections",
             "description": "Help us distribute party subsidies and improve our system of governance",
             "button": "Open test election"
           },
@@ -654,7 +654,7 @@
                 },
                 "electionDeadline": {
                   "question": "When do the elections end?",
-                  "answer": "The weekly elections run until Sunday at 23:59:59 UTC. Votes must be cast before this time to be counted for the current week's election."
+                  "answer": "Test elections run until Sunday at 23:59:59 UTC. Votes must be cast before this time to be counted for the current election."
                 },
                 "isVoteAnonymous": {
                   "question": "Is my vote anonymous?",

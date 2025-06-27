@@ -422,11 +422,11 @@
             "weeklyPool": {
               "old": "100,000",
               "new": "250,000 WDD",
-              "subtitle": "固定週間プール"
+              "subtitle": "固定プール"
             },
             "devRewards": {
               "title": "開発者報酬の10%",
-              "subtitle": "変動報酬プール",
+              "subtitle": "変動プール",
               "tooltip": "Worldは認証された人間によるアプリ使用に基づいて開発者報酬を配布しています。",
               "checkOutRewards": "報酬を確認する"
             },
@@ -579,10 +579,10 @@
         },
         "elections": {
           "title": "選挙",
-          "description": "あなたの代表者を選んでください",
-          "weeklyElections": {
-            "title": "週間選挙",
-            "description": "党の助成金を分配し、統治システムを改善するのを手伝ってください",
+          "description": "あなたの代表者を選びましょう",
+          "testElections": {
+            "title": "テスト選挙",
+            "description": "政党助成金の分配とガバナンスシステムの改善にご協力ください",
             "button": "テスト選挙を開く"
           },
           "currentElectionPage": {
@@ -652,7 +652,7 @@
                 },
                 "electionDeadline": {
                   "question": "選挙はいつ終了しますか？",
-                  "answer": "週間選挙は、日曜日の23:59:59 UTCまで実施されます。現在の週の選挙でカウントされるためには、この時間までに投票する必要があります。"
+                  "answer": "テスト選挙は、日曜日の23:59:59 UTCまで実施されます。現在の選挙でカウントされるためには、この時間までに投票する必要があります。"
                 },
                 "isVoteAnonymous": {
                   "question": "私の投票は匿名ですか？",

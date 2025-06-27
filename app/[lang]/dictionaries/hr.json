@@ -423,11 +423,11 @@
             "weeklyPool": {
               "old": "100.000",
               "new": "250.000 WDD",
-              "subtitle": "Fiksni tjedni fond"
+              "subtitle": "Fiksni fond"
             },
             "devRewards": {
               "title": "10% naših Dev Nagrada",
-              "subtitle": "Varijabilni fond nagrada",
+              "subtitle": "Varijabilni fond",
               "tooltip": "World distribuira nagrade za developere na temelju korištenja aplikacije od strane verificiranih ljudi.",
               "checkOutRewards": "Pogledajte nagrade"
             },
@@ -580,11 +580,11 @@
         },
         "elections": {
           "title": "Izbori",
-          "description": "Odaberite svoje predstavnike",
-          "weeklyElections": {
-            "title": "Tjedni izbori",
+          "description": "Izaberite svoje predstavnike",
+          "testElections": {
+            "title": "Probni Izbori",
             "description": "Pomozite nam distribuirati stranačke subvencije i poboljšati naš sustav upravljanja",
-            "button": "Otvori testne izbore"
+            "button": "Otvori probne izbore"
           },
           "currentElectionPage": {
             "title": "Trenutni izbori",
@@ -653,7 +653,7 @@
                 },
                 "electionDeadline": {
                   "question": "Kada završavaju izbori?",
-                  "answer": "Tjedni izbori traju do nedjelje u 23:59:59 UTC. Glasovi se moraju dati prije tog vremena kako bi se ubrojili za izbore tekućeg tjedna."
+                  "answer": "Probni izbori traju do nedjelje u 23:59:59 UTC. Glasovi se moraju dati prije tog vremena kako bi se ubrojili za trenutne izbore."
                 },
                 "isVoteAnonymous": {
                   "question": "Je li moj glas anoniman?",

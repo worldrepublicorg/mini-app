@@ -423,11 +423,11 @@
             "weeklyPool": {
               "old": "100,000",
               "new": "250,000 WDD",
-              "subtitle": "Dana mingguan tetap"
+              "subtitle": "Kolam tetap"
             },
             "devRewards": {
               "title": "10% daripada Ganjaran Pembangun kami",
-              "subtitle": "Dana ganjaran berubah-ubah",
+              "subtitle": "Kolam berubah-ubah",
               "tooltip": "World mengagihkan ganjaran pembangun berdasarkan penggunaan aplikasi oleh manusia yang disahkan.",
               "checkOutRewards": "Lihat ganjaran"
             },
@@ -581,8 +581,8 @@
         "elections": {
           "title": "Pilihan Raya",
           "description": "Pilih wakil anda",
-          "mockElections": {
-            "title": "Pilihan Raya Mingguan",
+          "testElections": {
+            "title": "Pilihan Raya Ujian",
             "description": "Bantu kami mengagihkan subsidi parti dan memperbaiki sistem tadbir urus kami",
             "button": "Buka pilihan raya ujian"
           },
@@ -653,7 +653,7 @@
                 },
                 "electionDeadline": {
                   "question": "Bilakah pilihan raya berakhir?",
-                  "answer": "Pilihan raya mingguan berjalan sehingga Ahad jam 23:59:59 UTC. Undi mesti diberikan sebelum masa ini untuk dikira untuk pilihan raya minggu semasa."
+                  "answer": "Pilihan raya ujian berjalan sehingga Ahad jam 23:59:59 UTC. Undi mesti diberikan sebelum masa ini untuk dikira untuk pilihan raya semasa."
                 },
                 "isVoteAnonymous": {
                   "question": "Adakah undi saya tanpa nama?",

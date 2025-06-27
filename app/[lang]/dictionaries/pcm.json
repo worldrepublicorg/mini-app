@@ -422,11 +422,11 @@
             "weeklyPool": {
               "old": "100,000",
               "new": "250,000 WDD",
-              "subtitle": "Fixed weekly pool"
+              "subtitle": "Fixed pool"
             },
             "devRewards": {
               "title": "10% of our Dev Rewards",
-              "subtitle": "Variable reward pool",
+              "subtitle": "Variable pool",
               "tooltip": "World dey distribute developer rewards based on app usage by verified humans.",
               "checkOutRewards": "Check out rewards"
             },
@@ -578,10 +578,10 @@
         },
         "elections": {
           "title": "Elections",
-          "description": "Choose your people wey go represent you",
-          "weeklyElections": {
-            "title": "Weekly Elections",
-            "description": "Help us share party money and make our government system better",
+          "description": "Choose your representatives",
+          "testElections": {
+            "title": "Test Elekshon",
+            "description": "Help us distribute party subsidies and improve our governance system",
             "button": "Open test election"
           },
           "currentElectionPage": {
@@ -651,7 +651,7 @@
                 },
                 "electionDeadline": {
                   "question": "When di elections dey end?",
-                  "answer": "Di weekly elections dey run until Sunday at 23:59:59 UTC. Votes must dey cast before dis time to count for di current week's election."
+                  "answer": "Di test elections dey run until Sunday at 23:59:59 UTC. Votes must dey cast before dis time to count for di current election."
                 },
                 "isVoteAnonymous": {
                   "question": "My vote dey anonymous?",
@@ -746,7 +746,7 @@
         },
         "voteRequirements": {
           "question": "How I fit join for di governance?",
-          "answer": "You fit join by creating or joining political party. Even though di votes wey dey now na just for show, parties na di foundation for our governance model. As parties dey become more professional, dem go open more important areas for democratic control, wey go give you voice for our collective decisions."
+          "answer": "You fit join by creating or joining political party. Even though di votes wey dey now na just for show, parties na di foundation for our governance model. As parties dey become more professional, dem open more important areas for democratic control, wey go give you voice for our collective decisions."
         }
       }
     },

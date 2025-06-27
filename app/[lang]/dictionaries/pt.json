@@ -423,11 +423,11 @@
             "weeklyPool": {
               "old": "100.000",
               "new": "250.000 WDD",
-              "subtitle": "Fundo semanal fixo"
+              "subtitle": "Fundo fixo"
             },
             "devRewards": {
               "title": "10% das nossas Recompensas para Desenvolvedores",
-              "subtitle": "Fundo de recompensas variável",
+              "subtitle": "Fundo variável",
               "tooltip": "World está distribuindo recompensas para desenvolvedores com base no uso do aplicativo por humanos verificados.",
               "checkOutRewards": "Ver recompensas"
             },
@@ -581,9 +581,9 @@
         "elections": {
           "title": "Eleições",
           "description": "Escolha seus representantes",
-          "weeklyElections": {
-            "title": "Eleições Semanais",
-            "description": "Ajude-nos a distribuir os subsídios partidários e a melhorar nosso sistema de governança",
+          "testElections": {
+            "title": "Eleições de Teste",
+            "description": "Ajude-nos a distribuir os subsídios dos partidos e a melhorar nosso sistema de governança",
             "button": "Abrir eleição de teste"
           },
           "currentElectionPage": {
@@ -653,7 +653,7 @@
                 },
                 "electionDeadline": {
                   "question": "Quando as eleições terminam?",
-                  "answer": "As eleições semanais ocorrem até domingo às 23:59:59 UTC. Os votos devem ser registrados antes deste horário para serem contados para a eleição da semana atual."
+                  "answer": "As eleições de teste ocorrem até domingo às 23:59:59 UTC. Os votos devem ser registrados antes deste horário para serem contados para a eleição atual."
                 },
                 "isVoteAnonymous": {
                   "question": "Meu voto é anônimo?",

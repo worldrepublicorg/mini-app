@@ -422,11 +422,11 @@
             "weeklyPool": {
               "old": "100.000",
               "new": "250.000 WDD",
-              "subtitle": "Fester wöchentlicher Pool"
+              "subtitle": "Fester Pool"
             },
             "devRewards": {
               "title": "10% der Entwicklerprämien",
-              "subtitle": "Variabler Belohnungspool",
+              "subtitle": "Variabler Pool",
               "tooltip": "World verteilt Entwicklerbelohnungen basierend auf der App-Nutzung durch verifizierte Menschen.",
               "checkOutRewards": "Belohnungen ansehen"
             },
@@ -580,8 +580,8 @@
         "elections": {
           "title": "Wahlen",
           "description": "Wählen Sie Ihre Vertreter",
-          "weeklyElections": {
-            "title": "Wöchentliche Wahlen",
+          "testElections": {
+            "title": "Testwahlen",
             "description": "Helfen Sie uns, Parteienförderungen zu verteilen und unser Regierungssystem zu verbessern",
             "button": "Testwahl öffnen"
           },
@@ -652,7 +652,7 @@
                 },
                 "electionDeadline": {
                   "question": "Wann enden die Wahlen?",
-                  "answer": "Die wöchentlichen Wahlen laufen bis Sonntag um 23:59:59 UTC. Die Stimmen müssen vor dieser Zeit abgegeben werden, um für die Wahl der aktuellen Woche gezählt zu werden."
+                  "answer": "Die Testwahlen laufen bis Sonntag um 23:59:59 UTC. Die Stimmen müssen vor dieser Zeit abgegeben werden, um für die aktuelle Wahl gezählt zu werden."
                 },
                 "isVoteAnonymous": {
                   "question": "Ist meine Stimme anonym?",

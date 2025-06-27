@@ -419,16 +419,16 @@
           "partySubsidy": {
             "topnav": "补贴计划",
             "title": "政党补贴计划",
-            "subtitle": "建立您的政治运动并获得收益",
+            "subtitle": "建立您的政治运动并赚取收益",
             "weeklyPool": {
               "old": "100,000",
               "new": "250,000 WDD",
-              "subtitle": "固定每周资金池"
+              "subtitle": "固定奖池"
             },
             "devRewards": {
               "title": "我们开发者奖励的10%",
-              "subtitle": "可变奖励资金池",
-              "tooltip": "World正在根据经验证的人类使用应用程序的情况分配开发者奖励。",
+              "subtitle": "可变奖池",
+              "tooltip": "世界根据经过验证的人类的应用使用情况来分配开发者奖励。",
               "checkOutRewards": "查看奖励"
             },
             "howItWorks": {
@@ -580,9 +580,9 @@
         "elections": {
           "title": "选举",
           "description": "选择您的代表",
-          "weeklyElections": {
-            "title": "每周选举",
-            "description": "帮助我们分配政党补贴并改善我们的治理体系",
+          "testElections": {
+            "title": "测试选举",
+            "description": "帮助我们分配政党补贴并改进我们的治理体系",
             "button": "打开测试选举"
           },
           "currentElectionPage": {
@@ -648,15 +648,15 @@
                 },
                 "canIChangeVote": {
                   "question": "我可以更改我的投票吗？",
-                  "answer": "是的，您可以在选举进行期间随时更改您的投票。只需为另一个政党投票，您之前的投票就会被替换。您也可以完全撤销您的投票。"
+                  "answer": "是的，您可以在选举期间随时更改您的投票。只需投票给另一个政党，您之前的投票就会被替换。您也可以完全撤销您的投票。"
                 },
                 "electionDeadline": {
                   "question": "选举何时结束？",
-                  "answer": "每周选举持续到世界标准时间周日23:59:59。必须在此时间之前投票，才能计入当周的选举。"
+                  "answer": "测试选举将持续到世界协调时间周日23:59:59。投票必须在此时间之前完成，才能计入当前选举。"
                 },
                 "isVoteAnonymous": {
                   "question": "我的投票是匿名的吗？",
-                  "answer": "投票是假名的。虽然您的投票为了透明度与您在区块链上的钱包地址相关联，但您的真实世界身份并不会直接与之关联。"
+                  "answer": "投票是假名的。虽然您的投票为了透明性链接到您在区块链上的钱包地址，但您的真实身份并未直接与之绑定。"
                 },
                 "whatArePartySubsidies": {
                   "question": "什么是政党补贴？",
