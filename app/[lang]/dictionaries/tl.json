@@ -579,9 +579,9 @@
         "elections": {
           "title": "Halalan",
           "description": "Piliin ang iyong mga kinatawan",
-          "weeklyElections": {
-            "title": "Lingguhang Halalan",
-            "description": "Tulungan kaming ipamahagi ang mga subsidiya ng partido at pagbutihin ang aming sistema ng pamamahala",
+          "testElections": {
+            "title": "Mga Pansubok na Halalan",
+            "description": "Tulungan kaming ipamahagi ang mga subsidy ng partido at pagbutihin ang aming sistema ng pamamahala",
             "button": "Buksan ang pagsubok na halalan"
           },
           "currentElectionPage": {
@@ -635,7 +635,7 @@
               "items": {
                 "electionPurpose": {
                   "question": "Ano ang layunin ng mga halalan na ito?",
-                  "answer": "Ang mga halalan na ito ay isang pangunahing bahagi ng aming modelo ng pamamahala. Sa simula, tinutukoy nila kung paano ipapamahagi ang mga subsidiya ng partido, na nagbibigay ng gantimpala sa mga partido batay sa suportang natatanggap nila. Habang umuunlad ang aming sistema, ang mga resulta ng halalan ay magbibigay ng mas makabuluhang mga responsibilidad sa mga partido. Ito ay isang paulit-ulit na proseso upang matulungan kaming matuto at mag-improve."
+                  "answer": "Ang mga halalan na ito ay isang pangunahing bahagi ng aming modelo ng pamamahala. Sa simula, tinutukoy nila kung paano ipapamahagi ang mga subsidy ng partido, na nagbibigay ng gantimpala sa mga partido batay sa suportang natatanggap nila. Habang umuunlad ang aming sistema, ang mga resulta ng halalan ay magbibigay ng mas makabuluhang mga responsibilidad sa mga partido. Ito ay isang paulit-ulit na proseso upang matulungan kaming matuto at mag-improve."
                 },
                 "ballotQualification": {
                   "question": "Paano nakakasama sa balota ang isang partido?",

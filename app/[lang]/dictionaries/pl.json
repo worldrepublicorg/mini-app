@@ -580,9 +580,9 @@
         "elections": {
           "title": "Wybory",
           "description": "Wybierz swoich przedstawicieli",
-          "weeklyElections": {
-            "title": "Cotygodniowe Wybory",
-            "description": "Pomóż nam rozdzielać dotacje dla partii i ulepszać nasz system rządzenia",
+          "testElections": {
+            "title": "Wybory Testowe",
+            "description": "Pomóż nam rozdzielić dotacje partyjne i ulepszyć nasz system zarządzania",
             "button": "Otwórz wybory testowe"
           },
           "currentElectionPage": {

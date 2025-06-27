@@ -581,8 +581,8 @@
         "elections": {
           "title": "الانتخابات",
           "description": "اختر ممثليك",
-          "weeklyElections": {
-            "title": "الانتخابات الأسبوعية",
+          "testElections": {
+            "title": "انتخابات تجريبية",
             "description": "ساعدنا في توزيع إعانات الأحزاب وتحسين نظام حوكمتنا",
             "button": "فتح انتخابات تجريبية"
           },

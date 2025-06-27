@@ -578,10 +578,10 @@
         },
         "elections": {
           "title": "Elections",
-          "description": "Choose your people wey go represent you",
-          "weeklyElections": {
-            "title": "Weekly Elections",
-            "description": "Help us share party money and make our government system better",
+          "description": "Choose your representatives",
+          "testElections": {
+            "title": "Test Elekshon",
+            "description": "Help us distribute party subsidies and improve our governance system",
             "button": "Open test election"
           },
           "currentElectionPage": {
@@ -746,7 +746,7 @@
         },
         "voteRequirements": {
           "question": "How I fit join for di governance?",
-          "answer": "You fit join by creating or joining political party. Even though di votes wey dey now na just for show, parties na di foundation for our governance model. As parties dey become more professional, dem go open more important areas for democratic control, wey go give you voice for our collective decisions."
+          "answer": "You fit join by creating or joining political party. Even though di votes wey dey now na just for show, parties na di foundation for our governance model. As parties dey become more professional, dem open more important areas for democratic control, wey go give you voice for our collective decisions."
         }
       }
     },

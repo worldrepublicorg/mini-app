@@ -581,8 +581,8 @@
         "elections": {
           "title": "Pilihan Raya",
           "description": "Pilih wakil anda",
-          "mockElections": {
-            "title": "Pilihan Raya Mingguan",
+          "testElections": {
+            "title": "Pilihan Raya Ujian",
             "description": "Bantu kami mengagihkan subsidi parti dan memperbaiki sistem tadbir urus kami",
             "button": "Buka pilihan raya ujian"
           },

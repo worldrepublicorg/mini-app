@@ -585,8 +585,8 @@
         "elections": {
           "title": "Seçimler",
           "description": "Temsilcilerinizi seçin",
-          "weeklyElections": {
-            "title": "Haftalık Seçimler",
+          "testElections": {
+            "title": "Test Seçimleri",
             "description": "Parti sübvansiyonlarını dağıtmamıza ve yönetim sistemimizi geliştirmemize yardımcı olun",
             "button": "Test seçimini aç"
           },

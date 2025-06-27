@@ -580,9 +580,9 @@
         "elections": {
           "title": "选举",
           "description": "选择您的代表",
-          "weeklyElections": {
-            "title": "每周选举",
-            "description": "帮助我们分配政党补贴并改善我们的治理体系",
+          "testElections": {
+            "title": "测试选举",
+            "description": "帮助我们分配政党补贴并改进我们的治理体系",
             "button": "打开测试选举"
           },
           "currentElectionPage": {

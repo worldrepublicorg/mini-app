@@ -115,7 +115,7 @@ export default function GovernPage({
               >
                 {
                   dictionary?.pages?.govern?.sections?.elections
-                    ?.weeklyElections?.title
+                    ?.testElections?.title
                 }
               </Typography>
               <Typography
@@ -124,7 +124,7 @@ export default function GovernPage({
               >
                 {
                   dictionary?.pages?.govern?.sections?.elections
-                    ?.weeklyElections?.description
+                    ?.testElections?.description
                 }
                 <span className="group relative ml-1 inline-flex items-center align-baseline">
                   <PiInfoFill className="h-4 w-4 translate-y-[2px] cursor-help text-gray-400" />
@@ -155,7 +155,7 @@ export default function GovernPage({
                 <Button variant="primary" fullWidth>
                   {
                     dictionary?.pages?.govern?.sections?.elections
-                      ?.weeklyElections?.button
+                      ?.testElections?.button
                   }
                 </Button>
               </Link>

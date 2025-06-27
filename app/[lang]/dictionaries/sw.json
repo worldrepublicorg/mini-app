@@ -581,8 +581,8 @@
         "elections": {
           "title": "Uchaguzi",
           "description": "Chagua wawakilishi wako",
-          "weeklyElections": {
-            "title": "Uchaguzi wa Kila Wiki",
+          "testElections": {
+            "title": "Uchaguzi wa Majaribio",
             "description": "Tusaidie kusambaza ruzuku za vyama na kuboresha mfumo wetu wa utawala",
             "button": "Fungua uchaguzi wa majaribio"
           },

@@ -581,9 +581,9 @@
         "elections": {
           "title": "Eleições",
           "description": "Escolha seus representantes",
-          "weeklyElections": {
-            "title": "Eleições Semanais",
-            "description": "Ajude-nos a distribuir os subsídios partidários e a melhorar nosso sistema de governança",
+          "testElections": {
+            "title": "Eleições de Teste",
+            "description": "Ajude-nos a distribuir os subsídios dos partidos e a melhorar nosso sistema de governança",
             "button": "Abrir eleição de teste"
           },
           "currentElectionPage": {

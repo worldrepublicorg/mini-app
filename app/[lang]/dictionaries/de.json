@@ -580,8 +580,8 @@
         "elections": {
           "title": "Wahlen",
           "description": "Wählen Sie Ihre Vertreter",
-          "weeklyElections": {
-            "title": "Wöchentliche Wahlen",
+          "testElections": {
+            "title": "Testwahlen",
             "description": "Helfen Sie uns, Parteienförderungen zu verteilen und unser Regierungssystem zu verbessern",
             "button": "Testwahl öffnen"
           },

@@ -580,11 +580,11 @@
         },
         "elections": {
           "title": "Izbori",
-          "description": "Odaberite svoje predstavnike",
-          "weeklyElections": {
-            "title": "Tjedni izbori",
+          "description": "Izaberite svoje predstavnike",
+          "testElections": {
+            "title": "Probni Izbori",
             "description": "Pomozite nam distribuirati stranačke subvencije i poboljšati naš sustav upravljanja",
-            "button": "Otvori testne izbore"
+            "button": "Otvori probne izbore"
           },
           "currentElectionPage": {
             "title": "Trenutni izbori",

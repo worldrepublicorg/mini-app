@@ -584,8 +584,8 @@
         "elections": {
           "title": "선거",
           "description": "대표를 선택하세요",
-          "weeklyElections": {
-            "title": "주간 선거",
+          "testElections": {
+            "title": "테스트 선거",
             "description": "정당 보조금을 분배하고 거버넌스 시스템을 개선하도록 도와주세요",
             "button": "테스트 선거 열기"
           },

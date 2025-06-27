@@ -579,8 +579,8 @@
         "elections": {
           "title": "Halalan",
           "description": "Piliin ang iyong mga kinatawan",
-          "weeklyElections": {
-            "title": "Lingguhang Halalan",
+          "testElections": {
+            "title": "Mga Pansubok na Halalan",
             "description": "Tulungan kaming ipamahagi ang mga subsidy ng partido at pagbutihin ang aming sistema ng pamamahala",
             "button": "Buksan ang pagsubok na halalan"
           },

@@ -579,10 +579,10 @@
         },
         "elections": {
           "title": "選挙",
-          "description": "あなたの代表者を選んでください",
-          "weeklyElections": {
-            "title": "週間選挙",
-            "description": "党の助成金を分配し、統治システムを改善するのを手伝ってください",
+          "description": "あなたの代表者を選びましょう",
+          "testElections": {
+            "title": "テスト選挙",
+            "description": "政党助成金の分配とガバナンスシステムの改善にご協力ください",
             "button": "テスト選挙を開く"
           },
           "currentElectionPage": {
