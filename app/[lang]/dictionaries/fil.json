@@ -355,11 +355,11 @@
             "weeklyPool": {
               "old": "100,000",
               "new": "250,000 WDD",
-              "subtitle": "Nakatakdang lingguhang pool"
+              "subtitle": "Nakatakdang pool"
             },
             "devRewards": {
               "title": "10% ng aming Dev Rewards",
-              "subtitle": "Variable na reward pool",
+              "subtitle": "Variable na pool",
               "tooltip": "Ang World ay namamahagi ng mga gantimpala para sa mga developer batay sa paggamit ng app ng mga beripikadong tao.",
               "checkOutRewards": "Tingnan ang mga gantimpala"
             },
@@ -651,7 +651,7 @@
                 },
                 "electionDeadline": {
                   "question": "Kailan magtatapos ang mga halalan?",
-                  "answer": "Ang lingguhang halalan ay tumatakbo hanggang Linggo ng 23:59:59 UTC. Dapat ibigay ang mga boto bago ang oras na ito upang mabilang para sa halalan ng kasalukuyang linggo."
+                  "answer": "Ang mga pansubok na halalan ay tumatakbo hanggang Linggo ng 23:59:59 UTC. Dapat ibigay ang mga boto bago ang oras na ito upang mabilang para sa kasalukuyang halalan."
                 },
                 "isVoteAnonymous": {
                   "question": "Anonymous ba ang aking boto?",

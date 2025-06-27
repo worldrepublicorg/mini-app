@@ -423,11 +423,11 @@
             "weeklyPool": {
               "old": "100 000",
               "new": "250 000 WDD",
-              "subtitle": "Stała tygodniowa pula"
+              "subtitle": "Stała pula"
             },
             "devRewards": {
               "title": "10% naszych Nagród dla Deweloperów",
-              "subtitle": "Zmienna pula nagród",
+              "subtitle": "Zmienna pula",
               "tooltip": "World dystrybuuje nagrody dla deweloperów na podstawie korzystania z aplikacji przez zweryfikowanych ludzi.",
               "checkOutRewards": "Sprawdź nagrody"
             },
@@ -652,7 +652,7 @@
                 },
                 "electionDeadline": {
                   "question": "Kiedy kończą się wybory?",
-                  "answer": "Cotygodniowe wybory trwają do niedzieli do 23:59:59 UTC. Głosy muszą zostać oddane przed tym czasem, aby zostały zaliczone do wyborów w bieżącym tygodniu."
+                  "answer": "Wybory testowe trwają do niedzieli do 23:59:59 UTC. Głosy muszą zostać oddane przed tym czasem, aby zostały zaliczone do bieżących wyborów."
                 },
                 "isVoteAnonymous": {
                   "question": "Czy mój głos jest anonimowy?",

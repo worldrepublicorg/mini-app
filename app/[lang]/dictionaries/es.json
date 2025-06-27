@@ -433,11 +433,11 @@
             "weeklyPool": {
               "old": "100.000",
               "new": "250.000 WDD",
-              "subtitle": "Fondo semanal fijo"
+              "subtitle": "Fondo fijo"
             },
             "devRewards": {
               "title": "10% de nuestras Recompensas de Desarrolladores",
-              "subtitle": "Fondo de recompensas variable",
+              "subtitle": "Fondo variable",
               "tooltip": "World está distribuyendo recompensas para desarrolladores basadas en el uso de la aplicación por humanos verificados.",
               "checkOutRewards": "Ver recompensas"
             },
@@ -663,7 +663,7 @@
                 },
                 "electionDeadline": {
                   "question": "¿Cuándo terminan las elecciones?",
-                  "answer": "Las elecciones semanales se llevan a cabo hasta el domingo a las 23:59:59 UTC. Los votos deben emitirse antes de este tiempo para ser contados para la elección de la semana en curso."
+                  "answer": "Las elecciones de prueba se llevan a cabo hasta el domingo a las 23:59:59 UTC. Los votos deben emitirse antes de este tiempo para ser contados para la elección actual."
                 },
                 "isVoteAnonymous": {
                   "question": "¿Mi voto es anónimo?",

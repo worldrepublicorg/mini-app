@@ -423,11 +423,11 @@
             "weeklyPool": {
               "old": "100.000",
               "new": "250.000 WDD",
-              "subtitle": "Sabit haftalık havuz"
+              "subtitle": "Sabit havuz"
             },
             "devRewards": {
               "title": "Geliştirici Ödüllerimizin %10'u",
-              "subtitle": "Değişken ödül havuzu",
+              "subtitle": "Değişken havuz",
               "tooltip": "World, doğrulanmış insanların uygulama kullanımına dayalı olarak geliştirici ödülleri dağıtıyor.",
               "checkOutRewards": "Ödülleri kontrol et"
             },
@@ -657,7 +657,7 @@
                 },
                 "electionDeadline": {
                   "question": "Seçimler ne zaman bitiyor?",
-                  "answer": "Haftalık seçimler Pazar, 23:59:59 UTC'ye kadar devam eder. Oyların mevcut haftanın seçimi için sayılabilmesi için bu süreden önce kullanılması gerekir."
+                  "answer": "Test seçimleri Pazar günü saat 23:59:59 UTC'ye kadar devam eder. Oyların mevcut seçim için sayılabilmesi için bu süreden önce kullanılması gerekir."
                 },
                 "isVoteAnonymous": {
                   "question": "Oyum anonim mi?",

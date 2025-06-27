@@ -423,11 +423,11 @@
             "weeklyPool": {
               "old": "100,000",
               "new": "250,000 WDD",
-              "subtitle": "고정 주간 풀"
+              "subtitle": "고정 풀"
             },
             "devRewards": {
               "title": "개발자 보상의 10%",
-              "subtitle": "변동 보상 풀",
+              "subtitle": "변동 풀",
               "tooltip": "World는 인증된 사람들의 앱 사용량을 기반으로 개발자 보상을 분배합니다.",
               "checkOutRewards": "보상 확인하기"
             },
@@ -656,7 +656,7 @@
                 },
                 "electionDeadline": {
                   "question": "선거는 언제 끝납니 까?",
-                  "answer": "주간 선거는 일요일 23:59:59 UTC까지 진행됩니다. 현재주의 선거에 포함 되려면이 시간 이전에 투표해야합니다."
+                  "answer": "테스트 선거는 일요일 23:59:59 UTC까지 진행됩니다. 현재 선거에 포함되려면 이 시간 이전에 투표해야 합니다."
                 },
                 "isVoteAnonymous": {
                   "question": "내 투표는 익명입니까?",

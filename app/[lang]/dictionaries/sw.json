@@ -423,11 +423,11 @@
             "weeklyPool": {
               "old": "WDD 100,000",
               "new": "WDD 250,000",
-              "subtitle": "Jumba la wiki iliyowekwa"
+              "subtitle": "Bwawa lisilobadilika"
             },
             "devRewards": {
               "title": "10% ya Tuzo zetu za Wasanidi",
-              "subtitle": "Jumba la tuzo inayobadilika",
+              "subtitle": "Bwawa la tuzo linalobadilika",
               "tooltip": "World inasambaza tuzo za wasanidi kulingana na matumizi ya programu na wanadamu waliothibitishwa.",
               "checkOutRewards": "Angalia tuzo"
             },
@@ -653,7 +653,7 @@
                 },
                 "electionDeadline": {
                   "question": "Uchaguzi unaisha lini?",
-                  "answer": "Uchaguzi wa kila wiki unaendelea hadi Jumapili saa 23:59:59 UTC. Kura lazima zipigwe kabla ya wakati huu ili kuhesabiwa kwa uchaguzi wa wiki hiyo."
+                  "answer": "Uchaguzi wa majaribio unaendelea hadi Jumapili saa 23:59:59 UTC. Kura lazima zipigwe kabla ya wakati huu ili kuhesabiwa kwa uchaguzi wa sasa."
                 },
                 "isVoteAnonymous": {
                   "question": "Je, kura yangu ni ya siri?",

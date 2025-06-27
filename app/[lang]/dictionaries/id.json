@@ -423,11 +423,11 @@
             "weeklyPool": {
               "old": "100.000",
               "new": "250.000 WDD",
-              "subtitle": "Dana mingguan tetap"
+              "subtitle": "Kolam tetap"
             },
             "devRewards": {
               "title": "10% dari Reward Developer kami",
-              "subtitle": "Dana reward yang bervariasi",
+              "subtitle": "Kolam variabel",
               "tooltip": "World mendistribusikan reward developer berdasarkan penggunaan aplikasi oleh manusia terverifikasi.",
               "checkOutRewards": "Lihat reward"
             },
@@ -653,7 +653,7 @@
                 },
                 "electionDeadline": {
                   "question": "Kapan pemilu berakhir?",
-                  "answer": "Pemilu mingguan berlangsung hingga hari Minggu pukul 23:59:59 UTC. Suara harus diberikan sebelum waktu ini untuk dihitung dalam pemilu minggu ini."
+                  "answer": "Pemilu uji coba berlangsung hingga hari Minggu pukul 23:59:59 UTC. Suara harus diberikan sebelum waktu ini untuk dihitung dalam pemilu saat ini."
                 },
                 "isVoteAnonymous": {
                   "question": "Apakah suara saya anonim?",
