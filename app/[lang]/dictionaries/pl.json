@@ -4,15 +4,10 @@
       "connect": "Połącz portfel"
     },
     "banners": {
-      "bitget": {
-        "title": "Zwiększ swoje zyski z Bitget",
-        "description": "Rozpocznij copy trading, zyskaj 10% zniżki na opłaty + do 6200 USDT bonusu powitalnego.",
-        "cta": "Odblokuj ofertę"
-      },
-      "bybit": {
-        "title": "Bybit Blitz dla Nowicjuszy",
-        "description": "Dołącz, aby wygrać MacBooka, iPhone'a 16, popularne tokeny i więcej!",
-        "cta": "Zarejestruj się teraz"
+      "aion": {
+        "title": "$AION wkrótce startuje!",
+        "description": "Przewiduj i zarabiaj więcej WLD.",
+        "cta": "Kliknij tutaj"
       }
     },
     "pollOfTheWeek": {

@@ -4,15 +4,10 @@
       "connect": "Connect wallet"
     },
     "banners": {
-      "bitget": {
-        "title": "Make your moni beta with Bitget",
-        "description": "Start copy trading, get 10% off for fees + up to 6200 USDT welcome bonus.",
-        "cta": "Unlock offer"
-      },
-      "bybit": {
-        "title": "Bybit Newcomer Blitz",
-        "description": "Join to win MacBook, iPhone 16, trending tokens, and more!",
-        "cta": "Register now"
+      "aion": {
+        "title": "$AION dey launch soon!",
+        "description": "Predict & earn more WLD.",
+        "cta": "Click here"
       }
     },
     "pollOfTheWeek": {

@@ -4,15 +4,10 @@
       "connect": "ウォレットを接続"
     },
     "banners": {
-      "bitget": {
-        "title": "Bitgetで収益をアップしよう",
-        "description": "コピートレードを始めて、手数料10%オフ＋最大6200 USDTのウェルカムボーナスをゲット。",
-        "cta": "オファーをアンロック"
-      },
-      "bybit": {
-        "title": "Bybit 新規者向けブリッツ",
-        "description": "MacBook、iPhone 16、トレンドのトークンなどを獲得するために参加しよう！",
-        "cta": "今すぐ登録"
+      "aion": {
+        "title": "まもなく$AIONがローンチ！",
+        "description": "予測してWLDをさらに獲得",
+        "cta": "ここをクリック"
       }
     },
     "pollOfTheWeek": {

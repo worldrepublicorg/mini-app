@@ -4,15 +4,10 @@
       "connect": "Unganisha pochi"
     },
     "banners": {
-      "bitget": {
-        "title": "Ongeza mapato yako na Bitget",
-        "description": "Anza copy trading, pata punguzo la 10% kwenye ada + hadi 6200 USDT bonasi ya kukaribishwa.",
-        "cta": "Fungua ofa"
-      },
-      "bybit": {
-        "title": "Bybit Newcomer Blitz",
-        "description": "Jiunge ili ushinde MacBook, iPhone 16, tokeni zinazovuma, na zaidi!",
-        "cta": "Jisajili sasa"
+      "aion": {
+        "title": "$AION inazinduliwa hivi karibuni!",
+        "description": "Bashiri na upate WLD zaidi.",
+        "cta": "Bofya hapa"
       }
     },
     "pollOfTheWeek": {

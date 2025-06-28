@@ -4,15 +4,10 @@
       "connect": "Ikonekta ang wallet"
     },
     "banners": {
-      "bitget": {
-        "title": "Palakihin ang iyong kita sa Bitget",
-        "description": "Simulan ang copy trading, makakuha ng 10% off sa fees + hanggang 6200 USDT welcome bonus.",
-        "cta": "I-unlock ang offer"
-      },
-      "bybit": {
-        "title": "Bybit Newcomer Blitz",
-        "description": "Sumali para manalo ng MacBook, iPhone 16, mga trending na token, at higit pa!",
-        "cta": "Magrehistro ngayon"
+      "aion": {
+        "title": "Malapit nang ilunsad ang $AION!",
+        "description": "Hulaan at kumita ng mas maraming WLD.",
+        "cta": "Mag-click dito"
       }
     },
     "pollOfTheWeek": {
