@@ -434,12 +434,7 @@ export default function EarnPage({
         setIsSendingReward(false);
       }
     },
-    [
-      walletAddress,
-      recipientUsername,
-      showToast,
-      fetchCanReward,
-    ]
+    [walletAddress, recipientUsername, showToast, fetchCanReward]
   ); // Add dependencies
 
   useEffect(() => {
@@ -1347,21 +1342,21 @@ export default function EarnPage({
 
   const searchParams = useSearchParams();
 
-  const [isBybitBannerVisible, setIsBybitBannerVisible] = useState(true);
+  const [isAIONBannerVisible, setIsAIONBannerVisible] = useState(true);
 
   // Add useEffect to load badge state from localStorage
   useEffect(() => {
-    const badgeState = localStorage.getItem("bybitBannerClosed");
+    const badgeState = localStorage.getItem("AIONBannerClosed");
     if (badgeState === "true") {
-      setIsBybitBannerVisible(false);
+      setIsAIONBannerVisible(false);
     }
   }, []);
 
   // Function to handle closing the badge
-  const handleCloseBybitBanner = (e: React.MouseEvent) => {
+  const handleCloseAIONBanner = (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent triggering the drawer
-    setIsBybitBannerVisible(false);
-    localStorage.setItem("bybitBannerClosed", "true");
+    setIsAIONBannerVisible(false);
+    localStorage.setItem("AIONBannerClosed", "true");
   };
 
   // Restore loadCurrentUsernameCallback
@@ -1398,44 +1393,45 @@ export default function EarnPage({
       case "Basic income":
         return (
           <>
-            {isBybitBannerVisible && (
+            {isAIONBannerVisible && (
               <div className="fixed left-0 right-0 top-28 z-50 mx-auto w-full max-w-md px-6">
-                <div className="mt-2 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-gray-0 py-3 pr-4 shadow-sm">
-                  <div className="flex w-full items-center overflow-hidden">
-                    <div className="bg-white mx-2 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full">
+                <div className="mt-2 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-gray-0 py-3 pr-3 shadow-sm">
+                  <div className="flex w-full items-start overflow-hidden">
+                    <div className="bg-white mx-2 my-auto flex h-8 w-8 flex-shrink-0 items-center justify-center">
                       <img
-                        src="/bybit-logo.jpg"
-                        alt="Bybit Logo"
-                        className="h-7 w-7 rounded-full object-cover"
+                        src="/AION-logo.avif"
+                        alt="AION Logo"
+                        className="h-7 w-7 object-cover"
                       />
                     </div>
                     <a
-                      href="https://partner.bybit.com/b/REPUBLIC"
+                      href="https://worldcoin.org/mini-app?app_id=app_cb736f87fc78c84c31201f140bcfb5c0&path=/ref/FkCYdU"
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="flex-grow"
                     >
                       <Typography
                         as="h3"
                         variant={{ variant: "subtitle", level: 2 }}
                         className="font-display mb-1 text-left text-[16px] font-semibold tracking-tight text-gray-900"
                       >
-                        {dictionary?.components?.banners?.bybit?.title}
+                        {dictionary?.components?.banners?.aion?.title}
                       </Typography>
                       <Typography
                         as="h3"
                         variant={{ variant: "subtitle", level: 2 }}
                         className="font-display text-left text-[15px] font-medium tracking-tight text-gray-900"
                       >
-                        {dictionary?.components?.banners?.bybit?.description}{" "}
+                        {dictionary?.components?.banners?.aion?.description}{" "}
                         <span className="underline">
-                          {dictionary?.components?.banners?.bybit?.cta}
+                          {dictionary?.components?.banners?.aion?.cta}
                         </span>
                       </Typography>
                     </a>
-                    <div className="ml-2 flex items-center">
+                    <div className="ml-2 flex">
                       <div className="flex items-center rounded-full">
                         <button
-                          onClick={handleCloseBybitBanner}
+                          onClick={handleCloseAIONBanner}
                           className="text-gray-400 focus:outline-none"
                           aria-label="Close banner"
                         >

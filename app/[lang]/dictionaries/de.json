@@ -4,15 +4,10 @@
       "connect": "Wallet verbinden"
     },
     "banners": {
-      "bitget": {
-        "title": "Steigere deine Gewinne mit Bitget",
-        "description": "Starte Copy Trading, erhalte 10% Rabatt auf Gebühren + bis zu 6200 USDT Willkommensbonus.",
-        "cta": "Angebot freischalten"
-      },
-      "bybit": {
-        "title": "Bybit Neulings-Blitz",
-        "description": "MacBook, iPhone 16, trendige Token und mehr gewinnen!",
-        "cta": "Jetzt registrieren"
+      "aion": {
+        "title": "$AION startet bald!",
+        "description": "Vorhersagen & mehr WLD verdienen.",
+        "cta": "Hier klicken"
       }
     },
     "pollOfTheWeek": {

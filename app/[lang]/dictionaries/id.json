@@ -4,15 +4,10 @@
       "connect": "Hubungkan dompet"
     },
     "banners": {
-      "bitget": {
-        "title": "Tingkatkan penghasilan Anda dengan Bitget",
-        "description": "Mulai copy trading, dapatkan diskon biaya 10% + bonus sambutan hingga 6200 USDT.",
-        "cta": "Buka penawaran"
-      },
-      "bybit": {
-        "title": "Bybit Newcomer Blitz",
-        "description": "Bergabunglah untuk memenangkan MacBook, iPhone 16, token yang sedang tren, dan banyak lagi!",
-        "cta": "Daftar sekarang"
+      "aion": {
+        "title": "$AION segera diluncurkan!",
+        "description": "Prediksi & dapatkan lebih banyak WLD.",
+        "cta": "Klik di sini"
       }
     },
     "pollOfTheWeek": {

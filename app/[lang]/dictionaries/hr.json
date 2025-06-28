@@ -4,15 +4,10 @@
       "connect": "Poveži novčanik"
     },
     "banners": {
-      "bitget": {
-        "title": "Povećaj Svoju Zaradu Uz Bitget",
-        "description": "Započni copy trading, ostvari 10% popusta na naknade + do 6200 USDT dobrodošlice.",
-        "cta": "Otključaj ponudu"
-      },
-      "bybit": {
-        "title": "Bybit Blitz Za Nove Članove",
-        "description": "Pridružite se i osvojite MacBook, iPhone 16, popularne tokene i još mnogo toga!",
-        "cta": "Registrirajte se sada"
+      "aion": {
+        "title": "$AION uskoro kreće!",
+        "description": "Predvidite i zaradite više WLD-a.",
+        "cta": "Kliknite ovdje"
       }
     },
     "pollOfTheWeek": {

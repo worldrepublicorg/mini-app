@@ -4,15 +4,10 @@
       "connect": "지갑 연결"
     },
     "banners": {
-      "bitget": {
-        "title": "Bitget에서 수익을 높이세요",
-        "description": "카피 트레이딩을 시작하고, 수수료 10% 할인 + 최대 6200 USDT 웰컴 보너스를 받으세요.",
-        "cta": "오퍼 열기"
-      },
-      "bybit": {
-        "title": "Bybit 신규 회원 블리츠",
-        "description": "MacBook, iPhone 16, 인기 토큰 등을 획득하려면 참여하세요!",
-        "cta": "지금 등록"
+      "aion": {
+        "title": "$AION이 곧 출시됩니다!",
+        "description": "예측하고 더 많은 WLD를 획득하세요.",
+        "cta": "여기를 클릭하세요"
       }
     },
     "pollOfTheWeek": {

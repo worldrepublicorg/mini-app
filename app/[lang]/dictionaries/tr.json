@@ -4,15 +4,10 @@
       "connect": "Cüzdanı bağla"
     },
     "banners": {
-      "bitget": {
-        "title": "Bitget ile kazancını artır",
-        "description": "Copy trading'e başla, ücretlerde %10 indirim + 6200 USDT'ye kadar hoş geldin bonusu kazan.",
-        "cta": "Teklifi aç"
-      },
-      "bybit": {
-        "title": "Bybit Yeni Gelenler İçin Blitz",
-        "description": "MacBook, iPhone 16, trend olan tokenlar ve daha fazlasını kazanmak için katılın!",
-        "cta": "Şimdi kaydolun"
+      "aion": {
+        "title": "$AION yakında başlıyor!",
+        "description": "Tahmin et ve daha fazla WLD kazan.",
+        "cta": "Buraya tıkla"
       }
     },
     "pollOfTheWeek": {
