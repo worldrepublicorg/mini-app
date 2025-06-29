@@ -27,6 +27,7 @@ const locales = [
   "pcm",
   "tl",
   "tr",
+  "th",
 ];
 const defaultLocale = "en";
 

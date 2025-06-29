@@ -452,6 +452,7 @@
             "title": "Previous Polls",
             "backToGovern": "Back to Govern",
             "polls": {
+              "digitalGovernance": "As artificial intelligence and digital technologies rapidly advance, should nations collectively ensure responsible development and governance to prevent widespread societal disruption?",
               "nuclearEscalationRisk": "Should a global framework be established to reduce the risk of nuclear escalation in regions with heightened geopolitical tensions?",
               "middleEastEscalation": "Should an independent consortium of nations support a neutral de-escalation initiative in the Middle East to reduce the risk of regional conflict?",
               "cyberResilienceProtocol": "Should nations establish a coordinated global cybersecurity response protocol to defend against AI-powered cyberattacks that could disrupt critical infrastructure worldwide?",

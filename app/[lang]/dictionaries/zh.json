@@ -452,6 +452,7 @@
             "title": "往期投票",
             "backToGovern": "返回治理",
             "polls": {
+              "digitalGovernance": "随着人工智能和数字技术的飞速发展，各国是否应共同确保负责任的开发和治理，以防止广泛的社会混乱？",
               "nuclearEscalationRisk": "是否应建立一个全球框架，以减少地缘政治紧张局势加剧地区的核升级风险？",
               "middleEastEscalation": "一个独立的国家联盟是否应该支持一项中立的中东缓和局势倡议，以降低地区冲突的风险？",
               "nuclearDisarmamentTalks": "鉴于最近有关核材料产量增加的报道，世界大国是否应重启全面裁军谈判？",

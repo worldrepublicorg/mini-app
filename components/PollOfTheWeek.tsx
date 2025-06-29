@@ -11,8 +11,8 @@ interface Poll {
 
 const polls: Poll[] = [
   {
-    key: "pandemicPreparednessFund",
-    url: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/n0Zl8mul",
+    key: "digitalGovernance",
+    url: "https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/6OV7dcto",
   },
   {
     key: "nuclearDisarmamentTalks",

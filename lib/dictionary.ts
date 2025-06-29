@@ -88,6 +88,10 @@ const dictionaries = {
     import("@/app/[lang]/dictionaries/tr.json").then(
       (module) => module.default
     ),
+  th: () =>
+    import("@/app/[lang]/dictionaries/th.json").then(
+      (module) => module.default
+    ),
 };
 export const getClientDictionary = async (locale: string) => {
   return dictionaries[locale as keyof typeof dictionaries]();
