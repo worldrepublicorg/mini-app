@@ -456,6 +456,7 @@
             "title": "Önceki Anketler",
             "backToGovern": "Yönetişim'e Dön",
             "polls": {
+              "digitalGovernance": "Yapay zeka ve dijital teknolojiler hızla ilerlerken, yaygın toplumsal bozulmayı önlemek için uluslar kolektif olarak sorumlu kalkınma ve yönetişim sağlamalı mıdır?",
               "nuclearEscalationRisk": "Jeopolitik gerilimlerin arttığı bölgelerde nükleer tırmanma riskini azaltmak için küresel bir çerçeve oluşturulmalı mıdır?",
               "middleEastEscalation": "Bağımsız bir uluslar konsorsiyumu, bölgesel çatışma riskini azaltmak için Orta Doğu'da tarafsız bir gerilimi düşürme girişimini desteklemeli midir?",
               "nuclearDisarmamentTalks": "Son zamanlarda nükleer madde üretimindeki artışa ilişkin raporlar göz önüne alındığında, dünya güçleri kapsamlı silahsızlanma müzakerelerine yeniden başlamalı mı?",

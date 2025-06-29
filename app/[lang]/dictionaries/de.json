@@ -448,9 +448,10 @@
           "title": "Umfrage der Woche",
           "description": "Schnelle Abstimmungen zu aktuellen Themen",
           "previous": {
-            "title": "Vorherige Umfragen",
-            "backToGovern": "Zurück zu Regieren",
+            "title": "Frühere Umfragen",
+            "backToGovern": "Zurück zu Regierung",
             "polls": {
+              "digitalGovernance": "Sollten Nationen angesichts der rasanten Entwicklung von künstlicher Intelligenz und digitalen Technologien gemeinsam eine verantwortungsvolle Entwicklung und Steuerung sicherstellen, um weitreichende gesellschaftliche Verwerfungen zu verhindern?",
               "nuclearEscalationRisk": "Sollte ein globaler Rahmen geschaffen werden, um das Risiko einer nuklearen Eskalation in Regionen mit erhöhten geopolitischen Spannungen zu verringern?",
               "nuclearDisarmamentTalks": "Angesichts aktueller Berichte über eine erhöhte Produktion von Nuklearmaterial sollten die Weltmächte umfassende Abrüstungsverhandlungen wieder aufnehmen?",
               "pandemicPreparednessFund": "Sollte ein permanenter globaler Fonds eingerichtet werden, um einen kontinuierlichen und gerechten Zugang zu Ressourcen für die zukünftige Pandemievorsorge und -bekämpfung weltweit sicherzustellen?",

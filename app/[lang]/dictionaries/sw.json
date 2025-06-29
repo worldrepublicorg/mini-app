@@ -452,6 +452,7 @@
             "title": "Kura za Awali",
             "backToGovern": "Rudi kwa Utawala",
             "polls": {
+              "digitalGovernance": "Wakati akili bandia na teknolojia za kidijitali zinavyoendelea kwa kasi, je, mataifa yanapaswa kuhakikisha kwa pamoja maendeleo na utawala unaowajibika ili kuzuia usumbufu mkubwa wa kijamii?",
               "nuclearEscalationRisk": "Je, mfumo wa kimataifa unapaswa kuanzishwa ili kupunguza hatari ya kuongezeka kwa nyuklia katika maeneo yenye mivutano ya kisiasa iliyoongezeka?",
               "middleEastEscalation": "Je, muungano huru wa mataifa unapaswa kuunga mkono mpango wa kupunguza makali usioegemea upande wowote katika Mashariki ya Kati ili kupunguza hatari ya mzozo wa kikanda?",
               "nuclearDisarmamentTalks": "Kwa kuzingatia ripoti za hivi karibuni za ongezeko la uzalishaji wa nyenzo za nyuklia, je, mataifa makubwa yanapaswa kuanzisha tena mazungumzo ya upokonyaji silaha za nyuklia?",
