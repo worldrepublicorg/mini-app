@@ -16,12 +16,8 @@ import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/Drawer";
 import { WalletAuth } from "@/components/WalletAuth";
 import { useWallet } from "@/components/contexts/WalletContext";
 import { viemClient } from "@/lib/viemClient";
-import { parseAbi, decodeAbiParameters } from "viem";
-import {
-  MiniKit,
-  getIsUserVerified,
-  VerificationLevel,
-} from "@worldcoin/minikit-js";
+import { parseAbi } from "viem";
+import { MiniKit } from "@worldcoin/minikit-js";
 import { TabSwiper } from "@/components/TabSwiper";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { Button } from "@/components/ui/Button";
@@ -132,7 +128,7 @@ export default function EarnPage({
     setIsClaimableLoading(false);
 
     const rate = 3 / 8640000; // Increment rate (tokens per second)
-    const ratePlus = 157 / 8640000; // Increment rate (tokens per second)
+    const ratePlus = 137 / 8640000; // Increment rate (tokens per second)
     const currentClaimable = Number(claimableAmount);
     const currentClaimablePlus = Number(claimableAmountPlus);
 

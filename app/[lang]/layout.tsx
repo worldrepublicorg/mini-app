@@ -14,7 +14,6 @@ export const metadata: Metadata = {
   description: "The home of global democracy",
 };
 
-// Add type for language parameter
 interface RootLayoutProps {
   children: React.ReactNode;
   params: {
