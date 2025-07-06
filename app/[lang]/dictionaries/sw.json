@@ -266,7 +266,7 @@
               "subtitle": "Mapato ya ziada kwa watumiaji waliohakikiwa",
               "features": {
                 "rate": {
-                  "title": "WDD 1.17 za ziada kwa siku"
+                  "title": "WDD 0.98 za ziada kwa siku"
                 },
                 "verification": {
                   "title": "Kwa watumiaji waliohakikiwa na Orb tu ili kuhakikisha usambazaji wa haki"
@@ -700,11 +700,11 @@
         },
         "basicIncome": {
           "question": "Je, Mapato ya Msingi ni nini?",
-          "answer": "Mapato yetu ya Msingi ni ruzuku ya kila siku ya WDD 0.03 (drachma ya ulimwengu) inayotolewa kwa raia wote wa Jamhuri ya Dunia. Inaongezeka kwa wakati halisi na inaweza kuchukuliwa wakati wowote kupitia programu."
+          "answer": "Mapato yetu ya Msingi ni ruzuku ya kila siku ya WDD 0.02 (drachma ya ulimwengu) inayotolewa kwa raia wote wa Jamhuri ya Dunia. Inaongezeka kwa wakati halisi na inaweza kuchukuliwa wakati wowote kupitia programu."
         },
         "basicIncomePlus": {
           "question": "Je, ninawezaje kuanzisha Mapato ya Msingi Plus?",
-          "answer": "Mapato ya Msingi Plus yanatoa WDD 1.17 za ziada kwa siku na yanapatikana kwa watumiaji waliohakikiwa na Orb tu. Baada ya kuanzisha Mapato ya Msingi, utaona chaguo la kuanzisha Mapato ya Msingi Plus kwenye ukurasa wa Kupata."
+          "answer": "Mapato ya Msingi Plus yanatoa WDD 0.98 za ziada kwa siku na yanapatikana kwa watumiaji waliohakikiwa na Orb tu. Baada ya kuanzisha Mapato ya Msingi, utaona chaguo la kuanzisha Mapato ya Msingi Plus kwenye ukurasa wa Kupata."
         },
         "savings": {
           "question": "Je, Akaunti ya Akiba inafanya kazi vipi?",
