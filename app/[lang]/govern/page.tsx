@@ -74,10 +74,6 @@ export default function GovernPage({
       label: dictionary?.components?.tabSwiper?.tabs?.politicalParties,
     },
     {
-      key: TAB_KEYS.POLLS,
-      label: dictionary?.components?.tabSwiper?.tabs?.polls,
-    },
-    {
       key: TAB_KEYS.OPEN_LETTERS,
       label: dictionary?.components?.tabSwiper?.tabs?.openLetters,
     },
@@ -114,8 +110,8 @@ export default function GovernPage({
                 className="mb-4 text-center"
               >
                 {
-                  dictionary?.pages?.govern?.sections?.elections
-                    ?.testElections?.title
+                  dictionary?.pages?.govern?.sections?.elections?.testElections
+                    ?.title
                 }
               </Typography>
               <Typography
@@ -123,8 +119,8 @@ export default function GovernPage({
                 className="mb-10 text-center text-gray-500"
               >
                 {
-                  dictionary?.pages?.govern?.sections?.elections
-                    ?.testElections?.description
+                  dictionary?.pages?.govern?.sections?.elections?.testElections
+                    ?.description
                 }
                 <span className="group relative ml-1 inline-flex items-center align-baseline">
                   <PiInfoFill className="h-4 w-4 translate-y-[2px] cursor-help text-gray-400" />
