@@ -182,14 +182,13 @@ export default function BuybackProgramPage({
                     <span className="bg-green-100 text-green-800 rounded-full py-0.5 pl-2.5 text-sm font-medium">
                       30,290 WLD
                     </span>
-                    <span className="text-xs text-gray-500">Week 12 of 12</span>
                   </div>
                 </div>
               </a>
 
               {/* Optimism Funding */}
               <a
-                href="https://atlas.optimism.io/missions/retro-funding-onchain-builders"
+                href="https://atlas.optimism.io/project/0x5831a5bc2b6e683bcb8e392453a85c5e7f755aa700e827ed9c3e1c6d67fb2a96"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group block rounded-lg bg-gray-50 p-3 transition-all hover:bg-gray-100"
@@ -223,7 +222,7 @@ export default function BuybackProgramPage({
                   </div>
                   <div className="flex flex-col items-end whitespace-nowrap">
                     <span className="bg-yellow-100 text-yellow-800 rounded-full py-0.5 pl-2.5 text-sm font-medium">
-                      38,813 OP
+                      62,786 OP
                     </span>
                   </div>
                 </div>
