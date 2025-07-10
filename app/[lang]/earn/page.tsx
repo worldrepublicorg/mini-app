@@ -128,7 +128,7 @@ export default function EarnPage({
     setIsClaimableLoading(false);
 
     const rate = 2 / 8640000; // Increment rate (tokens per second)
-    const ratePlus = 78 / 8640000; // Increment rate (tokens per second)
+    const ratePlus = 58 / 8640000; // Increment rate (tokens per second)
     const currentClaimable = Number(claimableAmount);
     const currentClaimablePlus = Number(claimableAmountPlus);
 

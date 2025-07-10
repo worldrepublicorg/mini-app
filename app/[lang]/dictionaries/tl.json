@@ -264,7 +264,7 @@
               "subtitle": "Extra income para sa mga verified na user",
               "features": {
                 "rate": {
-                  "title": "Dagdagan ng 0.78 WDD bawat araw"
+                  "title": "Dagdagan ng 0.58 WDD bawat araw"
                 },
                 "verification": {
                   "title": "Eksklusibo para sa mga Orb-verified na user para masiguro ang patas na distribusyon"
@@ -702,7 +702,7 @@
         },
         "basicIncomePlus": {
           "question": "Paano ko i-activate ang Basic Income Plus?",
-          "answer": "Ang Basic Income Plus ay nagbibigay ng karagdagang 0.78 WDD bawat araw at available lamang sa mga Orb-verified na user. Pagkatapos i-activate ang Basic Income, makakakita ka ng option para i-activate ang Basic Income Plus sa Earn page."
+          "answer": "Ang Basic Income Plus ay nagbibigay ng karagdagang 0.58 WDD bawat araw at available lamang sa mga Orb-verified na user. Pagkatapos i-activate ang Basic Income, makakakita ka ng option para i-activate ang Basic Income Plus sa Earn page."
         },
         "savings": {
           "question": "Paano gumagana ang Savings Account?",
