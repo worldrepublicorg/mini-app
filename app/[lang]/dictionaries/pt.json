@@ -266,7 +266,7 @@
               "subtitle": "Renda extra para usuários verificados",
               "features": {
                 "rate": {
-                  "title": "Mais 0,58 WDD por dia"
+                  "title": "Mais 0,39 WDD por dia"
                 },
                 "verification": {
                   "title": "Exclusivo para usuários verificados pelo Orb para garantir distribuição justa"
@@ -700,11 +700,11 @@
         },
         "basicIncome": {
           "question": "O que é a Renda Básica?",
-          "answer": "Nossa Renda Básica é um subsídio diário de 0,02 WDD (dracma mundial) que é fornecido a todos os cidadãos da República Mundial. Ela acumula em tempo real e pode ser reivindicada a qualquer momento através do aplicativo."
+          "answer": "Nossa Renda Básica é um subsídio diário de 0,01 WDD (dracma mundial) que é fornecido a todos os cidadãos da República Mundial. Ela acumula em tempo real e pode ser reivindicada a qualquer momento através do aplicativo."
         },
         "basicIncomePlus": {
           "question": "Como ativo a Renda Básica Plus?",
-          "answer": "A Renda Básica Plus fornece 0,58 WDD adicionais por dia e está disponível exclusivamente para usuários verificados pelo Orb. Após ativar a Renda Básica, você verá uma opção para ativar a Renda Básica Plus na página Ganhar."
+          "answer": "A Renda Básica Plus fornece 0,39 WDD adicionais por dia e está disponível exclusivamente para usuários verificados pelo Orb. Após ativar a Renda Básica, você verá uma opção para ativar a Renda Básica Plus na página Ganhar."
         },
         "savings": {
           "question": "Como funciona a Conta Poupança?",

@@ -1,1 +1,14 @@
-{}
+{
+  "git.autorefresh": true,
+  "git.autorefreshdelay": 1000,
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/dist/**": true,
+    "**/.git/**": false
+  },
+  "files.useExperimentalFileWatcher": true,
+  "git.ignoreLimitWarning": true
+}
