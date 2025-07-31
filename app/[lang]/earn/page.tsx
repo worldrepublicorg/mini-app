@@ -1402,7 +1402,7 @@ export default function EarnPage({
                       />
                     </div>
                     <a
-                      href="https://worldcoin.org/mini-app?app_id=app_cb736f87fc78c84c31201f140bcfb5c0&path=/ref/FkCYdU"
+                      href="https://worldcoin.org/mini-app?app_id=app_0d4b759921490adc1f2bd569fda9b53a&path=/ref/FkCYdU"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex-grow"
