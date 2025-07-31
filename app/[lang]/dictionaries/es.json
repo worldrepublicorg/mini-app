@@ -7,10 +7,10 @@
       "error": "Error de Conexión"
     },
     "banners": {
-      "aion": {
-        "title": "¡$AION se lanza pronto!",
-        "description": "Predice y gana más WLD.",
-        "cta": "Haz clic aquí"
+      "holdStation": {
+        "title": "$10000 en recompensas",
+        "description": "Campaña de Swap de la Alianza Holdstation",
+        "cta": "Swap para ganar"
       }
     },
     "pollOfTheWeek": {

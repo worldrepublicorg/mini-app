@@ -4,10 +4,10 @@
       "connect": "Unganisha pochi"
     },
     "banners": {
-      "aion": {
-        "title": "$AION inazinduliwa hivi karibuni!",
-        "description": "Bashiri na upate WLD zaidi.",
-        "cta": "Bofya hapa"
+      "holdStation": {
+        "title": "$10000 katika malipo",
+        "description": "Kampeni ya Swap ya Muungano wa Holdstation",
+        "cta": "Swap kupata"
       }
     },
     "pollOfTheWeek": {

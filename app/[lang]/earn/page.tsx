@@ -1338,21 +1338,22 @@ export default function EarnPage({
 
   const searchParams = useSearchParams();
 
-  const [isAIONBannerVisible, setIsAIONBannerVisible] = useState(true);
+  const [isHoldStationBannerVisible, setIsHoldStationBannerVisible] =
+    useState(true);
 
   // Add useEffect to load badge state from localStorage
   useEffect(() => {
-    const badgeState = localStorage.getItem("AIONBannerClosed");
+    const badgeState = localStorage.getItem("HoldStationBannerClosed");
     if (badgeState === "true") {
-      setIsAIONBannerVisible(false);
+      setIsHoldStationBannerVisible(false);
     }
   }, []);
 
   // Function to handle closing the badge
-  const handleCloseAIONBanner = (e: React.MouseEvent) => {
+  const handleCloseHoldStationBanner = (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent triggering the drawer
-    setIsAIONBannerVisible(false);
-    localStorage.setItem("AIONBannerClosed", "true");
+    setIsHoldStationBannerVisible(false);
+    localStorage.setItem("HoldStationBannerClosed", "true");
   };
 
   // Restore loadCurrentUsernameCallback
@@ -1389,14 +1390,14 @@ export default function EarnPage({
       case "Basic income":
         return (
           <>
-            {isAIONBannerVisible && (
+            {isHoldStationBannerVisible && (
               <div className="fixed left-0 right-0 top-28 z-50 mx-auto w-full max-w-md px-6">
                 <div className="mt-2 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-gray-0 py-3 pr-3 shadow-sm">
                   <div className="flex w-full items-start overflow-hidden">
                     <div className="bg-white mx-2 my-auto flex h-8 w-8 flex-shrink-0 items-center justify-center">
                       <img
-                        src="/AION-logo.avif"
-                        alt="AION Logo"
+                        src="/holdstation-logo.avif"
+                        alt="HoldStation Logo"
                         className="h-7 w-7 object-cover"
                       />
                     </div>
@@ -1411,23 +1412,23 @@ export default function EarnPage({
                         variant={{ variant: "subtitle", level: 2 }}
                         className="font-display mb-1 text-left text-[16px] font-semibold tracking-tight text-gray-900"
                       >
-                        {dictionary?.components?.banners?.aion?.title}
+                        {dictionary?.components?.banners?.holdStation?.title}
                       </Typography>
                       <Typography
                         as="h3"
                         variant={{ variant: "subtitle", level: 2 }}
                         className="font-display text-left text-[15px] font-medium tracking-tight text-gray-900"
                       >
-                        {dictionary?.components?.banners?.aion?.description}{" "}
+                        {dictionary?.components?.banners?.holdStation?.description}{" "}
                         <span className="underline">
-                          {dictionary?.components?.banners?.aion?.cta}
+                          {dictionary?.components?.banners?.holdStation?.cta}
                         </span>
                       </Typography>
                     </a>
                     <div className="ml-2 flex">
                       <div className="flex items-center rounded-full">
                         <button
-                          onClick={handleCloseAIONBanner}
+                          onClick={handleCloseHoldStationBanner}
                           className="text-gray-400 focus:outline-none"
                           aria-label="Close banner"
                         >

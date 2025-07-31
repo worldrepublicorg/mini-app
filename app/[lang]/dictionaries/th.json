@@ -4,10 +4,10 @@
       "connect": "เชื่อมต่อกระเป๋าเงิน"
     },
     "banners": {
-      "aion": {
-        "title": "$AION กำลังจะเปิดตัวเร็วๆ นี้!",
-        "description": "ทายผลและรับ WLD เพิ่ม",
-        "cta": "คลิกที่นี่"
+      "holdStation": {
+        "title": "$10000 ในรางวัล",
+        "description": "แคมเปญ Swap ของพันธมิตร Holdstation",
+        "cta": "Swap เพื่อรับ"
       }
     },
     "pollOfTheWeek": {

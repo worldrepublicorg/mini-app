@@ -4,10 +4,10 @@
       "connect": "连接钱包"
     },
     "banners": {
-      "aion": {
-        "title": "$AION 即将推出！",
-        "description": "预测并赚取更多 WLD。",
-        "cta": "点击这里"
+      "holdStation": {
+        "title": "$10000 奖励",
+        "description": "Holdstation 联盟交换活动",
+        "cta": "交换赚取"
       }
     },
     "pollOfTheWeek": {

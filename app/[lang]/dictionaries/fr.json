@@ -4,10 +4,10 @@
       "connect": "Connecter le portefeuille"
     },
     "banners": {
-      "aion": {
-        "title": "$AION sera bientôt lancé !",
-        "description": "Prédisez et gagnez plus de WLD.",
-        "cta": "Cliquez ici"
+      "holdStation": {
+        "title": "$10000 en récompenses",
+        "description": "Campagne de Swap de l'Alliance Holdstation",
+        "cta": "Swap pour gagner"
       }
     },
     "pollOfTheWeek": {

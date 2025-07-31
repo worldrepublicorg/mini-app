@@ -4,10 +4,10 @@
       "connect": "Ikonekta ang wallet"
     },
     "banners": {
-      "aion": {
-        "title": "Malapit nang ilunsad ang $AION!",
-        "description": "Hulaan at kumita ng mas maraming WLD.",
-        "cta": "Mag-click dito"
+      "holdStation": {
+        "title": "$10000 sa mga gantimpala",
+        "description": "Kampanya ng Swap ng Alyansa ng Holdstation",
+        "cta": "Swap para kumita"
       }
     },
     "pollOfTheWeek": {

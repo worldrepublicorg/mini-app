@@ -4,10 +4,10 @@
       "connect": "ウォレットを接続"
     },
     "banners": {
-      "aion": {
-        "title": "まもなく$AIONがローンチ！",
-        "description": "予測してWLDをさらに獲得",
-        "cta": "ここをクリック"
+      "holdStation": {
+        "title": "$10000の報酬",
+        "description": "ホールドステーションアライアンススワップキャンペーン",
+        "cta": "稼ぐためにスワップ"
       }
     },
     "pollOfTheWeek": {

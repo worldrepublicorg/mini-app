@@ -4,10 +4,10 @@
       "connect": "ربط المحفظة"
     },
     "banners": {
-      "aion": {
-        "title": "$AION سيتم إطلاقه قريبًا!",
-        "description": "توقع واكسب المزيد من WLD.",
-        "cta": "انقر هنا"
+      "holdStation": {
+        "title": "$10000 في المكافآت",
+        "description": "حملة مبادلة تحالف هولدستيشن",
+        "cta": "مبادلة للربح"
       }
     },
     "pollOfTheWeek": {

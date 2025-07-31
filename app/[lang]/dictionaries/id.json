@@ -4,10 +4,10 @@
       "connect": "Hubungkan dompet"
     },
     "banners": {
-      "aion": {
-        "title": "$AION segera diluncurkan!",
-        "description": "Prediksi & dapatkan lebih banyak WLD.",
-        "cta": "Klik di sini"
+      "holdStation": {
+        "title": "$10000 dalam hadiah",
+        "description": "Kampanye Swap Aliansi Holdstation",
+        "cta": "Swap untuk mendapatkan"
       }
     },
     "pollOfTheWeek": {

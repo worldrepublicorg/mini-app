@@ -4,10 +4,10 @@
       "connect": "Poveži novčanik"
     },
     "banners": {
-      "aion": {
-        "title": "$AION uskoro kreće!",
-        "description": "Predvidite i zaradite više WLD-a.",
-        "cta": "Kliknite ovdje"
+      "holdStation": {
+        "title": "$10000 u nagradama",
+        "description": "Holdstation Alliance Swap Kampanja",
+        "cta": "Swap za zaradu"
       }
     },
     "pollOfTheWeek": {

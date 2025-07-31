@@ -4,10 +4,10 @@
       "connect": "Wallet verbinden"
     },
     "banners": {
-      "aion": {
-        "title": "$AION startet bald!",
-        "description": "Vorhersagen & mehr WLD verdienen.",
-        "cta": "Hier klicken"
+      "holdStation": {
+        "title": "$10000 in Belohnungen",
+        "description": "Holdstation Alliance Swap Kampagne",
+        "cta": "Swap zum Verdienen"
       }
     },
     "pollOfTheWeek": {

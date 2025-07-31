@@ -4,10 +4,10 @@
       "connect": "Połącz portfel"
     },
     "banners": {
-      "aion": {
-        "title": "$AION wkrótce startuje!",
-        "description": "Przewiduj i zarabiaj więcej WLD.",
-        "cta": "Kliknij tutaj"
+      "holdStation": {
+        "title": "$10000 w nagrodach",
+        "description": "Kampania Swap Sojuszu Holdstation",
+        "cta": "Swap aby zarobić"
       }
     },
     "pollOfTheWeek": {

@@ -4,10 +4,10 @@
       "connect": "Cüzdanı bağla"
     },
     "banners": {
-      "aion": {
-        "title": "$AION yakında başlıyor!",
-        "description": "Tahmin et ve daha fazla WLD kazan.",
-        "cta": "Buraya tıkla"
+      "holdStation": {
+        "title": "$10000 ödülde",
+        "description": "Holdstation İttifakı Swap Kampanyası",
+        "cta": "Kazanmak için swap yap"
       }
     },
     "pollOfTheWeek": {

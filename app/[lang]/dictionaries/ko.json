@@ -4,10 +4,10 @@
       "connect": "지갑 연결"
     },
     "banners": {
-      "aion": {
-        "title": "$AION이 곧 출시됩니다!",
-        "description": "예측하고 더 많은 WLD를 획득하세요.",
-        "cta": "여기를 클릭하세요"
+      "holdStation": {
+        "title": "$10000 보상",
+        "description": "홀드스테이션 얼라이언스 스왑 캠페인",
+        "cta": "수익을 위해 스왑"
       }
     },
     "pollOfTheWeek": {
