@@ -4,10 +4,10 @@
       "connect": "连接钱包"
     },
     "banners": {
-      "holdStation": {
-        "title": "$10000 奖励",
-        "description": "Holdstation 联盟交换活动",
-        "cta": "交换赚取"
+      "pwa": {
+        "title": "世界共和国网络应用",
+        "description": "基本收入提高10倍，无需Orb验证。",
+        "cta": "开始使用"
       }
     },
     "pollOfTheWeek": {
@@ -266,7 +266,7 @@
               "subtitle": "已验证用户的额外收入",
               "features": {
                 "rate": {
-                  "title": "每天额外0.39 WDD"
+                  "title": "每天额外0.19 WDD"
                 },
                 "verification": {
                   "title": "仅限Orb验证用户，确保公平分配"
@@ -704,7 +704,7 @@
         },
         "basicIncomePlus": {
           "question": "如何激活基本收入增强版？",
-          "answer": "基本收入增强版每天提供额外0.39 WDD，仅向Orb验证用户开放。激活基本收入后，您将在赚取页面看到激活基本收入增强版的选项。"
+          "answer": "基本收入增强版每天提供额外0.19 WDD，仅向Orb验证用户开放。激活基本收入后，您将在赚取页面看到激活基本收入增强版的选项。"
         },
         "savings": {
           "question": "储蓄账户如何运作？",

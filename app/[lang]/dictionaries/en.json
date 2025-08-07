@@ -4,10 +4,10 @@
       "connect": "Connect wallet"
     },
     "banners": {
-      "holdStation": {
-        "title": "$10000 in rewards",
-        "description": "Holdstation Alliance Swap Campaign",
-        "cta": "Swap to earn"
+      "pwa": {
+        "title": "World Republic Web App",
+        "description": "10x higher basic income, no Orb-verification required.",
+        "cta": "Get started"
       }
     },
     "pollOfTheWeek": {
@@ -266,7 +266,7 @@
               "subtitle": "Extra income for verified users",
               "features": {
                 "rate": {
-                  "title": "An additional 0.39 WDD per day"
+                  "title": "An additional 0.19 WDD per day"
                 },
                 "verification": {
                   "title": "Exclusive to Orb-verified users to ensure fair distribution"
@@ -701,7 +701,7 @@
         },
         "basicIncomePlus": {
           "question": "How do I activate Basic Income Plus?",
-          "answer": "Basic Income Plus provides an additional 0.39 WDD per day and is available exclusively to Orb-verified users. After activating Basic Income, you'll see an option to activate Basic Income Plus on the Earn page."
+          "answer": "Basic Income Plus provides an additional 0.19 WDD per day and is available exclusively to Orb-verified users. After activating Basic Income, you'll see an option to activate Basic Income Plus on the Earn page."
         },
         "savings": {
           "question": "How does the Savings Account work?",

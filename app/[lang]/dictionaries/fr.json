@@ -4,10 +4,10 @@
       "connect": "Connecter le portefeuille"
     },
     "banners": {
-      "holdStation": {
-        "title": "$10000 en récompenses",
-        "description": "Campagne de Swap de l'Alliance Holdstation",
-        "cta": "Swap pour gagner"
+      "pwa": {
+        "title": "Application Web de la République Mondiale",
+        "description": "Revenu de base 10x plus élevé, aucune vérification Orb requise.",
+        "cta": "Commencer"
       }
     },
     "pollOfTheWeek": {
@@ -266,7 +266,7 @@
               "subtitle": "Revenu supplémentaire pour les utilisateurs vérifiés",
               "features": {
                 "rate": {
-                  "title": "0,39 WDD supplémentaires par jour"
+                  "title": "0,19 WDD supplémentaires par jour"
                 },
                 "verification": {
                   "title": "Exclusif aux utilisateurs vérifiés par Orb pour assurer une distribution équitable"
@@ -704,7 +704,7 @@
         },
         "basicIncomePlus": {
           "question": "Comment activer le Revenu de Base Plus ?",
-          "answer": "Le Revenu de Base Plus fournit 0,39 WDD supplémentaires par jour et est exclusivement disponible pour les utilisateurs vérifiés par Orb. Après avoir activé le Revenu de Base, vous verrez une option pour activer le Revenu de Base Plus sur la page Gagner."
+          "answer": "Le Revenu de Base Plus fournit 0,19 WDD supplémentaires par jour et est exclusivement disponible pour les utilisateurs vérifiés par Orb. Après avoir activé le Revenu de Base, vous verrez une option pour activer le Revenu de Base Plus sur la page Gagner."
         },
         "savings": {
           "question": "Comment fonctionne le Compte d'Épargne ?",

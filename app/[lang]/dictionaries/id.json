@@ -4,10 +4,10 @@
       "connect": "Hubungkan dompet"
     },
     "banners": {
-      "holdStation": {
-        "title": "$10000 dalam hadiah",
-        "description": "Kampanye Swap Aliansi Holdstation",
-        "cta": "Swap untuk mendapatkan"
+      "pwa": {
+        "title": "Aplikasi Web Republik Dunia",
+        "description": "Pendapatan dasar 10x lebih tinggi, tidak perlu verifikasi Orb.",
+        "cta": "Mulai"
       }
     },
     "pollOfTheWeek": {
@@ -266,7 +266,7 @@
               "subtitle": "Pendapatan tambahan untuk pengguna terverifikasi",
               "features": {
                 "rate": {
-                  "title": "Tambahan 0,39 WDD per hari"
+                  "title": "Tambahan 0,19 WDD per hari"
                 },
                 "verification": {
                   "title": "Eksklusif untuk pengguna terverifikasi Orb untuk memastikan distribusi yang adil"
@@ -704,7 +704,7 @@
         },
         "basicIncomePlus": {
           "question": "Bagaimana cara mengaktifkan Pendapatan Dasar Plus?",
-          "answer": "Pendapatan Dasar Plus memberikan tambahan 0,39 WDD per hari dan tersedia secara eksklusif untuk pengguna terverifikasi Orb. Setelah mengaktifkan Pendapatan Dasar, Anda akan melihat opsi untuk mengaktifkan Pendapatan Dasar Plus di halaman Dapatkan."
+          "answer": "Pendapatan Dasar Plus memberikan tambahan 0,19 WDD per hari dan tersedia secara eksklusif untuk pengguna terverifikasi Orb. Setelah mengaktifkan Pendapatan Dasar, Anda akan melihat opsi untuk mengaktifkan Pendapatan Dasar Plus di halaman Dapatkan."
         },
         "savings": {
           "question": "Bagaimana cara kerja Akun Tabungan?",

@@ -4,10 +4,10 @@
       "connect": "Conectar carteira"
     },
     "banners": {
-      "holdStation": {
-        "title": "$10000 em recompensas",
-        "description": "Campanha de Swap da Aliança Holdstation",
-        "cta": "Swap para ganhar"
+      "pwa": {
+        "title": "Aplicativo Web da República Mundial",
+        "description": "Renda básica 10x maior, sem verificação Orb necessária.",
+        "cta": "Começar"
       }
     },
     "pollOfTheWeek": {
@@ -266,7 +266,7 @@
               "subtitle": "Renda extra para usuários verificados",
               "features": {
                 "rate": {
-                  "title": "Mais 0,39 WDD por dia"
+                  "title": "Mais 0,19 WDD por dia"
                 },
                 "verification": {
                   "title": "Exclusivo para usuários verificados pelo Orb para garantir distribuição justa"
@@ -704,7 +704,7 @@
         },
         "basicIncomePlus": {
           "question": "Como ativo a Renda Básica Plus?",
-          "answer": "A Renda Básica Plus fornece 0,39 WDD adicionais por dia e está disponível exclusivamente para usuários verificados pelo Orb. Após ativar a Renda Básica, você verá uma opção para ativar a Renda Básica Plus na página Ganhar."
+          "answer": "A Renda Básica Plus fornece 0,19 WDD adicionais por dia e está disponível exclusivamente para usuários verificados pelo Orb. Após ativar a Renda Básica, você verá uma opção para ativar a Renda Básica Plus na página Ganhar."
         },
         "savings": {
           "question": "Como funciona a Conta Poupança?",

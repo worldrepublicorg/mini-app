@@ -4,10 +4,10 @@
       "connect": "Ikonekta ang wallet"
     },
     "banners": {
-      "holdStation": {
-        "title": "$10000 sa mga gantimpala",
-        "description": "Kampanya ng Swap ng Alyansa ng Holdstation",
-        "cta": "Swap para kumita"
+      "pwa": {
+        "title": "Web App ng Republikang Pandaigdig",
+        "description": "10x mas mataas na basic income, hindi kailangan ng Orb-verification.",
+        "cta": "Magsimula"
       }
     },
     "pollOfTheWeek": {
@@ -264,7 +264,7 @@
               "subtitle": "Dagdag na kita para sa mga verified na user",
               "features": {
                 "rate": {
-                  "title": "Dagdag na 0.39 WDD bawat araw"
+                  "title": "Dagdag na 0.19 WDD bawat araw"
                 },
                 "verification": {
                   "title": "Eksklusibo para sa mga Orb-verified na user para matiyak ang patas na pamamahagi"
@@ -702,7 +702,7 @@
         },
         "basicIncomePlus": {
           "question": "Paano ko i-activate ang Basic Income Plus?",
-          "answer": "Ang Basic Income Plus ay nagbibigay ng dagdag na 0.39 WDD bawat araw at available lamang sa mga Orb-verified na user. Pagkatapos i-activate ang Basic Income, makakakita ka ng opsyon para i-activate ang Basic Income Plus sa Earn page."
+          "answer": "Ang Basic Income Plus ay nagbibigay ng dagdag na 0.19 WDD bawat araw at available lamang sa mga Orb-verified na user. Pagkatapos i-activate ang Basic Income, makakakita ka ng opsyon para i-activate ang Basic Income Plus sa Earn page."
         },
         "savings": {
           "question": "Paano gumagana ang Savings Account?",

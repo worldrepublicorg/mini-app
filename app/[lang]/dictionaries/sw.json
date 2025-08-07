@@ -4,10 +4,10 @@
       "connect": "Unganisha pochi"
     },
     "banners": {
-      "holdStation": {
-        "title": "$10000 katika malipo",
-        "description": "Kampeni ya Swap ya Muungano wa Holdstation",
-        "cta": "Swap kupata"
+      "pwa": {
+        "title": "Programu ya Wavuti ya Jamhuri ya Dunia",
+        "description": "Mapato ya msingi 10x ya juu, hakuna uthibitishaji wa Orb unaohitajika.",
+        "cta": "Anza"
       }
     },
     "pollOfTheWeek": {
@@ -266,7 +266,7 @@
               "subtitle": "Mapato ya ziada kwa watumiaji waliohakikiwa",
               "features": {
                 "rate": {
-                  "title": "WDD 0.39 za ziada kwa siku"
+                  "title": "WDD 0.19 za ziada kwa siku"
                 },
                 "verification": {
                   "title": "Kwa watumiaji waliohakikiwa na Orb tu ili kuhakikisha usambazaji wa haki"
@@ -704,7 +704,7 @@
         },
         "basicIncomePlus": {
           "question": "Je, ninawezaje kuanzisha Mapato ya Msingi Plus?",
-          "answer": "Mapato ya Msingi Plus yanatoa WDD 0.39 za ziada kwa siku na yanapatikana kwa watumiaji waliohakikiwa na Orb tu. Baada ya kuanzisha Mapato ya Msingi, utaona chaguo la kuanzisha Mapato ya Msingi Plus kwenye ukurasa wa Kupata."
+          "answer": "Mapato ya Msingi Plus yanatoa WDD 0.19 za ziada kwa siku na yanapatikana kwa watumiaji waliohakikiwa na Orb tu. Baada ya kuanzisha Mapato ya Msingi, utaona chaguo la kuanzisha Mapato ya Msingi Plus kwenye ukurasa wa Kupata."
         },
         "savings": {
           "question": "Je, Akaunti ya Akiba inafanya kazi vipi?",

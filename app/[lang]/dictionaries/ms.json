@@ -4,10 +4,10 @@
       "connect": "Sambung dompet"
     },
     "banners": {
-      "holdStation": {
-        "title": "$10000 dalam ganjaran",
-        "description": "Kempen Swap Perikatan Holdstation",
-        "cta": "Swap untuk mendapatkan"
+      "pwa": {
+        "title": "Aplikasi Web Republik Dunia",
+        "description": "Pendapatan asas 10x lebih tinggi, tiada pengesahan Orb diperlukan.",
+        "cta": "Mulakan"
       }
     },
     "pollOfTheWeek": {
@@ -266,7 +266,7 @@
               "subtitle": "Pendapatan tambahan untuk pengguna yang disahkan",
               "features": {
                 "rate": {
-                  "title": "Tambahan 0.39 WDD sehari"
+                  "title": "Tambahan 0.19 WDD sehari"
                 },
                 "verification": {
                   "title": "Eksklusif untuk pengguna yang disahkan Orb untuk memastikan pengagihan yang adil"
@@ -704,7 +704,7 @@
         },
         "basicIncomePlus": {
           "question": "Bagaimana saya mengaktifkan Pendapatan Asas Plus?",
-          "answer": "Pendapatan Asas Plus menyediakan tambahan 0.39 WDD sehari dan tersedia secara eksklusif untuk pengguna yang disahkan Orb. Selepas mengaktifkan Pendapatan Asas, anda akan melihat pilihan untuk mengaktifkan Pendapatan Asas Plus pada halaman Perolehan."
+          "answer": "Pendapatan Asas Plus menyediakan tambahan 0.19 WDD sehari dan tersedia secara eksklusif untuk pengguna yang disahkan Orb. Selepas mengaktifkan Pendapatan Asas, anda akan melihat pilihan untuk mengaktifkan Pendapatan Asas Plus pada halaman Perolehan."
         },
         "savings": {
           "question": "Bagaimana Akaun Simpanan berfungsi?",
