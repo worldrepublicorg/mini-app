@@ -4,10 +4,10 @@
       "connect": "Połącz portfel"
     },
     "banners": {
-      "aion": {
-        "title": "$AION wkrótce startuje!",
-        "description": "Przewiduj i zarabiaj więcej WLD.",
-        "cta": "Kliknij tutaj"
+      "holdStation": {
+        "title": "$10000 w nagrodach",
+        "description": "Kampania Swap Sojuszu Holdstation",
+        "cta": "Swap aby zarobić"
       }
     },
     "pollOfTheWeek": {
@@ -266,7 +266,7 @@
               "subtitle": "Dodatkowy dochód dla zweryfikowanych użytkowników",
               "features": {
                 "rate": {
-                  "title": "Dodatkowe 0,58 WDD dziennie"
+                  "title": "Dodatkowe 0,39 WDD dziennie"
                 },
                 "verification": {
                   "title": "Dostępne wyłącznie dla użytkowników zweryfikowanych przez Orb, aby zapewnić sprawiedliwą dystrybucję"
@@ -699,11 +699,11 @@
         },
         "basicIncome": {
           "question": "Czym jest Dochód Podstawowy?",
-          "answer": "Nasz Dochód Podstawowy to dzienna dotacja w wysokości 0,02 WDD (drachma światowa), która jest przyznawana wszystkim obywatelom Republiki Świata. Akumuluje się w czasie rzeczywistym i można go odebrać w dowolnym momencie przez aplikację."
+          "answer": "Nasz Dochód Podstawowy to dzienna dotacja w wysokości 0,01 WDD (drachma światowa), która jest przyznawana wszystkim obywatelom Republiki Świata. Akumuluje się w czasie rzeczywistym i można go odebrać w dowolnym momencie przez aplikację."
         },
         "basicIncomePlus": {
           "question": "Jak aktywować Dochód Podstawowy Plus?",
-          "answer": "Dochód Podstawowy Plus zapewnia dodatkowe 0,58 WDD dziennie i jest dostępny wyłącznie dla użytkowników zweryfikowanych przez Orb. Po aktywacji Dochodu Podstawowego zobaczysz opcję aktywacji Dochodu Podstawowego Plus na stronie Zarabiaj."
+          "answer": "Dochód Podstawowy Plus zapewnia dodatkowe 0,39 WDD dziennie i jest dostępny wyłącznie dla użytkowników zweryfikowanych przez Orb. Po aktywacji Dochodu Podstawowego zobaczysz opcję aktywacji Dochodu Podstawowego Plus na stronie Zarabiaj."
         },
         "savings": {
           "question": "Jak działa Konto Oszczędnościowe?",

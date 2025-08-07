@@ -4,10 +4,10 @@
       "connect": "Cüzdanı bağla"
     },
     "banners": {
-      "aion": {
-        "title": "$AION yakında başlıyor!",
-        "description": "Tahmin et ve daha fazla WLD kazan.",
-        "cta": "Buraya tıkla"
+      "holdStation": {
+        "title": "$10000 ödülde",
+        "description": "Holdstation İttifakı Swap Kampanyası",
+        "cta": "Kazanmak için swap yap"
       }
     },
     "pollOfTheWeek": {
@@ -266,7 +266,7 @@
               "subtitle": "Doğrulanmış kullanıcılar için ek gelir",
               "features": {
                 "rate": {
-                  "title": "Günde ek 0,58 WDD"
+                  "title": "Günde ek 0,39 WDD"
                 },
                 "verification": {
                   "title": "Adil dağıtım için sadece Orb-doğrulanmış kullanıcılara özel"
@@ -700,11 +700,11 @@
         },
         "basicIncome": {
           "question": "Temel Gelir nedir?",
-          "answer": "Temel Gelirimiz, Dünya Cumhuriyeti'nin tüm vatandaşlarına sağlanan günlük 0,02 WDD (dünya drahmi) sübvansiyonudur. Gerçek zamanlı olarak birikir ve uygulama üzerinden her an talep edilebilir."
+          "answer": "Temel Gelirimiz, Dünya Cumhuriyeti'nin tüm vatandaşlarına sağlanan günlük 0,01 WDD (dünya drahmi) sübvansiyonudur. Gerçek zamanlı olarak birikir ve uygulama üzerinden her an talep edilebilir."
         },
         "basicIncomePlus": {
           "question": "Temel Gelir Plus'ı nasıl aktifleştiririm?",
-          "answer": "Temel Gelir Plus, günlük ek 0,58 WDD sağlar ve sadece Orb-doğrulanmış kullanıcılara özeldir. Temel Geliri aktifleştirdikten sonra, Kazan sayfasında Temel Gelir Plus'ı aktifleştirme seçeneğini göreceksiniz."
+          "answer": "Temel Gelir Plus, günlük ek 0,39 WDD sağlar ve sadece Orb-doğrulanmış kullanıcılara özeldir. Temel Geliri aktifleştirdikten sonra, Kazan sayfasında Temel Gelir Plus'ı aktifleştirme seçeneğini göreceksiniz."
         },
         "savings": {
           "question": "Tasarruf Hesabı nasıl çalışır?",

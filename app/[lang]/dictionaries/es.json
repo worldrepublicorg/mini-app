@@ -7,10 +7,10 @@
       "error": "Error de Conexión"
     },
     "banners": {
-      "aion": {
-        "title": "¡$AION se lanza pronto!",
-        "description": "Predice y gana más WLD.",
-        "cta": "Haz clic aquí"
+      "holdStation": {
+        "title": "$10000 en recompensas",
+        "description": "Campaña de Swap de la Alianza Holdstation",
+        "cta": "Swap para ganar"
       }
     },
     "pollOfTheWeek": {
@@ -276,7 +276,7 @@
               "subtitle": "Ingresos extra para usuarios verificados",
               "features": {
                 "rate": {
-                  "title": "0,58 WDD adicionales por día"
+                  "title": "0,39 WDD adicionales por día"
                 },
                 "verification": {
                   "title": "Exclusivo para usuarios verificados con Orb para asegurar una distribución justa"
@@ -710,11 +710,11 @@
         },
         "basicIncome": {
           "question": "¿Qué es la Renta Básica?",
-          "answer": "Nuestra Renta Básica es un subsidio diario de 0,02 WDD (dracma mundial) que se proporciona a todos los ciudadanos de la República Mundial. Se acumula en tiempo real y se puede reclamar en cualquier momento a través de la aplicación."
+          "answer": "Nuestra Renta Básica es un subsidio diario de 0,01 WDD (dracma mundial) que se proporciona a todos los ciudadanos de la República Mundial. Se acumula en tiempo real y se puede reclamar en cualquier momento a través de la aplicación."
         },
         "basicIncomePlus": {
           "question": "¿Cómo activo la Renta Básica Plus?",
-          "answer": "La Renta Básica Plus proporciona 0,58 WDD adicionales por día y está disponible exclusivamente para usuarios verificados con Orb. Después de activar la Renta Básica, verás una opción para activar la Renta Básica Plus en la página Ganar."
+          "answer": "La Renta Básica Plus proporciona 0,39 WDD adicionales por día y está disponible exclusivamente para usuarios verificados con Orb. Después de activar la Renta Básica, verás una opción para activar la Renta Básica Plus en la página Ganar."
         },
         "savings": {
           "question": "¿Cómo funciona la Cuenta de Ahorro?",
