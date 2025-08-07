@@ -1338,23 +1338,6 @@ export default function EarnPage({
 
   const searchParams = useSearchParams();
 
-  const [isPWABannerVisible, setIsPWABannerVisible] = useState(true);
-
-  // Add useEffect to load badge state from localStorage
-  useEffect(() => {
-    const badgeState = localStorage.getItem("PWABannerClosed");
-    if (badgeState === "true") {
-      setIsPWABannerVisible(false);
-    }
-  }, []);
-
-  // Function to handle closing the badge
-  const handleCloseHoldStationBanner = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Prevent triggering the drawer
-    setIsPWABannerVisible(false);
-    localStorage.setItem("PWABannerClosed", "true");
-  };
-
   // Restore loadCurrentUsernameCallback
   const loadCurrentUsernameCallback = useCallback(async () => {
     if (!MiniKit.isInstalled() || !walletAddress) return;
@@ -1389,61 +1372,37 @@ export default function EarnPage({
       case "Basic income":
         return (
           <>
-            {isPWABannerVisible && (
-              <div className="fixed left-0 right-0 top-28 z-50 mx-auto w-full max-w-md px-6">
-                <div className="mt-2 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-gray-0 p-3 shadow-sm">
-                  <div className="flex w-full items-start overflow-hidden">
-                    <div className="my-auto mr-3 h-[30px] w-[30px] flex-shrink-0 rounded-full border-[5px] border-gray-900"></div>
-                    <a
-                      href="https://app.worldrepublic.org/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-grow"
+            <div className="fixed left-0 right-0 top-28 z-50 mx-auto w-full max-w-md px-6">
+              <div className="mt-2 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-gray-0 p-3 shadow-sm">
+                <div className="flex w-full items-start overflow-hidden">
+                  <div className="my-auto mr-3 h-[30px] w-[30px] flex-shrink-0 rounded-full border-[5px] border-gray-900"></div>
+                  <a
+                    href="https://app.worldrepublic.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-grow"
+                  >
+                    <Typography
+                      as="h3"
+                      variant={{ variant: "subtitle", level: 2 }}
+                      className="font-display mb-1 text-left text-[16px] font-semibold tracking-tight text-gray-900"
                     >
-                      <Typography
-                        as="h3"
-                        variant={{ variant: "subtitle", level: 2 }}
-                        className="font-display mb-1 text-left text-[16px] font-semibold tracking-tight text-gray-900"
-                      >
-                        {dictionary?.components?.banners?.pwa?.title}
-                      </Typography>
-                      <Typography
-                        as="h3"
-                        variant={{ variant: "subtitle", level: 2 }}
-                        className="font-display text-left text-[15px] font-medium tracking-tight text-gray-900"
-                      >
-                        {dictionary?.components?.banners?.pwa?.description}{" "}
-                        <span className="underline">
-                          {dictionary?.components?.banners?.pwa?.cta}
-                        </span>
-                      </Typography>
-                    </a>
-                    <div className="ml-2 flex">
-                      <div className="flex items-center rounded-full">
-                        <button
-                          onClick={handleCloseHoldStationBanner}
-                          className="text-gray-400 focus:outline-none"
-                          aria-label="Close banner"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            className="h-5 w-5"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                      {dictionary?.components?.banners?.pwa?.title}
+                    </Typography>
+                    <Typography
+                      as="h3"
+                      variant={{ variant: "subtitle", level: 2 }}
+                      className="font-display text-left text-[15px] font-medium tracking-tight text-gray-900"
+                    >
+                      {dictionary?.components?.banners?.pwa?.description}{" "}
+                      <span className="underline">
+                        {dictionary?.components?.banners?.pwa?.cta}
+                      </span>
+                    </Typography>
+                  </a>
                 </div>
               </div>
-            )}
+            </div>
 
             <div className="flex w-full flex-col items-center py-8">
               <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
