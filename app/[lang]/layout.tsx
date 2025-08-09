@@ -12,7 +12,7 @@ import { PartiesProvider } from "@/components/contexts/PartiesContext";
 
 export const metadata: Metadata = {
   title: "World Republic",
-  description: "The home of global democracy",
+  description: "Basic income and global democracy",
 };
 
 interface RootLayoutProps {
