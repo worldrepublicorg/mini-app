@@ -286,8 +286,8 @@
         },
         "invite": {
           "title": "Inviter",
-          "subtitle": "Recevez 10 WDD par ami qui rejoint",
-          "tooltip": "Vos amis doivent rejoindre notre nouvelle application web.",
+          "subtitle": "Recevez 50 WDD par ami qui rejoint",
+          "tooltip": "Les amis doivent être vérifiés via Orb ou passeport.",
           "learnMore": "En savoir plus",
           "stats": {
             "title": "Vos statistiques de parrainage",
@@ -298,7 +298,32 @@
             "copyLink": "Copier le lien de parrainage",
             "copied": "Lien de parrainage copié dans le presse-papiers !",
             "connectWallet": "Veuillez connecter votre portefeuille pour générer votre lien de parrainage",
+            "rewardReferrer": "Récompenser le parrain",
             "share": "Partager le lien d'invitation"
+          },
+          "drawer": {
+            "title": "Récompenser un Parrain",
+            "subtitle": "Déclencher une récompense gratuite de 50 WDD pour votre parrain",
+            "invitedBy": "Vous avez été invité par : {{username}}",
+            "input": {
+              "placeholder": "Entrez le nom d'utilisateur (ex : username.0000)",
+              "lookupButton": "Rechercher l'utilisateur",
+              "sendingTo": "Envoi de la récompense à :",
+              "editButton": "Modifier",
+              "sendButton": "Envoyer la récompense",
+              "proveReward": "Confirmer et récompenser"
+            },
+            "errors": {
+              "enterUsername": "Veuillez entrer un nom d'utilisateur",
+              "usernameNotFound": "Nom d'utilisateur non trouvé",
+              "lookupFailed": "Échec de la recherche du nom d'utilisateur. Veuillez réessayer.",
+              "installMiniKit": "Veuillez installer MiniKit pour rechercher des noms d'utilisateur",
+              "connectWallet": "Veuillez d'abord connecter votre portefeuille",
+              "transactionCanceled": "La transaction a été annulée"
+            },
+            "success": {
+              "rewardSent": "Récompense envoyée avec succès à {{username}} !"
+            }
           },
           "share": {
             "title": "Rejoignez-moi dans la République Mondiale",

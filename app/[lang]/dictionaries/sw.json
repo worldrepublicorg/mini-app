@@ -286,8 +286,8 @@
         },
         "invite": {
           "title": "Alika",
-          "subtitle": "Pata 10 WDD kwa kila rafiki anayeejiunga",
-          "tooltip": "Marafiki wanapaswa kujiunga na programu yetu mpya ya wavuti.",
+          "subtitle": "Pata WDD 50 kwa kila rafiki anayejiunga",
+          "tooltip": "Marafiki lazima wathibitishwe kupitia Orb au pasipoti.",
           "learnMore": "Jifunze zaidi",
           "stats": {
             "title": "Takwimu zako za urafiki",
@@ -298,7 +298,32 @@
             "copyLink": "Nakili kiungo cha urafiki",
             "copied": "Kiungo cha urafiki kimenakiliwa kwenye clipboard!",
             "connectWallet": "Tafadhali unganisha pochi yako ili kuzalisha kiungo chako cha urafiki",
+            "rewardReferrer": "Mpa malipo mrafiki",
             "share": "Shiriki mialiko"
+          },
+          "drawer": {
+            "title": "Mpa Malipo Mrafiki",
+            "subtitle": "Toa malipo ya WDD 50 bila malipo kwa mrafiki wako",
+            "invitedBy": "Uliakaribishwa na: {{username}}",
+            "input": {
+              "placeholder": "Ingiza jina la mtumiaji (mfano: username.0000)",
+              "lookupButton": "Tafuta mtumiaji",
+              "sendingTo": "Inatuma malipo kwa:",
+              "editButton": "Hariri",
+              "sendButton": "Tuma malipo",
+              "proveReward": "Thibitisha na toa malipo"
+            },
+            "errors": {
+              "enterUsername": "Tafadhali ingiza jina la mtumiaji",
+              "usernameNotFound": "Jina la mtumiaji halipatikani",
+              "lookupFailed": "Imeshindwa kumtafuta mtumiaji. Tafadhali jaribu tena.",
+              "installMiniKit": "Tafadhali usakinishe MiniKit ili kumtafuta mtumiaji",
+              "connectWallet": "Tafadhali unganisha pochi yako kwanza",
+              "transactionCanceled": "Muamala ulighairiwa"
+            },
+            "success": {
+              "rewardSent": "Malipo yametumwa kwa mafanikio kwa {{username}}!"
+            }
           },
           "share": {
             "title": "Jiunge na Jamhuri ya Dunia",

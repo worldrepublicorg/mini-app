@@ -286,8 +286,8 @@
         },
         "invite": {
           "title": "초대",
-          "subtitle": "참여하는 친구 1명당 10 WDD 받기",
-          "tooltip": "친구는 우리의 새로운 웹 앱에 가입해야 합니다.",
+          "subtitle": "참여하는 친구당 50 WDD 획득",
+          "tooltip": "친구들은 Orb 또는 여권으로 인증되어야 합니다.",
           "learnMore": "더 알아보기",
           "stats": {
             "title": "나의 추천 현황",
@@ -298,7 +298,32 @@
             "copyLink": "추천 링크 복사",
             "copied": "추천 링크가 클립보드에 복사되었습니다!",
             "connectWallet": "추천 링크를 생성하려면 지갑을 연결하세요",
+            "rewardReferrer": "추천인에게 보상 지급",
             "share": "초대 링크 공유"
+          },
+          "drawer": {
+            "title": "추천인 보상",
+            "subtitle": "추천인에게 50 WDD 무료 리워드 지급",
+            "invitedBy": "추천인: {{username}}",
+            "input": {
+              "placeholder": "사용자 이름 입력 (예: username.0000)",
+              "lookupButton": "사용자 검색",
+              "sendingTo": "리워드 전송 대상:",
+              "editButton": "수정",
+              "sendButton": "리워드 전송",
+              "proveReward": "증명하고 보상하기"
+            },
+            "errors": {
+              "enterUsername": "사용자 이름을 입력해주세요",
+              "usernameNotFound": "존재하지 않는 사용자입니다",
+              "lookupFailed": "사용자 검색에 실패했습니다. 다시 시도해주세요.",
+              "installMiniKit": "사용자 검색을 위해 MiniKit을 설치해주세요",
+              "connectWallet": "먼저 지갑을 연결해주세요",
+              "transactionCanceled": "거래가 취소되었습니다"
+            },
+            "success": {
+              "rewardSent": "{{username}}님에게 리워드를 성공적으로 전송했습니다!"
+            }
           },
           "share": {
             "title": "세계 공화국에 참여하세요",

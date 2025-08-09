@@ -388,8 +388,8 @@
         },
         "invite": {
           "title": "Mag-imbita",
-          "subtitle": "Kumita ng 10 WDD sa bawat kaibigang sasali",
-          "tooltip": "Dapat sumali ang mga kaibigan sa bago naming web app.",
+          "subtitle": "Makakuha ng 50 WDD para sa bawat kaibigan na sasali",
+          "tooltip": "Ang mga kaibigan ay dapat na-verify sa pamamagitan ng Orb o pasaporte.",
           "learnMore": "Matuto nang higit pa",
           "stats": {
             "title": "Mga stats ng iyong referral",
@@ -400,7 +400,32 @@
             "copyLink": "Kopyahin ang link ng referral",
             "copied": "Na-kopya ang link ng referral sa clipboard!",
             "connectWallet": "Mangyaring i-connect ang wallet para makabuo ng referral link",
+            "rewardReferrer": "Gantimpalaan ang referidor",
             "share": "Ibahagi ang link ng imbitasyon"
+          },
+          "drawer": {
+            "title": "Gantimpalaan ang Referrer",
+            "subtitle": "I-trigger ang libreng 50 WDD na gantimpala para sa iyong referrer",
+            "invitedBy": "Ikaw ay inimbita ni: {{username}}",
+            "input": {
+              "placeholder": "Ilagay ang username (hal. username.0000)",
+              "lookupButton": "Hanapin ang user",
+              "sendingTo": "Nagpapadala ng gantimpala kay:",
+              "editButton": "I-edit",
+              "sendButton": "Ipadala ang gantimpala",
+              "proveReward": "Patunayan at gantimpalaan"
+            },
+            "errors": {
+              "enterUsername": "Mangyaring maglagay ng username",
+              "usernameNotFound": "Hindi nahanap ang username",
+              "lookupFailed": "Hindi matagumpay ang paghahanap ng username. Mangyaring subukan muli.",
+              "installMiniKit": "Mangyaring i-install ang MiniKit para makapaghanap ng mga username",
+              "connectWallet": "Mangyaring i-connect muna ang iyong wallet",
+              "transactionCanceled": "Na-cancel ang transaksyon"
+            },
+            "success": {
+              "rewardSent": "Matagumpay na naipadala ang gantimpala kay {{username}}!"
+            }
           },
           "share": {
             "title": "Sumali sa World Republic",
