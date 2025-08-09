@@ -437,25 +437,28 @@ export default function EarnPage({
   const fallbackStartedRef = useRef(false);
 
   // Helper to clear fallback timer
-  const clearFallbackTimer = () => {
+  const clearFallbackTimer = useCallback(() => {
     if (fallbackTimerRef.current) {
       clearTimeout(fallbackTimerRef.current);
       fallbackTimerRef.current = null;
     }
     fallbackStartedRef.current = false;
-  };
+  }, []);
 
   // Helper: call this when the UI should be reset after tx
-  const finishTx = (txId?: string) => {
-    if (txId && txId !== currentTxRef.current) return; // Only finish for the current tx
-    setIsSubmitting(false);
-    setIsClaimingBasic(false);
-    setIsClaimingPlus(false);
-    setTxType(null);
-    setTransactionId(null);
-    clearFallbackTimer();
-    currentTxRef.current = null;
-  };
+  const finishTx = useCallback(
+    (txId?: string) => {
+      if (txId && txId !== currentTxRef.current) return; // Only finish for the current tx
+      setIsSubmitting(false);
+      setIsClaimingBasic(false);
+      setIsClaimingPlus(false);
+      setTxType(null);
+      setTransactionId(null);
+      clearFallbackTimer();
+      currentTxRef.current = null;
+    },
+    [clearFallbackTimer]
+  );
 
   // Fallback polling for setup/claim
   const pollForSetupOrClaimChange = async (
@@ -734,7 +737,20 @@ export default function EarnPage({
         });
       }
     }
-  }, [isSuccess, txType, transactionId]);
+  }, [
+    isSuccess,
+    txType,
+    transactionId,
+    isSubmitting,
+    isClaimingBasic,
+    isClaimingPlus,
+    fetchBasicIncomeInfo,
+    fetchBasicIncomePlusInfo,
+    fetchBalance,
+    finishTx,
+    claimableAmount,
+    claimableAmountPlus,
+  ]);
 
   // Clean up timers on unmount
   useEffect(() => {
@@ -742,7 +758,7 @@ export default function EarnPage({
       clearFallbackTimer();
       currentTxRef.current = null;
     };
-  }, []);
+  }, [clearFallbackTimer]);
 
   const handleTabChange = (tab: EarnTabKey) => {
     setActiveTab(tab);

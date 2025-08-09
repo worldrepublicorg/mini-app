@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/Button";
 import { Typography } from "@/components/ui/Typography";
 import { parseAbi } from "viem";
@@ -50,22 +50,25 @@ export function StakeWithPermitForm({
   const fallbackStartedRef = useRef(false);
 
   // Helper to clear fallback timer
-  const clearFallbackTimer = () => {
+  const clearFallbackTimer = useCallback(() => {
     if (fallbackTimerRef.current) {
       clearTimeout(fallbackTimerRef.current);
       fallbackTimerRef.current = null;
     }
     fallbackStartedRef.current = false;
-  };
+  }, []);
 
   // Helper: call this when the UI should be reset after tx
-  const finishTx = (txId?: string) => {
-    if (txId && txId !== transactionId) return; // Only finish for the current tx
-    setIsLoading(false);
-    setTxType(null);
-    setTransactionId(null);
-    clearFallbackTimer();
-  };
+  const finishTx = useCallback(
+    (txId?: string) => {
+      if (txId && txId !== transactionId) return; // Only finish for the current tx
+      setIsLoading(false);
+      setTxType(null);
+      setTransactionId(null);
+      clearFallbackTimer();
+    },
+    [transactionId, clearFallbackTimer]
+  );
 
   // Helper: fetch staked balance value (returns string)
   const fetchStakedBalanceValue = async (): Promise<string> => {
@@ -405,7 +408,14 @@ export function StakeWithPermitForm({
       unwatchRedeemed();
       clearFallbackTimer();
     };
-  }, [walletAddress, fetchAvailableReward, fetchStakedBalance, fetchBalance]);
+  }, [
+    walletAddress,
+    fetchAvailableReward,
+    fetchStakedBalance,
+    fetchBalance,
+    clearFallbackTimer,
+    finishTx,
+  ]);
 
   useEffect(() => {
     if (isSuccess && txType && transactionId === currentTxRef.current) {
@@ -423,8 +433,16 @@ export function StakeWithPermitForm({
         });
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isSuccess, txType, transactionId]);
+  }, [
+    isSuccess,
+    txType,
+    transactionId,
+    isLoading,
+    fetchStakedBalance,
+    fetchAvailableReward,
+    fetchBalance,
+    finishTx,
+  ]);
 
   return (
     <div className="w-full">
