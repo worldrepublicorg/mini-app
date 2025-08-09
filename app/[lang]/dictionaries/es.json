@@ -296,8 +296,8 @@
         },
         "invite": {
           "title": "Invitar",
-          "subtitle": "Obtén 10 WDD por cada amigo que se una",
-          "tooltip": "Tus amigos deben unirse a nuestra nueva aplicación web.",
+          "subtitle": "Obtén 50 WDD por cada amigo que se una",
+          "tooltip": "Los amigos deben estar verificados a través de Orb o pasaporte.",
           "learnMore": "Más información",
           "stats": {
             "title": "Tus estadísticas de referidos",
@@ -308,7 +308,32 @@
             "copyLink": "Copiar enlace de referido",
             "copied": "¡Enlace de referido copiado al portapapeles!",
             "connectWallet": "Por favor conecta tu billetera para generar tu enlace de referido",
+            "rewardReferrer": "Recompensar referidor",
             "share": "Compartir enlace de invitación"
+          },
+          "drawer": {
+            "title": "Recompensar a un Referidor",
+            "subtitle": "Activa una recompensa gratuita de 50 WDD para tu referidor",
+            "invitedBy": "Fuiste invitado por: {{username}}",
+            "input": {
+              "placeholder": "Ingresa usuario (ej. usuario.0000)",
+              "lookupButton": "Buscar usuario",
+              "sendingTo": "Enviando recompensa a:",
+              "editButton": "Editar",
+              "sendButton": "Enviar recompensa",
+              "proveReward": "Comprobar y recompensar"
+            },
+            "errors": {
+              "enterUsername": "Por favor ingresa un nombre de usuario",
+              "usernameNotFound": "Usuario no encontrado",
+              "lookupFailed": "Error al buscar usuario. Por favor intenta de nuevo.",
+              "installMiniKit": "Por favor instala MiniKit para buscar usuarios",
+              "connectWallet": "Por favor conecta tu billetera primero",
+              "transactionCanceled": "La transacción fue cancelada"
+            },
+            "success": {
+              "rewardSent": "¡Recompensa enviada exitosamente a {{username}}!"
+            }
           },
           "share": {
             "title": "Únete a la República Mundial",

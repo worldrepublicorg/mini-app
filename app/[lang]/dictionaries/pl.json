@@ -286,8 +286,8 @@
         },
         "invite": {
           "title": "Zaproś",
-          "subtitle": "Otrzymuj 10 WDD za każdego znajomego, który dołączy",
-          "tooltip": "Znajomi muszą dołączyć do naszej nowej aplikacji webowej.",
+          "subtitle": "Zdobądź 50 WDD za każdego znajomego, który dołączy",
+          "tooltip": "Znajomi muszą zostać zweryfikowani przez Orb lub paszport.",
           "learnMore": "Dowiedz się więcej",
           "stats": {
             "title": "Twoje statystyki polecania",
@@ -298,7 +298,32 @@
             "copyLink": "Kopiuj link polecający",
             "copied": "Link polecający skopiowany do schowka!",
             "connectWallet": "Proszę połącz portfel, aby wygenerować link polecający",
+            "rewardReferrer": "Nagrodź polecającego",
             "share": "Udostępnij link zaproszenia"
+          },
+          "drawer": {
+            "title": "Nagródź Polecającego",
+            "subtitle": "Aktywuj darmową nagrodę 50 WDD dla swojego polecającego",
+            "invitedBy": "Zostałeś zaproszony przez: {{username}}",
+            "input": {
+              "placeholder": "Wprowadź nazwę użytkownika (np. username.0000)",
+              "lookupButton": "Wyszukaj użytkownika",
+              "sendingTo": "Wysyłanie nagrody do:",
+              "editButton": "Edytuj",
+              "sendButton": "Wyślij nagrodę",
+              "proveReward": "Udowodnij i nagrodź"
+            },
+            "errors": {
+              "enterUsername": "Wprowadź nazwę użytkownika",
+              "usernameNotFound": "Nie znaleziono użytkownika",
+              "lookupFailed": "Nie udało się wyszukać użytkownika. Spróbuj ponownie.",
+              "installMiniKit": "Zainstaluj MiniKit, aby wyszukiwać użytkowników",
+              "connectWallet": "Najpierw połącz swój portfel",
+              "transactionCanceled": "Transakcja została anulowana"
+            },
+            "success": {
+              "rewardSent": "Pomyślnie wysłano nagrodę do {{username}}!"
+            }
           },
           "share": {
             "title": "Dołącz do Światowej Republiki",

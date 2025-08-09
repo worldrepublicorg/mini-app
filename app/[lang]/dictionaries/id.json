@@ -286,8 +286,8 @@
         },
         "invite": {
           "title": "Undang",
-          "subtitle": "Dapatkan 10 WDD untuk setiap teman yang bergabung",
-          "tooltip": "Teman harus bergabung ke aplikasi web baru kami.",
+          "subtitle": "Dapatkan 50 WDD untuk setiap teman yang bergabung",
+          "tooltip": "Teman harus diverifikasi melalui Orb atau paspor.",
           "learnMore": "Pelajari lebih lanjut",
           "stats": {
             "title": "Statistik referral Anda",
@@ -298,7 +298,32 @@
             "copyLink": "Salin tautan referral",
             "copied": "Tautan referral disalin ke clipboard!",
             "connectWallet": "Silakan hubungkan dompet Anda untuk menghasilkan tautan referral",
+            "rewardReferrer": "Hadiahkan referrer",
             "share": "Bagikan tautan undangan"
+          },
+          "drawer": {
+            "title": "Beri Hadiah Pereferral",
+            "subtitle": "Berikan hadiah 50 WDD gratis untuk pereferral Anda",
+            "invitedBy": "Anda diundang oleh: {{username}}",
+            "input": {
+              "placeholder": "Masukkan username (contoh: username.0000)",
+              "lookupButton": "Cari pengguna",
+              "sendingTo": "Mengirim hadiah ke:",
+              "editButton": "Edit",
+              "sendButton": "Kirim hadiah",
+              "proveReward": "Buktikan dan beri hadiah"
+            },
+            "errors": {
+              "enterUsername": "Silakan masukkan username",
+              "usernameNotFound": "Username tidak ditemukan",
+              "lookupFailed": "Gagal mencari username. Silakan coba lagi.",
+              "installMiniKit": "Silakan pasang MiniKit untuk mencari username",
+              "connectWallet": "Silakan hubungkan dompet Anda terlebih dahulu",
+              "transactionCanceled": "Transaksi dibatalkan"
+            },
+            "success": {
+              "rewardSent": "Berhasil mengirim hadiah ke {{username}}!"
+            }
           },
           "share": {
             "title": "Bergabunglah dengan Republik Dunia",

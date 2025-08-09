@@ -286,8 +286,8 @@
         },
         "invite": {
           "title": "Davet Et",
-          "subtitle": "Katılan her arkadaş için 10 WDD kazan",
-          "tooltip": "Arkadaşların yeni web uygulamamıza katılmalı.",
+          "subtitle": "Katılan her arkadaşın için 50 WDD kazan",
+          "tooltip": "Arkadaşlar Orb veya pasaport ile doğrulanmalıdır.",
           "learnMore": "Daha fazla bilgi",
           "stats": {
             "title": "Davet istatistikleriniz",
@@ -298,7 +298,32 @@
             "copyLink": "Davet bağlantısını kopyala",
             "copied": "Davet bağlantısı panoya kopyalandı!",
             "connectWallet": "Davet bağlantınızı oluşturmak için lütfen cüzdanınızı bağlayın",
+            "rewardReferrer": "Davet edeni ödüllendir",
             "share": "Daveti paylaş"
+          },
+          "drawer": {
+            "title": "Davet Edeni Ödüllendir",
+            "subtitle": "Davet edeniniz için ücretsiz 50 WDD ödülü tetikleyin",
+            "invitedBy": "Sizi davet eden: {{username}}",
+            "input": {
+              "placeholder": "Kullanıcı adı girin (örn. kullanici.0000)",
+              "lookupButton": "Kullanıcı ara",
+              "sendingTo": "Ödül gönderiliyor:",
+              "editButton": "Düzenle",
+              "sendButton": "Ödül gönder",
+              "proveReward": "Kanıtla ve ödüllendir"
+            },
+            "errors": {
+              "enterUsername": "Lütfen bir kullanıcı adı girin",
+              "usernameNotFound": "Kullanıcı adı bulunamadı",
+              "lookupFailed": "Kullanıcı adı arama başarısız oldu. Lütfen tekrar deneyin.",
+              "installMiniKit": "Kullanıcı adlarını aramak için lütfen MiniKit'i yükleyin",
+              "connectWallet": "Lütfen önce cüzdanınızı bağlayın",
+              "transactionCanceled": "İşlem iptal edildi"
+            },
+            "success": {
+              "rewardSent": "{{username}}'e başarıyla ödül gönderildi!"
+            }
           },
           "share": {
             "title": "Dünya Cumhuriyeti'ne Katılın",

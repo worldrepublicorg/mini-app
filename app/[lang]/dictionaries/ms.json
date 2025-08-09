@@ -286,8 +286,8 @@
         },
         "invite": {
           "title": "Jemput",
-          "subtitle": "Dapatkan 10 WDD untuk setiap rakan yang menyertai",
-          "tooltip": "Rakan perlu menyertai aplikasi web baharu kami.",
+          "subtitle": "Dapatkan 50 WDD bagi setiap rakan yang menyertai",
+          "tooltip": "Rakan perlu disahkan melalui Orb atau pasport.",
           "learnMore": "Ketahui lebih lanjut",
           "stats": {
             "title": "Statistik rujukan anda",
@@ -298,7 +298,32 @@
             "copyLink": "Salin pautan rujukan",
             "copied": "Pautan rujukan disalin ke clipboard!",
             "connectWallet": "Sila sambungkan dompet anda untuk menjana pautan rujukan",
+            "rewardReferrer": "Hadiahkan pemberi rujukan",
             "share": "Kongsi pautan jemputan"
+          },
+          "drawer": {
+            "title": "Ganjarkan Pemberi Rujukan",
+            "subtitle": "Cetuskan ganjaran 50 WDD percuma untuk pemberi rujukan anda",
+            "invitedBy": "Anda dijemput oleh: {{username}}",
+            "input": {
+              "placeholder": "Masukkan nama pengguna (cth. username.0000)",
+              "lookupButton": "Cari pengguna",
+              "sendingTo": "Menghantar ganjaran kepada:",
+              "editButton": "Sunting",
+              "sendButton": "Hantar ganjaran",
+              "proveReward": "Buktikan dan ganjarkan"
+            },
+            "errors": {
+              "enterUsername": "Sila masukkan nama pengguna",
+              "usernameNotFound": "Nama pengguna tidak dijumpai",
+              "lookupFailed": "Gagal mencari nama pengguna. Sila cuba lagi.",
+              "installMiniKit": "Sila pasang MiniKit untuk mencari nama pengguna",
+              "connectWallet": "Sila sambung dompet anda terlebih dahulu",
+              "transactionCanceled": "Transaksi dibatalkan"
+            },
+            "success": {
+              "rewardSent": "Berjaya menghantar ganjaran kepada {{username}}!"
+            }
           },
           "share": {
             "title": "Sertai Republik Dunia",

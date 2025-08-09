@@ -286,8 +286,8 @@
         },
         "invite": {
           "title": "Invite",
-          "subtitle": "Get 10 WDD per friend who joins",
-          "tooltip": "Friends must join our new web app.",
+          "subtitle": "Get 50 WDD per friend who joins",
+          "tooltip": "Friends must be verified via Orb or passport.",
           "learnMore": "Learn more",
           "stats": {
             "title": "Your referral stats",
@@ -298,7 +298,32 @@
             "copyLink": "Copy referral link",
             "copied": "Referral link copied to clipboard!",
             "connectWallet": "Please connect your wallet to generate your referral link",
+            "rewardReferrer": "Reward referrer",
             "share": "Share invite"
+          },
+          "drawer": {
+            "title": "Reward a Referrer",
+            "subtitle": "Trigger a free 50 WDD reward for your referrer",
+            "invitedBy": "You were invited by: {{username}}",
+            "input": {
+              "placeholder": "Enter username (e.g. username.0000)",
+              "lookupButton": "Lookup user",
+              "sendingTo": "Sending reward to:",
+              "editButton": "Edit",
+              "sendButton": "Send reward",
+              "proveReward": "Prove and reward"
+            },
+            "errors": {
+              "enterUsername": "Please enter a username",
+              "usernameNotFound": "Username not found",
+              "lookupFailed": "Failed to look up username. Please try again.",
+              "installMiniKit": "Please install MiniKit to look up usernames",
+              "connectWallet": "Please connect your wallet first",
+              "transactionCanceled": "Transaction was canceled"
+            },
+            "success": {
+              "rewardSent": "Successfully sent reward to {{username}}!"
+            }
           },
           "share": {
             "title": "Join me in the World Republic",
