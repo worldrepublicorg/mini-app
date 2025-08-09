@@ -286,8 +286,8 @@
         },
         "invite": {
           "title": "Convidar",
-          "subtitle": "Ganhe 50 WDD por cada amigo que se juntar",
-          "tooltip": "Os amigos devem ser verificados via Orb ou passaporte.",
+          "subtitle": "Ganhe 10 WDD por cada amigo que entrar",
+          "tooltip": "Os seus amigos devem aderir à nossa nova aplicação web.",
           "learnMore": "Saiba mais",
           "stats": {
             "title": "Suas estatísticas de indicação",
@@ -298,32 +298,7 @@
             "copyLink": "Copiar link de indicação",
             "copied": "Link de indicação copiado para a área de transferência!",
             "connectWallet": "Por favor, conecte sua carteira para gerar seu link de indicação",
-            "rewardReferrer": "Recompensar indicador",
             "share": "Compartilhar link de convite"
-          },
-          "drawer": {
-            "title": "Recompensar um Indicador",
-            "subtitle": "Ative uma recompensa gratuita de 50 WDD para seu indicador",
-            "invitedBy": "Você foi convidado por: {{username}}",
-            "input": {
-              "placeholder": "Digite o nome de usuário (ex: usuario.0000)",
-              "lookupButton": "Buscar usuário",
-              "sendingTo": "Enviando recompensa para:",
-              "editButton": "Editar",
-              "sendButton": "Enviar recompensa",
-              "proveReward": "Comprovar e recompensar"
-            },
-            "errors": {
-              "enterUsername": "Por favor, digite um nome de usuário",
-              "usernameNotFound": "Nome de usuário não encontrado",
-              "lookupFailed": "Falha ao buscar nome de usuário. Por favor, tente novamente.",
-              "installMiniKit": "Por favor, instale o MiniKit para buscar nomes de usuário",
-              "connectWallet": "Por favor, conecte sua carteira primeiro",
-              "transactionCanceled": "A transação foi cancelada"
-            },
-            "success": {
-              "rewardSent": "Recompensa enviada com sucesso para {{username}}!"
-            }
           },
           "share": {
             "title": "Junte-se à República Mundial",

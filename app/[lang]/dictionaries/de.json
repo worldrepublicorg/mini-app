@@ -285,8 +285,8 @@
         },
         "invite": {
           "title": "Einladen",
-          "subtitle": "Erhalte 50 WDD pro Freund, der beitritt",
-          "tooltip": "Freunde müssen über Orb oder Reisepass verifiziert sein.",
+          "subtitle": "Erhalte 10 WDD pro Freund, der beitritt",
+          "tooltip": "Freunde müssen sich in unserer neuen Web‑App anmelden.",
           "learnMore": "Mehr erfahren",
           "stats": {
             "title": "Ihre Referral Stats",
@@ -297,32 +297,7 @@
             "copyLink": "Empfehlungslink kopieren",
             "copied": "Empfehlungslink in die Zwischenablage kopiert!",
             "connectWallet": "Bitte verbinden Sie Ihre Wallet, um Ihren Empfehlungslink zu generieren",
-            "rewardReferrer": "Empfehler belohnen",
             "share": "Einladungslink teilen"
-          },
-          "drawer": {
-            "title": "Belohnung einem Referrer gewähren",
-            "subtitle": "Freien 50 WDD Belohnung für Ihren Referrer auslösen",
-            "invitedBy": "Sie wurden von: {{username}} eingeladen",
-            "input": {
-              "placeholder": "Benutzername eingeben (z.B. username.0000)",
-              "lookupButton": "Benutzername suchen",
-              "sendingTo": "Belohnung senden an:",
-              "editButton": "Bearbeiten",
-              "sendButton": "Belohnung senden",
-              "proveReward": "Verifizieren und Belohnen"
-            },
-            "errors": {
-              "enterUsername": "Bitte geben Sie einen Benutzernamen ein",
-              "usernameNotFound": "Benutzername nicht gefunden",
-              "lookupFailed": "Benutzername konnte nicht gefunden werden. Bitte versuchen Sie es erneut.",
-              "installMiniKit": "Bitte installieren Sie MiniKit, um Benutzernamen zu suchen",
-              "connectWallet": "Bitte verbinden Sie Ihre Wallet zuerst",
-              "transactionCanceled": "Transaktion wurde abgebrochen"
-            },
-            "success": {
-              "rewardSent": "Belohnung erfolgreich an {{username}} gesendet!"
-            }
           },
           "share": {
             "title": "Tritt der Weltrepublik bei",
