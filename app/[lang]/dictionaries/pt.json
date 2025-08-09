@@ -687,7 +687,7 @@
         },
         "referralCodes": {
           "question": "Como funcionam os códigos de indicação?",
-          "answer": "Como cidadão da República Mundial, você pode ganhar recompensas através do nosso programa de indicação. Compartilhe seu link de indicação exclusivo com amigos e você receberá 50 WDD para cada pessoa que ingressar e for verificada via Orb ou passaporte. Não recebeu sua recompensa? Seu amigo pode precisar acioná-la manualmente selecionando a opção 'Recompensar Indicador' na seção de indicação dele."
+          "answer": "Como cidadão da República Mundial, você pode ganhar recompensas por meio do nosso programa de indicação. Compartilhe seu link de indicação exclusivo com amigos e você receberá 10 WDD para cada pessoa que entrar no nosso web app e concluir a verificação de vivacidade (liveness)."
         },
         "drachmaValue": {
           "question": "De onde vem o valor do dracma?",

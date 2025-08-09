@@ -687,7 +687,7 @@
         },
         "referralCodes": {
           "question": "Referans kodları nasıl çalışır?",
-          "answer": "Dünya Cumhuriyeti vatandaşı olarak, referans programımız aracılığıyla ödüller kazanabilirsiniz. Benzersiz referans bağlantınızı arkadaşlarınızla paylaşın ve Orb veya pasaport yoluyla doğrulanan her kişi için 50 WDD alın. Ödülünüzü almadınız mı? Arkadaşınızın, referans bölümündeki 'Referans Vereni Ödüllendir' seçeneğini seçerek bunu manuel olarak tetiklemesi gerekebilir."
+          "answer": "Dünya Cumhuriyeti vatandaşı olarak, referans programımız aracılığıyla ödüller kazanabilirsiniz. Benzersiz referans bağlantınızı arkadaşlarınızla paylaşın ve web uygulamamıza katılıp canlılık doğrulamasını (liveness) tamamlayan her kişi için 10 WDD alın."
         },
         "drachmaValue": {
           "question": "Drahmi değerini nereden alıyor?",

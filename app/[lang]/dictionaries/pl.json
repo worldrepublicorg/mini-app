@@ -686,7 +686,7 @@
         },
         "referralCodes": {
           "question": "Jak działają kody polecające?",
-          "answer": "Jako obywatel Republiki Światowej możesz zdobywać nagrody poprzez nasz program poleceń. Podziel się swoim unikalnym linkiem polecającym z przyjaciółmi, a otrzymasz 50 WDD za każdą osobę, która dołączy i zostanie zweryfikowana przez Orb lub paszport. Nie otrzymałeś swojej nagrody? Twój znajomy być może będzie musiał uruchomić ją ręcznie, wybierając opcję 'Nagródź Polecającego' w swoim dziale poleceń."
+          "answer": "Jako obywatel Republiki Świata możesz zdobywać nagrody w naszym programie poleceń. Udostępnij swój unikalny link polecający znajomym, a otrzymasz 10 WDD za każdą osobę, która dołączy do naszej aplikacji webowej i ukończy weryfikację żywotności (liveness)."
         },
         "drachmaValue": {
           "question": "Skąd drachma czerpie swoją wartość?",

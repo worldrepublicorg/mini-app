@@ -684,7 +684,7 @@
         },
         "referralCodes": {
           "question": "How do referral codes work?",
-          "answer": "As a World Republic citizen, you can earn rewards through our referral program. Share your unique referral link with friends, and you'll receive 50 WDD for each person who joins and verified via Orb or passport. Haven't received your reward? Your friend may need to manually trigger it by selecting the 'Reward Referrer' option in their referral section."
+          "answer": "As a World Republic citizen, you can earn rewards through our referral program. Share your unique referral link with friends, and you'll receive 10 WDD for each person who joins our web app and completes liveness check."
         },
         "drachmaValue": {
           "question": "Where does the drachma get its value?",
