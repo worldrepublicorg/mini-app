@@ -284,8 +284,8 @@
         },
         "invite": {
           "title": "Mag-imbita",
-          "subtitle": "Makakuha ng 50 WDD para sa bawat kaibigan na sasali",
-          "tooltip": "Ang mga kaibigan ay dapat na-verify sa pamamagitan ng Orb o pasaporte.",
+          "subtitle": "Kumita ng 10 WDD sa bawat kaibigang sasali",
+          "tooltip": "Dapat sumali ang mga kaibigan sa bago naming web app.",
           "learnMore": "Matuto nang higit pa",
           "stats": {
             "title": "Mga referral stats mo",
@@ -296,32 +296,7 @@
             "copyLink": "Kopyahin ang referral link",
             "copied": "Na-kopya na ang referral link sa clipboard!",
             "connectWallet": "Mangyaring i-konekta ang iyong wallet para magenerate ng referral link",
-            "rewardReferrer": "Reward ang referrer",
             "share": "Ibahagi ang imbitasyon"
-          },
-          "drawer": {
-            "title": "Reward ang Referrer",
-            "subtitle": "Mag-trigger ng libreng 50 WDD reward para sa iyong referrer",
-            "invitedBy": "Inimbita ka ni: {{username}}",
-            "input": {
-              "placeholder": "Ilagay ang username (hal. username.0000)",
-              "lookupButton": "Hanapin ang user",
-              "sendingTo": "Nagpapadala ng reward kay:",
-              "editButton": "I-edit",
-              "sendButton": "Ipadala ang reward",
-              "proveReward": "Patunayan at gantimpalaan"
-            },
-            "errors": {
-              "enterUsername": "Mangyaring maglagay ng username",
-              "usernameNotFound": "Hindi nahanap ang username",
-              "lookupFailed": "Hindi matagumpay ang paghahanap ng username. Subukan mo ulit.",
-              "installMiniKit": "Mangyaring i-install ang MiniKit para makita ang mga username",
-              "connectWallet": "Mangyaring i-konekta muna ang iyong wallet",
-              "transactionCanceled": "Na-cancel ang transaction"
-            },
-            "success": {
-              "rewardSent": "Matagumpay na naipadala ang reward kay {{username}}!"
-            }
           },
           "share": {
             "title": "Sumali ka sa World Republic",

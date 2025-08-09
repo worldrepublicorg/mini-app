@@ -285,8 +285,8 @@
         },
         "invite": {
           "title": "招待",
-          "subtitle": "参加する友達1人につき50 WDDを獲得",
-          "tooltip": "友達はOrbまたはパスポートで認証される必要があります。",
+          "subtitle": "参加した友達1人につき10 WDDを獲得",
+          "tooltip": "友達は新しいWebアプリに参加する必要があります。",
           "learnMore": "詳細を見る",
           "stats": {
             "title": "招待統計",
@@ -297,32 +297,7 @@
             "copyLink": "紹介リンクをコピー",
             "copied": "紹介リンクをクリップボードにコピーしました！",
             "connectWallet": "紹介リンクを生成するにはウォレットを接続してください",
-            "rewardReferrer": "紹介者に報酬を送る",
             "share": "招待リンクを共有"
-          },
-          "drawer": {
-            "title": "紹介者に報酬を送る",
-            "subtitle": "紹介者に無料で50 WDDの報酬を送信",
-            "invitedBy": "あなたは{{username}}に招待されました",
-            "input": {
-              "placeholder": "ユーザー名を入力（例：username.0000）",
-              "lookupButton": "ユーザーを検索",
-              "sendingTo": "報酬を送信先：",
-              "editButton": "編集",
-              "sendButton": "報酬を送信",
-              "proveReward": "証明して報酬を送る"
-            },
-            "errors": {
-              "enterUsername": "ユーザー名を入力してください",
-              "usernameNotFound": "ユーザーが見つかりません",
-              "lookupFailed": "ユーザー検索に失敗しました。もう一度お試しください。",
-              "installMiniKit": "ユーザー名を検索するにはMiniKitをインストールしてください",
-              "connectWallet": "先にウォレットを接続してください",
-              "transactionCanceled": "取引がキャンセルされました"
-            },
-            "success": {
-              "rewardSent": "{{username}}に報酬を正常に送信しました！"
-            }
           },
           "share": {
             "title": "世界共和国に参加しましょう",

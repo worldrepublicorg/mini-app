@@ -9,7 +9,6 @@ import {
   PiCoinsFill,
   PiTrendUpFill,
   PiUserCheckFill,
-  PiNotePencilFill,
   PiInfoFill,
 } from "react-icons/pi";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/Drawer";
@@ -49,13 +48,11 @@ export default function EarnPage({
     basicIncomePlusActivated,
     claimableAmount,
     claimableAmountPlus,
-    canReward,
     rewardCount,
     secureDocumentRewardCount,
     fetchBalance,
     fetchBasicIncomeInfo,
     fetchBasicIncomePlusInfo,
-    fetchCanReward,
     fetchRewardCount,
     fetchSecureDocumentRewardCount,
     username,
@@ -86,8 +83,6 @@ export default function EarnPage({
   const [displayClaimable, setDisplayClaimable] = useState<number>(
     (Number(claimableAmount) || 0) + (Number(claimableAmountPlus) || 0)
   );
-
-  const [recipientUsername, setRecipientUsername] = useState<string>("");
 
   const { showToast } = useToast();
 
@@ -343,96 +338,6 @@ export default function EarnPage({
 
   const [activeTab, setActiveTab] = useState<EarnTabKey>("Basic income");
 
-  const [isSendingReward, setIsSendingReward] = useState(false);
-  const [rewardStatus, setRewardStatus] = useState<{
-    success: boolean;
-    message: string;
-  } | null>(null);
-
-  // Wrap sendReward in useCallback
-  const sendReward = useCallback(
-    async (recipientAddress: string) => {
-      if (!MiniKit.isInstalled() || !walletAddress) {
-        setRewardStatus({
-          success: false,
-          message: "Please connect your wallet first",
-        });
-        return;
-      }
-
-      setIsSendingReward(true);
-      setRewardStatus(null);
-
-      // Check if this is the stored referrer
-      const storedReferrer = localStorage.getItem("referredBy");
-      const isStoredReferrer =
-        storedReferrer && storedReferrer === recipientUsername;
-
-      try {
-        console.log(`[Reward] Sending reward to ${recipientAddress}`);
-        if (isStoredReferrer) {
-          console.log("[Reward] This is the user who referred you!");
-        }
-
-        const { finalPayload } = await MiniKit.commandsAsync.sendTransaction({
-          transaction: [
-            {
-              address: "0x372dCA057682994568be074E75a03Ced3dD9E60d",
-              abi: parseAbi([
-                "function rewardUser(address recipient) external",
-              ]),
-              functionName: "rewardUser",
-              args: [recipientAddress],
-            },
-          ],
-        });
-
-        console.log("[Reward] Transaction response:", finalPayload);
-
-        if (finalPayload.status === "error") {
-          console.error("[Reward] Error sending transaction", finalPayload);
-          // Only show error toast if it's not a user rejection
-          if (finalPayload.error_code !== "user_rejected") {
-            const errorMessage =
-              (finalPayload as any).description || "Error sending reward";
-            showToast(errorMessage, "error");
-            setRewardStatus({
-              success: false,
-              message: errorMessage,
-            });
-          } else {
-            // Still set reward status but without showing toast
-            setRewardStatus({
-              success: false,
-              message: "Transaction was canceled",
-            });
-          }
-        } else {
-          setRewardStatus({
-            success: true,
-            message: `Successfully sent reward to ${recipientUsername}!`,
-          });
-
-          // After successful reward transaction, update the canReward status
-          fetchCanReward();
-        }
-      } catch (error: any) {
-        console.error("[Reward] Error in reward transaction:", error);
-        showToast(
-          error.message || "An unexpected error occurred with the reward",
-          "error"
-        );
-        setRewardStatus({
-          success: false,
-          message: error.message || "Failed to send reward. Please try again.",
-        });
-      } finally {
-        setIsSendingReward(false);
-      }
-    },
-    [walletAddress, recipientUsername, showToast, fetchCanReward]
-  ); // Add dependencies
-
   useEffect(() => {
     if (transactionId) {
       fetchBalance();
@@ -470,36 +375,6 @@ export default function EarnPage({
         console.log("TokensStaked event captured:", logs);
         fetchBasicIncomePlusInfo();
         setIsSubmitting(false);
-
-        // Process the automatic referral reward
-        const storedReferrer = localStorage.getItem("referredBy");
-        if (storedReferrer && canReward) {
-          try {
-            const response = await fetch(
-              `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(storedReferrer.trim())}`
-            );
-
-            if (response.ok) {
-              const data = await response.json();
-              showToast(
-                `Sending 50 WDD reward to ${storedReferrer}...`,
-                "info"
-              );
-              await sendReward(data.address);
-              showToast(`Successfully rewarded ${storedReferrer}!`, "success");
-            } else {
-              // Store that we need to reward them later if username lookup fails
-              localStorage.setItem("pendingReferrerReward", storedReferrer);
-            }
-          } catch (error) {
-            console.error(
-              "[AutoReward] Failed to process referral reward:",
-              error
-            );
-            // Store that we need to retry later
-            localStorage.setItem("pendingReferrerReward", storedReferrer);
-          }
-        }
       },
     });
 
@@ -554,9 +429,6 @@ export default function EarnPage({
     fetchBasicIncomeInfo,
     fetchBasicIncomePlusInfo,
     basicIncomePlusActivated,
-    canReward,
-    sendReward,
-    showToast,
   ]);
 
   // Add refs for current transaction and fallback timer
@@ -918,201 +790,6 @@ export default function EarnPage({
     return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
-  const [lookupResult, setLookupResult] = useState<{
-    username: string;
-    address: string;
-    profile_picture_url: string | null;
-  } | null>(null);
-  const [isLookingUp, setIsLookingUp] = useState(false);
-  const [lookupError, setLookupError] = useState("");
-
-  // Add useEffect to set recipient username from localStorage when component mounts
-  useEffect(() => {
-    const storedReferrer = localStorage.getItem("referredBy");
-    if (storedReferrer) {
-      setRecipientUsername(storedReferrer);
-    }
-  }, []);
-
-  const lookupUsername = async () => {
-    if (!recipientUsername || !recipientUsername.trim()) {
-      setLookupError("Please enter a username");
-      return;
-    }
-
-    setIsLookingUp(true);
-    setLookupError("");
-    setLookupResult(null);
-
-    try {
-      // Use MiniKit API to look up username (if available)
-      if (MiniKit.isInstalled()) {
-        try {
-          // Try to get address by username first
-          const response = await fetch(
-            `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(recipientUsername.trim())}`
-          );
-
-          if (!response.ok) {
-            if (response.status === 404) {
-              setLookupError("Username not found");
-            } else {
-              setLookupError(
-                `Error: ${response.status} ${response.statusText}`
-              );
-            }
-            return;
-          }
-
-          const data = await response.json();
-          setLookupResult(data);
-        } catch (error) {
-          console.error("[Username] Error looking up username via API:", error);
-          setLookupError("Failed to look up username. Please try again.");
-        }
-      } else {
-        setLookupError("Please install MiniKit to look up usernames");
-      }
-    } catch (error) {
-      setLookupError("Failed to look up username. Please try again.");
-      console.error("[Username] Username lookup error:", error);
-    } finally {
-      setIsLookingUp(false);
-    }
-  };
-
-  // Add this useEffect to check for stored referral information on component mount
-  useEffect(() => {
-    const storedReferrer = localStorage.getItem("referredBy");
-    if (storedReferrer) {
-      console.log(
-        "[Referral] App loaded with stored referrer:",
-        storedReferrer
-      );
-    } else {
-      console.log("[Referral] No stored referrer found on app load");
-    }
-  }, []);
-
-  // Add immediate check for referral code when the module loads
-  useEffect(() => {
-    console.log("====== INITIAL URL CHECK ======");
-    console.log("[Referral] Initial URL:", window.location.href);
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const code = urlParams.get("code");
-    if (code) {
-      console.log("[Referral] FOUND INITIAL CODE:", code);
-      console.log("[Referral] Immediately saving code to sessionStorage");
-      // Store in sessionStorage immediately as a backup
-      sessionStorage.setItem("pendingReferralCode", code);
-    }
-    console.log("==============================");
-  }, []);
-
-  // Handle incoming referral codes
-  useEffect(() => {
-    console.log("[Referral] Checking for referral code in URL");
-    console.log("[Referral] Current URL:", window.location.href);
-
-    // Parse URL for referral code
-    const parseReferralCode = () => {
-      if (typeof window !== "undefined") {
-        // First check URL parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        const urlCode = urlParams.get("code");
-
-        // Then check sessionStorage for a pending code that might have been saved
-        // before any redirects happened
-        const pendingCode = sessionStorage.getItem("pendingReferralCode");
-
-        // Use whichever code is available (URL takes precedence)
-        const code = urlCode || pendingCode;
-
-        if (code && code.length > 0) {
-          console.log("====== INVITE LINK DETECTED ======");
-          console.log(`[Referral] Inviter username: ${code}`);
-          console.log(`[Referral] Found referral code: ${code}`);
-          console.log(
-            `[Referral] Source: ${urlCode ? "URL" : "sessionStorage"}`
-          );
-          console.log("==================================");
-
-          // Only store the code if we haven't already been referred
-          if (!localStorage.getItem("referredBy")) {
-            console.log("[Referral] Storing referral code");
-            localStorage.setItem("referredBy", code);
-            // Clear the pending code from sessionStorage
-            sessionStorage.removeItem("pendingReferralCode");
-
-            // Validate the referrer username
-            try {
-              fetch(
-                `https://usernames.worldcoin.org/api/v1/${encodeURIComponent(code.trim())}`
-              )
-                .then((response) => {
-                  console.log(
-                    "[Referral] Validation response status:",
-                    response.status
-                  );
-                  if (response.ok) {
-                    console.log(
-                      "[Referral] Successfully validated referrer username"
-                    );
-                    console.log(
-                      `[Referral] VALID INVITE: User was invited by ${code}`
-                    );
-
-                    // Show a toast notification about the successful referral
-                    if (showToast) {
-                      showToast(`You were invited by ${code}!`, "success");
-                    }
-                  } else if (response.status === 404) {
-                    console.error("[Referral] Invalid referrer username");
-                    console.error(
-                      `[Referral] Username "${code}" not found in Worldcoin system`
-                    );
-                    localStorage.removeItem("referredBy");
-                  }
-                })
-                .catch((error) => {
-                  console.error(
-                    "[Referral] Error validating referrer username:",
-                    error
-                  );
-                });
-            } catch (error) {
-              console.error(
-                "[Referral] Error validating referrer username:",
-                error
-              );
-            }
-          } else {
-            console.log(
-              "[Referral] User was already referred by:",
-              localStorage.getItem("referredBy")
-            );
-          }
-        } else {
-          console.log(
-            "[Referral] No referral code found in URL or sessionStorage"
-          );
-        }
-      }
-    };
-
-    parseReferralCode();
-
-    // Run this check again after a short delay to catch any late navigation
-    const delayedCheck = setTimeout(() => {
-      console.log("[Referral] Running delayed check for referral code");
-      console.log("[Referral] Delayed check URL:", window.location.href);
-      parseReferralCode();
-    }, 2000);
-
-    return () => clearTimeout(delayedCheck);
-  }, [walletAddress, showToast]);
-
   // Add this useEffect near your other useEffects
   useEffect(() => {
     const handleInputFocus = (e: FocusEvent) => {
@@ -1178,16 +855,10 @@ export default function EarnPage({
   // Add this to run fetchRewardCount when the component mounts or wallet changes
   useEffect(() => {
     if (walletAddress) {
-      fetchCanReward();
       fetchRewardCount();
       fetchSecureDocumentRewardCount();
     }
-  }, [
-    walletAddress,
-    fetchCanReward,
-    fetchRewardCount,
-    fetchSecureDocumentRewardCount,
-  ]);
+  }, [walletAddress, fetchRewardCount, fetchSecureDocumentRewardCount]);
 
   // Add the state that we're lifting from StakeWithPermitForm
   const [stakedBalance, setStakedBalance] = useState<string>("0");
@@ -1853,221 +1524,16 @@ export default function EarnPage({
             </div>
 
             <div className="relative w-full">
-              <Button
-                onClick={async () => {
-                  if (!username) {
-                    showToast(
-                      dictionary?.pages?.earn?.tabs?.invite?.actions
-                        ?.connectWallet,
-                      "error"
-                    );
-                    loadCurrentUsernameCallback();
-                    return;
-                  }
-
-                  const shareUrl = `https://worldcoin.org/mini-app?app_id=app_66c83ab8c851fb1e54b1b1b62c6ce39d&path=%2F%3Fcode%3D${username}`;
-
-                  // Check if Web Share API is supported
-                  if (navigator.share) {
-                    try {
-                      await navigator.share({
-                        title:
-                          dictionary?.pages?.earn?.tabs?.invite?.share?.title,
-                        text: dictionary?.pages?.earn?.tabs?.invite?.share
-                          ?.text,
-                        url: shareUrl,
-                      });
-                    } catch (error) {
-                      // User cancelled or share failed - fallback to clipboard
-                      if (
-                        error instanceof Error &&
-                        error.name !== "AbortError"
-                      ) {
-                        await navigator.clipboard.writeText(shareUrl);
-                        showToast(
-                          dictionary?.pages?.earn?.tabs?.invite?.actions
-                            ?.copied,
-                          "success"
-                        );
-                      }
-                    }
-                  } else {
-                    // Fallback for browsers that don't support Web Share API
-                    await navigator.clipboard.writeText(shareUrl);
-                    showToast(
-                      dictionary?.pages?.earn?.tabs?.invite?.actions?.copied,
-                      "success"
-                    );
-                  }
-                }}
-                fullWidth
-              >
-                {dictionary?.pages?.earn?.tabs?.invite?.actions?.share}
+              <Button asChild fullWidth>
+                <a
+                  href="https://app.worldrepublic.org/en/earn?tab=referral"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {dictionary?.pages?.earn?.tabs?.invite?.actions?.share}
+                </a>
               </Button>
             </div>
-
-            {canReward && (
-              <Drawer>
-                <DrawerTrigger asChild>
-                  <Button variant="secondary" fullWidth className="mt-4">
-                    {
-                      dictionary?.pages?.earn?.tabs?.invite?.actions
-                        ?.rewardReferrer
-                    }
-                  </Button>
-                </DrawerTrigger>
-                <DrawerContent>
-                  <div className="flex flex-col items-center overflow-y-auto p-6 pt-10">
-                    <div className="mb-10 mt-4 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
-                      <PiUserPlusFill className="h-10 w-10 text-gray-400" />
-                    </div>
-                    <Typography
-                      as="h2"
-                      variant={{ variant: "heading", level: 1 }}
-                      className="text-center"
-                    >
-                      {dictionary?.pages?.earn?.tabs?.invite?.drawer?.title}
-                    </Typography>
-                    <Typography
-                      variant={{ variant: "subtitle", level: 1 }}
-                      className="mx-auto mt-4 text-center text-gray-500"
-                    >
-                      {dictionary?.pages?.earn?.tabs?.invite?.drawer?.subtitle}
-                    </Typography>
-
-                    {/* Referral Status */}
-                    {localStorage.getItem("referredBy") && (
-                      <div className="bg-success-50 mt-4 w-full rounded-xl border border-success-200 p-4">
-                        <Typography
-                          variant={{ variant: "subtitle", level: 3 }}
-                          className="text-center text-success-700"
-                        >
-                          {(() => {
-                            const referrer = localStorage.getItem("referredBy");
-                            console.log(
-                              `[Referral] Displaying referrer information: ${referrer}`
-                            );
-                            return dictionary?.pages?.earn?.tabs?.invite?.drawer?.invitedBy?.replace(
-                              "{{username}}",
-                              referrer || ""
-                            );
-                          })()}
-                        </Typography>
-                      </div>
-                    )}
-
-                    <div className="w-full">
-                      {!lookupResult ? (
-                        <>
-                          <input
-                            type="text"
-                            placeholder={
-                              dictionary?.pages?.earn?.tabs?.invite?.drawer
-                                ?.input?.placeholder
-                            }
-                            className="mt-4 w-full rounded-xl border border-gray-200 px-4 py-3 font-sans text-base"
-                            value={recipientUsername}
-                            onChange={(e) =>
-                              setRecipientUsername(e.target.value)
-                            }
-                            onKeyPress={(e) =>
-                              e.key === "Enter" && lookupUsername()
-                            }
-                            onFocus={(e) => {
-                              setTimeout(() => {
-                                e.target.scrollIntoView({
-                                  behavior: "smooth",
-                                  block: "center",
-                                });
-                              }, 300);
-                            }}
-                          />
-
-                          {lookupError && (
-                            <div className="mt-4 rounded-xl border border-error-300 bg-error-100 p-4 text-error-700">
-                              {lookupError}
-                            </div>
-                          )}
-
-                          <Button
-                            onClick={lookupUsername}
-                            isLoading={isLookingUp}
-                            variant="secondary"
-                            fullWidth
-                            className="mt-4"
-                          >
-                            {
-                              dictionary?.pages?.earn?.tabs?.invite?.drawer
-                                ?.input?.lookupButton
-                            }
-                          </Button>
-                        </>
-                      ) : (
-                        <div className="space-y-4">
-                          <div className="mt-4 rounded-xl border border-gray-200 bg-gray-50 p-4 text-center">
-                            <Typography
-                              variant={{ variant: "body", level: 3 }}
-                              className="mb-1 text-gray-500"
-                            >
-                              {
-                                dictionary?.pages?.earn?.tabs?.invite?.drawer
-                                  ?.input?.sendingTo
-                              }
-                            </Typography>
-                            <div className="flex items-center justify-center gap-1">
-                              <Typography
-                                variant={{ variant: "subtitle", level: 2 }}
-                                className="text-gray-700"
-                              >
-                                {lookupResult.username}
-                              </Typography>
-                              <button
-                                onClick={() => {
-                                  setLookupResult(null);
-                                  setRewardStatus(null);
-                                }}
-                                className="text-gray-400"
-                                aria-label={
-                                  dictionary?.pages?.earn?.tabs?.invite?.drawer
-                                    ?.input?.editButton
-                                }
-                              >
-                                <PiNotePencilFill className="h-4 w-4" />
-                              </button>
-                            </div>
-                          </div>
-
-                          {rewardStatus && (
-                            <div
-                              className={`mt-3 rounded-xl border p-3 ${
-                                rewardStatus.success
-                                  ? "border-success-300 bg-success-100 text-success-700"
-                                  : "border-error-300 bg-error-100 text-error-700"
-                              }`}
-                            >
-                              {rewardStatus.message}
-                            </div>
-                          )}
-
-                          <div className="my-4">
-                            <Button
-                              onClick={() => sendReward(lookupResult.address)}
-                              isLoading={isSendingReward}
-                              fullWidth
-                            >
-                              {
-                                dictionary?.pages?.earn?.tabs?.invite?.drawer
-                                  ?.input?.sendButton
-                              }
-                            </Button>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </DrawerContent>
-              </Drawer>
-            )}
           </div>
         );
       default:

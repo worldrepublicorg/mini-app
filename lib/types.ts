@@ -43,7 +43,6 @@ export interface WalletContextProps {
   claimableAmountPlus: string | null;
   basicIncomeActivated: boolean;
   basicIncomePlusActivated: boolean;
-  canReward: boolean;
   rewardCount: number;
   secureDocumentRewardCount: number;
   setWalletAddress: (address: string) => void;
@@ -51,7 +50,6 @@ export interface WalletContextProps {
   fetchBasicIncomeInfo: () => Promise<void>;
   fetchBasicIncomePlusInfo: () => Promise<void>;
   fetchBalance: () => Promise<void>;
-  fetchCanReward: () => Promise<void>;
   fetchRewardCount: () => Promise<void>;
   fetchSecureDocumentRewardCount: () => Promise<void>;
   setBasicIncomeActivated: (activated: boolean) => void;

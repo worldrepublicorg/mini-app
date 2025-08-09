@@ -286,8 +286,8 @@
         },
         "invite": {
           "title": "Pozovi",
-          "subtitle": "Dobij 50 WDD za svakog prijatelja koji se pridruži",
-          "tooltip": "Prijatelji moraju biti verificirani putem Orba ili putovnice.",
+          "subtitle": "Zaradi 10 WDD po prijatelju koji se pridruži",
+          "tooltip": "Prijatelji se moraju pridružiti našoj novoj web aplikaciji.",
           "learnMore": "Saznaj više",
           "stats": {
             "title": "Vaše statistike preporuka",
@@ -298,32 +298,7 @@
             "copyLink": "Kopiraj referentni link",
             "copied": "Referentni link kopiran u međuspremnik!",
             "connectWallet": "Molimo povežite novčanik za generiranje referentnog linka",
-            "rewardReferrer": "Nagradi referenta",
             "share": "Podijeli link pozivnice"
-          },
-          "drawer": {
-            "title": "Nagradi Preporučitelja",
-            "subtitle": "Aktiviraj besplatnu nagradu od 50 WDD za svog preporučitelja",
-            "invitedBy": "Pozvao vas je: {{username}}",
-            "input": {
-              "placeholder": "Unesite korisničko ime (npr. username.0000)",
-              "lookupButton": "Pretraži korisnika",
-              "sendingTo": "Slanje nagrade za:",
-              "editButton": "Uredi",
-              "sendButton": "Pošalji nagradu",
-              "proveReward": "Dokaži i nagradi"
-            },
-            "errors": {
-              "enterUsername": "Molimo unesite korisničko ime",
-              "usernameNotFound": "Korisničko ime nije pronađeno",
-              "lookupFailed": "Neuspjelo pretraživanje korisničkog imena. Molimo pokušajte ponovno.",
-              "installMiniKit": "Molimo instalirajte MiniKit za pretraživanje korisničkih imena",
-              "connectWallet": "Molimo prvo povežite svoj novčanik",
-              "transactionCanceled": "Transakcija je otkazana"
-            },
-            "success": {
-              "rewardSent": "Uspješno poslana nagrada korisniku {{username}}!"
-            }
           },
           "share": {
             "title": "Pridružite se Svjetskoj Republici",

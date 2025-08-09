@@ -285,8 +285,8 @@
         },
         "invite": {
           "title": "Invite",
-          "subtitle": "Get 50 WDD for each friend wey join",
-          "tooltip": "Friends must verify through Orb or passport.",
+          "subtitle": "Get 10 WDD for each friend wey join",
+          "tooltip": "Your friends gats join our new web app.",
           "learnMore": "Learn more",
           "stats": {
             "title": "Your referral stats",
@@ -297,32 +297,7 @@
             "copyLink": "Copy your invite link",
             "copied": "We don copy your invite link!",
             "connectWallet": "Abeg connect your wallet first make you get your invite link",
-            "rewardReferrer": "Give person wey invite you money",
             "share": "Share your invite"
-          },
-          "drawer": {
-            "title": "Give Person Wey Invite You Money",
-            "subtitle": "Give person wey invite you free 50 WDD",
-            "invitedBy": "Na {{username}} invite you",
-            "input": {
-              "placeholder": "Put username (example: username.0000)",
-              "lookupButton": "Find person",
-              "sendingTo": "We dey send money to:",
-              "editButton": "Change am",
-              "sendButton": "Send money",
-              "proveReward": "Show proof and give money"
-            },
-            "errors": {
-              "enterUsername": "Abeg put username",
-              "usernameNotFound": "We no see dat username",
-              "lookupFailed": "E no gree find username. Abeg try again.",
-              "installMiniKit": "Abeg install MiniKit first make you fit find usernames",
-              "connectWallet": "Abeg connect your wallet first",
-              "transactionCanceled": "You don cancel de transaction"
-            },
-            "success": {
-              "rewardSent": "We don successfully send money give {{username}}!"
-            }
           },
           "share": {
             "title": "Make you join me for World Republic",
