@@ -286,8 +286,8 @@
         },
         "invite": {
           "title": "邀请",
-          "subtitle": "每邀请一位朋友加入获得50 WDD",
-          "tooltip": "朋友必须通过Orb或护照进行验证。",
+          "subtitle": "每邀请一位加入的朋友可获 10 WDD",
+          "tooltip": "好友需加入我们的全新网页应用。",
           "learnMore": "了解更多",
           "stats": {
             "title": "您的推荐统计",
@@ -298,32 +298,7 @@
             "copyLink": "复制推荐链接",
             "copied": "推荐链接已复制到剪贴板！",
             "connectWallet": "请连接钱包以生成您的推荐链接",
-            "rewardReferrer": "奖励推荐人",
             "share": "分享邀请链接"
-          },
-          "drawer": {
-            "title": "奖励推荐人",
-            "subtitle": "为您的推荐人触发50 WDD免费奖励",
-            "invitedBy": "您是由{{username}}邀请的",
-            "input": {
-              "placeholder": "输入用户名（例如：username.0000）",
-              "lookupButton": "查找用户",
-              "sendingTo": "发送奖励给：",
-              "editButton": "编辑",
-              "sendButton": "发送奖励",
-              "proveReward": "验证并奖励"
-            },
-            "errors": {
-              "enterUsername": "请输入用户名",
-              "usernameNotFound": "未找到用户名",
-              "lookupFailed": "查找用户名失败。请重试。",
-              "installMiniKit": "请安装MiniKit以查找用户名",
-              "connectWallet": "请先连接您的钱包",
-              "transactionCanceled": "交易已取消"
-            },
-            "success": {
-              "rewardSent": "成功向{{username}}发送奖励！"
-            }
           },
           "share": {
             "title": "加入世界共和国",
