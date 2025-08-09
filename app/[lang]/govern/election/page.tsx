@@ -149,7 +149,7 @@ export default function CurrentElectionPage({
     };
 
     fetchVoterStatus();
-  }, [walletAddress, currentElection]);
+  }, [walletAddress, currentElection, showToast, dictionary]);
 
   const getConfirmationText = () => {
     if (!confirmationDetails.action || !confirmationDetails.party) {
