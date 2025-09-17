@@ -1089,7 +1089,7 @@ export default function EarnPage({
                       <img
                         src="/dalgona-logo.avif"
                         alt="Dalgona Logo"
-                        className="h-7 w-7 rounded-md object-cover"
+                        className="h-7 w-7 rounded-lg object-cover"
                       />
                     </div>
                     <a
