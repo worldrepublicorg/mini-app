@@ -4,10 +4,10 @@
       "connect": "지갑 연결"
     },
     "banners": {
-      "pwa": {
-        "title": "월드 리퍼블릭 웹 앱",
-        "description": "기본 소득 20배 증가, Orb 인증 불필요.",
-        "cta": "시작하기"
+      "dalgona": {
+        "title": "달고나 조각으로 수익 창출",
+        "description": "사탕 자르기 챌린지에 참여하고 DAL 보상을 획득하세요.",
+        "cta": "지금 플레이"
       }
     },
     "pollOfTheWeek": {

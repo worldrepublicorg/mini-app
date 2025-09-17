@@ -7,10 +7,10 @@
       "error": "Error de Conexión"
     },
     "banners": {
-      "pwa": {
-        "title": "Aplicación Web de la República Mundial",
-        "description": "20x mayor ingreso básico, sin verificación Orb requerida.",
-        "cta": "Comenzar"
+      "dalgona": {
+        "title": "Tallar Dalgona para Ganar",
+        "description": "Únete a desafíos de cortar dulces y gana recompensas DAL.",
+        "cta": "Jugar ahora"
       }
     },
     "pollOfTheWeek": {

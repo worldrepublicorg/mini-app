@@ -4,10 +4,10 @@
       "connect": "ウォレットを接続"
     },
     "banners": {
-      "pwa": {
-        "title": "世界共和国ウェブアプリ",
-        "description": "基本所得が20倍高く、Orb認証は不要です。",
-        "cta": "始める"
+      "dalgona": {
+        "title": "ダルゴナを彫って稼ぐ",
+        "description": "キャンディーカットチャレンジに参加してDAL報酬を獲得しましょう。",
+        "cta": "今すぐプレイ"
       }
     },
     "pollOfTheWeek": {

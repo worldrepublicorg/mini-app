@@ -4,10 +4,10 @@
       "connect": "连接钱包"
     },
     "banners": {
-      "pwa": {
-        "title": "世界共和国网络应用",
-        "description": "基本收入提高20倍，无需Orb验证。",
-        "cta": "开始使用"
+      "dalgona": {
+        "title": "雕刻达戈纳来赚钱",
+        "description": "参加糖果切割挑战，赢取DAL奖励。",
+        "cta": "立即游戏"
       }
     },
     "pollOfTheWeek": {

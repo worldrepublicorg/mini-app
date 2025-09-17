@@ -4,10 +4,10 @@
       "connect": "Connect wallet"
     },
     "banners": {
-      "pwa": {
-        "title": "World Republic Web App",
-        "description": "20x higher basic income, no Orb-verification required.",
-        "cta": "Get started"
+      "dalgona": {
+        "title": "Carve Dalgona to Earn",
+        "description": "Join candy-cutting challenges and win DAL rewards.",
+        "cta": "Play now"
       }
     },
     "pollOfTheWeek": {

@@ -4,10 +4,10 @@
       "connect": "Hubungkan dompet"
     },
     "banners": {
-      "pwa": {
-        "title": "Aplikasi Web Republik Dunia",
-        "description": "Pendapatan dasar 20x lebih tinggi, tidak perlu verifikasi Orb.",
-        "cta": "Mulai"
+      "dalgona": {
+        "title": "Ukir Dalgona untuk Mendapatkan Penghasilan",
+        "description": "Bergabunglah dengan tantangan memotong permen dan menangkan hadiah DAL.",
+        "cta": "Main sekarang"
       }
     },
     "pollOfTheWeek": {

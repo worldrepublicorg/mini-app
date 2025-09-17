@@ -4,10 +4,10 @@
       "connect": "Ikonekta ang wallet"
     },
     "banners": {
-      "pwa": {
-        "title": "Web App ng Republikang Pandaigdig",
-        "description": "20x mas mataas na basic income, hindi kailangan ng Orb-verification.",
-        "cta": "Magsimula"
+      "dalgona": {
+        "title": "Mag-ukit ng Dalgona para Kumita",
+        "description": "Sumali sa mga hamon ng pagputol ng kendi at manalo ng DAL rewards.",
+        "cta": "Maglaro ngayon"
       }
     },
     "pollOfTheWeek": {

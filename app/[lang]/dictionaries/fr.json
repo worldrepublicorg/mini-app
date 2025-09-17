@@ -4,10 +4,10 @@
       "connect": "Connecter le portefeuille"
     },
     "banners": {
-      "pwa": {
-        "title": "Application Web de la République Mondiale",
-        "description": "Revenu de base 20x plus élevé, aucune vérification Orb requise.",
-        "cta": "Commencer"
+      "dalgona": {
+        "title": "Sculpter le Dalgona pour Gagner",
+        "description": "Rejoignez les défis de découpe de bonbons et gagnez des récompenses DAL.",
+        "cta": "Jouer maintenant"
       }
     },
     "pollOfTheWeek": {

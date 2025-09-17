@@ -4,10 +4,10 @@
       "connect": "Wallet verbinden"
     },
     "banners": {
-      "pwa": {
-        "title": "Weltrepublik Web-App",
-        "description": "20x höheres Grundeinkommen, keine Orb-Verifizierung erforderlich.",
-        "cta": "Loslegen"
+      "dalgona": {
+        "title": "Dalgona schnitzen zum Verdienen",
+        "description": "Nimm an Süßigkeiten-Schneide-Herausforderungen teil und gewinne DAL-Belohnungen.",
+        "cta": "Jetzt spielen"
       }
     },
     "pollOfTheWeek": {

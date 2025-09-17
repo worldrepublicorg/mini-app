@@ -4,10 +4,10 @@
       "connect": "Unganisha pochi"
     },
     "banners": {
-      "pwa": {
-        "title": "Programu ya Wavuti ya Jamhuri ya Dunia",
-        "description": "Mapato ya msingi 20x ya juu, hakuna uthibitishaji wa Orb unaohitajika.",
-        "cta": "Anza"
+      "dalgona": {
+        "title": "Chonga Dalgona ili Upate Pesa",
+        "description": "Jiunge na changamoto za kukata pipi na upate zawadi za DAL.",
+        "cta": "Cheza sasa"
       }
     },
     "pollOfTheWeek": {

@@ -4,10 +4,10 @@
       "connect": "Conectar carteira"
     },
     "banners": {
-      "pwa": {
-        "title": "Aplicativo Web da República Mundial",
-        "description": "Renda básica 20x maior, sem verificação Orb necessária.",
-        "cta": "Começar"
+      "dalgona": {
+        "title": "Esculpir Dalgona para Ganhar",
+        "description": "Participe de desafios de cortar doces e ganhe recompensas DAL.",
+        "cta": "Jogar agora"
       }
     },
     "pollOfTheWeek": {

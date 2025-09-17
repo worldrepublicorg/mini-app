@@ -4,10 +4,10 @@
       "connect": "Cüzdanı bağla"
     },
     "banners": {
-      "pwa": {
-        "title": "Dünya Cumhuriyeti Web Uygulaması",
-        "description": "20x daha yüksek temel gelir, Orb doğrulaması gerekmez.",
-        "cta": "Başla"
+      "dalgona": {
+        "title": "Kazanmak için Dalgona Oyma",
+        "description": "Şeker kesme meydan okumalarına katılın ve DAL ödülleri kazanın.",
+        "cta": "Şimdi oyna"
       }
     },
     "pollOfTheWeek": {

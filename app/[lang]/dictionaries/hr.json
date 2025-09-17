@@ -4,10 +4,10 @@
       "connect": "Poveži novčanik"
     },
     "banners": {
-      "pwa": {
-        "title": "Web Aplikacija Svjetske Republike",
-        "description": "20x viši osnovni dohodak, Orb-verifikacija nije potrebna.",
-        "cta": "Započni"
+      "dalgona": {
+        "title": "Rezbarite Dalgona za Zaradu",
+        "description": "Pridružite se izazovima rezanja slatkiša i osvojite DAL nagrade.",
+        "cta": "Igraj sada"
       }
     },
     "pollOfTheWeek": {
