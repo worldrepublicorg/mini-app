@@ -8,27 +8,12 @@ const BottomNav = () => {
   const pathname = usePathname();
   const router = useRouter();
   const lang = pathname.split("/")[1]; // Get language from URL
-  const [hasWeeklyElectionsVisited, setHasWeeklyElectionsVisited] =
-    useState(true);
 
   const navItems = [
     { path: "/earn", label: "earn", icon: FaDollarSign },
     { path: "/govern", label: "govern", icon: FaLandmark },
     { path: "/menu", label: "menu", icon: FaBars },
   ];
-
-  useEffect(() => {
-    // Check if user has visited the weekly elections page
-    const weeklyElectionsVisited =
-      localStorage.getItem("weeklyElectionsVisited") === "true";
-    setHasWeeklyElectionsVisited(weeklyElectionsVisited);
-
-    // Mark as visited if currently on the weekly elections page
-    if (pathname.includes("/govern")) {
-      localStorage.setItem("weeklyElectionsVisited", "true");
-      setHasWeeklyElectionsVisited(true);
-    }
-  }, [pathname]);
 
   const isActive = (path: string) => {
     // Get the current route after the language code
@@ -70,9 +55,6 @@ const BottomNav = () => {
           >
             <div className="relative">
               <Icon className="h-6 w-6" />
-              {path === "/govern" && !hasWeeklyElectionsVisited && (
-                <div className="absolute -right-2 -top-1 h-2 w-2 rounded-full bg-error-600" />
-              )}
             </div>
           </a>
         ))}

@@ -1059,90 +1059,11 @@ export default function EarnPage({
     }
   }, [walletAddress, username, loadCurrentUsernameCallback]);
 
-  const [isDalgonaBannerVisible, setIsDalgonaBannerVisible] = useState(true);
-
-  // Add useEffect to load badge state from localStorage
-  useEffect(() => {
-    const badgeState = localStorage.getItem("DalgonaBannerClosed");
-    if (badgeState === "true") {
-      setIsDalgonaBannerVisible(false);
-    }
-  }, []);
-
-  // Function to handle closing the badge
-  const handleCloseDalgonaBanner = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Prevent triggering the drawer
-    setIsDalgonaBannerVisible(false);
-    localStorage.setItem("DalgonaBannerClosed", "true");
-  };
-
   const renderContent = () => {
     switch (activeTab) {
       case "Basic income":
         return (
           <>
-            {isDalgonaBannerVisible && (
-              <div className="fixed left-0 right-0 top-28 z-50 mx-auto w-full max-w-md px-6">
-                <div className="mt-2 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-gray-0 py-3 pr-3 shadow-sm">
-                  <div className="flex w-full items-start overflow-hidden">
-                    <div className="bg-white mx-2 my-auto flex h-8 w-8 flex-shrink-0 items-center justify-center">
-                      <img
-                        src="/dalgona-logo.avif"
-                        alt="Dalgona Logo"
-                        className="h-7 w-7 rounded-lg object-cover"
-                      />
-                    </div>
-                    <a
-                      href="https://world.org/mini-app?app_id=app_87ae73f8d0558b142fb9c5fc7811b8af"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-grow"
-                    >
-                      <Typography
-                        as="h3"
-                        variant={{ variant: "subtitle", level: 2 }}
-                        className="font-display mb-1 text-left text-[16px] font-semibold tracking-tight text-gray-900"
-                      >
-                        {dictionary?.components?.banners?.dalgona?.title}
-                      </Typography>
-                      <Typography
-                        as="h3"
-                        variant={{ variant: "subtitle", level: 2 }}
-                        className="font-display text-left text-[15px] font-medium tracking-tight text-gray-900"
-                      >
-                        {dictionary?.components?.banners?.dalgona?.description}{" "}
-                        <span className="underline">
-                          {dictionary?.components?.banners?.dalgona?.cta}
-                        </span>
-                      </Typography>
-                    </a>
-                    <div className="ml-2 flex">
-                      <div className="flex items-center rounded-full">
-                        <button
-                          onClick={handleCloseDalgonaBanner}
-                          className="text-gray-400 focus:outline-none"
-                          aria-label="Close banner"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            className="h-5 w-5"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-
             <div className="flex w-full flex-col items-center py-8">
               <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
                 <PiHandCoinsFill className="h-10 w-10 text-gray-400" />
@@ -1661,7 +1582,7 @@ export default function EarnPage({
           tabIndicators={{
             "Basic income": false,
             Savings: false,
-            Contribute: !hasSeenNewBuybackProgram,
+            Contribute: false,
             Invite: false,
           }}
         />
