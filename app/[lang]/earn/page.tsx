@@ -1,33 +1,33 @@
 "use client";
 
-import { Typography } from "@/components/ui/Typography";
-import { useState, useEffect, useCallback, useRef } from "react";
+import { MiniKit } from "@worldcoin/minikit-js";
+import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { FaFlask } from "react-icons/fa";
+import { IoIosArrowForward } from "react-icons/io";
 import {
-  PiHandCoinsFill,
-  PiUserPlusFill,
-  PiWalletFill,
   PiCoinsFill,
+  PiHandCoinsFill,
+  PiInfoFill,
   PiTrendUpFill,
   PiUserCheckFill,
-  PiInfoFill,
+  PiUserPlusFill,
+  PiWalletFill,
 } from "react-icons/pi";
-import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/Drawer";
-import { WalletAuth } from "@/components/WalletAuth";
-import { useWallet } from "@/components/contexts/WalletContext";
-import { viemClient } from "@/lib/viemClient";
 import { parseAbi } from "viem";
-import { MiniKit } from "@worldcoin/minikit-js";
-import { TabSwiper } from "@/components/TabSwiper";
-import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
-import { Button } from "@/components/ui/Button";
+import { useWallet } from "@/components/contexts/WalletContext";
 import { StakeWithPermitForm } from "@/components/StakeWithPermitForm";
+import { TabSwiper } from "@/components/TabSwiper";
+import { Button } from "@/components/ui/Button";
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/Drawer";
 import { useToast } from "@/components/ui/Toast";
-import { useSearchParams } from "next/navigation";
-import { IoIosArrowForward } from "react-icons/io";
-import Link from "next/link";
+import { Typography } from "@/components/ui/Typography";
+import { WalletAuth } from "@/components/WalletAuth";
 import { useTranslations } from "@/hooks/useTranslations";
 import type { EarnTabKey } from "@/lib/types";
-import { FaFlask } from "react-icons/fa";
+import { viemClient } from "@/lib/viemClient";
 
 type TxType =
   | null
@@ -81,7 +81,7 @@ export default function EarnPage({
   const [isClaimableLoading, setIsClaimableLoading] = useState<boolean>(true);
 
   const [displayClaimable, setDisplayClaimable] = useState<number>(
-    (Number(claimableAmount) || 0) + (Number(claimableAmountPlus) || 0)
+    (Number(claimableAmount) || 0) + (Number(claimableAmountPlus) || 0),
   );
 
   const { showToast } = useToast();
@@ -91,22 +91,22 @@ export default function EarnPage({
     console.log("[DisplayTracking] Initial claimableAmount:", claimableAmount);
     console.log(
       "[DisplayTracking] Initial claimableAmountPlus:",
-      claimableAmountPlus
+      claimableAmountPlus,
     );
     console.log(
       "[DisplayTracking] Initial displayClaimable:",
-      displayClaimable
+      displayClaimable,
     );
   }, [claimableAmount, claimableAmountPlus, displayClaimable]);
 
   useEffect(() => {
     console.log(
       "[DisplayTracking] claimableAmount changed to:",
-      claimableAmount
+      claimableAmount,
     );
     console.log(
       "[DisplayTracking] claimableAmountPlus changed to:",
-      claimableAmountPlus
+      claimableAmountPlus,
     );
   }, [claimableAmount, claimableAmountPlus]);
 
@@ -131,7 +131,7 @@ export default function EarnPage({
     console.log("[DisplayTracking] currentClaimable:", currentClaimable);
     console.log(
       "[DisplayTracking] currentClaimablePlus:",
-      currentClaimablePlus
+      currentClaimablePlus,
     );
 
     let baseValue: number;
@@ -151,7 +151,7 @@ export default function EarnPage({
         "[DisplayTracking] Using stored values - baseValue:",
         baseValue,
         "startTime:",
-        startTime
+        startTime,
       );
 
       // If the on-chain claimable has increased (due to accumulation)
@@ -160,7 +160,7 @@ export default function EarnPage({
           "[DisplayTracking] On-chain value increased, updating baseValue from",
           baseValue,
           "to",
-          currentClaimable
+          currentClaimable,
         );
         baseValue = currentClaimable;
         startTime = Date.now();
@@ -174,7 +174,7 @@ export default function EarnPage({
           "[DisplayTracking] On-chain value decreased (probably claimed), updating baseValue from",
           baseValue,
           "to",
-          currentClaimable
+          currentClaimable,
         );
         baseValue = currentClaimable;
         startTime = Date.now();
@@ -183,7 +183,7 @@ export default function EarnPage({
       }
     } else {
       console.log(
-        "[DisplayTracking] No stored values, initializing with current values"
+        "[DisplayTracking] No stored values, initializing with current values",
       );
       baseValue = currentClaimable;
       startTime = Date.now();
@@ -197,13 +197,13 @@ export default function EarnPage({
 
     const storedBasePlus = localStorage.getItem("basicIncomePlusBase");
     const storedStartTimePlus = localStorage.getItem(
-      "basicIncomePlusStartTime"
+      "basicIncomePlusStartTime",
     );
 
     console.log("[DisplayTracking] Stored base value Plus:", storedBasePlus);
     console.log(
       "[DisplayTracking] Stored start time Plus:",
-      storedStartTimePlus
+      storedStartTimePlus,
     );
 
     if (storedBasePlus && storedStartTimePlus) {
@@ -214,7 +214,7 @@ export default function EarnPage({
         "[DisplayTracking] Using stored Plus values - baseValuePlus:",
         baseValuePlus,
         "startTimePlus:",
-        startTimePlus
+        startTimePlus,
       );
 
       // If the on-chain claimable has increased (due to accumulation)
@@ -223,14 +223,14 @@ export default function EarnPage({
           "[DisplayTracking] On-chain Plus value increased, updating baseValuePlus from",
           baseValuePlus,
           "to",
-          currentClaimablePlus
+          currentClaimablePlus,
         );
         baseValuePlus = currentClaimablePlus;
         startTimePlus = Date.now();
         localStorage.setItem("basicIncomePlusBase", baseValuePlus.toString());
         localStorage.setItem(
           "basicIncomePlusStartTime",
-          startTimePlus.toString()
+          startTimePlus.toString(),
         );
       }
 
@@ -240,26 +240,26 @@ export default function EarnPage({
           "[DisplayTracking] On-chain Plus value decreased (probably claimed), updating baseValuePlus from",
           baseValuePlus,
           "to",
-          currentClaimablePlus
+          currentClaimablePlus,
         );
         baseValuePlus = currentClaimablePlus;
         startTimePlus = Date.now();
         localStorage.setItem("basicIncomePlusBase", baseValuePlus.toString());
         localStorage.setItem(
           "basicIncomePlusStartTime",
-          startTimePlus.toString()
+          startTimePlus.toString(),
         );
       }
     } else {
       console.log(
-        "[DisplayTracking] No stored Plus values, initializing with current values"
+        "[DisplayTracking] No stored Plus values, initializing with current values",
       );
       baseValuePlus = currentClaimablePlus;
       startTimePlus = Date.now();
       localStorage.setItem("basicIncomePlusBase", baseValuePlus.toString());
       localStorage.setItem(
         "basicIncomePlusStartTime",
-        startTimePlus.toString()
+        startTimePlus.toString(),
       );
     }
 
@@ -286,7 +286,7 @@ export default function EarnPage({
             "* rate:",
             rate,
             "=",
-            newValue
+            newValue,
           );
           console.log(
             "[DisplayTracking] baseValuePlus:",
@@ -296,18 +296,18 @@ export default function EarnPage({
             "* ratePlus:",
             ratePlus,
             "=",
-            newValuePlus
+            newValuePlus,
           );
           console.log(
             "[DisplayTracking] Setting displayClaimable to:",
-            totalValue
+            totalValue,
           );
         }
       } else {
         // Log only basic income when Plus is not activated
         if (Math.round(elapsedSeconds) % 10 === 0) {
           console.log(
-            "[DisplayTracking] Current calculation (Plus not activated):"
+            "[DisplayTracking] Current calculation (Plus not activated):",
           );
           console.log(
             "[DisplayTracking] baseValue:",
@@ -317,11 +317,11 @@ export default function EarnPage({
             "* rate:",
             rate,
             "=",
-            newValue
+            newValue,
           );
           console.log(
             "[DisplayTracking] Setting displayClaimable to:",
-            totalValue
+            totalValue,
           );
         }
       }
@@ -411,7 +411,7 @@ export default function EarnPage({
       onLogs: (logs: unknown) => {
         console.log(
           "RewardsClaimed event captured for Basic Income Plus:",
-          logs
+          logs,
         );
         // Update your on-chain data here after claiming rewards.
         fetchBasicIncomePlusInfo();
@@ -460,7 +460,7 @@ export default function EarnPage({
       clearFallbackTimer();
       currentTxRef.current = null;
     },
-    [clearFallbackTimer]
+    [clearFallbackTimer],
   );
 
   // Fallback polling for setup/claim
@@ -469,7 +469,7 @@ export default function EarnPage({
     prevValue: string,
     getValue: () => string,
     maxAttempts = 30,
-    interval = 2000
+    interval = 2000,
   ) => {
     let attempts = 0;
     while (attempts < maxAttempts) {
@@ -523,7 +523,7 @@ export default function EarnPage({
             pollForSetupOrClaimChange(
               fetchBasicIncomeInfo,
               prevStake,
-              () => claimableAmount || "0"
+              () => claimableAmount || "0",
             ).finally(() => finishTx(finalPayload.transaction_id));
           }
         }, 7000);
@@ -572,7 +572,7 @@ export default function EarnPage({
             pollForSetupOrClaimChange(
               fetchBasicIncomePlusInfo,
               prevStake,
-              () => claimableAmountPlus || "0"
+              () => claimableAmountPlus || "0",
             ).finally(() => finishTx(finalPayload.transaction_id));
           }
         }, 7000);
@@ -622,12 +622,12 @@ export default function EarnPage({
             pollForSetupOrClaimChange(
               fetchBasicIncomeInfo,
               prevClaim,
-              () => claimableAmount || "0"
+              () => claimableAmount || "0",
             ).finally(() => finishTx(finalPayload.transaction_id));
           }
         }, 7000);
       }
-    } catch (error) {
+    } catch (_error) {
       finishTx();
     }
   };
@@ -671,12 +671,12 @@ export default function EarnPage({
             pollForSetupOrClaimChange(
               fetchBasicIncomePlusInfo,
               prevClaim,
-              () => claimableAmountPlus || "0"
+              () => claimableAmountPlus || "0",
             ).finally(() => finishTx(finalPayload.transaction_id));
           }
         }, 7000);
       }
-    } catch (error) {
+    } catch (_error) {
       finishTx();
     }
   };
@@ -702,14 +702,14 @@ export default function EarnPage({
           poll = pollForSetupOrClaimChange(
             fetchBasicIncomeInfo,
             "",
-            () => claimableAmount || "0"
+            () => claimableAmount || "0",
           );
         } else if (txType === "setup-plus") {
           fetchBasicIncomePlusInfo();
           poll = pollForSetupOrClaimChange(
             fetchBasicIncomePlusInfo,
             "",
-            () => claimableAmountPlus || "0"
+            () => claimableAmountPlus || "0",
           );
         } else if (txType === "claim-basic") {
           localStorage.setItem("basicIncomeBase", "0");
@@ -719,20 +719,20 @@ export default function EarnPage({
           poll = pollForSetupOrClaimChange(
             fetchBasicIncomeInfo,
             "",
-            () => claimableAmount || "0"
+            () => claimableAmount || "0",
           );
         } else if (txType === "claim-plus") {
           localStorage.setItem("basicIncomePlusBase", "0");
           localStorage.setItem(
             "basicIncomePlusStartTime",
-            Date.now().toString()
+            Date.now().toString(),
           );
           fetchBasicIncomePlusInfo();
           fetchBalance();
           poll = pollForSetupOrClaimChange(
             fetchBasicIncomePlusInfo,
             "",
-            () => claimableAmountPlus || "0"
+            () => claimableAmountPlus || "0",
           );
         }
         poll.finally(() => {
@@ -841,7 +841,7 @@ export default function EarnPage({
     };
   }, []);
 
-  const [hasSeenNewBuybackProgram, setHasSeenNewBuybackProgram] =
+  const [_hasSeenNewBuybackProgram, setHasSeenNewBuybackProgram] =
     useState(false);
 
   // Update the localStorage key for the new buyback program
@@ -1017,12 +1017,12 @@ export default function EarnPage({
     const fetchInterval = setInterval(
       () => {
         console.log(
-          "[RewardTracking] Running periodic refresh (5 min interval)"
+          "[RewardTracking] Running periodic refresh (5 min interval)",
         );
         fetchAvailableReward();
         fetchStakedBalance();
       },
-      5 * 60 * 1000
+      5 * 60 * 1000,
     ); // 5 minutes in milliseconds
 
     return () => clearInterval(fetchInterval);
@@ -1045,10 +1045,10 @@ export default function EarnPage({
         if (userInfo && userInfo.username) {
           setUsername(userInfo.username);
         }
-      } catch (error) {
+      } catch (_error) {
         // Ignore error
       }
-    } catch (error) {
+    } catch (_error) {
       // Ignore error
     }
   }, [walletAddress, setUsername]);
@@ -1064,6 +1064,38 @@ export default function EarnPage({
       case "Basic income":
         return (
           <>
+            <div className="fixed left-0 right-0 top-28 z-50 mx-auto w-full max-w-md px-6">
+              <div className="mt-2 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-gray-0 p-3 shadow-sm">
+                <div className="flex w-full items-start overflow-hidden">
+                  <div className="mr-3 h-[24px] w-[24px] flex-shrink-0 rounded-full border-[4px] border-gray-900"></div>
+                  <a
+                    href="https://www.worldrepublic.org/parties"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-grow"
+                  >
+                    <Typography
+                      as="h3"
+                      variant={{ variant: "subtitle", level: 2 }}
+                      className="font-display mb-1 text-left text-[16px] font-semibold tracking-tight text-gray-900"
+                    >
+                      {dictionary?.components?.banners?.dalgona?.title}
+                    </Typography>
+                    <Typography
+                      as="h3"
+                      variant={{ variant: "subtitle", level: 2 }}
+                      className="font-display text-left text-[15px] font-medium tracking-tight text-gray-900"
+                    >
+                      {dictionary?.components?.banners?.dalgona?.description}{" "}
+                      <span className="underline">
+                        {dictionary?.components?.banners?.dalgona?.cta}
+                      </span>
+                    </Typography>
+                  </a>
+                </div>
+              </div>
+            </div>
+
             <div className="flex w-full flex-col items-center py-8">
               <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
                 <PiHandCoinsFill className="h-10 w-10 text-gray-400" />
