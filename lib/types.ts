@@ -132,7 +132,7 @@ export type FAQItem = {
   answer: string;
 };
 
-export type EarnTabKey = "Basic income" | "Savings" | "Contribute" | "Invite";
+export type EarnTabKey = "Basic income" | "Savings" | "Contribute";
 
 export type Winner = {
   handle: string;

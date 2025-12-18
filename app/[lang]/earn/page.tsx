@@ -13,7 +13,6 @@ import {
   PiInfoFill,
   PiTrendUpFill,
   PiUserCheckFill,
-  PiUserPlusFill,
   PiWalletFill,
 } from "react-icons/pi";
 import { parseAbi } from "viem";
@@ -48,13 +47,9 @@ export default function EarnPage({
     basicIncomePlusActivated,
     claimableAmount,
     claimableAmountPlus,
-    rewardCount,
-    secureDocumentRewardCount,
     fetchBalance,
     fetchBasicIncomeInfo,
     fetchBasicIncomePlusInfo,
-    fetchRewardCount,
-    fetchSecureDocumentRewardCount,
     username,
     setUsername,
   } = useWallet();
@@ -73,9 +68,6 @@ export default function EarnPage({
     appConfig: { app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}` },
     transactionId: transactionId!,
   });
-
-  // Calculate total reward count
-  const totalRewardCount = rewardCount + secureDocumentRewardCount;
 
   // Add a new loading state for claimable amount
   const [isClaimableLoading, setIsClaimableLoading] = useState<boolean>(true);
@@ -782,7 +774,7 @@ export default function EarnPage({
       const tabParam = urlParams.get("tab");
       if (
         tabParam &&
-        ["Basic income", "Savings", "Invite", "Contribute"].includes(tabParam)
+        ["Basic income", "Savings", "Contribute"].includes(tabParam)
       ) {
         setActiveTab(tabParam as EarnTabKey);
       }
@@ -796,7 +788,7 @@ export default function EarnPage({
       const tabParam = urlParams.get("tab");
       if (
         tabParam &&
-        ["Basic income", "Savings", "Invite", "Contribute"].includes(tabParam)
+        ["Basic income", "Savings", "Contribute"].includes(tabParam)
       ) {
         setActiveTab(tabParam as EarnTabKey);
       } else {
@@ -872,14 +864,6 @@ export default function EarnPage({
       setHasNewBuybackBeenVisited(hasVisited);
     }
   }, []);
-
-  // Fetch referral stats when wallet changes
-  useEffect(() => {
-    if (walletAddress) {
-      fetchRewardCount();
-      fetchSecureDocumentRewardCount();
-    }
-  }, [walletAddress, fetchRewardCount, fetchSecureDocumentRewardCount]);
 
   // Add the state that we're lifting from StakeWithPermitForm
   const [stakedBalance, setStakedBalance] = useState<string>("0");
@@ -1469,95 +1453,6 @@ export default function EarnPage({
             </Link>
           </div>
         );
-      case "Invite":
-        return (
-          <div className="flex w-full flex-col items-center py-8">
-            <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
-              <PiUserPlusFill className="h-10 w-10 text-gray-400" />
-            </div>
-            <Typography
-              as="h2"
-              variant={{ variant: "heading", level: 1 }}
-              className="text-center"
-            >
-              {dictionary?.pages?.earn?.tabs?.invite?.title}
-            </Typography>
-            <Typography
-              variant={{ variant: "subtitle", level: 1 }}
-              className="mx-auto mb-5 mt-4 text-center text-gray-500"
-            >
-              {dictionary?.pages?.earn?.tabs?.invite?.subtitle}
-              <span className="group relative inline-flex items-center align-baseline">
-                <PiInfoFill className="ml-1 h-4 w-4 translate-y-[2px] cursor-help text-gray-400" />
-                <div className="absolute -right-4 bottom-full mb-2 hidden w-[calc(100dvw/2+24px)] max-w-sm transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
-                  <p className="text-left text-gray-700">
-                    {dictionary?.pages?.earn?.tabs?.invite?.tooltip}{" "}
-                    <Link
-                      href={`/${lang}/faq?q=referral-codes`}
-                      className="text-gray-900 underline"
-                    >
-                      {dictionary?.pages?.earn?.tabs?.invite?.learnMore}
-                    </Link>
-                  </p>
-                </div>
-              </span>
-            </Typography>
-
-            <div className="mb-10 w-full rounded-xl border border-gray-200 p-4">
-              <Typography
-                variant={{ variant: "subtitle", level: 2 }}
-                className="mb-4 text-center text-gray-900"
-              >
-                {dictionary?.pages?.earn?.tabs?.invite?.stats?.title}
-              </Typography>
-              <div className="flex justify-around">
-                <div className="text-center">
-                  <Typography
-                    variant={{ variant: "heading", level: 3 }}
-                    className="text-gray-900"
-                  >
-                    {totalRewardCount}
-                  </Typography>
-                  <Typography
-                    variant={{ variant: "body", level: 3 }}
-                    className="text-gray-500"
-                  >
-                    {dictionary?.pages?.earn?.tabs?.invite?.stats?.invites}
-                  </Typography>
-                </div>
-                <div className="text-center">
-                  <Typography
-                    variant={{ variant: "heading", level: 3 }}
-                    className="text-gray-900"
-                  >
-                    {totalRewardCount > 0
-                      ? `${totalRewardCount * 50} WDD`
-                      : "0 WDD"}
-                  </Typography>
-                  <Typography
-                    variant={{ variant: "body", level: 3 }}
-                    className="text-gray-500"
-                  >
-                    {dictionary?.pages?.earn?.tabs?.invite?.stats?.rewards}
-                  </Typography>
-                </div>
-              </div>
-            </div>
-
-            <div className="relative w-full">
-              <a
-                href="https://app.worldrepublic.org/en/earn?tab=referral"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block"
-              >
-                <Button fullWidth>
-                  {dictionary?.pages?.earn?.tabs?.invite?.actions?.share}
-                </Button>
-              </a>
-            </div>
-          </div>
-        );
       default:
         return null;
     }
@@ -1604,10 +1499,6 @@ export default function EarnPage({
               key: "Contribute",
               label: dictionary?.pages?.earn?.tabs?.contribute?.title,
             },
-            {
-              key: "Invite",
-              label: dictionary?.pages?.earn?.tabs?.invite?.title,
-            },
           ]}
           activeTab={activeTab}
           onTabChange={handleTabChange}
@@ -1615,7 +1506,6 @@ export default function EarnPage({
             "Basic income": false,
             Savings: false,
             Contribute: false,
-            Invite: false,
           }}
         />
       </div>
