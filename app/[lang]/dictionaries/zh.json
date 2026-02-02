@@ -629,7 +629,8 @@
         "politicalParties": {
           "title": "政党",
           "description": "政党在世界共和国的治理中扮演着至关重要的角色。了解更多关于不同政党及其纲领的信息。",
-          "searchPlaceholder": "搜索政党"
+          "searchPlaceholder": "搜索政党",
+          "banner": "我们已搬迁！点击此处在我们的新应用程序上注册您的政党以参与测试选举"
         }
       }
     },

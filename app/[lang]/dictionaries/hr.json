@@ -629,7 +629,8 @@
         },
         "politicalParties": {
           "title": "Političke Stranke",
-          "description": "Ujedinite se globalno oko zajedničkih vrijednosti"
+          "description": "Ujedinite se globalno oko zajedničkih vrijednosti",
+          "banner": "Preselili smo se! Dodirnite ovdje da registrirate svoju stranku u našoj novoj aplikaciji i sudjelujete u testnim izborima"
         }
       }
     },

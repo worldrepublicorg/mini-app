@@ -629,7 +629,8 @@
         },
         "politicalParties": {
           "title": "Partis Politiques",
-          "description": "Unité mondiale autour de valeurs partagées"
+          "description": "Unité mondiale autour de valeurs partagées",
+          "banner": "Nous avons déménagé ! Appuyez ici pour enregistrer votre parti sur notre nouvelle application et participer aux élections tests"
         }
       }
     },

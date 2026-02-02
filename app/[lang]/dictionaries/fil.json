@@ -627,7 +627,8 @@
         },
         "politicalParties": {
           "title": "Mga Partidong Pampulitika",
-          "description": "Magkaisa sa buong mundo batay sa mga pinaghahatiang pagpapahalaga"
+          "description": "Magkaisa sa buong mundo batay sa mga pinaghahatiang pagpapahalaga",
+          "banner": "Lumipat na kami! I-tap dito upang irehistro ang iyong partido sa aming bagong app upang lumahok sa mga pagsubok na halalan"
         }
       }
     },

@@ -629,7 +629,8 @@
         },
         "politicalParties": {
           "title": "Vyama vya Siasa",
-          "description": "Ungana kimataifa kuzunguka maadili yanayoshirikishwa"
+          "description": "Ungana kimataifa kuzunguka maadili yanayoshirikishwa",
+          "banner": "Tumehamia! Gonga hapa kusajili chama chako kwenye programu yetu mpya ili kushiriki katika uchaguzi wa majaribio"
         }
       }
     },

@@ -628,7 +628,8 @@
         },
         "politicalParties": {
           "title": "Partie Polityczne",
-          "description": "Jednoczcie się globalnie wokół wspólnych wartości"
+          "description": "Jednoczcie się globalnie wokół wspólnych wartości",
+          "banner": "Przenieśliśmy się! Dotknij tutaj, aby zarejestrować swoją partię w naszej nowej aplikacji i wziąć udział w wyborach testowych"
         }
       }
     },

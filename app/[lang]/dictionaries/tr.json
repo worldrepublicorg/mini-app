@@ -422,7 +422,8 @@
       "sections": {
         "politicalParties": {
           "title": "Siyasi Partiler",
-          "description": "Ortak değerler etrafında küresel olarak birleşin"
+          "description": "Ortak değerler etrafında küresel olarak birleşin",
+          "banner": "Taşındık! Partinizi yeni uygulamamıza kaydetmek ve test seçimlerine katılmak için buraya dokunun"
         },
         "polls": {
           "title": "Haftanın Anketi",

@@ -628,7 +628,8 @@
         },
         "politicalParties": {
           "title": "Politische Parteien",
-          "description": "Vereinen Sie sich weltweit um gemeinsame Werte"
+          "description": "Vereinen Sie sich weltweit um gemeinsame Werte",
+          "banner": "Wir sind umgezogen! Tippen Sie hier, um Ihre Partei in unserer neuen App zu registrieren und an Testwahlen teilzunehmen"
         }
       }
     },

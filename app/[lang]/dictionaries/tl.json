@@ -627,7 +627,8 @@
         },
         "politicalParties": {
           "title": "Mga Partidong Pampulitika",
-          "description": "Magsama-sama sa buong mundo sa paligid ng mga pagpapahalagang pinagsasaluhan"
+          "description": "Magsama-sama sa buong mundo sa paligid ng mga pagpapahalagang pinagsasaluhan",
+          "banner": "Lumipat na kami! I-tap dito upang irehistro ang iyong partido sa aming bagong app upang lumahok sa mga pagsubok na halalan"
         }
       }
     },

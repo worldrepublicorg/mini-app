@@ -627,7 +627,8 @@
         },
         "politicalParties": {
           "title": "Political Parties",
-          "description": "Join togeda globally around values wey una share"
+          "description": "Join togeda globally around values wey una share",
+          "banner": "We don move! Tap here to register your party for our new app to join inside test elections"
         }
       }
     },

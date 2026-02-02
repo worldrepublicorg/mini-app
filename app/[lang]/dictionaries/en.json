@@ -418,7 +418,8 @@
       "sections": {
         "politicalParties": {
           "title": "Political Parties",
-          "description": "Unite globally around shared values"
+          "description": "Unite globally around shared values",
+          "banner": "We've moved! Tap here to register your party on our new app to participate in test elections"
         },
         "polls": {
           "title": "Poll of the Week",

@@ -629,7 +629,8 @@
         },
         "politicalParties": {
           "title": "Partidos Políticos",
-          "description": "Unir-se globalmente em torno de valores compartilhados"
+          "description": "Unir-se globalmente em torno de valores compartilhados",
+          "banner": "Mudamos! Toque aqui para registrar seu partido em nosso novo aplicativo e participar das eleições de teste"
         }
       }
     },

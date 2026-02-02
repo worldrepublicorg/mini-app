@@ -629,7 +629,8 @@
         },
         "politicalParties": {
           "title": "Partai Politik",
-          "description": "Bersatu secara global di sekitar nilai-nilai bersama"
+          "description": "Bersatu secara global di sekitar nilai-nilai bersama",
+          "banner": "Kami telah pindah! Ketuk di sini untuk mendaftarkan partai Anda di aplikasi baru kami untuk berpartisipasi dalam pemilihan uji coba"
         }
       }
     },
