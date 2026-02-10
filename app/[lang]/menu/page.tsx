@@ -16,27 +16,6 @@ export default function MenuPage({
 
   const menuSections = [
     {
-      title: dictionary?.pages?.menu?.sections?.connect?.title,
-      links: [
-        {
-          label: dictionary?.pages?.menu?.sections?.connect?.links?.community,
-          url: "https://t.me/worldrepubliccommunity",
-          isExternal: true,
-        },
-        {
-          label:
-            dictionary?.pages?.menu?.sections?.connect?.links?.announcements,
-          url: "https://t.me/worldrepublicannouncements",
-          isExternal: true,
-        },
-        {
-          label: dictionary?.pages?.menu?.sections?.connect?.links?.x,
-          url: "https://x.com/WorldRepublicEN",
-          isExternal: true,
-        },
-      ],
-    },
-    {
       title: dictionary?.pages?.menu?.sections?.help?.title,
       links: [
         {
