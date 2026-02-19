@@ -3,7 +3,12 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { PiInfoFill, PiScalesFill, PiUsersThreeFill } from "react-icons/pi";
+import {
+	PiArrowSquareOut,
+	PiInfoFill,
+	PiScalesFill,
+	PiUsersThreeFill,
+} from "react-icons/pi";
 import { DrawerItem } from "@/components/DrawerItem";
 import { OpenLetterCard } from "@/components/OpenLetterCard";
 import { PoliticalPartyList } from "@/components/PoliticalPartyList";
@@ -146,12 +151,22 @@ export default function GovernPage({
 								</div>
 							</span>
 						</Typography>
-						<Link href={`/${lang}/govern/election`} className="w-full">
-							<Button variant="primary" fullWidth>
+						<Link
+							href="https://www.worldrepublic.org"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="w-full"
+						>
+							<Button
+								variant="secondary"
+								className="inline-flex items-center gap-1.5"
+								fullWidth
+							>
 								{
-									dictionary?.pages?.govern?.sections?.elections?.testElections
-										?.button
+									dictionary?.pages?.govern?.sections?.elections
+										?.currentElectionPage?.buttons?.vote
 								}
+								<PiArrowSquareOut className="inline-block size-4 translate-y-[-2px] ml-1.5 shrink-0 text-gray-400" />
 							</Button>
 						</Link>
 					</div>
