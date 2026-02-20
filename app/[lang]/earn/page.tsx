@@ -1054,7 +1054,7 @@ export default function EarnPage({
 								<div className="flex w-full items-start overflow-hidden">
 									<div className="mr-3 h-[30px] w-[30px] border-[5px] border-gray-900 flex-shrink-0 rounded-full" />
 									<a
-										href="https://www.worldrepublic.org/en/parties"
+										href="https://www.worldrepublic.org/parties"
 										target="_blank"
 										rel="noopener noreferrer"
 										className="flex-grow"
