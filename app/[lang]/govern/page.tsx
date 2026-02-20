@@ -166,7 +166,7 @@ export default function GovernPage({
 									dictionary?.pages?.govern?.sections?.elections
 										?.currentElectionPage?.buttons?.vote
 								}
-								<PiArrowSquareOut className="inline-block size-4 translate-y-[-2px] ml-1.5 shrink-0 text-gray-400" />
+								<PiArrowSquareOut className="inline-block size-4 translate-y-[-4px] ml-1.5 shrink-0 text-gray-400" />
 							</Button>
 						</Link>
 					</div>
