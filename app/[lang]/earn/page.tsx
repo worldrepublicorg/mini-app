@@ -2,7 +2,6 @@
 
 import { MiniKit } from "@worldcoin/minikit-js";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
-import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -1053,15 +1052,9 @@ export default function EarnPage({
 						<div className="fixed left-0 right-0 top-28 z-50 mx-auto w-full max-w-md px-6">
 							<div className="mt-2 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-gray-0 p-3 shadow-sm">
 								<div className="flex w-full items-start overflow-hidden">
-									<Image
-										src="/base.png"
-										alt="Base"
-										width={40}
-										height={40}
-										className="mr-3 h-[40px] w-[40px] flex-shrink-0 rounded-full"
-									/>
+									<div className="mr-3 h-[30px] w-[30px] border-[5px] border-gray-900 flex-shrink-0 rounded-full" />
 									<a
-										href="https://base.app/invite/worldrepublic/XT8P5ZRN"
+										href="https://www.worldrepublic.org/en/parties"
 										target="_blank"
 										rel="noopener noreferrer"
 										className="flex-grow"
