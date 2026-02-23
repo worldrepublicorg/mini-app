@@ -1050,9 +1050,9 @@ export default function EarnPage({
 				return (
 					<>
 						<div className="fixed left-0 right-0 top-28 z-50 mx-auto w-full max-w-md px-6">
-							<div className="mt-2 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-gray-0 p-3 shadow-sm">
+							<div className="mt-2 flex w-full cursor-pointer rounded-xl border border-gray-200 bg-gray-0 p-4 shadow-sm">
 								<div className="flex w-full items-start overflow-hidden">
-									<div className="mr-3 h-[30px] w-[30px] border-[5px] border-gray-900 flex-shrink-0 rounded-full" />
+									<div className="mr-4 h-[24px] w-[24px] border-[4px] border-gray-900 flex-shrink-0 rounded-full" />
 									<a
 										href="https://www.worldrepublic.org/parties"
 										target="_blank"
