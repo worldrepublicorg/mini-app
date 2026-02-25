@@ -5,9 +5,9 @@
     },
     "banners": {
       "dalgona": {
-        "title": "Le programme ambassadeur est lancé",
-        "description": "Parrainez un chef de parti et gagnez 10 % de ses subventions. Pour toujours. Aucune vérification requise.",
-        "cta": "Commencer"
+        "title": "Lancement du Programme Ambassadeur",
+        "description": "Invitez un chef de parti, gagnez 10 % de ses financements. Pour toujours. Sans vérification d'identité.",
+        "cta": "C'est parti"
       }
     },
     "pollOfTheWeek": {
