@@ -5,7 +5,6 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
 	PiArrowSquareOut,
-	PiInfoFill,
 	PiScalesFill,
 	PiUsersThreeFill,
 } from "react-icons/pi";
@@ -119,30 +118,6 @@ export default function GovernPage({
 								dictionary?.pages?.govern?.sections?.elections?.testElections
 									?.description
 							}
-							<span className="group relative ml-1 inline-flex items-center align-baseline">
-								<PiInfoFill className="h-4 w-4 translate-y-[2px] cursor-help text-gray-400" />
-								<div className="absolute -right-4 bottom-full z-10 mb-2 hidden w-[calc(100dvw/2+24px)] max-w-sm transform rounded-lg border border-gray-200 bg-gray-0 p-3 text-xs shadow-lg group-hover:block">
-									<p className="text-left text-gray-700">
-										{
-											dictionary?.pages?.govern?.sections?.elections
-												?.currentElectionPage?.testElectionTooltip1
-										}
-										<Link
-											href={`/${lang}/govern/election/faq`}
-											className="text-gray-900 underline"
-										>
-											{
-												dictionary?.pages?.govern?.sections?.elections
-													?.currentElectionPage?.testElectionTooltip2
-											}
-										</Link>
-										{
-											dictionary?.pages?.govern?.sections?.elections
-												?.currentElectionPage?.testElectionTooltip3
-										}
-									</p>
-								</div>
-							</span>
 						</Typography>
 						<Link
 							href="https://www.worldrepublic.org"
@@ -157,7 +132,7 @@ export default function GovernPage({
 							>
 								{
 									dictionary?.pages?.govern?.sections?.elections
-										?.currentElectionPage?.buttons?.vote
+										?.testElections?.button
 								}
 								<PiArrowSquareOut className="inline-block size-4 translate-y-[-4px] ml-1.5 shrink-0 text-gray-400" />
 							</Button>

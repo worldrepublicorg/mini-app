@@ -102,10 +102,3 @@ export interface WeeklyPartyPayout {
     transactionHash: string;
   };
 }
-
-export interface WeeklyPayout {
-  weekNumber: number;
-  totalWdd: string;
-  totalWld: string;
-  parties: PartyPayout[];
-}
