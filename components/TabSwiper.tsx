@@ -7,7 +7,6 @@ export function TabSwiper<T extends string>({
   tabs,
   activeTab,
   onTabChange,
-  tabIndicators = {} as Record<T, boolean>,
 }: TabSwiperProps<T>) {
   const handleTabChange = (tab: T) => {
     onTabChange(tab);
@@ -24,9 +23,6 @@ export function TabSwiper<T extends string>({
             >
               <span className="whitespace-nowrap">{tab.label}</span>
             </Pill>
-            {tabIndicators[tab.key as T] && (
-              <div className="absolute right-[9px] top-[9px] h-1.5 w-1.5 rounded-full bg-error-600"></div>
-            )}
           </div>
         ))}
         <div className="w-5 flex-shrink-0" />

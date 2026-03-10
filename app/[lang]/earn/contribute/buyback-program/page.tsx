@@ -74,12 +74,6 @@ export default function BuybackProgramPage({
     }
   }, [walletAddress, username, loadCurrentUsernameCallback]);
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("newBuybackVisited", "true");
-    }
-  }, []);
-
   return (
     <div className="pb-safe flex min-h-dvh flex-col px-6">
       <div className="fixed left-0 right-0 top-0 z-10 bg-gray-0 px-6">

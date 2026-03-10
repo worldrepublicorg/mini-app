@@ -3,14 +3,10 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import {
-	PiArrowSquareOut,
-	PiScalesFill,
-	PiUsersThreeFill,
-} from "react-icons/pi";
+import { BiLinkExternal } from "react-icons/bi";
+import { PiScalesFill, PiUsersThreeFill } from "react-icons/pi";
 import { DrawerItem } from "@/components/DrawerItem";
 import { OpenLetterCard } from "@/components/OpenLetterCard";
-import { PollOfTheWeek } from "@/components/PollOfTheWeek";
 import { SectionHeader } from "@/components/SectionHeader";
 import { TabSwiper } from "@/components/TabSwiper";
 import { Button } from "@/components/ui/Button";
@@ -20,7 +16,6 @@ import type { TabKey } from "@/lib/types";
 
 const TAB_KEYS = {
 	ELECTIONS: "elections",
-	POLLS: "polls",
 	OPEN_LETTERS: "openLetters",
 	REFERENDUMS: "referendums",
 } as const;
@@ -134,22 +129,10 @@ export default function GovernPage({
 									dictionary?.pages?.govern?.sections?.elections
 										?.testElections?.button
 								}
-								<PiArrowSquareOut className="inline-block size-4 translate-y-[-4px] ml-1.5 shrink-0 text-gray-400" />
+								<BiLinkExternal className="inline-block size-4 translate-y-[-4px] ml-1.5 shrink-0 text-gray-400" />
 							</Button>
 						</Link>
 					</div>
-				);
-			case TAB_KEYS.POLLS:
-				return (
-					<>
-						<SectionHeader
-							title={dictionary?.pages?.govern?.sections?.polls?.title}
-							description={
-								dictionary?.pages?.govern?.sections?.polls?.description
-							}
-						/>
-						<PollOfTheWeek lang={lang} />
-					</>
 				);
 			case TAB_KEYS.OPEN_LETTERS:
 				return (

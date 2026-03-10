@@ -7,6 +7,7 @@ import { useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { FaFlask } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
+import { BiLinkExternal } from "react-icons/bi";
 import {
 	PiCoinsFill,
 	PiHandCoinsFill,
@@ -854,18 +855,6 @@ export default function EarnPage({
 		}
 	}, [activeTab]);
 
-	// Add state to track whether buyback program has been visited
-	const [hasNewBuybackBeenVisited, setHasNewBuybackBeenVisited] =
-		useState(true); // Default to true to prevent flash
-
-	// Check if buyback program has been visited
-	useEffect(() => {
-		if (typeof window !== "undefined") {
-			const hasVisited = localStorage.getItem("newBuybackVisited") === "true";
-			setHasNewBuybackBeenVisited(hasVisited);
-		}
-	}, []);
-
 	// Add the state that we're lifting from StakeWithPermitForm
 	const [stakedBalance, setStakedBalance] = useState<string>("0");
 	const [availableReward, setAvailableReward] = useState<string>("0");
@@ -1392,9 +1381,6 @@ export default function EarnPage({
 													?.buybackProgram?.title
 											}
 										</Typography>
-										{!hasNewBuybackBeenVisited && (
-											<span className="ml-1.5 h-[7px] w-[7px] rounded-full bg-error-600" />
-										)}
 									</div>
 									<Typography
 										as="p"
@@ -1414,8 +1400,10 @@ export default function EarnPage({
 						</Link>
 
 						{/* Party Subsidy Program Card */}
-						<Link
-							href={`/${lang}/earn/contribute/party-subsidy`}
+						<a
+							href="https://www.worldrepublic.org/parties?tab=subsidies"
+							target="_blank"
+							rel="noopener noreferrer"
 							className="group mb-4 flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border border-gray-200 p-4"
 						>
 							<div className="flex items-center gap-3">
@@ -1449,9 +1437,9 @@ export default function EarnPage({
 								</div>
 							</div>
 							<div className="flex items-center justify-center rounded-full bg-gray-100 p-1.5">
-								<IoIosArrowForward className="size-[14px] text-gray-400" />
+								<BiLinkExternal className="size-[14px] text-gray-400" />
 							</div>
-						</Link>
+						</a>
 					</div>
 				);
 			default:
@@ -1503,12 +1491,7 @@ export default function EarnPage({
 					]}
 					activeTab={activeTab}
 					onTabChange={handleTabChange}
-					tabIndicators={{
-						"Basic income": false,
-						Savings: false,
-						Contribute: false,
-					}}
-				/>
+					/>
 			</div>
 
 			<div className="mt-[112px] flex flex-1 items-center">

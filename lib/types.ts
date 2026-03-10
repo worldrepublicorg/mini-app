@@ -21,7 +21,6 @@ export interface TabSwiperProps<T extends string> {
   tabs: Tab[];
   activeTab: T;
   onTabChange: (tab: T) => void;
-  tabIndicators?: Record<T, boolean>;
 }
 
 export interface WalletAuthProps {
@@ -56,7 +55,6 @@ export interface WalletProviderProps {
 }
 
 export type TabKey =
-  | "polls"
   | "openLetters"
   | "elections"
   | "referendums";

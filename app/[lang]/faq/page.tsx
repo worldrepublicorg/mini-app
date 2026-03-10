@@ -67,12 +67,6 @@ export default function FAQPage({
     }
   }, [searchParams]);
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("faqVisited", "true");
-    }
-  }, []);
-
   const toggleAccordion = (id: string) => {
     setOpenAccordion(openAccordion === id ? null : id);
   };
