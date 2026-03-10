@@ -45,10 +45,6 @@
         "errorClaim": "청구 중 예기치 않은 오류가 발생했습니다"
       }
     },
-    "comingSoonDrawer": {
-      "title": "출시 예정",
-      "description": "이 기능은 현재 개발 중입니다. 조금만 기다려 주세요!"
-    },
     "tabSwiper": {
       "tabs": {
         "openLetters": "공개 서한",
@@ -240,7 +236,6 @@
         "openLetters": {
           "title": "공개 서한",
           "description": "의사 결정자들에 대한 공개 성명",
-          "addNew": "공개 서한 작성하기",
           "statements": {
             "aiRisk": {
               "title": "AI 위험성에 관한 성명",

@@ -45,10 +45,6 @@
         "errorClaim": "Hitilafu isiyotarajiwa imetokea wakati wa kuchukua"
       }
     },
-    "comingSoonDrawer": {
-      "title": "Inakuja hivi karibuni",
-      "description": "Hii kipengele kipo katika maendeleo. Subiri!"
-    },
     "tabSwiper": {
       "tabs": {
         "openLetters": "Barua za wazi",
@@ -240,7 +236,6 @@
         "openLetters": {
           "title": "Barua Wazi",
           "description": "Taarifa za umma kwa wafanya maamuzi",
-          "addNew": "Ongeza barua yako wazi",
           "statements": {
             "aiRisk": {
               "title": "Taarifa kuhusu Hatari ya AI",

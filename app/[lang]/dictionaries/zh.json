@@ -45,10 +45,6 @@
         "errorClaim": "领取时发生意外错误"
       }
     },
-    "comingSoonDrawer": {
-      "title": "即将推出",
-      "description": "此功能正在开发中。敬请期待！"
-    },
     "tabSwiper": {
       "tabs": {
         "openLetters": "公开信",
@@ -240,7 +236,6 @@
         "openLetters": {
           "title": "公开信",
           "description": "致决策者的公开声明",
-          "addNew": "添加您的公开信",
           "statements": {
             "aiRisk": {
               "title": "关于人工智能风险的声明",

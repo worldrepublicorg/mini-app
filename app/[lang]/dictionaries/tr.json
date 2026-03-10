@@ -45,10 +45,6 @@
         "errorClaim": "Talep ederken beklenmeyen bir hata oluştu"
       }
     },
-    "comingSoonDrawer": {
-      "title": "Yakında",
-      "description": "Bu özellik şu anda geliştirme aşamasında. Takipte kalın!"
-    },
     "tabSwiper": {
       "tabs": {
         "openLetters": "Açık mektuplar",
@@ -240,7 +236,6 @@
         "openLetters": {
           "title": "Açık Mektuplar",
           "description": "Karar vericilere açık beyanlar",
-          "addNew": "Açık mektubunuzu ekleyin",
           "statements": {
             "aiRisk": {
               "title": "AI Risk Beyanı",

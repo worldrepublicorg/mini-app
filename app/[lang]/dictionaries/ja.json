@@ -45,10 +45,6 @@
         "errorClaim": "請求中に予期せぬエラーが発生しました"
       }
     },
-    "comingSoonDrawer": {
-      "title": "近日公開",
-      "description": "この機能は現在開発中です。お楽しみに！"
-    },
     "tabSwiper": {
       "tabs": {
         "openLetters": "公開書簡",
@@ -240,7 +236,6 @@
         "openLetters": {
           "title": "公開書簡",
           "description": "意思決定者への公開声明",
-          "addNew": "公開書簡を追加",
           "statements": {
             "aiRisk": {
               "title": "AIリスクに関する声明",

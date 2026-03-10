@@ -5,7 +5,6 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BiLinkExternal } from "react-icons/bi";
 import { PiScalesFill, PiUsersThreeFill } from "react-icons/pi";
-import { DrawerItem } from "@/components/DrawerItem";
 import { OpenLetterCard } from "@/components/OpenLetterCard";
 import { SectionHeader } from "@/components/SectionHeader";
 import { TabSwiper } from "@/components/TabSwiper";
@@ -190,11 +189,6 @@ export default function GovernPage({
 							}
 							referenceUrl="https://futureoflife.org/open-letter/long-view-leadership-on-existential-threats/"
 							voteUrl="https://world.org/mini-app?app_id=app_86794ef02e4fdd6579a937e4a0d858fb&app_mode=mini-app&path=/NtprLPWh"
-						/>
-						<DrawerItem
-							title={dictionary?.pages?.govern?.sections?.openLetters?.addNew}
-							isAddNew
-							lang={lang}
 						/>
 					</>
 				);

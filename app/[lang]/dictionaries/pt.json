@@ -45,10 +45,6 @@
         "errorClaim": "Ocorreu um erro inesperado ao reivindicar"
       }
     },
-    "comingSoonDrawer": {
-      "title": "Em breve",
-      "description": "Este recurso está atualmente em desenvolvimento. Fique ligado!"
-    },
     "tabSwiper": {
       "tabs": {
         "openLetters": "Cartas abertas",
@@ -240,7 +236,6 @@
         "openLetters": {
           "title": "Cartas Abertas",
           "description": "Declarações públicas para tomadores de decisão",
-          "addNew": "Adicione sua carta aberta",
           "statements": {
             "aiRisk": {
               "title": "Declaração sobre Risco de IA",

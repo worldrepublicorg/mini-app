@@ -1,9 +1,3 @@
-export interface DrawerItemProps {
-  title: string;
-  isAddNew?: boolean;
-  lang: string;
-}
-
 export interface OpenLetterCardProps {
   title: string;
   referenceTitle?: string;

@@ -45,10 +45,6 @@
         "errorClaim": "Wystąpił nieoczekiwany błąd podczas odbierania"
       }
     },
-    "comingSoonDrawer": {
-      "title": "Wkrótce dostępne",
-      "description": "Ta funkcja jest obecnie w fazie rozwoju. Bądź na bieżąco!"
-    },
     "tabSwiper": {
       "tabs": {
         "openLetters": "Listy otwarte",
@@ -240,7 +236,6 @@
         "openLetters": {
           "title": "Listy Otwarte",
           "description": "Publiczne oświadczenia do decydentów",
-          "addNew": "Dodaj swój list otwarty",
           "statements": {
             "aiRisk": {
               "title": "Oświadczenie w sprawie Ryzyka AI",

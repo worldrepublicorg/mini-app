@@ -45,10 +45,6 @@
         "errorClaim": "Došlo je do neočekivane greške prilikom preuzimanja"
       }
     },
-    "comingSoonDrawer": {
-      "title": "Uskoro dostupno",
-      "description": "Ova značajka je trenutno u razvoju. Ostanite uz nas!"
-    },
     "tabSwiper": {
       "tabs": {
         "openLetters": "Otvorena pisma",
@@ -240,7 +236,6 @@
         "openLetters": {
           "title": "Otvorena Pisma",
           "description": "Javne izjave donositeljima odluka",
-          "addNew": "Dodaj svoje otvoreno pismo",
           "statements": {
             "aiRisk": {
               "title": "Izjava o UI Riziku",

@@ -45,10 +45,6 @@
         "errorClaim": "Une erreur inattendue s'est produite lors de la réclamation"
       }
     },
-    "comingSoonDrawer": {
-      "title": "Bientôt disponible",
-      "description": "Cette fonctionnalité est actuellement en développement. Restez à l'écoute !"
-    },
     "tabSwiper": {
       "tabs": {
         "openLetters": "Lettres ouvertes",
@@ -240,7 +236,6 @@
         "openLetters": {
           "title": "Lettres Ouvertes",
           "description": "Déclarations publiques aux décideurs",
-          "addNew": "Ajouter votre lettre ouverte",
           "statements": {
             "aiRisk": {
               "title": "Déclaration sur les Risques de l'IA",

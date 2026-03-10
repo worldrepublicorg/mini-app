@@ -45,10 +45,6 @@
         "errorClaim": "Ein unerwarteter Fehler ist beim Beanspruchen aufgetreten"
       }
     },
-    "comingSoonDrawer": {
-      "title": "Demnächst verfügbar",
-      "description": "Diese Funktion befindet sich derzeit in Entwicklung. Bleiben Sie dran!"
-    },
     "tabSwiper": {
       "tabs": {
         "openLetters": "Offene Briefe",
@@ -240,7 +236,6 @@
         "openLetters": {
           "title": "Offene Briefe",
           "description": "Öffentliche Erklärungen an Entscheidungsträger",
-          "addNew": "Neuen offenen Brief hinzufügen",
           "statements": {
             "aiRisk": {
               "title": "Erklärung zum KI-Risiko",

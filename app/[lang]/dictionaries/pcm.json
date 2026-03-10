@@ -45,10 +45,6 @@
         "errorClaim": "One unexpected error happen while claiming"
       }
     },
-    "comingSoonDrawer": {
-      "title": "E Go Soon Come",
-      "description": "Dis feature dey under development currently. Stay tuned!"
-    },
     "tabSwiper": {
       "tabs": {
         "openLetters": "Open letters",
@@ -240,7 +236,6 @@
         "openLetters": {
           "title": "Open Letters",
           "description": "Message wey everybody fit see for big people",
-          "addNew": "Write your own letter",
           "statements": {
             "aiRisk": {
               "title": "Wetin We Talk About AI Danger",

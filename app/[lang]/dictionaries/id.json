@@ -45,10 +45,6 @@
         "errorClaim": "Terjadi kesalahan yang tidak terduga saat mengklaim"
       }
     },
-    "comingSoonDrawer": {
-      "title": "Segera Hadir",
-      "description": "Fitur ini sedang dalam pengembangan. Nantikan!"
-    },
     "tabSwiper": {
       "tabs": {
         "openLetters": "Surat terbuka",
@@ -240,7 +236,6 @@
         "openLetters": {
           "title": "Surat Terbuka",
           "description": "Pernyataan publik kepada pembuat keputusan",
-          "addNew": "Tambahkan surat terbuka Anda",
           "statements": {
             "aiRisk": {
               "title": "Pernyataan tentang Risiko AI",

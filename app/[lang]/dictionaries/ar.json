@@ -45,10 +45,6 @@
         "errorClaim": "حدث خطأ غير متوقع أثناء المطالبة"
       }
     },
-    "comingSoonDrawer": {
-      "title": "قريباً",
-      "description": "هذه الميزة قيد التطوير. ترقبوا!"
-    },
     "tabSwiper": {
       "tabs": {
         "openLetters": "رسائل مفتوحة",
@@ -240,7 +236,6 @@
         "openLetters": {
           "title": "الرسائل المفتوحة",
           "description": "بيانات عامة لصانعي القرار",
-          "addNew": "أضف رسالتك المفتوحة",
           "statements": {
             "aiRisk": {
               "title": "بيان حول مخاطر الذكاء الاصطناعي",

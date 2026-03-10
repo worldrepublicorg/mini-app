@@ -45,10 +45,6 @@
         "errorClaim": "Ralat tidak dijangka berlaku semasa menuntut"
       }
     },
-    "comingSoonDrawer": {
-      "title": "Akan Datang",
-      "description": "Ciri ini sedang dalam pembangunan. Nantikan!"
-    },
     "tabSwiper": {
       "tabs": {
         "openLetters": "Surat terbuka",
@@ -240,7 +236,6 @@
         "openLetters": {
           "title": "Surat Terbuka",
           "description": "Kenyataan awam kepada pembuat keputusan",
-          "addNew": "Tambah surat terbuka anda",
           "statements": {
             "aiRisk": {
               "title": "Kenyataan mengenai Risiko AI",

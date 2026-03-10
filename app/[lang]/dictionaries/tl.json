@@ -45,10 +45,6 @@
         "errorClaim": "May nangyaring hindi inaasahang error habang nagki-claim"
       }
     },
-    "comingSoonDrawer": {
-      "title": "Malapit nang Dumating",
-      "description": "Ang feature na ito ay kasalukuyang nasa development. Mangyaring maghintay!"
-    },
     "tabSwiper": {
       "tabs": {
         "openLetters": "Mga bukas na liham",
@@ -240,7 +236,6 @@
         "openLetters": {
           "title": "Mga Open Letter",
           "description": "Mga pampublikong pahayag sa mga decision makers",
-          "addNew": "Magdagdag ng iyong open letter",
           "statements": {
             "aiRisk": {
               "title": "Pahayag sa AI Risk",

@@ -45,10 +45,6 @@
         "errorClaim": "دعویٰ کرتے وقت ایک غیر متوقع خرابی پیش آئی"
       }
     },
-    "comingSoonDrawer": {
-      "title": "جلد آ رہا ہے",
-      "description": "یہ فیچر فی الحال زیر ترقی ہے۔ منتظر رہیں!"
-    },
     "tabSwiper": {
       "tabs": {
         "openLetters": "کھلے خطوط",
@@ -240,7 +236,6 @@
         "openLetters": {
           "title": "کھلے خطوط",
           "description": "فیصلہ سازوں کے لیے عوامی بیانات",
-          "addNew": "اپنا کھلا خط شامل کریں",
           "statements": {
             "aiRisk": {
               "title": "AI کے خطرے پر بیان",
