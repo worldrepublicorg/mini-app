@@ -385,8 +385,7 @@ export default function CurrentElectionPage({
                 const shareTitle =
                   electionDict?.testElectionTitle || "Current Election";
                 const copiedMessage =
-                  dictionary?.components?.politicalPartyList?.copied ||
-                  "Link copied!";
+                  electionDict?.copied || "Link copied!";
 
                 if (navigator.share) {
                   try {
@@ -407,8 +406,7 @@ export default function CurrentElectionPage({
               }}
               className="absolute right-0 flex size-10 items-center justify-center rounded-full bg-gray-100"
               aria-label={
-                dictionary?.components?.politicalPartyList?.shareParty ||
-                "Share"
+                electionDict?.shareElection || "Share"
               }
             >
               <BiShareAlt className="size-5 text-gray-500" />
@@ -473,10 +471,7 @@ export default function CurrentElectionPage({
                   key={party.id}
                   className="bg-white flex items-center justify-between rounded-xl border border-gray-200 p-4"
                 >
-                  <Link
-                    href={`/${lang}/govern/party/${party.id}`}
-                    className="flex-1 overflow-hidden"
-                  >
+                  <div className="flex-1 overflow-hidden">
                     <Typography
                       as="h3"
                       variant={{ variant: "subtitle", level: 1 }}
@@ -491,7 +486,7 @@ export default function CurrentElectionPage({
                       {electionDict?.leaderPrefix}
                       {party.leader}
                     </Typography>
-                  </Link>
+                  </div>
                   <Button
                     size="sm"
                     className="ml-2 shrink-0 px-4"
@@ -562,8 +557,7 @@ export default function CurrentElectionPage({
               : "pointer-events-none opacity-0"
           }`}
           aria-label={
-            dictionary?.components?.politicalPartyList?.scrollToTop ||
-            "Scroll to top"
+            electionDict?.scrollToTop || "Scroll to top"
           }
         >
           <svg

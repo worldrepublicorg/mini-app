@@ -55,187 +55,10 @@
     },
     "tabSwiper": {
       "tabs": {
-        "politicalParties": "Vyama",
         "polls": "Uchaguzi",
         "openLetters": "Barua za wazi",
         "elections": "Uchaguzi wa viongozi",
         "referendums": "Kura ya maoni"
-      }
-    },
-    "politicalPartyList": {
-      "myParty": "Chama changu",
-      "createParty": "Unda Chama Kipya",
-      "noParty": "Bado hujaunda au kujiunga na chama.",
-      "discover": "Gundua",
-      "partyDetails": "Maelezo ya Chama",
-      "description": "Maelezo",
-      "partyInfo": "Habari za chama",
-      "leader": "Kiongozi",
-      "website": "Tovuti",
-      "members": "Wanachama",
-      "noMembers": "Bado hakuna wanachama",
-      "approvalNote": "Vyama vya siasa vyenye kiungo rasmi kinachofanya kazi na/au uanachama unaokua vinapendelewa kwa idhini.",
-      "bannedMembers": "Wanachama waliozuiwa",
-      "errorLoading": "Hitilafu Kupakia Chama",
-      "partyNotFound": "Chama Hakijapatikana",
-      "partyNotFoundDescription": "Chama unachokitafuta hakipo au kimeondolewa.",
-      "backToParties": "Rudi kwa Vyama",
-      "joining": "Inajiunga...",
-      "joinParty": "Jiunge na chama",
-      "shareParty": "Shiriki chama",
-      "copied": "Kiungo kimenakiliwa kwenye ubao wa kunakili",
-      "status": {
-        "pending": "Inasubiri",
-        "active": "Inafanya kazi",
-        "inactive": "Haifanyi kazi"
-      },
-      "tabs": {
-        "top": "Bora",
-        "trending": "Zinazovuma",
-        "new": "Mpya",
-        "pending": "Zinazosubiri"
-      },
-      "emptyState": {
-        "pending": "Hakuna vyama vinavyosubiri vinapatikana.",
-        "noParties": "Hakuna vyama vinapatikana vya kujiunga."
-      },
-      "partyCard": {
-        "pending": "Inasubiri",
-        "deleted": "Imefutwa",
-        "members": "wanachama",
-        "actions": {
-          "leaveParty": "Ondoka kwenye chama",
-          "joinParty": "Jiunge na chama",
-          "joinPendingParty": "Jiunge na chama kinachosubiri"
-        },
-        "management": {
-          "title": "Usimamizi wa Chama",
-          "manageMembers": "Simamia wanachama",
-          "updateInfo": "Sasisha taarifa",
-          "transferLeadership": "Hamisha uongozi",
-          "deleteParty": "Futa chama"
-        }
-      },
-      "drawers": {
-        "create": {
-          "title": "Unda Chama Kipya",
-          "name": {
-            "label": "Jina la chama",
-            "placeholder": "Ingiza jina la chama",
-            "error": "Tafadhali ingiza jina la chama"
-          },
-          "shortName": {
-            "label": "Jina fupi",
-            "placeholder": "Ingiza jina fupi au kifupisho",
-            "error": "Tafadhali ingiza jina fupi"
-          },
-          "description": {
-            "label": "Maelezo",
-            "placeholder": "Ingiza maelezo ya chama",
-            "error": "Tafadhali ingiza maelezo"
-          },
-          "officialLink": {
-            "label": "Kiungo rasmi",
-            "placeholder": "Ingiza tovuti rasmi au kiungo cha jamii (si lazima)"
-          },
-          "limitWarning": {
-            "approaching": "Unakaribia kikomo cha herufi: {{current}}/{{max}}",
-            "reached": "Kikomo cha juu cha herufi kimefikiwa"
-          },
-          "button": {
-            "creating": "Inaunda...",
-            "create": "Unda chama"
-          }
-        },
-        "update": {
-          "title": "Sasisha Maelezo ya Chama",
-          "button": {
-            "update": "Sasisha",
-            "updateDescription": "Sasisha maelezo"
-          }
-        },
-        "transferLeadership": {
-          "title": "Hamisha Uongozi",
-          "description": "Ingiza anwani ya mkoba ya kiongozi mpya au tafuta kwa jina la mtumiaji. Anwani lazima iwe ya mwanachama wa chama aliyeko.",
-          "lookup": {
-            "label": "Tafuta kwa jina la mtumiaji",
-            "placeholder": "Ingiza jina la mtumiaji la World App",
-            "buttonText": "Tafuta",
-            "loading": "Inatafuta...",
-            "foundUser": "Mtumiaji amepatikana: ",
-            "address": "Anwani: "
-          },
-          "newLeader": {
-            "label": "Anwani ya kiongozi mpya",
-            "placeholder": "Ingiza anwani ya mkoba (0x...)",
-            "errors": {
-              "required": "Tafadhali ingiza anwani",
-              "invalid": "Tafadhali ingiza anwani halali ya Ethereum (0x...)"
-            }
-          },
-          "button": {
-            "processing": "Inachakata...",
-            "transfer": "Hamisha uongozi"
-          }
-        },
-        "leave": {
-          "title": "Ondoka Kwenye Chama cha Sasa",
-          "description": "Wewe tayari ni mwanachama wa {{partyName}}. Lazima uondoke kwenye chama chako cha sasa kabla ya kujiunga na kipya.",
-          "leaderWarning": "Kumbuka: Kwa sasa wewe ndiye kiongozi wa chama hiki. Ukiondoka, uongozi utapotea au kupangiwa upya na mfumo.",
-          "button": {
-            "leaving": "Inaondoka...",
-            "leave": "Ondoka {{partyShortName}}"
-          }
-        },
-        "createConfirm": {
-          "title": "Ondoka Kwenye Chama cha Sasa",
-          "description": "Wewe tayari ni mwanachama wa {{partyName}}. Lazima uondoke kwenye chama chako cha sasa kabla ya kuunda kipya.",
-          "leaderWarning": "Kumbuka: Kwa sasa wewe ndiye kiongozi wa chama hiki. Ukiondoka, uongozi utapotea au kupangiwa upya na mfumo.",
-          "button": {
-            "processing": "Inachakata...",
-            "leaveAndCreate": "Ondoka {{partyShortName}} na unda"
-          }
-        },
-        "delete": {
-          "title": "Futa Chama",
-          "confirmPending": "Una uhakika unataka kufuta chama hiki kinachosubiri?",
-          "confirm": "Una uhakika unataka kufuta chama hiki?",
-          "button": {
-            "processing": "Inachakata...",
-            "deletePending": "Futa chama kinachosubiri",
-            "delete": "Futa chama"
-          }
-        },
-        "memberManagement": {
-          "title": "Usimamizi wa Wanachama",
-          "label": "Anwani ya mwanachama",
-          "tabs": {
-            "remove": "Ondoa",
-            "ban": "Zuia",
-            "unban": "Ondoa kizuizi"
-          },
-          "remove": {
-            "description": "Ingiza anwani ya mkoba ya mwanachama unayetaka kuondoa au tafuta kwa jina la mtumiaji.",
-            "button": {
-              "processing": "Inachakata...",
-              "remove": "Ondoa mwanachama"
-            }
-          },
-          "ban": {
-            "description": "Ingiza jina la mtumiaji au anwani ya mkoba ya mwanachama unayetaka kumzuia kutoka kwenye chama.",
-            "button": {
-              "processing": "Inachakata...",
-              "ban": "Zuia mwanachama"
-            }
-          },
-          "unban": {
-            "description": "Ingiza jina la mtumiaji au anwani ya mkoba ya mwanachama aliyezuiwa ambaye unataka kumruhusu kurudi kwenye chama.",
-            "button": {
-              "processing": "Inachakata...",
-              "unban": "Ondoa kizuizi cha mwanachama"
-            }
-          }
-        }
       }
     }
   },
@@ -615,7 +438,10 @@
                   "answer": "Ruzuku za vyama ni zawadi zinazosambazwa kwa vyama vya siasa kulingana na kura wanazopokea. Mpango huu unafadhili shughuli za vyama na kuwasaidia kukua. Unaweza kujifunza zaidi kuhusu <a href=\"/{{lang}}/earn/contribute/party-subsidy\" class=\"font-medium text-gray-900 underline\">Programu ya Ruzuku ya Chama</a>."
                 }
               }
-            }
+            },
+            "copied": "Kiungo kimenakiliwa kwenye ubao wa kunakili",
+            "shareElection": "Share election",
+            "scrollToTop": "Scroll to top"
           }
         },
         "referendums": {
@@ -626,11 +452,6 @@
             "description": "Shiriki katika upigaji kura wa kihistoria kuhusu kanuni zitakazoongoza mustakabali wa pamoja wa binadamu",
             "button": "Inakuja hivi karibuni"
           }
-        },
-        "politicalParties": {
-          "title": "Vyama vya Siasa",
-          "description": "Ungana kimataifa kuzunguka maadili yanayoshirikishwa",
-          "banner": "Tumehamia! Gonga hapa kusajili chama chako kwenye programu yetu mpya ili kushiriki katika uchaguzi wa majaribio"
         }
       }
     },

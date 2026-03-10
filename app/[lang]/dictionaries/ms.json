@@ -55,187 +55,10 @@
     },
     "tabSwiper": {
       "tabs": {
-        "politicalParties": "Parti",
         "polls": "Undian",
         "openLetters": "Surat terbuka",
         "elections": "Pilihan raya",
         "referendums": "Referendum"
-      }
-    },
-    "politicalPartyList": {
-      "myParty": "Parti saya",
-      "createParty": "Cipta Parti Baharu",
-      "noParty": "Anda belum mencipta atau menyertai parti.",
-      "discover": "Terokai",
-      "partyDetails": "Butiran Parti",
-      "description": "Penerangan",
-      "partyInfo": "Maklumat parti",
-      "leader": "Ketua",
-      "website": "Laman web",
-      "members": "Ahli",
-      "noMembers": "Belum ada ahli",
-      "approvalNote": "Parti dengan pautan rasmi yang berfungsi dan/atau keahlian yang berkembang diberi keutamaan untuk kelulusan.",
-      "bannedMembers": "Ahli yang diharamkan",
-      "errorLoading": "Ralat Memuatkan Parti",
-      "partyNotFound": "Parti Tidak Dijumpai",
-      "partyNotFoundDescription": "Parti yang anda cari tidak wujud atau telah dikeluarkan.",
-      "backToParties": "Kembali ke Parti",
-      "joining": "Menyertai...",
-      "joinParty": "Sertai parti",
-      "shareParty": "Kongsi parti",
-      "copied": "Pautan disalin ke papan klip",
-      "status": {
-        "pending": "Tertunda",
-        "active": "Aktif",
-        "inactive": "Tidak aktif"
-      },
-      "tabs": {
-        "top": "Teratas",
-        "trending": "Trending",
-        "new": "Baharu",
-        "pending": "Menunggu"
-      },
-      "emptyState": {
-        "pending": "Tiada parti menunggu yang tersedia.",
-        "noParties": "Tiada parti tersedia untuk disertai."
-      },
-      "partyCard": {
-        "pending": "Menunggu",
-        "deleted": "Dipadam",
-        "members": "ahli",
-        "actions": {
-          "leaveParty": "Tinggalkan parti",
-          "joinParty": "Sertai parti",
-          "joinPendingParty": "Sertai parti menunggu"
-        },
-        "management": {
-          "title": "Pengurusan Parti",
-          "manageMembers": "Urus ahli",
-          "updateInfo": "Kemas kini maklumat",
-          "transferLeadership": "Pindahkan kepimpinan",
-          "deleteParty": "Padam parti"
-        }
-      },
-      "drawers": {
-        "create": {
-          "title": "Cipta Parti Baharu",
-          "name": {
-            "label": "Nama parti",
-            "placeholder": "Masukkan nama parti",
-            "error": "Sila masukkan nama parti"
-          },
-          "shortName": {
-            "label": "Nama ringkas",
-            "placeholder": "Masukkan nama ringkas atau singkatan",
-            "error": "Sila masukkan nama ringkas"
-          },
-          "description": {
-            "label": "Penerangan",
-            "placeholder": "Masukkan penerangan parti",
-            "error": "Sila masukkan penerangan"
-          },
-          "officialLink": {
-            "label": "Pautan rasmi",
-            "placeholder": "Masukkan laman web rasmi atau pautan komuniti (pilihan)"
-          },
-          "limitWarning": {
-            "approaching": "Menghampiri had aksara: {{current}}/{{max}}",
-            "reached": "Had maksimum aksara dicapai"
-          },
-          "button": {
-            "creating": "Mencipta...",
-            "create": "Cipta parti"
-          }
-        },
-        "update": {
-          "title": "Kemas Kini Butiran Parti",
-          "button": {
-            "update": "Kemas kini",
-            "updateDescription": "Kemas kini penerangan"
-          }
-        },
-        "transferLeadership": {
-          "title": "Pindahkan Kepimpinan",
-          "description": "Masukkan alamat dompet pemimpin baharu atau cari mengikut nama pengguna. Alamat mesti milik ahli parti yang sedia ada.",
-          "lookup": {
-            "label": "Cari mengikut nama pengguna",
-            "placeholder": "Masukkan nama pengguna World App",
-            "buttonText": "Cari",
-            "loading": "Mencari...",
-            "foundUser": "Pengguna dijumpai: ",
-            "address": "Alamat: "
-          },
-          "newLeader": {
-            "label": "Alamat pemimpin baharu",
-            "placeholder": "Masukkan alamat dompet (0x...)",
-            "errors": {
-              "required": "Sila masukkan alamat",
-              "invalid": "Sila masukkan alamat Ethereum yang sah (0x...)"
-            }
-          },
-          "button": {
-            "processing": "Memproses...",
-            "transfer": "Pindahkan kepimpinan"
-          }
-        },
-        "leave": {
-          "title": "Tinggalkan Parti Semasa",
-          "description": "Anda sudah menjadi ahli {{partyName}}. Anda mesti meninggalkan parti semasa anda sebelum menyertai yang baharu.",
-          "leaderWarning": "Perhatian: Anda kini adalah pemimpin parti ini. Jika anda pergi, kepimpinan akan hilang atau diperuntukkan semula oleh sistem.",
-          "button": {
-            "leaving": "Meninggalkan...",
-            "leave": "Tinggalkan {{partyShortName}}"
-          }
-        },
-        "createConfirm": {
-          "title": "Tinggalkan Parti Semasa",
-          "description": "Anda sudah menjadi ahli {{partyName}}. Anda mesti meninggalkan parti semasa anda sebelum mencipta yang baharu.",
-          "leaderWarning": "Perhatian: Anda kini adalah pemimpin parti ini. Jika anda pergi, kepimpinan akan hilang atau diperuntukkan semula oleh sistem.",
-          "button": {
-            "processing": "Memproses...",
-            "leaveAndCreate": "Tinggalkan {{partyShortName}} dan cipta"
-          }
-        },
-        "delete": {
-          "title": "Padam Parti",
-          "confirmPending": "Adakah anda pasti mahu memadam parti menunggu ini?",
-          "confirm": "Adakah anda pasti mahu memadam parti ini?",
-          "button": {
-            "processing": "Memproses...",
-            "deletePending": "Padam parti menunggu",
-            "delete": "Padam parti"
-          }
-        },
-        "memberManagement": {
-          "title": "Pengurusan Ahli",
-          "label": "Alamat ahli",
-          "tabs": {
-            "remove": "Keluarkan",
-            "ban": "Sekat",
-            "unban": "Nyahsekat"
-          },
-          "remove": {
-            "description": "Masukkan alamat dompet ahli yang ingin anda keluarkan atau cari mengikut nama pengguna.",
-            "button": {
-              "processing": "Memproses...",
-              "remove": "Keluarkan ahli"
-            }
-          },
-          "ban": {
-            "description": "Masukkan nama pengguna atau alamat dompet ahli yang ingin anda sekat daripada parti.",
-            "button": {
-              "processing": "Memproses...",
-              "ban": "Sekat ahli"
-            }
-          },
-          "unban": {
-            "description": "Masukkan nama pengguna atau alamat dompet ahli yang disekat yang ingin anda benarkan kembali ke parti.",
-            "button": {
-              "processing": "Memproses...",
-              "unban": "Nyahsekat ahli"
-            }
-          }
-        }
       }
     }
   },
@@ -615,7 +438,10 @@
                   "answer": "Subsidi parti adalah ganjaran yang diagihkan kepada parti politik berdasarkan undi yang mereka terima. Program ini membiayai aktiviti parti dan membantu mereka berkembang. Anda boleh mengetahui lebih lanjut mengenai <a href=\"/{{lang}}/earn/contribute/party-subsidy\" class=\"font-medium text-gray-900 underline\">Program Subsidi Parti</a>."
                 }
               }
-            }
+            },
+            "copied": "Pautan disalin ke papan klip",
+            "shareElection": "Share election",
+            "scrollToTop": "Scroll to top"
           }
         },
         "referendums": {
@@ -626,11 +452,6 @@
             "description": "Sertai undian bersejarah mengenai prinsip-prinsip yang akan memandu masa depan kolektif manusia",
             "button": "Akan datang"
           }
-        },
-        "politicalParties": {
-          "title": "Parti Politik",
-          "description": "Bersatu secara global di sekeliling nilai-nilai yang dikongsi",
-          "banner": "Kami telah berpindah! Ketik di sini untuk mendaftar parti anda di aplikasi baharu kami untuk menyertai pilihan raya ujian"
         }
       }
     },

@@ -4,11 +4,6 @@ export interface DrawerItemProps {
   lang: string;
 }
 
-export interface PartySkeletonCardProps {
-  showPendingNote?: boolean;
-  dictionary?: any;
-}
-
 export interface OpenLetterCardProps {
   title: string;
   referenceTitle?: string;
@@ -60,71 +55,11 @@ export interface WalletProviderProps {
   children: React.ReactNode;
 }
 
-export interface Party {
-  id: number;
-  name: string;
-  shortName: string;
-  description: string;
-  officialLink: string;
-  founder: string;
-  leader: string;
-  memberCount: number;
-  documentVerifiedMemberCount: number;
-  verifiedMemberCount: number;
-  creationTime: number;
-  active: boolean;
-  status: number;
-  isUserMember?: boolean;
-  isUserLeader?: boolean;
-}
-
-export interface PartyDetail extends Party {
-  currentLeader?: string;
-  members?: { address: string }[];
-  bannedMembers?: { address: string }[];
-}
-
-export interface PartiesContextType {
-  activeParties: Party[];
-  pendingParties: Party[];
-  parties: Party[];
-  activeLoading: boolean;
-  pendingLoading: boolean;
-  userPartyId: number;
-  userPartyData: Party | null;
-  fetchActiveParties: () => Promise<void>;
-  fetchPendingParties: () => Promise<void>;
-  fetchPartyById: (id: number) => Promise<Party | null>;
-  setUserPartyId: (id: number) => void;
-  setParties: (parties: Party[] | ((prevParties: Party[]) => Party[])) => void;
-  getOptimisticPartyId: () => number;
-  storeUserParty: (party: Party | null) => void;
-  shuffledActiveParties: Party[];
-}
-
-export interface CreatePartyForm {
-  name: string;
-  shortName: string;
-  description: string;
-  officialLink: string;
-}
-
-export interface PoliticalPartyListProps {
-  lang: string;
-}
-
-export enum PartyStatus {
-  PENDING = 0,
-  ACTIVE = 1,
-  INACTIVE = 2,
-}
-
 export type TabKey =
   | "polls"
   | "openLetters"
   | "elections"
-  | "referendums"
-  | "politicalParties";
+  | "referendums";
 
 export type FAQItem = {
   id: string;

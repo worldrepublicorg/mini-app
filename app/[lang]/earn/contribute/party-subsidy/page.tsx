@@ -66,18 +66,12 @@ export default function PartySubsidyPage({
 											{party.leaderUsername}
 										</Typography>
 									</a>
-									<Link
-										href={`/${lang}/govern/party/${party.id}`}
-										className="min-w-0"
-										onClick={(e) => e.stopPropagation()}
+									<Typography
+										variant={{ variant: "subtitle", level: 2 }}
+										className="min-w-0 truncate text-sm font-normal text-gray-500"
 									>
-										<Typography
-											variant={{ variant: "subtitle", level: 2 }}
-											className="truncate text-sm font-normal text-gray-500"
-										>
-											({party.name})
-										</Typography>
-									</Link>
+										({party.name})
+									</Typography>
 								</div>
 								<div className="shrink-0 text-right">
 									<span className="block text-sm text-gray-900">

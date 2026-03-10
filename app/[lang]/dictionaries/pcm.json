@@ -55,186 +55,10 @@
     },
     "tabSwiper": {
       "tabs": {
-        "politicalParties": "Parties",
         "polls": "Polls",
         "openLetters": "Open letters",
         "elections": "Elections",
         "referendums": "Referendums"
-      }
-    },
-    "politicalPartyList": {
-      "myParty": "My party",
-      "createParty": "Create New Party",
-      "noParty": "You never create or join any party.",
-      "discover": "Discover",
-      "partyDetails": "Party Details",
-      "description": "Description",
-      "partyInfo": "Party info",
-      "leader": "Leader",
-      "website": "Website",
-      "members": "Members",
-      "noMembers": "No members yet",
-      "approvalNote": "Parties wey get working official link and/or growing membership dey get priority for approval.",
-      "bannedMembers": "Banned members",
-      "errorLoading": "Error Loading Party",
-      "partyNotFound": "Party No Dey Found",
-      "partyNotFoundDescription": "The party wey you dey find no exist or dem don remove am.",
-      "backToParties": "Back to Parties",
-      "joining": "Joining...",
-      "joinParty": "Join party",
-      "shareParty": "Share party",
-      "copied": "Link don copy to clipboard",
-      "status": {
-        "pending": "Pending",
-        "active": "Active",
-        "inactive": "Inactive"
-      },
-      "tabs": {
-        "top": "Top",
-        "trending": "Trending",
-        "new": "New",
-        "pending": "Dey Process"
-      },
-      "emptyState": {
-        "pending": "No pending party dey available.",
-        "noParties": "No party dey wey you fit join."
-      },
-      "partyCard": {
-        "pending": "Dey Process",
-        "deleted": "Dem don Delete am",
-        "actions": {
-          "leaveParty": "Comot for party",
-          "joinParty": "Join party",
-          "joinPendingParty": "Join party wey dey process"
-        },
-        "management": {
-          "title": "Party Management",
-          "manageMembers": "Manage members",
-          "updateInfo": "Update party info",
-          "transferLeadership": "Transfer leadership",
-          "deleteParty": "Delete party"
-        }
-      },
-      "drawers": {
-        "create": {
-          "title": "Create New Party",
-          "name": {
-            "label": "Party name",
-            "placeholder": "Enter party name",
-            "error": "Abeg enter party name"
-          },
-          "shortName": {
-            "label": "Short name",
-            "placeholder": "Enter short name or abbreviation",
-            "error": "Abeg enter short name"
-          },
-          "description": {
-            "label": "Description",
-            "placeholder": "Enter party description",
-            "error": "Abeg enter description"
-          },
-          "officialLink": {
-            "label": "Official link",
-            "placeholder": "Enter official website or community link (optional)"
-          },
-          "limitWarning": {
-            "approaching": "Character limit dey near: {{current}}/{{max}}",
-            "reached": "Character limit don reach maximum"
-          },
-          "button": {
-            "creating": "Dey Create...",
-            "create": "Create party"
-          }
-        },
-        "update": {
-          "title": "Update Party Details",
-          "button": {
-            "update": "Update",
-            "updateDescription": "Update description"
-          }
-        },
-        "transferLeadership": {
-          "title": "Transfer Leadership",
-          "description": "Enter the wallet address of the new leader or look up by username. The address must belong to existing party member.",
-          "lookup": {
-            "label": "Look up by username",
-            "placeholder": "Enter World App username",
-            "buttonText": "Lookup",
-            "loading": "Dey look...",
-            "foundUser": "Found user: ",
-            "address": "Address: "
-          },
-          "newLeader": {
-            "label": "New leader address",
-            "placeholder": "Enter wallet address (0x...)",
-            "errors": {
-              "required": "Abeg enter address",
-              "invalid": "Abeg enter correct Ethereum address (0x...)"
-            }
-          },
-          "button": {
-            "processing": "Dey Process...",
-            "transfer": "Transfer leadership"
-          }
-        },
-        "leave": {
-          "title": "Comot from Current Party",
-          "description": "You be member of {{partyName}} already. You must comot from your current party before you fit join new one.",
-          "leaderWarning": "Note: You be the leader of this party now. If you comot, dem go lose or reassign the leadership by the system.",
-          "button": {
-            "leaving": "Dey Comot...",
-            "leave": "Comot from {{partyShortName}}"
-          }
-        },
-        "createConfirm": {
-          "title": "Comot from Current Party",
-          "description": "You be member of {{partyName}} already. You must comot from your current party before you fit create new one.",
-          "leaderWarning": "Note: You be the leader of this party now. If you comot, dem go lose or reassign the leadership by the system.",
-          "button": {
-            "processing": "Dey Process...",
-            "leaveAndCreate": "Comot from {{partyShortName}} and create"
-          }
-        },
-        "delete": {
-          "title": "Delete Party",
-          "confirmPending": "You sure say you wan delete this pending party?",
-          "confirm": "You sure say you wan delete this party?",
-          "button": {
-            "processing": "Dey Process...",
-            "deletePending": "Delete pending party",
-            "delete": "Delete party"
-          }
-        },
-        "memberManagement": {
-          "title": "Member Management",
-          "label": "Member address",
-          "tabs": {
-            "remove": "Remove",
-            "ban": "Ban",
-            "unban": "Unban"
-          },
-          "remove": {
-            "description": "Enter the wallet address of the member wey you wan remove or look am up by username.",
-            "button": {
-              "processing": "Dey process...",
-              "remove": "Remove member"
-            }
-          },
-          "ban": {
-            "description": "Enter the username or wallet address of the member wey you wan ban from the party.",
-            "button": {
-              "processing": "Dey process...",
-              "ban": "Ban member"
-            }
-          },
-          "unban": {
-            "description": "Enter the username or wallet address of the banned member wey you wan allow back to the party.",
-            "button": {
-              "processing": "Dey process...",
-              "unban": "Unban member"
-            }
-          }
-        }
       }
     }
   },
@@ -613,7 +437,10 @@
                   "answer": "Party subsidies na rewards wey dem dey distribute to political parties based on di votes wey dem receive. Dis program dey fund party activities and help dem grow. You fit learn more about di <a href=\"/{{lang}}/earn/contribute/party-subsidy\" class=\"font-medium text-gray-900 underline\">Party Subsidy Program</a>."
                 }
               }
-            }
+            },
+            "copied": "Link don copy to clipboard",
+            "shareElection": "Share election",
+            "scrollToTop": "Scroll to top"
           }
         },
         "referendums": {
@@ -624,11 +451,6 @@
             "description": "Participate for historic vote on principles wey go guide humanity collective future",
             "button": "E go soon come"
           }
-        },
-        "politicalParties": {
-          "title": "Political Parties",
-          "description": "Join togeda globally around values wey una share",
-          "banner": "We don move! Tap here to register your party for our new app to join inside test elections"
         }
       }
     },

@@ -55,187 +55,10 @@
     },
     "tabSwiper": {
       "tabs": {
-        "politicalParties": "Partiler",
         "polls": "Anketler",
         "openLetters": "Açık mektuplar",
         "elections": "Seçimler",
         "referendums": "Referandumlar"
-      }
-    },
-    "politicalPartyList": {
-      "myParty": "Partim",
-      "createParty": "Yeni Parti Oluştur",
-      "noParty": "Henüz bir parti oluşturmadınız veya katılmadınız.",
-      "discover": "Keşfet",
-      "partyDetails": "Parti Detayları",
-      "description": "Açıklama",
-      "partyInfo": "Parti bilgisi",
-      "leader": "Lider",
-      "website": "Web sitesi",
-      "members": "Üyeler",
-      "noMembers": "Henüz üye yok",
-      "approvalNote": "Çalışan resmi bağlantısı ve/veya büyüyen üyeliği olan partiler onay için önceliklendirilir.",
-      "bannedMembers": "Yasaklı üyeler",
-      "errorLoading": "Parti Yüklenirken Hata",
-      "partyNotFound": "Parti Bulunamadı",
-      "partyNotFoundDescription": "Aradığınız parti mevcut değil veya kaldırılmış.",
-      "backToParties": "Partilere Geri Dön",
-      "joining": "Katılıyor...",
-      "joinParty": "Partiye katıl",
-      "shareParty": "Partiyi paylaş",
-      "copied": "Bağlantı panoya kopyalandı",
-      "status": {
-        "pending": "Beklemede",
-        "active": "Aktif",
-        "inactive": "Pasif"
-      },
-      "tabs": {
-        "top": "En İyi",
-        "trending": "Trend",
-        "new": "Yeni",
-        "pending": "Bekleyen"
-      },
-      "emptyState": {
-        "pending": "Bekleyen parti bulunmamaktadır.",
-        "noParties": "Katılmak için uygun parti bulunmamaktadır."
-      },
-      "partyCard": {
-        "pending": "Beklemede",
-        "deleted": "Silindi",
-        "members": "üye",
-        "actions": {
-          "leaveParty": "Partiden ayrıl",
-          "joinParty": "Partiye katıl",
-          "joinPendingParty": "Bekleyen partiye katıl"
-        },
-        "management": {
-          "title": "Parti Yönetimi",
-          "manageMembers": "Üyeleri yönet",
-          "updateInfo": "Bilgileri güncelle",
-          "transferLeadership": "Liderliği devret",
-          "deleteParty": "Partiyi sil"
-        }
-      },
-      "drawers": {
-        "create": {
-          "title": "Yeni Parti Oluştur",
-          "name": {
-            "label": "Parti adı",
-            "placeholder": "Parti adını girin",
-            "error": "Lütfen bir parti adı girin"
-          },
-          "shortName": {
-            "label": "Kısa isim",
-            "placeholder": "Kısa isim veya kısaltma girin",
-            "error": "Lütfen kısa bir isim girin"
-          },
-          "description": {
-            "label": "Açıklama",
-            "placeholder": "Parti açıklamasını girin",
-            "error": "Lütfen bir açıklama girin"
-          },
-          "officialLink": {
-            "label": "Resmi bağlantı",
-            "placeholder": "Resmi web sitesi veya topluluk bağlantısını girin (isteğe bağlı)"
-          },
-          "limitWarning": {
-            "approaching": "Karakter sınırına yaklaşıyor: {{current}}/{{max}}",
-            "reached": "Maksimum karakter sınırına ulaşıldı"
-          },
-          "button": {
-            "creating": "Oluşturuluyor...",
-            "create": "Parti oluştur"
-          }
-        },
-        "update": {
-          "title": "Parti Detaylarını Güncelle",
-          "button": {
-            "update": "Güncelle",
-            "updateDescription": "Açıklamayı güncelle"
-          }
-        },
-        "transferLeadership": {
-          "title": "Liderliği Devret",
-          "description": "Yeni liderin cüzdan adresini girin veya kullanıcı adına göre arayın. Adres, mevcut bir parti üyesine ait olmalıdır.",
-          "lookup": {
-            "label": "Kullanıcı adına göre ara",
-            "placeholder": "World App kullanıcı adını girin",
-            "buttonText": "Ara",
-            "loading": "Aranıyor...",
-            "foundUser": "Kullanıcı bulundu: ",
-            "address": "Adres: "
-          },
-          "newLeader": {
-            "label": "Yeni lider adresi",
-            "placeholder": "Cüzdan adresini girin (0x...)",
-            "errors": {
-              "required": "Lütfen bir adres girin",
-              "invalid": "Lütfen geçerli bir Ethereum adresi girin (0x...)"
-            }
-          },
-          "button": {
-            "processing": "İşleniyor...",
-            "transfer": "Liderliği devret"
-          }
-        },
-        "leave": {
-          "title": "Mevcut Partiden Ayrıl",
-          "description": "Zaten {{partyName}} üyesisiniz. Yeni bir partiye katılmadan önce mevcut partinizden ayrılmanız gerekiyor.",
-          "leaderWarning": "Not: Şu anda bu partinin liderisiniz. Ayrılırsanız, liderlik kaybedilecek veya sistem tarafından yeniden atanacaktır.",
-          "button": {
-            "leaving": "Ayrılıyor...",
-            "leave": "{{partyShortName}}'den Ayrıl"
-          }
-        },
-        "createConfirm": {
-          "title": "Mevcut Partiden Ayrıl",
-          "description": "Zaten {{partyName}} üyesisiniz. Yeni bir parti oluşturmadan önce mevcut partinizden ayrılmanız gerekiyor.",
-          "leaderWarning": "Not: Şu anda bu partinin liderisiniz. Ayrılırsanız, liderlik kaybedilecek veya sistem tarafından yeniden atanacaktır.",
-          "button": {
-            "processing": "İşleniyor...",
-            "leaveAndCreate": "{{partyShortName}}'den Ayrıl ve Oluştur"
-          }
-        },
-        "delete": {
-          "title": "Partiyi Sil",
-          "confirmPending": "Bu bekleyen partiyi silmek istediğinizden emin misiniz?",
-          "confirm": "Bu partiyi silmek istediğinizden emin misiniz?",
-          "button": {
-            "processing": "İşleniyor...",
-            "deletePending": "Bekleyen partiyi sil",
-            "delete": "Partiyi sil"
-          }
-        },
-        "memberManagement": {
-          "title": "Üye Yönetimi",
-          "label": "Üye adresi",
-          "tabs": {
-            "remove": "Çıkar",
-            "ban": "Yasakla",
-            "unban": "Yasağı kaldır"
-          },
-          "remove": {
-            "description": "Çıkarmak istediğiniz üyenin cüzdan adresini girin veya kullanıcı adına göre arayın.",
-            "button": {
-              "processing": "İşleniyor...",
-              "remove": "Üyeyi çıkar"
-            }
-          },
-          "ban": {
-            "description": "Partiden yasaklamak istediğiniz üyenin kullanıcı adını veya cüzdan adresini girin.",
-            "button": {
-              "processing": "İşleniyor...",
-              "ban": "Üyeyi yasakla"
-            }
-          },
-          "unban": {
-            "description": "Partiye geri dönmesine izin vermek istediğiniz yasaklanmış üyenin kullanıcı adını veya cüzdan adresini girin.",
-            "button": {
-              "processing": "İşleniyor...",
-              "unban": "Üyenin yasağını kaldır"
-            }
-          }
-        }
       }
     }
   },
@@ -420,11 +243,6 @@
         "referendums": "Referandumlar"
       },
       "sections": {
-        "politicalParties": {
-          "title": "Siyasi Partiler",
-          "description": "Ortak değerler etrafında küresel olarak birleşin",
-          "banner": "Taşındık! Partinizi yeni uygulamamıza kaydetmek ve test seçimlerine katılmak için buraya dokunun"
-        },
         "polls": {
           "title": "Haftanın Anketi",
           "description": "Güncel konular hakkında hızlı oylamalar",
@@ -620,7 +438,10 @@
                   "answer": "Parti sübvansiyonları, aldıkları oylara göre siyasi partilere dağıtılan ödüllerdir. Bu program, parti faaliyetlerini finanse eder ve büyümelerine yardımcı olur. <a href=\"/{{lang}}/earn/contribute/party-subsidy\" class=\"font-medium text-gray-900 underline\">Parti Sübvansiyon Programı</a> hakkında daha fazla bilgi edinebilirsiniz."
                 }
               }
-            }
+            },
+            "copied": "Bağlantı panoya kopyalandı",
+            "shareElection": "Share election",
+            "scrollToTop": "Scroll to top"
           }
         },
         "referendums": {

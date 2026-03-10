@@ -55,185 +55,10 @@
     },
     "tabSwiper": {
       "tabs": {
-        "politicalParties": "Mga partido",
         "polls": "Mga botohan",
         "openLetters": "Mga bukas na liham",
         "elections": "Mga halalan",
         "referendums": "Mga reperendum"
-      }
-    },
-    "politicalPartyList": {
-      "myParty": "Aking partido",
-      "createParty": "Gumawa ng Bagong Partido",
-      "noParty": "Hindi ka pa nakakagawa o sumali sa isang partido.",
-      "discover": "Tuklasin",
-      "partyDetails": "Mga Detalye ng Partido",
-      "description": "Paglalarawan",
-      "partyInfo": "Impormasyon ng partido",
-      "leader": "Pinuno",
-      "website": "Website",
-      "members": "Mga miyembro",
-      "noMembers": "Wala pang miyembro",
-      "approvalNote": "Ang mga partido na may gumaganang opisyal na link at/o lumalaking membership ay binibigyan ng priyoridad para sa pag-apruba.",
-      "bannedMembers": "Mga banned na miyembro",
-      "errorLoading": "May Error sa Paglo-load ng Partido",
-      "partyNotFound": "Hindi Nahanap ang Partido",
-      "partyNotFoundDescription": "Ang partido na hinahanap mo ay hindi umiiral o inalis na.",
-      "backToParties": "Bumalik sa Mga Partido",
-      "joining": "Sumasali...",
-      "joinParty": "Sumali sa partido",
-      "shareParty": "Ibahagi ang partido",
-      "copied": "Nakopya ang link sa clipboard",
-      "status": {
-        "pending": "Nakabinbin",
-        "active": "Aktibo",
-        "inactive": "Hindi aktibo"
-      },
-      "tabs": {
-        "top": "Nangungunang",
-        "trending": "Trending",
-        "new": "Bago",
-        "pending": "Nakabinbin"
-      },
-      "emptyState": {
-        "pending": "Walang nakabinbing partido na magagamit.",
-        "noParties": "Walang mga partido na pwedeng salihan."
-      },
-      "partyCard": {
-        "pending": "Nakabinbin",
-        "deleted": "Nabura",
-        "actions": {
-          "leaveParty": "Umalis sa partido",
-          "joinParty": "Sumali sa partido",
-          "joinPendingParty": "Sumali sa nakabinbing partido"
-        },
-        "management": {
-          "title": "Pamamahala ng Partido",
-          "manageMembers": "Pamahalaan ang mga miyembro",
-          "updateInfo": "I-update ang impormasyon ng partido",
-          "transferLeadership": "Ilipat ang pamumuno",
-          "deleteParty": "Burahin ang partido"
-        }
-      },
-      "drawers": {
-        "create": {
-          "title": "Gumawa ng Bagong Partido",
-          "name": {
-            "label": "Pangalan ng partido",
-            "placeholder": "Ilagay ang pangalan ng partido",
-            "error": "Mangyaring maglagay ng pangalan ng partido"
-          },
-          "shortName": {
-            "label": "Maikling pangalan",
-            "placeholder": "Ilagay ang maikling pangalan o pagdadaglat",
-            "error": "Mangyaring maglagay ng maikling pangalan"
-          },
-          "description": {
-            "label": "Paglalarawan",
-            "placeholder": "Ilagay ang paglalarawan ng partido",
-            "error": "Mangyaring maglagay ng paglalarawan"
-          },
-          "officialLink": {
-            "label": "Opisyal na link",
-            "placeholder": "Ilagay ang opisyal na website o community link (opsyonal)"
-          },
-          "limitWarning": {
-            "approaching": "Papalapit sa limitasyon ng karakter: {{current}}/{{max}}",
-            "reached": "Naabot na ang maximum na limitasyon ng karakter"
-          },
-          "button": {
-            "creating": "Gumagawa...",
-            "create": "Gawin ang partido"
-          }
-        },
-        "update": {
-          "title": "I-update ang Mga Detalye ng Partido",
-          "button": {
-            "update": "I-update",
-            "updateDescription": "I-update ang paglalarawan"
-          }
-        },
-        "transferLeadership": {
-          "title": "Ilipat ang Pamumuno",
-          "description": "Ilagay ang wallet address ng bagong lider o hanapin sa pamamagitan ng username. Ang address ay dapat pagmamay-ari ng isang kasalukuyang miyembro ng partido.",
-          "lookup": {
-            "label": "Maghanap gamit ang username",
-            "placeholder": "Ilagay ang username sa World App",
-            "buttonText": "Hanapin",
-            "loading": "Naghahanap...",
-            "foundUser": "Nahanap na user: ",
-            "address": "Address: "
-          },
-          "newLeader": {
-            "label": "Address ng bagong lider",
-            "placeholder": "Ilagay ang wallet address (0x...)",
-            "errors": {
-              "required": "Mangyaring maglagay ng address",
-              "invalid": "Mangyaring maglagay ng wastong Ethereum address (0x...)"
-            }
-          },
-          "button": {
-            "processing": "Pinoproseso...",
-            "transfer": "Ilipat ang pamumuno"
-          }
-        },
-        "leave": {
-          "title": "Umalis sa Kasalukuyang Partido",
-          "description": "Ikaw ay miyembro na ng {{partyName}}. Kailangan mong umalis sa iyong kasalukuyang partido bago sumali sa bago.",
-          "leaderWarning": "Tandaan: Sa ngayon ikaw ang lider ng partidong ito. Kung umalis ka, ang pamumuno ay mawawala o muling itatalaga ng sistema.",
-          "button": {
-            "leaving": "Umaalis...",
-            "leave": "Umalis sa {{partyShortName}}"
-          }
-        },
-        "createConfirm": {
-          "title": "Umalis sa Kasalukuyang Partido",
-          "description": "Ikaw ay miyembro na ng {{partyName}}. Kailangan mong umalis sa iyong kasalukuyang partido bago gumawa ng bago.",
-          "leaderWarning": "Tandaan: Sa ngayon ikaw ang lider ng partidong ito. Kung umalis ka, ang pamumuno ay mawawala o muling itatalaga ng sistema.",
-          "button": {
-            "processing": "Pinoproseso...",
-            "leaveAndCreate": "Umalis sa {{partyShortName}} at gumawa"
-          }
-        },
-        "delete": {
-          "title": "Burahin ang Partido",
-          "confirmPending": "Sigurado ka bang gusto mong burahin ang nakabinbing partidong ito?",
-          "confirm": "Sigurado ka bang gusto mong burahin ang partidong ito?",
-          "button": {
-            "processing": "Pinoproseso...",
-            "deletePending": "Burahin ang nakabinbing partido",
-            "delete": "Burahin ang partido"
-          }
-        },
-        "memberManagement": {
-          "title": "Pamamahala ng Miyembro",
-          "tabs": {
-            "remove": "Alisin",
-            "ban": "I-ban",
-            "unban": "I-unban"
-          },
-          "remove": {
-            "description": "Ilagay ang wallet address ng miyembro na gusto mong alisin o hanapin gamit ang username.",
-            "button": {
-              "processing": "Pinoproseso...",
-              "remove": "Alisin ang miyembro"
-            }
-          },
-          "ban": {
-            "description": "Ilagay ang username o wallet address ng miyembro na gusto mong i-ban mula sa partido.",
-            "button": {
-              "processing": "Pinoproseso...",
-              "ban": "I-ban ang miyembro"
-            }
-          },
-          "unban": {
-            "description": "Ilagay ang username o wallet address ng na-ban na miyembro na gusto mong payagang bumalik sa partido.",
-            "button": {
-              "processing": "Pinoproseso...",
-              "unban": "I-unban ang miyembro"
-            }
-          }
-        }
       }
     }
   },
@@ -613,7 +438,10 @@
                   "answer": "Ang mga subsidy ng partido ay mga gantimpala na ipinamamahagi sa mga partidong pampulitika batay sa mga botong natatanggap nila. Pinopondohan ng programang ito ang mga aktibidad ng partido at tinutulungan silang lumago. Maaari kang matuto nang higit pa tungkol sa <a href=\"/{{lang}}/earn/contribute/party-subsidy\" class=\"font-medium text-gray-900 underline\">Programa ng Subsidy ng Partido</a>."
                 }
               }
-            }
+            },
+            "copied": "Nakopya ang link sa clipboard",
+            "shareElection": "Share election",
+            "scrollToTop": "Scroll to top"
           }
         },
         "referendums": {
@@ -624,11 +452,6 @@
             "description": "Lumahok sa isang makasaysayang pagboto sa mga prinsipyo na gagabay sa kolektibong kinabukasan ng sangkatauhan",
             "button": "Malapit na"
           }
-        },
-        "politicalParties": {
-          "title": "Mga Partidong Pampulitika",
-          "description": "Magkaisa sa buong mundo batay sa mga pinaghahatiang pagpapahalaga",
-          "banner": "Lumipat na kami! I-tap dito upang irehistro ang iyong partido sa aming bagong app upang lumahok sa mga pagsubok na halalan"
         }
       }
     },

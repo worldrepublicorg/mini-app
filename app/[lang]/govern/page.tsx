@@ -11,7 +11,6 @@ import {
 } from "react-icons/pi";
 import { DrawerItem } from "@/components/DrawerItem";
 import { OpenLetterCard } from "@/components/OpenLetterCard";
-import { PoliticalPartyList } from "@/components/PoliticalPartyList";
 import { PollOfTheWeek } from "@/components/PollOfTheWeek";
 import { SectionHeader } from "@/components/SectionHeader";
 import { TabSwiper } from "@/components/TabSwiper";
@@ -22,7 +21,6 @@ import type { TabKey } from "@/lib/types";
 
 const TAB_KEYS = {
 	ELECTIONS: "elections",
-	POLITICAL_PARTIES: "politicalParties",
 	POLLS: "polls",
 	OPEN_LETTERS: "openLetters",
 	REFERENDUMS: "referendums",
@@ -56,7 +54,6 @@ export default function GovernPage({
 			if (tabParam && Object.values(TAB_KEYS).includes(tabParam as TabKey)) {
 				setActiveTab(tabParam as TabKey);
 			} else {
-				// Default to political parties if no valid tab is in the URL
 				setActiveTab(TAB_KEYS.ELECTIONS);
 			}
 		};
@@ -73,10 +70,6 @@ export default function GovernPage({
 		{
 			key: TAB_KEYS.ELECTIONS,
 			label: dictionary?.components?.tabSwiper?.tabs?.elections,
-		},
-		{
-			key: TAB_KEYS.POLITICAL_PARTIES,
-			label: dictionary?.components?.tabSwiper?.tabs?.politicalParties,
 		},
 		{
 			key: TAB_KEYS.OPEN_LETTERS,
@@ -170,21 +163,6 @@ export default function GovernPage({
 							</Button>
 						</Link>
 					</div>
-				);
-			case TAB_KEYS.POLITICAL_PARTIES:
-				return (
-					<>
-						<SectionHeader
-							title={
-								dictionary?.pages?.govern?.sections?.politicalParties?.title
-							}
-							description={
-								dictionary?.pages?.govern?.sections?.politicalParties
-									?.description
-							}
-						/>
-						<PoliticalPartyList lang={lang} />
-					</>
 				);
 			case TAB_KEYS.POLLS:
 				return (
@@ -318,31 +296,9 @@ export default function GovernPage({
 						onTabChange={handleTabChange}
 					/>
 				</div>
-
-				{activeTab === TAB_KEYS.POLITICAL_PARTIES && (
-					<a
-						href="https://www.worldrepublic.org/parties"
-						target="_blank"
-						rel="noopener noreferrer"
-						className="flex w-full cursor-pointer items-center justify-center bg-gray-900 px-6 py-1 text-center"
-					>
-						<Typography
-							variant={{ variant: "body", level: 4 }}
-							className="text-[14px] font-medium text-gray-0"
-						>
-							{dictionary?.pages?.govern?.sections?.politicalParties?.banner}
-						</Typography>
-					</a>
-				)}
 			</div>
 
-			<div
-				className={`flex flex-1 flex-col items-center pb-8 ${
-					activeTab === TAB_KEYS.POLITICAL_PARTIES
-						? "mt-[160px]"
-						: "mt-[112px] justify-center"
-				}`}
-			>
+			<div className="mt-[112px] flex flex-1 flex-col items-center justify-center pb-8">
 				{renderContent()}
 			</div>
 		</div>
