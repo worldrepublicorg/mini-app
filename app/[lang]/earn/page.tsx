@@ -68,7 +68,7 @@ export default function EarnPage({
 	const { isSuccess } = useWaitForTransactionReceipt({
 		client: viemClient,
 		appConfig: { app_id: process.env.NEXT_PUBLIC_APP_ID as `app_${string}` },
-		transactionId: transactionId!,
+		transactionId: transactionId ?? "",
 	});
 
 	// Add a new loading state for claimable amount
@@ -458,24 +458,27 @@ export default function EarnPage({
 	);
 
 	// Fallback polling for setup/claim
-	const pollForSetupOrClaimChange = async (
-		fetchFn: () => Promise<void>,
-		prevValue: string,
-		getValue: () => string,
-		maxAttempts = 30,
-		interval = 2000,
-	) => {
-		let attempts = 0;
-		while (attempts < maxAttempts) {
-			await fetchFn();
-			const newValue = getValue();
-			if (newValue !== prevValue) {
-				break;
+	const pollForSetupOrClaimChange = useCallback(
+		async (
+			fetchFn: () => Promise<void>,
+			prevValue: string,
+			getValue: () => string,
+			maxAttempts = 30,
+			interval = 2000,
+		) => {
+			let attempts = 0;
+			while (attempts < maxAttempts) {
+				await fetchFn();
+				const newValue = getValue();
+				if (newValue !== prevValue) {
+					break;
+				}
+				await new Promise((res) => setTimeout(res, interval));
+				attempts++;
 			}
-			await new Promise((res) => setTimeout(res, interval));
-			attempts++;
-		}
-	};
+		},
+		[],
+	);
 
 	// --- SETUP BASIC ---
 	const sendSetup = async () => {

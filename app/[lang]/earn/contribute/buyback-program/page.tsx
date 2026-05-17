@@ -80,6 +80,7 @@ export default function BuybackProgramPage({
 			<div className="fixed left-0 right-0 top-0 z-10 bg-gray-0 px-6">
 				<div className="relative flex items-center justify-center py-6">
 					<button
+						type="button"
 						onClick={() => router.back()}
 						className="absolute left-0 flex size-10 items-center justify-center rounded-full bg-gray-100"
 						aria-label="Back"
