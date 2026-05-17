@@ -1,8 +1,8 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { ToastProvider as InnerToastProvider } from "@/components/ui/Toast";
-import { ReactNode } from "react";
 
 export function ToastProvider({ children }: { children: ReactNode }) {
-  return <InnerToastProvider>{children}</InnerToastProvider>;
+	return <InnerToastProvider>{children}</InnerToastProvider>;
 }
