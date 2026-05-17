@@ -75,6 +75,7 @@ export default function FAQPage({
 		<div className="flex min-h-screen flex-col px-6 pb-20">
 			<div className="relative flex items-center justify-center py-6">
 				<button
+					type="button"
 					onClick={() => router.back()}
 					className="absolute left-0 flex size-10 items-center justify-center rounded-full bg-gray-100"
 					aria-label="Back"
@@ -94,6 +95,7 @@ export default function FAQPage({
 				{faqs.map((faq, index) => (
 					<div key={faq.id}>
 						<button
+							type="button"
 							className="flex w-full items-center justify-between py-5 text-left focus:outline-none"
 							onClick={() => toggleAccordion(faq.id)}
 						>

@@ -13,7 +13,6 @@ import {
 	PiCheckCircleFill,
 	PiInfoFill,
 	PiWarningCircleFill,
-	PiWarningFill,
 	PiX,
 } from "react-icons/pi";
 import { Typography } from "./Typography";
@@ -92,6 +91,7 @@ export const ToastProvider: React.FC<{ children: ReactNode }> = ({
 								</Typography>
 							</div>
 							<button
+								type="button"
 								onClick={() => setToast(null)}
 								className="ml-3 rounded-full p-1 hover:bg-gray-200"
 							>

@@ -10,6 +10,7 @@ interface SpinnerProps {
 const Spinner = ({ className }: SpinnerProps) => {
 	return (
 		<svg
+			aria-hidden="true"
 			width="25"
 			height="24"
 			viewBox="0 0 25 24"
