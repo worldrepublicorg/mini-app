@@ -1,15 +1,4 @@
 {
-	"git.autorefresh": true,
-	"git.enableSmartCommit": true,
-	"git.confirmSync": false,
-	"git.autofetch": true,
-	"files.watcherExclude": {
-		"**/node_modules/**": true,
-		"**/dist/**": true,
-		"**/.git/**": false
-	},
-	"git.ignoreLimitWarning": true,
-	"typescript.tsdk": "node_modules/typescript/lib",
 	"editor.defaultFormatter": "biomejs.biome",
 	"editor.formatOnSave": true,
 	"editor.codeActionsOnSave": {
