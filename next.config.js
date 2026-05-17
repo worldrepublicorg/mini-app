@@ -2,8 +2,8 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  /* config options here */
-  transpilePackages: ["mini-apps-ui-kit/react"],
+	/* config options here */
+	transpilePackages: ["mini-apps-ui-kit/react"],
 };
 
 module.exports = nextConfig;

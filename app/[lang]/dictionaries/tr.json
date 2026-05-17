@@ -1,356 +1,356 @@
 {
-  "components": {
-    "walletAuth": {
-      "connect": "Cüzdanı bağla"
-    },
-    "banners": {
-      "dalgona": {
-        "title": "Yönlendirme ödülleri geri döndü",
-        "description": "Arkadaşlarını yeni web uygulamamıza davet ederek WDD kazan.",
-        "cta": "Başla"
-      }
-    },
-    "stakeForm": {
-      "deposit": "Yatır",
-      "withdraw": "Çek",
-      "balance": "Bakiye:",
-      "depositPlaceholder": "Yatırılacak miktar",
-      "withdrawPlaceholder": "Çekilecek miktar",
-      "max": "Maksimum",
-      "interest": "Faiz:",
-      "collect": "Topla",
-      "depositButton": "Drahmi yatır",
-      "withdrawButton": "Drahmi çek"
-    },
-    "toasts": {
-      "wallet": {
-        "connectInWorldApp": "Lütfen cüzdanınızı bağlamak için bu uygulamayı World App'te açın.",
-        "stakingError": "Token stake etme hatası",
-        "withdrawError": "Token çekme hatası",
-        "collectError": "Ödül toplama hatası"
-      },
-      "referral": {
-        "pendingReward": "{{username}} için bekleyen ödül işleniyor...",
-        "rewardSuccess": "{{username}} başarıyla ödüllendirildi!",
-        "sendingReward": "{{username}}'e 50 WDD ödülü gönderiliyor..."
-      },
-      "basicIncome": {
-        "setupSuccess": "Temel Gelir Plus aktifleştirildi! {{username}} için ödül hazırlanıyor...",
-        "setupWithReferrer": "Önce Temel Gelir Plus kuruluyor, sonra {{username}}'i ödüllendireceğiz...",
-        "error": "Temel Gelir aktifleştirme hatası",
-        "errorPlus": "Temel Gelir Plus aktifleştirme hatası"
-      },
-      "transaction": {
-        "error": "Beklenmeyen bir hata oluştu",
-        "errorClaim": "Talep ederken beklenmeyen bir hata oluştu"
-      }
-    },
-    "tabSwiper": {
-      "tabs": {
-        "openLetters": "Açık mektuplar",
-        "elections": "Seçimler",
-        "referendums": "Referandumlar"
-      }
-    }
-  },
-  "pages": {
-    "earn": {
-      "title": "Kazan",
-      "tabs": {
-        "basicIncome": {
-          "tabTitle": "Temel gelir",
-          "title": "Temel Gelir",
-          "subtitle": "Temel gelirinizi talep etmek için giriş yapın",
-          "setupSubtitle": "Temel gelirinizi ayarlayın",
-          "claimableSubtitle": "Talep edilebilir drahmi",
-          "claimableTooltip1": "Bizim",
-          "claimableTooltip2": "geri alım programımızın",
-          "claimableTooltip3": " bir parçası olarak, topluluğumuz için sürdürülebilir, uzun vadeli faydalar yaratmak için temel gelir seviyelerini ince ayarlarla düzenliyoruz. Lütfen güncel oranlar için",
-          "claimableTooltip4": "SSS",
-          "claimableTooltip5": "'e bakın.",
-          "activateButton": "Temel Geliri Etkinleştir",
-          "claimButton": "Talep Et",
-          "plus": {
-            "title": "Temel Gelir Plus",
-            "newBadge": "Yeni",
-            "drawerTrigger": "Temel Gelir Plus'ı Tanıtıyoruz",
-            "subtitle": "Doğrulanmış kullanıcılar için ek gelir",
-            "drawer": {
-              "title": "Temel Gelir Plus",
-              "subtitle": "Doğrulanmış kullanıcılar için ek gelir",
-              "features": {
-                "rate": {
-                  "title": "Günde ek 0,0475 WDD"
-                },
-                "verification": {
-                  "title": "Adil dağıtım için sadece Orb-doğrulanmış kullanıcılara özel"
-                }
-              },
-              "activateButton": "Temel Gelir Plus'ı Aktifleştir",
-              "claimButton": "Temel Gelir Plus'ı Talep Et",
-              "claimBasicButton": "Temel Geliri Talep Et"
-            }
-          }
-        },
-        "savings": {
-          "tabTitle": "Tasarruf",
-          "title": "Tasarruf Hesabı",
-          "subtitle": "Her saniye faiz kazanın",
-          "tooltip": "%69 APY temel oran. Faizi toplayıp yeniden yatırarak yıllık yaklaşık %100 etkin getiri elde edin. İstediğiniz zaman çekin."
-        },
-        "invite": {
-          "title": "Davet Et",
-          "subtitle": "Katılan her arkadaş için 10 WDD kazan",
-          "tooltip": "Arkadaşların yeni web uygulamamıza katılmalı.",
-          "learnMore": "Daha fazla bilgi",
-          "stats": {
-            "title": "Davet istatistikleriniz",
-            "invites": "Kabul edilen davetler",
-            "rewards": "Toplam ödüller"
-          },
-          "actions": {
-            "copyLink": "Davet bağlantısını kopyala",
-            "copied": "Davet bağlantısı panoya kopyalandı!",
-            "connectWallet": "Davet bağlantınızı oluşturmak için lütfen cüzdanınızı bağlayın",
-            "share": "Daveti paylaş"
-          },
-          "share": {
-            "title": "Dünya Cumhuriyeti'ne Katılın",
-            "text": "Dünya Cumhuriyeti'ne katılmak ve birlikte ödüller kazanmak için davet linkimi kullanın!"
-          }
-        },
-        "contribute": {
-          "title": "Katkıda Bulun",
-          "subtitle": "Katılın, ödül kazanın",
-          "buybackProgram": {
-            "topnav": "Geri Satın Alma Programı",
-            "title": "Token Geri Satın Alma Programı",
-            "subtitle": "WDD değerini birlikte güçlendirelim",
-            "sections": {
-              "fundingSources": {
-                "title": "Finansman kaynakları",
-                "devRewards": {
-                  "title": "World Geliştirici Ödülleri",
-                  "weekProgress": "12 Haftanın 7'si"
-                },
-                "worldRetro": {
-                  "title": "World Retro Finansmanı"
-                },
-                "optimism": {
-                  "title": "Optimism Retro Finansmanı"
-                },
-                "affiliate": {
-                  "title": "Ortaklık komisyonları"
-                }
-              },
-              "commitment": {
-                "title": "Taahhüdümüz",
-                "description": "Bu finansmanın en az %50'sini WDD geri satın alımı için kullanmayı taahhüt ediyoruz.",
-                "viewAccount": "Geri satın alma hesabını görüntüle"
-              },
-              "valueCycle": {
-                "title": "Pozitif Değer Döngüsü",
-                "steps": {
-                  "step1": "Daha fazla kullanıcı ve uygulama kullanımı",
-                  "step2": "Daha yüksek ödüller",
-                  "step3": "Daha fazla token geri satın alma"
-                }
-              },
-              "helpSection": {
-                "title": "Nasıl yardımcı olabilirsiniz",
-                "intro": "WDD tokenlerinizin değerini artırmak için doğrudan katkıda bulunabilirsiniz:",
-                "steps": {
-                  "invite": {
-                    "title": "Başkalarını katılmaya davet edin",
-                    "description": "Doğrulanmış üyelerden oluşan topluluğumuzu büyütün"
-                  },
-                  "useApp": {
-                    "title": "Uygulamayı düzenli kullanın",
-                    "description": "Pozitif ekonomik döngüyü destekleyin"
-                  }
-                }
-              }
-            },
-            "actions": {
-              "share": "Daveti paylaş"
-            },
-            "cta": "Mini uygulama ödüllerini görüntüle"
-          },
-          "buybackLink": {
-            "title": "Geri Alım Programı",
-            "description": "Topluluk destekli WDD değer artışı"
-          },
-          "partySubsidy": {
-            "topnav": "Sübvansiyon Programı",
-            "title": "Parti Sübvansiyon Programı",
-            "subtitle": "Siyasi hareketinizi oluşturun ve kazanç sağlayın",
-            "weeklyPool": {
-              "old": "100.000",
-              "new": "250.000 WDD",
-              "subtitle": "Sabit havuz"
-            },
-            "devRewards": {
-              "title": "Geliştirici Ödüllerimizin %10'u",
-              "subtitle": "Değişken havuz",
-              "tooltip": "World, doğrulanmış insanların uygulama kullanımına dayalı olarak geliştirici ödülleri dağıtıyor.",
-              "checkOutRewards": "Ödülleri kontrol et"
-            },
-            "howItWorks": {
-              "title": "Nasıl çalışır",
-              "steps": {
-                "createParty": {
-                  "title": "Parti oluştur",
-                  "description": "World Republic uygulamasında siyasi hareketinizi başlatın"
-                },
-                "growMembership": {
-                  "title": "Oy pusulasına girin",
-                  "description": "Haftalık seçimlere katılmaya hak kazanmak için üyeliğinizi büyütün"
-                },
-                "earnRewards": {
-                  "title": "Finansman alın",
-                  "description": "Partinizin aldığı oylarla orantılı sübvansiyonlar kazanın"
-                }
-              }
-            },
-            "cta": {
-              "createJoin": "Parti oluştur veya katıl",
-              "leaderGroup": "Parti lider grubuna katıl"
-            },
-            "payouts": {
-              "title": "Ödemeler",
-              "week": "Hafta",
-              "showAll": "Tümünü göster"
-            }
-          }
-        }
-      }
-    },
-    "govern": {
-      "title": "Yönet",
-      "tabs": {
-        "openLetters": "Açık mektuplar",
-        "elections": "Seçimler",
-        "referendums": "Referandumlar"
-      },
-      "sections": {
-        "openLetters": {
-          "title": "Açık Mektuplar",
-          "description": "Karar vericilere açık beyanlar",
-          "statements": {
-            "aiRisk": {
-              "title": "AI Risk Beyanı",
-              "referenceTitle": "AI Güvenliği Merkezi"
-            },
-            "nuclear": {
-              "title": "BM Nükleer Silahların Yasaklanması Açık Mektubu",
-              "referenceTitle": "Yaşamın Geleceği Enstitüsü"
-            },
-            "autonomousWeapons": {
-              "title": "Ölümcül Otonom Silahlar Taahhüdü",
-              "referenceTitle": "Yaşamın Geleceği Enstitüsü"
-            },
-            "longView": {
-              "title": "Dünya Liderlerini Varoluşsal Tehditler Konusunda Uzun Vadeli Liderlik Göstermeye Çağıran Açık Mektup",
-              "referenceTitle": "Yaşamın Geleceği Enstitüsü"
-            }
-          }
-        },
-        "elections": {
-          "title": "Seçimler",
-          "description": "Temsilcilerinizi seçin",
-          "testElections": {
-            "title": "Test Seçimleri",
-            "description": "Parti sübvansiyonlarını dağıtmamıza ve yönetim sistemimizi geliştirmemize yardımcı olun",
-            "button": "Oy Ver"
-          }
-        },
-        "referendums": {
-          "title": "Referandumlar",
-          "description": "Önemli konularda doğrudan oylamalar",
-          "worldConstitutional": {
-            "title": "Dünya Anayasa Referandumu",
-            "description": "İnsanlığın kolektif geleceğine yön verecek ilkeler üzerine tarihi bir oylamaya katılın",
-            "button": "Yakında"
-          }
-        }
-      }
-    },
-    "menu": {
-      "title": "Menü",
-      "sections": {
-        "experimental": {
-          "title": "AYARLAR",
-          "links": {
-            "language": "Dil"
-          }
-        },
-        "connect": {
-          "title": "BAĞLAN",
-          "links": {
-            "community": "Topluluk",
-            "announcements": "Duyurular",
-            "x": "X"
-          }
-        },
-        "help": {
-          "title": "YARDIM",
-          "links": {
-            "support": "Yardım topluluğu",
-            "faq": "SSS"
-          }
-        },
-        "code": {
-          "title": "KOD",
-          "links": {
-            "app": "Uygulama",
-            "contracts": "Akıllı sözleşmeler"
-          }
-        }
-      }
-    },
-    "faq": {
-      "title": "SSS",
-      "items": {
-        "appPurpose": {
-          "question": "Dünya Cumhuriyeti nedir?",
-          "answer": "Dünya Cumhuriyeti, insanlığın en acil küresel zorluklarını çözmeye adanmış açık, demokratik bir organizasyondur. AI riskleri, iklim değişikliği veya biyogüvenlik gibi sadece küresel ölçekte etkili bir şekilde ele alınabilecek konularda kolektif karar verme için bir çerçeve sunar."
-        },
-        "basicIncome": {
-          "question": "Temel Gelir nedir?",
-          "answer": "Temel Gelirimiz, Dünya Cumhuriyeti'nin tüm vatandaşlarına sağlanan günlük 0,0025 WDD (dünya drahmi) sübvansiyonudur. Gerçek zamanlı olarak birikir ve uygulama üzerinden her an talep edilebilir."
-        },
-        "basicIncomePlus": {
-          "question": "Temel Gelir Plus'ı nasıl aktifleştiririm?",
-          "answer": "Temel Gelir Plus, günlük ek 0,0475 WDD sağlar ve sadece Orb-doğrulanmış kullanıcılara özeldir. Temel Geliri aktifleştirdikten sonra, Kazan sayfasında Temel Gelir Plus'ı aktifleştirme seçeneğini göreceksiniz."
-        },
-        "savings": {
-          "question": "Tasarruf Hesabı nasıl çalışır?",
-          "answer": "Tasarruf Hesabı, WDD tokenlerini yatırmanıza ve %69 yıllık faiz kazanmanıza olanak tanır. Kazanılan faizi sürekli yeniden yatırım yaparak, kullanıcılar yıllık yaklaşık %100 etkin getiri elde edebilir ve zaman içinde WDD büyümelerini maksimize edebilir. Faiz sürekli birikir ve her zaman çekilebilir veya yeniden yatırılabilir."
-        },
-        "referralCodes": {
-          "question": "Referans kodları nasıl çalışır?",
-          "answer": "Dünya Cumhuriyeti vatandaşı olarak, referans programımız aracılığıyla ödüller kazanabilirsiniz. Benzersiz referans bağlantınızı arkadaşlarınızla paylaşın ve web uygulamamıza katılıp canlılık doğrulamasını (liveness) tamamlayan her kişi için 10 WDD alın."
-        },
-        "drachmaValue": {
-          "question": "Drahmi değerini nereden alıyor?",
-          "answer": "Drahmi, Dünya Cumhuriyeti'nin resmi para birimi olmasından değerini alır. Demokratik küresel yönetim platformumuz büyüdükçe, WDD dünya ekonomisinde önemli bir değişim aracı olma potansiyeline sahip olabilir ve nihayetinde teknolojik gelişmelerin ve küresel kaynakların faydalarının adil dağılımında rol oynayabilir."
-        },
-        "topWallets": {
-          "question": "En büyük hesapları kim kontrol ediyor?",
-          "answer": "En büyük üç hesap <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>Dünya Cumhuriyeti Hazinesi</a>, <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Temel Gelir Fonu</a> ve <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Temel Gelir Artı Fonu</a>'dur. Bunlar şu anda projenin kurucusu tarafından istikrarı sağlamak amacıyla yönetilmekte olup, kontrolü aşamalı olarak topluluğa devretmekteyiz. Diğer önemli adresler arasında <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>Tasarruf Hesabı sözleşmesi</a>, <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>Yönlendirme Ödülleri dağıtıcısı</a> ve likidite havuzları bulunmaktadır: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a> ve <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
-        },
-        "voteRequirements": {
-          "question": "Yönetime nasıl katılabilirim?",
-          "answer": "Bir siyasi partiye katılarak veya oluşturarak katılabilirsiniz. Mevcut oylar açıklayıcı olsa da, partiler yönetim modelimizin temelidir. Partiler profesyonelleştikçe, demokratik kontrol için giderek daha önemli alanların kilidini açacak ve kolektif kararlarımızda size bir ses verecektir."
-        }
-      }
-    },
-    "language": {
-      "title": "Dil",
-      "options": {
-        "english": "İngilizce",
-        "spanish": "İspanyolca"
-      }
-    }
-  }
+	"components": {
+		"walletAuth": {
+			"connect": "Cüzdanı bağla"
+		},
+		"banners": {
+			"dalgona": {
+				"title": "Yönlendirme ödülleri geri döndü",
+				"description": "Arkadaşlarını yeni web uygulamamıza davet ederek WDD kazan.",
+				"cta": "Başla"
+			}
+		},
+		"stakeForm": {
+			"deposit": "Yatır",
+			"withdraw": "Çek",
+			"balance": "Bakiye:",
+			"depositPlaceholder": "Yatırılacak miktar",
+			"withdrawPlaceholder": "Çekilecek miktar",
+			"max": "Maksimum",
+			"interest": "Faiz:",
+			"collect": "Topla",
+			"depositButton": "Drahmi yatır",
+			"withdrawButton": "Drahmi çek"
+		},
+		"toasts": {
+			"wallet": {
+				"connectInWorldApp": "Lütfen cüzdanınızı bağlamak için bu uygulamayı World App'te açın.",
+				"stakingError": "Token stake etme hatası",
+				"withdrawError": "Token çekme hatası",
+				"collectError": "Ödül toplama hatası"
+			},
+			"referral": {
+				"pendingReward": "{{username}} için bekleyen ödül işleniyor...",
+				"rewardSuccess": "{{username}} başarıyla ödüllendirildi!",
+				"sendingReward": "{{username}}'e 50 WDD ödülü gönderiliyor..."
+			},
+			"basicIncome": {
+				"setupSuccess": "Temel Gelir Plus aktifleştirildi! {{username}} için ödül hazırlanıyor...",
+				"setupWithReferrer": "Önce Temel Gelir Plus kuruluyor, sonra {{username}}'i ödüllendireceğiz...",
+				"error": "Temel Gelir aktifleştirme hatası",
+				"errorPlus": "Temel Gelir Plus aktifleştirme hatası"
+			},
+			"transaction": {
+				"error": "Beklenmeyen bir hata oluştu",
+				"errorClaim": "Talep ederken beklenmeyen bir hata oluştu"
+			}
+		},
+		"tabSwiper": {
+			"tabs": {
+				"openLetters": "Açık mektuplar",
+				"elections": "Seçimler",
+				"referendums": "Referandumlar"
+			}
+		}
+	},
+	"pages": {
+		"earn": {
+			"title": "Kazan",
+			"tabs": {
+				"basicIncome": {
+					"tabTitle": "Temel gelir",
+					"title": "Temel Gelir",
+					"subtitle": "Temel gelirinizi talep etmek için giriş yapın",
+					"setupSubtitle": "Temel gelirinizi ayarlayın",
+					"claimableSubtitle": "Talep edilebilir drahmi",
+					"claimableTooltip1": "Bizim",
+					"claimableTooltip2": "geri alım programımızın",
+					"claimableTooltip3": " bir parçası olarak, topluluğumuz için sürdürülebilir, uzun vadeli faydalar yaratmak için temel gelir seviyelerini ince ayarlarla düzenliyoruz. Lütfen güncel oranlar için",
+					"claimableTooltip4": "SSS",
+					"claimableTooltip5": "'e bakın.",
+					"activateButton": "Temel Geliri Etkinleştir",
+					"claimButton": "Talep Et",
+					"plus": {
+						"title": "Temel Gelir Plus",
+						"newBadge": "Yeni",
+						"drawerTrigger": "Temel Gelir Plus'ı Tanıtıyoruz",
+						"subtitle": "Doğrulanmış kullanıcılar için ek gelir",
+						"drawer": {
+							"title": "Temel Gelir Plus",
+							"subtitle": "Doğrulanmış kullanıcılar için ek gelir",
+							"features": {
+								"rate": {
+									"title": "Günde ek 0,0475 WDD"
+								},
+								"verification": {
+									"title": "Adil dağıtım için sadece Orb-doğrulanmış kullanıcılara özel"
+								}
+							},
+							"activateButton": "Temel Gelir Plus'ı Aktifleştir",
+							"claimButton": "Temel Gelir Plus'ı Talep Et",
+							"claimBasicButton": "Temel Geliri Talep Et"
+						}
+					}
+				},
+				"savings": {
+					"tabTitle": "Tasarruf",
+					"title": "Tasarruf Hesabı",
+					"subtitle": "Her saniye faiz kazanın",
+					"tooltip": "%69 APY temel oran. Faizi toplayıp yeniden yatırarak yıllık yaklaşık %100 etkin getiri elde edin. İstediğiniz zaman çekin."
+				},
+				"invite": {
+					"title": "Davet Et",
+					"subtitle": "Katılan her arkadaş için 10 WDD kazan",
+					"tooltip": "Arkadaşların yeni web uygulamamıza katılmalı.",
+					"learnMore": "Daha fazla bilgi",
+					"stats": {
+						"title": "Davet istatistikleriniz",
+						"invites": "Kabul edilen davetler",
+						"rewards": "Toplam ödüller"
+					},
+					"actions": {
+						"copyLink": "Davet bağlantısını kopyala",
+						"copied": "Davet bağlantısı panoya kopyalandı!",
+						"connectWallet": "Davet bağlantınızı oluşturmak için lütfen cüzdanınızı bağlayın",
+						"share": "Daveti paylaş"
+					},
+					"share": {
+						"title": "Dünya Cumhuriyeti'ne Katılın",
+						"text": "Dünya Cumhuriyeti'ne katılmak ve birlikte ödüller kazanmak için davet linkimi kullanın!"
+					}
+				},
+				"contribute": {
+					"title": "Katkıda Bulun",
+					"subtitle": "Katılın, ödül kazanın",
+					"buybackProgram": {
+						"topnav": "Geri Satın Alma Programı",
+						"title": "Token Geri Satın Alma Programı",
+						"subtitle": "WDD değerini birlikte güçlendirelim",
+						"sections": {
+							"fundingSources": {
+								"title": "Finansman kaynakları",
+								"devRewards": {
+									"title": "World Geliştirici Ödülleri",
+									"weekProgress": "12 Haftanın 7'si"
+								},
+								"worldRetro": {
+									"title": "World Retro Finansmanı"
+								},
+								"optimism": {
+									"title": "Optimism Retro Finansmanı"
+								},
+								"affiliate": {
+									"title": "Ortaklık komisyonları"
+								}
+							},
+							"commitment": {
+								"title": "Taahhüdümüz",
+								"description": "Bu finansmanın en az %50'sini WDD geri satın alımı için kullanmayı taahhüt ediyoruz.",
+								"viewAccount": "Geri satın alma hesabını görüntüle"
+							},
+							"valueCycle": {
+								"title": "Pozitif Değer Döngüsü",
+								"steps": {
+									"step1": "Daha fazla kullanıcı ve uygulama kullanımı",
+									"step2": "Daha yüksek ödüller",
+									"step3": "Daha fazla token geri satın alma"
+								}
+							},
+							"helpSection": {
+								"title": "Nasıl yardımcı olabilirsiniz",
+								"intro": "WDD tokenlerinizin değerini artırmak için doğrudan katkıda bulunabilirsiniz:",
+								"steps": {
+									"invite": {
+										"title": "Başkalarını katılmaya davet edin",
+										"description": "Doğrulanmış üyelerden oluşan topluluğumuzu büyütün"
+									},
+									"useApp": {
+										"title": "Uygulamayı düzenli kullanın",
+										"description": "Pozitif ekonomik döngüyü destekleyin"
+									}
+								}
+							}
+						},
+						"actions": {
+							"share": "Daveti paylaş"
+						},
+						"cta": "Mini uygulama ödüllerini görüntüle"
+					},
+					"buybackLink": {
+						"title": "Geri Alım Programı",
+						"description": "Topluluk destekli WDD değer artışı"
+					},
+					"partySubsidy": {
+						"topnav": "Sübvansiyon Programı",
+						"title": "Parti Sübvansiyon Programı",
+						"subtitle": "Siyasi hareketinizi oluşturun ve kazanç sağlayın",
+						"weeklyPool": {
+							"old": "100.000",
+							"new": "250.000 WDD",
+							"subtitle": "Sabit havuz"
+						},
+						"devRewards": {
+							"title": "Geliştirici Ödüllerimizin %10'u",
+							"subtitle": "Değişken havuz",
+							"tooltip": "World, doğrulanmış insanların uygulama kullanımına dayalı olarak geliştirici ödülleri dağıtıyor.",
+							"checkOutRewards": "Ödülleri kontrol et"
+						},
+						"howItWorks": {
+							"title": "Nasıl çalışır",
+							"steps": {
+								"createParty": {
+									"title": "Parti oluştur",
+									"description": "World Republic uygulamasında siyasi hareketinizi başlatın"
+								},
+								"growMembership": {
+									"title": "Oy pusulasına girin",
+									"description": "Haftalık seçimlere katılmaya hak kazanmak için üyeliğinizi büyütün"
+								},
+								"earnRewards": {
+									"title": "Finansman alın",
+									"description": "Partinizin aldığı oylarla orantılı sübvansiyonlar kazanın"
+								}
+							}
+						},
+						"cta": {
+							"createJoin": "Parti oluştur veya katıl",
+							"leaderGroup": "Parti lider grubuna katıl"
+						},
+						"payouts": {
+							"title": "Ödemeler",
+							"week": "Hafta",
+							"showAll": "Tümünü göster"
+						}
+					}
+				}
+			}
+		},
+		"govern": {
+			"title": "Yönet",
+			"tabs": {
+				"openLetters": "Açık mektuplar",
+				"elections": "Seçimler",
+				"referendums": "Referandumlar"
+			},
+			"sections": {
+				"openLetters": {
+					"title": "Açık Mektuplar",
+					"description": "Karar vericilere açık beyanlar",
+					"statements": {
+						"aiRisk": {
+							"title": "AI Risk Beyanı",
+							"referenceTitle": "AI Güvenliği Merkezi"
+						},
+						"nuclear": {
+							"title": "BM Nükleer Silahların Yasaklanması Açık Mektubu",
+							"referenceTitle": "Yaşamın Geleceği Enstitüsü"
+						},
+						"autonomousWeapons": {
+							"title": "Ölümcül Otonom Silahlar Taahhüdü",
+							"referenceTitle": "Yaşamın Geleceği Enstitüsü"
+						},
+						"longView": {
+							"title": "Dünya Liderlerini Varoluşsal Tehditler Konusunda Uzun Vadeli Liderlik Göstermeye Çağıran Açık Mektup",
+							"referenceTitle": "Yaşamın Geleceği Enstitüsü"
+						}
+					}
+				},
+				"elections": {
+					"title": "Seçimler",
+					"description": "Temsilcilerinizi seçin",
+					"testElections": {
+						"title": "Test Seçimleri",
+						"description": "Parti sübvansiyonlarını dağıtmamıza ve yönetim sistemimizi geliştirmemize yardımcı olun",
+						"button": "Oy Ver"
+					}
+				},
+				"referendums": {
+					"title": "Referandumlar",
+					"description": "Önemli konularda doğrudan oylamalar",
+					"worldConstitutional": {
+						"title": "Dünya Anayasa Referandumu",
+						"description": "İnsanlığın kolektif geleceğine yön verecek ilkeler üzerine tarihi bir oylamaya katılın",
+						"button": "Yakında"
+					}
+				}
+			}
+		},
+		"menu": {
+			"title": "Menü",
+			"sections": {
+				"experimental": {
+					"title": "AYARLAR",
+					"links": {
+						"language": "Dil"
+					}
+				},
+				"connect": {
+					"title": "BAĞLAN",
+					"links": {
+						"community": "Topluluk",
+						"announcements": "Duyurular",
+						"x": "X"
+					}
+				},
+				"help": {
+					"title": "YARDIM",
+					"links": {
+						"support": "Yardım topluluğu",
+						"faq": "SSS"
+					}
+				},
+				"code": {
+					"title": "KOD",
+					"links": {
+						"app": "Uygulama",
+						"contracts": "Akıllı sözleşmeler"
+					}
+				}
+			}
+		},
+		"faq": {
+			"title": "SSS",
+			"items": {
+				"appPurpose": {
+					"question": "Dünya Cumhuriyeti nedir?",
+					"answer": "Dünya Cumhuriyeti, insanlığın en acil küresel zorluklarını çözmeye adanmış açık, demokratik bir organizasyondur. AI riskleri, iklim değişikliği veya biyogüvenlik gibi sadece küresel ölçekte etkili bir şekilde ele alınabilecek konularda kolektif karar verme için bir çerçeve sunar."
+				},
+				"basicIncome": {
+					"question": "Temel Gelir nedir?",
+					"answer": "Temel Gelirimiz, Dünya Cumhuriyeti'nin tüm vatandaşlarına sağlanan günlük 0,0025 WDD (dünya drahmi) sübvansiyonudur. Gerçek zamanlı olarak birikir ve uygulama üzerinden her an talep edilebilir."
+				},
+				"basicIncomePlus": {
+					"question": "Temel Gelir Plus'ı nasıl aktifleştiririm?",
+					"answer": "Temel Gelir Plus, günlük ek 0,0475 WDD sağlar ve sadece Orb-doğrulanmış kullanıcılara özeldir. Temel Geliri aktifleştirdikten sonra, Kazan sayfasında Temel Gelir Plus'ı aktifleştirme seçeneğini göreceksiniz."
+				},
+				"savings": {
+					"question": "Tasarruf Hesabı nasıl çalışır?",
+					"answer": "Tasarruf Hesabı, WDD tokenlerini yatırmanıza ve %69 yıllık faiz kazanmanıza olanak tanır. Kazanılan faizi sürekli yeniden yatırım yaparak, kullanıcılar yıllık yaklaşık %100 etkin getiri elde edebilir ve zaman içinde WDD büyümelerini maksimize edebilir. Faiz sürekli birikir ve her zaman çekilebilir veya yeniden yatırılabilir."
+				},
+				"referralCodes": {
+					"question": "Referans kodları nasıl çalışır?",
+					"answer": "Dünya Cumhuriyeti vatandaşı olarak, referans programımız aracılığıyla ödüller kazanabilirsiniz. Benzersiz referans bağlantınızı arkadaşlarınızla paylaşın ve web uygulamamıza katılıp canlılık doğrulamasını (liveness) tamamlayan her kişi için 10 WDD alın."
+				},
+				"drachmaValue": {
+					"question": "Drahmi değerini nereden alıyor?",
+					"answer": "Drahmi, Dünya Cumhuriyeti'nin resmi para birimi olmasından değerini alır. Demokratik küresel yönetim platformumuz büyüdükçe, WDD dünya ekonomisinde önemli bir değişim aracı olma potansiyeline sahip olabilir ve nihayetinde teknolojik gelişmelerin ve küresel kaynakların faydalarının adil dağılımında rol oynayabilir."
+				},
+				"topWallets": {
+					"question": "En büyük hesapları kim kontrol ediyor?",
+					"answer": "En büyük üç hesap <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>Dünya Cumhuriyeti Hazinesi</a>, <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Temel Gelir Fonu</a> ve <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Temel Gelir Artı Fonu</a>'dur. Bunlar şu anda projenin kurucusu tarafından istikrarı sağlamak amacıyla yönetilmekte olup, kontrolü aşamalı olarak topluluğa devretmekteyiz. Diğer önemli adresler arasında <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>Tasarruf Hesabı sözleşmesi</a>, <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>Yönlendirme Ödülleri dağıtıcısı</a> ve likidite havuzları bulunmaktadır: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a> ve <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
+				},
+				"voteRequirements": {
+					"question": "Yönetime nasıl katılabilirim?",
+					"answer": "Bir siyasi partiye katılarak veya oluşturarak katılabilirsiniz. Mevcut oylar açıklayıcı olsa da, partiler yönetim modelimizin temelidir. Partiler profesyonelleştikçe, demokratik kontrol için giderek daha önemli alanların kilidini açacak ve kolektif kararlarımızda size bir ses verecektir."
+				}
+			}
+		},
+		"language": {
+			"title": "Dil",
+			"options": {
+				"english": "İngilizce",
+				"spanish": "İspanyolca"
+			}
+		}
+	}
 }

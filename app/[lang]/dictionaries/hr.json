@@ -1,357 +1,357 @@
 {
-  "components": {
-    "walletAuth": {
-      "connect": "Poveži novčanik"
-    },
-    "banners": {
-      "dalgona": {
-        "title": "Nagrade za preporuke su se vratile",
-        "description": "Dobijte WDD za pozivanje prijatelja u našu novu web-aplikaciju.",
-        "cta": "Kreni"
-      }
-    },
-    "stakeForm": {
-      "deposit": "Depozit",
-      "withdraw": "Povuci",
-      "balance": "Stanje:",
-      "depositPlaceholder": "Iznos za depozit",
-      "withdrawPlaceholder": "Iznos za povlačenje",
-      "max": "Maksimalno",
-      "interest": "Kamata:",
-      "collect": "Prikupi",
-      "depositButton": "Položi drahme",
-      "withdrawButton": "Povuci drahme"
-    },
-    "toasts": {
-      "wallet": {
-        "connectInWorldApp": "Molimo otvorite ovu aplikaciju u World App-u za povezivanje novčanika.",
-        "stakingError": "Greška pri ulaganju tokena",
-        "withdrawError": "Greška pri povlačenju tokena",
-        "collectError": "Greška pri prikupljanju nagrada"
-      },
-      "referral": {
-        "pendingReward": "Obrada nagrade na čekanju za {{username}}...",
-        "rewardSuccess": "Uspješno nagrađen {{username}}!",
-        "sendingReward": "Slanje nagrade od 50 WDD korisniku {{username}}..."
-      },
-      "basicIncome": {
-        "setupSuccess": "Temeljni Dohodak Plus aktiviran! Sada pripremamo nagradu za {{username}}...",
-        "setupWithReferrer": "Prvo postavljamo Temeljni Dohodak Plus, zatim ćemo nagraditi {{username}}...",
-        "error": "Greška pri aktivaciji Temeljnog Dohotka",
-        "errorPlus": "Greška pri aktivaciji Temeljnog Dohotka Plus"
-      },
-      "transaction": {
-        "error": "Došlo je do neočekivane greške",
-        "errorClaim": "Došlo je do neočekivane greške prilikom preuzimanja"
-      }
-    },
-    "tabSwiper": {
-      "tabs": {
-        "openLetters": "Otvorena pisma",
-        "elections": "Izbori",
-        "referendums": "Referendumi"
-      }
-    }
-  },
-  "pages": {
-    "earn": {
-      "title": "Zarada",
-      "tabs": {
-        "basicIncome": {
-          "tabTitle": "Temeljni dohodak",
-          "title": "Temeljni Dohodak",
-          "subtitle": "Prijavite se za preuzimanje temeljnog dohotka",
-          "setupSubtitle": "Postavite svoj temeljni dohodak",
-          "claimableSubtitle": "Dostupne drahme",
-          "claimableTooltip1": "Kao dio našeg",
-          "claimableTooltip2": "programa otkupa",
-          "claimableTooltip3": ", usavršavamo razine temeljnog dohotka kako bismo stvorili održive, dugoročne koristi za našu zajednicu. Molimo pogledajte",
-          "claimableTooltip4": "FAQ",
-          "claimableTooltip5": "za trenutne stope.",
-          "activateButton": "Aktiviraj Temeljni Dohodak",
-          "claimButton": "Preuzmi",
-          "plus": {
-            "title": "Temeljni Dohodak Plus",
-            "newBadge": "Novo",
-            "drawerTrigger": "Predstavljamo Temeljni Dohodak Plus",
-            "subtitle": "Dodatni prihod za verificirane korisnike",
-            "drawer": {
-              "title": "Temeljni Dohodak Plus",
-              "subtitle": "Dodatni prihod za verificirane korisnike",
-              "features": {
-                "rate": {
-                  "title": "0,0475 WDD dodatnih po danu"
-                },
-                "verification": {
-                  "title": "Ekskluzivno za Orb-verificirane korisnike radi osiguranja pravedne distribucije"
-                }
-              },
-              "activateButton": "Aktiviraj Temeljni Dohodak Plus",
-              "claimButton": "Preuzmi Temeljni Dohodak Plus",
-              "claimBasicButton": "Preuzmi Temeljni Dohodak"
-            }
-          }
-        },
-        "savings": {
-          "tabTitle": "Štednja",
-          "title": "Štedni Račun",
-          "subtitle": "Zaradite kamatu svake sekunde",
-          "tooltip": "Osnovna stopa od 69% GPR. Prikupljajte i reinvestirajte kamatu za postizanje blizu 100% efektivnog godišnjeg prinosa. Povucite sredstva bilo kada."
-        },
-        "invite": {
-          "title": "Pozovi",
-          "subtitle": "Zaradi 10 WDD po prijatelju koji se pridruži",
-          "tooltip": "Prijatelji se moraju pridružiti našoj novoj web aplikaciji.",
-          "learnMore": "Saznaj više",
-          "stats": {
-            "title": "Vaše statistike preporuka",
-            "invites": "Prihvaćeni pozivi",
-            "rewards": "Ukupne nagrade"
-          },
-          "actions": {
-            "copyLink": "Kopiraj referentni link",
-            "copied": "Referentni link kopiran u međuspremnik!",
-            "connectWallet": "Molimo povežite novčanik za generiranje referentnog linka",
-            "share": "Podijeli link pozivnice"
-          },
-          "share": {
-            "title": "Pridružite se Svjetskoj Republici",
-            "text": "Koristite moju pozivnicu da se pridružite Svjetskoj Republici i zajedno zaradite nagrade!"
-          }
-        },
-        "contribute": {
-          "title": "Doprinesi",
-          "subtitle": "Uključi se, budi nagrađen",
-          "buybackProgram": {
-            "topnav": "Program Otkupa",
-            "title": "Program Otkupa Tokena",
-            "subtitle": "Zajedno ojačajmo vrijednost WDD-a",
-            "sections": {
-              "fundingSources": {
-                "title": "Izvori financiranja",
-                "devRewards": {
-                  "title": "World Dev Nagrade",
-                  "weekProgress": "Tjedan 7 od 12"
-                },
-                "worldRetro": {
-                  "title": "World Retro Financiranje"
-                },
-                "optimism": {
-                  "title": "Optimism Retro Financiranje"
-                },
-                "affiliate": {
-                  "title": "Partnerske provizije"
-                }
-              },
-              "commitment": {
-                "title": "Naša obveza od 50%",
-                "description": "Obvezujemo se koristiti najmanje 50% naših nagrada iz programa za otkup WDD-a.",
-                "viewAccount": "Pogledaj račun za otkup"
-              },
-              "valueCycle": {
-                "title": "Pozitivan Ciklus Vrijednosti",
-                "steps": {
-                  "step1": "Više korisnika i korištenja aplikacije",
-                  "step2": "Veće nagrade",
-                  "step3": "Više otkupa tokena"
-                }
-              },
-              "helpSection": {
-                "title": "Kako možete pomoći",
-                "intro": "Možete izravno doprinijeti povećanju vrijednosti vaših WDD tokena:",
-                "steps": {
-                  "invite": {
-                    "title": "Pozovite druge da se pridruže",
-                    "description": "Proširite našu zajednicu provjerenih članova"
-                  },
-                  "useApp": {
-                    "title": "Redovito koristite aplikaciju",
-                    "description": "Potaknite pozitivan ekonomski ciklus"
-                  }
-                }
-              }
-            },
-            "actions": {
-              "share": "Podijelite pozivnicu"
-            },
-            "cta": "Pogledajte nagrade mini aplikacije"
-          },
-          "buybackLink": {
-            "title": "Program otkupa",
-            "description": "Rast vrijednosti WDD-a pokretan zajednicom"
-          },
-          "partySubsidy": {
-            "topnav": "Program Subvencija",
-            "title": "Program Subvencija za Stranke",
-            "subtitle": "Izgradite svoj politički pokret i zaradite",
-            "weeklyPool": {
-              "old": "100.000",
-              "new": "250.000 WDD",
-              "subtitle": "Fiksni fond"
-            },
-            "devRewards": {
-              "title": "10% naših Dev Nagrada",
-              "subtitle": "Varijabilni fond",
-              "tooltip": "World distribuira nagrade za developere na temelju korištenja aplikacije od strane verificiranih ljudi.",
-              "checkOutRewards": "Pogledajte nagrade"
-            },
-            "howItWorks": {
-              "title": "Kako to funkcionira",
-              "steps": {
-                "createParty": {
-                  "title": "Stvorite stranku",
-                  "description": "Pokrenite svoj politički pokret u aplikaciji World Republic"
-                },
-                "growMembership": {
-                  "title": "Dospite na glasački listić",
-                  "description": "Povećajte svoje članstvo kako biste se kvalificirali za tjedne izbore"
-                },
-                "earnRewards": {
-                  "title": "Primite financiranje",
-                  "description": "Zaradite subvencije proporcionalne glasovima koje vaša stranka dobije"
-                }
-              }
-            },
-            "cta": {
-              "createJoin": "Stvorite ili se pridružite stranci",
-              "leaderGroup": "Pridružite se grupi vođa stranke"
-            },
-            "payouts": {
-              "title": "Isplate",
-              "week": "Tjedan",
-              "showAll": "Prikaži sve"
-            }
-          }
-        }
-      }
-    },
-    "govern": {
-      "title": "Upravljanje",
-      "tabs": {
-        "openLetters": "Otvorena pisma",
-        "elections": "Izbori",
-        "referendums": "Referendumi"
-      },
-      "sections": {
-        "openLetters": {
-          "title": "Otvorena Pisma",
-          "description": "Javne izjave donositeljima odluka",
-          "statements": {
-            "aiRisk": {
-              "title": "Izjava o UI Riziku",
-              "referenceTitle": "Centar za UI sigurnost"
-            },
-            "nuclear": {
-              "title": "UN-ovo Otvoreno Pismo o Zabrani Nuklearnog Oružja",
-              "referenceTitle": "Institut za budućnost života"
-            },
-            "autonomousWeapons": {
-              "title": "Zavjet o Smrtonosnom Autonomnom Oružju",
-              "referenceTitle": "Institut za budućnost života"
-            },
-            "longView": {
-              "title": "Otvoreno Pismo koje poziva svjetske čelnike da pokažu Dugoročno Vodstvo o Egzistencijalnim Prijetnjama",
-              "referenceTitle": "Institut za budućnost života"
-            }
-          }
-        },
-        "elections": {
-          "title": "Izbori",
-          "description": "Izaberite svoje predstavnike",
-          "testElections": {
-            "title": "Probni Izbori",
-            "description": "Pomozite nam distribuirati stranačke subvencije i poboljšati naš sustav upravljanja",
-            "button": "Glasaj"
-          }
-        },
-        "referendums": {
-          "title": "Referendumi",
-          "description": "Izravna glasanja o važnim pitanjima",
-          "worldConstitutional": {
-            "title": "Svjetski Ustavni Referendum",
-            "description": "Sudjelujte u povijesnom glasanju o načelima koja će voditi kolektivnu budućnost čovječanstva",
-            "button": "Uskoro"
-          }
-        }
-      }
-    },
-    "menu": {
-      "title": "Izbornik",
-      "sections": {
-        "experimental": {
-          "title": "POSTAVKE",
-          "links": {
-            "language": "Jezik"
-          }
-        },
-        "connect": {
-          "title": "POVEZIVANJE",
-          "links": {
-            "community": "Zajednica",
-            "announcements": "Obavijesti",
-            "x": "X"
-          }
-        },
-        "help": {
-          "title": "POMOĆ",
-          "links": {
-            "support": "Zajednica pomoći",
-            "faq": "FAQ"
-          }
-        },
-        "code": {
-          "title": "KÔD",
-          "links": {
-            "app": "Aplikacija",
-            "contracts": "Pametni ugovori"
-          }
-        }
-      }
-    },
-    "faq": {
-      "title": "Česta Pitanja",
-      "items": {
-        "appPurpose": {
-          "question": "Što je Svjetska Republika?",
-          "answer": "Svjetska Republika je otvorena, demokratska organizacija posvećena rješavanju najhitnijih globalnih izazova čovječanstva. Pruža okvir za kolektivno donošenje odluka o pitanjima koja se mogu učinkovito riješiti samo na globalnoj razini, poput UI rizika, klimatskih promjena ili biosigurnosti."
-        },
-        "basicIncome": {
-          "question": "Što je Temeljni dohodak?",
-          "answer": "Naš Temeljni dohodak je dnevna subvencija od 0,0025 WDD (svjetska drahma) koja se pruža svim građanima Svjetske Republike. Akumulira se u stvarnom vremenu i može se preuzeti u bilo kojem trenutku putem aplikacije."
-        },
-        "basicIncomePlus": {
-          "question": "Kako aktivirati Temeljni dohodak Plus?",
-          "answer": "Temeljni dohodak Plus pruža dodatnih 0,0475 WDD dnevno i dostupan je isključivo Orb-verificiranim korisnicima. Nakon aktivacije Temeljnog dohotka, vidjet ćete opciju za aktivaciju Temeljnog dohotka Plus na stranici Zarada."
-        },
-        "savings": {
-          "question": "Kako funkcionira Štedni račun?",
-          "answer": "Štedni račun vam omogućuje polaganje WDD tokena i zaradu godišnje kamate od 69%. Kroz stalno reinvestiranje zarađene kamate, korisnici mogu postići efektivne prinose blizu 100% godišnje, maksimizirajući rast svojih WDD-a tijekom vremena. Kamata se akumulira kontinuirano i može se povući ili reinvestirati u bilo kojem trenutku."
-        },
-        "referralCodes": {
-          "question": "Kako funkcioniraju preporučiteljski kodovi?",
-          "answer": "Kao građanin Svjetske Republike, možete zaraditi nagrade kroz naš program preporuka. Podijelite svoju jedinstvenu preporučiteljsku poveznicu s prijateljima i dobit ćete 10 WDD za svaku osobu koja se pridruži našoj web aplikaciji i dovrši provjeru živosti."
-        },
-        "drachmaValue": {
-          "question": "Odakle drahma dobiva svoju vrijednost?",
-          "answer": "Drahma dobiva svoju vrijednost kao službena valuta Svjetske Republike. Kako naša demokratska platforma globalnog upravljanja raste, WDD ima potencijal postati značajno sredstvo razmjene u svjetskoj ekonomiji i mogao bi eventualno igrati ulogu u pravednoj raspodjeli koristi od tehnoloških napredaka i globalnih resursa."
-        },
-        "topWallets": {
-          "question": "Tko kontrolira najveće račune?",
-          "answer": "Tri najveća računa su <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>Trezor Svjetske Republike</a>, <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Fond za osnovni dohodak</a> i <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Fond za osnovni dohodak plus</a>. Trenutačno ih upravlja osnivač projekta kako bi se osigurala stabilnost dok postupno prenosimo kontrolu na zajednicu. Ostale ključne adrese uključuju <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>ugovor o štednom računu</a>, <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>distributera nagrada za preporuke</a> i bazene likvidnosti: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a> i <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
-        },
-        "voteRequirements": {
-          "question": "Kako mogu sudjelovati u upravljanju?",
-          "answer": "Možete sudjelovati pridruživanjem ili stvaranjem političke stranke. Iako su trenutni glasovi ilustrativni, stranke su temelj našeg modela upravljanja. Kako se stranke budu profesionalizirale, otključavat će sve značajnija područja za demokratsku kontrolu, dajući vam glas u našim kolektivnim odlukama."
-        }
-      }
-    },
-    "language": {
-      "title": "Jezik",
-      "options": {
-        "english": "English",
-        "spanish": "Español",
-        "croatian": "Hrvatski"
-      }
-    }
-  }
+	"components": {
+		"walletAuth": {
+			"connect": "Poveži novčanik"
+		},
+		"banners": {
+			"dalgona": {
+				"title": "Nagrade za preporuke su se vratile",
+				"description": "Dobijte WDD za pozivanje prijatelja u našu novu web-aplikaciju.",
+				"cta": "Kreni"
+			}
+		},
+		"stakeForm": {
+			"deposit": "Depozit",
+			"withdraw": "Povuci",
+			"balance": "Stanje:",
+			"depositPlaceholder": "Iznos za depozit",
+			"withdrawPlaceholder": "Iznos za povlačenje",
+			"max": "Maksimalno",
+			"interest": "Kamata:",
+			"collect": "Prikupi",
+			"depositButton": "Položi drahme",
+			"withdrawButton": "Povuci drahme"
+		},
+		"toasts": {
+			"wallet": {
+				"connectInWorldApp": "Molimo otvorite ovu aplikaciju u World App-u za povezivanje novčanika.",
+				"stakingError": "Greška pri ulaganju tokena",
+				"withdrawError": "Greška pri povlačenju tokena",
+				"collectError": "Greška pri prikupljanju nagrada"
+			},
+			"referral": {
+				"pendingReward": "Obrada nagrade na čekanju za {{username}}...",
+				"rewardSuccess": "Uspješno nagrađen {{username}}!",
+				"sendingReward": "Slanje nagrade od 50 WDD korisniku {{username}}..."
+			},
+			"basicIncome": {
+				"setupSuccess": "Temeljni Dohodak Plus aktiviran! Sada pripremamo nagradu za {{username}}...",
+				"setupWithReferrer": "Prvo postavljamo Temeljni Dohodak Plus, zatim ćemo nagraditi {{username}}...",
+				"error": "Greška pri aktivaciji Temeljnog Dohotka",
+				"errorPlus": "Greška pri aktivaciji Temeljnog Dohotka Plus"
+			},
+			"transaction": {
+				"error": "Došlo je do neočekivane greške",
+				"errorClaim": "Došlo je do neočekivane greške prilikom preuzimanja"
+			}
+		},
+		"tabSwiper": {
+			"tabs": {
+				"openLetters": "Otvorena pisma",
+				"elections": "Izbori",
+				"referendums": "Referendumi"
+			}
+		}
+	},
+	"pages": {
+		"earn": {
+			"title": "Zarada",
+			"tabs": {
+				"basicIncome": {
+					"tabTitle": "Temeljni dohodak",
+					"title": "Temeljni Dohodak",
+					"subtitle": "Prijavite se za preuzimanje temeljnog dohotka",
+					"setupSubtitle": "Postavite svoj temeljni dohodak",
+					"claimableSubtitle": "Dostupne drahme",
+					"claimableTooltip1": "Kao dio našeg",
+					"claimableTooltip2": "programa otkupa",
+					"claimableTooltip3": ", usavršavamo razine temeljnog dohotka kako bismo stvorili održive, dugoročne koristi za našu zajednicu. Molimo pogledajte",
+					"claimableTooltip4": "FAQ",
+					"claimableTooltip5": "za trenutne stope.",
+					"activateButton": "Aktiviraj Temeljni Dohodak",
+					"claimButton": "Preuzmi",
+					"plus": {
+						"title": "Temeljni Dohodak Plus",
+						"newBadge": "Novo",
+						"drawerTrigger": "Predstavljamo Temeljni Dohodak Plus",
+						"subtitle": "Dodatni prihod za verificirane korisnike",
+						"drawer": {
+							"title": "Temeljni Dohodak Plus",
+							"subtitle": "Dodatni prihod za verificirane korisnike",
+							"features": {
+								"rate": {
+									"title": "0,0475 WDD dodatnih po danu"
+								},
+								"verification": {
+									"title": "Ekskluzivno za Orb-verificirane korisnike radi osiguranja pravedne distribucije"
+								}
+							},
+							"activateButton": "Aktiviraj Temeljni Dohodak Plus",
+							"claimButton": "Preuzmi Temeljni Dohodak Plus",
+							"claimBasicButton": "Preuzmi Temeljni Dohodak"
+						}
+					}
+				},
+				"savings": {
+					"tabTitle": "Štednja",
+					"title": "Štedni Račun",
+					"subtitle": "Zaradite kamatu svake sekunde",
+					"tooltip": "Osnovna stopa od 69% GPR. Prikupljajte i reinvestirajte kamatu za postizanje blizu 100% efektivnog godišnjeg prinosa. Povucite sredstva bilo kada."
+				},
+				"invite": {
+					"title": "Pozovi",
+					"subtitle": "Zaradi 10 WDD po prijatelju koji se pridruži",
+					"tooltip": "Prijatelji se moraju pridružiti našoj novoj web aplikaciji.",
+					"learnMore": "Saznaj više",
+					"stats": {
+						"title": "Vaše statistike preporuka",
+						"invites": "Prihvaćeni pozivi",
+						"rewards": "Ukupne nagrade"
+					},
+					"actions": {
+						"copyLink": "Kopiraj referentni link",
+						"copied": "Referentni link kopiran u međuspremnik!",
+						"connectWallet": "Molimo povežite novčanik za generiranje referentnog linka",
+						"share": "Podijeli link pozivnice"
+					},
+					"share": {
+						"title": "Pridružite se Svjetskoj Republici",
+						"text": "Koristite moju pozivnicu da se pridružite Svjetskoj Republici i zajedno zaradite nagrade!"
+					}
+				},
+				"contribute": {
+					"title": "Doprinesi",
+					"subtitle": "Uključi se, budi nagrađen",
+					"buybackProgram": {
+						"topnav": "Program Otkupa",
+						"title": "Program Otkupa Tokena",
+						"subtitle": "Zajedno ojačajmo vrijednost WDD-a",
+						"sections": {
+							"fundingSources": {
+								"title": "Izvori financiranja",
+								"devRewards": {
+									"title": "World Dev Nagrade",
+									"weekProgress": "Tjedan 7 od 12"
+								},
+								"worldRetro": {
+									"title": "World Retro Financiranje"
+								},
+								"optimism": {
+									"title": "Optimism Retro Financiranje"
+								},
+								"affiliate": {
+									"title": "Partnerske provizije"
+								}
+							},
+							"commitment": {
+								"title": "Naša obveza od 50%",
+								"description": "Obvezujemo se koristiti najmanje 50% naših nagrada iz programa za otkup WDD-a.",
+								"viewAccount": "Pogledaj račun za otkup"
+							},
+							"valueCycle": {
+								"title": "Pozitivan Ciklus Vrijednosti",
+								"steps": {
+									"step1": "Više korisnika i korištenja aplikacije",
+									"step2": "Veće nagrade",
+									"step3": "Više otkupa tokena"
+								}
+							},
+							"helpSection": {
+								"title": "Kako možete pomoći",
+								"intro": "Možete izravno doprinijeti povećanju vrijednosti vaših WDD tokena:",
+								"steps": {
+									"invite": {
+										"title": "Pozovite druge da se pridruže",
+										"description": "Proširite našu zajednicu provjerenih članova"
+									},
+									"useApp": {
+										"title": "Redovito koristite aplikaciju",
+										"description": "Potaknite pozitivan ekonomski ciklus"
+									}
+								}
+							}
+						},
+						"actions": {
+							"share": "Podijelite pozivnicu"
+						},
+						"cta": "Pogledajte nagrade mini aplikacije"
+					},
+					"buybackLink": {
+						"title": "Program otkupa",
+						"description": "Rast vrijednosti WDD-a pokretan zajednicom"
+					},
+					"partySubsidy": {
+						"topnav": "Program Subvencija",
+						"title": "Program Subvencija za Stranke",
+						"subtitle": "Izgradite svoj politički pokret i zaradite",
+						"weeklyPool": {
+							"old": "100.000",
+							"new": "250.000 WDD",
+							"subtitle": "Fiksni fond"
+						},
+						"devRewards": {
+							"title": "10% naših Dev Nagrada",
+							"subtitle": "Varijabilni fond",
+							"tooltip": "World distribuira nagrade za developere na temelju korištenja aplikacije od strane verificiranih ljudi.",
+							"checkOutRewards": "Pogledajte nagrade"
+						},
+						"howItWorks": {
+							"title": "Kako to funkcionira",
+							"steps": {
+								"createParty": {
+									"title": "Stvorite stranku",
+									"description": "Pokrenite svoj politički pokret u aplikaciji World Republic"
+								},
+								"growMembership": {
+									"title": "Dospite na glasački listić",
+									"description": "Povećajte svoje članstvo kako biste se kvalificirali za tjedne izbore"
+								},
+								"earnRewards": {
+									"title": "Primite financiranje",
+									"description": "Zaradite subvencije proporcionalne glasovima koje vaša stranka dobije"
+								}
+							}
+						},
+						"cta": {
+							"createJoin": "Stvorite ili se pridružite stranci",
+							"leaderGroup": "Pridružite se grupi vođa stranke"
+						},
+						"payouts": {
+							"title": "Isplate",
+							"week": "Tjedan",
+							"showAll": "Prikaži sve"
+						}
+					}
+				}
+			}
+		},
+		"govern": {
+			"title": "Upravljanje",
+			"tabs": {
+				"openLetters": "Otvorena pisma",
+				"elections": "Izbori",
+				"referendums": "Referendumi"
+			},
+			"sections": {
+				"openLetters": {
+					"title": "Otvorena Pisma",
+					"description": "Javne izjave donositeljima odluka",
+					"statements": {
+						"aiRisk": {
+							"title": "Izjava o UI Riziku",
+							"referenceTitle": "Centar za UI sigurnost"
+						},
+						"nuclear": {
+							"title": "UN-ovo Otvoreno Pismo o Zabrani Nuklearnog Oružja",
+							"referenceTitle": "Institut za budućnost života"
+						},
+						"autonomousWeapons": {
+							"title": "Zavjet o Smrtonosnom Autonomnom Oružju",
+							"referenceTitle": "Institut za budućnost života"
+						},
+						"longView": {
+							"title": "Otvoreno Pismo koje poziva svjetske čelnike da pokažu Dugoročno Vodstvo o Egzistencijalnim Prijetnjama",
+							"referenceTitle": "Institut za budućnost života"
+						}
+					}
+				},
+				"elections": {
+					"title": "Izbori",
+					"description": "Izaberite svoje predstavnike",
+					"testElections": {
+						"title": "Probni Izbori",
+						"description": "Pomozite nam distribuirati stranačke subvencije i poboljšati naš sustav upravljanja",
+						"button": "Glasaj"
+					}
+				},
+				"referendums": {
+					"title": "Referendumi",
+					"description": "Izravna glasanja o važnim pitanjima",
+					"worldConstitutional": {
+						"title": "Svjetski Ustavni Referendum",
+						"description": "Sudjelujte u povijesnom glasanju o načelima koja će voditi kolektivnu budućnost čovječanstva",
+						"button": "Uskoro"
+					}
+				}
+			}
+		},
+		"menu": {
+			"title": "Izbornik",
+			"sections": {
+				"experimental": {
+					"title": "POSTAVKE",
+					"links": {
+						"language": "Jezik"
+					}
+				},
+				"connect": {
+					"title": "POVEZIVANJE",
+					"links": {
+						"community": "Zajednica",
+						"announcements": "Obavijesti",
+						"x": "X"
+					}
+				},
+				"help": {
+					"title": "POMOĆ",
+					"links": {
+						"support": "Zajednica pomoći",
+						"faq": "FAQ"
+					}
+				},
+				"code": {
+					"title": "KÔD",
+					"links": {
+						"app": "Aplikacija",
+						"contracts": "Pametni ugovori"
+					}
+				}
+			}
+		},
+		"faq": {
+			"title": "Česta Pitanja",
+			"items": {
+				"appPurpose": {
+					"question": "Što je Svjetska Republika?",
+					"answer": "Svjetska Republika je otvorena, demokratska organizacija posvećena rješavanju najhitnijih globalnih izazova čovječanstva. Pruža okvir za kolektivno donošenje odluka o pitanjima koja se mogu učinkovito riješiti samo na globalnoj razini, poput UI rizika, klimatskih promjena ili biosigurnosti."
+				},
+				"basicIncome": {
+					"question": "Što je Temeljni dohodak?",
+					"answer": "Naš Temeljni dohodak je dnevna subvencija od 0,0025 WDD (svjetska drahma) koja se pruža svim građanima Svjetske Republike. Akumulira se u stvarnom vremenu i može se preuzeti u bilo kojem trenutku putem aplikacije."
+				},
+				"basicIncomePlus": {
+					"question": "Kako aktivirati Temeljni dohodak Plus?",
+					"answer": "Temeljni dohodak Plus pruža dodatnih 0,0475 WDD dnevno i dostupan je isključivo Orb-verificiranim korisnicima. Nakon aktivacije Temeljnog dohotka, vidjet ćete opciju za aktivaciju Temeljnog dohotka Plus na stranici Zarada."
+				},
+				"savings": {
+					"question": "Kako funkcionira Štedni račun?",
+					"answer": "Štedni račun vam omogućuje polaganje WDD tokena i zaradu godišnje kamate od 69%. Kroz stalno reinvestiranje zarađene kamate, korisnici mogu postići efektivne prinose blizu 100% godišnje, maksimizirajući rast svojih WDD-a tijekom vremena. Kamata se akumulira kontinuirano i može se povući ili reinvestirati u bilo kojem trenutku."
+				},
+				"referralCodes": {
+					"question": "Kako funkcioniraju preporučiteljski kodovi?",
+					"answer": "Kao građanin Svjetske Republike, možete zaraditi nagrade kroz naš program preporuka. Podijelite svoju jedinstvenu preporučiteljsku poveznicu s prijateljima i dobit ćete 10 WDD za svaku osobu koja se pridruži našoj web aplikaciji i dovrši provjeru živosti."
+				},
+				"drachmaValue": {
+					"question": "Odakle drahma dobiva svoju vrijednost?",
+					"answer": "Drahma dobiva svoju vrijednost kao službena valuta Svjetske Republike. Kako naša demokratska platforma globalnog upravljanja raste, WDD ima potencijal postati značajno sredstvo razmjene u svjetskoj ekonomiji i mogao bi eventualno igrati ulogu u pravednoj raspodjeli koristi od tehnoloških napredaka i globalnih resursa."
+				},
+				"topWallets": {
+					"question": "Tko kontrolira najveće račune?",
+					"answer": "Tri najveća računa su <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>Trezor Svjetske Republike</a>, <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Fond za osnovni dohodak</a> i <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Fond za osnovni dohodak plus</a>. Trenutačno ih upravlja osnivač projekta kako bi se osigurala stabilnost dok postupno prenosimo kontrolu na zajednicu. Ostale ključne adrese uključuju <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>ugovor o štednom računu</a>, <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>distributera nagrada za preporuke</a> i bazene likvidnosti: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a> i <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
+				},
+				"voteRequirements": {
+					"question": "Kako mogu sudjelovati u upravljanju?",
+					"answer": "Možete sudjelovati pridruživanjem ili stvaranjem političke stranke. Iako su trenutni glasovi ilustrativni, stranke su temelj našeg modela upravljanja. Kako se stranke budu profesionalizirale, otključavat će sve značajnija područja za demokratsku kontrolu, dajući vam glas u našim kolektivnim odlukama."
+				}
+			}
+		},
+		"language": {
+			"title": "Jezik",
+			"options": {
+				"english": "English",
+				"spanish": "Español",
+				"croatian": "Hrvatski"
+			}
+		}
+	}
 }

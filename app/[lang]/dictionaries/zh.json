@@ -1,356 +1,356 @@
 {
-  "components": {
-    "walletAuth": {
-      "connect": "连接钱包"
-    },
-    "banners": {
-      "dalgona": {
-        "title": "推荐奖励回归了",
-        "description": "邀请朋友加入我们的新网页应用即可获得 WDD。",
-        "cta": "立即加入"
-      }
-    },
-    "stakeForm": {
-      "deposit": "存入",
-      "withdraw": "提取",
-      "balance": "余额：",
-      "depositPlaceholder": "存入金额",
-      "withdrawPlaceholder": "提取金额",
-      "max": "最大值",
-      "interest": "利息：",
-      "collect": "领取",
-      "depositButton": "存入德拉克马",
-      "withdrawButton": "提取德拉克马"
-    },
-    "toasts": {
-      "wallet": {
-        "connectInWorldApp": "请在World App中打开此应用程序以连接您的钱包。",
-        "stakingError": "质押代币时出错",
-        "withdrawError": "提取代币时出错",
-        "collectError": "领取奖励时出错"
-      },
-      "referral": {
-        "pendingReward": "正在处理{{username}}的待领取奖励...",
-        "rewardSuccess": "成功奖励{{username}}！",
-        "sendingReward": "正在向{{username}}发送50 WDD奖励..."
-      },
-      "basicIncome": {
-        "setupSuccess": "基本收入增强版已激活！正在为{{username}}准备奖励...",
-        "setupWithReferrer": "首先设置基本收入增强版，然后我们将奖励{{username}}...",
-        "error": "激活基本收入时出错",
-        "errorPlus": "激活基本收入增强版时出错"
-      },
-      "transaction": {
-        "error": "发生意外错误",
-        "errorClaim": "领取时发生意外错误"
-      }
-    },
-    "tabSwiper": {
-      "tabs": {
-        "openLetters": "公开信",
-        "elections": "选举",
-        "referendums": "公投"
-      }
-    }
-  },
-  "pages": {
-    "earn": {
-      "title": "赚取",
-      "tabs": {
-        "basicIncome": {
-          "tabTitle": "基本收入",
-          "title": "基本收入",
-          "subtitle": "登录以领取您的基本收入",
-          "setupSubtitle": "设置您的基本收入",
-          "claimableSubtitle": "可领取的德拉克马",
-          "claimableTooltip1": "作为我们",
-          "claimableTooltip2": "回购计划",
-          "claimableTooltip3": "的一部分，我们正在调整基本收入水平，为我们的社区创造可持续的长期利益。有关当前费率，请参阅",
-          "claimableTooltip4": "常见问题解答",
-          "claimableTooltip5": "。",
-          "activateButton": "激活基本收入",
-          "claimButton": "领取",
-          "plus": {
-            "title": "基本收入增强版",
-            "newBadge": "新",
-            "drawerTrigger": "介绍基本收入增强版",
-            "subtitle": "已验证用户的额外收入",
-            "drawer": {
-              "title": "基本收入增强版",
-              "subtitle": "已验证用户的额外收入",
-              "features": {
-                "rate": {
-                  "title": "每天额外0.0475 WDD"
-                },
-                "verification": {
-                  "title": "仅限Orb验证用户，确保公平分配"
-                }
-              },
-              "activateButton": "激活基本收入增强版",
-              "claimButton": "领取基本收入增强版",
-              "claimBasicButton": "领取基本收入"
-            }
-          }
-        },
-        "savings": {
-          "tabTitle": "储蓄",
-          "title": "储蓄账户",
-          "subtitle": "每秒赚取利息",
-          "tooltip": "69%年化基础利率。收集并再投资利息可实现接近100%的年度有效回报。随时可提取。"
-        },
-        "invite": {
-          "title": "邀请",
-          "subtitle": "每邀请一位加入的朋友可获 10 WDD",
-          "tooltip": "好友需加入我们的全新网页应用。",
-          "learnMore": "了解更多",
-          "stats": {
-            "title": "您的推荐统计",
-            "invites": "已接受邀请",
-            "rewards": "总奖励"
-          },
-          "actions": {
-            "copyLink": "复制推荐链接",
-            "copied": "推荐链接已复制到剪贴板！",
-            "connectWallet": "请连接钱包以生成您的推荐链接",
-            "share": "分享邀请链接"
-          },
-          "share": {
-            "title": "加入世界共和国",
-            "text": "使用我的邀请链接加入世界共和国，一起赚取奖励！"
-          }
-        },
-        "contribute": {
-          "title": "贡献",
-          "subtitle": "参与并获得奖励",
-          "buybackProgram": {
-            "topnav": "回购计划",
-            "title": "代币回购计划",
-            "subtitle": "共同增强WDD价值",
-            "sections": {
-              "fundingSources": {
-                "title": "资金来源",
-                "devRewards": {
-                  "title": "World开发者奖励",
-                  "weekProgress": "第7周/共12周"
-                },
-                "worldRetro": {
-                  "title": "World Retro资金"
-                },
-                "optimism": {
-                  "title": "Optimism Retro资金"
-                },
-                "affiliate": {
-                  "title": "联盟佣金"
-                }
-              },
-              "commitment": {
-                "title": "我们的承诺",
-                "description": "我们承诺至少将50%的这些资金用于WDD回购。",
-                "viewAccount": "查看回购账户"
-              },
-              "valueCycle": {
-                "title": "正向价值循环",
-                "steps": {
-                  "step1": "更多应用用户和使用率",
-                  "step2": "更高的奖励",
-                  "step3": "更多代币回购"
-                }
-              },
-              "helpSection": {
-                "title": "您如何帮助",
-                "intro": "您可以直接参与提高WDD代币的价值：",
-                "steps": {
-                  "invite": {
-                    "title": "邀请他人加入",
-                    "description": "壮大我们已验证成员的社区"
-                  },
-                  "useApp": {
-                    "title": "定期使用应用",
-                    "description": "推动良性经济循环"
-                  }
-                }
-              }
-            },
-            "actions": {
-              "share": "分享邀请"
-            },
-            "cta": "查看小程序奖励"
-          },
-          "buybackLink": {
-            "title": "回购计划",
-            "description": "社区驱动的WDD价值增长"
-          },
-          "partySubsidy": {
-            "topnav": "补贴计划",
-            "title": "政党补贴计划",
-            "subtitle": "建立您的政治运动并赚取收益",
-            "weeklyPool": {
-              "old": "100,000",
-              "new": "250,000 WDD",
-              "subtitle": "固定奖池"
-            },
-            "devRewards": {
-              "title": "我们开发者奖励的10%",
-              "subtitle": "可变奖池",
-              "tooltip": "世界根据经过验证的人类的应用使用情况来分配开发者奖励。",
-              "checkOutRewards": "查看奖励"
-            },
-            "howItWorks": {
-              "title": "工作原理",
-              "steps": {
-                "createParty": {
-                  "title": "创建政党",
-                  "description": "在World Republic应用程序中开始您的政治运动"
-                },
-                "growMembership": {
-                  "title": "进入选票",
-                  "description": "发展您的会员资格，以获得每周选举的资格"
-                },
-                "earnRewards": {
-                  "title": "获得资金",
-                  "description": "根据您的政党获得的选票比例赚取补贴"
-                }
-              }
-            },
-            "cta": {
-              "createJoin": "创建或加入政党",
-              "leaderGroup": "加入政党领导人群组"
-            },
-            "payouts": {
-              "title": "支付",
-              "week": "周",
-              "showAll": "显示全部"
-            }
-          }
-        }
-      }
-    },
-    "govern": {
-      "title": "治理",
-      "tabs": {
-        "openLetters": "公开信",
-        "elections": "选举",
-        "referendums": "公投"
-      },
-      "sections": {
-        "openLetters": {
-          "title": "公开信",
-          "description": "致决策者的公开声明",
-          "statements": {
-            "aiRisk": {
-              "title": "关于人工智能风险的声明",
-              "referenceTitle": "人工智能安全中心"
-            },
-            "nuclear": {
-              "title": "联合国禁止核武器公开信",
-              "referenceTitle": "生命未来研究所"
-            },
-            "autonomousWeapons": {
-              "title": "致命自主武器承诺",
-              "referenceTitle": "生命未来研究所"
-            },
-            "longView": {
-              "title": "呼吁世界领导人对存在性威胁展现长远领导力的公开信",
-              "referenceTitle": "生命未来研究所"
-            }
-          }
-        },
-        "elections": {
-          "title": "选举",
-          "description": "选择您的代表",
-          "testElections": {
-            "title": "测试选举",
-            "description": "帮助我们分配政党补贴并改进我们的治理体系",
-            "button": "投票"
-          }
-        },
-        "referendums": {
-          "title": "公投",
-          "description": "对重要议题直接投票",
-          "worldConstitutional": {
-            "title": "世界宪法公投",
-            "description": "参与历史性投票，决定将指导人类集体未来的原则",
-            "button": "即将推出"
-          }
-        }
-      }
-    },
-    "menu": {
-      "title": "菜单",
-      "sections": {
-        "experimental": {
-          "title": "设置",
-          "links": {
-            "language": "语言"
-          }
-        },
-        "connect": {
-          "title": "连接",
-          "links": {
-            "community": "社区",
-            "announcements": "公告",
-            "x": "X"
-          }
-        },
-        "help": {
-          "title": "帮助",
-          "links": {
-            "support": "帮助社区",
-            "faq": "常见问题"
-          }
-        },
-        "code": {
-          "title": "代码",
-          "links": {
-            "app": "应用程序",
-            "contracts": "智能合约"
-          }
-        }
-      }
-    },
-    "faq": {
-      "title": "常见问题",
-      "items": {
-        "appPurpose": {
-          "question": "什么是世界共和国？",
-          "answer": "世界共和国是一个开放、民主的组织，致力于解决人类最紧迫的全球性挑战。它为集体决策提供框架，解决只能在全球范围内有效应对的问题，如人工智能风险、气候变化或生物安全。"
-        },
-        "basicIncome": {
-          "question": "什么是基本收入？",
-          "answer": "我们的基本收入是每天向所有世界共和国公民提供0.0025 WDD（世界德拉克马）的补贴。它实时累积，可以随时通过应用程序领取。"
-        },
-        "basicIncomePlus": {
-          "question": "如何激活基本收入增强版？",
-          "answer": "基本收入增强版每天提供额外0.0475 WDD，仅向Orb验证用户开放。激活基本收入后，您将在赚取页面看到激活基本收入增强版的选项。"
-        },
-        "savings": {
-          "question": "储蓄账户如何运作？",
-          "answer": "储蓄账户允许您存入WDD代币并获得69%的年化利息。通过持续再投资所得利息，用户可以实现接近100%的年度有效回报，随时间最大化WDD增长。利息持续累积，可以随时提取或再投资。"
-        },
-        "referralCodes": {
-          "question": "推荐码如何工作？",
-          "answer": "作为世界共和国公民，您可以通过我们的推荐计划获得奖励。将您的专属推荐链接分享给朋友，每有一人加入我们的网页应用并完成活体检测，您将获得 10 WDD。"
-        },
-        "drachmaValue": {
-          "question": "德拉克马从何处获得价值？",
-          "answer": "德拉克马作为世界共和国的官方货币获得其价值。随着我们的民主全球治理平台发展，WDD有潜力成为世界经济中重要的交换媒介，并最终可能在技术进步和全球资源的公平分配中发挥作用。"
-        },
-        "topWallets": {
-          "question": "谁控制着最大的账户？",
-          "answer": "三个最大的账户是<a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>世界共和国财政部</a>、<a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>基本收入基金</a>和<a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>基本收入附加基金</a>。这些账户目前由项目创始人管理，以确保稳定，同时我们逐步将控制权移交给社区。其他关键地址包括<a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>储蓄账户合约</a>、<a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>推荐奖励分发器</a>和流动性池：<a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>、<a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>和<a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>。"
-        },
-        "voteRequirements": {
-          "question": "我如何参与治理？",
-          "answer": "您可以通过加入或创建一个政党来参与。虽然目前的投票是指示性的，但政党是我们治理模式的基础。随着政党的专业化，它们将为民主控制解锁越来越重要的领域，让您在我们的集体决策中拥有发言权。"
-        }
-      }
-    },
-    "language": {
-      "title": "语言",
-      "options": {
-        "english": "English",
-        "spanish": "Español"
-      }
-    }
-  }
+	"components": {
+		"walletAuth": {
+			"connect": "连接钱包"
+		},
+		"banners": {
+			"dalgona": {
+				"title": "推荐奖励回归了",
+				"description": "邀请朋友加入我们的新网页应用即可获得 WDD。",
+				"cta": "立即加入"
+			}
+		},
+		"stakeForm": {
+			"deposit": "存入",
+			"withdraw": "提取",
+			"balance": "余额：",
+			"depositPlaceholder": "存入金额",
+			"withdrawPlaceholder": "提取金额",
+			"max": "最大值",
+			"interest": "利息：",
+			"collect": "领取",
+			"depositButton": "存入德拉克马",
+			"withdrawButton": "提取德拉克马"
+		},
+		"toasts": {
+			"wallet": {
+				"connectInWorldApp": "请在World App中打开此应用程序以连接您的钱包。",
+				"stakingError": "质押代币时出错",
+				"withdrawError": "提取代币时出错",
+				"collectError": "领取奖励时出错"
+			},
+			"referral": {
+				"pendingReward": "正在处理{{username}}的待领取奖励...",
+				"rewardSuccess": "成功奖励{{username}}！",
+				"sendingReward": "正在向{{username}}发送50 WDD奖励..."
+			},
+			"basicIncome": {
+				"setupSuccess": "基本收入增强版已激活！正在为{{username}}准备奖励...",
+				"setupWithReferrer": "首先设置基本收入增强版，然后我们将奖励{{username}}...",
+				"error": "激活基本收入时出错",
+				"errorPlus": "激活基本收入增强版时出错"
+			},
+			"transaction": {
+				"error": "发生意外错误",
+				"errorClaim": "领取时发生意外错误"
+			}
+		},
+		"tabSwiper": {
+			"tabs": {
+				"openLetters": "公开信",
+				"elections": "选举",
+				"referendums": "公投"
+			}
+		}
+	},
+	"pages": {
+		"earn": {
+			"title": "赚取",
+			"tabs": {
+				"basicIncome": {
+					"tabTitle": "基本收入",
+					"title": "基本收入",
+					"subtitle": "登录以领取您的基本收入",
+					"setupSubtitle": "设置您的基本收入",
+					"claimableSubtitle": "可领取的德拉克马",
+					"claimableTooltip1": "作为我们",
+					"claimableTooltip2": "回购计划",
+					"claimableTooltip3": "的一部分，我们正在调整基本收入水平，为我们的社区创造可持续的长期利益。有关当前费率，请参阅",
+					"claimableTooltip4": "常见问题解答",
+					"claimableTooltip5": "。",
+					"activateButton": "激活基本收入",
+					"claimButton": "领取",
+					"plus": {
+						"title": "基本收入增强版",
+						"newBadge": "新",
+						"drawerTrigger": "介绍基本收入增强版",
+						"subtitle": "已验证用户的额外收入",
+						"drawer": {
+							"title": "基本收入增强版",
+							"subtitle": "已验证用户的额外收入",
+							"features": {
+								"rate": {
+									"title": "每天额外0.0475 WDD"
+								},
+								"verification": {
+									"title": "仅限Orb验证用户，确保公平分配"
+								}
+							},
+							"activateButton": "激活基本收入增强版",
+							"claimButton": "领取基本收入增强版",
+							"claimBasicButton": "领取基本收入"
+						}
+					}
+				},
+				"savings": {
+					"tabTitle": "储蓄",
+					"title": "储蓄账户",
+					"subtitle": "每秒赚取利息",
+					"tooltip": "69%年化基础利率。收集并再投资利息可实现接近100%的年度有效回报。随时可提取。"
+				},
+				"invite": {
+					"title": "邀请",
+					"subtitle": "每邀请一位加入的朋友可获 10 WDD",
+					"tooltip": "好友需加入我们的全新网页应用。",
+					"learnMore": "了解更多",
+					"stats": {
+						"title": "您的推荐统计",
+						"invites": "已接受邀请",
+						"rewards": "总奖励"
+					},
+					"actions": {
+						"copyLink": "复制推荐链接",
+						"copied": "推荐链接已复制到剪贴板！",
+						"connectWallet": "请连接钱包以生成您的推荐链接",
+						"share": "分享邀请链接"
+					},
+					"share": {
+						"title": "加入世界共和国",
+						"text": "使用我的邀请链接加入世界共和国，一起赚取奖励！"
+					}
+				},
+				"contribute": {
+					"title": "贡献",
+					"subtitle": "参与并获得奖励",
+					"buybackProgram": {
+						"topnav": "回购计划",
+						"title": "代币回购计划",
+						"subtitle": "共同增强WDD价值",
+						"sections": {
+							"fundingSources": {
+								"title": "资金来源",
+								"devRewards": {
+									"title": "World开发者奖励",
+									"weekProgress": "第7周/共12周"
+								},
+								"worldRetro": {
+									"title": "World Retro资金"
+								},
+								"optimism": {
+									"title": "Optimism Retro资金"
+								},
+								"affiliate": {
+									"title": "联盟佣金"
+								}
+							},
+							"commitment": {
+								"title": "我们的承诺",
+								"description": "我们承诺至少将50%的这些资金用于WDD回购。",
+								"viewAccount": "查看回购账户"
+							},
+							"valueCycle": {
+								"title": "正向价值循环",
+								"steps": {
+									"step1": "更多应用用户和使用率",
+									"step2": "更高的奖励",
+									"step3": "更多代币回购"
+								}
+							},
+							"helpSection": {
+								"title": "您如何帮助",
+								"intro": "您可以直接参与提高WDD代币的价值：",
+								"steps": {
+									"invite": {
+										"title": "邀请他人加入",
+										"description": "壮大我们已验证成员的社区"
+									},
+									"useApp": {
+										"title": "定期使用应用",
+										"description": "推动良性经济循环"
+									}
+								}
+							}
+						},
+						"actions": {
+							"share": "分享邀请"
+						},
+						"cta": "查看小程序奖励"
+					},
+					"buybackLink": {
+						"title": "回购计划",
+						"description": "社区驱动的WDD价值增长"
+					},
+					"partySubsidy": {
+						"topnav": "补贴计划",
+						"title": "政党补贴计划",
+						"subtitle": "建立您的政治运动并赚取收益",
+						"weeklyPool": {
+							"old": "100,000",
+							"new": "250,000 WDD",
+							"subtitle": "固定奖池"
+						},
+						"devRewards": {
+							"title": "我们开发者奖励的10%",
+							"subtitle": "可变奖池",
+							"tooltip": "世界根据经过验证的人类的应用使用情况来分配开发者奖励。",
+							"checkOutRewards": "查看奖励"
+						},
+						"howItWorks": {
+							"title": "工作原理",
+							"steps": {
+								"createParty": {
+									"title": "创建政党",
+									"description": "在World Republic应用程序中开始您的政治运动"
+								},
+								"growMembership": {
+									"title": "进入选票",
+									"description": "发展您的会员资格，以获得每周选举的资格"
+								},
+								"earnRewards": {
+									"title": "获得资金",
+									"description": "根据您的政党获得的选票比例赚取补贴"
+								}
+							}
+						},
+						"cta": {
+							"createJoin": "创建或加入政党",
+							"leaderGroup": "加入政党领导人群组"
+						},
+						"payouts": {
+							"title": "支付",
+							"week": "周",
+							"showAll": "显示全部"
+						}
+					}
+				}
+			}
+		},
+		"govern": {
+			"title": "治理",
+			"tabs": {
+				"openLetters": "公开信",
+				"elections": "选举",
+				"referendums": "公投"
+			},
+			"sections": {
+				"openLetters": {
+					"title": "公开信",
+					"description": "致决策者的公开声明",
+					"statements": {
+						"aiRisk": {
+							"title": "关于人工智能风险的声明",
+							"referenceTitle": "人工智能安全中心"
+						},
+						"nuclear": {
+							"title": "联合国禁止核武器公开信",
+							"referenceTitle": "生命未来研究所"
+						},
+						"autonomousWeapons": {
+							"title": "致命自主武器承诺",
+							"referenceTitle": "生命未来研究所"
+						},
+						"longView": {
+							"title": "呼吁世界领导人对存在性威胁展现长远领导力的公开信",
+							"referenceTitle": "生命未来研究所"
+						}
+					}
+				},
+				"elections": {
+					"title": "选举",
+					"description": "选择您的代表",
+					"testElections": {
+						"title": "测试选举",
+						"description": "帮助我们分配政党补贴并改进我们的治理体系",
+						"button": "投票"
+					}
+				},
+				"referendums": {
+					"title": "公投",
+					"description": "对重要议题直接投票",
+					"worldConstitutional": {
+						"title": "世界宪法公投",
+						"description": "参与历史性投票，决定将指导人类集体未来的原则",
+						"button": "即将推出"
+					}
+				}
+			}
+		},
+		"menu": {
+			"title": "菜单",
+			"sections": {
+				"experimental": {
+					"title": "设置",
+					"links": {
+						"language": "语言"
+					}
+				},
+				"connect": {
+					"title": "连接",
+					"links": {
+						"community": "社区",
+						"announcements": "公告",
+						"x": "X"
+					}
+				},
+				"help": {
+					"title": "帮助",
+					"links": {
+						"support": "帮助社区",
+						"faq": "常见问题"
+					}
+				},
+				"code": {
+					"title": "代码",
+					"links": {
+						"app": "应用程序",
+						"contracts": "智能合约"
+					}
+				}
+			}
+		},
+		"faq": {
+			"title": "常见问题",
+			"items": {
+				"appPurpose": {
+					"question": "什么是世界共和国？",
+					"answer": "世界共和国是一个开放、民主的组织，致力于解决人类最紧迫的全球性挑战。它为集体决策提供框架，解决只能在全球范围内有效应对的问题，如人工智能风险、气候变化或生物安全。"
+				},
+				"basicIncome": {
+					"question": "什么是基本收入？",
+					"answer": "我们的基本收入是每天向所有世界共和国公民提供0.0025 WDD（世界德拉克马）的补贴。它实时累积，可以随时通过应用程序领取。"
+				},
+				"basicIncomePlus": {
+					"question": "如何激活基本收入增强版？",
+					"answer": "基本收入增强版每天提供额外0.0475 WDD，仅向Orb验证用户开放。激活基本收入后，您将在赚取页面看到激活基本收入增强版的选项。"
+				},
+				"savings": {
+					"question": "储蓄账户如何运作？",
+					"answer": "储蓄账户允许您存入WDD代币并获得69%的年化利息。通过持续再投资所得利息，用户可以实现接近100%的年度有效回报，随时间最大化WDD增长。利息持续累积，可以随时提取或再投资。"
+				},
+				"referralCodes": {
+					"question": "推荐码如何工作？",
+					"answer": "作为世界共和国公民，您可以通过我们的推荐计划获得奖励。将您的专属推荐链接分享给朋友，每有一人加入我们的网页应用并完成活体检测，您将获得 10 WDD。"
+				},
+				"drachmaValue": {
+					"question": "德拉克马从何处获得价值？",
+					"answer": "德拉克马作为世界共和国的官方货币获得其价值。随着我们的民主全球治理平台发展，WDD有潜力成为世界经济中重要的交换媒介，并最终可能在技术进步和全球资源的公平分配中发挥作用。"
+				},
+				"topWallets": {
+					"question": "谁控制着最大的账户？",
+					"answer": "三个最大的账户是<a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>世界共和国财政部</a>、<a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>基本收入基金</a>和<a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>基本收入附加基金</a>。这些账户目前由项目创始人管理，以确保稳定，同时我们逐步将控制权移交给社区。其他关键地址包括<a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>储蓄账户合约</a>、<a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>推荐奖励分发器</a>和流动性池：<a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>、<a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>和<a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>。"
+				},
+				"voteRequirements": {
+					"question": "我如何参与治理？",
+					"answer": "您可以通过加入或创建一个政党来参与。虽然目前的投票是指示性的，但政党是我们治理模式的基础。随着政党的专业化，它们将为民主控制解锁越来越重要的领域，让您在我们的集体决策中拥有发言权。"
+				}
+			}
+		},
+		"language": {
+			"title": "语言",
+			"options": {
+				"english": "English",
+				"spanish": "Español"
+			}
+		}
+	}
 }

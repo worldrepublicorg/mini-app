@@ -1,356 +1,356 @@
 {
-  "components": {
-    "walletAuth": {
-      "connect": "지갑 연결"
-    },
-    "banners": {
-      "dalgona": {
-        "title": "추천 보상이 돌아왔습니다",
-        "description": "친구를 우리 새 웹 앱에 초대하면 WDD를 받을 수 있어요.",
-        "cta": "시작하기"
-      }
-    },
-    "stakeForm": {
-      "deposit": "예치",
-      "withdraw": "출금",
-      "balance": "잔액:",
-      "depositPlaceholder": "예치할 금액",
-      "withdrawPlaceholder": "출금할 금액",
-      "max": "최대",
-      "interest": "이자:",
-      "collect": "수령",
-      "depositButton": "드라크마 예치",
-      "withdrawButton": "드라크마 출금"
-    },
-    "toasts": {
-      "wallet": {
-        "connectInWorldApp": "월드 앱에서 지갑을 연결해주세요.",
-        "stakingError": "토큰 스테이킹 중 오류가 발생했습니다",
-        "withdrawError": "토큰 출금 중 오류가 발생했습니다",
-        "collectError": "리워드 수령 중 오류가 발생했습니다"
-      },
-      "referral": {
-        "pendingReward": "{{username}}님의 리워드를 처리하는 중입니다...",
-        "rewardSuccess": "{{username}}님에게 리워드가 지급되었습니다!",
-        "sendingReward": "{{username}}님에게 50 WDD 리워드를 전송 중입니다..."
-      },
-      "basicIncome": {
-        "setupSuccess": "베이직 인컴 플러스가 활성화되었습니다! {{username}}님의 리워드를 준비하는 중입니다...",
-        "setupWithReferrer": "베이직 인컴 플러스를 먼저 설정한 후, {{username}}님에게 리워드를 지급하겠습니다...",
-        "error": "베이직 인컴 활성화 중 오류가 발생했습니다",
-        "errorPlus": "베이직 인컴 플러스 활성화 중 오류가 발생했습니다"
-      },
-      "transaction": {
-        "error": "예기치 않은 오류가 발생했습니다",
-        "errorClaim": "청구 중 예기치 않은 오류가 발생했습니다"
-      }
-    },
-    "tabSwiper": {
-      "tabs": {
-        "openLetters": "공개 서한",
-        "elections": "선거",
-        "referendums": "국민투표"
-      }
-    }
-  },
-  "pages": {
-    "earn": {
-      "title": "수입",
-      "tabs": {
-        "basicIncome": {
-          "tabTitle": "기본소득",
-          "title": "기본소득",
-          "subtitle": "로그인하여 기본소득을 받으세요",
-          "setupSubtitle": "기본소득 설정하기",
-          "claimableSubtitle": "청구 가능한 드라크마",
-          "claimableTooltip1": "저희",
-          "claimableTooltip2": "바이백 프로그램",
-          "claimableTooltip3": "의 일환으로, 커뮤니티에 지속 가능하고 장기적인 혜택을 제공하기 위해 기본 소득 수준을 미세 조정하고 있습니다. 현재 요율은",
-          "claimableTooltip4": "FAQ",
-          "claimableTooltip5": "를 참조해 주세요.",
-          "activateButton": "기본소득 활성화",
-          "claimButton": "받기",
-          "plus": {
-            "title": "기본소득 플러스",
-            "newBadge": "신규",
-            "drawerTrigger": "기본소득 플러스 소개",
-            "subtitle": "인증된 사용자를 위한 추가 수입",
-            "drawer": {
-              "title": "기본소득 플러스",
-              "subtitle": "인증된 사용자를 위한 추가 수입",
-              "features": {
-                "rate": {
-                  "title": "하루 추가 0.0475 WDD"
-                },
-                "verification": {
-                  "title": "공정한 분배를 보장하기 위해 Orb-인증 사용자에게만 독점 제공"
-                }
-              },
-              "activateButton": "기본소득 플러스 활성화",
-              "claimButton": "기본소득 플러스 받기",
-              "claimBasicButton": "기본소득 받기"
-            }
-          }
-        },
-        "savings": {
-          "tabTitle": "저축",
-          "title": "저축 계좌",
-          "subtitle": "매초마다 이자 획득",
-          "tooltip": "기본 연이율 69%. 이자를 수령하고 재투자하면 연간 실효 수익률 100%에 근접. 언제든지 출금 가능."
-        },
-        "invite": {
-          "title": "초대",
-          "subtitle": "참여하는 친구 1명당 10 WDD 받기",
-          "tooltip": "친구는 우리의 새로운 웹 앱에 가입해야 합니다.",
-          "learnMore": "더 알아보기",
-          "stats": {
-            "title": "나의 추천 현황",
-            "invites": "수락된 초대",
-            "rewards": "총 리워드"
-          },
-          "actions": {
-            "copyLink": "추천 링크 복사",
-            "copied": "추천 링크가 클립보드에 복사되었습니다!",
-            "connectWallet": "추천 링크를 생성하려면 지갑을 연결하세요",
-            "share": "초대 링크 공유"
-          },
-          "share": {
-            "title": "세계 공화국에 참여하세요",
-            "text": "제 초대 링크를 사용하여 세계 공화국에 가입하고 함께 보상을 받으세요!"
-          }
-        },
-        "contribute": {
-          "title": "기여",
-          "subtitle": "참여하고 보상받기",
-          "buybackProgram": {
-            "topnav": "바이백 프로그램",
-            "title": "토큰 바이백 프로그램",
-            "subtitle": "WDD 가치를 함께 강화",
-            "sections": {
-              "fundingSources": {
-                "title": "자금 출처",
-                "devRewards": {
-                  "title": "World 개발자 보상",
-                  "weekProgress": "12주 중 7주차"
-                },
-                "worldRetro": {
-                  "title": "World Retro 자금"
-                },
-                "optimism": {
-                  "title": "Optimism Retro 자금"
-                },
-                "affiliate": {
-                  "title": "제휴 수수료"
-                }
-              },
-              "commitment": {
-                "title": "우리의 약속",
-                "description": "이러한 자금의 최소 50%를 WDD 바이백에 사용할 것을 약속합니다.",
-                "viewAccount": "바이백 계정 보기"
-              },
-              "valueCycle": {
-                "title": "긍정적인 가치 순환",
-                "steps": {
-                  "step1": "더 많은 앱 사용자와 사용량",
-                  "step2": "더 높은 보상",
-                  "step3": "더 많은 토큰 바이백"
-                }
-              },
-              "helpSection": {
-                "title": "도움을 주는 방법",
-                "intro": "WDD 토큰의 가치를 직접 높이는 데 기여할 수 있습니다:",
-                "steps": {
-                  "invite": {
-                    "title": "다른 사람 초대하기",
-                    "description": "인증된 회원들의 커뮤니티 성장시키기"
-                  },
-                  "useApp": {
-                    "title": "정기적으로 앱 사용하기",
-                    "description": "선순환 경제 사이클 주도하기"
-                  }
-                }
-              }
-            },
-            "actions": {
-              "share": "초대 공유하기"
-            },
-            "cta": "미니 앱 보상 보기"
-          },
-          "buybackLink": {
-            "title": "바이백 프로그램",
-            "description": "커뮤니티 주도의 WDD 가치 성장"
-          },
-          "partySubsidy": {
-            "topnav": "보조금 프로그램",
-            "title": "정당 보조금 프로그램",
-            "subtitle": "정치 운동을 구축하고 수익을 창출하세요",
-            "weeklyPool": {
-              "old": "100,000",
-              "new": "250,000 WDD",
-              "subtitle": "고정 풀"
-            },
-            "devRewards": {
-              "title": "개발자 보상의 10%",
-              "subtitle": "변동 풀",
-              "tooltip": "World는 인증된 사람들의 앱 사용량을 기반으로 개발자 보상을 분배합니다.",
-              "checkOutRewards": "보상 확인하기"
-            },
-            "howItWorks": {
-              "title": "작동 방식",
-              "steps": {
-                "createParty": {
-                  "title": "정당 만들기",
-                  "description": "World Republic 앱에서 정치 운동을 시작하세요"
-                },
-                "growMembership": {
-                  "title": "투표용지에 오르기",
-                  "description": "주간 선거에 참여할 자격을 얻기 위해 회원 수를 늘리세요"
-                },
-                "earnRewards": {
-                  "title": "자금 지원 받기",
-                  "description": "정당이 받은 득표수에 비례하여 보조금을 획득하세요"
-                }
-              }
-            },
-            "cta": {
-              "createJoin": "정당 만들기 또는 가입하기",
-              "leaderGroup": "정당 리더 그룹 가입하기"
-            },
-            "payouts": {
-              "title": "지급",
-              "week": "주",
-              "showAll": "전체 보기"
-            }
-          }
-        }
-      }
-    },
-    "govern": {
-      "title": "거버넌스",
-      "tabs": {
-        "openLetters": "공개 서한",
-        "elections": "선거",
-        "referendums": "국민투표"
-      },
-      "sections": {
-        "openLetters": {
-          "title": "공개 서한",
-          "description": "의사 결정자들에 대한 공개 성명",
-          "statements": {
-            "aiRisk": {
-              "title": "AI 위험성에 관한 성명",
-              "referenceTitle": "AI 안전 센터"
-            },
-            "nuclear": {
-              "title": "UN 핵무기 금지에 관한 공개 서한",
-              "referenceTitle": "생명의 미래 연구소"
-            },
-            "autonomousWeapons": {
-              "title": "치명적 자율무기 반대 서약",
-              "referenceTitle": "생명의 미래 연구소"
-            },
-            "longView": {
-              "title": "실존적 위협에 대한 장기적 리더십을 보여줄 것을 촉구하는 공개 서한",
-              "referenceTitle": "생명의 미래 연구소"
-            }
-          }
-        },
-        "elections": {
-          "title": "선거",
-          "description": "대표를 선택하세요",
-          "testElections": {
-            "title": "테스트 선거",
-            "description": "정당 보조금을 분배하고 거버넌스 시스템을 개선하도록 도와주세요",
-            "button": "투표하기"
-          }
-        },
-        "referendums": {
-          "title": "국민 투표",
-          "description": "중요한 이슈에 대한 직접 투표",
-          "worldConstitutional": {
-            "title": "세계 헌법 국민투표",
-            "description": "인류의 집단적 미래를 이끌어 갈 원칙에 대한 역사적인 투표에 참여하세요",
-            "button": "곧 출시 예정"
-          }
-        }
-      }
-    },
-    "menu": {
-      "title": "메뉴",
-      "sections": {
-        "experimental": {
-          "title": "설정",
-          "links": {
-            "language": "언어"
-          }
-        },
-        "connect": {
-          "title": "연결",
-          "links": {
-            "community": "커뮤니티",
-            "announcements": "공지사항",
-            "x": "X"
-          }
-        },
-        "help": {
-          "title": "도움말",
-          "links": {
-            "support": "도움 커뮤니티",
-            "faq": "자주 묻는 질문"
-          }
-        },
-        "code": {
-          "title": "코드",
-          "links": {
-            "app": "앱",
-            "contracts": "스마트 컨트랙트"
-          }
-        }
-      }
-    },
-    "faq": {
-      "title": "자주 묻는 질문",
-      "items": {
-        "appPurpose": {
-          "question": "월드 리퍼블릭이란 무엇인가요?",
-          "answer": "월드 리퍼블릭은 인류의 가장 시급한 글로벌 과제 해결을 위해 헌신하는 개방적이고 민주적인 조직입니다. AI 위험, 기후 변화, 생물안보와 같이 글로벌 차원에서만 효과적으로 다룰 수 있는 문제들에 대한 집단적 의사결정 프레임워크를 제공합니다."
-        },
-        "basicIncome": {
-          "question": "기본소득이란 무엇인가요?",
-          "answer": "저희의 기본소득은 월드 리퍼블릭의 모든 시민에게 제공되는 0.0025 WDD(월드 드라크마)의 일일 보조금입니다. 실시간으로 누적되며 앱을 통해 언제든지 청구할 수 있습니다."
-        },
-        "basicIncomePlus": {
-          "question": "기본소득 플러스는 어떻게 활성화하나요?",
-          "answer": "기본소득 플러스는 하루 추가 0.0475 WDD를 제공하며 Orb 인증을 받은 사용자만 이용할 수 있습니다. 기본소득을 활성화한 후 수입 페이지에서 기본소득 플러스 활성화 옵션을 확인할 수 있습니다."
-        },
-        "savings": {
-          "question": "저축 계좌는 어떻게 작동하나요?",
-          "answer": "저축 계좌에 WDD 토큰을 예치하면 연 69%의 이자를 받을 수 있습니다. 발생한 이자를 지속적으로 재투자하면 연간 실효 수익률이 100%에 가까워져 시간이 지날수록 WDD가 최대한 증가합니다. 이자는 계속 누적되며 언제든지 출금하거나 재투자할 수 있습니다."
-        },
-        "referralCodes": {
-          "question": "추천 코드는 어떻게 작동하나요?",
-          "answer": "월드 리퍼블릭 시민으로서 추천 프로그램을 통해 보상을 받을 수 있습니다. 고유한 추천 링크를 친구들과 공유하면, 우리 웹앱에 가입하고 라이브니스 검사를 완료한 사람 한 명당 10 WDD를 받게 됩니다."
-        },
-        "drachmaValue": {
-          "question": "드라크마는 어디서 가치를 얻나요?",
-          "answer": "드라크마는 월드 리퍼블릭의 공식 화폐로서 가치를 얻습니다. 우리의 민주적 글로벌 거버넌스 플랫폼이 성장함에 따라 WDD는 세계 경제에서 중요한 교환 수단이 될 잠재력이 있으며, 궁극적으로 기술 발전과 글로벌 자원의 혜택을 공평하게 분배하는 데 역할을 할 수 있습니다."
-        },
-        "topWallets": {
-          "question": "가장 큰 계정은 누가 통제하나요?",
-          "answer": "세 개의 가장 큰 계정은 <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>세계 공화국 재무부</a>, <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>기본 소득 기금</a>, 그리고 <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>기본 소득 플러스 기금</a>입니다. 이들은 현재 프로젝트 설립자에 의해 관리되며, 점진적으로 커뮤니티에 통제권을 이전하면서 안정성을 보장합니다. 다른 주요 주소에는 <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>저축 계좌 계약</a>, <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>추천 보상 분배자</a>, 그리고 유동성 풀이 포함됩니다: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, 그리고 <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
-        },
-        "voteRequirements": {
-          "question": "거버넌스에 어떻게 참여할 수 있나요?",
-          "answer": "정당에 가입하거나 창당하여 참여할 수 있습니다. 현재의 투표는 예시적인 것이지만, 정당은 우리 거버넌스 모델의 기초입니다. 정당이 전문화됨에 따라 민주적 통제를 위한 점점 더 중요한 영역을 열게 될 것이며, 이는 우리의 집단적 결정에 당신의 목소리를 낼 수 있게 할 것입니다."
-        }
-      }
-    },
-    "language": {
-      "title": "언어",
-      "options": {
-        "english": "English",
-        "spanish": "Español"
-      }
-    }
-  }
+	"components": {
+		"walletAuth": {
+			"connect": "지갑 연결"
+		},
+		"banners": {
+			"dalgona": {
+				"title": "추천 보상이 돌아왔습니다",
+				"description": "친구를 우리 새 웹 앱에 초대하면 WDD를 받을 수 있어요.",
+				"cta": "시작하기"
+			}
+		},
+		"stakeForm": {
+			"deposit": "예치",
+			"withdraw": "출금",
+			"balance": "잔액:",
+			"depositPlaceholder": "예치할 금액",
+			"withdrawPlaceholder": "출금할 금액",
+			"max": "최대",
+			"interest": "이자:",
+			"collect": "수령",
+			"depositButton": "드라크마 예치",
+			"withdrawButton": "드라크마 출금"
+		},
+		"toasts": {
+			"wallet": {
+				"connectInWorldApp": "월드 앱에서 지갑을 연결해주세요.",
+				"stakingError": "토큰 스테이킹 중 오류가 발생했습니다",
+				"withdrawError": "토큰 출금 중 오류가 발생했습니다",
+				"collectError": "리워드 수령 중 오류가 발생했습니다"
+			},
+			"referral": {
+				"pendingReward": "{{username}}님의 리워드를 처리하는 중입니다...",
+				"rewardSuccess": "{{username}}님에게 리워드가 지급되었습니다!",
+				"sendingReward": "{{username}}님에게 50 WDD 리워드를 전송 중입니다..."
+			},
+			"basicIncome": {
+				"setupSuccess": "베이직 인컴 플러스가 활성화되었습니다! {{username}}님의 리워드를 준비하는 중입니다...",
+				"setupWithReferrer": "베이직 인컴 플러스를 먼저 설정한 후, {{username}}님에게 리워드를 지급하겠습니다...",
+				"error": "베이직 인컴 활성화 중 오류가 발생했습니다",
+				"errorPlus": "베이직 인컴 플러스 활성화 중 오류가 발생했습니다"
+			},
+			"transaction": {
+				"error": "예기치 않은 오류가 발생했습니다",
+				"errorClaim": "청구 중 예기치 않은 오류가 발생했습니다"
+			}
+		},
+		"tabSwiper": {
+			"tabs": {
+				"openLetters": "공개 서한",
+				"elections": "선거",
+				"referendums": "국민투표"
+			}
+		}
+	},
+	"pages": {
+		"earn": {
+			"title": "수입",
+			"tabs": {
+				"basicIncome": {
+					"tabTitle": "기본소득",
+					"title": "기본소득",
+					"subtitle": "로그인하여 기본소득을 받으세요",
+					"setupSubtitle": "기본소득 설정하기",
+					"claimableSubtitle": "청구 가능한 드라크마",
+					"claimableTooltip1": "저희",
+					"claimableTooltip2": "바이백 프로그램",
+					"claimableTooltip3": "의 일환으로, 커뮤니티에 지속 가능하고 장기적인 혜택을 제공하기 위해 기본 소득 수준을 미세 조정하고 있습니다. 현재 요율은",
+					"claimableTooltip4": "FAQ",
+					"claimableTooltip5": "를 참조해 주세요.",
+					"activateButton": "기본소득 활성화",
+					"claimButton": "받기",
+					"plus": {
+						"title": "기본소득 플러스",
+						"newBadge": "신규",
+						"drawerTrigger": "기본소득 플러스 소개",
+						"subtitle": "인증된 사용자를 위한 추가 수입",
+						"drawer": {
+							"title": "기본소득 플러스",
+							"subtitle": "인증된 사용자를 위한 추가 수입",
+							"features": {
+								"rate": {
+									"title": "하루 추가 0.0475 WDD"
+								},
+								"verification": {
+									"title": "공정한 분배를 보장하기 위해 Orb-인증 사용자에게만 독점 제공"
+								}
+							},
+							"activateButton": "기본소득 플러스 활성화",
+							"claimButton": "기본소득 플러스 받기",
+							"claimBasicButton": "기본소득 받기"
+						}
+					}
+				},
+				"savings": {
+					"tabTitle": "저축",
+					"title": "저축 계좌",
+					"subtitle": "매초마다 이자 획득",
+					"tooltip": "기본 연이율 69%. 이자를 수령하고 재투자하면 연간 실효 수익률 100%에 근접. 언제든지 출금 가능."
+				},
+				"invite": {
+					"title": "초대",
+					"subtitle": "참여하는 친구 1명당 10 WDD 받기",
+					"tooltip": "친구는 우리의 새로운 웹 앱에 가입해야 합니다.",
+					"learnMore": "더 알아보기",
+					"stats": {
+						"title": "나의 추천 현황",
+						"invites": "수락된 초대",
+						"rewards": "총 리워드"
+					},
+					"actions": {
+						"copyLink": "추천 링크 복사",
+						"copied": "추천 링크가 클립보드에 복사되었습니다!",
+						"connectWallet": "추천 링크를 생성하려면 지갑을 연결하세요",
+						"share": "초대 링크 공유"
+					},
+					"share": {
+						"title": "세계 공화국에 참여하세요",
+						"text": "제 초대 링크를 사용하여 세계 공화국에 가입하고 함께 보상을 받으세요!"
+					}
+				},
+				"contribute": {
+					"title": "기여",
+					"subtitle": "참여하고 보상받기",
+					"buybackProgram": {
+						"topnav": "바이백 프로그램",
+						"title": "토큰 바이백 프로그램",
+						"subtitle": "WDD 가치를 함께 강화",
+						"sections": {
+							"fundingSources": {
+								"title": "자금 출처",
+								"devRewards": {
+									"title": "World 개발자 보상",
+									"weekProgress": "12주 중 7주차"
+								},
+								"worldRetro": {
+									"title": "World Retro 자금"
+								},
+								"optimism": {
+									"title": "Optimism Retro 자금"
+								},
+								"affiliate": {
+									"title": "제휴 수수료"
+								}
+							},
+							"commitment": {
+								"title": "우리의 약속",
+								"description": "이러한 자금의 최소 50%를 WDD 바이백에 사용할 것을 약속합니다.",
+								"viewAccount": "바이백 계정 보기"
+							},
+							"valueCycle": {
+								"title": "긍정적인 가치 순환",
+								"steps": {
+									"step1": "더 많은 앱 사용자와 사용량",
+									"step2": "더 높은 보상",
+									"step3": "더 많은 토큰 바이백"
+								}
+							},
+							"helpSection": {
+								"title": "도움을 주는 방법",
+								"intro": "WDD 토큰의 가치를 직접 높이는 데 기여할 수 있습니다:",
+								"steps": {
+									"invite": {
+										"title": "다른 사람 초대하기",
+										"description": "인증된 회원들의 커뮤니티 성장시키기"
+									},
+									"useApp": {
+										"title": "정기적으로 앱 사용하기",
+										"description": "선순환 경제 사이클 주도하기"
+									}
+								}
+							}
+						},
+						"actions": {
+							"share": "초대 공유하기"
+						},
+						"cta": "미니 앱 보상 보기"
+					},
+					"buybackLink": {
+						"title": "바이백 프로그램",
+						"description": "커뮤니티 주도의 WDD 가치 성장"
+					},
+					"partySubsidy": {
+						"topnav": "보조금 프로그램",
+						"title": "정당 보조금 프로그램",
+						"subtitle": "정치 운동을 구축하고 수익을 창출하세요",
+						"weeklyPool": {
+							"old": "100,000",
+							"new": "250,000 WDD",
+							"subtitle": "고정 풀"
+						},
+						"devRewards": {
+							"title": "개발자 보상의 10%",
+							"subtitle": "변동 풀",
+							"tooltip": "World는 인증된 사람들의 앱 사용량을 기반으로 개발자 보상을 분배합니다.",
+							"checkOutRewards": "보상 확인하기"
+						},
+						"howItWorks": {
+							"title": "작동 방식",
+							"steps": {
+								"createParty": {
+									"title": "정당 만들기",
+									"description": "World Republic 앱에서 정치 운동을 시작하세요"
+								},
+								"growMembership": {
+									"title": "투표용지에 오르기",
+									"description": "주간 선거에 참여할 자격을 얻기 위해 회원 수를 늘리세요"
+								},
+								"earnRewards": {
+									"title": "자금 지원 받기",
+									"description": "정당이 받은 득표수에 비례하여 보조금을 획득하세요"
+								}
+							}
+						},
+						"cta": {
+							"createJoin": "정당 만들기 또는 가입하기",
+							"leaderGroup": "정당 리더 그룹 가입하기"
+						},
+						"payouts": {
+							"title": "지급",
+							"week": "주",
+							"showAll": "전체 보기"
+						}
+					}
+				}
+			}
+		},
+		"govern": {
+			"title": "거버넌스",
+			"tabs": {
+				"openLetters": "공개 서한",
+				"elections": "선거",
+				"referendums": "국민투표"
+			},
+			"sections": {
+				"openLetters": {
+					"title": "공개 서한",
+					"description": "의사 결정자들에 대한 공개 성명",
+					"statements": {
+						"aiRisk": {
+							"title": "AI 위험성에 관한 성명",
+							"referenceTitle": "AI 안전 센터"
+						},
+						"nuclear": {
+							"title": "UN 핵무기 금지에 관한 공개 서한",
+							"referenceTitle": "생명의 미래 연구소"
+						},
+						"autonomousWeapons": {
+							"title": "치명적 자율무기 반대 서약",
+							"referenceTitle": "생명의 미래 연구소"
+						},
+						"longView": {
+							"title": "실존적 위협에 대한 장기적 리더십을 보여줄 것을 촉구하는 공개 서한",
+							"referenceTitle": "생명의 미래 연구소"
+						}
+					}
+				},
+				"elections": {
+					"title": "선거",
+					"description": "대표를 선택하세요",
+					"testElections": {
+						"title": "테스트 선거",
+						"description": "정당 보조금을 분배하고 거버넌스 시스템을 개선하도록 도와주세요",
+						"button": "투표하기"
+					}
+				},
+				"referendums": {
+					"title": "국민 투표",
+					"description": "중요한 이슈에 대한 직접 투표",
+					"worldConstitutional": {
+						"title": "세계 헌법 국민투표",
+						"description": "인류의 집단적 미래를 이끌어 갈 원칙에 대한 역사적인 투표에 참여하세요",
+						"button": "곧 출시 예정"
+					}
+				}
+			}
+		},
+		"menu": {
+			"title": "메뉴",
+			"sections": {
+				"experimental": {
+					"title": "설정",
+					"links": {
+						"language": "언어"
+					}
+				},
+				"connect": {
+					"title": "연결",
+					"links": {
+						"community": "커뮤니티",
+						"announcements": "공지사항",
+						"x": "X"
+					}
+				},
+				"help": {
+					"title": "도움말",
+					"links": {
+						"support": "도움 커뮤니티",
+						"faq": "자주 묻는 질문"
+					}
+				},
+				"code": {
+					"title": "코드",
+					"links": {
+						"app": "앱",
+						"contracts": "스마트 컨트랙트"
+					}
+				}
+			}
+		},
+		"faq": {
+			"title": "자주 묻는 질문",
+			"items": {
+				"appPurpose": {
+					"question": "월드 리퍼블릭이란 무엇인가요?",
+					"answer": "월드 리퍼블릭은 인류의 가장 시급한 글로벌 과제 해결을 위해 헌신하는 개방적이고 민주적인 조직입니다. AI 위험, 기후 변화, 생물안보와 같이 글로벌 차원에서만 효과적으로 다룰 수 있는 문제들에 대한 집단적 의사결정 프레임워크를 제공합니다."
+				},
+				"basicIncome": {
+					"question": "기본소득이란 무엇인가요?",
+					"answer": "저희의 기본소득은 월드 리퍼블릭의 모든 시민에게 제공되는 0.0025 WDD(월드 드라크마)의 일일 보조금입니다. 실시간으로 누적되며 앱을 통해 언제든지 청구할 수 있습니다."
+				},
+				"basicIncomePlus": {
+					"question": "기본소득 플러스는 어떻게 활성화하나요?",
+					"answer": "기본소득 플러스는 하루 추가 0.0475 WDD를 제공하며 Orb 인증을 받은 사용자만 이용할 수 있습니다. 기본소득을 활성화한 후 수입 페이지에서 기본소득 플러스 활성화 옵션을 확인할 수 있습니다."
+				},
+				"savings": {
+					"question": "저축 계좌는 어떻게 작동하나요?",
+					"answer": "저축 계좌에 WDD 토큰을 예치하면 연 69%의 이자를 받을 수 있습니다. 발생한 이자를 지속적으로 재투자하면 연간 실효 수익률이 100%에 가까워져 시간이 지날수록 WDD가 최대한 증가합니다. 이자는 계속 누적되며 언제든지 출금하거나 재투자할 수 있습니다."
+				},
+				"referralCodes": {
+					"question": "추천 코드는 어떻게 작동하나요?",
+					"answer": "월드 리퍼블릭 시민으로서 추천 프로그램을 통해 보상을 받을 수 있습니다. 고유한 추천 링크를 친구들과 공유하면, 우리 웹앱에 가입하고 라이브니스 검사를 완료한 사람 한 명당 10 WDD를 받게 됩니다."
+				},
+				"drachmaValue": {
+					"question": "드라크마는 어디서 가치를 얻나요?",
+					"answer": "드라크마는 월드 리퍼블릭의 공식 화폐로서 가치를 얻습니다. 우리의 민주적 글로벌 거버넌스 플랫폼이 성장함에 따라 WDD는 세계 경제에서 중요한 교환 수단이 될 잠재력이 있으며, 궁극적으로 기술 발전과 글로벌 자원의 혜택을 공평하게 분배하는 데 역할을 할 수 있습니다."
+				},
+				"topWallets": {
+					"question": "가장 큰 계정은 누가 통제하나요?",
+					"answer": "세 개의 가장 큰 계정은 <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>세계 공화국 재무부</a>, <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>기본 소득 기금</a>, 그리고 <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>기본 소득 플러스 기금</a>입니다. 이들은 현재 프로젝트 설립자에 의해 관리되며, 점진적으로 커뮤니티에 통제권을 이전하면서 안정성을 보장합니다. 다른 주요 주소에는 <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>저축 계좌 계약</a>, <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>추천 보상 분배자</a>, 그리고 유동성 풀이 포함됩니다: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, 그리고 <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
+				},
+				"voteRequirements": {
+					"question": "거버넌스에 어떻게 참여할 수 있나요?",
+					"answer": "정당에 가입하거나 창당하여 참여할 수 있습니다. 현재의 투표는 예시적인 것이지만, 정당은 우리 거버넌스 모델의 기초입니다. 정당이 전문화됨에 따라 민주적 통제를 위한 점점 더 중요한 영역을 열게 될 것이며, 이는 우리의 집단적 결정에 당신의 목소리를 낼 수 있게 할 것입니다."
+				}
+			}
+		},
+		"language": {
+			"title": "언어",
+			"options": {
+				"english": "English",
+				"spanish": "Español"
+			}
+		}
+	}
 }

@@ -1,364 +1,364 @@
 {
-  "components": {
-    "walletAuth": {
-      "connect": "Conectar billetera",
-      "connecting": "Conectando...",
-      "connected": "Conectado",
-      "error": "Error de Conexión"
-    },
-    "banners": {
-      "dalgona": {
-        "title": "Las recompensas por referidos han vuelto",
-        "description": "Obtén WDD por invitar a tus amigos a nuestra nueva app web.",
-        "cta": "Empezar"
-      }
-    },
-    "stakeForm": {
-      "title": "Depositar Tokens",
-      "amountPlaceholder": "Ingrese cantidad",
-      "submit": "Depositar",
-      "approving": "Aprobando...",
-      "staking": "Depositando...",
-      "deposit": "Depositar",
-      "withdraw": "Retirar",
-      "balance": "Saldo:",
-      "depositPlaceholder": "Cantidad a depositar",
-      "withdrawPlaceholder": "Cantidad a retirar",
-      "max": "Máximo",
-      "interest": "Interés:",
-      "collect": "Cobrar",
-      "depositButton": "Depositar dracma",
-      "withdrawButton": "Retirar dracma"
-    },
-    "toasts": {
-      "wallet": {
-        "connectInWorldApp": "Por favor, abra esta aplicación en World App para conectar su billetera.",
-        "stakingError": "Error al depositar tokens",
-        "withdrawError": "Error al retirar tokens",
-        "collectError": "Error al cobrar recompensas"
-      },
-      "referral": {
-        "pendingReward": "Procesando recompensa pendiente para {{username}}...",
-        "rewardSuccess": "¡Recompensa enviada exitosamente a {{username}}!",
-        "sendingReward": "Enviando recompensa de 50 WDD a {{username}}..."
-      },
-      "basicIncome": {
-        "setupSuccess": "¡Renta Básica Plus activada! Preparando recompensa para {{username}}...",
-        "setupWithReferrer": "Configurando Renta Básica Plus primero, luego recompensaremos a {{username}}...",
-        "error": "Error al activar Renta Básica",
-        "errorPlus": "Error al activar Renta Básica Plus"
-      },
-      "transaction": {
-        "error": "Ocurrió un error inesperado",
-        "errorClaim": "Ocurrió un error inesperado durante el reclamo"
-      }
-    },
-    "tabSwiper": {
-      "tabs": {
-        "openLetters": "Cartas abiertas",
-        "elections": "Elecciones",
-        "referendums": "Referéndums"
-      }
-    }
-  },
-  "pages": {
-    "earn": {
-      "title": "Ganar",
-      "tabs": {
-        "basicIncome": {
-          "tabTitle": "Renta básica",
-          "title": "Renta Básica",
-          "subtitle": "Inicia sesión para reclamar tu renta básica",
-          "setupSubtitle": "Configura tu renta básica",
-          "claimableSubtitle": "Dracmas reclamables",
-          "claimableTooltip1": "Como parte de nuestro",
-          "claimableTooltip2": "programa de recompra",
-          "claimableTooltip3": ", estamos ajustando los niveles de renta básica para crear beneficios sostenibles y a largo plazo para nuestra comunidad. Por favor, consulte las",
-          "claimableTooltip4": "FAQ",
-          "claimableTooltip5": "para las tasas actuales.",
-          "activateButton": "Activar Renta Básica",
-          "claimButton": "Reclamar",
-          "plus": {
-            "title": "Renta Básica Plus",
-            "newBadge": "Nuevo",
-            "drawerTrigger": "Presentando Renta Básica Plus",
-            "subtitle": "Ingresos extra para usuarios verificados",
-            "drawer": {
-              "title": "Renta Básica Plus",
-              "subtitle": "Ingresos extra para usuarios verificados",
-              "features": {
-                "rate": {
-                  "title": "0,0475 WDD adicionales por día"
-                },
-                "verification": {
-                  "title": "Exclusivo para usuarios verificados con Orb para asegurar una distribución justa"
-                }
-              },
-              "activateButton": "Activar Renta Básica Plus",
-              "claimButton": "Reclamar Renta Básica Plus",
-              "claimBasicButton": "Reclamar Renta Básica"
-            }
-          }
-        },
-        "savings": {
-          "tabTitle": "Ahorro",
-          "title": "Cuenta de Ahorro",
-          "subtitle": "Gana intereses cada segundo",
-          "tooltip": "Tasa base del 69% APY. Cobra y reinvierte los intereses para alcanzar cerca del 100% de rendimiento efectivo anual. Retira en cualquier momento."
-        },
-        "invite": {
-          "title": "Invitar",
-          "subtitle": "Obtén 10 WDD por cada amigo que se una",
-          "tooltip": "Tus amigos deben unirse a nuestra nueva aplicación web.",
-          "learnMore": "Más información",
-          "stats": {
-            "title": "Tus estadísticas de referidos",
-            "invites": "Invitaciones aceptadas",
-            "rewards": "Recompensas totales"
-          },
-          "actions": {
-            "copyLink": "Copiar enlace de referido",
-            "copied": "¡Enlace de referido copiado al portapapeles!",
-            "connectWallet": "Por favor conecta tu billetera para generar tu enlace de referido",
-            "share": "Compartir enlace de invitación"
-          },
-          "share": {
-            "title": "Únete a la República Mundial",
-            "text": "¡Usa mi enlace de invitación para unirte a la República Mundial y ganar recompensas juntos!"
-          }
-        },
-        "contribute": {
-          "title": "Contribuir",
-          "subtitle": "Participa, obtén recompensas",
-          "buybackProgram": {
-            "topnav": "Programa de Recompra",
-            "title": "Programa de Recompra de Tokens",
-            "subtitle": "Fortalecer el valor de WDD juntos",
-            "sections": {
-              "fundingSources": {
-                "title": "Fuentes de financiamiento",
-                "devRewards": {
-                  "title": "Recompensas de Desarrolladores World",
-                  "weekProgress": "Semana 7 de 12"
-                },
-                "worldRetro": {
-                  "title": "Financiamiento World Retro"
-                },
-                "optimism": {
-                  "title": "Financiamiento Optimism Retro"
-                },
-                "affiliate": {
-                  "title": "Comisiones de afiliados"
-                }
-              },
-              "commitment": {
-                "title": "Nuestro compromiso",
-                "description": "Nos comprometemos a utilizar al menos el 50% de todos estos financiamientos para recompras de WDD.",
-                "viewAccount": "Ver cuenta de recompra"
-              },
-              "valueCycle": {
-                "title": "El Ciclo de Valor Positivo",
-                "steps": {
-                  "step1": "Más usuarios y uso de la app",
-                  "step2": "Mayores recompensas",
-                  "step3": "Más recompras de tokens"
-                }
-              },
-              "helpSection": {
-                "title": "Cómo puedes ayudar",
-                "intro": "Puedes contribuir directamente a aumentar el valor de tus tokens WDD:",
-                "steps": {
-                  "invite": {
-                    "title": "Invitar a otros a unirse",
-                    "description": "Hacer crecer nuestra comunidad de miembros verificados"
-                  },
-                  "useApp": {
-                    "title": "Usar la app regularmente",
-                    "description": "Impulsar el ciclo económico virtuoso"
-                  }
-                }
-              }
-            },
-            "actions": {
-              "share": "Compartir invitación"
-            },
-            "cta": "Ver recompensas de mini app"
-          },
-          "buybackLink": {
-            "title": "Programa de Recompra",
-            "description": "Crecimiento del valor de WDD impulsado por la comunidad"
-          },
-          "partySubsidy": {
-            "topnav": "Programa de Subsidios",
-            "title": "Programa de Subsidios para Partidos",
-            "subtitle": "Construye tu movimiento político y gana",
-            "weeklyPool": {
-              "old": "100.000",
-              "new": "250.000 WDD",
-              "subtitle": "Fondo fijo"
-            },
-            "devRewards": {
-              "title": "10% de nuestras Recompensas de Desarrolladores",
-              "subtitle": "Fondo variable",
-              "tooltip": "World está distribuyendo recompensas para desarrolladores basadas en el uso de la aplicación por humanos verificados.",
-              "checkOutRewards": "Ver recompensas"
-            },
-            "howItWorks": {
-              "title": "Cómo funciona",
-              "steps": {
-                "createParty": {
-                  "title": "Crea un partido",
-                  "description": "Inicia tu movimiento político en la app de la República Mundial"
-                },
-                "growMembership": {
-                  "title": "Clasifica para las elecciones",
-                  "description": "Aumenta tu membresía para clasificar a las elecciones semanales"
-                },
-                "earnRewards": {
-                  "title": "Recibe financiación",
-                  "description": "Gana subsidios proporcionales a los votos que reciba tu partido"
-                }
-              }
-            },
-            "cta": {
-              "createJoin": "Crear o unirse a un partido",
-              "leaderGroup": "Unirse al grupo de líderes de partido"
-            },
-            "payouts": {
-              "title": "Pagos",
-              "week": "Semana",
-              "showAll": "Mostrar todo"
-            }
-          }
-        }
-      }
-    },
-    "govern": {
-      "title": "Gobernar",
-      "tabs": {
-        "openLetters": "Cartas abiertas",
-        "elections": "Elecciones",
-        "referendums": "Referéndums"
-      },
-      "sections": {
-        "openLetters": {
-          "title": "Cartas Abiertas",
-          "description": "Declaraciones públicas a los tomadores de decisiones",
-          "statements": {
-            "aiRisk": {
-              "title": "Declaración sobre el Riesgo de la IA",
-              "referenceTitle": "Centro para la Seguridad de la IA"
-            },
-            "nuclear": {
-              "title": "Carta Abierta sobre la Prohibición de Armas Nucleares de la ONU",
-              "referenceTitle": "Instituto del Futuro de la Vida"
-            },
-            "autonomousWeapons": {
-              "title": "Compromiso sobre Armas Autónomas Letales",
-              "referenceTitle": "Instituto del Futuro de la Vida"
-            },
-            "longView": {
-              "title": "Carta Abierta Pidiendo a los Líderes Mundiales que Muestren Liderazgo a Largo Plazo sobre Amenazas Existenciales",
-              "referenceTitle": "Instituto del Futuro de la Vida"
-            }
-          }
-        },
-        "elections": {
-          "title": "Elecciones",
-          "description": "Elige a tus representantes",
-          "testElections": {
-            "title": "Elecciones de Prueba",
-            "description": "Ayúdanos a distribuir los subsidios de los partidos y a mejorar nuestro sistema de gobierno",
-            "button": "Votar"
-          }
-        },
-        "referendums": {
-          "title": "Referéndums",
-          "description": "Votos directos sobre temas importantes",
-          "worldConstitutional": {
-            "title": "Referéndum Constitucional Mundial",
-            "description": "Participa en una votación histórica sobre los principios que guiarán el futuro colectivo de la humanidad",
-            "button": "Próximamente"
-          }
-        }
-      }
-    },
-    "menu": {
-      "title": "Menú",
-      "sections": {
-        "experimental": {
-          "title": "AJUSTES",
-          "links": {
-            "language": "Idioma"
-          }
-        },
-        "connect": {
-          "title": "CONECTAR",
-          "links": {
-            "community": "Comunidad",
-            "announcements": "Anuncios",
-            "x": "X"
-          }
-        },
-        "help": {
-          "title": "AYUDA",
-          "links": {
-            "support": "Comunidad de ayuda",
-            "faq": "Preguntas frecuentes"
-          }
-        },
-        "code": {
-          "title": "CÓDIGO",
-          "links": {
-            "app": "Aplicación",
-            "contracts": "Contratos inteligentes"
-          }
-        }
-      }
-    },
-    "faq": {
-      "title": "Preguntas Frecuentes",
-      "items": {
-        "appPurpose": {
-          "question": "¿Qué es la República Mundial?",
-          "answer": "La República Mundial es una organización abierta y democrática dedicada a resolver los desafíos globales más urgentes de la humanidad. Proporciona un marco para la toma de decisiones colectivas sobre temas que solo pueden abordarse efectivamente a escala global, como los riesgos de la IA, el cambio climático o la bioseguridad."
-        },
-        "basicIncome": {
-          "question": "¿Qué es la Renta Básica?",
-          "answer": "Nuestra Renta Básica es un subsidio diario de 0,0025 WDD (dracma mundial) que se proporciona a todos los ciudadanos de la República Mundial. Se acumula en tiempo real y se puede reclamar en cualquier momento a través de la aplicación."
-        },
-        "basicIncomePlus": {
-          "question": "¿Cómo activo la Renta Básica Plus?",
-          "answer": "La Renta Básica Plus proporciona 0,0475 WDD adicionales por día y está disponible exclusivamente para usuarios verificados con Orb. Después de activar la Renta Básica, verás una opción para activar la Renta Básica Plus en la página Ganar."
-        },
-        "savings": {
-          "question": "¿Cómo funciona la Cuenta de Ahorro?",
-          "answer": "La Cuenta de Ahorro te permite depositar tokens WDD y ganar un interés anual del 69%. A través de la reinversión constante de los intereses ganados, los usuarios pueden alcanzar rendimientos efectivos cercanos al 100% anual, maximizando su crecimiento de WDD a lo largo del tiempo. Los intereses se acumulan continuamente y se pueden retirar o reinvertir en cualquier momento."
-        },
-        "referralCodes": {
-          "question": "¿Cómo funcionan los códigos de referido?",
-          "answer": "Como ciudadano de la República Mundial, puedes ganar recompensas a través de nuestro programa de referidos. Comparte tu enlace de invitación único con amigos y recibirás 10 WDD por cada persona que se una a nuestra aplicación web y complete la prueba de vivacidad."
-        },
-        "drachmaValue": {
-          "question": "¿De dónde obtiene su valor el dracma?",
-          "answer": "El dracma deriva su valor de ser la moneda oficial de la República Mundial. A medida que nuestra plataforma de gobernanza global democrática crece, WDD tiene el potencial de convertirse en un medio de intercambio significativo en la economía mundial, y eventualmente podría desempeñar un papel en la distribución equitativa de los beneficios de los avances tecnológicos y los recursos globales."
-        },
-        "topWallets": {
-          "question": "¿Quién controla las cuentas más grandes?",
-          "answer": "Las tres cuentas más grandes son la <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>Tesorería de la República Mundial</a>, el <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Fondo de Ingreso Básico</a> y el <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Fondo de Ingreso Básico Plus</a>. Actualmente están bajo la administración del fundador del proyecto para garantizar la estabilidad mientras transferimos progresivamente el control a la comunidad. Otras direcciones clave incluyen el <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>contrato de la Cuenta de Ahorros</a>, el <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>distribuidor de Recompensas por Referidos</a> y los fondos de liquidez: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a> y <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
-        },
-        "voteRequirements": {
-          "question": "¿Cómo puedo participar en la gobernanza?",
-          "answer": "Puedes participar uniéndote o creando un partido político. Aunque las votaciones actuales son ilustrativas, los partidos son la base de nuestro modelo de gobernanza. A medida que los partidos se profesionalicen, desbloquearán áreas cada vez más significativas para el control democrático, dándote voz en nuestras decisiones colectivas."
-        }
-      }
-    },
-    "language": {
-      "title": "Idioma",
-      "options": {
-        "english": "English",
-        "spanish": "Español"
-      }
-    }
-  }
+	"components": {
+		"walletAuth": {
+			"connect": "Conectar billetera",
+			"connecting": "Conectando...",
+			"connected": "Conectado",
+			"error": "Error de Conexión"
+		},
+		"banners": {
+			"dalgona": {
+				"title": "Las recompensas por referidos han vuelto",
+				"description": "Obtén WDD por invitar a tus amigos a nuestra nueva app web.",
+				"cta": "Empezar"
+			}
+		},
+		"stakeForm": {
+			"title": "Depositar Tokens",
+			"amountPlaceholder": "Ingrese cantidad",
+			"submit": "Depositar",
+			"approving": "Aprobando...",
+			"staking": "Depositando...",
+			"deposit": "Depositar",
+			"withdraw": "Retirar",
+			"balance": "Saldo:",
+			"depositPlaceholder": "Cantidad a depositar",
+			"withdrawPlaceholder": "Cantidad a retirar",
+			"max": "Máximo",
+			"interest": "Interés:",
+			"collect": "Cobrar",
+			"depositButton": "Depositar dracma",
+			"withdrawButton": "Retirar dracma"
+		},
+		"toasts": {
+			"wallet": {
+				"connectInWorldApp": "Por favor, abra esta aplicación en World App para conectar su billetera.",
+				"stakingError": "Error al depositar tokens",
+				"withdrawError": "Error al retirar tokens",
+				"collectError": "Error al cobrar recompensas"
+			},
+			"referral": {
+				"pendingReward": "Procesando recompensa pendiente para {{username}}...",
+				"rewardSuccess": "¡Recompensa enviada exitosamente a {{username}}!",
+				"sendingReward": "Enviando recompensa de 50 WDD a {{username}}..."
+			},
+			"basicIncome": {
+				"setupSuccess": "¡Renta Básica Plus activada! Preparando recompensa para {{username}}...",
+				"setupWithReferrer": "Configurando Renta Básica Plus primero, luego recompensaremos a {{username}}...",
+				"error": "Error al activar Renta Básica",
+				"errorPlus": "Error al activar Renta Básica Plus"
+			},
+			"transaction": {
+				"error": "Ocurrió un error inesperado",
+				"errorClaim": "Ocurrió un error inesperado durante el reclamo"
+			}
+		},
+		"tabSwiper": {
+			"tabs": {
+				"openLetters": "Cartas abiertas",
+				"elections": "Elecciones",
+				"referendums": "Referéndums"
+			}
+		}
+	},
+	"pages": {
+		"earn": {
+			"title": "Ganar",
+			"tabs": {
+				"basicIncome": {
+					"tabTitle": "Renta básica",
+					"title": "Renta Básica",
+					"subtitle": "Inicia sesión para reclamar tu renta básica",
+					"setupSubtitle": "Configura tu renta básica",
+					"claimableSubtitle": "Dracmas reclamables",
+					"claimableTooltip1": "Como parte de nuestro",
+					"claimableTooltip2": "programa de recompra",
+					"claimableTooltip3": ", estamos ajustando los niveles de renta básica para crear beneficios sostenibles y a largo plazo para nuestra comunidad. Por favor, consulte las",
+					"claimableTooltip4": "FAQ",
+					"claimableTooltip5": "para las tasas actuales.",
+					"activateButton": "Activar Renta Básica",
+					"claimButton": "Reclamar",
+					"plus": {
+						"title": "Renta Básica Plus",
+						"newBadge": "Nuevo",
+						"drawerTrigger": "Presentando Renta Básica Plus",
+						"subtitle": "Ingresos extra para usuarios verificados",
+						"drawer": {
+							"title": "Renta Básica Plus",
+							"subtitle": "Ingresos extra para usuarios verificados",
+							"features": {
+								"rate": {
+									"title": "0,0475 WDD adicionales por día"
+								},
+								"verification": {
+									"title": "Exclusivo para usuarios verificados con Orb para asegurar una distribución justa"
+								}
+							},
+							"activateButton": "Activar Renta Básica Plus",
+							"claimButton": "Reclamar Renta Básica Plus",
+							"claimBasicButton": "Reclamar Renta Básica"
+						}
+					}
+				},
+				"savings": {
+					"tabTitle": "Ahorro",
+					"title": "Cuenta de Ahorro",
+					"subtitle": "Gana intereses cada segundo",
+					"tooltip": "Tasa base del 69% APY. Cobra y reinvierte los intereses para alcanzar cerca del 100% de rendimiento efectivo anual. Retira en cualquier momento."
+				},
+				"invite": {
+					"title": "Invitar",
+					"subtitle": "Obtén 10 WDD por cada amigo que se una",
+					"tooltip": "Tus amigos deben unirse a nuestra nueva aplicación web.",
+					"learnMore": "Más información",
+					"stats": {
+						"title": "Tus estadísticas de referidos",
+						"invites": "Invitaciones aceptadas",
+						"rewards": "Recompensas totales"
+					},
+					"actions": {
+						"copyLink": "Copiar enlace de referido",
+						"copied": "¡Enlace de referido copiado al portapapeles!",
+						"connectWallet": "Por favor conecta tu billetera para generar tu enlace de referido",
+						"share": "Compartir enlace de invitación"
+					},
+					"share": {
+						"title": "Únete a la República Mundial",
+						"text": "¡Usa mi enlace de invitación para unirte a la República Mundial y ganar recompensas juntos!"
+					}
+				},
+				"contribute": {
+					"title": "Contribuir",
+					"subtitle": "Participa, obtén recompensas",
+					"buybackProgram": {
+						"topnav": "Programa de Recompra",
+						"title": "Programa de Recompra de Tokens",
+						"subtitle": "Fortalecer el valor de WDD juntos",
+						"sections": {
+							"fundingSources": {
+								"title": "Fuentes de financiamiento",
+								"devRewards": {
+									"title": "Recompensas de Desarrolladores World",
+									"weekProgress": "Semana 7 de 12"
+								},
+								"worldRetro": {
+									"title": "Financiamiento World Retro"
+								},
+								"optimism": {
+									"title": "Financiamiento Optimism Retro"
+								},
+								"affiliate": {
+									"title": "Comisiones de afiliados"
+								}
+							},
+							"commitment": {
+								"title": "Nuestro compromiso",
+								"description": "Nos comprometemos a utilizar al menos el 50% de todos estos financiamientos para recompras de WDD.",
+								"viewAccount": "Ver cuenta de recompra"
+							},
+							"valueCycle": {
+								"title": "El Ciclo de Valor Positivo",
+								"steps": {
+									"step1": "Más usuarios y uso de la app",
+									"step2": "Mayores recompensas",
+									"step3": "Más recompras de tokens"
+								}
+							},
+							"helpSection": {
+								"title": "Cómo puedes ayudar",
+								"intro": "Puedes contribuir directamente a aumentar el valor de tus tokens WDD:",
+								"steps": {
+									"invite": {
+										"title": "Invitar a otros a unirse",
+										"description": "Hacer crecer nuestra comunidad de miembros verificados"
+									},
+									"useApp": {
+										"title": "Usar la app regularmente",
+										"description": "Impulsar el ciclo económico virtuoso"
+									}
+								}
+							}
+						},
+						"actions": {
+							"share": "Compartir invitación"
+						},
+						"cta": "Ver recompensas de mini app"
+					},
+					"buybackLink": {
+						"title": "Programa de Recompra",
+						"description": "Crecimiento del valor de WDD impulsado por la comunidad"
+					},
+					"partySubsidy": {
+						"topnav": "Programa de Subsidios",
+						"title": "Programa de Subsidios para Partidos",
+						"subtitle": "Construye tu movimiento político y gana",
+						"weeklyPool": {
+							"old": "100.000",
+							"new": "250.000 WDD",
+							"subtitle": "Fondo fijo"
+						},
+						"devRewards": {
+							"title": "10% de nuestras Recompensas de Desarrolladores",
+							"subtitle": "Fondo variable",
+							"tooltip": "World está distribuyendo recompensas para desarrolladores basadas en el uso de la aplicación por humanos verificados.",
+							"checkOutRewards": "Ver recompensas"
+						},
+						"howItWorks": {
+							"title": "Cómo funciona",
+							"steps": {
+								"createParty": {
+									"title": "Crea un partido",
+									"description": "Inicia tu movimiento político en la app de la República Mundial"
+								},
+								"growMembership": {
+									"title": "Clasifica para las elecciones",
+									"description": "Aumenta tu membresía para clasificar a las elecciones semanales"
+								},
+								"earnRewards": {
+									"title": "Recibe financiación",
+									"description": "Gana subsidios proporcionales a los votos que reciba tu partido"
+								}
+							}
+						},
+						"cta": {
+							"createJoin": "Crear o unirse a un partido",
+							"leaderGroup": "Unirse al grupo de líderes de partido"
+						},
+						"payouts": {
+							"title": "Pagos",
+							"week": "Semana",
+							"showAll": "Mostrar todo"
+						}
+					}
+				}
+			}
+		},
+		"govern": {
+			"title": "Gobernar",
+			"tabs": {
+				"openLetters": "Cartas abiertas",
+				"elections": "Elecciones",
+				"referendums": "Referéndums"
+			},
+			"sections": {
+				"openLetters": {
+					"title": "Cartas Abiertas",
+					"description": "Declaraciones públicas a los tomadores de decisiones",
+					"statements": {
+						"aiRisk": {
+							"title": "Declaración sobre el Riesgo de la IA",
+							"referenceTitle": "Centro para la Seguridad de la IA"
+						},
+						"nuclear": {
+							"title": "Carta Abierta sobre la Prohibición de Armas Nucleares de la ONU",
+							"referenceTitle": "Instituto del Futuro de la Vida"
+						},
+						"autonomousWeapons": {
+							"title": "Compromiso sobre Armas Autónomas Letales",
+							"referenceTitle": "Instituto del Futuro de la Vida"
+						},
+						"longView": {
+							"title": "Carta Abierta Pidiendo a los Líderes Mundiales que Muestren Liderazgo a Largo Plazo sobre Amenazas Existenciales",
+							"referenceTitle": "Instituto del Futuro de la Vida"
+						}
+					}
+				},
+				"elections": {
+					"title": "Elecciones",
+					"description": "Elige a tus representantes",
+					"testElections": {
+						"title": "Elecciones de Prueba",
+						"description": "Ayúdanos a distribuir los subsidios de los partidos y a mejorar nuestro sistema de gobierno",
+						"button": "Votar"
+					}
+				},
+				"referendums": {
+					"title": "Referéndums",
+					"description": "Votos directos sobre temas importantes",
+					"worldConstitutional": {
+						"title": "Referéndum Constitucional Mundial",
+						"description": "Participa en una votación histórica sobre los principios que guiarán el futuro colectivo de la humanidad",
+						"button": "Próximamente"
+					}
+				}
+			}
+		},
+		"menu": {
+			"title": "Menú",
+			"sections": {
+				"experimental": {
+					"title": "AJUSTES",
+					"links": {
+						"language": "Idioma"
+					}
+				},
+				"connect": {
+					"title": "CONECTAR",
+					"links": {
+						"community": "Comunidad",
+						"announcements": "Anuncios",
+						"x": "X"
+					}
+				},
+				"help": {
+					"title": "AYUDA",
+					"links": {
+						"support": "Comunidad de ayuda",
+						"faq": "Preguntas frecuentes"
+					}
+				},
+				"code": {
+					"title": "CÓDIGO",
+					"links": {
+						"app": "Aplicación",
+						"contracts": "Contratos inteligentes"
+					}
+				}
+			}
+		},
+		"faq": {
+			"title": "Preguntas Frecuentes",
+			"items": {
+				"appPurpose": {
+					"question": "¿Qué es la República Mundial?",
+					"answer": "La República Mundial es una organización abierta y democrática dedicada a resolver los desafíos globales más urgentes de la humanidad. Proporciona un marco para la toma de decisiones colectivas sobre temas que solo pueden abordarse efectivamente a escala global, como los riesgos de la IA, el cambio climático o la bioseguridad."
+				},
+				"basicIncome": {
+					"question": "¿Qué es la Renta Básica?",
+					"answer": "Nuestra Renta Básica es un subsidio diario de 0,0025 WDD (dracma mundial) que se proporciona a todos los ciudadanos de la República Mundial. Se acumula en tiempo real y se puede reclamar en cualquier momento a través de la aplicación."
+				},
+				"basicIncomePlus": {
+					"question": "¿Cómo activo la Renta Básica Plus?",
+					"answer": "La Renta Básica Plus proporciona 0,0475 WDD adicionales por día y está disponible exclusivamente para usuarios verificados con Orb. Después de activar la Renta Básica, verás una opción para activar la Renta Básica Plus en la página Ganar."
+				},
+				"savings": {
+					"question": "¿Cómo funciona la Cuenta de Ahorro?",
+					"answer": "La Cuenta de Ahorro te permite depositar tokens WDD y ganar un interés anual del 69%. A través de la reinversión constante de los intereses ganados, los usuarios pueden alcanzar rendimientos efectivos cercanos al 100% anual, maximizando su crecimiento de WDD a lo largo del tiempo. Los intereses se acumulan continuamente y se pueden retirar o reinvertir en cualquier momento."
+				},
+				"referralCodes": {
+					"question": "¿Cómo funcionan los códigos de referido?",
+					"answer": "Como ciudadano de la República Mundial, puedes ganar recompensas a través de nuestro programa de referidos. Comparte tu enlace de invitación único con amigos y recibirás 10 WDD por cada persona que se una a nuestra aplicación web y complete la prueba de vivacidad."
+				},
+				"drachmaValue": {
+					"question": "¿De dónde obtiene su valor el dracma?",
+					"answer": "El dracma deriva su valor de ser la moneda oficial de la República Mundial. A medida que nuestra plataforma de gobernanza global democrática crece, WDD tiene el potencial de convertirse en un medio de intercambio significativo en la economía mundial, y eventualmente podría desempeñar un papel en la distribución equitativa de los beneficios de los avances tecnológicos y los recursos globales."
+				},
+				"topWallets": {
+					"question": "¿Quién controla las cuentas más grandes?",
+					"answer": "Las tres cuentas más grandes son la <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>Tesorería de la República Mundial</a>, el <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Fondo de Ingreso Básico</a> y el <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Fondo de Ingreso Básico Plus</a>. Actualmente están bajo la administración del fundador del proyecto para garantizar la estabilidad mientras transferimos progresivamente el control a la comunidad. Otras direcciones clave incluyen el <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>contrato de la Cuenta de Ahorros</a>, el <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>distribuidor de Recompensas por Referidos</a> y los fondos de liquidez: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a> y <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
+				},
+				"voteRequirements": {
+					"question": "¿Cómo puedo participar en la gobernanza?",
+					"answer": "Puedes participar uniéndote o creando un partido político. Aunque las votaciones actuales son ilustrativas, los partidos son la base de nuestro modelo de gobernanza. A medida que los partidos se profesionalicen, desbloquearán áreas cada vez más significativas para el control democrático, dándote voz en nuestras decisiones colectivas."
+				}
+			}
+		},
+		"language": {
+			"title": "Idioma",
+			"options": {
+				"english": "English",
+				"spanish": "Español"
+			}
+		}
+	}
 }

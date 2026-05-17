@@ -1,356 +1,356 @@
 {
-  "components": {
-    "walletAuth": {
-      "connect": "ربط المحفظة"
-    },
-    "banners": {
-      "dalgona": {
-        "title": "عادت مكافآت الإحالة",
-        "description": "احصل على WDD عند دعوة أصدقائك إلى تطبيق الويب الجديد الخاص بنا.",
-        "cta": "ابدأ الآن"
-      }
-    },
-    "stakeForm": {
-      "deposit": "إيداع",
-      "withdraw": "سحب",
-      "balance": "الرصيد:",
-      "depositPlaceholder": "المبلغ للإيداع",
-      "withdrawPlaceholder": "المبلغ للسحب",
-      "max": "الحد الأقصى",
-      "interest": "الفائدة:",
-      "collect": "تحصيل",
-      "depositButton": "إيداع الدراخما",
-      "withdrawButton": "سحب الدراخما"
-    },
-    "toasts": {
-      "wallet": {
-        "connectInWorldApp": "يرجى فتح هذا التطبيق في تطبيق World App لربط محفظتك.",
-        "stakingError": "خطأ في رهن الرموز",
-        "withdrawError": "خطأ في سحب الرموز",
-        "collectError": "خطأ في تحصيل المكافآت"
-      },
-      "referral": {
-        "pendingReward": "معالجة المكافأة المعلقة لـ {{username}}...",
-        "rewardSuccess": "تمت مكافأة {{username}} بنجاح!",
-        "sendingReward": "إرسال مكافأة 50 WDD إلى {{username}}..."
-      },
-      "basicIncome": {
-        "setupSuccess": "تم تفعيل الدخل الأساسي بلس! جاري تحضير المكافأة لـ {{username}}...",
-        "setupWithReferrer": "جاري إعداد الدخل الأساسي بلس أولاً، ثم سنكافئ {{username}}...",
-        "error": "خطأ في تفعيل الدخل الأساسي",
-        "errorPlus": "خطأ في تفعيل الدخل الأساسي بلس"
-      },
-      "transaction": {
-        "error": "حدث خطأ غير متوقع",
-        "errorClaim": "حدث خطأ غير متوقع أثناء المطالبة"
-      }
-    },
-    "tabSwiper": {
-      "tabs": {
-        "openLetters": "رسائل مفتوحة",
-        "elections": "انتخابات",
-        "referendums": "استفتاءات"
-      }
-    }
-  },
-  "pages": {
-    "earn": {
-      "title": "اكسب",
-      "tabs": {
-        "basicIncome": {
-          "tabTitle": "الدخل الأساسي",
-          "title": "الدخل الأساسي",
-          "subtitle": "سجل دخول للمطالبة بدخلك الأساسي",
-          "setupSubtitle": "قم بإعداد دخلك الأساسي",
-          "claimableSubtitle": "الدراخما القابلة للمطالبة",
-          "claimableTooltip1": "كجزء من",
-          "claimableTooltip2": "برنامج إعادة الشراء",
-          "claimableTooltip3": " لدينا، نقوم بضبط مستويات الدخل الأساسي لخلق فوائد مستدامة طويلة الأمد لمجتمعنا. يرجى الرجوع إلى",
-          "claimableTooltip4": "الأسئلة الشائعة",
-          "claimableTooltip5": "للاطلاع على المعدلات الحالية.",
-          "activateButton": "تفعيل الدخل الأساسي",
-          "claimButton": "مطالبة",
-          "plus": {
-            "title": "الدخل الأساسي بلس",
-            "newBadge": "جديد",
-            "drawerTrigger": "تعرف على الدخل الأساسي بلس",
-            "subtitle": "دخل إضافي للمستخدمين الموثقين",
-            "drawer": {
-              "title": "الدخل الأساسي بلس",
-              "subtitle": "دخل إضافي للمستخدمين الموثقين",
-              "features": {
-                "rate": {
-                  "title": "0,0475 WDD إضافية يومياً"
-                },
-                "verification": {
-                  "title": "حصري للمستخدمين الموثقين من Orb لضمان التوزيع العادل"
-                }
-              },
-              "activateButton": "تفعيل الدخل الأساسي بلس",
-              "claimButton": "مطالبة الدخل الأساسي بلس",
-              "claimBasicButton": "مطالبة الدخل الأساسي"
-            }
-          }
-        },
-        "savings": {
-          "tabTitle": "المدخرات",
-          "title": "حساب المدخرات",
-          "subtitle": "اكسب فائدة كل ثانية",
-          "tooltip": "معدل أساسي 69٪ سنوياً. اجمع وأعد استثمار الفائدة لتحقيق عوائد فعالة قريبة من 100٪ سنوياً. اسحب في أي وقت."
-        },
-        "invite": {
-          "title": "دعوة",
-          "subtitle": "احصل على 10 WDD لكل صديق ينضم",
-          "tooltip": "يجب أن ينضم الأصدقاء إلى تطبيق الويب الجديد لدينا.",
-          "learnMore": "معرفة المزيد",
-          "stats": {
-            "title": "إحصائيات الدعوات الخاصة بك",
-            "invites": "الدعوات المقبولة",
-            "rewards": "إجمالي المكافآت"
-          },
-          "actions": {
-            "copyLink": "نسخ رابط الإحالة",
-            "copied": "تم نسخ رابط الإحالة إلى الحافظة!",
-            "connectWallet": "يرجى توصيل المحفظة لإنشاء رابط الإحالة الخاص بك",
-            "share": "مشاركة رابط الدعوة"
-          },
-          "share": {
-            "title": "انضم إلى الجمهورية العالمية",
-            "text": "استخدم رابط دعوتي للانضمام إلى الجمهورية العالمية وكسب المكافآت معًا!"
-          }
-        },
-        "contribute": {
-          "title": "ساهم",
-          "subtitle": "شارك واحصل على مكافآت",
-          "buybackProgram": {
-            "topnav": "برنامج إعادة الشراء",
-            "title": "برنامج إعادة شراء الرموز",
-            "subtitle": "تعزيز قيمة WDD معًا",
-            "sections": {
-              "fundingSources": {
-                "title": "مصادر التمويل",
-                "devRewards": {
-                  "title": "مكافآت مطوري World",
-                  "weekProgress": "الأسبوع 7 من 12"
-                },
-                "worldRetro": {
-                  "title": "تمويل World Retro"
-                },
-                "optimism": {
-                  "title": "تمويل Optimism Retro"
-                },
-                "affiliate": {
-                  "title": "عمولات الشركاء"
-                }
-              },
-              "commitment": {
-                "title": "التزامنا",
-                "description": "نلتزم باستخدام 50% على الأقل من هذه التمويلات لإعادة شراء WDD.",
-                "viewAccount": "عرض حساب إعادة الشراء"
-              },
-              "valueCycle": {
-                "title": "دورة القيمة الإيجابية",
-                "steps": {
-                  "step1": "المزيد من مستخدمي التطبيق والاستخدام",
-                  "step2": "مكافآت أعلى",
-                  "step3": "المزيد من إعادة شراء الرموز"
-                }
-              },
-              "helpSection": {
-                "title": "كيف يمكنك المساعدة",
-                "intro": "يمكنك المساهمة مباشرة في زيادة قيمة رموز WDD الخاصة بك:",
-                "steps": {
-                  "invite": {
-                    "title": "دعوة الآخرين للانضمام",
-                    "description": "تنمية مجتمعنا من الأعضاء المصدق عليهم"
-                  },
-                  "useApp": {
-                    "title": "استخدام التطبيق بانتظام",
-                    "description": "دفع دورة الاقتصاد الفاضلة"
-                  }
-                }
-              }
-            },
-            "actions": {
-              "share": "مشاركة الدعوة"
-            },
-            "cta": "عرض مكافآت التطبيق المصغر"
-          },
-          "buybackLink": {
-            "title": "برنامج إعادة الشراء",
-            "description": "نمو قيمة WDD بقوة المجتمع"
-          },
-          "partySubsidy": {
-            "topnav": "برنامج الدعم",
-            "title": "برنامج دعم الأحزاب",
-            "subtitle": "ابنِ حركتك السياسية واكسب",
-            "weeklyPool": {
-              "old": "100,000",
-              "new": "250,000 WDD",
-              "subtitle": "مجمع ثابت"
-            },
-            "devRewards": {
-              "title": "10% من مكافآت المطورين لدينا",
-              "subtitle": "مجمع متغير",
-              "tooltip": "يقوم World بتوزيع مكافآت المطورين بناءً على استخدام التطبيق من قبل البشر المتحقق منهم.",
-              "checkOutRewards": "تحقق من المكافآت"
-            },
-            "howItWorks": {
-              "title": "كيف يعمل",
-              "steps": {
-                "createParty": {
-                  "title": "أنشئ حزبًا",
-                  "description": "ابدأ حركتك السياسية في تطبيق World Republic"
-                },
-                "growMembership": {
-                  "title": "تأهل للانتخابات",
-                  "description": "عزز عضويتك للتأهل للانتخابات الأسبوعية"
-                },
-                "earnRewards": {
-                  "title": "احصل على تمويل",
-                  "description": "احصل على إعانات تتناسب مع الأصوات التي يحصل عليها حزبك"
-                }
-              }
-            },
-            "cta": {
-              "createJoin": "أنشئ أو انضم إلى حزب",
-              "leaderGroup": "انضم إلى مجموعة قادة الأحزاب"
-            },
-            "payouts": {
-              "title": "المدفوعات",
-              "week": "الأسبوع",
-              "showAll": "عرض الكل"
-            }
-          }
-        }
-      }
-    },
-    "govern": {
-      "title": "حكم",
-      "tabs": {
-        "openLetters": "الرسائل المفتوحة",
-        "elections": "الانتخابات",
-        "referendums": "الاستفتاءات"
-      },
-      "sections": {
-        "openLetters": {
-          "title": "الرسائل المفتوحة",
-          "description": "بيانات عامة لصانعي القرار",
-          "statements": {
-            "aiRisk": {
-              "title": "بيان حول مخاطر الذكاء الاصطناعي",
-              "referenceTitle": "مركز سلامة الذكاء الاصطناعي"
-            },
-            "nuclear": {
-              "title": "رسالة مفتوحة للأمم المتحدة لحظر الأسلحة النووية",
-              "referenceTitle": "معهد مستقبل الحياة"
-            },
-            "autonomousWeapons": {
-              "title": "التعهد بشأن الأسلحة المستقلة المميتة",
-              "referenceTitle": "معهد مستقبل الحياة"
-            },
-            "longView": {
-              "title": "رسالة مفتوحة تدعو قادة العالم لإظهار قيادة طويلة المدى بشأن التهديدات الوجودية",
-              "referenceTitle": "معهد مستقبل الحياة"
-            }
-          }
-        },
-        "elections": {
-          "title": "الانتخابات",
-          "description": "اختر ممثليك",
-          "testElections": {
-            "title": "انتخابات تجريبية",
-            "description": "ساعدنا في توزيع إعانات الأحزاب وتحسين نظام حوكمتنا",
-            "button": "صوّت"
-          }
-        },
-        "referendums": {
-          "title": "الاستفتاءات",
-          "description": "تصويت مباشر على القضايا المهمة",
-          "worldConstitutional": {
-            "title": "الاستفتاء الدستوري العالمي",
-            "description": "شارك في تصويت تاريخي على المبادئ التي ستوجه مستقبل البشرية الجماعي",
-            "button": "قريباً"
-          }
-        }
-      }
-    },
-    "menu": {
-      "title": "القائمة",
-      "sections": {
-        "experimental": {
-          "title": "الإعدادات",
-          "links": {
-            "language": "اللغة"
-          }
-        },
-        "connect": {
-          "title": "تواصل",
-          "links": {
-            "community": "المجتمع",
-            "announcements": "الإعلانات",
-            "x": "X"
-          }
-        },
-        "help": {
-          "title": "مساعدة",
-          "links": {
-            "support": "مجتمع المساعدة",
-            "faq": "الأسئلة الشائعة"
-          }
-        },
-        "code": {
-          "title": "الكود",
-          "links": {
-            "app": "التطبيق",
-            "contracts": "العقود الذكية"
-          }
-        }
-      }
-    },
-    "faq": {
-      "title": "الأسئلة الشائعة",
-      "items": {
-        "appPurpose": {
-          "question": "ما هي الجمهورية العالمية؟",
-          "answer": "الجمهورية العالمية هي منظمة ديمقراطية مفتوحة مكرسة لحل أكثر التحديات العالمية إلحاحاً للبشرية. توفر إطاراً لصنع القرار الجماعي بشأن القضايا التي يمكن معالجتها بشكل فعال فقط على نطاق عالمي، مثل مخاطر الذكاء الاصطناعي، وتغير المناخ، أو الأمن البيولوجي."
-        },
-        "basicIncome": {
-          "question": "ما هو الدخل الأساسي؟",
-          "answer": "دخلنا الأساسي هو دعم يومي بقيمة 0٫0025 WDD (دراخما عالمية) يتم تقديمه لجميع مواطني الجمهورية العالمية. يتراكم في الوقت الفعلي ويمكن المطالبة به في أي لحظة من خلال التطبيق."
-        },
-        "basicIncomePlus": {
-          "question": "كيف أقوم بتفعيل الدخل الأساسي بلس؟",
-          "answer": "يوفر الدخل الأساسي بلس 0٫0475 WDD إضافية يومياً وهو متاح حصرياً للمستخدمين الموثقين من Orb. بعد تفعيل الدخل الأساسي، سترى خياراً لتفعيل الدخل الأساسي بلس على صفحة الكسب."
-        },
-        "savings": {
-          "question": "كيف يعمل حساب المدخرات؟",
-          "answer": "يتيح حساب المدخرات لك إيداع رموز WDD وكسب فائدة سنوية بنسبة 69٪. من خلال إعادة استثمار الفائدة المكتسبة باستمرار، يمكن للمستخدمين تحقيق عوائد فعالة قريبة من 100٪ سنوياً، مما يزيد من نمو WDD مع مرور الوقت. تتراكم الفائدة بشكل مستمر ويمكن سحبها أو إعادة استثمارها في أي وقت."
-        },
-        "referralCodes": {
-          "question": "كيف تعمل رموز الإحالة؟",
-          "answer": "كمواطن في جمهورية العالم، يمكنك كسب المكافآت من خلال برنامج الإحالة لدينا. شارك رابط الدعوة الخاص بك مع الأصدقاء، وستحصل على 10 WDD لكل شخص ينضم إلى تطبيقنا على الويب ويُكمل فحص الحيوية."
-        },
-        "drachmaValue": {
-          "question": "من أين يحصل الدراخما على قيمته؟",
-          "answer": "يستمد الدراخما قيمته من كونه العملة الرسمية للجمهورية العالمية. مع نمو منصة الحكم العالمي الديمقراطية لدينا، يمكن أن يصبح WDD وسيلة تبادل مهمة في الاقتصاد العالمي، ويمكن أن يلعب في النهاية دوراً في التوزيع العادل للمزايا من التقدم التكنولوجي والموارد العالمية."
-        },
-        "topWallets": {
-          "question": "من يتحكم في أكبر الحسابات؟",
-          "answer": "الحسابات الثلاثة الأكبر هي <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>خزينة الجمهورية العالمية</a>، و<a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>صندوق الدخل الأساسي</a>، و<a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>صندوق الدخل الأساسي بلس</a>. يتولى مؤسس المشروع الإشراف عليها حاليًا لضمان الاستقرار بينما ننقل السيطرة تدريجيًا إلى المجتمع. العناوين الرئيسية الأخرى تشمل <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>عقد حساب المدخرات</a>، و<a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>موزع مكافآت الإحالة</a>، وبرك السيولة: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>، <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>، و<a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
-        },
-        "voteRequirements": {
-          "question": "كيف يمكنني المشاركة في الحكم؟",
-          "answer": "يمكنك المشاركة بالانضمام إلى حزب سياسي أو إنشائه. في حين أن الأصوات الحالية توضيحية، فإن الأحزاب هي أساس نموذج حوكمتنا. مع احتراف الأحزاب، ستفتح مجالات أكثر أهمية للرقابة الديمقراطية، مما يمنحك صوتًا في قراراتنا الجماعية."
-        }
-      }
-    },
-    "language": {
-      "title": "اللغة",
-      "options": {
-        "english": "الإنجليزية",
-        "spanish": "الإسبانية"
-      }
-    }
-  }
+	"components": {
+		"walletAuth": {
+			"connect": "ربط المحفظة"
+		},
+		"banners": {
+			"dalgona": {
+				"title": "عادت مكافآت الإحالة",
+				"description": "احصل على WDD عند دعوة أصدقائك إلى تطبيق الويب الجديد الخاص بنا.",
+				"cta": "ابدأ الآن"
+			}
+		},
+		"stakeForm": {
+			"deposit": "إيداع",
+			"withdraw": "سحب",
+			"balance": "الرصيد:",
+			"depositPlaceholder": "المبلغ للإيداع",
+			"withdrawPlaceholder": "المبلغ للسحب",
+			"max": "الحد الأقصى",
+			"interest": "الفائدة:",
+			"collect": "تحصيل",
+			"depositButton": "إيداع الدراخما",
+			"withdrawButton": "سحب الدراخما"
+		},
+		"toasts": {
+			"wallet": {
+				"connectInWorldApp": "يرجى فتح هذا التطبيق في تطبيق World App لربط محفظتك.",
+				"stakingError": "خطأ في رهن الرموز",
+				"withdrawError": "خطأ في سحب الرموز",
+				"collectError": "خطأ في تحصيل المكافآت"
+			},
+			"referral": {
+				"pendingReward": "معالجة المكافأة المعلقة لـ {{username}}...",
+				"rewardSuccess": "تمت مكافأة {{username}} بنجاح!",
+				"sendingReward": "إرسال مكافأة 50 WDD إلى {{username}}..."
+			},
+			"basicIncome": {
+				"setupSuccess": "تم تفعيل الدخل الأساسي بلس! جاري تحضير المكافأة لـ {{username}}...",
+				"setupWithReferrer": "جاري إعداد الدخل الأساسي بلس أولاً، ثم سنكافئ {{username}}...",
+				"error": "خطأ في تفعيل الدخل الأساسي",
+				"errorPlus": "خطأ في تفعيل الدخل الأساسي بلس"
+			},
+			"transaction": {
+				"error": "حدث خطأ غير متوقع",
+				"errorClaim": "حدث خطأ غير متوقع أثناء المطالبة"
+			}
+		},
+		"tabSwiper": {
+			"tabs": {
+				"openLetters": "رسائل مفتوحة",
+				"elections": "انتخابات",
+				"referendums": "استفتاءات"
+			}
+		}
+	},
+	"pages": {
+		"earn": {
+			"title": "اكسب",
+			"tabs": {
+				"basicIncome": {
+					"tabTitle": "الدخل الأساسي",
+					"title": "الدخل الأساسي",
+					"subtitle": "سجل دخول للمطالبة بدخلك الأساسي",
+					"setupSubtitle": "قم بإعداد دخلك الأساسي",
+					"claimableSubtitle": "الدراخما القابلة للمطالبة",
+					"claimableTooltip1": "كجزء من",
+					"claimableTooltip2": "برنامج إعادة الشراء",
+					"claimableTooltip3": " لدينا، نقوم بضبط مستويات الدخل الأساسي لخلق فوائد مستدامة طويلة الأمد لمجتمعنا. يرجى الرجوع إلى",
+					"claimableTooltip4": "الأسئلة الشائعة",
+					"claimableTooltip5": "للاطلاع على المعدلات الحالية.",
+					"activateButton": "تفعيل الدخل الأساسي",
+					"claimButton": "مطالبة",
+					"plus": {
+						"title": "الدخل الأساسي بلس",
+						"newBadge": "جديد",
+						"drawerTrigger": "تعرف على الدخل الأساسي بلس",
+						"subtitle": "دخل إضافي للمستخدمين الموثقين",
+						"drawer": {
+							"title": "الدخل الأساسي بلس",
+							"subtitle": "دخل إضافي للمستخدمين الموثقين",
+							"features": {
+								"rate": {
+									"title": "0,0475 WDD إضافية يومياً"
+								},
+								"verification": {
+									"title": "حصري للمستخدمين الموثقين من Orb لضمان التوزيع العادل"
+								}
+							},
+							"activateButton": "تفعيل الدخل الأساسي بلس",
+							"claimButton": "مطالبة الدخل الأساسي بلس",
+							"claimBasicButton": "مطالبة الدخل الأساسي"
+						}
+					}
+				},
+				"savings": {
+					"tabTitle": "المدخرات",
+					"title": "حساب المدخرات",
+					"subtitle": "اكسب فائدة كل ثانية",
+					"tooltip": "معدل أساسي 69٪ سنوياً. اجمع وأعد استثمار الفائدة لتحقيق عوائد فعالة قريبة من 100٪ سنوياً. اسحب في أي وقت."
+				},
+				"invite": {
+					"title": "دعوة",
+					"subtitle": "احصل على 10 WDD لكل صديق ينضم",
+					"tooltip": "يجب أن ينضم الأصدقاء إلى تطبيق الويب الجديد لدينا.",
+					"learnMore": "معرفة المزيد",
+					"stats": {
+						"title": "إحصائيات الدعوات الخاصة بك",
+						"invites": "الدعوات المقبولة",
+						"rewards": "إجمالي المكافآت"
+					},
+					"actions": {
+						"copyLink": "نسخ رابط الإحالة",
+						"copied": "تم نسخ رابط الإحالة إلى الحافظة!",
+						"connectWallet": "يرجى توصيل المحفظة لإنشاء رابط الإحالة الخاص بك",
+						"share": "مشاركة رابط الدعوة"
+					},
+					"share": {
+						"title": "انضم إلى الجمهورية العالمية",
+						"text": "استخدم رابط دعوتي للانضمام إلى الجمهورية العالمية وكسب المكافآت معًا!"
+					}
+				},
+				"contribute": {
+					"title": "ساهم",
+					"subtitle": "شارك واحصل على مكافآت",
+					"buybackProgram": {
+						"topnav": "برنامج إعادة الشراء",
+						"title": "برنامج إعادة شراء الرموز",
+						"subtitle": "تعزيز قيمة WDD معًا",
+						"sections": {
+							"fundingSources": {
+								"title": "مصادر التمويل",
+								"devRewards": {
+									"title": "مكافآت مطوري World",
+									"weekProgress": "الأسبوع 7 من 12"
+								},
+								"worldRetro": {
+									"title": "تمويل World Retro"
+								},
+								"optimism": {
+									"title": "تمويل Optimism Retro"
+								},
+								"affiliate": {
+									"title": "عمولات الشركاء"
+								}
+							},
+							"commitment": {
+								"title": "التزامنا",
+								"description": "نلتزم باستخدام 50% على الأقل من هذه التمويلات لإعادة شراء WDD.",
+								"viewAccount": "عرض حساب إعادة الشراء"
+							},
+							"valueCycle": {
+								"title": "دورة القيمة الإيجابية",
+								"steps": {
+									"step1": "المزيد من مستخدمي التطبيق والاستخدام",
+									"step2": "مكافآت أعلى",
+									"step3": "المزيد من إعادة شراء الرموز"
+								}
+							},
+							"helpSection": {
+								"title": "كيف يمكنك المساعدة",
+								"intro": "يمكنك المساهمة مباشرة في زيادة قيمة رموز WDD الخاصة بك:",
+								"steps": {
+									"invite": {
+										"title": "دعوة الآخرين للانضمام",
+										"description": "تنمية مجتمعنا من الأعضاء المصدق عليهم"
+									},
+									"useApp": {
+										"title": "استخدام التطبيق بانتظام",
+										"description": "دفع دورة الاقتصاد الفاضلة"
+									}
+								}
+							}
+						},
+						"actions": {
+							"share": "مشاركة الدعوة"
+						},
+						"cta": "عرض مكافآت التطبيق المصغر"
+					},
+					"buybackLink": {
+						"title": "برنامج إعادة الشراء",
+						"description": "نمو قيمة WDD بقوة المجتمع"
+					},
+					"partySubsidy": {
+						"topnav": "برنامج الدعم",
+						"title": "برنامج دعم الأحزاب",
+						"subtitle": "ابنِ حركتك السياسية واكسب",
+						"weeklyPool": {
+							"old": "100,000",
+							"new": "250,000 WDD",
+							"subtitle": "مجمع ثابت"
+						},
+						"devRewards": {
+							"title": "10% من مكافآت المطورين لدينا",
+							"subtitle": "مجمع متغير",
+							"tooltip": "يقوم World بتوزيع مكافآت المطورين بناءً على استخدام التطبيق من قبل البشر المتحقق منهم.",
+							"checkOutRewards": "تحقق من المكافآت"
+						},
+						"howItWorks": {
+							"title": "كيف يعمل",
+							"steps": {
+								"createParty": {
+									"title": "أنشئ حزبًا",
+									"description": "ابدأ حركتك السياسية في تطبيق World Republic"
+								},
+								"growMembership": {
+									"title": "تأهل للانتخابات",
+									"description": "عزز عضويتك للتأهل للانتخابات الأسبوعية"
+								},
+								"earnRewards": {
+									"title": "احصل على تمويل",
+									"description": "احصل على إعانات تتناسب مع الأصوات التي يحصل عليها حزبك"
+								}
+							}
+						},
+						"cta": {
+							"createJoin": "أنشئ أو انضم إلى حزب",
+							"leaderGroup": "انضم إلى مجموعة قادة الأحزاب"
+						},
+						"payouts": {
+							"title": "المدفوعات",
+							"week": "الأسبوع",
+							"showAll": "عرض الكل"
+						}
+					}
+				}
+			}
+		},
+		"govern": {
+			"title": "حكم",
+			"tabs": {
+				"openLetters": "الرسائل المفتوحة",
+				"elections": "الانتخابات",
+				"referendums": "الاستفتاءات"
+			},
+			"sections": {
+				"openLetters": {
+					"title": "الرسائل المفتوحة",
+					"description": "بيانات عامة لصانعي القرار",
+					"statements": {
+						"aiRisk": {
+							"title": "بيان حول مخاطر الذكاء الاصطناعي",
+							"referenceTitle": "مركز سلامة الذكاء الاصطناعي"
+						},
+						"nuclear": {
+							"title": "رسالة مفتوحة للأمم المتحدة لحظر الأسلحة النووية",
+							"referenceTitle": "معهد مستقبل الحياة"
+						},
+						"autonomousWeapons": {
+							"title": "التعهد بشأن الأسلحة المستقلة المميتة",
+							"referenceTitle": "معهد مستقبل الحياة"
+						},
+						"longView": {
+							"title": "رسالة مفتوحة تدعو قادة العالم لإظهار قيادة طويلة المدى بشأن التهديدات الوجودية",
+							"referenceTitle": "معهد مستقبل الحياة"
+						}
+					}
+				},
+				"elections": {
+					"title": "الانتخابات",
+					"description": "اختر ممثليك",
+					"testElections": {
+						"title": "انتخابات تجريبية",
+						"description": "ساعدنا في توزيع إعانات الأحزاب وتحسين نظام حوكمتنا",
+						"button": "صوّت"
+					}
+				},
+				"referendums": {
+					"title": "الاستفتاءات",
+					"description": "تصويت مباشر على القضايا المهمة",
+					"worldConstitutional": {
+						"title": "الاستفتاء الدستوري العالمي",
+						"description": "شارك في تصويت تاريخي على المبادئ التي ستوجه مستقبل البشرية الجماعي",
+						"button": "قريباً"
+					}
+				}
+			}
+		},
+		"menu": {
+			"title": "القائمة",
+			"sections": {
+				"experimental": {
+					"title": "الإعدادات",
+					"links": {
+						"language": "اللغة"
+					}
+				},
+				"connect": {
+					"title": "تواصل",
+					"links": {
+						"community": "المجتمع",
+						"announcements": "الإعلانات",
+						"x": "X"
+					}
+				},
+				"help": {
+					"title": "مساعدة",
+					"links": {
+						"support": "مجتمع المساعدة",
+						"faq": "الأسئلة الشائعة"
+					}
+				},
+				"code": {
+					"title": "الكود",
+					"links": {
+						"app": "التطبيق",
+						"contracts": "العقود الذكية"
+					}
+				}
+			}
+		},
+		"faq": {
+			"title": "الأسئلة الشائعة",
+			"items": {
+				"appPurpose": {
+					"question": "ما هي الجمهورية العالمية؟",
+					"answer": "الجمهورية العالمية هي منظمة ديمقراطية مفتوحة مكرسة لحل أكثر التحديات العالمية إلحاحاً للبشرية. توفر إطاراً لصنع القرار الجماعي بشأن القضايا التي يمكن معالجتها بشكل فعال فقط على نطاق عالمي، مثل مخاطر الذكاء الاصطناعي، وتغير المناخ، أو الأمن البيولوجي."
+				},
+				"basicIncome": {
+					"question": "ما هو الدخل الأساسي؟",
+					"answer": "دخلنا الأساسي هو دعم يومي بقيمة 0٫0025 WDD (دراخما عالمية) يتم تقديمه لجميع مواطني الجمهورية العالمية. يتراكم في الوقت الفعلي ويمكن المطالبة به في أي لحظة من خلال التطبيق."
+				},
+				"basicIncomePlus": {
+					"question": "كيف أقوم بتفعيل الدخل الأساسي بلس؟",
+					"answer": "يوفر الدخل الأساسي بلس 0٫0475 WDD إضافية يومياً وهو متاح حصرياً للمستخدمين الموثقين من Orb. بعد تفعيل الدخل الأساسي، سترى خياراً لتفعيل الدخل الأساسي بلس على صفحة الكسب."
+				},
+				"savings": {
+					"question": "كيف يعمل حساب المدخرات؟",
+					"answer": "يتيح حساب المدخرات لك إيداع رموز WDD وكسب فائدة سنوية بنسبة 69٪. من خلال إعادة استثمار الفائدة المكتسبة باستمرار، يمكن للمستخدمين تحقيق عوائد فعالة قريبة من 100٪ سنوياً، مما يزيد من نمو WDD مع مرور الوقت. تتراكم الفائدة بشكل مستمر ويمكن سحبها أو إعادة استثمارها في أي وقت."
+				},
+				"referralCodes": {
+					"question": "كيف تعمل رموز الإحالة؟",
+					"answer": "كمواطن في جمهورية العالم، يمكنك كسب المكافآت من خلال برنامج الإحالة لدينا. شارك رابط الدعوة الخاص بك مع الأصدقاء، وستحصل على 10 WDD لكل شخص ينضم إلى تطبيقنا على الويب ويُكمل فحص الحيوية."
+				},
+				"drachmaValue": {
+					"question": "من أين يحصل الدراخما على قيمته؟",
+					"answer": "يستمد الدراخما قيمته من كونه العملة الرسمية للجمهورية العالمية. مع نمو منصة الحكم العالمي الديمقراطية لدينا، يمكن أن يصبح WDD وسيلة تبادل مهمة في الاقتصاد العالمي، ويمكن أن يلعب في النهاية دوراً في التوزيع العادل للمزايا من التقدم التكنولوجي والموارد العالمية."
+				},
+				"topWallets": {
+					"question": "من يتحكم في أكبر الحسابات؟",
+					"answer": "الحسابات الثلاثة الأكبر هي <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>خزينة الجمهورية العالمية</a>، و<a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>صندوق الدخل الأساسي</a>، و<a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>صندوق الدخل الأساسي بلس</a>. يتولى مؤسس المشروع الإشراف عليها حاليًا لضمان الاستقرار بينما ننقل السيطرة تدريجيًا إلى المجتمع. العناوين الرئيسية الأخرى تشمل <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>عقد حساب المدخرات</a>، و<a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>موزع مكافآت الإحالة</a>، وبرك السيولة: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>، <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>، و<a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
+				},
+				"voteRequirements": {
+					"question": "كيف يمكنني المشاركة في الحكم؟",
+					"answer": "يمكنك المشاركة بالانضمام إلى حزب سياسي أو إنشائه. في حين أن الأصوات الحالية توضيحية، فإن الأحزاب هي أساس نموذج حوكمتنا. مع احتراف الأحزاب، ستفتح مجالات أكثر أهمية للرقابة الديمقراطية، مما يمنحك صوتًا في قراراتنا الجماعية."
+				}
+			}
+		},
+		"language": {
+			"title": "اللغة",
+			"options": {
+				"english": "الإنجليزية",
+				"spanish": "الإسبانية"
+			}
+		}
+	}
 }

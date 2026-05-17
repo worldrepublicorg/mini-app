@@ -1,356 +1,356 @@
 {
-  "components": {
-    "walletAuth": {
-      "connect": "Sambung dompet"
-    },
-    "banners": {
-      "dalgona": {
-        "title": "Ganjaran rujukan kembali",
-        "description": "Dapatkan WDD dengan menjemput rakan ke aplikasi web baharu kami.",
-        "cta": "Mula sekarang"
-      }
-    },
-    "stakeForm": {
-      "deposit": "Simpan",
-      "withdraw": "Tarik",
-      "balance": "Baki:",
-      "depositPlaceholder": "Jumlah untuk disimpan",
-      "withdrawPlaceholder": "Jumlah untuk ditarik",
-      "max": "Maksimum",
-      "interest": "Faedah:",
-      "collect": "Kutip",
-      "depositButton": "Simpan drachma",
-      "withdrawButton": "Tarik drachma"
-    },
-    "toasts": {
-      "wallet": {
-        "connectInWorldApp": "Sila buka aplikasi ini dalam World App untuk menyambung dompet anda.",
-        "stakingError": "Ralat menyimpan token",
-        "withdrawError": "Ralat menarik token",
-        "collectError": "Ralat mengutip ganjaran"
-      },
-      "referral": {
-        "pendingReward": "Memproses ganjaran tertunda untuk {{username}}...",
-        "rewardSuccess": "Berjaya memberi ganjaran kepada {{username}}!",
-        "sendingReward": "Menghantar ganjaran 50 WDD kepada {{username}}..."
-      },
-      "basicIncome": {
-        "setupSuccess": "Pendapatan Asas Plus diaktifkan! Sekarang menyediakan ganjaran untuk {{username}}...",
-        "setupWithReferrer": "Menyediakan Pendapatan Asas Plus terlebih dahulu, kemudian kami akan memberi ganjaran kepada {{username}}...",
-        "error": "Ralat mengaktifkan Pendapatan Asas",
-        "errorPlus": "Ralat mengaktifkan Pendapatan Asas Plus"
-      },
-      "transaction": {
-        "error": "Ralat tidak dijangka berlaku",
-        "errorClaim": "Ralat tidak dijangka berlaku semasa menuntut"
-      }
-    },
-    "tabSwiper": {
-      "tabs": {
-        "openLetters": "Surat terbuka",
-        "elections": "Pilihan raya",
-        "referendums": "Referendum"
-      }
-    }
-  },
-  "pages": {
-    "earn": {
-      "title": "Perolehan",
-      "tabs": {
-        "basicIncome": {
-          "tabTitle": "Pendapatan Asas",
-          "title": "Pendapatan Asas",
-          "subtitle": "Log masuk untuk menuntut pendapatan asas anda",
-          "setupSubtitle": "Sediakan pendapatan asas anda",
-          "claimableSubtitle": "Drachma yang boleh dituntut",
-          "claimableTooltip1": "Sebagai sebahagian daripada",
-          "claimableTooltip2": "program pembelian balik",
-          "claimableTooltip3": " kami, kami sedang menyelaraskan tahap pendapatan asas untuk mewujudkan faedah jangka panjang yang mampan untuk komuniti kami. Sila lihat",
-          "claimableTooltip4": "FAQ",
-          "claimableTooltip5": "untuk kadar semasa.",
-          "activateButton": "Aktifkan Pendapatan Asas",
-          "claimButton": "Tuntut",
-          "plus": {
-            "title": "Pendapatan Asas Plus",
-            "newBadge": "Baharu",
-            "drawerTrigger": "Memperkenalkan Pendapatan Asas Plus",
-            "subtitle": "Pendapatan tambahan untuk pengguna yang disahkan",
-            "drawer": {
-              "title": "Pendapatan Asas Plus",
-              "subtitle": "Pendapatan tambahan untuk pengguna yang disahkan",
-              "features": {
-                "rate": {
-                  "title": "Tambahan 0.0475 WDD sehari"
-                },
-                "verification": {
-                  "title": "Eksklusif untuk pengguna yang disahkan Orb untuk memastikan pengagihan yang adil"
-                }
-              },
-              "activateButton": "Aktifkan Pendapatan Asas Plus",
-              "claimButton": "Tuntut Pendapatan Asas Plus",
-              "claimBasicButton": "Tuntut Pendapatan Asas"
-            }
-          }
-        },
-        "savings": {
-          "tabTitle": "Simpanan",
-          "title": "Akaun Simpanan",
-          "subtitle": "Perolehi faedah setiap saat",
-          "tooltip": "Kadar asas 69% APY. Kutip dan pelabur semula faedah untuk mencapai pulangan berkesan hampir 100% setahun. Tarik bila-bila masa."
-        },
-        "invite": {
-          "title": "Jemput",
-          "subtitle": "Dapatkan 10 WDD untuk setiap rakan yang menyertai",
-          "tooltip": "Rakan perlu menyertai aplikasi web baharu kami.",
-          "learnMore": "Ketahui lebih lanjut",
-          "stats": {
-            "title": "Statistik rujukan anda",
-            "invites": "Jemputan diterima",
-            "rewards": "Jumlah ganjaran"
-          },
-          "actions": {
-            "copyLink": "Salin pautan rujukan",
-            "copied": "Pautan rujukan disalin ke clipboard!",
-            "connectWallet": "Sila sambungkan dompet anda untuk menjana pautan rujukan",
-            "share": "Kongsi pautan jemputan"
-          },
-          "share": {
-            "title": "Sertai Republik Dunia",
-            "text": "Gunakan pautan jemputan saya untuk menyertai Republik Dunia dan memperoleh ganjaran bersama!"
-          }
-        },
-        "contribute": {
-          "title": "Sumbangan",
-          "subtitle": "Terlibat, dapatkan ganjaran",
-          "buybackProgram": {
-            "topnav": "Program Pembelian Semula",
-            "title": "Program Pembelian Semula Token",
-            "subtitle": "Perkukuh nilai WDD bersama",
-            "sections": {
-              "fundingSources": {
-                "title": "Sumber pembiayaan",
-                "devRewards": {
-                  "title": "Ganjaran Pembangun World",
-                  "weekProgress": "Minggu 7 daripada 12"
-                },
-                "worldRetro": {
-                  "title": "Pembiayaan World Retro"
-                },
-                "optimism": {
-                  "title": "Pembiayaan Optimism Retro"
-                },
-                "affiliate": {
-                  "title": "Komisen afiliasi"
-                }
-              },
-              "commitment": {
-                "title": "Komitmen kami",
-                "description": "Kami berjanji untuk menggunakan sekurang-kurangnya 50% daripada semua pembiayaan ini untuk pembelian semula WDD.",
-                "viewAccount": "Lihat Akaun Pembelian Semula"
-              },
-              "valueCycle": {
-                "title": "Kitaran Nilai Positif",
-                "steps": {
-                  "step1": "Lebih ramai pengguna & penggunaan aplikasi",
-                  "step2": "Ganjaran lebih tinggi",
-                  "step3": "Lebih banyak pembelian semula token"
-                }
-              },
-              "helpSection": {
-                "title": "Cara anda boleh membantu",
-                "intro": "Anda boleh menyumbang secara langsung untuk meningkatkan nilai token WDD anda:",
-                "steps": {
-                  "invite": {
-                    "title": "Jemput orang lain untuk menyertai",
-                    "description": "Tumbuhkan komuniti ahli yang disahkan kami"
-                  },
-                  "useApp": {
-                    "title": "Gunakan aplikasi secara berkala",
-                    "description": "Dorong kitaran ekonomi yang positif"
-                  }
-                }
-              }
-            },
-            "actions": {
-              "share": "Kongsi jemputan"
-            },
-            "cta": "Lihat ganjaran mini app"
-          },
-          "buybackLink": {
-            "title": "Program Pembelian Semula",
-            "description": "Pertumbuhan nilai WDD digerakkan oleh komuniti"
-          },
-          "partySubsidy": {
-            "topnav": "Program Subsidi",
-            "title": "Program Subsidi Parti",
-            "subtitle": "Bina pergerakan politik anda dan dapatkan pendapatan",
-            "weeklyPool": {
-              "old": "100,000",
-              "new": "250,000 WDD",
-              "subtitle": "Kolam tetap"
-            },
-            "devRewards": {
-              "title": "10% daripada Ganjaran Pembangun kami",
-              "subtitle": "Kolam berubah-ubah",
-              "tooltip": "World mengagihkan ganjaran pembangun berdasarkan penggunaan aplikasi oleh manusia yang disahkan.",
-              "checkOutRewards": "Lihat ganjaran"
-            },
-            "howItWorks": {
-              "title": "Cara ia berfungsi",
-              "steps": {
-                "createParty": {
-                  "title": "Cipta parti",
-                  "description": "Mulakan pergerakan politik anda dalam aplikasi World Republic"
-                },
-                "growMembership": {
-                  "title": "Masuk dalam undi",
-                  "description": "Tingkatkan keahlian anda untuk layak dalam pilihan raya mingguan"
-                },
-                "earnRewards": {
-                  "title": "Terima pembiayaan",
-                  "description": "Dapatkan subsidi mengikut kadar undi yang diterima oleh parti anda"
-                }
-              }
-            },
-            "cta": {
-              "createJoin": "Cipta atau sertai parti",
-              "leaderGroup": "Sertai kumpulan pemimpin parti"
-            },
-            "payouts": {
-              "title": "Pembayaran",
-              "week": "Minggu",
-              "showAll": "Tunjukkan semua"
-            }
-          }
-        }
-      }
-    },
-    "govern": {
-      "title": "Tadbir Urus",
-      "tabs": {
-        "openLetters": "Surat Terbuka",
-        "elections": "Pilihan Raya",
-        "referendums": "Referendum"
-      },
-      "sections": {
-        "openLetters": {
-          "title": "Surat Terbuka",
-          "description": "Kenyataan awam kepada pembuat keputusan",
-          "statements": {
-            "aiRisk": {
-              "title": "Kenyataan mengenai Risiko AI",
-              "referenceTitle": "Pusat Keselamatan AI"
-            },
-            "nuclear": {
-              "title": "Surat Terbuka Larangan Senjata Nuklear PBB",
-              "referenceTitle": "Institut Masa Depan Kehidupan"
-            },
-            "autonomousWeapons": {
-              "title": "Ikrar Senjata Autonomi Maut",
-              "referenceTitle": "Institut Masa Depan Kehidupan"
-            },
-            "longView": {
-              "title": "Surat Terbuka Memanggil Pemimpin Dunia untuk Menunjukkan Kepimpinan Pandangan Panjang mengenai Ancaman Kewujudan",
-              "referenceTitle": "Institut Masa Depan Kehidupan"
-            }
-          }
-        },
-        "elections": {
-          "title": "Pilihan Raya",
-          "description": "Pilih wakil anda",
-          "testElections": {
-            "title": "Pilihan Raya Ujian",
-            "description": "Bantu kami mengagihkan subsidi parti dan memperbaiki sistem tadbir urus kami",
-            "button": "Undi"
-          }
-        },
-        "referendums": {
-          "title": "Referendum",
-          "description": "Undian langsung mengenai isu-isu penting",
-          "worldConstitutional": {
-            "title": "Referendum Perlembagaan Dunia",
-            "description": "Sertai undian bersejarah mengenai prinsip-prinsip yang akan memandu masa depan kolektif manusia",
-            "button": "Akan datang"
-          }
-        }
-      }
-    },
-    "menu": {
-      "title": "Menu",
-      "sections": {
-        "experimental": {
-          "title": "TETAPAN",
-          "links": {
-            "language": "Bahasa"
-          }
-        },
-        "connect": {
-          "title": "BERHUBUNG",
-          "links": {
-            "community": "Komuniti",
-            "announcements": "Pengumuman",
-            "x": "X"
-          }
-        },
-        "help": {
-          "title": "BANTUAN",
-          "links": {
-            "support": "Komuniti bantuan",
-            "faq": "FAQ"
-          }
-        },
-        "code": {
-          "title": "KOD",
-          "links": {
-            "app": "Aplikasi",
-            "contracts": "Kontrak pintar"
-          }
-        }
-      }
-    },
-    "faq": {
-      "title": "Soalan Lazim",
-      "items": {
-        "appPurpose": {
-          "question": "Apakah Republik Dunia?",
-          "answer": "Republik Dunia ialah organisasi terbuka dan demokratik yang didedikasikan untuk menyelesaikan cabaran global manusia yang paling mendesak. Ia menyediakan rangka kerja untuk membuat keputusan kolektif mengenai isu yang hanya boleh ditangani secara berkesan pada skala global, seperti risiko AI, perubahan iklim, atau keselamatan bio."
-        },
-        "basicIncome": {
-          "question": "Apakah Pendapatan Asas?",
-          "answer": "Pendapatan Asas kami ialah subsidi harian 0.0025 WDD (drachma dunia) yang disediakan kepada semua warganegara Republik Dunia. Ia terkumpul secara masa nyata dan boleh dituntut pada bila-bila masa melalui aplikasi."
-        },
-        "basicIncomePlus": {
-          "question": "Bagaimana saya mengaktifkan Pendapatan Asas Plus?",
-          "answer": "Pendapatan Asas Plus menyediakan tambahan 0.0475 WDD sehari dan tersedia secara eksklusif untuk pengguna yang disahkan Orb. Selepas mengaktifkan Pendapatan Asas, anda akan melihat pilihan untuk mengaktifkan Pendapatan Asas Plus pada halaman Perolehan."
-        },
-        "savings": {
-          "question": "Bagaimana Akaun Simpanan berfungsi?",
-          "answer": "Akaun Simpanan membolehkan anda menyimpan token WDD dan memperoleh faedah tahunan 69%. Melalui pelaburan semula faedah yang diperoleh secara berterusan, pengguna boleh mencapai pulangan berkesan hampir 100% setahun, memaksimumkan pertumbuhan WDD mereka dari masa ke masa. Faedah terkumpul secara berterusan dan boleh ditarik atau dilaburkan semula pada bila-bila masa."
-        },
-        "referralCodes": {
-          "question": "Bagaimana kod rujukan berfungsi?",
-          "answer": "Sebagai warga Republik Dunia, anda boleh memperoleh ganjaran melalui program rujukan kami. Kongsi pautan rujukan unik anda dengan rakan, dan anda akan menerima 10 WDD untuk setiap orang yang menyertai web app kami dan melengkapkan semakan liveness."
-        },
-        "drachmaValue": {
-          "question": "Dari mana drachma mendapat nilainya?",
-          "answer": "Drachma mendapat nilainya dari menjadi mata wang rasmi Republik Dunia. Apabila platform tadbir urus global demokratik kami berkembang, WDD berpotensi menjadi medium pertukaran yang penting dalam ekonomi dunia, dan akhirnya boleh memainkan peranan dalam pengagihan faedah yang saksama dari kemajuan teknologi dan sumber global."
-        },
-        "topWallets": {
-          "question": "Siapa yang mengawal akaun-akaun terbesar?",
-          "answer": "Tiga akaun terbesar adalah <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>Perbendaharaan Republik Dunia</a>, <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Dana Pendapatan Asas</a>, dan <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Dana Pendapatan Asas Plus</a>. Ini sedang diuruskan oleh pengasas projek untuk memastikan kestabilan sementara kami secara beransur-ansur memindahkan kawalan kepada komuniti. Alamat utama lain termasuk <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>kontrak Akaun Simpanan</a>, <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>pengedar Ganjaran Rujukan</a>, dan kolam kecairan: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, dan <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
-        },
-        "voteRequirements": {
-          "question": "Bagaimana saya boleh mengambil bahagian dalam tadbir urus?",
-          "answer": "Anda boleh mengambil bahagian dengan menyertai atau menubuhkan parti politik. Walaupun undi semasa adalah sebagai gambaran, parti adalah asas model tadbir urus kami. Apabila parti menjadi profesional, mereka akan membuka lebih banyak bidang penting untuk kawalan demokrasi, memberikan anda suara dalam keputusan kolektif kami."
-        }
-      }
-    },
-    "language": {
-      "title": "Bahasa",
-      "options": {
-        "english": "English",
-        "spanish": "Español"
-      }
-    }
-  }
+	"components": {
+		"walletAuth": {
+			"connect": "Sambung dompet"
+		},
+		"banners": {
+			"dalgona": {
+				"title": "Ganjaran rujukan kembali",
+				"description": "Dapatkan WDD dengan menjemput rakan ke aplikasi web baharu kami.",
+				"cta": "Mula sekarang"
+			}
+		},
+		"stakeForm": {
+			"deposit": "Simpan",
+			"withdraw": "Tarik",
+			"balance": "Baki:",
+			"depositPlaceholder": "Jumlah untuk disimpan",
+			"withdrawPlaceholder": "Jumlah untuk ditarik",
+			"max": "Maksimum",
+			"interest": "Faedah:",
+			"collect": "Kutip",
+			"depositButton": "Simpan drachma",
+			"withdrawButton": "Tarik drachma"
+		},
+		"toasts": {
+			"wallet": {
+				"connectInWorldApp": "Sila buka aplikasi ini dalam World App untuk menyambung dompet anda.",
+				"stakingError": "Ralat menyimpan token",
+				"withdrawError": "Ralat menarik token",
+				"collectError": "Ralat mengutip ganjaran"
+			},
+			"referral": {
+				"pendingReward": "Memproses ganjaran tertunda untuk {{username}}...",
+				"rewardSuccess": "Berjaya memberi ganjaran kepada {{username}}!",
+				"sendingReward": "Menghantar ganjaran 50 WDD kepada {{username}}..."
+			},
+			"basicIncome": {
+				"setupSuccess": "Pendapatan Asas Plus diaktifkan! Sekarang menyediakan ganjaran untuk {{username}}...",
+				"setupWithReferrer": "Menyediakan Pendapatan Asas Plus terlebih dahulu, kemudian kami akan memberi ganjaran kepada {{username}}...",
+				"error": "Ralat mengaktifkan Pendapatan Asas",
+				"errorPlus": "Ralat mengaktifkan Pendapatan Asas Plus"
+			},
+			"transaction": {
+				"error": "Ralat tidak dijangka berlaku",
+				"errorClaim": "Ralat tidak dijangka berlaku semasa menuntut"
+			}
+		},
+		"tabSwiper": {
+			"tabs": {
+				"openLetters": "Surat terbuka",
+				"elections": "Pilihan raya",
+				"referendums": "Referendum"
+			}
+		}
+	},
+	"pages": {
+		"earn": {
+			"title": "Perolehan",
+			"tabs": {
+				"basicIncome": {
+					"tabTitle": "Pendapatan Asas",
+					"title": "Pendapatan Asas",
+					"subtitle": "Log masuk untuk menuntut pendapatan asas anda",
+					"setupSubtitle": "Sediakan pendapatan asas anda",
+					"claimableSubtitle": "Drachma yang boleh dituntut",
+					"claimableTooltip1": "Sebagai sebahagian daripada",
+					"claimableTooltip2": "program pembelian balik",
+					"claimableTooltip3": " kami, kami sedang menyelaraskan tahap pendapatan asas untuk mewujudkan faedah jangka panjang yang mampan untuk komuniti kami. Sila lihat",
+					"claimableTooltip4": "FAQ",
+					"claimableTooltip5": "untuk kadar semasa.",
+					"activateButton": "Aktifkan Pendapatan Asas",
+					"claimButton": "Tuntut",
+					"plus": {
+						"title": "Pendapatan Asas Plus",
+						"newBadge": "Baharu",
+						"drawerTrigger": "Memperkenalkan Pendapatan Asas Plus",
+						"subtitle": "Pendapatan tambahan untuk pengguna yang disahkan",
+						"drawer": {
+							"title": "Pendapatan Asas Plus",
+							"subtitle": "Pendapatan tambahan untuk pengguna yang disahkan",
+							"features": {
+								"rate": {
+									"title": "Tambahan 0.0475 WDD sehari"
+								},
+								"verification": {
+									"title": "Eksklusif untuk pengguna yang disahkan Orb untuk memastikan pengagihan yang adil"
+								}
+							},
+							"activateButton": "Aktifkan Pendapatan Asas Plus",
+							"claimButton": "Tuntut Pendapatan Asas Plus",
+							"claimBasicButton": "Tuntut Pendapatan Asas"
+						}
+					}
+				},
+				"savings": {
+					"tabTitle": "Simpanan",
+					"title": "Akaun Simpanan",
+					"subtitle": "Perolehi faedah setiap saat",
+					"tooltip": "Kadar asas 69% APY. Kutip dan pelabur semula faedah untuk mencapai pulangan berkesan hampir 100% setahun. Tarik bila-bila masa."
+				},
+				"invite": {
+					"title": "Jemput",
+					"subtitle": "Dapatkan 10 WDD untuk setiap rakan yang menyertai",
+					"tooltip": "Rakan perlu menyertai aplikasi web baharu kami.",
+					"learnMore": "Ketahui lebih lanjut",
+					"stats": {
+						"title": "Statistik rujukan anda",
+						"invites": "Jemputan diterima",
+						"rewards": "Jumlah ganjaran"
+					},
+					"actions": {
+						"copyLink": "Salin pautan rujukan",
+						"copied": "Pautan rujukan disalin ke clipboard!",
+						"connectWallet": "Sila sambungkan dompet anda untuk menjana pautan rujukan",
+						"share": "Kongsi pautan jemputan"
+					},
+					"share": {
+						"title": "Sertai Republik Dunia",
+						"text": "Gunakan pautan jemputan saya untuk menyertai Republik Dunia dan memperoleh ganjaran bersama!"
+					}
+				},
+				"contribute": {
+					"title": "Sumbangan",
+					"subtitle": "Terlibat, dapatkan ganjaran",
+					"buybackProgram": {
+						"topnav": "Program Pembelian Semula",
+						"title": "Program Pembelian Semula Token",
+						"subtitle": "Perkukuh nilai WDD bersama",
+						"sections": {
+							"fundingSources": {
+								"title": "Sumber pembiayaan",
+								"devRewards": {
+									"title": "Ganjaran Pembangun World",
+									"weekProgress": "Minggu 7 daripada 12"
+								},
+								"worldRetro": {
+									"title": "Pembiayaan World Retro"
+								},
+								"optimism": {
+									"title": "Pembiayaan Optimism Retro"
+								},
+								"affiliate": {
+									"title": "Komisen afiliasi"
+								}
+							},
+							"commitment": {
+								"title": "Komitmen kami",
+								"description": "Kami berjanji untuk menggunakan sekurang-kurangnya 50% daripada semua pembiayaan ini untuk pembelian semula WDD.",
+								"viewAccount": "Lihat Akaun Pembelian Semula"
+							},
+							"valueCycle": {
+								"title": "Kitaran Nilai Positif",
+								"steps": {
+									"step1": "Lebih ramai pengguna & penggunaan aplikasi",
+									"step2": "Ganjaran lebih tinggi",
+									"step3": "Lebih banyak pembelian semula token"
+								}
+							},
+							"helpSection": {
+								"title": "Cara anda boleh membantu",
+								"intro": "Anda boleh menyumbang secara langsung untuk meningkatkan nilai token WDD anda:",
+								"steps": {
+									"invite": {
+										"title": "Jemput orang lain untuk menyertai",
+										"description": "Tumbuhkan komuniti ahli yang disahkan kami"
+									},
+									"useApp": {
+										"title": "Gunakan aplikasi secara berkala",
+										"description": "Dorong kitaran ekonomi yang positif"
+									}
+								}
+							}
+						},
+						"actions": {
+							"share": "Kongsi jemputan"
+						},
+						"cta": "Lihat ganjaran mini app"
+					},
+					"buybackLink": {
+						"title": "Program Pembelian Semula",
+						"description": "Pertumbuhan nilai WDD digerakkan oleh komuniti"
+					},
+					"partySubsidy": {
+						"topnav": "Program Subsidi",
+						"title": "Program Subsidi Parti",
+						"subtitle": "Bina pergerakan politik anda dan dapatkan pendapatan",
+						"weeklyPool": {
+							"old": "100,000",
+							"new": "250,000 WDD",
+							"subtitle": "Kolam tetap"
+						},
+						"devRewards": {
+							"title": "10% daripada Ganjaran Pembangun kami",
+							"subtitle": "Kolam berubah-ubah",
+							"tooltip": "World mengagihkan ganjaran pembangun berdasarkan penggunaan aplikasi oleh manusia yang disahkan.",
+							"checkOutRewards": "Lihat ganjaran"
+						},
+						"howItWorks": {
+							"title": "Cara ia berfungsi",
+							"steps": {
+								"createParty": {
+									"title": "Cipta parti",
+									"description": "Mulakan pergerakan politik anda dalam aplikasi World Republic"
+								},
+								"growMembership": {
+									"title": "Masuk dalam undi",
+									"description": "Tingkatkan keahlian anda untuk layak dalam pilihan raya mingguan"
+								},
+								"earnRewards": {
+									"title": "Terima pembiayaan",
+									"description": "Dapatkan subsidi mengikut kadar undi yang diterima oleh parti anda"
+								}
+							}
+						},
+						"cta": {
+							"createJoin": "Cipta atau sertai parti",
+							"leaderGroup": "Sertai kumpulan pemimpin parti"
+						},
+						"payouts": {
+							"title": "Pembayaran",
+							"week": "Minggu",
+							"showAll": "Tunjukkan semua"
+						}
+					}
+				}
+			}
+		},
+		"govern": {
+			"title": "Tadbir Urus",
+			"tabs": {
+				"openLetters": "Surat Terbuka",
+				"elections": "Pilihan Raya",
+				"referendums": "Referendum"
+			},
+			"sections": {
+				"openLetters": {
+					"title": "Surat Terbuka",
+					"description": "Kenyataan awam kepada pembuat keputusan",
+					"statements": {
+						"aiRisk": {
+							"title": "Kenyataan mengenai Risiko AI",
+							"referenceTitle": "Pusat Keselamatan AI"
+						},
+						"nuclear": {
+							"title": "Surat Terbuka Larangan Senjata Nuklear PBB",
+							"referenceTitle": "Institut Masa Depan Kehidupan"
+						},
+						"autonomousWeapons": {
+							"title": "Ikrar Senjata Autonomi Maut",
+							"referenceTitle": "Institut Masa Depan Kehidupan"
+						},
+						"longView": {
+							"title": "Surat Terbuka Memanggil Pemimpin Dunia untuk Menunjukkan Kepimpinan Pandangan Panjang mengenai Ancaman Kewujudan",
+							"referenceTitle": "Institut Masa Depan Kehidupan"
+						}
+					}
+				},
+				"elections": {
+					"title": "Pilihan Raya",
+					"description": "Pilih wakil anda",
+					"testElections": {
+						"title": "Pilihan Raya Ujian",
+						"description": "Bantu kami mengagihkan subsidi parti dan memperbaiki sistem tadbir urus kami",
+						"button": "Undi"
+					}
+				},
+				"referendums": {
+					"title": "Referendum",
+					"description": "Undian langsung mengenai isu-isu penting",
+					"worldConstitutional": {
+						"title": "Referendum Perlembagaan Dunia",
+						"description": "Sertai undian bersejarah mengenai prinsip-prinsip yang akan memandu masa depan kolektif manusia",
+						"button": "Akan datang"
+					}
+				}
+			}
+		},
+		"menu": {
+			"title": "Menu",
+			"sections": {
+				"experimental": {
+					"title": "TETAPAN",
+					"links": {
+						"language": "Bahasa"
+					}
+				},
+				"connect": {
+					"title": "BERHUBUNG",
+					"links": {
+						"community": "Komuniti",
+						"announcements": "Pengumuman",
+						"x": "X"
+					}
+				},
+				"help": {
+					"title": "BANTUAN",
+					"links": {
+						"support": "Komuniti bantuan",
+						"faq": "FAQ"
+					}
+				},
+				"code": {
+					"title": "KOD",
+					"links": {
+						"app": "Aplikasi",
+						"contracts": "Kontrak pintar"
+					}
+				}
+			}
+		},
+		"faq": {
+			"title": "Soalan Lazim",
+			"items": {
+				"appPurpose": {
+					"question": "Apakah Republik Dunia?",
+					"answer": "Republik Dunia ialah organisasi terbuka dan demokratik yang didedikasikan untuk menyelesaikan cabaran global manusia yang paling mendesak. Ia menyediakan rangka kerja untuk membuat keputusan kolektif mengenai isu yang hanya boleh ditangani secara berkesan pada skala global, seperti risiko AI, perubahan iklim, atau keselamatan bio."
+				},
+				"basicIncome": {
+					"question": "Apakah Pendapatan Asas?",
+					"answer": "Pendapatan Asas kami ialah subsidi harian 0.0025 WDD (drachma dunia) yang disediakan kepada semua warganegara Republik Dunia. Ia terkumpul secara masa nyata dan boleh dituntut pada bila-bila masa melalui aplikasi."
+				},
+				"basicIncomePlus": {
+					"question": "Bagaimana saya mengaktifkan Pendapatan Asas Plus?",
+					"answer": "Pendapatan Asas Plus menyediakan tambahan 0.0475 WDD sehari dan tersedia secara eksklusif untuk pengguna yang disahkan Orb. Selepas mengaktifkan Pendapatan Asas, anda akan melihat pilihan untuk mengaktifkan Pendapatan Asas Plus pada halaman Perolehan."
+				},
+				"savings": {
+					"question": "Bagaimana Akaun Simpanan berfungsi?",
+					"answer": "Akaun Simpanan membolehkan anda menyimpan token WDD dan memperoleh faedah tahunan 69%. Melalui pelaburan semula faedah yang diperoleh secara berterusan, pengguna boleh mencapai pulangan berkesan hampir 100% setahun, memaksimumkan pertumbuhan WDD mereka dari masa ke masa. Faedah terkumpul secara berterusan dan boleh ditarik atau dilaburkan semula pada bila-bila masa."
+				},
+				"referralCodes": {
+					"question": "Bagaimana kod rujukan berfungsi?",
+					"answer": "Sebagai warga Republik Dunia, anda boleh memperoleh ganjaran melalui program rujukan kami. Kongsi pautan rujukan unik anda dengan rakan, dan anda akan menerima 10 WDD untuk setiap orang yang menyertai web app kami dan melengkapkan semakan liveness."
+				},
+				"drachmaValue": {
+					"question": "Dari mana drachma mendapat nilainya?",
+					"answer": "Drachma mendapat nilainya dari menjadi mata wang rasmi Republik Dunia. Apabila platform tadbir urus global demokratik kami berkembang, WDD berpotensi menjadi medium pertukaran yang penting dalam ekonomi dunia, dan akhirnya boleh memainkan peranan dalam pengagihan faedah yang saksama dari kemajuan teknologi dan sumber global."
+				},
+				"topWallets": {
+					"question": "Siapa yang mengawal akaun-akaun terbesar?",
+					"answer": "Tiga akaun terbesar adalah <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>Perbendaharaan Republik Dunia</a>, <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Dana Pendapatan Asas</a>, dan <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Dana Pendapatan Asas Plus</a>. Ini sedang diuruskan oleh pengasas projek untuk memastikan kestabilan sementara kami secara beransur-ansur memindahkan kawalan kepada komuniti. Alamat utama lain termasuk <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>kontrak Akaun Simpanan</a>, <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>pengedar Ganjaran Rujukan</a>, dan kolam kecairan: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, dan <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
+				},
+				"voteRequirements": {
+					"question": "Bagaimana saya boleh mengambil bahagian dalam tadbir urus?",
+					"answer": "Anda boleh mengambil bahagian dengan menyertai atau menubuhkan parti politik. Walaupun undi semasa adalah sebagai gambaran, parti adalah asas model tadbir urus kami. Apabila parti menjadi profesional, mereka akan membuka lebih banyak bidang penting untuk kawalan demokrasi, memberikan anda suara dalam keputusan kolektif kami."
+				}
+			}
+		},
+		"language": {
+			"title": "Bahasa",
+			"options": {
+				"english": "English",
+				"spanish": "Español"
+			}
+		}
+	}
 }

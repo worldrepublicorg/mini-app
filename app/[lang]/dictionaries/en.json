@@ -1,352 +1,352 @@
 {
-  "components": {
-    "walletAuth": {
-      "connect": "Connect wallet"
-    },
-    "banners": {
-      "dalgona": {
-        "title": "Referral Rewards Are Back",
-        "description": "Get WDD for inviting friends to our new web app.",
-        "cta": "Get started"
-      }
-    },
-    "stakeForm": {
-      "deposit": "Deposit",
-      "withdraw": "Withdraw",
-      "balance": "Balance:",
-      "depositPlaceholder": "Amount to deposit",
-      "withdrawPlaceholder": "Amount to withdraw",
-      "max": "Max",
-      "interest": "Interest:",
-      "collect": "Collect",
-      "depositButton": "Deposit drachma",
-      "withdrawButton": "Withdraw drachma"
-    },
-    "toasts": {
-      "wallet": {
-        "connectInWorldApp": "Please open this app in the World App to connect your wallet.",
-        "stakingError": "Error staking tokens",
-        "withdrawError": "Error withdrawing tokens",
-        "collectError": "Error collecting rewards"
-      },
-      "referral": {
-        "pendingReward": "Processing pending reward for {{username}}...",
-        "rewardSuccess": "Successfully rewarded {{username}}!",
-        "sendingReward": "Sending 50 WDD reward to {{username}}..."
-      },
-      "basicIncome": {
-        "setupSuccess": "Basic Income Plus activated! Now preparing reward for {{username}}...",
-        "setupWithReferrer": "Setting up Basic Income Plus first, then we'll reward {{username}}...",
-        "error": "Error activating Basic Income",
-        "errorPlus": "Error activating Basic Income Plus"
-      },
-      "transaction": {
-        "error": "An unexpected error occurred",
-        "errorClaim": "An unexpected error occurred while claiming"
-      }
-    },
-    "tabSwiper": {
-      "tabs": {
-        "openLetters": "Open letters",
-        "elections": "Elections",
-        "referendums": "Referendums"
-      }
-    }
-  },
-  "pages": {
-    "earn": {
-      "title": "Earn",
-      "tabs": {
-        "basicIncome": {
-          "tabTitle": "Basic income",
-          "title": "Basic Income",
-          "subtitle": "Sign in to claim your basic income",
-          "setupSubtitle": "Set up your basic income",
-          "claimableSubtitle": "Claimable drachma",
-          "claimableTooltip1": "As part of our",
-          "claimableTooltip2": "buyback program",
-          "claimableTooltip3": ", we're fine-tuning basic income levels to create sustainable, long-term benefits for our community. Please refer to the",
-          "claimableTooltip4": "FAQ",
-          "claimableTooltip5": "for current rates.",
-          "activateButton": "Activate Basic Income",
-          "claimButton": "Claim",
-          "plus": {
-            "title": "Basic Income Plus",
-            "newBadge": "New",
-            "drawerTrigger": "Introducing Basic Income Plus",
-            "subtitle": "Extra income for verified users",
-            "drawer": {
-              "title": "Basic Income Plus",
-              "subtitle": "Extra income for verified users",
-              "features": {
-                "rate": {
-                  "title": "An additional 0.0475 WDD per day"
-                },
-                "verification": {
-                  "title": "Exclusive to Orb-verified users to ensure fair distribution"
-                }
-              },
-              "activateButton": "Activate Basic Income Plus",
-              "claimButton": "Claim Basic Income Plus",
-              "claimBasicButton": "Claim Basic Income"
-            }
-          }
-        },
-        "savings": {
-          "tabTitle": "Savings",
-          "title": "Savings Account",
-          "subtitle": "Earn interest every second",
-          "tooltip": "69% APY base rate. Collect and reinvest interest to achieve close to 100% effective returns annually. Withdraw anytime."
-        },
-        "invite": {
-          "title": "Invite",
-          "subtitle": "Get 10 WDD per friend who joins",
-          "tooltip": "Friends must join our new web app.",
-          "learnMore": "Learn more",
-          "stats": {
-            "title": "Your referral stats",
-            "invites": "Invites accepted",
-            "rewards": "Total rewards"
-          },
-          "actions": {
-            "copyLink": "Copy referral link",
-            "copied": "Referral link copied to clipboard!",
-            "connectWallet": "Please connect your wallet to generate your referral link",
-            "share": "Share invite"
-          },
-          "share": {
-            "title": "Join me in the World Republic",
-            "text": "Use my invite link to join the World Republic and earn rewards together!"
-          }
-        },
-        "contribute": {
-          "title": "Contribute",
-          "subtitle": "Get involved, get rewarded",
-          "buybackProgram": {
-            "topnav": "Buyback Program",
-            "title": "Token Buyback Program",
-            "subtitle": "Strengthen WDD value together",
-            "sections": {
-              "fundingSources": {
-                "title": "Funding sources",
-                "devRewards": {
-                  "title": "World Dev Rewards",
-                  "weekProgress": "Week 7 of 12"
-                },
-                "worldRetro": {
-                  "title": "World Retro Funding"
-                },
-                "affiliate": {
-                  "title": "Affiliate commissions"
-                },
-                "optimism": {
-                  "title": "Optimism Retro Funding"
-                }
-              },
-              "commitment": {
-                "title": "Our commitment",
-                "description": "We pledge to use at least 50% of all these fundings for WDD buybacks.",
-                "viewAccount": "View buyback account"
-              },
-              "valueCycle": {
-                "title": "The Positive Value Cycle",
-                "steps": {
-                  "step1": "More app users & usage",
-                  "step2": "Higher rewards",
-                  "step3": "More token buybacks"
-                }
-              },
-              "helpSection": {
-                "title": "How you can help",
-                "intro": "You can directly contribute to increasing the value of your WDD tokens:",
-                "steps": {
-                  "invite": {
-                    "title": "Invite others to join",
-                    "description": "Grow our community of verified members"
-                  },
-                  "useApp": {
-                    "title": "Use the app regularly",
-                    "description": "Drive the virtuous economic cycle"
-                  }
-                }
-              }
-            },
-            "actions": {
-              "share": "Share invite"
-            },
-            "cta": "View mini app rewards"
-          },
-          "partySubsidy": {
-            "topnav": "Subsidy Program",
-            "title": "Party Subsidy Program",
-            "subtitle": "Build your political movement and earn",
-            "weeklyPool": {
-              "old": "100,000",
-              "new": "250,000 WDD",
-              "subtitle": "Fixed pool"
-            },
-            "devRewards": {
-              "title": "10% of our Dev Rewards",
-              "subtitle": "Variable pool",
-              "tooltip": "World is distributing developer rewards based on app usage by verified humans.",
-              "checkOutRewards": "Check out rewards"
-            },
-            "howItWorks": {
-              "title": "How it works",
-              "steps": {
-                "createParty": {
-                  "title": "Create a party",
-                  "description": "Start your political movement in the World Republic app"
-                },
-                "growMembership": {
-                  "title": "Get on the ballot",
-                  "description": "Grow your membership to qualify for the test elections"
-                },
-                "earnRewards": {
-                  "title": "Receive funding",
-                  "description": "Earn subsidies proportional to the votes your party receives"
-                }
-              }
-            },
-            "cta": {
-              "createJoin": "Create or join a party",
-              "leaderGroup": "Join party leader group"
-            },
-            "payouts": {
-              "title": "Payouts",
-              "week": "Week",
-              "showAll": "Show all"
-            }
-          }
-        }
-      }
-    },
-    "govern": {
-      "title": "Govern",
-      "tabs": {
-        "openLetters": "Open letters",
-        "elections": "Elections",
-        "referendums": "Referendums"
-      },
-      "sections": {
-        "openLetters": {
-          "title": "Open Letters",
-          "description": "Public statements to decision makers",
-          "statements": {
-            "aiRisk": {
-              "title": "Statement on AI Risk",
-              "referenceTitle": "Center for AI Safety"
-            },
-            "nuclear": {
-              "title": "UN Ban on Nuclear Weapons Open Letter",
-              "referenceTitle": "Future of Life Institute"
-            },
-            "autonomousWeapons": {
-              "title": "Lethal Autonomous Weapons Pledge",
-              "referenceTitle": "Future of Life Institute"
-            },
-            "longView": {
-              "title": "Open Letter Calling on World Leaders to Show Long-View Leadership on Existential Threats",
-              "referenceTitle": "Future of Life Institute"
-            }
-          }
-        },
-        "elections": {
-          "title": "Elections",
-          "description": "Choose your representatives",
-          "testElections": {
-            "title": "Test Elections",
-            "description": "Help us distribute party subsidies and improve our system of governance",
-            "button": "Vote"
-          }
-        },
-        "referendums": {
-          "title": "Referendums",
-          "description": "Direct votes on important issues",
-          "worldConstitutional": {
-            "title": "World Constitutional Referendum",
-            "description": "Participate in a historic vote on principles that will guide humanity's collective future",
-            "button": "Coming soon"
-          }
-        }
-      }
-    },
-    "menu": {
-      "title": "Menu",
-      "sections": {
-        "experimental": {
-          "title": "SETTINGS",
-          "links": {
-            "language": "Language"
-          }
-        },
-        "connect": {
-          "title": "CONNECT",
-          "links": {
-            "community": "Community",
-            "announcements": "Announcements",
-            "x": "X"
-          }
-        },
-        "help": {
-          "title": "HELP",
-          "links": {
-            "support": "Help community",
-            "faq": "FAQ"
-          }
-        },
-        "code": {
-          "title": "CODE",
-          "links": {
-            "app": "App",
-            "contracts": "Smart contracts"
-          }
-        }
-      }
-    },
-    "faq": {
-      "title": "FAQ",
-      "items": {
-        "appPurpose": {
-          "question": "What is the World Republic?",
-          "answer": "The World Republic is an open, democratic organization dedicated to solving humanity's most pressing global challenges. It provides a framework for collective decision-making on issues that can only be effectively addressed at a global scale, like AI risks, climate change, or biosecurity."
-        },
-        "basicIncome": {
-          "question": "What is Basic Income?",
-          "answer": "Our Basic Income is a daily subsidy of 0.0025 WDD (world drachma) that is provided to all citizens of the World Republic. It accumulates in real-time and can be claimed at any moment through the app."
-        },
-        "basicIncomePlus": {
-          "question": "How do I activate Basic Income Plus?",
-          "answer": "Basic Income Plus provides an additional 0.0475 WDD per day and is available exclusively to Orb-verified users. After activating Basic Income, you'll see an option to activate Basic Income Plus on the Earn page."
-        },
-        "savings": {
-          "question": "How does the Savings Account work?",
-          "answer": "The Savings Account allows you to deposit WDD tokens and earn a 69% annual interest. Through constant reinvestment of earned interest, users can achieve effective returns close to 100% annually, maximizing their WDD growth over time. Interest accumulates continuously and can be withdrawn or reinvested at any time."
-        },
-        "referralCodes": {
-          "question": "How do referral codes work?",
-          "answer": "As a World Republic citizen, you can earn rewards through our referral program. Share your unique referral link with friends, and you'll receive 10 WDD for each person who joins our web app and completes liveness check."
-        },
-        "drachmaValue": {
-          "question": "Where does the drachma get its value?",
-          "answer": "The drachma derives its value from being the official currency of the World Republic. As our democratic global governance platform grows, WDD has the potential to become a significant medium of exchange in the world economy, and could eventually play a role in the equitable distribution of benefits from technological advancements and global resources."
-        },
-        "topWallets": {
-          "question": "Who controls the biggest accounts?",
-          "answer": "The three largest accounts are the <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>World Republic Treasury</a>, the <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Basic Income Fund</a>, and the <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Basic Income Plus Fund</a>. These are currently stewarded by the project's founder to ensure stability while we progressively transfer control to the community. Other key addresses include the <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>Savings Account contract</a>, the <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>Referral Rewards distributor</a>, and liquidity pools: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, and <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
-        },
-        "voteRequirements": {
-          "question": "How can I participate in governance?",
-          "answer": "You can participate by joining or creating a political party. While current votes are illustrative, parties are the foundation of our governance model. As parties professionalize, they will unlock more and more significant areas for democratic control, giving you a voice in our collective decisions."
-        }
-      }
-    },
-    "language": {
-      "title": "Language",
-      "options": {
-        "english": "English",
-        "spanish": "Español"
-      }
-    }
-  }
+	"components": {
+		"walletAuth": {
+			"connect": "Connect wallet"
+		},
+		"banners": {
+			"dalgona": {
+				"title": "Referral Rewards Are Back",
+				"description": "Get WDD for inviting friends to our new web app.",
+				"cta": "Get started"
+			}
+		},
+		"stakeForm": {
+			"deposit": "Deposit",
+			"withdraw": "Withdraw",
+			"balance": "Balance:",
+			"depositPlaceholder": "Amount to deposit",
+			"withdrawPlaceholder": "Amount to withdraw",
+			"max": "Max",
+			"interest": "Interest:",
+			"collect": "Collect",
+			"depositButton": "Deposit drachma",
+			"withdrawButton": "Withdraw drachma"
+		},
+		"toasts": {
+			"wallet": {
+				"connectInWorldApp": "Please open this app in the World App to connect your wallet.",
+				"stakingError": "Error staking tokens",
+				"withdrawError": "Error withdrawing tokens",
+				"collectError": "Error collecting rewards"
+			},
+			"referral": {
+				"pendingReward": "Processing pending reward for {{username}}...",
+				"rewardSuccess": "Successfully rewarded {{username}}!",
+				"sendingReward": "Sending 50 WDD reward to {{username}}..."
+			},
+			"basicIncome": {
+				"setupSuccess": "Basic Income Plus activated! Now preparing reward for {{username}}...",
+				"setupWithReferrer": "Setting up Basic Income Plus first, then we'll reward {{username}}...",
+				"error": "Error activating Basic Income",
+				"errorPlus": "Error activating Basic Income Plus"
+			},
+			"transaction": {
+				"error": "An unexpected error occurred",
+				"errorClaim": "An unexpected error occurred while claiming"
+			}
+		},
+		"tabSwiper": {
+			"tabs": {
+				"openLetters": "Open letters",
+				"elections": "Elections",
+				"referendums": "Referendums"
+			}
+		}
+	},
+	"pages": {
+		"earn": {
+			"title": "Earn",
+			"tabs": {
+				"basicIncome": {
+					"tabTitle": "Basic income",
+					"title": "Basic Income",
+					"subtitle": "Sign in to claim your basic income",
+					"setupSubtitle": "Set up your basic income",
+					"claimableSubtitle": "Claimable drachma",
+					"claimableTooltip1": "As part of our",
+					"claimableTooltip2": "buyback program",
+					"claimableTooltip3": ", we're fine-tuning basic income levels to create sustainable, long-term benefits for our community. Please refer to the",
+					"claimableTooltip4": "FAQ",
+					"claimableTooltip5": "for current rates.",
+					"activateButton": "Activate Basic Income",
+					"claimButton": "Claim",
+					"plus": {
+						"title": "Basic Income Plus",
+						"newBadge": "New",
+						"drawerTrigger": "Introducing Basic Income Plus",
+						"subtitle": "Extra income for verified users",
+						"drawer": {
+							"title": "Basic Income Plus",
+							"subtitle": "Extra income for verified users",
+							"features": {
+								"rate": {
+									"title": "An additional 0.0475 WDD per day"
+								},
+								"verification": {
+									"title": "Exclusive to Orb-verified users to ensure fair distribution"
+								}
+							},
+							"activateButton": "Activate Basic Income Plus",
+							"claimButton": "Claim Basic Income Plus",
+							"claimBasicButton": "Claim Basic Income"
+						}
+					}
+				},
+				"savings": {
+					"tabTitle": "Savings",
+					"title": "Savings Account",
+					"subtitle": "Earn interest every second",
+					"tooltip": "69% APY base rate. Collect and reinvest interest to achieve close to 100% effective returns annually. Withdraw anytime."
+				},
+				"invite": {
+					"title": "Invite",
+					"subtitle": "Get 10 WDD per friend who joins",
+					"tooltip": "Friends must join our new web app.",
+					"learnMore": "Learn more",
+					"stats": {
+						"title": "Your referral stats",
+						"invites": "Invites accepted",
+						"rewards": "Total rewards"
+					},
+					"actions": {
+						"copyLink": "Copy referral link",
+						"copied": "Referral link copied to clipboard!",
+						"connectWallet": "Please connect your wallet to generate your referral link",
+						"share": "Share invite"
+					},
+					"share": {
+						"title": "Join me in the World Republic",
+						"text": "Use my invite link to join the World Republic and earn rewards together!"
+					}
+				},
+				"contribute": {
+					"title": "Contribute",
+					"subtitle": "Get involved, get rewarded",
+					"buybackProgram": {
+						"topnav": "Buyback Program",
+						"title": "Token Buyback Program",
+						"subtitle": "Strengthen WDD value together",
+						"sections": {
+							"fundingSources": {
+								"title": "Funding sources",
+								"devRewards": {
+									"title": "World Dev Rewards",
+									"weekProgress": "Week 7 of 12"
+								},
+								"worldRetro": {
+									"title": "World Retro Funding"
+								},
+								"affiliate": {
+									"title": "Affiliate commissions"
+								},
+								"optimism": {
+									"title": "Optimism Retro Funding"
+								}
+							},
+							"commitment": {
+								"title": "Our commitment",
+								"description": "We pledge to use at least 50% of all these fundings for WDD buybacks.",
+								"viewAccount": "View buyback account"
+							},
+							"valueCycle": {
+								"title": "The Positive Value Cycle",
+								"steps": {
+									"step1": "More app users & usage",
+									"step2": "Higher rewards",
+									"step3": "More token buybacks"
+								}
+							},
+							"helpSection": {
+								"title": "How you can help",
+								"intro": "You can directly contribute to increasing the value of your WDD tokens:",
+								"steps": {
+									"invite": {
+										"title": "Invite others to join",
+										"description": "Grow our community of verified members"
+									},
+									"useApp": {
+										"title": "Use the app regularly",
+										"description": "Drive the virtuous economic cycle"
+									}
+								}
+							}
+						},
+						"actions": {
+							"share": "Share invite"
+						},
+						"cta": "View mini app rewards"
+					},
+					"partySubsidy": {
+						"topnav": "Subsidy Program",
+						"title": "Party Subsidy Program",
+						"subtitle": "Build your political movement and earn",
+						"weeklyPool": {
+							"old": "100,000",
+							"new": "250,000 WDD",
+							"subtitle": "Fixed pool"
+						},
+						"devRewards": {
+							"title": "10% of our Dev Rewards",
+							"subtitle": "Variable pool",
+							"tooltip": "World is distributing developer rewards based on app usage by verified humans.",
+							"checkOutRewards": "Check out rewards"
+						},
+						"howItWorks": {
+							"title": "How it works",
+							"steps": {
+								"createParty": {
+									"title": "Create a party",
+									"description": "Start your political movement in the World Republic app"
+								},
+								"growMembership": {
+									"title": "Get on the ballot",
+									"description": "Grow your membership to qualify for the test elections"
+								},
+								"earnRewards": {
+									"title": "Receive funding",
+									"description": "Earn subsidies proportional to the votes your party receives"
+								}
+							}
+						},
+						"cta": {
+							"createJoin": "Create or join a party",
+							"leaderGroup": "Join party leader group"
+						},
+						"payouts": {
+							"title": "Payouts",
+							"week": "Week",
+							"showAll": "Show all"
+						}
+					}
+				}
+			}
+		},
+		"govern": {
+			"title": "Govern",
+			"tabs": {
+				"openLetters": "Open letters",
+				"elections": "Elections",
+				"referendums": "Referendums"
+			},
+			"sections": {
+				"openLetters": {
+					"title": "Open Letters",
+					"description": "Public statements to decision makers",
+					"statements": {
+						"aiRisk": {
+							"title": "Statement on AI Risk",
+							"referenceTitle": "Center for AI Safety"
+						},
+						"nuclear": {
+							"title": "UN Ban on Nuclear Weapons Open Letter",
+							"referenceTitle": "Future of Life Institute"
+						},
+						"autonomousWeapons": {
+							"title": "Lethal Autonomous Weapons Pledge",
+							"referenceTitle": "Future of Life Institute"
+						},
+						"longView": {
+							"title": "Open Letter Calling on World Leaders to Show Long-View Leadership on Existential Threats",
+							"referenceTitle": "Future of Life Institute"
+						}
+					}
+				},
+				"elections": {
+					"title": "Elections",
+					"description": "Choose your representatives",
+					"testElections": {
+						"title": "Test Elections",
+						"description": "Help us distribute party subsidies and improve our system of governance",
+						"button": "Vote"
+					}
+				},
+				"referendums": {
+					"title": "Referendums",
+					"description": "Direct votes on important issues",
+					"worldConstitutional": {
+						"title": "World Constitutional Referendum",
+						"description": "Participate in a historic vote on principles that will guide humanity's collective future",
+						"button": "Coming soon"
+					}
+				}
+			}
+		},
+		"menu": {
+			"title": "Menu",
+			"sections": {
+				"experimental": {
+					"title": "SETTINGS",
+					"links": {
+						"language": "Language"
+					}
+				},
+				"connect": {
+					"title": "CONNECT",
+					"links": {
+						"community": "Community",
+						"announcements": "Announcements",
+						"x": "X"
+					}
+				},
+				"help": {
+					"title": "HELP",
+					"links": {
+						"support": "Help community",
+						"faq": "FAQ"
+					}
+				},
+				"code": {
+					"title": "CODE",
+					"links": {
+						"app": "App",
+						"contracts": "Smart contracts"
+					}
+				}
+			}
+		},
+		"faq": {
+			"title": "FAQ",
+			"items": {
+				"appPurpose": {
+					"question": "What is the World Republic?",
+					"answer": "The World Republic is an open, democratic organization dedicated to solving humanity's most pressing global challenges. It provides a framework for collective decision-making on issues that can only be effectively addressed at a global scale, like AI risks, climate change, or biosecurity."
+				},
+				"basicIncome": {
+					"question": "What is Basic Income?",
+					"answer": "Our Basic Income is a daily subsidy of 0.0025 WDD (world drachma) that is provided to all citizens of the World Republic. It accumulates in real-time and can be claimed at any moment through the app."
+				},
+				"basicIncomePlus": {
+					"question": "How do I activate Basic Income Plus?",
+					"answer": "Basic Income Plus provides an additional 0.0475 WDD per day and is available exclusively to Orb-verified users. After activating Basic Income, you'll see an option to activate Basic Income Plus on the Earn page."
+				},
+				"savings": {
+					"question": "How does the Savings Account work?",
+					"answer": "The Savings Account allows you to deposit WDD tokens and earn a 69% annual interest. Through constant reinvestment of earned interest, users can achieve effective returns close to 100% annually, maximizing their WDD growth over time. Interest accumulates continuously and can be withdrawn or reinvested at any time."
+				},
+				"referralCodes": {
+					"question": "How do referral codes work?",
+					"answer": "As a World Republic citizen, you can earn rewards through our referral program. Share your unique referral link with friends, and you'll receive 10 WDD for each person who joins our web app and completes liveness check."
+				},
+				"drachmaValue": {
+					"question": "Where does the drachma get its value?",
+					"answer": "The drachma derives its value from being the official currency of the World Republic. As our democratic global governance platform grows, WDD has the potential to become a significant medium of exchange in the world economy, and could eventually play a role in the equitable distribution of benefits from technological advancements and global resources."
+				},
+				"topWallets": {
+					"question": "Who controls the biggest accounts?",
+					"answer": "The three largest accounts are the <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>World Republic Treasury</a>, the <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Basic Income Fund</a>, and the <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Basic Income Plus Fund</a>. These are currently stewarded by the project's founder to ensure stability while we progressively transfer control to the community. Other key addresses include the <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>Savings Account contract</a>, the <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>Referral Rewards distributor</a>, and liquidity pools: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, and <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
+				},
+				"voteRequirements": {
+					"question": "How can I participate in governance?",
+					"answer": "You can participate by joining or creating a political party. While current votes are illustrative, parties are the foundation of our governance model. As parties professionalize, they will unlock more and more significant areas for democratic control, giving you a voice in our collective decisions."
+				}
+			}
+		},
+		"language": {
+			"title": "Language",
+			"options": {
+				"english": "English",
+				"spanish": "Español"
+			}
+		}
+	}
 }

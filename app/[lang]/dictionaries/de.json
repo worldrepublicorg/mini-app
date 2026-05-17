@@ -1,356 +1,356 @@
 {
-  "components": {
-    "walletAuth": {
-      "connect": "Wallet verbinden"
-    },
-    "banners": {
-      "dalgona": {
-        "title": "Empfehlungsprämien sind zurück",
-        "description": "Erhalte WDD, wenn du Freunde in unsere neue Web-App einlädst.",
-        "cta": "Jetzt starten"
-      }
-    },
-    "stakeForm": {
-      "deposit": "Einzahlen",
-      "withdraw": "Auszahlen",
-      "balance": "Kontostand:",
-      "depositPlaceholder": "Einzahlungsbetrag",
-      "withdrawPlaceholder": "Auszahlungsbetrag",
-      "max": "Maximum",
-      "interest": "Zinsen:",
-      "collect": "Einsammeln",
-      "depositButton": "Drachmen einzahlen",
-      "withdrawButton": "Drachmen auszahlen"
-    },
-    "toasts": {
-      "wallet": {
-        "connectInWorldApp": "Bitte öffnen Sie diese App in der World App, um Ihre Wallet zu verbinden.",
-        "stakingError": "Fehler beim Staking der Token",
-        "withdrawError": "Fehler beim Auszahlen der Token",
-        "collectError": "Fehler beim Einsammeln der Belohnungen"
-      },
-      "referral": {
-        "pendingReward": "Ausstehende Belohnung für {{username}} wird verarbeitet...",
-        "rewardSuccess": "Belohnung für {{username}} erfolgreich ausgezahlt!",
-        "sendingReward": "50 WDD Belohnung wird an {{username}} gesendet..."
-      },
-      "basicIncome": {
-        "setupSuccess": "Grundeinkommen Plus aktiviert! Belohnung für {{username}} wird vorbereitet...",
-        "setupWithReferrer": "Grundeinkommen Plus wird zuerst eingerichtet, dann belohnen wir {{username}}...",
-        "error": "Fehler beim Aktivieren des Grundeinkommens",
-        "errorPlus": "Fehler beim Aktivieren von Grundeinkommen Plus"
-      },
-      "transaction": {
-        "error": "Ein unerwarteter Fehler ist aufgetreten",
-        "errorClaim": "Ein unerwarteter Fehler ist beim Beanspruchen aufgetreten"
-      }
-    },
-    "tabSwiper": {
-      "tabs": {
-        "openLetters": "Offene Briefe",
-        "elections": "Wahlen",
-        "referendums": "Referenden"
-      }
-    }
-  },
-  "pages": {
-    "earn": {
-      "title": "Verdienen",
-      "tabs": {
-        "basicIncome": {
-          "tabTitle": "Grundeinkommen",
-          "title": "Grundeinkommen",
-          "subtitle": "Melden Sie sich an, um Ihr Grundeinkommen zu beanspruchen",
-          "setupSubtitle": "Richten Sie Ihr Grundeinkommen ein",
-          "claimableSubtitle": "Beanspruchbare Drachmen",
-          "claimableTooltip1": "Im Rahmen unseres",
-          "claimableTooltip2": "Rückkaufprogramms",
-          "claimableTooltip3": " optimieren wir die Grundeinkommensniveaus, um nachhaltige, langfristige Vorteile für unsere Gemeinschaft zu schaffen. Bitte beachten Sie die",
-          "claimableTooltip4": "FAQ",
-          "claimableTooltip5": "für aktuelle Raten.",
-          "activateButton": "Grundeinkommen aktivieren",
-          "claimButton": "Beanspruchen",
-          "plus": {
-            "title": "Grundeinkommen Plus",
-            "newBadge": "Neu",
-            "drawerTrigger": "Grundeinkommen Plus vorstellen",
-            "subtitle": "Zusätzliches Einkommen für verifizierte Nutzer",
-            "drawer": {
-              "title": "Grundeinkommen Plus",
-              "subtitle": "Zusätzliches Einkommen für verifizierte Nutzer",
-              "features": {
-                "rate": {
-                  "title": "Zusätzliche 0,0475 WDD pro Tag"
-                },
-                "verification": {
-                  "title": "Exklusiv für Orb-verifizierte Nutzer zur Sicherstellung einer fairen Verteilung"
-                }
-              },
-              "activateButton": "Grundeinkommen Plus aktivieren",
-              "claimButton": "Grundeinkommen Plus beanspruchen",
-              "claimBasicButton": "Grundeinkommen beanspruchen"
-            }
-          }
-        },
-        "savings": {
-          "tabTitle": "Sparen",
-          "title": "Sparen Account",
-          "subtitle": "Zinsen jeden zweiten",
-          "tooltip": "69% APY Basiszins. Zinsen einsammeln und sie erneut investieren, um nahe 100% effektive Rückgaben jährlich zu erreichen. Jederzeit auszahlen."
-        },
-        "invite": {
-          "title": "Einladen",
-          "subtitle": "Erhalte 10 WDD pro Freund, der beitritt",
-          "tooltip": "Freunde müssen sich in unserer neuen Web‑App anmelden.",
-          "learnMore": "Mehr erfahren",
-          "stats": {
-            "title": "Ihre Referral Stats",
-            "invites": "Eingeladene angenommen",
-            "rewards": "Gesamtleistungen"
-          },
-          "actions": {
-            "copyLink": "Empfehlungslink kopieren",
-            "copied": "Empfehlungslink in die Zwischenablage kopiert!",
-            "connectWallet": "Bitte verbinden Sie Ihre Wallet, um Ihren Empfehlungslink zu generieren",
-            "share": "Einladungslink teilen"
-          },
-          "share": {
-            "title": "Tritt der Weltrepublik bei",
-            "text": "Nutze meinen Einladungslink, um der Weltrepublik beizutreten und gemeinsam Belohnungen zu verdienen!"
-          }
-        },
-        "contribute": {
-          "title": "Mitwirken",
-          "subtitle": "Mitwirken, Belohnungen verdienen",
-          "buybackProgram": {
-            "topnav": "Rückkaufprogramm",
-            "title": "Token-Rückkaufprogramm",
-            "subtitle": "WDD-Wert gemeinsam stärken",
-            "sections": {
-              "fundingSources": {
-                "title": "Finanzierungsquellen",
-                "devRewards": {
-                  "title": "World Dev Rewards",
-                  "weekProgress": "Woche 7 von 12"
-                },
-                "worldRetro": {
-                  "title": "World Retro Finanzierung"
-                },
-                "optimism": {
-                  "title": "Optimism Retro Finanzierung"
-                },
-                "affiliate": {
-                  "title": "Affiliate-Provisionen"
-                }
-              },
-              "commitment": {
-                "title": "Unser Versprechen",
-                "description": "Wir verpflichten uns, mindestens 50% aller dieser Finanzierungen für WDD-Rückkäufe zu verwenden.",
-                "viewAccount": "Rückkaufkonto anzeigen"
-              },
-              "valueCycle": {
-                "title": "Der positive Wertkreislauf",
-                "steps": {
-                  "step1": "Mehr App-Nutzer & Nutzung",
-                  "step2": "Höhere Belohnungen",
-                  "step3": "Mehr Token-Rückkäufe"
-                }
-              },
-              "helpSection": {
-                "title": "Wie Sie helfen können",
-                "intro": "Sie können direkt zur Wertsteigerung Ihrer WDD-Token beitragen:",
-                "steps": {
-                  "invite": {
-                    "title": "Andere einladen",
-                    "description": "Unsere Community verifizierter Mitglieder vergrößern"
-                  },
-                  "useApp": {
-                    "title": "App regelmäßig nutzen",
-                    "description": "Den positiven Wirtschaftskreislauf antreiben"
-                  }
-                }
-              }
-            },
-            "actions": {
-              "share": "Einladung teilen"
-            },
-            "cta": "Mini-App-Belohnungen anzeigen"
-          },
-          "buybackLink": {
-            "title": "Rückkaufprogramm",
-            "description": "Gemeinschaftsgetriebenes WDD-Wertwachstum"
-          },
-          "partySubsidy": {
-            "topnav": "Subventionsprogramm",
-            "title": "Partei-Subventionsprogramm",
-            "subtitle": "Baue deine politische Bewegung auf und verdiene",
-            "weeklyPool": {
-              "old": "100.000",
-              "new": "250.000 WDD",
-              "subtitle": "Fester Pool"
-            },
-            "devRewards": {
-              "title": "10% der Entwicklerprämien",
-              "subtitle": "Variabler Pool",
-              "tooltip": "World verteilt Entwicklerbelohnungen basierend auf der App-Nutzung durch verifizierte Menschen.",
-              "checkOutRewards": "Belohnungen ansehen"
-            },
-            "howItWorks": {
-              "title": "Wie es funktioniert",
-              "steps": {
-                "createParty": {
-                  "title": "Gründe eine Partei",
-                  "description": "Starte deine politische Bewegung in der World Republic App"
-                },
-                "growMembership": {
-                  "title": "Zur Wahl qualifizieren",
-                  "description": "Erhöhe deine Mitgliederzahl, um dich für die wöchentlichen Wahlen zu qualifizieren."
-                },
-                "earnRewards": {
-                  "title": "Finanzierung erhalten",
-                  "description": "Erhalte Subventionen proportional zu den Stimmen, die deine Partei erhält."
-                }
-              }
-            },
-            "cta": {
-              "createJoin": "Partei gründen oder beitreten",
-              "leaderGroup": "Parteileitergruppe beitreten"
-            },
-            "payouts": {
-              "title": "Auszahlungen",
-              "week": "Woche",
-              "showAll": "Alle anzeigen"
-            }
-          }
-        }
-      }
-    },
-    "govern": {
-      "title": "Regieren",
-      "tabs": {
-        "openLetters": "Offene Briefe",
-        "elections": "Wahlen",
-        "referendums": "Referenden"
-      },
-      "sections": {
-        "openLetters": {
-          "title": "Offene Briefe",
-          "description": "Öffentliche Erklärungen an Entscheidungsträger",
-          "statements": {
-            "aiRisk": {
-              "title": "Erklärung zum KI-Risiko",
-              "referenceTitle": "Zentrum für KI-Sicherheit"
-            },
-            "nuclear": {
-              "title": "UNO-Verbot von Atomwaffen - Offener Brief",
-              "referenceTitle": "Institut für die Zukunft des Lebens"
-            },
-            "autonomousWeapons": {
-              "title": "Gelöbnis zu tödlichen autonomen Waffen",
-              "referenceTitle": "Institut für die Zukunft des Lebens"
-            },
-            "longView": {
-              "title": "Offener Brief, der Weltführer auffordert, langfristige Führung bei existenziellen Bedrohungen zu zeigen",
-              "referenceTitle": "Institut für die Zukunft des Lebens"
-            }
-          }
-        },
-        "elections": {
-          "title": "Wahlen",
-          "description": "Wählen Sie Ihre Vertreter",
-          "testElections": {
-            "title": "Testwahlen",
-            "description": "Helfen Sie uns, Parteienförderungen zu verteilen und unser Regierungssystem zu verbessern",
-            "button": "Wählen"
-          }
-        },
-        "referendums": {
-          "title": "Referenden",
-          "description": "Direkte Abstimmungen zu wichtigen Themen",
-          "worldConstitutional": {
-            "title": "Weltweites Verfassungsreferendum",
-            "description": "Nehmen Sie an einer historischen Abstimmung über Prinzipien teil, die die gemeinsame Zukunft der Menschheit leiten werden",
-            "button": "Demnächst verfügbar"
-          }
-        }
-      }
-    },
-    "menu": {
-      "title": "Menü",
-      "sections": {
-        "experimental": {
-          "title": "EINSTELLUNGEN",
-          "links": {
-            "language": "Sprache"
-          }
-        },
-        "connect": {
-          "title": "VERBINDEN",
-          "links": {
-            "community": "Community",
-            "announcements": "Ankündigungen",
-            "x": "X"
-          }
-        },
-        "help": {
-          "title": "HILFE",
-          "links": {
-            "support": "Hilfe-Community",
-            "faq": "FAQ"
-          }
-        },
-        "code": {
-          "title": "CODE",
-          "links": {
-            "app": "App",
-            "contracts": "Smart Contracts"
-          }
-        }
-      }
-    },
-    "faq": {
-      "title": "FAQ",
-      "items": {
-        "appPurpose": {
-          "question": "Was ist die Weltrepublik?",
-          "answer": "Die Weltrepublik ist eine offene, demokratische Organisation, die darauf ausgerichtet ist, die größten globalen Herausforderungen der Menschheit zu lösen. Es bietet ein Framework für kollektive Entscheidungsfindung zu Problemen, die nur effektiv an globaler Ebene angesprochen werden können, wie KI-Risiken, Klimawandel oder Biosicherheit."
-        },
-        "basicIncome": {
-          "question": "Was ist Grundeinkommen?",
-          "answer": "Unser Grundeinkommen ist ein tägliches Subventionsprogramm von 0,0025 WDD (Weltdrachme) für alle Bürger der Weltrepublik. Es kumuliert in Echtzeit und kann jederzeit über die App beansprucht werden."
-        },
-        "basicIncomePlus": {
-          "question": "Wie aktiviere ich Grundeinkommen Plus?",
-          "answer": "Grundeinkommen Plus bietet zusätzliche 0,0475 WDD pro Tag und ist ausschließlich den Orb-verifizierten Nutzern verfügbar. Nach der Aktivierung von Grundeinkommen sehen Sie eine Option, Grundeinkommen Plus auf der Verdienen-Seite zu aktivieren."
-        },
-        "savings": {
-          "question": "Wie funktioniert der Sparen Account?",
-          "answer": "Der Sparen Account ermöglicht es Ihnen, WDD-Token einzuzahlen und einen 69% jährlichen Zins zu verdienen. Durch fortlaufende Wiederanlage von verdienten Zinsen können Benutzer effektive Rückgaben nahe 100% jährlich erreichen, indem sie ihre WDD-Wachstum über die Zeit maximieren. Zinsen kumulieren kontinuierlich und können jederzeit ausgezahlt oder erneut investiert werden."
-        },
-        "referralCodes": {
-          "question": "Wie funktionieren Empfehlungscodes?",
-          "answer": "Als Bürger der Weltrepublik können Sie über unser Empfehlungsprogramm Belohnungen verdienen. Teilen Sie Ihren einzigartigen Empfehlungslink mit Freunden, und Sie erhalten 10 WDD für jede Person, die unserer Web‑App beitritt und die Liveness‑Prüfung abschließt."
-        },
-        "drachmaValue": {
-          "question": "Wo bekommt die Drachme ihren Wert?",
-          "answer": "Die Drachme leitet ihren Wert von der offiziellen Währung der Weltrepublik ab. Da unser demokratisches globales Regierungssystem wächst, hat WDD das Potenzial, ein bedeutendes Tauschmittel in der Weltwirtschaft zu werden und könnte schließlich eine Rolle in der gerechten Verteilung von Vorteilen aus technologischen Fortschritten und globalen Ressourcen spielen."
-        },
-        "topWallets": {
-          "question": "Wer kontrolliert die größten Konten?",
-          "answer": "Die drei größten Konten sind die <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>World Republic Treasury</a>, der <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Basic Income Fund</a> und der <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Basic Income Plus Fund</a>. Diese werden derzeit vom Gründer des Projekts verwaltet, um Stabilität zu gewährleisten, während wir die Kontrolle schrittweise an die Gemeinschaft übertragen. Weitere wichtige Adressen sind der <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>Sparkontovertrag</a>, der <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>Referral Rewards-Verteiler</a> und Liquiditätspools: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a> und <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
-        },
-        "voteRequirements": {
-          "question": "Wie kann ich an der Regierung teilnehmen?",
-          "answer": "Sie können teilnehmen, indem Sie einer politischen Partei beitreten oder eine gründen. Während die aktuellen Abstimmungen illustrativ sind, bilden die Parteien die Grundlage unseres Regierungsmodells. Wenn die Parteien professioneller werden, werden sie immer bedeutendere Bereiche für die demokratische Kontrolle freischalten, die Ihnen eine Stimme in unseren kollektiven Entscheidungen geben."
-        }
-      }
-    },
-    "language": {
-      "title": "Sprache",
-      "options": {
-        "english": "English",
-        "spanish": "Español"
-      }
-    }
-  }
+	"components": {
+		"walletAuth": {
+			"connect": "Wallet verbinden"
+		},
+		"banners": {
+			"dalgona": {
+				"title": "Empfehlungsprämien sind zurück",
+				"description": "Erhalte WDD, wenn du Freunde in unsere neue Web-App einlädst.",
+				"cta": "Jetzt starten"
+			}
+		},
+		"stakeForm": {
+			"deposit": "Einzahlen",
+			"withdraw": "Auszahlen",
+			"balance": "Kontostand:",
+			"depositPlaceholder": "Einzahlungsbetrag",
+			"withdrawPlaceholder": "Auszahlungsbetrag",
+			"max": "Maximum",
+			"interest": "Zinsen:",
+			"collect": "Einsammeln",
+			"depositButton": "Drachmen einzahlen",
+			"withdrawButton": "Drachmen auszahlen"
+		},
+		"toasts": {
+			"wallet": {
+				"connectInWorldApp": "Bitte öffnen Sie diese App in der World App, um Ihre Wallet zu verbinden.",
+				"stakingError": "Fehler beim Staking der Token",
+				"withdrawError": "Fehler beim Auszahlen der Token",
+				"collectError": "Fehler beim Einsammeln der Belohnungen"
+			},
+			"referral": {
+				"pendingReward": "Ausstehende Belohnung für {{username}} wird verarbeitet...",
+				"rewardSuccess": "Belohnung für {{username}} erfolgreich ausgezahlt!",
+				"sendingReward": "50 WDD Belohnung wird an {{username}} gesendet..."
+			},
+			"basicIncome": {
+				"setupSuccess": "Grundeinkommen Plus aktiviert! Belohnung für {{username}} wird vorbereitet...",
+				"setupWithReferrer": "Grundeinkommen Plus wird zuerst eingerichtet, dann belohnen wir {{username}}...",
+				"error": "Fehler beim Aktivieren des Grundeinkommens",
+				"errorPlus": "Fehler beim Aktivieren von Grundeinkommen Plus"
+			},
+			"transaction": {
+				"error": "Ein unerwarteter Fehler ist aufgetreten",
+				"errorClaim": "Ein unerwarteter Fehler ist beim Beanspruchen aufgetreten"
+			}
+		},
+		"tabSwiper": {
+			"tabs": {
+				"openLetters": "Offene Briefe",
+				"elections": "Wahlen",
+				"referendums": "Referenden"
+			}
+		}
+	},
+	"pages": {
+		"earn": {
+			"title": "Verdienen",
+			"tabs": {
+				"basicIncome": {
+					"tabTitle": "Grundeinkommen",
+					"title": "Grundeinkommen",
+					"subtitle": "Melden Sie sich an, um Ihr Grundeinkommen zu beanspruchen",
+					"setupSubtitle": "Richten Sie Ihr Grundeinkommen ein",
+					"claimableSubtitle": "Beanspruchbare Drachmen",
+					"claimableTooltip1": "Im Rahmen unseres",
+					"claimableTooltip2": "Rückkaufprogramms",
+					"claimableTooltip3": " optimieren wir die Grundeinkommensniveaus, um nachhaltige, langfristige Vorteile für unsere Gemeinschaft zu schaffen. Bitte beachten Sie die",
+					"claimableTooltip4": "FAQ",
+					"claimableTooltip5": "für aktuelle Raten.",
+					"activateButton": "Grundeinkommen aktivieren",
+					"claimButton": "Beanspruchen",
+					"plus": {
+						"title": "Grundeinkommen Plus",
+						"newBadge": "Neu",
+						"drawerTrigger": "Grundeinkommen Plus vorstellen",
+						"subtitle": "Zusätzliches Einkommen für verifizierte Nutzer",
+						"drawer": {
+							"title": "Grundeinkommen Plus",
+							"subtitle": "Zusätzliches Einkommen für verifizierte Nutzer",
+							"features": {
+								"rate": {
+									"title": "Zusätzliche 0,0475 WDD pro Tag"
+								},
+								"verification": {
+									"title": "Exklusiv für Orb-verifizierte Nutzer zur Sicherstellung einer fairen Verteilung"
+								}
+							},
+							"activateButton": "Grundeinkommen Plus aktivieren",
+							"claimButton": "Grundeinkommen Plus beanspruchen",
+							"claimBasicButton": "Grundeinkommen beanspruchen"
+						}
+					}
+				},
+				"savings": {
+					"tabTitle": "Sparen",
+					"title": "Sparen Account",
+					"subtitle": "Zinsen jeden zweiten",
+					"tooltip": "69% APY Basiszins. Zinsen einsammeln und sie erneut investieren, um nahe 100% effektive Rückgaben jährlich zu erreichen. Jederzeit auszahlen."
+				},
+				"invite": {
+					"title": "Einladen",
+					"subtitle": "Erhalte 10 WDD pro Freund, der beitritt",
+					"tooltip": "Freunde müssen sich in unserer neuen Web‑App anmelden.",
+					"learnMore": "Mehr erfahren",
+					"stats": {
+						"title": "Ihre Referral Stats",
+						"invites": "Eingeladene angenommen",
+						"rewards": "Gesamtleistungen"
+					},
+					"actions": {
+						"copyLink": "Empfehlungslink kopieren",
+						"copied": "Empfehlungslink in die Zwischenablage kopiert!",
+						"connectWallet": "Bitte verbinden Sie Ihre Wallet, um Ihren Empfehlungslink zu generieren",
+						"share": "Einladungslink teilen"
+					},
+					"share": {
+						"title": "Tritt der Weltrepublik bei",
+						"text": "Nutze meinen Einladungslink, um der Weltrepublik beizutreten und gemeinsam Belohnungen zu verdienen!"
+					}
+				},
+				"contribute": {
+					"title": "Mitwirken",
+					"subtitle": "Mitwirken, Belohnungen verdienen",
+					"buybackProgram": {
+						"topnav": "Rückkaufprogramm",
+						"title": "Token-Rückkaufprogramm",
+						"subtitle": "WDD-Wert gemeinsam stärken",
+						"sections": {
+							"fundingSources": {
+								"title": "Finanzierungsquellen",
+								"devRewards": {
+									"title": "World Dev Rewards",
+									"weekProgress": "Woche 7 von 12"
+								},
+								"worldRetro": {
+									"title": "World Retro Finanzierung"
+								},
+								"optimism": {
+									"title": "Optimism Retro Finanzierung"
+								},
+								"affiliate": {
+									"title": "Affiliate-Provisionen"
+								}
+							},
+							"commitment": {
+								"title": "Unser Versprechen",
+								"description": "Wir verpflichten uns, mindestens 50% aller dieser Finanzierungen für WDD-Rückkäufe zu verwenden.",
+								"viewAccount": "Rückkaufkonto anzeigen"
+							},
+							"valueCycle": {
+								"title": "Der positive Wertkreislauf",
+								"steps": {
+									"step1": "Mehr App-Nutzer & Nutzung",
+									"step2": "Höhere Belohnungen",
+									"step3": "Mehr Token-Rückkäufe"
+								}
+							},
+							"helpSection": {
+								"title": "Wie Sie helfen können",
+								"intro": "Sie können direkt zur Wertsteigerung Ihrer WDD-Token beitragen:",
+								"steps": {
+									"invite": {
+										"title": "Andere einladen",
+										"description": "Unsere Community verifizierter Mitglieder vergrößern"
+									},
+									"useApp": {
+										"title": "App regelmäßig nutzen",
+										"description": "Den positiven Wirtschaftskreislauf antreiben"
+									}
+								}
+							}
+						},
+						"actions": {
+							"share": "Einladung teilen"
+						},
+						"cta": "Mini-App-Belohnungen anzeigen"
+					},
+					"buybackLink": {
+						"title": "Rückkaufprogramm",
+						"description": "Gemeinschaftsgetriebenes WDD-Wertwachstum"
+					},
+					"partySubsidy": {
+						"topnav": "Subventionsprogramm",
+						"title": "Partei-Subventionsprogramm",
+						"subtitle": "Baue deine politische Bewegung auf und verdiene",
+						"weeklyPool": {
+							"old": "100.000",
+							"new": "250.000 WDD",
+							"subtitle": "Fester Pool"
+						},
+						"devRewards": {
+							"title": "10% der Entwicklerprämien",
+							"subtitle": "Variabler Pool",
+							"tooltip": "World verteilt Entwicklerbelohnungen basierend auf der App-Nutzung durch verifizierte Menschen.",
+							"checkOutRewards": "Belohnungen ansehen"
+						},
+						"howItWorks": {
+							"title": "Wie es funktioniert",
+							"steps": {
+								"createParty": {
+									"title": "Gründe eine Partei",
+									"description": "Starte deine politische Bewegung in der World Republic App"
+								},
+								"growMembership": {
+									"title": "Zur Wahl qualifizieren",
+									"description": "Erhöhe deine Mitgliederzahl, um dich für die wöchentlichen Wahlen zu qualifizieren."
+								},
+								"earnRewards": {
+									"title": "Finanzierung erhalten",
+									"description": "Erhalte Subventionen proportional zu den Stimmen, die deine Partei erhält."
+								}
+							}
+						},
+						"cta": {
+							"createJoin": "Partei gründen oder beitreten",
+							"leaderGroup": "Parteileitergruppe beitreten"
+						},
+						"payouts": {
+							"title": "Auszahlungen",
+							"week": "Woche",
+							"showAll": "Alle anzeigen"
+						}
+					}
+				}
+			}
+		},
+		"govern": {
+			"title": "Regieren",
+			"tabs": {
+				"openLetters": "Offene Briefe",
+				"elections": "Wahlen",
+				"referendums": "Referenden"
+			},
+			"sections": {
+				"openLetters": {
+					"title": "Offene Briefe",
+					"description": "Öffentliche Erklärungen an Entscheidungsträger",
+					"statements": {
+						"aiRisk": {
+							"title": "Erklärung zum KI-Risiko",
+							"referenceTitle": "Zentrum für KI-Sicherheit"
+						},
+						"nuclear": {
+							"title": "UNO-Verbot von Atomwaffen - Offener Brief",
+							"referenceTitle": "Institut für die Zukunft des Lebens"
+						},
+						"autonomousWeapons": {
+							"title": "Gelöbnis zu tödlichen autonomen Waffen",
+							"referenceTitle": "Institut für die Zukunft des Lebens"
+						},
+						"longView": {
+							"title": "Offener Brief, der Weltführer auffordert, langfristige Führung bei existenziellen Bedrohungen zu zeigen",
+							"referenceTitle": "Institut für die Zukunft des Lebens"
+						}
+					}
+				},
+				"elections": {
+					"title": "Wahlen",
+					"description": "Wählen Sie Ihre Vertreter",
+					"testElections": {
+						"title": "Testwahlen",
+						"description": "Helfen Sie uns, Parteienförderungen zu verteilen und unser Regierungssystem zu verbessern",
+						"button": "Wählen"
+					}
+				},
+				"referendums": {
+					"title": "Referenden",
+					"description": "Direkte Abstimmungen zu wichtigen Themen",
+					"worldConstitutional": {
+						"title": "Weltweites Verfassungsreferendum",
+						"description": "Nehmen Sie an einer historischen Abstimmung über Prinzipien teil, die die gemeinsame Zukunft der Menschheit leiten werden",
+						"button": "Demnächst verfügbar"
+					}
+				}
+			}
+		},
+		"menu": {
+			"title": "Menü",
+			"sections": {
+				"experimental": {
+					"title": "EINSTELLUNGEN",
+					"links": {
+						"language": "Sprache"
+					}
+				},
+				"connect": {
+					"title": "VERBINDEN",
+					"links": {
+						"community": "Community",
+						"announcements": "Ankündigungen",
+						"x": "X"
+					}
+				},
+				"help": {
+					"title": "HILFE",
+					"links": {
+						"support": "Hilfe-Community",
+						"faq": "FAQ"
+					}
+				},
+				"code": {
+					"title": "CODE",
+					"links": {
+						"app": "App",
+						"contracts": "Smart Contracts"
+					}
+				}
+			}
+		},
+		"faq": {
+			"title": "FAQ",
+			"items": {
+				"appPurpose": {
+					"question": "Was ist die Weltrepublik?",
+					"answer": "Die Weltrepublik ist eine offene, demokratische Organisation, die darauf ausgerichtet ist, die größten globalen Herausforderungen der Menschheit zu lösen. Es bietet ein Framework für kollektive Entscheidungsfindung zu Problemen, die nur effektiv an globaler Ebene angesprochen werden können, wie KI-Risiken, Klimawandel oder Biosicherheit."
+				},
+				"basicIncome": {
+					"question": "Was ist Grundeinkommen?",
+					"answer": "Unser Grundeinkommen ist ein tägliches Subventionsprogramm von 0,0025 WDD (Weltdrachme) für alle Bürger der Weltrepublik. Es kumuliert in Echtzeit und kann jederzeit über die App beansprucht werden."
+				},
+				"basicIncomePlus": {
+					"question": "Wie aktiviere ich Grundeinkommen Plus?",
+					"answer": "Grundeinkommen Plus bietet zusätzliche 0,0475 WDD pro Tag und ist ausschließlich den Orb-verifizierten Nutzern verfügbar. Nach der Aktivierung von Grundeinkommen sehen Sie eine Option, Grundeinkommen Plus auf der Verdienen-Seite zu aktivieren."
+				},
+				"savings": {
+					"question": "Wie funktioniert der Sparen Account?",
+					"answer": "Der Sparen Account ermöglicht es Ihnen, WDD-Token einzuzahlen und einen 69% jährlichen Zins zu verdienen. Durch fortlaufende Wiederanlage von verdienten Zinsen können Benutzer effektive Rückgaben nahe 100% jährlich erreichen, indem sie ihre WDD-Wachstum über die Zeit maximieren. Zinsen kumulieren kontinuierlich und können jederzeit ausgezahlt oder erneut investiert werden."
+				},
+				"referralCodes": {
+					"question": "Wie funktionieren Empfehlungscodes?",
+					"answer": "Als Bürger der Weltrepublik können Sie über unser Empfehlungsprogramm Belohnungen verdienen. Teilen Sie Ihren einzigartigen Empfehlungslink mit Freunden, und Sie erhalten 10 WDD für jede Person, die unserer Web‑App beitritt und die Liveness‑Prüfung abschließt."
+				},
+				"drachmaValue": {
+					"question": "Wo bekommt die Drachme ihren Wert?",
+					"answer": "Die Drachme leitet ihren Wert von der offiziellen Währung der Weltrepublik ab. Da unser demokratisches globales Regierungssystem wächst, hat WDD das Potenzial, ein bedeutendes Tauschmittel in der Weltwirtschaft zu werden und könnte schließlich eine Rolle in der gerechten Verteilung von Vorteilen aus technologischen Fortschritten und globalen Ressourcen spielen."
+				},
+				"topWallets": {
+					"question": "Wer kontrolliert die größten Konten?",
+					"answer": "Die drei größten Konten sind die <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>World Republic Treasury</a>, der <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Basic Income Fund</a> und der <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Basic Income Plus Fund</a>. Diese werden derzeit vom Gründer des Projekts verwaltet, um Stabilität zu gewährleisten, während wir die Kontrolle schrittweise an die Gemeinschaft übertragen. Weitere wichtige Adressen sind der <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>Sparkontovertrag</a>, der <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>Referral Rewards-Verteiler</a> und Liquiditätspools: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a> und <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
+				},
+				"voteRequirements": {
+					"question": "Wie kann ich an der Regierung teilnehmen?",
+					"answer": "Sie können teilnehmen, indem Sie einer politischen Partei beitreten oder eine gründen. Während die aktuellen Abstimmungen illustrativ sind, bilden die Parteien die Grundlage unseres Regierungsmodells. Wenn die Parteien professioneller werden, werden sie immer bedeutendere Bereiche für die demokratische Kontrolle freischalten, die Ihnen eine Stimme in unseren kollektiven Entscheidungen geben."
+				}
+			}
+		},
+		"language": {
+			"title": "Sprache",
+			"options": {
+				"english": "English",
+				"spanish": "Español"
+			}
+		}
+	}
 }

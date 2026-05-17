@@ -1,356 +1,356 @@
 {
-  "components": {
-    "walletAuth": {
-      "connect": "Ikonekta ang wallet"
-    },
-    "banners": {
-      "dalgona": {
-        "title": "Bumalik na ang mga gantimpala sa pag-refer",
-        "description": "Makakuha ng WDD sa pag-imbita ng mga kaibigan sa aming bagong web app.",
-        "cta": "Magsimula"
-      }
-    },
-    "stakeForm": {
-      "deposit": "Mag-deposit",
-      "withdraw": "Mag-withdraw",
-      "balance": "Balanse:",
-      "depositPlaceholder": "Halaga ng deposit",
-      "withdrawPlaceholder": "Halaga ng withdrawal",
-      "max": "Max",
-      "interest": "Interes:",
-      "collect": "Kolektahin",
-      "depositButton": "I-deposit ang drachma",
-      "withdrawButton": "I-withdraw ang drachma"
-    },
-    "toasts": {
-      "wallet": {
-        "connectInWorldApp": "Pakibuksan ang app na ito sa World App para maikonekta ang iyong wallet.",
-        "stakingError": "Error sa pag-stake ng token",
-        "withdrawError": "Error sa pag-withdraw ng token",
-        "collectError": "Error sa pagkolekta ng reward"
-      },
-      "referral": {
-        "pendingReward": "Pinoproseso ang nakabinbing reward para kay {{username}}...",
-        "rewardSuccess": "Matagumpay na na-reward si {{username}}!",
-        "sendingReward": "Nagpapadala ng 50 WDD reward kay {{username}}..."
-      },
-      "basicIncome": {
-        "setupSuccess": "Na-activate ang Basic Income Plus! Ngayon pinoproseso ang reward para kay {{username}}...",
-        "setupWithReferrer": "Unang ise-set up ang Basic Income Plus, pagkatapos re-reward-an si {{username}}...",
-        "error": "Error sa pag-activate ng Basic Income",
-        "errorPlus": "Error sa pag-activate ng Basic Income Plus"
-      },
-      "transaction": {
-        "error": "May nangyaring hindi inaasahang error",
-        "errorClaim": "May nangyaring hindi inaasahang error habang nagki-claim"
-      }
-    },
-    "tabSwiper": {
-      "tabs": {
-        "openLetters": "Mga bukas na liham",
-        "elections": "Mga halalan",
-        "referendums": "Mga reperendum"
-      }
-    }
-  },
-  "pages": {
-    "earn": {
-      "title": "Kumita",
-      "tabs": {
-        "basicIncome": {
-          "tabTitle": "Basic Income",
-          "title": "Basic Income",
-          "subtitle": "Mag-sign in para kunin ang iyong basic income",
-          "setupSubtitle": "I-setup ang iyong basic income",
-          "claimableSubtitle": "Maa-claim na drachma",
-          "claimableTooltip1": "Bilang bahagi ng aming",
-          "claimableTooltip2": "programa ng buyback",
-          "claimableTooltip3": ", kami ay nag-aadjust ng antas ng basic income upang makalikha ng pangmatagalang benepisyo para sa aming komunidad. Mangyaring tingnan ang",
-          "claimableTooltip4": "FAQ",
-          "claimableTooltip5": "para sa kasalukuyang rates.",
-          "activateButton": "I-activate ang Basic Income",
-          "claimButton": "Kunin",
-          "plus": {
-            "title": "Basic Income Plus",
-            "newBadge": "Bago",
-            "drawerTrigger": "Pagpapakilala sa Basic Income Plus",
-            "subtitle": "Dagdag na kita para sa mga verified na user",
-            "drawer": {
-              "title": "Basic Income Plus",
-              "subtitle": "Dagdag na kita para sa mga verified na user",
-              "features": {
-                "rate": {
-                  "title": "Dagdag na 0.0475 WDD bawat araw"
-                },
-                "verification": {
-                  "title": "Eksklusibo para sa mga Orb-verified na user para matiyak ang patas na pamamahagi"
-                }
-              },
-              "activateButton": "I-activate ang Basic Income Plus",
-              "claimButton": "Kunin ang Basic Income Plus",
-              "claimBasicButton": "Kunin ang Basic Income"
-            }
-          }
-        },
-        "savings": {
-          "tabTitle": "Pagtitipid",
-          "title": "Savings Account",
-          "subtitle": "Kumita ng interes bawat segundo",
-          "tooltip": "69% APY base rate. Kunin at i-reinvest ang interes para makamit ang halos 100% effective returns taun-taon. Mag-withdraw kahit kailan."
-        },
-        "contribute": {
-          "title": "Mag-ambag",
-          "subtitle": "Makiisa, kumuha ng gantimpala",
-          "buybackProgram": {
-            "topnav": "Programa ng Muling Pagbili",
-            "title": "Programa ng Muling Pagbili ng Token",
-            "subtitle": "Palakasin ang halaga ng WDD nang sama-sama",
-            "sections": {
-              "fundingSources": {
-                "title": "Mga pinagmumulan ng pondo",
-                "devRewards": {
-                  "title": "World Dev Rewards",
-                  "weekProgress": "Linggo 7 ng 12"
-                },
-                "worldRetro": {
-                  "title": "World Retro Funding"
-                },
-                "optimism": {
-                  "title": "Optimism Retro Funding"
-                },
-                "affiliate": {
-                  "title": "Komisyon ng affiliate"
-                }
-              },
-              "commitment": {
-                "title": "Ang aming 50% na pangako",
-                "description": "Nangangako kaming gamitin ang hindi bababa sa 50% ng aming mga gantimpala mula sa programa para sa mga WDD buyback.",
-                "viewAccount": "Tingnan ang buyback account"
-              },
-              "valueCycle": {
-                "title": "Ang Positibong Siklo ng Halaga",
-                "steps": {
-                  "step1": "Mas maraming gumagamit at paggamit ng app",
-                  "step2": "Mas mataas na gantimpala",
-                  "step3": "Mas maraming muling pagbili ng token"
-                }
-              },
-              "helpSection": {
-                "title": "Paano ka makakatulong",
-                "intro": "Maaari kang direktang mag-ambag sa pagpapataas ng halaga ng iyong mga WDD token:",
-                "steps": {
-                  "invite": {
-                    "title": "Mag-imbita ng iba na sumali",
-                    "description": "Palawakin ang aming komunidad ng verified na miyembro"
-                  },
-                  "useApp": {
-                    "title": "Regular na gamitin ang app",
-                    "description": "Isulong ang mabuting siklo ng ekonomiya"
-                  }
-                }
-              }
-            },
-            "actions": {
-              "share": "Ibahagi ang imbitasyon"
-            },
-            "cta": "Tingnan ang mga gantimpala ng mini app"
-          },
-          "buybackLink": {
-            "title": "Programa ng Buyback",
-            "description": "Paglago ng halaga ng WDD na pinalakas ng komunidad"
-          },
-          "partySubsidy": {
-            "topnav": "Programa ng Subsidiya",
-            "title": "Programa ng Subsidiya para sa Partido",
-            "subtitle": "Bumuo ng iyong pulitikal na kilusan at kumita",
-            "weeklyPool": {
-              "old": "100,000",
-              "new": "250,000 WDD",
-              "subtitle": "Nakatakdang pool"
-            },
-            "devRewards": {
-              "title": "10% ng aming Dev Rewards",
-              "subtitle": "Variable na pool",
-              "tooltip": "Ang World ay namamahagi ng mga gantimpala para sa mga developer batay sa paggamit ng app ng mga beripikadong tao.",
-              "checkOutRewards": "Tingnan ang mga gantimpala"
-            },
-            "howItWorks": {
-              "title": "Paano ito gumagana",
-              "steps": {
-                "createParty": {
-                  "title": "Gumawa ng partido",
-                  "description": "Simulan ang iyong pulitikal na kilusan sa World Republic app"
-                },
-                "growMembership": {
-                  "title": "Mapasama sa balota",
-                  "description": "Palakihin ang inyong membership para maging kuwalipikado sa lingguhang halalan"
-                },
-                "earnRewards": {
-                  "title": "Makatanggap ng pondo",
-                  "description": "Kumita ng mga subsidy na katumbas ng mga botong natatanggap ng inyong partido"
-                }
-              }
-            },
-            "cta": {
-              "createJoin": "Gumawa o sumali sa isang partido",
-              "leaderGroup": "Sumali sa party leader group"
-            },
-            "payouts": {
-              "title": "Mga Bayad",
-              "week": "Linggo",
-              "showAll": "Ipakita lahat"
-            }
-          }
-        },
-        "invite": {
-          "title": "Mag-imbita",
-          "subtitle": "Kumita ng 10 WDD sa bawat kaibigang sasali",
-          "tooltip": "Dapat sumali ang mga kaibigan sa bago naming web app.",
-          "learnMore": "Matuto nang higit pa",
-          "stats": {
-            "title": "Mga stats ng iyong referral",
-            "invites": "Tinanggap na mga imbitasyon",
-            "rewards": "Kabuuang gantimpala"
-          },
-          "actions": {
-            "copyLink": "Kopyahin ang link ng referral",
-            "copied": "Na-kopya ang link ng referral sa clipboard!",
-            "connectWallet": "Mangyaring i-connect ang wallet para makabuo ng referral link",
-            "share": "Ibahagi ang link ng imbitasyon"
-          },
-          "share": {
-            "title": "Sumali sa World Republic",
-            "text": "Gamitin ang aking link ng imbitasyon para sumali sa World Republic at magkasamang kumita ng mga gantimpala!"
-          }
-        }
-      }
-    },
-    "govern": {
-      "title": "Mamahala",
-      "tabs": {
-        "openLetters": "Mga Liham Bukas",
-        "elections": "Mga Eleksyon",
-        "referendums": "Mga Referendum"
-      },
-      "sections": {
-        "openLetters": {
-          "title": "Mga Liham Bukas",
-          "description": "Mga pampublikong pahayag sa mga decision maker",
-          "statements": {
-            "aiRisk": {
-              "title": "Statement tungkol sa AI Risk",
-              "referenceTitle": "Center for AI Safety"
-            },
-            "nuclear": {
-              "title": "Open Letter para sa UN Ban sa Nuclear Weapons",
-              "referenceTitle": "Future of Life Institute"
-            },
-            "autonomousWeapons": {
-              "title": "Pledge laban sa Lethal Autonomous Weapons",
-              "referenceTitle": "Future of Life Institute"
-            },
-            "longView": {
-              "title": "Open Letter na Nanawagan sa Global Leaders na Magpakita ng Long-term Leadership sa Existential Threats",
-              "referenceTitle": "Future of Life Institute"
-            }
-          }
-        },
-        "elections": {
-          "title": "Halalan",
-          "description": "Piliin ang iyong mga kinatawan",
-          "testElections": {
-            "title": "Mga Pansubok na Halalan",
-            "description": "Tulungan kaming ipamahagi ang mga subsidy ng partido at pagbutihin ang aming sistema ng pamamahala",
-            "button": "Bumoto"
-          }
-        },
-        "referendums": {
-          "title": "Mga Referendum",
-          "description": "Direktang mga boto sa mahalagang mga isyu",
-          "worldConstitutional": {
-            "title": "World Constitutional Referendum",
-            "description": "Lumahok sa isang makasaysayang pagboto sa mga prinsipyo na gagabay sa kolektibong kinabukasan ng sangkatauhan",
-            "button": "Malapit na"
-          }
-        }
-      }
-    },
-    "menu": {
-      "title": "Menu",
-      "sections": {
-        "experimental": {
-          "title": "MGA SETTING",
-          "links": {
-            "language": "Wika"
-          }
-        },
-        "connect": {
-          "title": "KUMONEKTA",
-          "links": {
-            "community": "Komunidad",
-            "announcements": "Mga anunsyo",
-            "x": "X"
-          }
-        },
-        "help": {
-          "title": "TULONG",
-          "links": {
-            "support": "Komunidad ng tulong",
-            "faq": "FAQ"
-          }
-        },
-        "code": {
-          "title": "KODIGO",
-          "links": {
-            "app": "App",
-            "contracts": "Smart contracts"
-          }
-        }
-      }
-    },
-    "faq": {
-      "title": "FAQ",
-      "items": {
-        "appPurpose": {
-          "question": "Ano ang World Republic?",
-          "answer": "Ang World Republic ay isang bukas at demokratikong organisasyon na nakatuon sa paglutas ng mga pinakamapilit na pandaigdigang hamon ng sangkatauhan. Nagbibigay ito ng balangkas para sa kolektibong paggawa ng desisyon sa mga isyu na maaari lamang epektibong tugunan sa pandaigdigang antas, tulad ng mga panganib sa AI, climate change, o biosecurity."
-        },
-        "basicIncome": {
-          "question": "Ano ang Basic Income?",
-          "answer": "Ang aming Basic Income ay isang pang-araw-araw na subsidy na 0.0025 WDD (world drachma) na ibinibigay sa lahat ng mamamayan ng World Republic. Ito ay naa-accumulate sa real-time at maaaring kunin sa anumang oras sa pamamagitan ng app."
-        },
-        "basicIncomePlus": {
-          "question": "Paano ko i-activate ang Basic Income Plus?",
-          "answer": "Ang Basic Income Plus ay nagbibigay ng dagdag na 0.0475 WDD bawat araw at available lamang sa mga Orb-verified na user. Pagkatapos i-activate ang Basic Income, makakakita ka ng opsyon para i-activate ang Basic Income Plus sa Earn page."
-        },
-        "savings": {
-          "question": "Paano gumagana ang Savings Account?",
-          "answer": "Ang Savings Account ay nagpapahintulot sa iyo na mag-deposito ng mga WDD token at kumita ng 69% taunang interes. Sa pamamagitan ng patuloy na pag-reinvest ng kinikitang interes, maaaring makamit ng mga user ang effective returns na halos 100% taun-taon, na pinapamaximize ang kanilang paglago ng WDD sa paglipas ng panahon. Na-a-accumulate ang interes nang patuloy at maaaring i-withdraw o i-reinvest sa anumang oras."
-        },
-        "referralCodes": {
-          "question": "Paano gumagana ang mga referral code?",
-          "answer": "Bilang mamamayan ng World Republic, maaari kang kumita ng mga reward sa pamamagitan ng aming referral program. Ibahagi ang iyong natatanging referral link sa mga kaibigan, at makakatanggap ka ng 10 WDD para sa bawat taong sasali sa aming web app at makakumpleto ng liveness check."
-        },
-        "drachmaValue": {
-          "question": "Saan nagmumula ang halaga ng drachma?",
-          "answer": "Ang drachma ay kumukuha ng halaga mula sa pagiging opisyal na pera ng World Republic. Habang lumalago ang aming demokratikong pandaigdigang governance platform, ang WDD ay may potensyal na maging isang mahalagang medium of exchange sa pandaigdigang ekonomiya, at maaaring sa huli ay magkaroon ng papel sa patas na pamamahagi ng mga benepisyo mula sa teknolohikal na mga pagsulong at pandaigdigang mga yaman."
-        },
-        "topWallets": {
-          "question": "Sino ang kumokontrol sa pinakamalalaking account?",
-          "answer": "Ang tatlong pinakamalalaking account ay ang <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>World Republic Treasury</a>, ang <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Basic Income Fund</a>, at ang <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Basic Income Plus Fund</a>. Ang mga ito ay kasalukuyang pinamamahalaan ng tagapagtatag ng proyekto upang matiyak ang katatagan habang unti-unti nating inililipat ang kontrol sa komunidad. Kasama sa iba pang mahahalagang address ang <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>Savings Account contract</a>, ang <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>Referral Rewards distributor</a>, at mga liquidity pool: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, at <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
-        },
-        "voteRequirements": {
-          "question": "Paano ako makakasali sa pamamahala?",
-          "answer": "Maaari kang lumahok sa pamamagitan ng pagsali o paglikha ng isang partidong pampulitika. Bagama't ang mga kasalukuyang boto ay naglalarawan lamang, ang mga partido ang pundasyon ng ating modelo ng pamamahala. Habang nagiging propesyonal ang mga partido, magbubukas sila ng mas maraming mahahalagang lugar para sa demokratikong kontrol, na magbibigay sa iyo ng boses sa ating mga kolektibong desisyon."
-        }
-      }
-    },
-    "language": {
-      "title": "Wika",
-      "options": {
-        "english": "English",
-        "spanish": "Español"
-      }
-    }
-  }
+	"components": {
+		"walletAuth": {
+			"connect": "Ikonekta ang wallet"
+		},
+		"banners": {
+			"dalgona": {
+				"title": "Bumalik na ang mga gantimpala sa pag-refer",
+				"description": "Makakuha ng WDD sa pag-imbita ng mga kaibigan sa aming bagong web app.",
+				"cta": "Magsimula"
+			}
+		},
+		"stakeForm": {
+			"deposit": "Mag-deposit",
+			"withdraw": "Mag-withdraw",
+			"balance": "Balanse:",
+			"depositPlaceholder": "Halaga ng deposit",
+			"withdrawPlaceholder": "Halaga ng withdrawal",
+			"max": "Max",
+			"interest": "Interes:",
+			"collect": "Kolektahin",
+			"depositButton": "I-deposit ang drachma",
+			"withdrawButton": "I-withdraw ang drachma"
+		},
+		"toasts": {
+			"wallet": {
+				"connectInWorldApp": "Pakibuksan ang app na ito sa World App para maikonekta ang iyong wallet.",
+				"stakingError": "Error sa pag-stake ng token",
+				"withdrawError": "Error sa pag-withdraw ng token",
+				"collectError": "Error sa pagkolekta ng reward"
+			},
+			"referral": {
+				"pendingReward": "Pinoproseso ang nakabinbing reward para kay {{username}}...",
+				"rewardSuccess": "Matagumpay na na-reward si {{username}}!",
+				"sendingReward": "Nagpapadala ng 50 WDD reward kay {{username}}..."
+			},
+			"basicIncome": {
+				"setupSuccess": "Na-activate ang Basic Income Plus! Ngayon pinoproseso ang reward para kay {{username}}...",
+				"setupWithReferrer": "Unang ise-set up ang Basic Income Plus, pagkatapos re-reward-an si {{username}}...",
+				"error": "Error sa pag-activate ng Basic Income",
+				"errorPlus": "Error sa pag-activate ng Basic Income Plus"
+			},
+			"transaction": {
+				"error": "May nangyaring hindi inaasahang error",
+				"errorClaim": "May nangyaring hindi inaasahang error habang nagki-claim"
+			}
+		},
+		"tabSwiper": {
+			"tabs": {
+				"openLetters": "Mga bukas na liham",
+				"elections": "Mga halalan",
+				"referendums": "Mga reperendum"
+			}
+		}
+	},
+	"pages": {
+		"earn": {
+			"title": "Kumita",
+			"tabs": {
+				"basicIncome": {
+					"tabTitle": "Basic Income",
+					"title": "Basic Income",
+					"subtitle": "Mag-sign in para kunin ang iyong basic income",
+					"setupSubtitle": "I-setup ang iyong basic income",
+					"claimableSubtitle": "Maa-claim na drachma",
+					"claimableTooltip1": "Bilang bahagi ng aming",
+					"claimableTooltip2": "programa ng buyback",
+					"claimableTooltip3": ", kami ay nag-aadjust ng antas ng basic income upang makalikha ng pangmatagalang benepisyo para sa aming komunidad. Mangyaring tingnan ang",
+					"claimableTooltip4": "FAQ",
+					"claimableTooltip5": "para sa kasalukuyang rates.",
+					"activateButton": "I-activate ang Basic Income",
+					"claimButton": "Kunin",
+					"plus": {
+						"title": "Basic Income Plus",
+						"newBadge": "Bago",
+						"drawerTrigger": "Pagpapakilala sa Basic Income Plus",
+						"subtitle": "Dagdag na kita para sa mga verified na user",
+						"drawer": {
+							"title": "Basic Income Plus",
+							"subtitle": "Dagdag na kita para sa mga verified na user",
+							"features": {
+								"rate": {
+									"title": "Dagdag na 0.0475 WDD bawat araw"
+								},
+								"verification": {
+									"title": "Eksklusibo para sa mga Orb-verified na user para matiyak ang patas na pamamahagi"
+								}
+							},
+							"activateButton": "I-activate ang Basic Income Plus",
+							"claimButton": "Kunin ang Basic Income Plus",
+							"claimBasicButton": "Kunin ang Basic Income"
+						}
+					}
+				},
+				"savings": {
+					"tabTitle": "Pagtitipid",
+					"title": "Savings Account",
+					"subtitle": "Kumita ng interes bawat segundo",
+					"tooltip": "69% APY base rate. Kunin at i-reinvest ang interes para makamit ang halos 100% effective returns taun-taon. Mag-withdraw kahit kailan."
+				},
+				"contribute": {
+					"title": "Mag-ambag",
+					"subtitle": "Makiisa, kumuha ng gantimpala",
+					"buybackProgram": {
+						"topnav": "Programa ng Muling Pagbili",
+						"title": "Programa ng Muling Pagbili ng Token",
+						"subtitle": "Palakasin ang halaga ng WDD nang sama-sama",
+						"sections": {
+							"fundingSources": {
+								"title": "Mga pinagmumulan ng pondo",
+								"devRewards": {
+									"title": "World Dev Rewards",
+									"weekProgress": "Linggo 7 ng 12"
+								},
+								"worldRetro": {
+									"title": "World Retro Funding"
+								},
+								"optimism": {
+									"title": "Optimism Retro Funding"
+								},
+								"affiliate": {
+									"title": "Komisyon ng affiliate"
+								}
+							},
+							"commitment": {
+								"title": "Ang aming 50% na pangako",
+								"description": "Nangangako kaming gamitin ang hindi bababa sa 50% ng aming mga gantimpala mula sa programa para sa mga WDD buyback.",
+								"viewAccount": "Tingnan ang buyback account"
+							},
+							"valueCycle": {
+								"title": "Ang Positibong Siklo ng Halaga",
+								"steps": {
+									"step1": "Mas maraming gumagamit at paggamit ng app",
+									"step2": "Mas mataas na gantimpala",
+									"step3": "Mas maraming muling pagbili ng token"
+								}
+							},
+							"helpSection": {
+								"title": "Paano ka makakatulong",
+								"intro": "Maaari kang direktang mag-ambag sa pagpapataas ng halaga ng iyong mga WDD token:",
+								"steps": {
+									"invite": {
+										"title": "Mag-imbita ng iba na sumali",
+										"description": "Palawakin ang aming komunidad ng verified na miyembro"
+									},
+									"useApp": {
+										"title": "Regular na gamitin ang app",
+										"description": "Isulong ang mabuting siklo ng ekonomiya"
+									}
+								}
+							}
+						},
+						"actions": {
+							"share": "Ibahagi ang imbitasyon"
+						},
+						"cta": "Tingnan ang mga gantimpala ng mini app"
+					},
+					"buybackLink": {
+						"title": "Programa ng Buyback",
+						"description": "Paglago ng halaga ng WDD na pinalakas ng komunidad"
+					},
+					"partySubsidy": {
+						"topnav": "Programa ng Subsidiya",
+						"title": "Programa ng Subsidiya para sa Partido",
+						"subtitle": "Bumuo ng iyong pulitikal na kilusan at kumita",
+						"weeklyPool": {
+							"old": "100,000",
+							"new": "250,000 WDD",
+							"subtitle": "Nakatakdang pool"
+						},
+						"devRewards": {
+							"title": "10% ng aming Dev Rewards",
+							"subtitle": "Variable na pool",
+							"tooltip": "Ang World ay namamahagi ng mga gantimpala para sa mga developer batay sa paggamit ng app ng mga beripikadong tao.",
+							"checkOutRewards": "Tingnan ang mga gantimpala"
+						},
+						"howItWorks": {
+							"title": "Paano ito gumagana",
+							"steps": {
+								"createParty": {
+									"title": "Gumawa ng partido",
+									"description": "Simulan ang iyong pulitikal na kilusan sa World Republic app"
+								},
+								"growMembership": {
+									"title": "Mapasama sa balota",
+									"description": "Palakihin ang inyong membership para maging kuwalipikado sa lingguhang halalan"
+								},
+								"earnRewards": {
+									"title": "Makatanggap ng pondo",
+									"description": "Kumita ng mga subsidy na katumbas ng mga botong natatanggap ng inyong partido"
+								}
+							}
+						},
+						"cta": {
+							"createJoin": "Gumawa o sumali sa isang partido",
+							"leaderGroup": "Sumali sa party leader group"
+						},
+						"payouts": {
+							"title": "Mga Bayad",
+							"week": "Linggo",
+							"showAll": "Ipakita lahat"
+						}
+					}
+				},
+				"invite": {
+					"title": "Mag-imbita",
+					"subtitle": "Kumita ng 10 WDD sa bawat kaibigang sasali",
+					"tooltip": "Dapat sumali ang mga kaibigan sa bago naming web app.",
+					"learnMore": "Matuto nang higit pa",
+					"stats": {
+						"title": "Mga stats ng iyong referral",
+						"invites": "Tinanggap na mga imbitasyon",
+						"rewards": "Kabuuang gantimpala"
+					},
+					"actions": {
+						"copyLink": "Kopyahin ang link ng referral",
+						"copied": "Na-kopya ang link ng referral sa clipboard!",
+						"connectWallet": "Mangyaring i-connect ang wallet para makabuo ng referral link",
+						"share": "Ibahagi ang link ng imbitasyon"
+					},
+					"share": {
+						"title": "Sumali sa World Republic",
+						"text": "Gamitin ang aking link ng imbitasyon para sumali sa World Republic at magkasamang kumita ng mga gantimpala!"
+					}
+				}
+			}
+		},
+		"govern": {
+			"title": "Mamahala",
+			"tabs": {
+				"openLetters": "Mga Liham Bukas",
+				"elections": "Mga Eleksyon",
+				"referendums": "Mga Referendum"
+			},
+			"sections": {
+				"openLetters": {
+					"title": "Mga Liham Bukas",
+					"description": "Mga pampublikong pahayag sa mga decision maker",
+					"statements": {
+						"aiRisk": {
+							"title": "Statement tungkol sa AI Risk",
+							"referenceTitle": "Center for AI Safety"
+						},
+						"nuclear": {
+							"title": "Open Letter para sa UN Ban sa Nuclear Weapons",
+							"referenceTitle": "Future of Life Institute"
+						},
+						"autonomousWeapons": {
+							"title": "Pledge laban sa Lethal Autonomous Weapons",
+							"referenceTitle": "Future of Life Institute"
+						},
+						"longView": {
+							"title": "Open Letter na Nanawagan sa Global Leaders na Magpakita ng Long-term Leadership sa Existential Threats",
+							"referenceTitle": "Future of Life Institute"
+						}
+					}
+				},
+				"elections": {
+					"title": "Halalan",
+					"description": "Piliin ang iyong mga kinatawan",
+					"testElections": {
+						"title": "Mga Pansubok na Halalan",
+						"description": "Tulungan kaming ipamahagi ang mga subsidy ng partido at pagbutihin ang aming sistema ng pamamahala",
+						"button": "Bumoto"
+					}
+				},
+				"referendums": {
+					"title": "Mga Referendum",
+					"description": "Direktang mga boto sa mahalagang mga isyu",
+					"worldConstitutional": {
+						"title": "World Constitutional Referendum",
+						"description": "Lumahok sa isang makasaysayang pagboto sa mga prinsipyo na gagabay sa kolektibong kinabukasan ng sangkatauhan",
+						"button": "Malapit na"
+					}
+				}
+			}
+		},
+		"menu": {
+			"title": "Menu",
+			"sections": {
+				"experimental": {
+					"title": "MGA SETTING",
+					"links": {
+						"language": "Wika"
+					}
+				},
+				"connect": {
+					"title": "KUMONEKTA",
+					"links": {
+						"community": "Komunidad",
+						"announcements": "Mga anunsyo",
+						"x": "X"
+					}
+				},
+				"help": {
+					"title": "TULONG",
+					"links": {
+						"support": "Komunidad ng tulong",
+						"faq": "FAQ"
+					}
+				},
+				"code": {
+					"title": "KODIGO",
+					"links": {
+						"app": "App",
+						"contracts": "Smart contracts"
+					}
+				}
+			}
+		},
+		"faq": {
+			"title": "FAQ",
+			"items": {
+				"appPurpose": {
+					"question": "Ano ang World Republic?",
+					"answer": "Ang World Republic ay isang bukas at demokratikong organisasyon na nakatuon sa paglutas ng mga pinakamapilit na pandaigdigang hamon ng sangkatauhan. Nagbibigay ito ng balangkas para sa kolektibong paggawa ng desisyon sa mga isyu na maaari lamang epektibong tugunan sa pandaigdigang antas, tulad ng mga panganib sa AI, climate change, o biosecurity."
+				},
+				"basicIncome": {
+					"question": "Ano ang Basic Income?",
+					"answer": "Ang aming Basic Income ay isang pang-araw-araw na subsidy na 0.0025 WDD (world drachma) na ibinibigay sa lahat ng mamamayan ng World Republic. Ito ay naa-accumulate sa real-time at maaaring kunin sa anumang oras sa pamamagitan ng app."
+				},
+				"basicIncomePlus": {
+					"question": "Paano ko i-activate ang Basic Income Plus?",
+					"answer": "Ang Basic Income Plus ay nagbibigay ng dagdag na 0.0475 WDD bawat araw at available lamang sa mga Orb-verified na user. Pagkatapos i-activate ang Basic Income, makakakita ka ng opsyon para i-activate ang Basic Income Plus sa Earn page."
+				},
+				"savings": {
+					"question": "Paano gumagana ang Savings Account?",
+					"answer": "Ang Savings Account ay nagpapahintulot sa iyo na mag-deposito ng mga WDD token at kumita ng 69% taunang interes. Sa pamamagitan ng patuloy na pag-reinvest ng kinikitang interes, maaaring makamit ng mga user ang effective returns na halos 100% taun-taon, na pinapamaximize ang kanilang paglago ng WDD sa paglipas ng panahon. Na-a-accumulate ang interes nang patuloy at maaaring i-withdraw o i-reinvest sa anumang oras."
+				},
+				"referralCodes": {
+					"question": "Paano gumagana ang mga referral code?",
+					"answer": "Bilang mamamayan ng World Republic, maaari kang kumita ng mga reward sa pamamagitan ng aming referral program. Ibahagi ang iyong natatanging referral link sa mga kaibigan, at makakatanggap ka ng 10 WDD para sa bawat taong sasali sa aming web app at makakumpleto ng liveness check."
+				},
+				"drachmaValue": {
+					"question": "Saan nagmumula ang halaga ng drachma?",
+					"answer": "Ang drachma ay kumukuha ng halaga mula sa pagiging opisyal na pera ng World Republic. Habang lumalago ang aming demokratikong pandaigdigang governance platform, ang WDD ay may potensyal na maging isang mahalagang medium of exchange sa pandaigdigang ekonomiya, at maaaring sa huli ay magkaroon ng papel sa patas na pamamahagi ng mga benepisyo mula sa teknolohikal na mga pagsulong at pandaigdigang mga yaman."
+				},
+				"topWallets": {
+					"question": "Sino ang kumokontrol sa pinakamalalaking account?",
+					"answer": "Ang tatlong pinakamalalaking account ay ang <a href='https://worldscan.org/address/0xa3C2c8CE6Be1C55401b5F1EfB6112A86F6374429' target='_blank' rel='noopener noreferrer' class='underline'>World Republic Treasury</a>, ang <a href='https://worldscan.org/address/0x02c3B99D986ef1612bAC63d4004fa79714D00012' target='_blank' rel='noopener noreferrer' class='underline'>Basic Income Fund</a>, at ang <a href='https://worldscan.org/address/0x52DFEe61180A0BCEBe007E5a9Cfd466948aCCA46' target='_blank' rel='noopener noreferrer' class='underline'>Basic Income Plus Fund</a>. Ang mga ito ay kasalukuyang pinamamahalaan ng tagapagtatag ng proyekto upang matiyak ang katatagan habang unti-unti nating inililipat ang kontrol sa komunidad. Kasama sa iba pang mahahalagang address ang <a href='https://worldscan.org/address/0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7' target='_blank' rel='noopener noreferrer' class='underline'>Savings Account contract</a>, ang <a href='https://worldscan.org/address/0x372dCA057682994568be074E75a03Ced3dD9E60d' target='_blank' rel='noopener noreferrer' class='underline'>Referral Rewards distributor</a>, at mga liquidity pool: <a href='https://worldscan.org/address/0xaaEF72194E42aF8f641e90c3e48a7F01e9547097' target='_blank' rel='noopener noreferrer' class='underline'>WLD/WDD</a>, <a href='https://worldscan.org/address/0x24Cda46262Ee6b777416997c52FE140A0B3f6FeA' target='_blank' rel='noopener noreferrer' class='underline'>USDC/WDD</a>, at <a href='https://worldscan.org/address/0x3226d525Bb0EA2346D512215ca8df7d81801786E' target='_blank' rel='noopener noreferrer' class='underline'>ETH/WDD</a>."
+				},
+				"voteRequirements": {
+					"question": "Paano ako makakasali sa pamamahala?",
+					"answer": "Maaari kang lumahok sa pamamagitan ng pagsali o paglikha ng isang partidong pampulitika. Bagama't ang mga kasalukuyang boto ay naglalarawan lamang, ang mga partido ang pundasyon ng ating modelo ng pamamahala. Habang nagiging propesyonal ang mga partido, magbubukas sila ng mas maraming mahahalagang lugar para sa demokratikong kontrol, na magbibigay sa iyo ng boses sa ating mga kolektibong desisyon."
+				}
+			}
+		},
+		"language": {
+			"title": "Wika",
+			"options": {
+				"english": "English",
+				"spanish": "Español"
+			}
+		}
+	}
 }
