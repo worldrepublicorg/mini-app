@@ -1,9 +1,10 @@
 import { redirect } from "next/navigation";
 
-export default function Home({
-  params: { lang },
+export default async function Home({
+	params,
 }: {
-  params: { lang: string };
+	params: Promise<{ lang: string }>;
 }) {
-  redirect(`/${lang}/earn`);
+	const { lang } = await params;
+	redirect(`/${lang}/earn`);
 }

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { BiLinkExternal } from "react-icons/bi";
 import { PiScalesFill, PiUsersThreeFill } from "react-icons/pi";
 import { OpenLetterCard } from "@/components/OpenLetterCard";
@@ -20,10 +20,11 @@ const TAB_KEYS = {
 } as const;
 
 export default function GovernPage({
-	params: { lang },
+	params,
 }: {
-	params: { lang: string };
+	params: Promise<{ lang: string }>;
 }) {
+	const { lang } = use(params);
 	const dictionary = useTranslations(lang);
 	const searchParams = useSearchParams();
 	const [activeTab, setActiveTab] = useState<TabKey>(TAB_KEYS.ELECTIONS);
@@ -125,8 +126,8 @@ export default function GovernPage({
 								fullWidth
 							>
 								{
-									dictionary?.pages?.govern?.sections?.elections
-										?.testElections?.button
+									dictionary?.pages?.govern?.sections?.elections?.testElections
+										?.button
 								}
 								<BiLinkExternal className="inline-block size-4 translate-y-[-4px] ml-1.5 shrink-0 text-gray-400" />
 							</Button>

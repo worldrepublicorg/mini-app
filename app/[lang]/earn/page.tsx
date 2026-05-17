@@ -4,10 +4,10 @@ import { MiniKit } from "@worldcoin/minikit-js";
 import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { use, useCallback, useEffect, useRef, useState } from "react";
+import { BiLinkExternal } from "react-icons/bi";
 import { FaFlask } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
-import { BiLinkExternal } from "react-icons/bi";
 import {
 	PiCoinsFill,
 	PiHandCoinsFill,
@@ -37,10 +37,11 @@ type TxType =
 	| "claim-plus";
 
 export default function EarnPage({
-	params: { lang },
+	params,
 }: {
-	params: { lang: string };
+	params: Promise<{ lang: string }>;
 }) {
+	const { lang } = use(params);
 	const {
 		walletAddress,
 		tokenBalance,
@@ -1491,7 +1492,7 @@ export default function EarnPage({
 					]}
 					activeTab={activeTab}
 					onTabChange={handleTabChange}
-					/>
+				/>
 			</div>
 
 			<div className="mt-[112px] flex flex-1 items-center">

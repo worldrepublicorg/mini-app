@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { use, useState } from "react";
 import { BiChevronLeft, BiChevronUp, BiLinkExternal } from "react-icons/bi";
 import { FaFlask } from "react-icons/fa";
 import {
@@ -17,10 +17,11 @@ import { latestPayouts } from "@/data/payouts/payouts";
 import { useTranslations } from "@/hooks/useTranslations";
 
 export default function PartySubsidyPage({
-	params: { lang },
+	params,
 }: {
-	params: { lang: string };
+	params: Promise<{ lang: string }>;
 }) {
+	const { lang } = use(params);
 	const dictionary = useTranslations(lang);
 	const [expandedParties, setExpandedParties] = useState<number[]>([]);
 	const [showAllParties, setShowAllParties] = useState(false);

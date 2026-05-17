@@ -1,9 +1,10 @@
 import { cookies } from "next/headers";
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 
-export async function GET(req: NextRequest) {
-  const nonce = crypto.randomUUID().replace(/-/g, "");
+export async function GET(_req: NextRequest) {
+	const nonce = crypto.randomUUID().replace(/-/g, "");
 
-  cookies().set("siwe", nonce, { secure: true });
-  return NextResponse.json({ nonce });
+	const cookieStore = await cookies();
+	cookieStore.set("siwe", nonce, { secure: true });
+	return NextResponse.json({ nonce });
 }
