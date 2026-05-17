@@ -12,7 +12,6 @@
 	},
 	"dependencies": {
 		"@formatjs/intl-localematcher": "^0.6.1",
-		"@radix-ui/react-form": "^0.1.6",
 		"@radix-ui/react-slot": "^1.2.2",
 		"@worldcoin/mini-apps-ui-kit-react": "^1.2.2",
 		"@worldcoin/minikit-js": "^1.9.3",
@@ -33,6 +32,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.4.15",
+		"@tailwindcss/postcss": "^4.3.0",
 		"@types/negotiator": "^0.6.3",
 		"@types/node": "^20.17.43",
 		"@types/react": "19.2.14",
