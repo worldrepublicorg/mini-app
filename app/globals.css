@@ -3,72 +3,72 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "TWK Lausanne";
-  src: url("https://mini-apps-ui-kit.world.org/fonts/TWKLausanne-350.woff")
-    format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+	font-family: "TWK Lausanne";
+	src: url("https://mini-apps-ui-kit.world.org/fonts/TWKLausanne-350.woff")
+		format("woff");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-  font-family: "TWK Lausanne";
-  src: url("https://mini-apps-ui-kit.world.org/fonts/TWKLausanne-350Italic.woff")
-    format("woff");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
+	font-family: "TWK Lausanne";
+	src: url("https://mini-apps-ui-kit.world.org/fonts/TWKLausanne-350Italic.woff")
+		format("woff");
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
 }
 
 @font-face {
-  font-family: "TWK Lausanne";
-  src: url("https://mini-apps-ui-kit.world.org/fonts/TWKLausanne-500.woff")
-    format("woff");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+	font-family: "TWK Lausanne";
+	src: url("https://mini-apps-ui-kit.world.org/fonts/TWKLausanne-500.woff")
+		format("woff");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-  font-family: "TWK Lausanne";
-  src: url("https://mini-apps-ui-kit.world.org/fonts/TWKLausanne-500Italic.woff")
-    format("woff");
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
+	font-family: "TWK Lausanne";
+	src: url("https://mini-apps-ui-kit.world.org/fonts/TWKLausanne-500Italic.woff")
+		format("woff");
+	font-weight: 500;
+	font-style: italic;
+	font-display: swap;
 }
 
 @font-face {
-  font-family: "TWK Lausanne";
-  src: url("https://mini-apps-ui-kit.world.org/fonts/TWKLausanne-600.woff")
-    format("woff");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
+	font-family: "TWK Lausanne";
+	src: url("https://mini-apps-ui-kit.world.org/fonts/TWKLausanne-600.woff")
+		format("woff");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-  font-family: "TWK Lausanne";
-  src: url("https://mini-apps-ui-kit.world.org/fonts/TWKLausanne-600Italic.woff")
-    format("woff");
-  font-weight: 600;
-  font-style: italic;
-  font-display: swap;
+	font-family: "TWK Lausanne";
+	src: url("https://mini-apps-ui-kit.world.org/fonts/TWKLausanne-600Italic.woff")
+		format("woff");
+	font-weight: 600;
+	font-style: italic;
+	font-display: swap;
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --font-sans:
-    "TWK Lausanne", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
-  --font-display: "Sora", sans-serif;
-  --font-mono: "DM Mono", monospace;
+	--background: #ffffff;
+	--foreground: #171717;
+	--font-sans:
+		"TWK Lausanne", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		"Helvetica Neue", Arial, sans-serif;
+	--font-display: "Sora", sans-serif;
+	--font-mono: "DM Mono", monospace;
 }
 
 body {
-  font-family: var(--font-sans);
-  color: rgb(var(--foreground));
+	font-family: var(--font-sans);
+	color: rgb(var(--foreground));
 }
 
 h1,
@@ -77,60 +77,76 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-display);
+	font-family: var(--font-display);
 }
 
 code,
 pre {
-  font-family: var(--font-mono);
+	font-family: var(--font-mono);
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+	.text-balance {
+		text-wrap: balance;
+	}
 }
 
 .no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
 }
 
 .no-scrollbar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari and Opera */
+	display: none; /* Chrome, Safari and Opera */
 }
 
 /* Add a new utility class for bottom padding that respects safe areas */
 .pb-safe {
-  padding-bottom: 56px; /* Default padding (14 in Tailwind units is 56px) */
+	padding-bottom: 56px; /* Default padding (14 in Tailwind units is 56px) */
 }
 
 /* Add the margin-bottom safe area utility class */
 .mb-safe {
-  margin-bottom: 56px; /* Default margin */
+	margin-bottom: 56px; /* Default margin */
 }
 
-@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3),
-  /* iPhone X/XS/11 Pro */ only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2),
-  /* iPhone XR/11 */ only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3),
-  /* iPhone 12/13 Pro,
-  iPhone 14/15 */ only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3),
-  /* iPhone 12/13 Pro Max,
-  iPhone 14 Plus/15 Plus */ only screen and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3),
-  /* iPhone 14 Pro/15 Pro,
-  iPhone 16 */ only screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3),
-  /* iPhone 14 Pro Max/15 Plus/15 Pro Max,
-  iPhone 16 Plus */ only screen and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3),
-  /* iPhone 16 Pro */ only screen and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) /* iPhone 16 Pro Max */ {
-  .safe-area-spacer {
-    padding-bottom: 20px;
-  }
+@media only screen and (device-width: 375px) and (device-height: 812px) and (
+		-webkit-device-pixel-ratio: 3
+	),
+	/* iPhone X/XS/11 Pro */ only screen and (device-width: 414px) and (
+		device-height: 896px
+	) and (-webkit-device-pixel-ratio: 2),
+	/* iPhone XR/11 */ only screen and (device-width: 390px) and (
+		device-height: 844px
+	) and (-webkit-device-pixel-ratio: 3),
+	/* iPhone 12/13 Pro,
+  iPhone 14/15 */ only screen and (device-width: 428px) and (
+		device-height: 926px
+	) and (-webkit-device-pixel-ratio: 3),
+	/* iPhone 12/13 Pro Max,
+  iPhone 14 Plus/15 Plus */ only screen and (device-width: 393px) and (
+		device-height: 852px
+	) and (-webkit-device-pixel-ratio: 3),
+	/* iPhone 14 Pro/15 Pro,
+  iPhone 16 */ only screen and (device-width: 430px) and (
+		device-height: 932px
+	) and (-webkit-device-pixel-ratio: 3),
+	/* iPhone 14 Pro Max/15 Plus/15 Pro Max,
+  iPhone 16 Plus */ only screen and (device-width: 402px) and (
+		device-height: 874px
+	) and (-webkit-device-pixel-ratio: 3),
+	/* iPhone 16 Pro */ only screen and (device-width: 440px) and (
+		device-height: 956px
+	) and (-webkit-device-pixel-ratio: 3) /* iPhone 16 Pro Max */ {
+	.safe-area-spacer {
+		padding-bottom: 20px;
+	}
 
-  .pb-safe {
-    padding-bottom: 76px; /* 56px (default) + 20px (safe area) = 76px */
-  }
+	.pb-safe {
+		padding-bottom: 76px; /* 56px (default) + 20px (safe area) = 76px */
+	}
 
-  .mb-safe {
-    margin-bottom: 76px; /* 56px (default) + 20px (safe area) = 76px */
-  }
+	.mb-safe {
+		margin-bottom: 76px; /* 56px (default) + 20px (safe area) = 76px */
+	}
 }

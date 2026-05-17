@@ -1,36 +1,35 @@
-import { cva } from "class-variance-authority";
-import { type VariantProps } from "class-variance-authority";
+import { cva, type VariantProps } from "class-variance-authority";
 import { forwardRef } from "react";
 
 const listItemStyles = cva(
-  "p-4 rounded-[0.875rem] flex items-center text-gray-900 w-full mb-3",
-  {
-    variants: {
-      variant: {
-        duotone: "bg-gray-50",
-        outline: "border border-gray-200",
-        ghost: "",
-      },
-    },
-    defaultVariants: {
-      variant: "duotone",
-    },
-  },
+	"p-4 rounded-[0.875rem] flex items-center text-gray-900 w-full mb-3",
+	{
+		variants: {
+			variant: {
+				duotone: "bg-gray-50",
+				outline: "border border-gray-200",
+				ghost: "",
+			},
+		},
+		defaultVariants: {
+			variant: "duotone",
+		},
+	},
 );
 interface ListItemProps
-  extends VariantProps<typeof listItemStyles>,
-    Omit<React.HTMLAttributes<HTMLDivElement>, "className" | "style"> {
-  children?: React.ReactNode;
+	extends VariantProps<typeof listItemStyles>,
+		Omit<React.HTMLAttributes<HTMLDivElement>, "className" | "style"> {
+	children?: React.ReactNode;
 }
 
 export const ListItem = forwardRef<HTMLDivElement, ListItemProps>(
-  ({ children, variant, ...props }, ref) => {
-    return (
-      <div ref={ref} className={listItemStyles({ variant })} {...props}>
-        {children}
-      </div>
-    );
-  },
+	({ children, variant, ...props }, ref) => {
+		return (
+			<div ref={ref} className={listItemStyles({ variant })} {...props}>
+				{children}
+			</div>
+		);
+	},
 );
 
 ListItem.displayName = "ListItem";

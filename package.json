@@ -7,7 +7,8 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"check": "biome check ."
+		"check": "biome check",
+		"check:fix": "biome check --write"
 	},
 	"dependencies": {
 		"@formatjs/intl-localematcher": "^0.6.1",
