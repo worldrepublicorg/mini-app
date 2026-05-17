@@ -6,9 +6,9 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint",
-		"check": "biome check",
-		"check:fix": "biome check --write"
+		"lint": "biome check",
+		"lint:fix": "biome check --write",
+		"knip": "pnpm dlx knip"
 	},
 	"dependencies": {
 		"@formatjs/intl-localematcher": "^0.6.1",
