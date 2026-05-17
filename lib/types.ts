@@ -6,7 +6,7 @@ export interface OpenLetterCardProps {
 	isExternal?: boolean;
 }
 
-export interface Tab {
+interface Tab {
 	key: string;
 	label: string;
 }
@@ -57,37 +57,3 @@ export type FAQItem = {
 };
 
 export type EarnTabKey = "Basic income" | "Savings" | "Contribute";
-
-export type Winner = {
-	handle: string;
-	engagement: number;
-	postLink: string;
-	place: 1 | 2 | 3;
-};
-
-export type WeeklyWinners = {
-	weekOf: string;
-	winners: Winner[];
-};
-
-export interface PartyPayout {
-	id: number;
-	name: string;
-	leaderAddress: string;
-	leaderUsername: string;
-	totalWdd: string;
-	totalWld: string;
-	weeklyPayouts: WeeklyPartyPayout[];
-}
-
-export interface WeeklyPartyPayout {
-	weekNumber: number;
-	wdd: {
-		amount: string;
-		transactionHash: string;
-	};
-	wld: {
-		amount: string;
-		transactionHash: string;
-	};
-}

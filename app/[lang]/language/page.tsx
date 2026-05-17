@@ -4,7 +4,7 @@ import Link from "next/link";
 import { use } from "react";
 import { BiChevronLeft } from "react-icons/bi";
 import { PiCheckCircleFill } from "react-icons/pi";
-import ListItem from "@/components/ui/ListItem/ListItem";
+import { ListItem } from "@/components/ui/ListItem/ListItem";
 import { Typography } from "@/components/ui/Typography";
 import { useTranslations } from "@/hooks/useTranslations";
 

@@ -56,5 +56,3 @@ export const Pill = forwardRef<HTMLButtonElement, PillProps>(
 );
 
 Pill.displayName = "Pill";
-
-export default Pill;
