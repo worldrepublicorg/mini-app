@@ -300,11 +300,7 @@
 					}
 				},
 				"code": {
-					"title": "KÔD",
-					"links": {
-						"app": "Aplikacija",
-						"contracts": "Pametni ugovori"
-					}
+					"title": "KÔD"
 				}
 			}
 		},

@@ -300,11 +300,7 @@
 					}
 				},
 				"code": {
-					"title": "KODE",
-					"links": {
-						"app": "Aplikasi",
-						"contracts": "Kontrak pintar"
-					}
+					"title": "KODE"
 				}
 			}
 		},

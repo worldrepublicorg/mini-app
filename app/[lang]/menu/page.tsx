@@ -51,13 +51,8 @@ export default function MenuPage({
 			title: dictionary?.pages?.menu?.sections?.code?.title,
 			links: [
 				{
-					label: dictionary?.pages?.menu?.sections?.code?.links?.app,
+					label: "GitHub",
 					url: "https://github.com/worldrepublicorg/mini-app",
-					isExternal: true,
-				},
-				{
-					label: dictionary?.pages?.menu?.sections?.code?.links?.contracts,
-					url: "https://github.com/worldrepublicorg/smart-contracts",
 					isExternal: true,
 				},
 			],

@@ -300,11 +300,7 @@
 					}
 				},
 				"code": {
-					"title": "KODIGO",
-					"links": {
-						"app": "App",
-						"contracts": "Smart contracts"
-					}
+					"title": "KODIGO"
 				}
 			}
 		},

@@ -300,11 +300,7 @@
 					}
 				},
 				"code": {
-					"title": "KOD",
-					"links": {
-						"app": "Aplikacja",
-						"contracts": "Inteligentne kontrakty"
-					}
+					"title": "KOD"
 				}
 			}
 		},

@@ -300,11 +300,7 @@
 					}
 				},
 				"code": {
-					"title": "CODE",
-					"links": {
-						"app": "App",
-						"contracts": "Smart Contracts"
-					}
+					"title": "CODE"
 				}
 			}
 		},

@@ -300,11 +300,7 @@
 					}
 				},
 				"code": {
-					"title": "KOD",
-					"links": {
-						"app": "Uygulama",
-						"contracts": "Akıllı sözleşmeler"
-					}
+					"title": "KOD"
 				}
 			}
 		},
