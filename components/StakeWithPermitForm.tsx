@@ -496,8 +496,7 @@ export function StakeWithPermitForm({
 								? dictionary?.components?.stakeForm?.depositPlaceholder
 								: dictionary?.components?.stakeForm?.withdrawPlaceholder
 						}
-						className={`-ml-2 mr-2 h-9 w-full rounded-xl pl-2 ${amount ? "font-['Rubik'] text-[17px]" : "font-sans"
-							}`}
+						className={`-ml-2 mr-2 h-9 w-full rounded-xl pl-2 disabled:bg-transparent ${amount ? "font-['Rubik'] text-[17px]" : "font-sans"}`}
 					/>
 					<button
 						type="button"
