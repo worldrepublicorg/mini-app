@@ -5,6 +5,7 @@ import { useWaitForTransactionReceipt } from "@worldcoin/minikit-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { parseAbi } from "viem";
 import { useWallet } from "@/components/contexts/WalletContext";
+import { WalletAuth } from "@/components/WalletAuth";
 import { Button } from "@/components/ui/Button";
 import { useToast } from "@/components/ui/Toast";
 import { Typography } from "@/components/ui/Typography";
@@ -156,8 +157,10 @@ export function StakeWithPermitForm({
 
 	const currentTxRef = useRef<string | null>(null);
 
+	const isWalletConnected = walletAddress !== null;
+
 	const handleStake = async () => {
-		if (isLoading) return; // Prevent overlapping transactions
+		if (isLoading || !isWalletConnected) return;
 		clearFallbackTimer(); // Clean up any previous timers
 		if (!MiniKit.isInstalled()) {
 			showToast(
@@ -244,6 +247,7 @@ export function StakeWithPermitForm({
 	};
 
 	const handleWithdraw = async () => {
+		if (!isWalletConnected) return;
 		if (!MiniKit.isInstalled()) {
 			showToast(
 				dictionary?.components?.toasts?.wallet?.connectInWorldApp,
@@ -299,6 +303,7 @@ export function StakeWithPermitForm({
 	};
 
 	const handleCollect = async () => {
+		if (!isWalletConnected) return;
 		if (!MiniKit.isInstalled()) {
 			showToast(
 				dictionary?.components?.toasts?.wallet?.connectInWorldApp,
@@ -446,9 +451,8 @@ export function StakeWithPermitForm({
 						setSelectedAction("deposit");
 						setAmount("");
 					}}
-					className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
-						selectedAction === "deposit" ? "bg-gray-100" : ""
-					}`}
+					className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${selectedAction === "deposit" ? "bg-gray-100" : ""
+						}`}
 				>
 					{dictionary?.components?.stakeForm?.deposit}
 				</button>
@@ -458,9 +462,8 @@ export function StakeWithPermitForm({
 						setSelectedAction("withdraw");
 						setAmount("");
 					}}
-					className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${
-						selectedAction === "withdraw" ? "bg-gray-100" : ""
-					}`}
+					className={`h-9 items-center rounded-full px-4 font-sans text-sm font-medium leading-narrow tracking-normal text-gray-900 transition-all duration-200 ${selectedAction === "withdraw" ? "bg-gray-100" : ""
+						}`}
 				>
 					{dictionary?.components?.stakeForm?.withdraw}
 				</button>
@@ -487,43 +490,43 @@ export function StakeWithPermitForm({
 						type="number"
 						value={amount}
 						onChange={(e) => setAmount(e.target.value)}
+						disabled={!isWalletConnected}
 						placeholder={
 							selectedAction === "deposit"
 								? dictionary?.components?.stakeForm?.depositPlaceholder
 								: dictionary?.components?.stakeForm?.withdrawPlaceholder
 						}
-						className={`-ml-2 mr-2 h-9 w-full rounded-xl pl-2 ${
-							amount ? "font-['Rubik'] text-[17px]" : "font-sans"
-						}`}
+						className={`-ml-2 mr-2 h-9 w-full rounded-xl pl-2 ${amount ? "font-['Rubik'] text-[17px]" : "font-sans"
+							}`}
 					/>
 					<button
 						type="button"
+						disabled={!isWalletConnected}
 						onClick={() =>
 							setAmount(
 								selectedAction === "deposit"
 									? (Math.floor(Number(tokenBalance) * 1e9) / 1e9).toFixed(9) ||
-											"0"
+									"0"
 									: (Math.floor(Number(stakedBalance) * 1e9) / 1e9).toFixed(
-											9,
-										) || "0",
+										9,
+									) || "0",
 							)
 						}
-						className={`flex h-9 items-center justify-center whitespace-nowrap rounded-full bg-gray-100 px-4 font-sans text-sm font-medium leading-narrow tracking-normal ${
-							amount ===
-								(selectedAction === "deposit"
-									? (Math.floor(Number(tokenBalance) * 1e9) / 1e9).toFixed(9) ||
-										"0"
-									: (Math.floor(Number(stakedBalance) * 1e9) / 1e9).toFixed(
-											9,
-										) || "0") ||
+						className={`flex h-9 items-center justify-center whitespace-nowrap rounded-full bg-gray-100 px-4 font-sans text-sm font-medium leading-narrow tracking-normal disabled:text-gray-400 ${amount ===
+							(selectedAction === "deposit"
+								? (Math.floor(Number(tokenBalance) * 1e9) / 1e9).toFixed(9) ||
+								"0"
+								: (Math.floor(Number(stakedBalance) * 1e9) / 1e9).toFixed(
+									9,
+								) || "0") ||
 							(
 								selectedAction === "deposit"
 									? Number(tokenBalance) <= 0
 									: Number(stakedBalance) <= 0
 							)
-								? "text-gray-400"
-								: "text-gray-900"
-						}`}
+							? "text-gray-400"
+							: "text-gray-900"
+							}`}
 					>
 						{dictionary?.components?.stakeForm?.max}
 					</button>
@@ -542,6 +545,7 @@ export function StakeWithPermitForm({
 					<Button
 						onClick={handleCollect}
 						isLoading={isLoading}
+						disabled={!isWalletConnected}
 						variant="primary"
 						size="sm"
 						className="mr-2 h-9 min-w-20 rounded-full px-4 font-sans"
@@ -558,14 +562,18 @@ export function StakeWithPermitForm({
 				</div>
 			</div>
 
-			{selectedAction === "deposit" ? (
-				<Button onClick={handleStake} isLoading={isLoading} fullWidth>
-					{dictionary?.components?.stakeForm?.depositButton}
-				</Button>
+			{isWalletConnected ? (
+				selectedAction === "deposit" ? (
+					<Button onClick={handleStake} isLoading={isLoading} fullWidth>
+						{dictionary?.components?.stakeForm?.depositButton}
+					</Button>
+				) : (
+					<Button onClick={handleWithdraw} isLoading={isLoading} fullWidth>
+						{dictionary?.components?.stakeForm?.withdrawButton}
+					</Button>
+				)
 			) : (
-				<Button onClick={handleWithdraw} isLoading={isLoading} fullWidth>
-					{dictionary?.components?.stakeForm?.withdrawButton}
-				</Button>
+				<WalletAuth lang={lang} />
 			)}
 		</div>
 	);
