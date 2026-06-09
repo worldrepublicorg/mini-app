@@ -311,21 +311,9 @@
 					"question": "Qu'est-ce que la République Mondiale ?",
 					"answer": "La République Mondiale est une organisation démocratique ouverte dédiée à la résolution des défis mondiaux les plus pressants de l'humanité. Elle fournit un cadre pour la prise de décision collective sur des questions qui ne peuvent être traitées efficacement qu'à l'échelle mondiale, comme les risques liés à l'IA, le changement climatique ou la biosécurité."
 				},
-				"basicIncome": {
-					"question": "Qu'est-ce que le Revenu de Base ?",
-					"answer": "Notre Revenu de Base est une subvention quotidienne de 0,0025 WDD (drachme mondiale) fournie à tous les citoyens de la République Mondiale. Il s'accumule en temps réel et peut être réclamé à tout moment via l'application."
-				},
-				"basicIncomePlus": {
-					"question": "Comment activer le Revenu de Base Plus ?",
-					"answer": "Le Revenu de Base Plus fournit 0,0475 WDD supplémentaires par jour et est exclusivement disponible pour les utilisateurs vérifiés par Orb. Après avoir activé le Revenu de Base, vous verrez une option pour activer le Revenu de Base Plus sur la page Gagner."
-				},
 				"savings": {
 					"question": "Comment fonctionne le Compte d'Épargne ?",
 					"answer": "Le Compte d'Épargne vous permet de déposer des jetons WDD et de gagner un intérêt annuel de 69%. Grâce au réinvestissement constant des intérêts gagnés, les utilisateurs peuvent atteindre des rendements effectifs proches de 100% annuellement, maximisant leur croissance en WDD au fil du temps. Les intérêts s'accumulent en continu et peuvent être retirés ou réinvestis à tout moment."
-				},
-				"referralCodes": {
-					"question": "Comment fonctionnent les codes de parrainage ?",
-					"answer": "En tant que citoyen de la République mondiale, vous pouvez gagner des récompenses via notre programme de parrainage. Partagez votre lien de parrainage unique avec des amis et vous recevrez 10 WDD pour chaque personne qui rejoint notre application web et réussit la vérification de vivacité."
 				},
 				"drachmaValue": {
 					"question": "D'où vient la valeur de la drachme ?",

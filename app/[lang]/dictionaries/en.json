@@ -307,21 +307,9 @@
 					"question": "What is the World Republic?",
 					"answer": "The World Republic is an open, democratic organization dedicated to solving humanity's most pressing global challenges. It provides a framework for collective decision-making on issues that can only be effectively addressed at a global scale, like AI risks, climate change, or biosecurity."
 				},
-				"basicIncome": {
-					"question": "What is Basic Income?",
-					"answer": "Our Basic Income is a daily subsidy of 0.0025 WDD (world drachma) that is provided to all citizens of the World Republic. It accumulates in real-time and can be claimed at any moment through the app."
-				},
-				"basicIncomePlus": {
-					"question": "How do I activate Basic Income Plus?",
-					"answer": "Basic Income Plus provides an additional 0.0475 WDD per day and is available exclusively to Orb-verified users. After activating Basic Income, you'll see an option to activate Basic Income Plus on the Earn page."
-				},
 				"savings": {
 					"question": "How does the Savings Account work?",
 					"answer": "The Savings Account allows you to deposit WDD tokens and earn a 69% annual interest. Through constant reinvestment of earned interest, users can achieve effective returns close to 100% annually, maximizing their WDD growth over time. Interest accumulates continuously and can be withdrawn or reinvested at any time."
-				},
-				"referralCodes": {
-					"question": "How do referral codes work?",
-					"answer": "As a World Republic citizen, you can earn rewards through our referral program. Share your unique referral link with friends, and you'll receive 10 WDD for each person who joins our web app and completes liveness check."
 				},
 				"drachmaValue": {
 					"question": "Where does the drachma get its value?",

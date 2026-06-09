@@ -311,21 +311,9 @@
 					"question": "Ano ang World Republic?",
 					"answer": "Ang World Republic ay isang bukas at demokratikong organisasyon na nakatuon sa paglutas ng mga pinakamapilit na pandaigdigang hamon ng sangkatauhan. Nagbibigay ito ng balangkas para sa kolektibong paggawa ng desisyon sa mga isyu na maaari lamang epektibong tugunan sa pandaigdigang antas, tulad ng mga panganib sa AI, climate change, o biosecurity."
 				},
-				"basicIncome": {
-					"question": "Ano ang Basic Income?",
-					"answer": "Ang aming Basic Income ay isang pang-araw-araw na subsidy na 0.0025 WDD (world drachma) na ibinibigay sa lahat ng mamamayan ng World Republic. Ito ay naa-accumulate sa real-time at maaaring kunin sa anumang oras sa pamamagitan ng app."
-				},
-				"basicIncomePlus": {
-					"question": "Paano ko i-activate ang Basic Income Plus?",
-					"answer": "Ang Basic Income Plus ay nagbibigay ng dagdag na 0.0475 WDD bawat araw at available lamang sa mga Orb-verified na user. Pagkatapos i-activate ang Basic Income, makakakita ka ng opsyon para i-activate ang Basic Income Plus sa Earn page."
-				},
 				"savings": {
 					"question": "Paano gumagana ang Savings Account?",
 					"answer": "Ang Savings Account ay nagpapahintulot sa iyo na mag-deposito ng mga WDD token at kumita ng 69% taunang interes. Sa pamamagitan ng patuloy na pag-reinvest ng kinikitang interes, maaaring makamit ng mga user ang effective returns na halos 100% taun-taon, na pinapamaximize ang kanilang paglago ng WDD sa paglipas ng panahon. Na-a-accumulate ang interes nang patuloy at maaaring i-withdraw o i-reinvest sa anumang oras."
-				},
-				"referralCodes": {
-					"question": "Paano gumagana ang mga referral code?",
-					"answer": "Bilang mamamayan ng World Republic, maaari kang kumita ng mga reward sa pamamagitan ng aming referral program. Ibahagi ang iyong natatanging referral link sa mga kaibigan, at makakatanggap ka ng 10 WDD para sa bawat taong sasali sa aming web app at makakumpleto ng liveness check."
 				},
 				"drachmaValue": {
 					"question": "Saan nagmumula ang halaga ng drachma?",

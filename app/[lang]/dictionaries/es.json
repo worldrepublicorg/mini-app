@@ -319,21 +319,9 @@
 					"question": "¿Qué es la República Mundial?",
 					"answer": "La República Mundial es una organización abierta y democrática dedicada a resolver los desafíos globales más urgentes de la humanidad. Proporciona un marco para la toma de decisiones colectivas sobre temas que solo pueden abordarse efectivamente a escala global, como los riesgos de la IA, el cambio climático o la bioseguridad."
 				},
-				"basicIncome": {
-					"question": "¿Qué es la Renta Básica?",
-					"answer": "Nuestra Renta Básica es un subsidio diario de 0,0025 WDD (dracma mundial) que se proporciona a todos los ciudadanos de la República Mundial. Se acumula en tiempo real y se puede reclamar en cualquier momento a través de la aplicación."
-				},
-				"basicIncomePlus": {
-					"question": "¿Cómo activo la Renta Básica Plus?",
-					"answer": "La Renta Básica Plus proporciona 0,0475 WDD adicionales por día y está disponible exclusivamente para usuarios verificados con Orb. Después de activar la Renta Básica, verás una opción para activar la Renta Básica Plus en la página Ganar."
-				},
 				"savings": {
 					"question": "¿Cómo funciona la Cuenta de Ahorro?",
 					"answer": "La Cuenta de Ahorro te permite depositar tokens WDD y ganar un interés anual del 69%. A través de la reinversión constante de los intereses ganados, los usuarios pueden alcanzar rendimientos efectivos cercanos al 100% anual, maximizando su crecimiento de WDD a lo largo del tiempo. Los intereses se acumulan continuamente y se pueden retirar o reinvertir en cualquier momento."
-				},
-				"referralCodes": {
-					"question": "¿Cómo funcionan los códigos de referido?",
-					"answer": "Como ciudadano de la República Mundial, puedes ganar recompensas a través de nuestro programa de referidos. Comparte tu enlace de invitación único con amigos y recibirás 10 WDD por cada persona que se una a nuestra aplicación web y complete la prueba de vivacidad."
 				},
 				"drachmaValue": {
 					"question": "¿De dónde obtiene su valor el dracma?",

@@ -24,24 +24,9 @@ export default function FAQPage({
 			answer: dictionary?.pages?.faq?.items?.appPurpose?.answer,
 		},
 		{
-			id: "basic-income",
-			question: dictionary?.pages?.faq?.items?.basicIncome?.question,
-			answer: dictionary?.pages?.faq?.items?.basicIncome?.answer,
-		},
-		{
-			id: "basic-income-plus",
-			question: dictionary?.pages?.faq?.items?.basicIncomePlus?.question,
-			answer: dictionary?.pages?.faq?.items?.basicIncomePlus?.answer,
-		},
-		{
 			id: "savings",
 			question: dictionary?.pages?.faq?.items?.savings?.question,
 			answer: dictionary?.pages?.faq?.items?.savings?.answer,
-		},
-		{
-			id: "referral-codes",
-			question: dictionary?.pages?.faq?.items?.referralCodes?.question,
-			answer: dictionary?.pages?.faq?.items?.referralCodes?.answer,
 		},
 		{
 			id: "drachma-value",

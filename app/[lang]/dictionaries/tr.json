@@ -311,21 +311,9 @@
 					"question": "Dünya Cumhuriyeti nedir?",
 					"answer": "Dünya Cumhuriyeti, insanlığın en acil küresel zorluklarını çözmeye adanmış açık, demokratik bir organizasyondur. AI riskleri, iklim değişikliği veya biyogüvenlik gibi sadece küresel ölçekte etkili bir şekilde ele alınabilecek konularda kolektif karar verme için bir çerçeve sunar."
 				},
-				"basicIncome": {
-					"question": "Temel Gelir nedir?",
-					"answer": "Temel Gelirimiz, Dünya Cumhuriyeti'nin tüm vatandaşlarına sağlanan günlük 0,0025 WDD (dünya drahmi) sübvansiyonudur. Gerçek zamanlı olarak birikir ve uygulama üzerinden her an talep edilebilir."
-				},
-				"basicIncomePlus": {
-					"question": "Temel Gelir Plus'ı nasıl aktifleştiririm?",
-					"answer": "Temel Gelir Plus, günlük ek 0,0475 WDD sağlar ve sadece Orb-doğrulanmış kullanıcılara özeldir. Temel Geliri aktifleştirdikten sonra, Kazan sayfasında Temel Gelir Plus'ı aktifleştirme seçeneğini göreceksiniz."
-				},
 				"savings": {
 					"question": "Tasarruf Hesabı nasıl çalışır?",
 					"answer": "Tasarruf Hesabı, WDD tokenlerini yatırmanıza ve %69 yıllık faiz kazanmanıza olanak tanır. Kazanılan faizi sürekli yeniden yatırım yaparak, kullanıcılar yıllık yaklaşık %100 etkin getiri elde edebilir ve zaman içinde WDD büyümelerini maksimize edebilir. Faiz sürekli birikir ve her zaman çekilebilir veya yeniden yatırılabilir."
-				},
-				"referralCodes": {
-					"question": "Referans kodları nasıl çalışır?",
-					"answer": "Dünya Cumhuriyeti vatandaşı olarak, referans programımız aracılığıyla ödüller kazanabilirsiniz. Benzersiz referans bağlantınızı arkadaşlarınızla paylaşın ve web uygulamamıza katılıp canlılık doğrulamasını (liveness) tamamlayan her kişi için 10 WDD alın."
 				},
 				"drachmaValue": {
 					"question": "Drahmi değerini nereden alıyor?",

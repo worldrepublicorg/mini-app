@@ -311,21 +311,9 @@
 					"question": "Czym jest Republika Świata?",
 					"answer": "Republika Świata to otwarta, demokratyczna organizacja poświęcona rozwiązywaniu najpilniejszych globalnych wyzwań ludzkości. Zapewnia ramy dla wspólnego podejmowania decyzji w sprawach, które można skutecznie rozwiązać tylko na skalę globalną, takich jak zagrożenia związane z AI, zmiany klimatu czy bezpieczeństwo biologiczne."
 				},
-				"basicIncome": {
-					"question": "Czym jest Dochód Podstawowy?",
-					"answer": "Nasz Dochód Podstawowy to dzienna dotacja w wysokości 0,0025 WDD (drachma światowa), która jest przyznawana wszystkim obywatelom Republiki Świata. Akumuluje się w czasie rzeczywistym i można go odebrać w dowolnym momencie przez aplikację."
-				},
-				"basicIncomePlus": {
-					"question": "Jak aktywować Dochód Podstawowy Plus?",
-					"answer": "Dochód Podstawowy Plus zapewnia dodatkowe 0,0475 WDD dziennie i jest dostępny wyłącznie dla użytkowników zweryfikowanych przez Orb. Po aktywacji Dochodu Podstawowego zobaczysz opcję aktywacji Dochodu Podstawowego Plus na stronie Zarabiaj."
-				},
 				"savings": {
 					"question": "Jak działa Konto Oszczędnościowe?",
 					"answer": "Konto Oszczędnościowe pozwala wpłacać tokeny WDD i zarabiać 69% rocznych odsetek. Poprzez ciągłe reinwestowanie zarobionych odsetek, użytkownicy mogą osiągnąć efektywne zwroty bliskie 100% rocznie, maksymalizując wzrost WDD w czasie. Odsetki akumulują się nieprzerwanie i można je wypłacić lub reinwestować w dowolnym momencie."
-				},
-				"referralCodes": {
-					"question": "Jak działają kody polecające?",
-					"answer": "Jako obywatel Republiki Świata możesz zdobywać nagrody w naszym programie poleceń. Udostępnij swój unikalny link polecający znajomym, a otrzymasz 10 WDD za każdą osobę, która dołączy do naszej aplikacji webowej i ukończy weryfikację żywotności (liveness)."
 				},
 				"drachmaValue": {
 					"question": "Skąd drachma czerpie swoją wartość?",

@@ -311,21 +311,9 @@
 					"question": "Je, Jamhuri ya Dunia ni nini?",
 					"answer": "Jamhuri ya Dunia ni shirika la kidemokrasia linalojitolea kutatua changamoto muhimu za kimataifa za wanadamu. Inatoa mfumo wa kufanya maamuzi pamoja kuhusu masuala yanayoweza kutatuliwa kwa ufanisi katika kiwango cha kimataifa, kama vile hatari za AI, mabadiliko ya hali ya hewa, au usalama wa kibiolojia."
 				},
-				"basicIncome": {
-					"question": "Je, Mapato ya Msingi ni nini?",
-					"answer": "Mapato yetu ya Msingi ni ruzuku ya kila siku ya WDD 0.0025 (drachma ya ulimwengu) inayotolewa kwa raia wote wa Jamhuri ya Dunia. Inaongezeka kwa wakati halisi na inaweza kuchukuliwa wakati wowote kupitia programu."
-				},
-				"basicIncomePlus": {
-					"question": "Je, ninawezaje kuanzisha Mapato ya Msingi Plus?",
-					"answer": "Mapato ya Msingi Plus yanatoa WDD 0.0475 za ziada kwa siku na yanapatikana kwa watumiaji waliohakikiwa na Orb tu. Baada ya kuanzisha Mapato ya Msingi, utaona chaguo la kuanzisha Mapato ya Msingi Plus kwenye ukurasa wa Kupata."
-				},
 				"savings": {
 					"question": "Je, Akaunti ya Akiba inafanya kazi vipi?",
 					"answer": "Akaunti ya Akiba inakuruhusu kuweka tokeni za WDD na kupata riba ya 69% kwa mwaka. Kupitia uwekezaji endelevu wa riba iliyopatikana, watumiaji wanaweza kupata mapato halisi karibu 100% kwa mwaka, kuongeza ukuaji wao wa WDD baada ya muda. Riba inaongezeka endelevu na inaweza kuchukuliwa au kuwekezwa tena wakati wowote."
-				},
-				"referralCodes": {
-					"question": "Msimbo wa rufaa unafanya kazi vipi?",
-					"answer": "Kama raia wa Jamhuri ya Dunia, unaweza kupata zawadi kupitia programu yetu ya rufaa. Shiriki kiungo chako cha kipekee cha rufaa na marafiki, na utapokea WDD 10 kwa kila mtu atakayejiunga na programu yetu ya wavuti na kukamilisha ukaguzi wa uhai."
 				},
 				"drachmaValue": {
 					"question": "Je, drachma inapata thamani yake wapi?",

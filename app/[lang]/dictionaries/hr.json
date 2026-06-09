@@ -311,21 +311,9 @@
 					"question": "Što je Svjetska Republika?",
 					"answer": "Svjetska Republika je otvorena, demokratska organizacija posvećena rješavanju najhitnijih globalnih izazova čovječanstva. Pruža okvir za kolektivno donošenje odluka o pitanjima koja se mogu učinkovito riješiti samo na globalnoj razini, poput UI rizika, klimatskih promjena ili biosigurnosti."
 				},
-				"basicIncome": {
-					"question": "Što je Temeljni dohodak?",
-					"answer": "Naš Temeljni dohodak je dnevna subvencija od 0,0025 WDD (svjetska drahma) koja se pruža svim građanima Svjetske Republike. Akumulira se u stvarnom vremenu i može se preuzeti u bilo kojem trenutku putem aplikacije."
-				},
-				"basicIncomePlus": {
-					"question": "Kako aktivirati Temeljni dohodak Plus?",
-					"answer": "Temeljni dohodak Plus pruža dodatnih 0,0475 WDD dnevno i dostupan je isključivo Orb-verificiranim korisnicima. Nakon aktivacije Temeljnog dohotka, vidjet ćete opciju za aktivaciju Temeljnog dohotka Plus na stranici Zarada."
-				},
 				"savings": {
 					"question": "Kako funkcionira Štedni račun?",
 					"answer": "Štedni račun vam omogućuje polaganje WDD tokena i zaradu godišnje kamate od 69%. Kroz stalno reinvestiranje zarađene kamate, korisnici mogu postići efektivne prinose blizu 100% godišnje, maksimizirajući rast svojih WDD-a tijekom vremena. Kamata se akumulira kontinuirano i može se povući ili reinvestirati u bilo kojem trenutku."
-				},
-				"referralCodes": {
-					"question": "Kako funkcioniraju preporučiteljski kodovi?",
-					"answer": "Kao građanin Svjetske Republike, možete zaraditi nagrade kroz naš program preporuka. Podijelite svoju jedinstvenu preporučiteljsku poveznicu s prijateljima i dobit ćete 10 WDD za svaku osobu koja se pridruži našoj web aplikaciji i dovrši provjeru živosti."
 				},
 				"drachmaValue": {
 					"question": "Odakle drahma dobiva svoju vrijednost?",

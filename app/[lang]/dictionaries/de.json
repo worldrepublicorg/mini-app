@@ -311,21 +311,9 @@
 					"question": "Was ist die Weltrepublik?",
 					"answer": "Die Weltrepublik ist eine offene, demokratische Organisation, die darauf ausgerichtet ist, die größten globalen Herausforderungen der Menschheit zu lösen. Es bietet ein Framework für kollektive Entscheidungsfindung zu Problemen, die nur effektiv an globaler Ebene angesprochen werden können, wie KI-Risiken, Klimawandel oder Biosicherheit."
 				},
-				"basicIncome": {
-					"question": "Was ist Grundeinkommen?",
-					"answer": "Unser Grundeinkommen ist ein tägliches Subventionsprogramm von 0,0025 WDD (Weltdrachme) für alle Bürger der Weltrepublik. Es kumuliert in Echtzeit und kann jederzeit über die App beansprucht werden."
-				},
-				"basicIncomePlus": {
-					"question": "Wie aktiviere ich Grundeinkommen Plus?",
-					"answer": "Grundeinkommen Plus bietet zusätzliche 0,0475 WDD pro Tag und ist ausschließlich den Orb-verifizierten Nutzern verfügbar. Nach der Aktivierung von Grundeinkommen sehen Sie eine Option, Grundeinkommen Plus auf der Verdienen-Seite zu aktivieren."
-				},
 				"savings": {
 					"question": "Wie funktioniert der Sparen Account?",
 					"answer": "Der Sparen Account ermöglicht es Ihnen, WDD-Token einzuzahlen und einen 69% jährlichen Zins zu verdienen. Durch fortlaufende Wiederanlage von verdienten Zinsen können Benutzer effektive Rückgaben nahe 100% jährlich erreichen, indem sie ihre WDD-Wachstum über die Zeit maximieren. Zinsen kumulieren kontinuierlich und können jederzeit ausgezahlt oder erneut investiert werden."
-				},
-				"referralCodes": {
-					"question": "Wie funktionieren Empfehlungscodes?",
-					"answer": "Als Bürger der Weltrepublik können Sie über unser Empfehlungsprogramm Belohnungen verdienen. Teilen Sie Ihren einzigartigen Empfehlungslink mit Freunden, und Sie erhalten 10 WDD für jede Person, die unserer Web‑App beitritt und die Liveness‑Prüfung abschließt."
 				},
 				"drachmaValue": {
 					"question": "Wo bekommt die Drachme ihren Wert?",
