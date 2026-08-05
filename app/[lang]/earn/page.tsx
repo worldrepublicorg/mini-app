@@ -368,10 +368,7 @@ export default function EarnPage({
 						</Typography>
 					</div>
 					{walletAddress && (
-						<a
-							href="https://world.org/mini-app?app_id=app_0d4b759921490adc1f2bd569fda9b53a&path=/ref/a7DgwV"
-							className="flex h-10 items-center gap-2 rounded-full bg-gray-100 px-4"
-						>
+						<div className="flex h-10 items-center gap-2 rounded-full bg-gray-100 px-4">
 							<PiWalletFill className="h-5 w-5" />
 							<Typography
 								variant={{ variant: "number", level: 6 }}
@@ -381,7 +378,7 @@ export default function EarnPage({
 									? `${Number(tokenBalance).toFixed(2)} WDD`
 									: "0.00 WDD"}
 							</Typography>
-						</a>
+						</div>
 					)}
 				</div>
 
