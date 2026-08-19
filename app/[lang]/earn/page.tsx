@@ -151,10 +151,13 @@ export default function EarnPage({
 		fetchAvailableReward();
 		fetchStakedBalance();
 
-		const fetchInterval = setInterval(() => {
-			fetchAvailableReward();
-			fetchStakedBalance();
-		}, 5 * 60 * 1000);
+		const fetchInterval = setInterval(
+			() => {
+				fetchAvailableReward();
+				fetchStakedBalance();
+			},
+			5 * 60 * 1000,
+		);
 
 		return () => clearInterval(fetchInterval);
 	}, [walletAddress, fetchAvailableReward, fetchStakedBalance]);
