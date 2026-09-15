@@ -95,8 +95,8 @@
 				"savings": {
 					"tabTitle": "Épargne",
 					"title": "Compte d'Épargne",
-					"subtitle": "Gagnez des intérêts à chaque seconde",
-					"tooltip": "Taux de base de 69% APY. Collectez et réinvestissez les intérêts pour atteindre près de 100% de rendement effectif annuel. Retirez à tout moment."
+					"subtitle": "Ne verse plus d'intérêts",
+					"tooltip": "Le montant des intérêts affiché à l'écran a baissé, et ce qui reste vous appartient toujours et peut être collecté. Les intérêts mettaient en circulation environ 300 000 nouvelles drachmes chaque jour, et cela s'est maintenant arrêté."
 				},
 				"invite": {
 					"title": "Inviter",
@@ -313,7 +313,7 @@
 				},
 				"savings": {
 					"question": "Comment fonctionne le Compte d'Épargne ?",
-					"answer": "Le Compte d'Épargne vous permet de déposer des jetons WDD et de gagner un intérêt annuel de 69%. Grâce au réinvestissement constant des intérêts gagnés, les utilisateurs peuvent atteindre des rendements effectifs proches de 100% annuellement, maximisant leur croissance en WDD au fil du temps. Les intérêts s'accumulent en continu et peuvent être retirés ou réinvestis à tout moment."
+					"answer": "Le Compte d'Épargne conserve les WDD que vous déposez. Vous pouvez les retirer à tout moment, sans date limite. Il ne verse plus d'intérêts, et le montant des intérêts affiché à l'écran a baissé : ce qui reste vous appartient toujours et peut être collecté. Les intérêts mettaient en circulation environ 300 000 nouvelles drachmes chaque jour, et cela s'est maintenant arrêté."
 				},
 				"drachmaValue": {
 					"question": "D'où vient la valeur de la drachme ?",

@@ -95,8 +95,8 @@
 				"savings": {
 					"tabTitle": "Sparen",
 					"title": "Sparen Account",
-					"subtitle": "Zinsen jeden zweiten",
-					"tooltip": "69% APY Basiszins. Zinsen einsammeln und sie erneut investieren, um nahe 100% effektive Rückgaben jährlich zu erreichen. Jederzeit auszahlen."
+					"subtitle": "Zahlt keine Zinsen mehr",
+					"tooltip": "Der auf Ihrem Bildschirm angezeigte Zinsbetrag ist gesunken, und was davon übrig ist, gehört weiterhin Ihnen und kann eingesammelt werden. Die Zinsen brachten täglich rund 300.000 neue Drachmen in Umlauf, und das geschieht jetzt nicht mehr."
 				},
 				"invite": {
 					"title": "Einladen",
@@ -313,7 +313,7 @@
 				},
 				"savings": {
 					"question": "Wie funktioniert der Sparen Account?",
-					"answer": "Der Sparen Account ermöglicht es Ihnen, WDD-Token einzuzahlen und einen 69% jährlichen Zins zu verdienen. Durch fortlaufende Wiederanlage von verdienten Zinsen können Benutzer effektive Rückgaben nahe 100% jährlich erreichen, indem sie ihre WDD-Wachstum über die Zeit maximieren. Zinsen kumulieren kontinuierlich und können jederzeit ausgezahlt oder erneut investiert werden."
+					"answer": "Der Sparen Account verwahrt die WDD, die Sie einzahlen. Sie können sie jederzeit auszahlen, ohne Frist. Er zahlt keine Zinsen mehr, und der auf Ihrem Bildschirm angezeigte Zinsbetrag ist gesunken. Was davon übrig ist, gehört weiterhin Ihnen und kann eingesammelt werden. Die Zinsen brachten täglich rund 300.000 neue Drachmen in Umlauf, und das geschieht jetzt nicht mehr."
 				},
 				"drachmaValue": {
 					"question": "Wo bekommt die Drachme ihren Wert?",

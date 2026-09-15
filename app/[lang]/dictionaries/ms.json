@@ -95,8 +95,8 @@
 				"savings": {
 					"tabTitle": "Simpanan",
 					"title": "Akaun Simpanan",
-					"subtitle": "Perolehi faedah setiap saat",
-					"tooltip": "Kadar asas 69% APY. Kutip dan pelabur semula faedah untuk mencapai pulangan berkesan hampir 100% setahun. Tarik bila-bila masa."
+					"subtitle": "Tidak lagi membayar faedah",
+					"tooltip": "Angka faedah pada skrin anda telah menurun, dan apa yang tinggal masih milik anda dan boleh anda kutip. Dahulu, faedah memasukkan kira-kira 300,000 drachma baharu ke dalam edaran setiap hari, dan itu kini telah berhenti."
 				},
 				"invite": {
 					"title": "Jemput",
@@ -313,7 +313,7 @@
 				},
 				"savings": {
 					"question": "Bagaimana Akaun Simpanan berfungsi?",
-					"answer": "Akaun Simpanan membolehkan anda menyimpan token WDD dan memperoleh faedah tahunan 69%. Melalui pelaburan semula faedah yang diperoleh secara berterusan, pengguna boleh mencapai pulangan berkesan hampir 100% setahun, memaksimumkan pertumbuhan WDD mereka dari masa ke masa. Faedah terkumpul secara berterusan dan boleh ditarik atau dilaburkan semula pada bila-bila masa."
+					"answer": "Akaun Simpanan menyimpan WDD yang anda simpan. Anda boleh menariknya pada bila-bila masa, tanpa tarikh akhir. Ia tidak lagi membayar faedah, dan angka faedah pada skrin anda telah menurun. Apa yang tinggal masih milik anda dan boleh anda kutip. Dahulu, faedah memasukkan kira-kira 300,000 drachma baharu ke dalam edaran setiap hari, dan itu kini telah berhenti."
 				},
 				"drachmaValue": {
 					"question": "Dari mana drachma mendapat nilainya?",

@@ -95,8 +95,8 @@
 				"savings": {
 					"tabTitle": "Poupança",
 					"title": "Conta Poupança",
-					"subtitle": "Ganhe juros a cada segundo",
-					"tooltip": "Taxa base de 69% ao ano. Colete e reinvista os juros para alcançar retornos efetivos próximos a 100% anualmente. Retire a qualquer momento."
+					"subtitle": "Não paga mais juros",
+					"tooltip": "O valor dos juros na sua tela diminuiu, e o que resta continua sendo seu e você pode coletá-lo. Os juros colocavam cerca de 300.000 novos dracmas em circulação todos os dias, e isso agora parou."
 				},
 				"invite": {
 					"title": "Convidar",
@@ -313,7 +313,7 @@
 				},
 				"savings": {
 					"question": "Como funciona a Conta Poupança?",
-					"answer": "A Conta Poupança permite que você deposite tokens WDD e ganhe 69% de juros anuais. Através do reinvestimento constante dos juros ganhos, os usuários podem alcançar retornos efetivos próximos a 100% anualmente, maximizando seu crescimento em WDD ao longo do tempo. Os juros acumulam continuamente e podem ser retirados ou reinvestidos a qualquer momento."
+					"answer": "A Conta Poupança guarda os WDD que você deposita. Você pode retirá-los a qualquer momento, sem prazo. Ela não paga mais juros, e o valor dos juros na sua tela diminuiu. O que resta continua sendo seu e você pode coletá-lo. Os juros colocavam cerca de 300.000 novos dracmas em circulação todos os dias, e isso agora parou."
 				},
 				"drachmaValue": {
 					"question": "De onde vem o valor do dracma?",

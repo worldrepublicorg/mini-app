@@ -95,8 +95,8 @@
 				"savings": {
 					"tabTitle": "Tabungan",
 					"title": "Akun Tabungan",
-					"subtitle": "Dapatkan bunga setiap detik",
-					"tooltip": "Suku bunga dasar 69% APY. Kumpulkan dan investasikan kembali bunga untuk mencapai pengembalian efektif hingga 100% per tahun. Tarik kapan saja."
+					"subtitle": "Tidak lagi memberi bunga",
+					"tooltip": "Angka bunga di layar Anda telah turun, dan yang masih tersisa tetap menjadi milik Anda dan dapat dikumpulkan. Dulu, bunga menambahkan sekitar 300.000 drachma baru ke peredaran setiap hari, dan hal itu kini telah berhenti."
 				},
 				"invite": {
 					"title": "Undang",
@@ -313,7 +313,7 @@
 				},
 				"savings": {
 					"question": "Bagaimana cara kerja Akun Tabungan?",
-					"answer": "Akun Tabungan memungkinkan Anda menyetor token WDD dan mendapatkan bunga tahunan 69%. Melalui reinvestasi bunga yang diperoleh secara konstan, pengguna dapat mencapai pengembalian efektif hingga 100% per tahun, memaksimalkan pertumbuhan WDD mereka seiring waktu. Bunga terakumulasi secara terus menerus dan dapat ditarik atau diinvestasikan kembali kapan saja."
+					"answer": "Akun Tabungan menyimpan WDD yang Anda setor. Anda dapat menariknya kapan saja, tanpa batas waktu. Akun ini tidak lagi memberi bunga, dan angka bunga di layar Anda telah turun. Yang masih tersisa tetap menjadi milik Anda dan dapat dikumpulkan. Dulu, bunga menambahkan sekitar 300.000 drachma baru ke peredaran setiap hari, dan hal itu kini telah berhenti."
 				},
 				"drachmaValue": {
 					"question": "Dari mana drachma mendapatkan nilainya?",

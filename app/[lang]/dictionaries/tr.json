@@ -95,8 +95,8 @@
 				"savings": {
 					"tabTitle": "Tasarruf",
 					"title": "Tasarruf Hesabı",
-					"subtitle": "Her saniye faiz kazanın",
-					"tooltip": "%69 APY temel oran. Faizi toplayıp yeniden yatırarak yıllık yaklaşık %100 etkin getiri elde edin. İstediğiniz zaman çekin."
+					"subtitle": "Artık faiz ödemiyor",
+					"tooltip": "Ekranınızdaki faiz tutarı düştü ve kalan kısım hâlâ sizindir, onu toplayabilirsiniz. Faiz, her gün dolaşıma yaklaşık 300.000 yeni drahmi sokuyordu; bu artık durdu."
 				},
 				"invite": {
 					"title": "Davet Et",
@@ -313,7 +313,7 @@
 				},
 				"savings": {
 					"question": "Tasarruf Hesabı nasıl çalışır?",
-					"answer": "Tasarruf Hesabı, WDD tokenlerini yatırmanıza ve %69 yıllık faiz kazanmanıza olanak tanır. Kazanılan faizi sürekli yeniden yatırım yaparak, kullanıcılar yıllık yaklaşık %100 etkin getiri elde edebilir ve zaman içinde WDD büyümelerini maksimize edebilir. Faiz sürekli birikir ve her zaman çekilebilir veya yeniden yatırılabilir."
+					"answer": "Tasarruf Hesabı, yatırdığınız WDD'yi tutar. Bunları istediğiniz zaman, herhangi bir süre sınırı olmadan çekebilirsiniz. Artık faiz ödemiyor ve ekranınızdaki faiz tutarı düştü; kalan kısım hâlâ sizindir, onu toplayabilirsiniz. Faiz, her gün dolaşıma yaklaşık 300.000 yeni drahmi sokuyordu; bu artık durdu."
 				},
 				"drachmaValue": {
 					"question": "Drahmi değerini nereden alıyor?",

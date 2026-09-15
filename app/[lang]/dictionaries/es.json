@@ -103,8 +103,8 @@
 				"savings": {
 					"tabTitle": "Ahorro",
 					"title": "Cuenta de Ahorro",
-					"subtitle": "Gana intereses cada segundo",
-					"tooltip": "Tasa base del 69% APY. Cobra y reinvierte los intereses para alcanzar cerca del 100% de rendimiento efectivo anual. Retira en cualquier momento."
+					"subtitle": "Ya no genera intereses",
+					"tooltip": "La cifra de intereses que ves en tu pantalla ha bajado, y lo que queda sigue siendo tuyo y puedes cobrarlo. Los intereses ponían en circulación unos 300.000 nuevos dracmas cada día, y eso ya se ha detenido."
 				},
 				"invite": {
 					"title": "Invitar",
@@ -321,7 +321,7 @@
 				},
 				"savings": {
 					"question": "¿Cómo funciona la Cuenta de Ahorro?",
-					"answer": "La Cuenta de Ahorro te permite depositar tokens WDD y ganar un interés anual del 69%. A través de la reinversión constante de los intereses ganados, los usuarios pueden alcanzar rendimientos efectivos cercanos al 100% anual, maximizando su crecimiento de WDD a lo largo del tiempo. Los intereses se acumulan continuamente y se pueden retirar o reinvertir en cualquier momento."
+					"answer": "La Cuenta de Ahorro guarda los WDD que depositas. Puedes retirarlos en cualquier momento, sin fecha límite. Ya no genera intereses, y la cifra de intereses que ves en tu pantalla ha bajado: lo que queda sigue siendo tuyo y puedes cobrarlo. Los intereses ponían en circulación unos 300.000 nuevos dracmas cada día, y eso ya se ha detenido."
 				},
 				"drachmaValue": {
 					"question": "¿De dónde obtiene su valor el dracma?",

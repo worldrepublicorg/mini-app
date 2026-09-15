@@ -95,8 +95,8 @@
 				"savings": {
 					"tabTitle": "Akiba",
 					"title": "Akaunti ya Akiba",
-					"subtitle": "Pata riba kila sekunde",
-					"tooltip": "69% APY kiwango cha msingi. Chukua na uweke tena riba ili kupata mapato ya karibu 100% kwa mwaka. Toa wakati wowote."
+					"subtitle": "Hailipi riba tena",
+					"tooltip": "Kiasi cha riba kwenye skrini yako kimepungua, na kilichobaki bado ni chako na unaweza kukichukua. Riba ilikuwa ikiingiza drachma mpya takriban 300,000 katika mzunguko kila siku, na sasa hilo limesimama."
 				},
 				"invite": {
 					"title": "Alika",
@@ -313,7 +313,7 @@
 				},
 				"savings": {
 					"question": "Je, Akaunti ya Akiba inafanya kazi vipi?",
-					"answer": "Akaunti ya Akiba inakuruhusu kuweka tokeni za WDD na kupata riba ya 69% kwa mwaka. Kupitia uwekezaji endelevu wa riba iliyopatikana, watumiaji wanaweza kupata mapato halisi karibu 100% kwa mwaka, kuongeza ukuaji wao wa WDD baada ya muda. Riba inaongezeka endelevu na inaweza kuchukuliwa au kuwekezwa tena wakati wowote."
+					"answer": "Akaunti ya Akiba inahifadhi WDD ambazo unaweka. Unaweza kuzitoa wakati wowote, bila tarehe ya mwisho. Hailipi riba tena, na kiasi cha riba kwenye skrini yako kimepungua. Kilichobaki bado ni chako na unaweza kukichukua. Riba ilikuwa ikiingiza drachma mpya takriban 300,000 katika mzunguko kila siku, na sasa hilo limesimama."
 				},
 				"drachmaValue": {
 					"question": "Je, drachma inapata thamani yake wapi?",
