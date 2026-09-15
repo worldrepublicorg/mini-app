@@ -48,12 +48,8 @@ export interface WalletProviderProps {
 	children: React.ReactNode;
 }
 
-export type TabKey = "openLetters" | "elections" | "referendums";
-
 export type FAQItem = {
 	id: string;
 	question: string;
 	answer: string;
 };
-
-export type EarnTabKey = "Savings" | "Contribute";
