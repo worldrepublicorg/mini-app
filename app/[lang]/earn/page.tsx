@@ -34,9 +34,42 @@ export default function EarnPage({
 	const [displayAvailableReward, setDisplayAvailableReward] = useState<
 		string | null
 	>(null);
+	// Per-second reward rate read from the contract, not assumed. Starts at 0 so
+	// the display never animates interest the contract is not actually paying:
+	// the rate is an owner-settable parameter and has been set to 0.
+	const [rewardRatePerSecond, setRewardRatePerSecond] = useState<number>(0);
 
 	const fromWei = useCallback((value: bigint) => {
 		return (Number(value) / 1e18).toString();
+	}, []);
+
+	const fetchRewardRate = useCallback(async () => {
+		try {
+			const rateAbi = parseAbi([
+				"function rewardPerTokenPerPeriod() external view returns (uint256)",
+				"function daysPerPeriod() external view returns (uint256)",
+			]);
+			const [perToken, days] = await Promise.all([
+				viemClient.readContract({
+					address:
+						"0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7" as `0x${string}`,
+					abi: rateAbi,
+					functionName: "rewardPerTokenPerPeriod",
+				}) as Promise<bigint>,
+				viemClient.readContract({
+					address:
+						"0x234302Db10A54BDc11094A8Ef816B0Eaa5FCE3f7" as `0x${string}`,
+					abi: rateAbi,
+					functionName: "daysPerPeriod",
+				}) as Promise<bigint>,
+			]);
+			setRewardRatePerSecond(
+				days > 0n ? Number(perToken) / (86400 * Number(days)) : 0,
+			);
+		} catch (error) {
+			console.error("Error fetching reward rate", error);
+			setRewardRatePerSecond(0);
+		}
 	}, []);
 
 	const fetchAvailableReward = useCallback(async () => {
@@ -66,7 +99,7 @@ export default function EarnPage({
 	useEffect(() => {
 		if (!stakedBalance || !availableReward) return;
 
-		const interestRate = 1 / (86400 * 529);
+		const interestRate = rewardRatePerSecond;
 		const stakedBalanceNum = Number(stakedBalance);
 		const baseReward = Number(availableReward);
 
@@ -119,7 +152,7 @@ export default function EarnPage({
 		const interval = setInterval(updateDisplay, 1000);
 
 		return () => clearInterval(interval);
-	}, [stakedBalance, availableReward]);
+	}, [stakedBalance, availableReward, rewardRatePerSecond]);
 
 	const fetchStakedBalance = useCallback(async () => {
 		if (!walletAddress) return;
@@ -148,11 +181,13 @@ export default function EarnPage({
 			return;
 		}
 
+		fetchRewardRate();
 		fetchAvailableReward();
 		fetchStakedBalance();
 
 		const fetchInterval = setInterval(
 			() => {
+				fetchRewardRate();
 				fetchAvailableReward();
 				fetchStakedBalance();
 			},
@@ -160,7 +195,12 @@ export default function EarnPage({
 		);
 
 		return () => clearInterval(fetchInterval);
-	}, [walletAddress, fetchAvailableReward, fetchStakedBalance]);
+	}, [
+		walletAddress,
+		fetchRewardRate,
+		fetchAvailableReward,
+		fetchStakedBalance,
+	]);
 
 	const handleTabChange = (tab: EarnTabKey) => {
 		setActiveTab(tab);
@@ -257,6 +297,7 @@ export default function EarnPage({
 							lang={lang}
 							stakedBalance={stakedBalance}
 							displayAvailableReward={displayAvailableReward}
+							availableReward={availableReward}
 							fetchStakedBalance={fetchStakedBalance}
 							fetchAvailableReward={fetchAvailableReward}
 						/>

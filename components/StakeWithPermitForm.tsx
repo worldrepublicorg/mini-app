@@ -14,7 +14,10 @@ import { viemClient } from "@/lib/viemClient";
 
 interface StakeWithPermitFormProps {
 	stakedBalance: string;
+	/** The animated display figure. Never gate an action on this. */
 	displayAvailableReward: string | null;
+	/** The raw on-chain available() value, which is what redeem() pays out. */
+	availableReward: string;
 	fetchStakedBalance: () => Promise<void>;
 	fetchAvailableReward: () => Promise<void>;
 	lang: string;
@@ -28,6 +31,7 @@ type TxType = null | "deposit" | "withdraw" | "collect";
 export function StakeWithPermitForm({
 	stakedBalance,
 	displayAvailableReward,
+	availableReward,
 	fetchStakedBalance,
 	fetchAvailableReward,
 	lang,
@@ -547,7 +551,9 @@ export function StakeWithPermitForm({
 					<Button
 						onClick={handleCollect}
 						isLoading={isLoading}
-						disabled={!isWalletConnected}
+						// redeem() reverts with "Nothing to redeem" at zero, so gate on the
+						// real on-chain figure rather than the animated display value.
+						disabled={!isWalletConnected || !(Number(availableReward) > 0)}
 						variant="primary"
 						size="sm"
 						className="mr-2 h-9 min-w-20 rounded-full px-4 font-sans"
