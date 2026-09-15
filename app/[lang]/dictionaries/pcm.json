@@ -95,8 +95,8 @@
 				"savings": {
 					"tabTitle": "Savings",
 					"title": "Savings Account",
-					"subtitle": "Dey earn interest every second",
-					"tooltip": "69% APY base rate. Collect and reinvest interest make you fit get close to 100% returns for year. You fit withdraw anytime."
+					"subtitle": "No dey pay interest again",
+					"tooltip": "Di interest figure wey you dey see for your screen don drop, and wetin remain still na your own and you fit collect am. Interest bin dey put about 300,000 new drachma for circulation every day, and dat one don stop."
 				},
 				"invite": {
 					"title": "Invite",
@@ -313,7 +313,7 @@
 				},
 				"savings": {
 					"question": "How de Savings Account dey work?",
-					"answer": "De Savings Account dey let you keep your WDD tokens and get 69% interest every year. If you dey collect and put back de interest wey you don get, you fit get close to 100% returns for year, wey go make your WDD grow well well. Interest dey add up every time and you fit collect am or put am back anytime."
+					"answer": "Di Savings Account dey hold di WDD wey you deposit. You fit withdraw am anytime, no deadline dey. E no dey pay interest again, and di interest figure wey you dey see for your screen don drop. Wetin remain still na your own and you fit collect am. Interest bin dey put about 300,000 new drachma for circulation every day, and dat one don stop."
 				},
 				"drachmaValue": {
 					"question": "Where drachma dey get im value from?",

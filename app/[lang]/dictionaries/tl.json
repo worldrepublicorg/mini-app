@@ -95,8 +95,8 @@
 				"savings": {
 					"tabTitle": "Savings",
 					"title": "Savings Account",
-					"subtitle": "Kumita ng interes bawat segundo",
-					"tooltip": "69% APY base rate. Kunin at i-reinvest ang interes para makamit ang halos 100% effective returns taun-taon. Mag-withdraw kahit kailan."
+					"subtitle": "Hindi na nagbibigay ng interes",
+					"tooltip": "Bumaba ang halaga ng interes sa iyong screen, at ang natitira ay sa iyo pa rin at puwede mong kolektahin. Dati ay naglalagay ang interes ng humigit-kumulang 300,000 bagong drachma sa sirkulasyon araw-araw, at huminto na iyon."
 				},
 				"invite": {
 					"title": "Mag-imbita",
@@ -313,7 +313,7 @@
 				},
 				"savings": {
 					"question": "Paano gumagana ang Savings Account?",
-					"answer": "Ang Savings Account ay nagpapahintulot sa iyo na magdeposito ng WDD tokens at kumita ng 69% na taunang interes. Sa pamamagitan ng patuloy na pag-reinvest ng earned interest, maaaring makamit ng mga user ang effective returns na halos 100% taun-taon, na pinapamaximize ang kanilang WDD growth sa paglipas ng panahon. Na-aaccumulate ang interes nang patuloy at maaaring i-withdraw o i-reinvest sa anumang oras."
+					"answer": "Naglalaman ang Savings Account ng WDD na idinideposito mo. Puwede mo itong i-withdraw kahit kailan, walang deadline. Hindi na ito nagbibigay ng interes, at bumaba ang halaga ng interes sa iyong screen. Ang natitira ay sa iyo pa rin at puwede mong kolektahin. Dati ay naglalagay ang interes ng humigit-kumulang 300,000 bagong drachma sa sirkulasyon araw-araw, at huminto na iyon."
 				},
 				"drachmaValue": {
 					"question": "Saan nagmumula ang halaga ng drachma?",

@@ -95,8 +95,8 @@
 				"savings": {
 					"tabTitle": "Štednja",
 					"title": "Štedni Račun",
-					"subtitle": "Zaradite kamatu svake sekunde",
-					"tooltip": "Osnovna stopa od 69% GPR. Prikupljajte i reinvestirajte kamatu za postizanje blizu 100% efektivnog godišnjeg prinosa. Povucite sredstva bilo kada."
+					"subtitle": "Više ne donosi kamate",
+					"tooltip": "Iznos kamata prikazan na vašem zaslonu smanjio se, a ono što je ostalo i dalje je vaše i možete ga prikupiti. Kamate su svaki dan stavljale u optjecaj oko 300.000 novih drahmi, a to je sada prestalo."
 				},
 				"invite": {
 					"title": "Pozovi",
@@ -313,7 +313,7 @@
 				},
 				"savings": {
 					"question": "Kako funkcionira Štedni račun?",
-					"answer": "Štedni račun vam omogućuje polaganje WDD tokena i zaradu godišnje kamate od 69%. Kroz stalno reinvestiranje zarađene kamate, korisnici mogu postići efektivne prinose blizu 100% godišnje, maksimizirajući rast svojih WDD-a tijekom vremena. Kamata se akumulira kontinuirano i može se povući ili reinvestirati u bilo kojem trenutku."
+					"answer": "Štedni račun čuva WDD koje položite. Možete ih povući u bilo kojem trenutku, bez roka. Više ne donosi kamate, a iznos kamata prikazan na vašem zaslonu smanjio se. Ono što je ostalo i dalje je vaše i možete ga prikupiti. Kamate su svaki dan stavljale u optjecaj oko 300.000 novih drahmi, a to je sada prestalo."
 				},
 				"drachmaValue": {
 					"question": "Odakle drahma dobiva svoju vrijednost?",

@@ -95,8 +95,8 @@
 				"savings": {
 					"tabTitle": "Savings",
 					"title": "Savings Account",
-					"subtitle": "Earn interest every second",
-					"tooltip": "69% APY base rate. Collect and reinvest interest to achieve close to 100% effective returns annually. Withdraw anytime."
+					"subtitle": "No longer pays interest",
+					"tooltip": "The interest figure on your screen has dropped, and what remains is still yours to collect. Interest was putting about 300,000 new drachma into circulation every day, and that has now stopped."
 				},
 				"invite": {
 					"title": "Invite",
@@ -309,7 +309,7 @@
 				},
 				"savings": {
 					"question": "How does the Savings Account work?",
-					"answer": "The Savings Account allows you to deposit WDD tokens and earn a 69% annual interest. Through constant reinvestment of earned interest, users can achieve effective returns close to 100% annually, maximizing their WDD growth over time. Interest accumulates continuously and can be withdrawn or reinvested at any time."
+					"answer": "The Savings Account holds WDD you deposit. You can withdraw it at any time, with no deadline. It no longer pays interest, and the interest figure on your screen has dropped — what remains is still yours to collect. Interest was putting about 300,000 new drachma into circulation every day, and that has now stopped."
 				},
 				"drachmaValue": {
 					"question": "Where does the drachma get its value?",
